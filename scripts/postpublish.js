@@ -12,7 +12,10 @@ packageJson.dependencies = packageJson.dependencies || {};
 
 depsToMove.forEach((dep) => {
   if (packageJson.peerDependencies && packageJson.peerDependencies[dep]) {
-    packageJson.dependencies[dep] = packageJson.peerDependencies[dep];
+    packageJson.dependencies[dep] = packageJson.peerDependencies[dep].replace(
+      /^>=/,
+      "",
+    ); // >= ifadesini kaldır
     delete packageJson.peerDependencies[dep];
   }
 });

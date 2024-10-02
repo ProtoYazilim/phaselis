@@ -1,0 +1,6 @@
+{
+  "name": "@phaselis/radio",
+  "version": "0.0.0",
+  "description": "Proto Native Radio Component",
+  "keywords": "@phaselis,radio,radio-context,radio-group,radio-item,radio-input"
+}

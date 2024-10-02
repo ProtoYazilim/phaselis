@@ -1,0 +1,16 @@
+{
+    "name": "@phaselis/provider",
+    "version": "0.0.0",
+    "description": "proto Native Provider Component",
+    "keywords": [
+        "@phaselis",
+        "proto",
+        "component",
+        "provider",
+        "layout"
+    ],
+    "dependencies": {
+        "hoist-non-react-statics": "^3.3.2",
+        "react-native-unistyles": "^2.7.2"
+    }
+}

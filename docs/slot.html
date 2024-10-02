@@ -1,0 +1,98 @@
+<article class="shortcode_text">
+<div class="shortcode_title">
+<a class="btn" href="#">Component</a>
+<h1>Slot</h1>
+<p>The <code>slot</code> component is a Phaselis React-Native component used for various UI functionalities. This documentation covers its usage, props, and implementation details.</p>
+<h4 class="c_head load-order-2">index</h4>
+<p><strong>File:</strong> <code>index.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import React from &quot;react&quot;;
+import LucideIcon from &quot;../lucide-icon&quot;;
+import { icons } from &quot;lucide-react-native&quot;;
+
+type SlotProps = {
+  children?: any;
+  icon?: keyof typeof icons;
+  style?: any;
+  size?: &quot;xs&quot; | &quot;sm&quot; | &quot;md&quot; | &quot;lg&quot; | &quot;xl&quot; | &quot;xxl&quot;;
+  strokeWidth?: number;
+  onClick?: () =&gt; void;
+  parentStates?: any;
+};
+
+const Slot: React.FC&lt;SlotProps&gt; = ({
+  children,
+  icon,
+  style,
+  size,
+  strokeWidth,
+  onClick,
+  parentStates,
+}) =&gt; {
+  if (children) {
+    const [defaultStyle, themeStyle, propStyle] = style;
+    return (
+      &lt;&gt;
+        {React.cloneElement(children as React.ReactElement, {
+          size: size || &quot;md&quot;,
+          defaultStyle,
+          themeStyle,
+          propStyle,
+          parentStates,
+          ...children?.props,
+        })}
+      &lt;/&gt;
+    );
+  }
+  if (icon) {
+    return (
+      &lt;LucideIcon
+        name={icon}
+        style={style}
+        size={size}
+        strokeWidth={strokeWidth}
+        onClick={onClick}
+      /&gt;
+    );
+  }
+  return null;
+};
+
+export default Slot;
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">info</h4>
+<p><strong>File:</strong> <code>info.json</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">{
+    &quot;name&quot;: &quot;@protonative/slot&quot;,
+    &quot;version&quot;: &quot;0.0.0&quot;,
+    &quot;description&quot;: &quot;Proto Native Slot Component&quot;,
+    &quot;keywords&quot;: &quot;@protonative,proto,component,slot&quot;,
+    &quot;dependencies&quot;: {}
+}</code></pre>
+<hr />
+<h4 class="c_head load-order-2">package</h4>
+<p><strong>File:</strong> <code>package.json</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">{
+  &quot;name&quot;: &quot;@protonative/slot&quot;
+}</code></pre>
+<hr />
+<h4 class="c_head load-order-2">types</h4>
+<p><strong>File:</strong> <code>types.ts</code></p>
+<p><strong>Props:</strong><ul><li>SlotProps - children: any</li><li>SlotProps - icon?: keyof typeof icons</li><li>SlotProps - style?: any</li><li>SlotProps - size?: "sm" | "md" | "lg"</li></ul></p>
+<pre><code class="language-typescript" data-lang="typescript">import { icons } from &quot;lucide-react-native&quot;;
+
+interface SlotProps {
+  children: any;
+  icon?: keyof typeof icons;
+  style?: any;
+  size?: &quot;sm&quot; | &quot;md&quot; | &quot;lg&quot;;
+}
+
+export default SlotProps;
+</code></pre>
+<hr />
+</div>
+</article>

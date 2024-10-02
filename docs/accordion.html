@@ -1,0 +1,828 @@
+<article class="shortcode_text">
+<div class="shortcode_title">
+<a class="btn" href="#">Component</a>
+<h1>Accordion</h1>
+<p>The <code>accordion</code> component is a Phaselis React-Native component used for various UI functionalities. This documentation covers its usage, props, and implementation details.</p>
+<h4 class="c_head load-order-2">Accordion</h4>
+<p><strong>File:</strong> <code>Accordion.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import React, { useState } from &quot;react&quot;;
+import { AccordionProps } from &quot;./types&quot;;
+import { ConsumerHOC } from &quot;@/components/provider&quot;;
+import { useStyles } from &quot;react-native-unistyles&quot;;
+import stylesheet from &quot;./assets/styles&quot;;
+import { createContext } from &quot;react&quot;;
+
+const AccordionContext = createContext&lt;{
+  onChange: (value: any, index: number) =&gt; void;
+  expandedIndex?: number[];
+  addToExapandedIndex?: (value: number) =&gt; void;
+  expandMode?: &quot;single&quot; | &quot;multiple&quot;;
+}&gt;({
+  onChange: () =&gt; {},
+  expandedIndex: [],
+  addToExapandedIndex: () =&gt; {},
+  expandMode: &quot;single&quot;,
+});
+
+const Accordion = ({
+  onChange,
+  style,
+  disabled,
+  size = &quot;md&quot;,
+  contextValue,
+  expandMode = &quot;single&quot;,
+  data,
+  children,
+}: AccordionProps) =&gt; {
+  const { styles: defaultStyles } = useStyles(stylesheet, {
+    disabled,
+    size,
+  });
+
+  const { styles: themeStyles } = useStyles(
+    contextValue?.theme?.switch as typeof stylesheet,
+    {
+      disabled,
+      size,
+    },
+  );
+
+  const { styles: propStyle } = useStyles(style as typeof stylesheet, {
+    disabled,
+    size,
+  });
+
+  const handleOnChange = (expand: boolean, index: number) =&gt; {
+    if (expandMode === &quot;single&quot;) {
+      setExpandedIndex(expand ? [index] : []);
+      return;
+    } else {
+      if (expand) {
+        setExpandedIndex([...expandedIndex, index]);
+      } else {
+        setExpandedIndex(expandedIndex.filter((i) =&gt; i !== index));
+      }
+    }
+  };
+
+  const [expandedIndex, setExpandedIndex] = useState&lt;number[]&gt;([]);
+
+  const addToExapandedIndex = (index: number) =&gt; {
+    const newValues = new Set([...expandedIndex, index]);
+    setExpandedIndex(Array.from(newValues));
+  };
+
+  return (
+    &lt;AccordionContext.Provider
+      value={{
+        onChange: handleOnChange,
+        expandedIndex: expandedIndex,
+        addToExapandedIndex: addToExapandedIndex,
+        expandMode: expandMode,
+      }}
+    &gt;
+      {React.Children.map(children, (child, index) =&gt; {
+        return React.cloneElement(child, {
+          style: {
+            container: {
+              borderTopWidth: index === 0 ? 1 : 0,
+              borderBottomWidth: 1,
+              ...child.props.style?.container,
+            },
+            element: {
+              ...child.props.style?.element,
+            },
+            header: {
+              ...child.props.style?.header,
+            },
+          },
+          index: index,
+          inContext: true,
+        });
+      })}
+    &lt;/AccordionContext.Provider&gt;
+  );
+};
+
+export default ConsumerHOC&lt;AccordionProps&gt;(Accordion);
+export { AccordionContext };
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">AccordionContent</h4>
+<p><strong>File:</strong> <code>AccordionContent.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import React, { useEffect } from &quot;react&quot;;
+import { StyleSheet, View, Button, SafeAreaView } from &quot;react-native&quot;;
+import Animated, {
+  useAnimatedStyle,
+  useDerivedValue,
+  useSharedValue,
+  withTiming,
+} from &quot;react-native-reanimated&quot;;
+function AccordionContent({
+  isExpanded,
+  children,
+  viewKey,
+  style,
+  duration = 500,
+}: any) {
+  const height = useSharedValue(0);
+  const isOpen = useSharedValue(isExpanded);
+
+  useEffect(() =&gt; {
+    isOpen.value = isExpanded;
+  }, [isExpanded]);
+
+  const derivedHeight = useDerivedValue(() =&gt;
+    withTiming(height.value * Number(isOpen.value), {
+      duration,
+    }),
+  );
+  const bodyStyle = useAnimatedStyle(() =&gt; ({
+    height: derivedHeight.value,
+  }));
+
+  return (
+    &lt;Animated.View
+      key={`AccordionContent_${viewKey}`}
+      style={[
+        {
+          width: &quot;100%&quot;,
+          overflow: &quot;hidden&quot;,
+        },
+        bodyStyle,
+        style,
+      ]}
+    &gt;
+      &lt;View
+        onLayout={(e) =&gt; {
+          height.value = e.nativeEvent.layout.height;
+        }}
+        style={{
+          width: &quot;100%&quot;,
+          position: &quot;absolute&quot;,
+          display: &quot;flex&quot;,
+        }}
+      &gt;
+        {children}
+      &lt;/View&gt;
+    &lt;/Animated.View&gt;
+  );
+}
+
+export default AccordionContent;
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">AccordionHeader</h4>
+<p><strong>File:</strong> <code>AccordionHeader.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import React, { useEffect } from &quot;react&quot;;
+import { Pressable, Text, StyleSheet, View } from &quot;react-native&quot;;
+import { AccordionHeaderProps } from &quot;./types&quot;;
+import { ConsumerHOC } from &quot;@/components/provider&quot;;
+import { useStyles } from &quot;react-native-unistyles&quot;;
+import { stylesheet_header as stylesheet } from &quot;./assets/styles&quot;;
+import { LucideChevronDown } from &quot;lucide-react-native&quot;;
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from &quot;react-native-reanimated&quot;;
+import LucideIcon from &quot;../lucide-icon&quot;;
+
+const AccordionHeader = ({
+  style,
+  disabled,
+  size = &quot;md&quot;,
+  contextValue,
+  onPress,
+  expanded,
+  text,
+  icon,
+}: AccordionHeaderProps) =&gt; {
+  const { styles: defaultStyles } = useStyles(stylesheet, {
+    disabled,
+    size,
+  });
+
+  const { styles: themeStyles } = useStyles(
+    contextValue?.theme?.accordion_header as typeof stylesheet,
+    {
+      disabled,
+      size,
+    },
+  );
+
+  const { styles: propStyle } = useStyles(style as typeof stylesheet, {
+    disabled,
+    size,
+  });
+
+  useEffect(() =&gt; {
+    rotateAnimation();
+  }, [expanded]);
+
+  const rotation = useSharedValue(0);
+
+  const rotateAnimation = () =&gt; {
+    rotation.value = withTiming(
+      expanded ? 180 : 0,
+      {
+        duration: 500,
+      },
+      () =&gt; {},
+    );
+  };
+  const animatedStyle = useAnimatedStyle(() =&gt; {
+    return {
+      transform: [{ rotate: `${rotation.value}deg` }],
+    };
+  });
+  return (
+    &lt;Pressable
+      onPress={onPress}
+      style={[
+        defaultStyles.container,
+        themeStyles.container,
+        propStyle?.container,
+      ]}
+    &gt;
+      &lt;View style={{ flexDirection: &quot;row&quot;, gap: 10 }}&gt;
+        {icon &amp;&amp; (
+          &lt;LucideIcon
+            name={icon}
+            style={[defaultStyles.icon, themeStyles.icon, propStyle?.icon]}
+          /&gt;
+        )}
+        &lt;Text style={[defaultStyles.text, themeStyles.text, propStyle?.text]}&gt;
+          {text}
+        &lt;/Text&gt;
+      &lt;/View&gt;
+      &lt;Animated.View style={animatedStyle}&gt;
+        &lt;LucideChevronDown
+          // @ts-ignore
+          style={[defaultStyles.drop, themeStyles.drop, propStyle?.drop]}
+          color={
+            StyleSheet.flatten([
+              defaultStyles.drop,
+              themeStyles.drop,
+              themeStyles.drop,
+            ])?.color
+          }
+          size={16}
+        /&gt;
+      &lt;/Animated.View&gt;
+    &lt;/Pressable&gt;
+  );
+};
+
+export default ConsumerHOC&lt;AccordionHeaderProps&gt;(AccordionHeader);
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">AccordionItem</h4>
+<p><strong>File:</strong> <code>AccordionItem.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import React, { useContext, useEffect, useState } from &quot;react&quot;;
+import { View } from &quot;react-native&quot;;
+import AccordionHeader from &quot;./AccordionHeader&quot;;
+import AccordionContent from &quot;./AccordionContent&quot;;
+import { useStyles } from &quot;react-native-unistyles&quot;;
+import { stylesheet_item as stylesheet } from &quot;./assets/styles&quot;;
+import { ConsumerHOC } from &quot;../provider&quot;;
+import { AccordionItemProps } from &quot;./types&quot;;
+import { AccordionContext } from &quot;./Accordion&quot;;
+
+function AccordionItem({
+  style,
+  disabled,
+  size,
+  contextValue,
+  expand = false,
+  onChange,
+  children,
+  index = 0,
+  inContext = false,
+  headerText,
+  headerIcon,
+}: AccordionItemProps) {
+  const [expanded, setExpanded] = useState(expand);
+
+  const { styles: defaultStyles } = useStyles(stylesheet, {
+    disabled,
+    size,
+  });
+
+  const { styles: themeStyles } = useStyles(
+    contextValue?.theme?.accordion_item as typeof stylesheet,
+    {
+      disabled,
+      size,
+    },
+  );
+
+  const { styles: propStyle } = useStyles(style as typeof stylesheet, {
+    disabled,
+    size,
+  });
+
+  const accordionContext = useContext(AccordionContext);
+
+  useEffect(() =&gt; {
+    setExpanded(expand);
+  }, [expand]);
+
+  useEffect(() =&gt; {
+    if (inContext &amp;&amp; expand &amp;&amp; accordionContext?.expandMode === &quot;single&quot;) {
+      accordionContext?.addToExapandedIndex?.(index);
+    }
+  }, []);
+
+  useEffect(() =&gt; {
+    if (
+      !inContext ||
+      !accordionContext ||
+      accordionContext?.expandMode === &quot;multiple&quot;
+    ) {
+      return;
+    }
+    setExpanded(accordionContext?.expandedIndex?.includes(index) || false);
+  }, [accordionContext?.expandedIndex, index]);
+
+  return (
+    &lt;View
+      style={[
+        defaultStyles.container,
+        themeStyles.container,
+        propStyle?.container,
+      ]}
+    &gt;
+      &lt;AccordionHeader
+        onPress={() =&gt; {
+          if (!disabled) {
+            setExpanded(!expanded);
+            onChange?.(!expanded);
+            accordionContext?.onChange(!expanded, index);
+          }
+        }}
+        style={undefined}
+        size={undefined}
+        expanded={expanded}
+        disabled={disabled}
+        text={headerText || &quot;&quot;}
+        icon={headerIcon || &quot;&quot;}
+      /&gt;
+      &lt;AccordionContent isExpanded={expanded}&gt;
+        &lt;View
+          style={[
+            defaultStyles.element,
+            themeStyles.element,
+            propStyle?.element,
+          ]}
+        &gt;
+          {children}
+        &lt;/View&gt;
+      &lt;/AccordionContent&gt;
+    &lt;/View&gt;
+  );
+}
+
+export default ConsumerHOC&lt;AccordionItemProps&gt;(AccordionItem);
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">AccordionList</h4>
+<p><strong>File:</strong> <code>AccordionList.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import React, { useState } from &quot;react&quot;;
+import { View, FlatList } from &quot;react-native&quot;;
+
+import { AccordionListProps } from &quot;./types&quot;;
+import { ConsumerHOC } from &quot;@/components/provider&quot;;
+import { useStyles } from &quot;react-native-unistyles&quot;;
+import { stylesheet_list as stylesheet } from &quot;./assets/styles&quot;;
+import AccordionItem from &quot;./AccordionItem&quot;;
+
+const AccordionList = ({
+  onChange,
+  style,
+  disabled,
+  size = &quot;md&quot;,
+  contextValue,
+  expandMode = &quot;single&quot;,
+  defaultExpandedIndex = [],
+  data,
+}: AccordionListProps) =&gt; {
+  const { styles: defaultStyles } = useStyles(stylesheet, {
+    disabled,
+    size,
+  });
+
+  const { styles: themeStyles } = useStyles(
+    contextValue?.theme?.accordionList as typeof stylesheet,
+    {
+      disabled,
+      size,
+    },
+  );
+
+  const { styles: propStyle } = useStyles(style as typeof stylesheet, {
+    disabled,
+    size,
+  });
+
+  const [expandedIndex, setExpandedIndex] =
+    useState&lt;number[]&gt;(defaultExpandedIndex);
+
+  const handleExpand = (value: any, index: number) =&gt; {
+    onChange?.(index);
+    if (expandMode === &quot;single&quot;) {
+      setExpandedIndex(value ? [index] : []);
+      return;
+    } else {
+      if (value) {
+        setExpandedIndex([...expandedIndex, index]);
+      } else {
+        setExpandedIndex(expandedIndex.filter((i) =&gt; i !== index));
+      }
+    }
+  };
+
+  return (
+    &lt;View
+      style={[
+        defaultStyles.container,
+        themeStyles.container,
+        propStyle.container,
+      ]}
+    &gt;
+      &lt;FlatList
+        style={[defaultStyles.element, themeStyles.element, propStyle.element]}
+        data={data}
+        renderItem={({ item, index }) =&gt; {
+          return (
+            &lt;AccordionItem
+              onChange={(value) =&gt; {
+                handleExpand(value, index);
+              }}
+              expand={expandedIndex.includes(index)}
+              style={{
+                container: {
+                  borderTopWidth: index === 0 ? 1 : 0,
+                  borderBottomWidth: 1,
+                },
+              }}
+              headerText={item?.header}
+            &gt;
+              {item?.child}
+            &lt;/AccordionItem&gt;
+          );
+        }}
+      /&gt;
+    &lt;/View&gt;
+  );
+};
+
+export default ConsumerHOC&lt;AccordionListProps&gt;(AccordionList);
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">index</h4>
+<p><strong>File:</strong> <code>index.ts</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import { createStyleSheet } from &quot;react-native-unistyles&quot;;
+const stylesheet_header = createStyleSheet({
+  container: {
+    flexDirection: &quot;row&quot;,
+    justifyContent: &quot;space-between&quot;,
+    alignItems: &quot;center&quot;,
+    variants: {
+      outline: {
+        true: {},
+      },
+      disabled: {
+        true: {},
+      },
+      loading: {
+        true: {},
+      },
+      size: {
+        sm: {},
+        md: {},
+        lg: {},
+      },
+    },
+  },
+  text: {
+    fontSize: 16,
+    // VARIANTS
+    variants: {
+      outline: {
+        true: {},
+      },
+      disabled: {
+        true: {},
+      },
+      loading: {
+        true: {},
+      },
+      size: {
+        sm: {},
+        md: {},
+        lg: {},
+      },
+    },
+  },
+  icon: {
+    color: &quot;black&quot;,
+    variants: {
+      outline: {
+        true: {},
+      },
+      disabled: {
+        true: {},
+      },
+      loading: {
+        true: {},
+      },
+    },
+  },
+  drop: {
+    color: &quot;black&quot;,
+    variants: {
+      outline: {
+        true: {},
+      },
+      disabled: {
+        true: {},
+      },
+      loading: {
+        true: {},
+      },
+    },
+  },
+});
+
+const stylesheet_item = createStyleSheet({
+  container: {
+    borderColor: &quot;black&quot;,
+    borderWidth: 1,
+    padding: 10,
+    variants: {
+      outline: {
+        true: {},
+      },
+      disabled: {
+        true: {},
+      },
+      loading: {
+        true: {},
+      },
+      size: {
+        sm: {},
+        md: {},
+        lg: {},
+      },
+    },
+  },
+  element: {
+    // VARIANTS
+    variants: {
+      outline: {
+        true: {},
+      },
+      disabled: {
+        true: {},
+      },
+      loading: {
+        true: {},
+      },
+      size: {
+        sm: {},
+        md: {},
+        lg: {},
+      },
+    },
+  },
+  header: {
+    // STYLE
+    padding: 5,
+    // VARIANTS
+    variants: {
+      outline: {
+        true: {},
+      },
+      disabled: {
+        true: {},
+      },
+      loading: {
+        true: {},
+      },
+    },
+  },
+});
+
+const stylesheet_list = createStyleSheet({
+  container: {
+    // STYLES
+    // VARIANTS
+    variants: {
+      outline: {
+        true: {},
+      },
+      disabled: {
+        true: {},
+      },
+      loading: {
+        true: {},
+      },
+      size: {
+        sm: {},
+        md: {},
+        lg: {},
+      },
+    },
+  },
+  element: {
+    // VARIANTS
+    variants: {
+      outline: {
+        true: {},
+      },
+      disabled: {
+        true: {},
+      },
+      loading: {
+        true: {},
+      },
+      size: {
+        sm: {},
+        md: {},
+        lg: {},
+      },
+    },
+  },
+  header: {
+    // STYLE
+    padding: 5,
+    // VARIANTS
+    variants: {
+      outline: {
+        true: {},
+      },
+      disabled: {
+        true: {},
+      },
+      loading: {
+        true: {},
+      },
+    },
+  },
+});
+
+const stylesheet = createStyleSheet({
+  container: {
+    // STYLES
+    // VARIANTS
+    variants: {
+      outline: {
+        true: {},
+      },
+      disabled: {
+        true: {},
+      },
+      loading: {
+        true: {},
+      },
+      size: {
+        sm: {},
+        md: {},
+        lg: {},
+      },
+    },
+  },
+  element: {
+    // VARIANTS
+    variants: {
+      outline: {
+        true: {},
+      },
+      disabled: {
+        true: {},
+      },
+      loading: {
+        true: {},
+      },
+      size: {
+        sm: {},
+        md: {},
+        lg: {},
+      },
+    },
+  },
+  header: {
+    // STYLE
+    padding: 5,
+    // VARIANTS
+    variants: {
+      outline: {
+        true: {},
+      },
+      disabled: {
+        true: {},
+      },
+      loading: {
+        true: {},
+      },
+    },
+  },
+});
+
+export { stylesheet_header, stylesheet_item, stylesheet_list };
+export default stylesheet;
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">index</h4>
+<p><strong>File:</strong> <code>index.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import AccordionList from &quot;./AccordionList&quot;;
+import Accordion from &quot;./Accordion&quot;;
+import AccordionItem from &quot;./AccordionItem&quot;;
+export { AccordionList, AccordionItem };
+export default Accordion;
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">info</h4>
+<p><strong>File:</strong> <code>info.json</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">{
+  &quot;name&quot;: &quot;@protonative/Accordion&quot;,
+  &quot;version&quot;: &quot;0.0.1&quot;,
+  &quot;description&quot;: &quot;Proto Native Accordion Button Component&quot;,
+  &quot;keywords&quot;: &quot;@protonative,proto,component,accordion&quot;,
+  &quot;dependencies&quot;: {
+    &quot;react-native-reanimated&quot;: &quot;^3.0.0&quot;
+  }
+}</code></pre>
+<hr />
+<h4 class="c_head load-order-2">types</h4>
+<p><strong>File:</strong> <code>types.ts</code></p>
+<p><strong>Props:</strong><ul><li>AccordionHeaderProps - style?: any</li><li>AccordionHeaderProps - disabled?: boolean</li><li>AccordionHeaderProps - size?: any</li><li>AccordionHeaderProps - contextValue?: any</li><li>AccordionHeaderProps - onPress?: () => void</li><li>AccordionHeaderProps - expanded?: boolean</li><li>AccordionHeaderProps - text: string</li><li>AccordionHeaderProps - icon: keyof typeof icons</li><li>AccordionItemProps - style?: any</li><li>AccordionItemProps - disabled?: boolean</li><li>AccordionItemProps - size?: any</li><li>AccordionItemProps - contextValue?: any</li><li>AccordionItemProps - expand?: boolean</li><li>AccordionItemProps - onChange?: (expanded: boolean) => void</li><li>AccordionItemProps - children?: any</li><li>AccordionItemProps - index?: number</li><li>AccordionItemProps - inContext?: boolean</li><li>AccordionItemProps - headerText?: string</li><li>AccordionItemProps - headerIcon?: any</li><li>AccordionListProps - onChange?: (index: number) => void</li><li>AccordionListProps - style?: any</li><li>AccordionListProps - disabled?: boolean</li><li>AccordionListProps - size?: any</li><li>AccordionListProps - contextValue?: any</li><li>AccordionListProps - expandMode?: "single" | "multiple"</li><li>AccordionListProps - defaultExpandedIndex?: number[]</li><li>AccordionListProps - data?: { header: string</li><li>AccordionListProps - child: any</li><li>AccordionProps - onChange?: (index: number) => void</li><li>AccordionProps - style?: any</li><li>AccordionProps - disabled?: boolean</li><li>AccordionProps - size?: any</li><li>AccordionProps - contextValue?: any</li><li>AccordionProps - expandMode?: "single" | "multiple"</li><li>AccordionProps - defaultExpandedIndex?: number[]</li><li>AccordionProps - data?: any[]</li><li>AccordionProps - children?: any</li></ul></p>
+<pre><code class="language-typescript" data-lang="typescript">import { icons } from &quot;lucide-react-native&quot;;
+
+interface AccordionHeaderProps {
+  style?: any;
+  disabled?: boolean;
+  size?: any;
+  contextValue?: any;
+  onPress?: () =&gt; void;
+  expanded?: boolean;
+  text: string;
+  icon: keyof typeof icons;
+}
+
+interface AccordionItemProps {
+  style?: any;
+  disabled?: boolean;
+  size?: any;
+  contextValue?: any;
+  expand?: boolean;
+  onChange?: (expanded: boolean) =&gt; void;
+  children?: any;
+  index?: number;
+  inContext?: boolean;
+  headerText?: string;
+  headerIcon?: any;
+}
+
+interface AccordionListProps {
+  onChange?: (index: number) =&gt; void;
+  style?: any;
+  disabled?: boolean;
+  size?: any;
+  contextValue?: any;
+  expandMode?: &quot;single&quot; | &quot;multiple&quot;;
+  defaultExpandedIndex?: number[];
+  data?: { header: string; child: any }[];
+}
+
+interface AccordionProps {
+  onChange?: (index: number) =&gt; void;
+  style?: any;
+  disabled?: boolean;
+  size?: any;
+  contextValue?: any;
+  expandMode?: &quot;single&quot; | &quot;multiple&quot;;
+  defaultExpandedIndex?: number[];
+  data?: any[];
+  children?: any;
+}
+
+export {
+  AccordionHeaderProps,
+  AccordionProps,
+  AccordionItemProps,
+  AccordionListProps,
+};
+</code></pre>
+<hr />
+</div>
+</article>

@@ -1,0 +1,238 @@
+<article class="shortcode_text">
+<div class="shortcode_title">
+<a class="btn" href="#">Component</a>
+<h1>Badge</h1>
+<p>The <code>badge</code> component is a Phaselis React-Native component used for various UI functionalities. This documentation covers its usage, props, and implementation details.</p>
+<h4 class="c_head load-order-2">styles</h4>
+<p><strong>File:</strong> <code>styles.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import { createStyleSheet } from &quot;react-native-unistyles&quot;;
+
+const stylesheet = createStyleSheet({
+  //@ts-ignore
+  container: {
+    flexDirection: &quot;row&quot;,
+    variants: {
+      base: {
+        primary: {},
+        secondary: {},
+        tertiary: {},
+      },
+      outline: {
+        primary: {},
+        secondary: {},
+        tertiary: {},
+        false: {},
+      },
+      loading: {
+        true: {},
+      },
+    },
+  },
+  element: {
+    backgroundColor: &quot;aqua&quot;,
+    borderWidth: 1,
+    borderColor: &quot;navy&quot;,
+    position: &quot;absolute&quot;,
+    zIndex: 1,
+    borderRadius: 16,
+    height: 20,
+    paddingLeft: 8,
+    paddingRight: 8,
+    variants: {
+      primary: {
+        true: {},
+      },
+      secondary: {
+        true: {},
+      },
+      tertiary: {
+        true: {},
+      },
+      outline: {
+        true: {},
+      },
+      disabled: {
+        true: {},
+      },
+      loading: {
+        true: {},
+      },
+    },
+  },
+  text: {
+    color: &quot;white&quot;,
+    fontSize: 14,
+    variants: {
+      primary: {
+        true: {},
+      },
+      secondary: {
+        true: {},
+      },
+      tertiary: {
+        true: {},
+      },
+      outline: {
+        true: {},
+      },
+    },
+  },
+  leftSlot: {
+    color: &quot;white&quot;,
+    marginRight: 8,
+    variants: {
+      primary: {
+        true: {},
+      },
+      secondary: {
+        true: {},
+      },
+      tertiary: {
+        true: {},
+      },
+      outline: {
+        true: {},
+      },
+    },
+  },
+  rightSlot: {
+    color: &quot;white&quot;,
+    marginLeft: 8,
+    variants: {
+      primary: {
+        true: {},
+      },
+      secondary: {
+        true: {},
+      },
+      tertiary: {
+        true: {},
+      },
+      outline: {
+        true: {},
+      },
+    },
+  },
+});
+
+export default stylesheet;
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">badge</h4>
+<p><strong>File:</strong> <code>badge.tsx</code></p>
+<p><strong>Props:</strong><ul><li>BadgeProps - text: string</li><li>BadgeProps - children: any</li><li>BadgeProps - primary?: boolean</li><li>BadgeProps - secondary?: boolean</li><li>BadgeProps - tertiary?: boolean</li><li>BadgeProps - outline?: boolean</li><li>BadgeProps - style?: {
+    container?: ViewStyle</li><li>BadgeProps - element?: ViewStyle</li><li>BadgeProps - text?: ViewStyle</li></ul></p>
+<pre><code class="language-typescript" data-lang="typescript">import React, { useMemo } from &quot;react&quot;;
+import { View, Text, ViewStyle } from &quot;react-native&quot;;
+import stylesheet from &quot;./assets/styles&quot;;
+import { ConsumerHOC } from &quot;../provider&quot;;
+import useCombinedStyle from &quot;@/hooks/useCombinedStyle&quot;;
+
+interface BadgeProps {
+  text: string;
+  children: any;
+  primary?: boolean;
+  secondary?: boolean;
+  tertiary?: boolean;
+  outline?: boolean;
+  style?: {
+    container?: ViewStyle;
+    element?: ViewStyle;
+    text?: ViewStyle;
+  };
+  contextValue?: any;
+  top?: number;
+  bottom?: number;
+  right?: number;
+  left?: number;
+}
+
+const Badge: React.FC&lt;BadgeProps&gt; = ({
+  text,
+  children,
+  primary,
+  secondary,
+  tertiary,
+  style,
+  outline,
+  contextValue,
+  top,
+  bottom,
+  right,
+  left,
+  ...extraProps
+}) =&gt; {
+  const getVariation = () =&gt; {
+    if (primary) {
+      return &quot;primary&quot;;
+    }
+    if (secondary) {
+      return &quot;secondary&quot;;
+    }
+    if (tertiary) {
+      return &quot;tertiary&quot;;
+    }
+    return &quot;tertiary&quot;;
+  };
+
+  const { getCombinedStyle } = useCombinedStyle(
+    stylesheet,
+    style,
+    contextValue?.theme?.badge,
+    {
+      outline: outline &amp;&amp; getVariation(),
+      base: getVariation(),
+      ...extraProps,
+    },
+  );
+
+  function removeEmptyFields(obj: any) {
+    for (let key in obj) {
+      if (obj[key] === null || obj[key] === undefined || obj[key] === &quot;&quot;) {
+        delete obj[key];
+      }
+    }
+    return obj;
+  }
+
+  const absoluteMesurements = useMemo(() =&gt; {
+    const alignment = {
+      top: top,
+      bottom: bottom,
+      right: right,
+      left: left,
+    };
+    return removeEmptyFields(alignment);
+  }, [left, top, right, bottom]);
+
+  return (
+    &lt;View style={getCombinedStyle(&quot;container&quot;)}&gt;
+      &lt;&gt;{children}&lt;/&gt;
+      &lt;View
+        style={{
+          justifyContent: &quot;flex-start&quot;,
+          flexDirection: &quot;row&quot;,
+        }}
+      &gt;
+        &lt;View style={[...getCombinedStyle(&quot;element&quot;), absoluteMesurements]}&gt;
+          &lt;Text style={getCombinedStyle(&quot;text&quot;)}&gt;{text}&lt;/Text&gt;
+        &lt;/View&gt;
+      &lt;/View&gt;
+    &lt;/View&gt;
+  );
+};
+
+export default ConsumerHOC&lt;BadgeProps, BadgeExtraProps&gt;(Badge);
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">index</h4>
+<p><strong>File:</strong> <code>index.ts</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import Badge from &quot;./badge&quot;;
+
+export default Badge;
+</code></pre>
+<hr />
+</div>
+</article>

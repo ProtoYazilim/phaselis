@@ -1,0 +1,332 @@
+<article class="shortcode_text">
+<div class="shortcode_title">
+<a class="btn" href="#">Component</a>
+<h1>Presets</h1>
+<p>The <code>presets</code> component is a Phaselis React-Native component used for various UI functionalities. This documentation covers its usage, props, and implementation details.</p>
+<h4 class="c_head load-order-2">PresetAccordion</h4>
+<p><strong>File:</strong> <code>PresetAccordion.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import Colors from &quot;@/theme/colors&quot;;
+
+type AccordionPresets = &quot;primary&quot; | &quot;secondary&quot; | &quot;slate&quot;;
+
+const accordionPresetList = new Map&lt;string, any&gt;([]);
+
+// Secondary
+accordionPresetList.set(&quot;secondary&quot;, {
+  style: {
+    container: {
+      borderColor: Colors.Primary[400],
+      variants: {
+        disabled: {
+          true: {
+            borderColor: Colors.Gray[500],
+            backgroundColor: Colors.Gray[100],
+          },
+        },
+      },
+    },
+    element: {},
+  } as any,
+});
+
+export type { AccordionPresets };
+export { accordionPresetList };
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">PresetButton</h4>
+<p><strong>File:</strong> <code>PresetButton.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import Colors from &quot;@/theme/colors&quot;;
+import { IButtonPropTypes } from &quot;../button/types&quot;;
+
+type ButtonPresets = &quot;primary&quot; | &quot;secondary&quot; | &quot;slate&quot;;
+
+const buttonPresetList = new Map&lt;string, IButtonPropTypes&gt;([]);
+
+// Secondary
+buttonPresetList.set(&quot;secondary&quot;, {
+  style: {
+    extraStyleContainer: (disabled: boolean, outline: boolean) =&gt; {
+      if (disabled &amp;&amp; outline) {
+        return {
+          borderColor: Colors.Secondary[100],
+          backgroundColor: &quot;transparent&quot;,
+        };
+      }
+    },
+    container: {
+      borderColor: Colors.Secondary[900],
+      backgroundColor: [Colors.Secondary[700], Colors.Secondary[800]] as any,
+      variants: {
+        outline: {
+          true: {
+            backgroundColor: &quot;transparent&quot;,
+            borderColor: Colors.Secondary[500],
+          },
+        },
+        disabled: {
+          true: {
+            backgroundColor: Colors.Secondary[100],
+            borderColor: Colors.Secondary[50],
+          },
+        },
+      },
+    },
+    text: {
+      variants: {
+        outline: {
+          true: {
+            color: Colors.Secondary[500],
+          },
+        },
+        disabled: {
+          true: {
+            color: Colors.Secondary[400],
+          },
+        },
+      },
+    },
+  } as any,
+});
+
+// Gray
+buttonPresetList.set(&quot;slate&quot;, {
+  style: {
+    extraStyleContainer: (disabled: boolean, outline: boolean) =&gt; {
+      if (disabled &amp;&amp; outline) {
+        return {
+          borderColor: Colors.Gray[100],
+          backgroundColor: &quot;transparent&quot;,
+        };
+      }
+    },
+    container: {
+      borderColor: Colors.Gray[500],
+      backgroundColor: [Colors.Gray[700], Colors.Gray[800]] as any,
+      variants: {
+        outline: {
+          true: {
+            backgroundColor: &quot;transparent&quot;,
+            borderColor: Colors.Gray[900],
+          },
+        },
+        disabled: {
+          true: {
+            backgroundColor: Colors.Gray[100],
+            borderColor: Colors.Gray[100],
+          },
+        },
+      },
+    },
+    text: {
+      variants: {
+        outline: {
+          true: {
+            color: Colors.Gray[900],
+          },
+        },
+        disabled: {
+          true: {
+            color: Colors.Gray[400],
+          },
+        },
+      },
+    },
+  } as any,
+});
+
+export type { ButtonPresets };
+export { buttonPresetList };
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">PresetCheckbox</h4>
+<p><strong>File:</strong> <code>PresetCheckbox.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import { AlarmCheck, Check, AppleIcon } from &quot;lucide-react-native&quot;;
+import { CheckboxProps } from &quot;../checkbox/types&quot;;
+
+type CheckboxPresets = &quot;&quot;;
+
+const checkboxPresetList = new Map&lt;string, CheckboxProps&gt;([]);
+
+// Default
+checkboxPresetList.set(&quot;&quot;, {
+  //@ts-ignore
+  iconComponent: ({ size, style, checked }: any) =&gt; {
+    if (checked) {
+      return &lt;AppleIcon size={size} style={style} /&gt;;
+    }
+    return null;
+  },
+});
+
+export type { CheckboxPresets };
+export { checkboxPresetList };
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">PresetLabel</h4>
+<p><strong>File:</strong> <code>PresetLabel.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import { LabelProps } from &quot;../label/types&quot;;
+
+type LabelPresets =
+  | &quot;h1&quot;
+  | &quot;h2&quot;
+  | &quot;h3&quot;
+  | &quot;h4&quot;
+  | &quot;h5&quot;
+  | &quot;h6&quot;
+  | &quot;p&quot;
+  | &quot;small&quot;
+  | &quot;bkt_demo&quot;;
+
+const labelPresetList = new Map&lt;string, LabelProps&gt;([]);
+
+// Header 1
+labelPresetList.set(&quot;h1&quot;, {
+  style: {
+    text: {
+      fontFamily: &quot;Raleway&quot;,
+      fontSize: 48,
+      fontStyle: &quot;normal&quot;,
+      fontWeight: 400,
+    },
+  },
+});
+
+// Header 2
+labelPresetList.set(&quot;h2&quot;, {
+  style: {
+    text: {
+      fontFamily: &quot;Poppins&quot;,
+      fontSize: 32,
+      fontStyle: &quot;normal&quot;,
+      fontWeight: 400,
+    },
+  },
+});
+
+// Header 3
+labelPresetList.set(&quot;h3&quot;, {
+  style: {
+    text: {
+      fontFamily: &quot;Raleway&quot;,
+      fontSize: 24,
+      fontStyle: &quot;normal&quot;,
+      fontWeight: 400,
+    },
+  },
+});
+
+// Header 4
+labelPresetList.set(&quot;h4&quot;, {
+  style: {
+    text: {
+      fontFamily: &quot;Poppins&quot;,
+      fontSize: 20,
+      fontStyle: &quot;normal&quot;,
+      fontWeight: 400,
+    },
+  },
+});
+
+// Header 5
+labelPresetList.set(&quot;h5&quot;, {
+  style: {
+    text: {
+      fontFamily: &quot;Poppins&quot;,
+      fontSize: 16,
+      fontStyle: &quot;normal&quot;,
+      fontWeight: 600,
+    },
+  },
+});
+
+// Header 6
+labelPresetList.set(&quot;h6&quot;, {
+  style: {
+    text: {
+      fontFamily: &quot;Poppins&quot;,
+      fontSize: 14,
+      fontStyle: &quot;normal&quot;,
+      fontWeight: 600,
+    },
+  },
+});
+
+// Paragraph
+labelPresetList.set(&quot;p&quot;, {
+  style: {
+    text: {
+      fontFamily: &quot;Poppins&quot;,
+      fontSize: 16,
+      fontStyle: &quot;normal&quot;,
+      fontWeight: 400,
+    },
+  },
+});
+
+// Small
+labelPresetList.set(&quot;small&quot;, {
+  style: {
+    text: {
+      fontFamily: &quot;Poppins&quot;,
+      fontSize: 14,
+      fontStyle: &quot;normal&quot;,
+      fontWeight: 400,
+    },
+  },
+});
+
+labelPresetList.set(&quot;bkt_demo&quot;, {
+  style: {
+    text: {
+      fontFamily: &quot;Helvetica&quot;,
+      fontSize: 22,
+      fontWeight: &quot;bold&quot;,
+      color: &quot;#eb2128&quot;,
+    },
+  },
+});
+export type { LabelPresets };
+export { labelPresetList };
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">withPreset</h4>
+<p><strong>File:</strong> <code>withPreset.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import React, { ComponentType } from &quot;react&quot;;
+import merge from &quot;lodash.merge&quot;;
+
+const withPreset = &lt;P extends object, T extends string&gt;(
+  WrappedComponent: ComponentType&lt;P&gt;,
+  presetList: Map&lt;T, Partial&lt;P&gt;&gt;,
+) =&gt; {
+  // Define the props for the HOC-wrapped component
+  type HOCProps = Omit&lt;P, &quot;additionalProp&quot;&gt; &amp; { preset?: T }; // Removed duplicate &#039;preset&#039; property
+
+  // Create a new component that includes the additional prop
+  const HOC: React.FC&lt;HOCProps&gt; = (props) =&gt; {
+    // Perform a check to ensure props.preset is a valid key of type T before accessing the map
+    const presetProps =
+      props.preset &amp;&amp; presetList.has(props.preset)
+        ? presetList.get(props.preset)
+        : {};
+
+    const newProps = merge({}, props, presetProps);
+    // Render the wrapped component with the additional prop
+    return &lt;WrappedComponent {...(newProps as P)} /&gt;;
+  };
+  HOC.displayName = `${
+    WrappedComponent.displayName || WrappedComponent.name
+  }-withPreset`;
+
+  return HOC;
+};
+
+export default withPreset;
+</code></pre>
+<hr />
+</div>
+</article>

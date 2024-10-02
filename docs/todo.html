@@ -1,0 +1,710 @@
+<article class="shortcode_text">
+<div class="shortcode_title">
+<a class="btn" href="#">Component</a>
+<h1>Todo</h1>
+<p>The <code>todo</code> component is a Phaselis React-Native component used for various UI functionalities. This documentation covers its usage, props, and implementation details.</p>
+<h4 class="c_head load-order-2">index</h4>
+<p><strong>File:</strong> <code>index.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import React from &quot;react&quot;;
+import { View, Text } from &quot;react-native&quot;;
+import { styles } from &quot;./assets/styles&quot;;
+import { IElementNativePropType } from &quot;@protocommon/types&quot;;
+import { ConsumerHOC } from &quot;@protonative/provider&quot;;
+import { EnumElementType } from &quot;./type&quot;;
+
+const Element = (props: IElementNativePropType) =&gt; {
+  const styleObject = {
+    abbr: {},
+    address: styles.italic_style,
+    b: styles.bold_style,
+    blockquote: styles.blockquote_style,
+    br: {},
+    nav: {},
+    canvas: {},
+    caption: styles.caption_style,
+    cite: styles.italic_style,
+    dfn: styles.italic_style,
+    em: styles.italic_style,
+    embed: {},
+    figcaption: {},
+    h1: styles.h1_style,
+    h2: styles.h2_style,
+    h3: styles.h3_style,
+    h4: styles.h4_style,
+    h5: styles.h5_style,
+    h6: styles.h6_style,
+    hr: styles.hr_style,
+    i: styles.italic_style,
+    iframe: {},
+    kbd: styles.kbd_style,
+    legend: styles.legend_style,
+    li: {},
+    mark: styles.mark_style,
+    object: {},
+    p: {},
+    q: {},
+    source: {},
+    span: {},
+    strong: styles.bold_style,
+    sub: {},
+    sup: {},
+    td: {},
+    th: {},
+    time: {},
+  };
+
+  const getDynamicStyle = (dynamicType: EnumElementType) =&gt; {
+    return styleObject[dynamicType];
+  };
+
+  const {
+    id,
+    contextValue,
+    className,
+    type,
+    onClick,
+    children,
+    style,
+    ...otherProps
+  } = props;
+  const theme = contextValue?.theme?.element;
+  switch (type) {
+    case EnumElementType.NAV:
+    case EnumElementType.IFRAME:
+    case EnumElementType.CANVAS:
+    case EnumElementType.HR:
+      return (
+        &lt;View
+          style={[
+            getDynamicStyle(type as EnumElementType),
+            theme,
+            style?.element as React.CSSProperties,
+          ]}
+          {...otherProps}
+        &gt;
+          {children}
+        &lt;/View&gt;
+      );
+    default:
+      return (
+        &lt;Text
+          style={[
+            getDynamicStyle(type as EnumElementType),
+            theme,
+            style?.element as React.CSSProperties,
+          ]}
+          onPress={() =&gt; {
+            if (onClick) {
+              onClick();
+            }
+          }}
+          {...otherProps}
+        &gt;
+          {children}
+        &lt;/Text&gt;
+      );
+  }
+};
+
+Element.displayName = &quot;Element&quot;;
+
+Element.defaultProps = {
+  type: EnumElementType.SPAN,
+};
+
+export default ConsumerHOC(Element);
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">info</h4>
+<p><strong>File:</strong> <code>info.json</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">{
+    &quot;name&quot;: &quot;@protonative/element&quot;,
+    &quot;version&quot;: &quot;7.0.2&quot;,
+    &quot;description&quot;: &quot;Proto Native Element Component&quot;,
+    &quot;keywords&quot;: &quot;@protonative,proto,component,element&quot;
+}</code></pre>
+<hr />
+<h4 class="c_head load-order-2">type</h4>
+<p><strong>File:</strong> <code>type.ts</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">export enum EnumElementType {
+  TIME = &quot;time&quot;,
+  TD = &quot;td&quot;,
+  SUP = &quot;sup&quot;,
+  STRONG = &quot;strong&quot;,
+  SOURCE = &quot;source&quot;,
+  Q = &quot;q&quot;,
+  P = &quot;p&quot;,
+  OBJECT = &quot;object&quot;,
+  MARK = &quot;mark&quot;,
+  LEGEND = &quot;legend&quot;,
+  KBD = &quot;kbd&quot;,
+  IFRAME = &quot;iframe&quot;,
+  I = &quot;i&quot;,
+  HR = &quot;hr&quot;,
+  H6 = &quot;h6&quot;,
+  H4 = &quot;h4&quot;,
+  H3 = &quot;h3&quot;,
+  H2 = &quot;h2&quot;,
+  H1 = &quot;h1&quot;,
+  FIGCAPTION = &quot;figcaption&quot;,
+  EMBED = &quot;embed&quot;,
+  DFN = &quot;dfn&quot;,
+  CITE = &quot;cite&quot;,
+  CAPTION = &quot;caption&quot;,
+  CANVAS = &quot;canvas&quot;,
+  NAV = &quot;nav&quot;,
+  BLOCKQUOTE = &quot;blockquote&quot;,
+  B = &quot;b&quot;,
+  ADDRESS = &quot;address&quot;,
+  ABBR = &quot;abbr&quot;,
+  SPAN = &quot;span&quot;,
+}
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">index</h4>
+<p><strong>File:</strong> <code>index.ts</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">export const icon =
+  &#039;&lt;svg version=&quot;1.1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 96 96&quot; enable-background=&quot;new 0 0 96 96&quot; xml:space=&quot;preserve&quot;&gt;&lt;path fill=&quot;#006dcc&quot; d=&quot;M67.888,71.898c-1.023,0-2.048-0.391-2.828-1.172L25.462,31.129c-1.563-1.562-1.563-4.095,0-5.656c1.561-1.563,4.096-1.563,5.656,0L70.716,65.07c1.563,1.562,1.563,4.095,0,5.656C69.936,71.508,68.911,71.898,67.888,71.898z&quot;/&gt;&lt;path fill=&quot;#006dcc&quot; d=&quot;M28.29,71.898c-1.023,0-2.048-0.391-2.828-1.172c-1.563-1.562-1.563-4.095,0-5.656L65.06,25.473c1.561-1.563,4.096-1.563,5.656,0c1.563,1.562,1.563,4.095,0,5.656L31.118,70.727C30.338,71.508,29.313,71.898,28.29,71.898z&quot;/&gt;&lt;/svg&gt;&#039;;
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">index</h4>
+<p><strong>File:</strong> <code>index.ts</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import { StyleSheet } from &quot;react-native&quot;;
+
+export const styles = StyleSheet.create({
+  proto_modal_overlay: {
+    flex: 1,
+    justifyContent: &quot;flex-end&quot;,
+    alignItems: &quot;center&quot;,
+    marginTop: 22,
+  },
+  proto_modal_container: {
+    margin: 20,
+    backgroundColor: &quot;white&quot;,
+    borderRadius: 20,
+    alignItems: &quot;center&quot;,
+    shadowColor: &quot;#000&quot;,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  proto_modal_header_container: {
+    flexDirection: &quot;row&quot;,
+    height: 50,
+    backgroundColor: &quot;rgb(0, 109, 204)&quot;,
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+    justifyContent: &quot;space-between&quot;,
+    alignItems: &quot;center&quot;,
+  },
+  proto_modal_header: {
+    paddingLeft: 20,
+    flex: 1,
+    height: 24,
+    color: &quot;rgb(255,255,255)&quot;,
+    fontSize: 24,
+    fontWeight: &quot;700&quot;,
+  },
+  proto_modal_close_icon: {
+    paddingRight: 10,
+  },
+  proto_modal_body_container: {
+    alignSelf: &quot;flex-start&quot;,
+    padding: 10,
+  },
+  proto_modal_body_text: {
+    color: &quot;#000000&quot;,
+    fontWeight: &quot;600&quot;,
+    fontSize: 14,
+    paddingTop: 15,
+    paddingHorizontal: 15,
+  },
+
+  proto_modal_footer: {
+    flexDirection: &quot;row&quot;,
+    alignSelf: &quot;stretch&quot;,
+    paddingVertical: 20,
+    paddingHorizontal: 15,
+    justifyContent: &quot;space-around&quot;,
+  },
+});
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">index</h4>
+<p><strong>File:</strong> <code>index.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import React from &quot;react&quot;;
+import { View, Modal as ModalNative, ViewStyle } from &quot;react-native&quot;;
+import Header from &quot;./lib/Header&quot;;
+import Body from &quot;./lib/Body&quot;;
+import Footer from &quot;./lib/Footer&quot;;
+import { IModalPropType } from &quot;@protocommon/types&quot;;
+import { styles } from &quot;./assets/styles&quot;;
+
+class Modal extends React.Component&lt;IModalPropType&gt; {
+  static Header = Header;
+  static Body = Body;
+  static Footer = Footer;
+
+  static displayName = &quot;modal&quot;;
+  static defaultProps = {};
+
+  constructor(props: IModalPropType) {
+    super(props);
+  }
+
+  render() {
+    const { show, children, style, ...otherProps } = this.props;
+    return (
+      &lt;ModalNative
+        animationType=&quot;slide&quot;
+        transparent={true}
+        disabled
+        visible={show}
+        {...otherProps}
+      &gt;
+        &lt;View style={[styles.proto_modal_overlay, style?.overlay as ViewStyle]}&gt;
+          &lt;View
+            style={[
+              styles.proto_modal_container,
+              style?.container as ViewStyle,
+            ]}
+          &gt;
+            {children}
+          &lt;/View&gt;
+        &lt;/View&gt;
+      &lt;/ModalNative&gt;
+    );
+  }
+}
+
+export default Modal;
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">info</h4>
+<p><strong>File:</strong> <code>info.json</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">{
+    &quot;name&quot;: &quot;@protonative/modal&quot;,
+    &quot;version&quot;: &quot;7.0.3&quot;,
+    &quot;description&quot;: &quot;Proto Native Modal Component&quot;,
+    &quot;keywords&quot;: &quot;protonative,proto,component,modal&quot;
+}</code></pre>
+<hr />
+<h4 class="c_head load-order-2">Body</h4>
+<p><strong>File:</strong> <code>Body.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import React from &quot;react&quot;;
+import { Text, View, ViewStyle } from &quot;react-native&quot;;
+import { styles } from &quot;../assets/styles/index&quot;;
+import { IModalBodyPropType } from &quot;@protocommon/types&quot;;
+
+const Body = (props: IModalBodyPropType) =&gt; {
+  const { children, style } = props;
+  if (typeof children === &quot;string&quot;) {
+    return (
+      &lt;View style={[styles.proto_modal_body_container, style as ViewStyle]}&gt;
+        &lt;Text style={styles.proto_modal_body_text}&gt;{children}&lt;/Text&gt;
+      &lt;/View&gt;
+    );
+  } else {
+    return (
+      &lt;View style={[styles.proto_modal_body_container, style as ViewStyle]}&gt;
+        {children}
+      &lt;/View&gt;
+    );
+  }
+};
+
+Body.displayName = &quot;modalbody&quot;;
+
+export default Body;
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">Footer</h4>
+<p><strong>File:</strong> <code>Footer.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import React from &quot;react&quot;;
+import { View, ViewStyle } from &quot;react-native&quot;;
+import { styles } from &quot;../assets/styles/index&quot;;
+import { IModalFooterPropType } from &quot;@protocommon/types&quot;;
+
+const Footer = (props: IModalFooterPropType) =&gt; {
+  const { children, style } = props;
+  return (
+    &lt;View style={[styles.proto_modal_footer, style as ViewStyle]}&gt;
+      {children}
+    &lt;/View&gt;
+  );
+};
+
+Footer.displayName = &quot;modalfooter&quot;;
+
+export default Footer;
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">Header</h4>
+<p><strong>File:</strong> <code>Header.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import React from &quot;react&quot;;
+import { Text, TouchableOpacity, View } from &quot;react-native&quot;;
+import { styles } from &quot;../assets/styles/index&quot;;
+import { IModalHeaderPropType } from &quot;@protocommon/types&quot;;
+import { icon } from &quot;../assets/icons&quot;;
+import { SvgXml } from &quot;react-native-svg&quot;;
+const Header = (props: IModalHeaderPropType) =&gt; {
+  const { children, closable, closeModal } = props;
+  const closeIcon = (
+    &lt;SvgXml width={40} height={40} fill={&quot;#FFFFFF&quot;} xml={icon} /&gt;
+  );
+  return (
+    &lt;View style={styles.proto_modal_header_container}&gt;
+      &lt;Text style={styles.proto_modal_header}&gt;{children}&lt;/Text&gt;
+      {closable &amp;&amp; (
+        &lt;TouchableOpacity
+          onPress={closeModal}
+          style={styles.proto_modal_close_icon}
+        &gt;
+          {closeIcon}
+        &lt;/TouchableOpacity&gt;
+      )}
+    &lt;/View&gt;
+  );
+};
+
+Header.displayName = &quot;modalheader&quot;;
+
+export default Header;
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">package</h4>
+<p><strong>File:</strong> <code>package.json</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">{
+  &quot;name&quot;: &quot;@protonative/modal&quot;
+}
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">index</h4>
+<p><strong>File:</strong> <code>index.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import React from &quot;react&quot;;
+import { View } from &quot;react-native&quot;;
+import Loader from &quot;./lib/Loader&quot;;
+import { styles } from &quot;./assets/styles&quot;;
+import { IPanelPropTypes } from &quot;@protocommon/types&quot;;
+import Header from &quot;./lib/Header&quot;;
+import Body from &quot;./lib/Body&quot;;
+import Footer, { LeftFooter, RightFooter } from &quot;./lib/Footer&quot;;
+import Divider from &quot;./lib/Divider&quot;;
+import { ConsumerHOC } from &quot;@protonative/provider&quot;;
+
+const defaultProps: IPanelPropTypes = {
+  shadow: false,
+};
+
+const renderLoader = (loading?: boolean, style?: any) =&gt; {
+  return loading ? &lt;Loader className={style &amp;&amp; style.loading} /&gt; : null;
+};
+
+const createPanelStyle = (shadow?: boolean, props?: any) =&gt; {
+  const { style, contextValue } = props;
+  const theme = contextValue.theme?.panel;
+
+  return [
+    styles.proto_panel,
+    theme?.container,
+    style &amp;&amp; style.container,
+    shadow &amp;&amp; styles.proto_shadow,
+  ];
+};
+
+const Panel = (props: IPanelPropTypes) =&gt; {
+  const { loading, children, shadow } = props;
+
+  return (
+    &lt;View style={createPanelStyle(shadow, props)}&gt;
+      {children}
+      {renderLoader(loading, props.className)}
+    &lt;/View&gt;
+  );
+};
+
+Panel.displayName = &quot;Panel&quot;;
+Panel.defaultProps = defaultProps;
+
+Panel.Header = Header;
+Panel.Body = Body;
+Panel.Footer = Footer;
+Panel.LeftFooter = LeftFooter;
+Panel.RightFooter = RightFooter;
+Panel.Divider = Divider;
+
+export default ConsumerHOC(Panel);
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">info</h4>
+<p><strong>File:</strong> <code>info.json</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">{
+    &quot;name&quot;: &quot;@protonative/panel&quot;,
+    &quot;version&quot;: &quot;7.0.2&quot;,
+    &quot;description&quot;: &quot;proto Native Panel Component&quot;,
+    &quot;keywords&quot;: &quot;@protonative,proto,component,panel,layout&quot;
+}</code></pre>
+<hr />
+<h4 class="c_head load-order-2">Body</h4>
+<p><strong>File:</strong> <code>Body.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import * as React from &quot;react&quot;;
+import { Text, View, ViewStyle } from &quot;react-native&quot;;
+import { IPanelBodyPropTypes } from &quot;@protocommon/types&quot;;
+import { styles } from &quot;../assets/styles&quot;;
+import { ConsumerHOC } from &quot;@protonative/provider&quot;;
+
+const Body = (props: IPanelBodyPropTypes) =&gt; {
+  const { style, noPadding, children, contextValue } = props;
+  const theme = contextValue.theme?.panel;
+  return (
+    &lt;View
+      style={[
+        styles.body,
+        theme?.body,
+        noPadding &amp;&amp; styles.no_padding,
+        style as ViewStyle,
+      ]}
+    &gt;
+      {React.Children.toArray(children).map((child, index) =&gt; {
+        if (typeof child === &quot;string&quot;) {
+          return &lt;Text key={index}&gt;{child}&lt;/Text&gt;;
+        } else {
+          return child;
+        }
+      })}
+    &lt;/View&gt;
+  );
+};
+
+Body.displayName = &quot;Panel.Body&quot;;
+export default ConsumerHOC(Body);
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">Divider</h4>
+<p><strong>File:</strong> <code>Divider.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import * as React from &quot;react&quot;;
+import { View, ViewStyle } from &quot;react-native&quot;;
+import { styles } from &quot;../assets/styles&quot;;
+import { IPanelDividerPropTypes } from &quot;@protocommon/types&quot;;
+import { ConsumerHOC } from &quot;@protonative/provider&quot;;
+
+const Divider = (props: IPanelDividerPropTypes) =&gt; {
+  const { style, contextValue } = props;
+  const theme = contextValue.theme?.panel;
+
+  return &lt;View style={[styles.divider, theme?.divider, style as ViewStyle]} /&gt;;
+};
+
+Divider.displayName = &quot;Panel.Divider&quot;;
+
+export default ConsumerHOC(Divider);
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">Footer</h4>
+<p><strong>File:</strong> <code>Footer.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import React from &quot;react&quot;;
+import { View, ViewStyle } from &quot;react-native&quot;;
+import { styles } from &quot;../assets/styles&quot;;
+import {
+  IPanelFooterPropTypes,
+  IPanelLeftFooterPropTypes,
+  IPanelRightFooterPropTypes,
+} from &quot;@protocommon/types&quot;;
+import { ConsumerHOC } from &quot;@protonative/provider&quot;;
+
+function createFooterStyle(className: any, transparent?: boolean, theme?: any) {
+  return [
+    styles.footer,
+    theme?.footer,
+    transparent &amp;&amp; { borderTopWidth: 0, paddingTop: 5 },
+    className,
+  ];
+}
+
+const Footer = (props: IPanelFooterPropTypes) =&gt; {
+  const { style, transparent, children, contextValue } = props;
+  const theme = contextValue.theme?.panel;
+
+  return (
+    &lt;View style={createFooterStyle(style, transparent, theme)}&gt;{children}&lt;/View&gt;
+  );
+};
+Footer.displayName = &quot;Panel.Footer&quot;;
+
+const LeftFooter = (props: IPanelLeftFooterPropTypes) =&gt; {
+  const { style, children } = props;
+  return (
+    &lt;View style={[styles.footer_left, style as ViewStyle]}&gt;{children}&lt;/View&gt;
+  );
+};
+
+LeftFooter.displayName = &quot;Panel.LeftFooter&quot;;
+
+const RightFooter = (props: IPanelRightFooterPropTypes) =&gt; {
+  const { style, children } = props;
+  return (
+    &lt;View style={[styles.footer_right, style as ViewStyle]}&gt;{children}&lt;/View&gt;
+  );
+};
+
+RightFooter.displayName = &quot;Panel.RightFooter&quot;;
+
+export default ConsumerHOC(Footer);
+export { LeftFooter, RightFooter };
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">Header</h4>
+<p><strong>File:</strong> <code>Header.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import * as React from &quot;react&quot;;
+import { Text, View, ViewStyle } from &quot;react-native&quot;;
+import { IPanelHeaderPropTypes } from &quot;@protocommon/types&quot;;
+import { styles } from &quot;../assets/styles&quot;;
+import { ConsumerHOC } from &quot;@protonative/provider&quot;;
+
+function createParentViewStyle({ style, contextValue }: any) {
+  const theme = contextValue.theme?.panel;
+  return [
+    styles.proto_panel_header,
+    theme?.header,
+    style &amp;&amp; style.container ? style.container : null,
+  ];
+}
+
+function createTitleStyle() {
+  return [styles.title_style];
+}
+
+function createTextStyle(className: any) {
+  return [
+    styles.proto_panel_caption,
+    className &amp;&amp; className.textStyle ? className.textStyle : null,
+  ];
+}
+
+const Header = (props: IPanelHeaderPropTypes) =&gt; {
+  const { title, children, style } = props;
+
+  return (
+    &lt;View style={createParentViewStyle(props)}&gt;
+      &lt;View style={createTitleStyle() as ViewStyle}&gt;
+        &lt;Text style={createTextStyle(style)}&gt;{title}&lt;/Text&gt;
+        &lt;View&gt;{children}&lt;/View&gt;
+      &lt;/View&gt;
+    &lt;/View&gt;
+  );
+};
+
+Header.displayName = &quot;Panel.Header&quot;;
+export default ConsumerHOC(Header);
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">Loader</h4>
+<p><strong>File:</strong> <code>Loader.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import React from &quot;react&quot;;
+import {
+  ActivityIndicator,
+  View,
+  ActivityIndicatorProps,
+  ViewStyle,
+} from &quot;react-native&quot;;
+import { styles } from &quot;../assets/styles&quot;;
+import { Colors } from &quot;@protonative/provider&quot;;
+import { ConsumerHOC } from &quot;@protonative/provider&quot;;
+import { LoaderPropsType } from &quot;@protocommon/types&quot;;
+
+function renderActivityIndicator(props: ActivityIndicatorProps) {
+  return &lt;ActivityIndicator size=&quot;large&quot; color={Colors.white} {...props} /&gt;;
+}
+
+const Loader = (props: LoaderPropsType) =&gt; {
+  const { style, contextValue } = props;
+  const theme = contextValue.theme?.panel;
+
+  return (
+    &lt;View style={[styles.loading_style, theme?.loader, style as ViewStyle]}&gt;
+      {renderActivityIndicator(props as ActivityIndicatorProps)}
+    &lt;/View&gt;
+  );
+};
+
+Loader.displayName = &quot;Panel.Loader&quot;;
+export default ConsumerHOC(Loader);
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">package</h4>
+<p><strong>File:</strong> <code>package.json</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">{
+&quot;name&quot;: &quot;@protonative/panel&quot;
+}
+  </code></pre>
+<hr />
+<h4 class="c_head load-order-2">types</h4>
+<p><strong>File:</strong> <code>types.ts</code></p>
+<p><strong>Props:</strong><ul><li>PanelBasePropType - className?: any</li><li>PanelBasePropType - children?: React.ReactNode | React.FC</li><li>PanelPropsType - loading?: boolean</li><li>PanelPropsType - transparent?: boolean</li><li>PanelPropsType - shadow?: boolean</li><li>PanelBodyPropsType - transparent?: boolean</li><li>PanelBodyPropsType - shadow?: boolean</li><li>PanelBodyPropsType - title?: string</li><li>PanelBodyPropsType - noPadding?: boolean</li><li>PanelHeaderPropsType - transparent?: boolean</li><li>PanelHeaderPropsType - title: string</li><li>LoaderPropsType - className?: any</li><li>FooterPropsType - transparent?: boolean</li></ul></p>
+<pre><code class="language-typescript" data-lang="typescript">import React from &quot;react&quot;;
+import { IBasePropTypes } from &quot;components/base/basePropTypes&quot;;
+import { ActivityIndicatorProps } from &quot;react-native&quot;;
+
+interface PanelBasePropType extends IBasePropTypes {
+  className?: any;
+  children?: React.ReactNode | React.FC;
+}
+
+export interface PanelPropsType extends PanelBasePropType {
+  loading?: boolean;
+  transparent?: boolean;
+  shadow?: boolean;
+}
+
+export interface PanelBodyPropsType extends PanelBasePropType {
+  transparent?: boolean;
+  shadow?: boolean;
+  title?: string;
+  noPadding?: boolean;
+}
+
+export interface PanelHeaderPropsType extends PanelBasePropType {
+  transparent?: boolean;
+  title: string;
+}
+
+export interface LoaderPropsType extends ActivityIndicatorProps {
+  className?: any;
+}
+
+export interface DividerPropsType extends PanelBasePropType {}
+
+export interface FooterPropsType extends PanelBasePropType {
+  transparent?: boolean;
+}
+
+export interface LeftFooterPropsType extends PanelBasePropType {}
+
+export interface RightFooterPropsType extends PanelBasePropType {}
+</code></pre>
+<hr />
+</div>
+</article>

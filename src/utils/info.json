@@ -1,0 +1,6 @@
+{
+    "name": "@phaselis/utils",
+    "version": "0.0.0",
+    "description": "Phaselis Utils Component",
+    "keywords": "@phaselis,component,utils,abstractnested,axios,service,call,hocs,inputhoc,formhoc,util,input,validator"
+}

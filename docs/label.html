@@ -1,0 +1,107 @@
+<article class="shortcode_text">
+<div class="shortcode_title">
+<a class="btn" href="#">Component</a>
+<h1>Label</h1>
+<p>The <code>label</code> component is a Phaselis React-Native component used for various UI functionalities. This documentation covers its usage, props, and implementation details.</p>
+<h4 class="c_head load-order-2">index</h4>
+<p><strong>File:</strong> <code>index.ts</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import { createStyleSheet } from &quot;react-native-unistyles&quot;;
+
+export default createStyleSheet({
+  container: {
+    flexDirection: &quot;row&quot;,
+    justifyContent: &quot;flex-start&quot;,
+    alignItems: &quot;center&quot;,
+  },
+  text: {
+    color: &quot;#373d3f&quot;,
+  },
+});
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">index</h4>
+<p><strong>File:</strong> <code>index.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import * as React from &quot;react&quot;;
+import { View, Text } from &quot;react-native&quot;;
+import stylesheet from &quot;./assets/styles&quot;;
+import { ConsumerHOC } from &quot;@protonative/provider&quot;;
+import { LabelProps } from &quot;./types&quot;;
+import useCombinedStyle from &quot;@/hooks/useCombinedStyle&quot;;
+
+const Label = (props: LabelProps) =&gt; {
+  const {
+    text,
+    style,
+    numberOfLines = 1,
+    adjustsFontSizeToFit,
+    minimumFontScale,
+    contextValue,
+  } = props;
+
+  const { getCombinedStyle } = useCombinedStyle(
+    stylesheet,
+    style,
+    contextValue?.theme?.label,
+    props as never,
+  );
+
+  return (
+    &lt;View style={getCombinedStyle(&quot;container&quot;)}&gt;
+      &lt;Text
+        numberOfLines={numberOfLines}
+        style={getCombinedStyle(&quot;text&quot;)}
+        adjustsFontSizeToFit={adjustsFontSizeToFit}
+        minimumFontScale={minimumFontScale}
+      &gt;
+        {text}
+      &lt;/Text&gt;
+    &lt;/View&gt;
+  );
+};
+
+Label.displayName = &quot;label&quot;;
+
+export default ConsumerHOC&lt;LabelProps, LabelExtraProps&gt;(Label);
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">info</h4>
+<p><strong>File:</strong> <code>info.json</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">{
+  &quot;name&quot;: &quot;@protonative/label&quot;,
+  &quot;version&quot;: &quot;0.0.1&quot;,
+  &quot;description&quot;: &quot;Proto Native Label Component&quot;,
+  &quot;keywords&quot;: &quot;@protonative,proto,component,label&quot;
+}
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">types</h4>
+<p><strong>File:</strong> <code>types.ts</code></p>
+<p><strong>Props:</strong><ul><li>LabelProps - text?: string</li><li>LabelProps - style?: IBaseLabelStyleType</li><li>LabelProps - forId?: string</li><li>LabelProps - onMouseOut?: (e: MouseEvent<HTMLLabelElement>) => void</li><li>LabelProps - onMouseOver?: (e: MouseEvent<HTMLLabelElement>) => void</li><li>LabelProps - adjustsFontSizeToFit?: boolean</li><li>LabelProps - numberOfLines?: number</li><li>LabelProps - minimumFontScale?: number</li></ul></p>
+<pre><code class="language-typescript" data-lang="typescript">import { MouseEvent } from &quot;react&quot;;
+import {
+  IBaseFormStyleType,
+  IBaseStyleType,
+  IFormPropTypes,
+} from &quot;@commontypes/base&quot;;
+
+export interface IBaseLabelStyleType
+  extends IBaseFormStyleType,
+    IBaseStyleType {}
+
+export interface LabelProps extends IFormPropTypes {
+  text?: string;
+  style?: IBaseLabelStyleType;
+  forId?: string;
+  onMouseOut?: (e: MouseEvent&lt;HTMLLabelElement&gt;) =&gt; void;
+  onMouseOver?: (e: MouseEvent&lt;HTMLLabelElement&gt;) =&gt; void;
+  adjustsFontSizeToFit?: boolean;
+  numberOfLines?: number;
+  minimumFontScale?: number;
+}
+</code></pre>
+<hr />
+</div>
+</article>

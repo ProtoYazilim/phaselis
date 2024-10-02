@@ -1,0 +1,103 @@
+<article class="shortcode_text">
+<div class="shortcode_title">
+<a class="btn" href="#">Component</a>
+<h1>Bottom-sheet</h1>
+<p>The <code>bottom-sheet</code> component is a Phaselis React-Native component used for various UI functionalities. This documentation covers its usage, props, and implementation details.</p>
+<h4 class="c_head load-order-2">BottomSheet</h4>
+<p><strong>File:</strong> <code>BottomSheet.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import React from &quot;react&quot;;
+import { StyleSheet, TouchableOpacity } from &quot;react-native&quot;;
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  useDerivedValue,
+  withDelay,
+  withTiming,
+} from &quot;react-native-reanimated&quot;;
+
+function BottomSheet({
+  isOpen,
+  duration = 500,
+  children,
+  onClose,
+  fullScreen,
+}: any) {
+  const height = useSharedValue(0);
+  const progress = useDerivedValue(() =&gt;
+    withTiming(isOpen.value ? 0 : 1, { duration }),
+  );
+
+  const sheetStyle = useAnimatedStyle(() =&gt; ({
+    transform: [{ translateY: progress.value * height.value }],
+  }));
+
+  const backdropStyle = useAnimatedStyle(() =&gt; ({
+    opacity: 1 - progress.value,
+    zIndex: isOpen.value
+      ? 1
+      : withDelay(duration, withTiming(-1, { duration: 0 })),
+  }));
+
+  const handleClose = () =&gt; {
+    if (isOpen.value) {
+      onClose();
+    }
+  };
+
+  return (
+    &lt;&gt;
+      &lt;Animated.View style={[sheetStyles.backdrop, backdropStyle]}&gt;
+        &lt;TouchableOpacity style={{ flex: 1 }} onPress={handleClose} /&gt;
+      &lt;/Animated.View&gt;
+      &lt;Animated.View
+        onLayout={(e) =&gt; {
+          height.value = e.nativeEvent.layout.height;
+        }}
+        style={[
+          sheetStyles.sheet,
+          sheetStyle,
+          { height: fullScreen ? &quot;98%&quot; : &quot;auto&quot; },
+        ]}
+      &gt;
+        {children}
+      &lt;/Animated.View&gt;
+    &lt;/&gt;
+  );
+}
+
+const sheetStyles = StyleSheet.create({
+  sheet: {
+    padding: 16,
+    paddingRight: 10,
+    paddingLeft: 10,
+    width: &quot;100%&quot;,
+    position: &quot;absolute&quot;,
+    bottom: 0,
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+    height: &quot;100%&quot;,
+    zIndex: 2,
+    alignItems: &quot;center&quot;,
+    justifyContent: &quot;center&quot;,
+    backgroundColor: &quot;white&quot;,
+  },
+  backdrop: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: &quot;rgba(0, 0, 0, 0.3)&quot;,
+  },
+});
+
+export default BottomSheet;
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">index</h4>
+<p><strong>File:</strong> <code>index.ts</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import BottomSheet from &quot;./BottomSheet&quot;;
+
+export default BottomSheet;
+</code></pre>
+<hr />
+</div>
+</article>

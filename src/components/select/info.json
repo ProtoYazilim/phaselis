@@ -1,0 +1,10 @@
+{
+    "name": "@phaselis/select",
+    "version": "0.0.0",
+    "description": "Proto Native Select Field",
+    "keywords": "@phaselis,proto,component,select",
+    "dependencies": {
+        "react-native-picker-select": "^9.1.3",
+        "@react-native-picker/picker": "^2.7.2"
+    }
+}

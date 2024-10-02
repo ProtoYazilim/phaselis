@@ -1,0 +1,269 @@
+<article class="shortcode_text">
+<div class="shortcode_title">
+<a class="btn" href="#">Component</a>
+<h1>Checkbox</h1>
+<p>The <code>checkbox</code> component is a Phaselis React-Native component used for various UI functionalities. This documentation covers its usage, props, and implementation details.</p>
+<h4 class="c_head load-order-2">index</h4>
+<p><strong>File:</strong> <code>index.ts</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">export const defaultCheckedSvg =
+  &#039;&lt;svg width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;M20 6L9 17L4 12&quot; stroke=&quot;#343A46&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;&#039;;
+
+export const defaultUnCheckedSvg = &quot;&lt;svg/&gt;&quot;;
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">index</h4>
+<p><strong>File:</strong> <code>index.ts</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import { createStyleSheet } from &quot;react-native-unistyles&quot;;
+
+const stylesheet = createStyleSheet({
+  container: {
+    flexDirection: &quot;row&quot;,
+    justifyContent: &quot;flex-start&quot;,
+    alignItems: &quot;center&quot;,
+    marginVertical: 5,
+    marginRight: 10,
+    variants: {
+      disabled: {
+        true: {},
+      },
+      focus: {
+        true: {
+          borderColor: &quot;blue&quot;,
+        },
+      },
+      error: {
+        true: {
+          borderColor: &quot;red&quot;,
+        },
+      },
+      size: {
+        xs: {
+          height: 10,
+        },
+        sm: {
+          height: 20,
+        },
+        md: {
+          height: 30,
+        },
+        lg: {
+          height: 40,
+        },
+        xl: {
+          height: 45,
+        },
+        xxl: {
+          height: 50,
+        },
+      },
+    },
+  },
+  icon: {
+    height: 24,
+    width: 24,
+  },
+  element: {
+    alignItems: &quot;center&quot;,
+    justifyContent: &quot;center&quot;,
+    marginRight: 8,
+    borderWidth: 2,
+    borderColor: &quot;black&quot;,
+    borderRadius: 8,
+    width: 32,
+    height: 32,
+  },
+  text: {
+    variants: {
+      error: {},
+      disabled: {},
+      focus: {
+        true: {},
+      },
+    },
+  },
+});
+
+export default stylesheet;
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">index</h4>
+<p><strong>File:</strong> <code>index.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import React, { useEffect, useMemo, useRef, useState } from &quot;react&quot;;
+import { Text, View, TextInput, Pressable } from &quot;react-native&quot;;
+import stylesheet from &quot;./assets/styles&quot;;
+
+import { ConsumerHOC } from &quot;@protonative/provider&quot;;
+import { defaultCheckedSvg, defaultUnCheckedSvg } from &quot;./assets/icons&quot;;
+import { InputHOC } from &quot;@protonative/utils&quot;;
+import { CheckboxProps } from &quot;./types&quot;;
+import LucideIcon from &quot;../lucide-icon&quot;;
+import useCombinedStyle from &quot;@/hooks/useCombinedStyle&quot;;
+
+const Checkbox: React.FC&lt;CheckboxProps&gt; = (props) =&gt; {
+  const {
+    disabled,
+    text,
+    style,
+    children,
+    contextValue,
+    value,
+    isChanged,
+    isUsed,
+    error,
+    size,
+    checkedSvg = defaultCheckedSvg,
+    unCheckedSvg = defaultUnCheckedSvg,
+    onChange,
+    ...extraProps
+  } = props;
+
+  const [checked, setChecked] = useState&lt;boolean&gt;(Boolean(value));
+  const [isFocus, setIsFocus] = useState(false);
+
+  const refInput = useRef&lt;TextInput&gt;(null);
+
+  const showError = useMemo(() =&gt; {
+    return isChanged &amp;&amp; isUsed &amp;&amp; error ? true : false;
+  }, [error, isUsed, isChanged]);
+
+  useEffect(() =&gt; {
+    setChecked(Boolean(value));
+  }, [value]);
+
+  const svg = checked ? checkedSvg : unCheckedSvg; // todo: add svg support
+
+  const iconSizeLiteral = {
+    xs: 16,
+    sm: 20,
+    md: 26,
+    lg: 42,
+    xl: 50,
+    xxl: 80,
+  };
+
+  const handleChange = () =&gt; {
+    const newValue = !checked;
+    setChecked(newValue);
+    refInput.current?.focus();
+    setIsFocus(true);
+    if (onChange) {
+      onChange(
+        {
+          nativeEvent: {
+            text: newValue,
+            checked: newValue,
+          },
+        },
+        newValue,
+      );
+    }
+  };
+
+  const { getCombinedStyle } = useCombinedStyle(
+    stylesheet,
+    style,
+    contextValue?.theme?.checkbox,
+    { error: showError, disabled, focus: isFocus, size, ...extraProps },
+  );
+
+  return (
+    &lt;Pressable
+      style={getCombinedStyle(&quot;container&quot;)}
+      onPress={handleChange}
+      disabled={disabled}
+    &gt;
+      &lt;View style={getCombinedStyle(&quot;element&quot;)}&gt;
+        {checked ? (
+          &lt;LucideIcon
+            name={&quot;Check&quot;}
+            style={getCombinedStyle(&quot;icon&quot;)}
+            width={iconSizeLiteral[size || &quot;md&quot;]}
+            height={iconSizeLiteral[size || &quot;md&quot;]}
+            strokeWidth={3}
+          /&gt;
+        ) : null}
+      &lt;/View&gt;
+      {children || &lt;Text style={getCombinedStyle(&quot;text&quot;)}&gt;{text}&lt;/Text&gt;}
+      &lt;TextInput
+        showSoftInputOnFocus={false}
+        value={&quot;&quot;}
+        style={{
+          width: 0,
+          height: 0,
+          opacity: 0,
+        }}
+        selectionColor={&quot;transparent&quot;}
+        onBlur={() =&gt; {
+          setIsFocus(false);
+        }}
+        ref={refInput}
+      /&gt;
+    &lt;/Pressable&gt;
+  );
+};
+
+export default InputHOC(
+  ConsumerHOC&lt;CheckboxProps, CheckboxExtraProps&gt;(Checkbox),
+);
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">info</h4>
+<p><strong>File:</strong> <code>info.json</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">{
+    &quot;name&quot;: &quot;@protonative/checkbox&quot;,
+    &quot;version&quot;: &quot;0.0.2&quot;,
+    &quot;description&quot;: &quot;Proto Native Checkbox Component&quot;,
+    &quot;keywords&quot;: &quot;@protonative,proto,component,checkbox&quot;
+}</code></pre>
+<hr />
+<h4 class="c_head load-order-2">types</h4>
+<p><strong>File:</strong> <code>types.ts</code></p>
+<p><strong>Props:</strong><ul><li>CheckboxProps - text?: string</li><li>CheckboxProps - checked?: boolean</li><li>CheckboxProps - style?: IBaseCheckboxStyleType</li><li>CheckboxProps - checkedSvg?: any</li><li>CheckboxProps - unCheckedSvg?: any</li><li>CheckboxProps - autoFocus?: boolean</li><li>CheckboxProps - onChange?: (
+    e: ChangeEvent<HTMLInputElement> | ICheckableEventType,
+    value: boolean,
+  ) => any</li><li>CheckboxProps - onClick?: (event: MouseEvent<HTMLElement>) => void</li><li>CheckboxProps - onBlur?: (e: FocusEvent<HTMLInputElement>) => void</li><li>CheckboxProps - onMouseOut?: (event: MouseEvent<HTMLElement>) => void</li><li>CheckboxProps - onMouseOver?: (event: MouseEvent<HTMLElement>) => void</li><li>CheckboxProps - id?: string</li><li>CheckboxProps - disabled?: boolean</li><li>CheckboxProps - activeOpacity?: number</li><li>CheckboxProps - size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl"</li><li>CheckboxProps - iconComponent?: ReactNode & ((...args: any) => ReactNode)</li></ul></p>
+<pre><code class="language-typescript" data-lang="typescript">import {
+  IBaseFormStyleType,
+  IBaseStyleType,
+  ICheckableEventType,
+  IFormPropTypes,
+  IGenericStyleType,
+} from &quot;@commontypes/base&quot;;
+import { ChangeEvent, MouseEvent, FocusEvent, ReactNode } from &quot;react&quot;;
+
+export interface IBaseCheckboxStyleType
+  extends IBaseFormStyleType,
+    IBaseStyleType {
+  element?: IGenericStyleType;
+  icon?: IGenericStyleType;
+}
+
+export interface CheckboxProps extends IFormPropTypes {
+  text?: string;
+  checked?: boolean;
+  style?: IBaseCheckboxStyleType;
+  checkedSvg?: any;
+  unCheckedSvg?: any;
+  autoFocus?: boolean;
+  onChange?: (
+    e: ChangeEvent&lt;HTMLInputElement&gt; | ICheckableEventType,
+    value: boolean,
+  ) =&gt; any;
+  onClick?: (event: MouseEvent&lt;HTMLElement&gt;) =&gt; void;
+  onBlur?: (e: FocusEvent&lt;HTMLInputElement&gt;) =&gt; void;
+  onMouseOut?: (event: MouseEvent&lt;HTMLElement&gt;) =&gt; void;
+  onMouseOver?: (event: MouseEvent&lt;HTMLElement&gt;) =&gt; void;
+  id?: string;
+  disabled?: boolean;
+  activeOpacity?: number;
+  size?: &quot;xs&quot; | &quot;sm&quot; | &quot;md&quot; | &quot;lg&quot; | &quot;xl&quot; | &quot;xxl&quot;;
+  iconComponent?: ReactNode &amp; ((...args: any) =&gt; ReactNode);
+}
+</code></pre>
+<hr />
+</div>
+</article>

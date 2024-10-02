@@ -1,0 +1,132 @@
+<article class="shortcode_text">
+<div class="shortcode_title">
+<a class="btn" href="#">Component</a>
+<h1>Image</h1>
+<p>The <code>image</code> component is a Phaselis React-Native component used for various UI functionalities. This documentation covers its usage, props, and implementation details.</p>
+<h4 class="c_head load-order-2">index</h4>
+<p><strong>File:</strong> <code>index.ts</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import { createStyleSheet } from &quot;react-native-unistyles&quot;;
+
+const stylesheet = createStyleSheet({
+  container: {
+    variants: {
+      background: {
+        true: {
+          flex: 1,
+        },
+      },
+      disabled: {
+        true: {},
+      },
+      loading: {
+        true: {},
+      },
+    },
+  },
+  element: {
+    variants: {
+      background: {
+        true: {
+          flex: 1,
+        },
+      },
+      disabled: {
+        true: {},
+      },
+    },
+  },
+});
+
+export default stylesheet;
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">index</h4>
+<p><strong>File:</strong> <code>index.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import React from &quot;react&quot;;
+import { View, Image as NativeImage, ImageBackground } from &quot;react-native&quot;;
+
+import { ImageProps } from &quot;./types&quot;;
+import { ConsumerHOC } from &quot;@/components/provider&quot;;
+import stylesheet from &quot;./assets/styles&quot;;
+import useCombinedStyle from &quot;@/hooks/useCombinedStyle&quot;;
+
+const Image = ({
+  style,
+  contextValue,
+  disabled,
+  background,
+  children,
+  ...imageNativeProps
+}: ImageProps) =&gt; {
+  const { getCombinedStyle } = useCombinedStyle(
+    stylesheet,
+    style,
+    contextValue?.theme?.image,
+    {
+      disabled,
+      background,
+      ...imageNativeProps,
+    },
+  );
+
+  const renderImage = () =&gt; {
+    if (background) {
+      return (
+        &lt;ImageBackground
+          {...imageNativeProps}
+          style={getCombinedStyle(&quot;element&quot;)}
+        &gt;
+          {children}
+        &lt;/ImageBackground&gt;
+      );
+    }
+
+    return (
+      &lt;NativeImage {...imageNativeProps} style={getCombinedStyle(&quot;element&quot;)} /&gt;
+    );
+  };
+
+  return &lt;View style={getCombinedStyle(&quot;container&quot;)}&gt;{renderImage()}&lt;/View&gt;;
+};
+
+export default ConsumerHOC&lt;ImageProps, ImageExtraProps&gt;(Image);
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">info</h4>
+<p><strong>File:</strong> <code>info.json</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">{
+  &quot;name&quot;: &quot;@protonative/switch&quot;,
+  &quot;version&quot;: &quot;0.0.1&quot;,
+  &quot;description&quot;: &quot;Proto Native Switch Button Component&quot;,
+  &quot;keywords&quot;: &quot;@protonative,proto,component,switch&quot;,
+  &quot;dependencies&quot;: {
+    &quot;react-native-reanimated&quot;: &quot;^3.0.0&quot;
+  }
+}
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">types</h4>
+<p><strong>File:</strong> <code>types.ts</code></p>
+<p><strong>Props:</strong><ul><li>ImageProps - style?: {
+    container?: ViewStyle</li><li>ImageProps - element?: ViewStyle</li></ul></p>
+<pre><code class="language-typescript" data-lang="typescript">import { ImagePropsBase, ViewStyle } from &quot;react-native&quot;;
+
+interface ImageProps extends ImagePropsBase {
+  style?: {
+    container?: ViewStyle;
+    element?: ViewStyle;
+  };
+  contextValue?: any;
+  disabled?: boolean;
+  background?: boolean;
+  children?: React.ReactNode;
+}
+
+export { ImageProps };
+</code></pre>
+<hr />
+</div>
+</article>

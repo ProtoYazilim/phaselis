@@ -1,19 +1,24 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { DefaultTheme, ThemeProvider } from "@react-navigation/native";
+import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
+import { useEffect } from "react";
+import "react-native-reanimated";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import "../config/unistyle";
+import { Provider as FrameWorkProvider } from "@phaselis/components";
+import { lightTheme } from "@phaselis/theme/lightTheme";
+import { Stack } from "expo-router";
+import { LogBox } from "react-native";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
 
+LogBox.ignoreLogs(["Require cycles are allowed"]);
+
+SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  // const colorScheme = useColorScheme()
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
   });
 
   useEffect(() => {
@@ -27,11 +32,14 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-    </ThemeProvider>
+    <FrameWorkProvider theme={lightTheme}>
+      <ThemeProvider value={DefaultTheme}>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <Stack>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          </Stack>
+        </GestureHandlerRootView>
+      </ThemeProvider>
+    </FrameWorkProvider>
   );
 }

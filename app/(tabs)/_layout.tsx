@@ -1,35 +1,42 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { useColors } from "@phaselis/components/provider/lib/hooks";
+import { PhaselisColors } from "@phaselis/theme";
+import { Tabs } from "expo-router";
+import {
+  LucideAirplay,
+  LucideComponent,
+  DraftingCompass,
+} from "lucide-react-native";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+  const COLORS = useColors<PhaselisColors>();
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarHideOnKeyboard: true,
+        tabBarActiveTintColor: COLORS.Primary[500],
+        tabBarInactiveTintColor: COLORS.Gray[600],
         headerShown: false,
-      }}>
+      }}
+    >
       <Tabs.Screen
-        name="index"
+        name="(stories)"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
-          ),
+          title: "Components",
+          tabBarIcon: ({ color }) => <LucideComponent color={color} />,
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="(examples)"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
-          ),
+          title: "Examples",
+          tabBarIcon: ({ color }) => <LucideAirplay color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="(utils)"
+        options={{
+          title: "Utils",
+          tabBarIcon: ({ color }) => <DraftingCompass color={color} />,
         }}
       />
     </Tabs>

@@ -1,0 +1,10 @@
+{
+    "name": "@phaselis/lucide-icon",
+    "version": "0.0.0",
+    "description": "phaselis component",
+    "keywords": "@phaselis lucide icon react native",
+    "dependencies": {
+        "lucide-react-native": "^0.379.0",
+        "react-native-svg": "^15.2.0"
+    }
+}

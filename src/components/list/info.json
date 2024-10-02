@@ -1,0 +1,7 @@
+{
+  "name": "@phaselis/list",
+  "version": "0.0.0",
+  "description": "Proto Native List Component",
+  "keywords": "@phaselis,proto,component,list",
+  "dependencies": {}
+}

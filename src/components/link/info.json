@@ -1,0 +1,7 @@
+{
+    "name": "@phaselis/link",
+    "version": "0.0.0",
+    "description": "Proto Native Link Component",
+    "keywords": "proto,native,component,link",
+    "dependencies": {}
+}

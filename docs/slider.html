@@ -1,0 +1,190 @@
+<article class="shortcode_text">
+<div class="shortcode_title">
+<a class="btn" href="#">Component</a>
+<h1>Slider</h1>
+<p>The <code>slider</code> component is a Phaselis React-Native component used for various UI functionalities. This documentation covers its usage, props, and implementation details.</p>
+<h4 class="c_head load-order-2">styles</h4>
+<p><strong>File:</strong> <code>styles.ts</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import { createStyleSheet } from &quot;react-native-unistyles&quot;;
+
+const stylesheet = createStyleSheet({
+  // CONTAINER
+  container: {
+    flexDirection: &quot;row&quot;,
+    justifyContent: &quot;flex-start&quot;,
+    alignItems: &quot;center&quot;,
+    width: &quot;100%&quot;,
+    variants: {
+      disabled: {
+        true: {},
+      },
+      focus: {
+        true: {},
+      },
+      error: {
+        true: {},
+      },
+      size: {
+        sm: {
+          height: 36,
+        },
+        md: {
+          height: 48,
+        },
+        lg: {
+          height: 56,
+        },
+      },
+    },
+  },
+  // ELEMENT
+  element: {
+    width: &quot;100%&quot;,
+    minimumTrackTintColor: &quot;blue&quot;,
+    maximumTrackTintColor: &quot;grey&quot;,
+    thumbTintColor: &quot;blue&quot;,
+    variants: {
+      error: {},
+      disabled: {},
+      focus: {},
+    },
+  },
+});
+
+export default stylesheet;
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">index</h4>
+<p><strong>File:</strong> <code>index.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import React, { FC, useEffect, useState } from &quot;react&quot;;
+import { View, StyleSheet } from &quot;react-native&quot;;
+import { ConsumerHOC } from &quot;@protonative/provider&quot;;
+import { InputHOC } from &quot;@protonative/utils&quot;;
+import SliderCore from &quot;@react-native-community/slider&quot;;
+import stylesheet from &quot;./assets/styles&quot;;
+import { SliderProps } from &quot;./types&quot;;
+import useCombinedStyle from &quot;@/hooks/useCombinedStyle&quot;;
+
+const Slider: FC&lt;SliderProps&gt; = ({
+  contextValue,
+  style,
+  value,
+  onChange,
+  error,
+  size = &quot;md&quot;,
+  disabled,
+  minValue = 0,
+  maxValue = 100,
+  step = 10,
+  tapToSeek = true,
+  inverted = false,
+  renderStepNumber = false,
+  vertical,
+  ...extraProps
+}) =&gt; {
+  const [progress, setProgress] = useState(Number(value || 0));
+
+  const { getCombinedStyle } = useCombinedStyle(
+    stylesheet,
+    style,
+    contextValue?.theme?.slider,
+    {
+      error,
+      disabled,
+      size,
+      ...extraProps,
+    },
+  );
+
+  useEffect(() =&gt; {
+    setProgress(Number(value));
+  }, [value]);
+
+  const elementStyles = StyleSheet.flatten(getCombinedStyle(&quot;element&quot;));
+
+  return (
+    &lt;View style={getCombinedStyle(&quot;container&quot;)}&gt;
+      &lt;SliderCore
+        style={elementStyles}
+        disabled={disabled}
+        minimumValue={minValue}
+        maximumValue={maxValue}
+        lowerLimit={0}
+        upperLimit={100}
+        //@ts-ignore
+        minimumTrackTintColor={elementStyles?.minimumTrackTintColor}
+        //@ts-ignore
+        maximumTrackTintColor={elementStyles?.maximumTrackTintColor}
+        //@ts-ignore
+        thumbTintColor={elementStyles?.thumbTintColor}
+        onSlidingStart={() =&gt; console.log(&quot;start&quot;)}
+        onSlidingComplete={() =&gt; console.log(&quot;end&quot;)}
+        onValueChange={(value) =&gt; {
+          onChange?.(null, value);
+        }}
+        step={step}
+        value={progress}
+        tapToSeek={tapToSeek}
+        inverted={inverted}
+        vertical={vertical}
+        renderStepNumber={renderStepNumber}
+      /&gt;
+    &lt;/View&gt;
+  );
+};
+
+Slider.displayName = &quot;Slider&quot;;
+
+export default InputHOC(ConsumerHOC&lt;SliderProps, SliderExtraProps&gt;(Slider));
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">info</h4>
+<p><strong>File:</strong> <code>info.json</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">{
+    &quot;name&quot;: &quot;@protonative/slider&quot;,
+    &quot;version&quot;: &quot;5.0.1&quot;,
+    &quot;description&quot;: &quot;Proto Native Slider Component&quot;,
+    &quot;keywords&quot;: &quot;@protonative,proto,component,slider&quot;,
+    &quot;dependencies&quot;: {}
+}</code></pre>
+<hr />
+<h4 class="c_head load-order-2">package</h4>
+<p><strong>File:</strong> <code>package.json</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">{
+  &quot;name&quot;: &quot;@protonative/slider&quot;
+}
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">types</h4>
+<p><strong>File:</strong> <code>types.ts</code></p>
+<p><strong>Props:</strong><ul><li>SliderProps - value?: number | string</li><li>SliderProps - onChange?: (event: any, value: string | number) => void</li><li>SliderProps - style?: {
+    container?: ViewStyle</li><li>SliderProps - element?: ViewStyle</li></ul></p>
+<pre><code class="language-typescript" data-lang="typescript">import { IFormPropTypes } from &quot;@commontypes/base&quot;;
+import { ViewStyle } from &quot;react-native&quot;;
+
+interface SliderProps extends IFormPropTypes {
+  value?: number | string;
+  onChange?: (event: any, value: string | number) =&gt; void;
+  style?: {
+    container?: ViewStyle;
+    element?: ViewStyle;
+  };
+  size?: any;
+  minValue?: number;
+  maxValue?: number;
+  step?: number;
+  tapToSeek?: boolean;
+  inverted?: boolean;
+  renderStepNumber?: boolean;
+  vertical?: boolean;
+}
+
+export { SliderProps };
+</code></pre>
+<hr />
+</div>
+</article>

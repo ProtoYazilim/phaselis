@@ -1,0 +1,419 @@
+<article class="shortcode_text">
+<div class="shortcode_title">
+<a class="btn" href="#">Component</a>
+<h1>Utils</h1>
+<p>The <code>utils</code> component is a Phaselis React-Native component used for various UI functionalities. This documentation covers its usage, props, and implementation details.</p>
+<h4 class="c_head load-order-2">index</h4>
+<p><strong>File:</strong> <code>index.ts</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import InputHOC from &quot;./lib/hocs/inputhoc&quot;;
+
+import {
+  dateFormat,
+  email,
+  fileType,
+  maxLength,
+  maxValue,
+  minLength,
+  minValue,
+  numeric,
+  required,
+  tcknFormat,
+  timeFormat,
+  version,
+} from &quot;./lib/inputvalidator&quot;;
+
+import {
+  getRegex,
+  RegexpTypes,
+  replaceText,
+  validateText,
+} from &quot;./lib/regexhelper&quot;;
+
+export {
+  InputHOC,
+  required,
+  minLength,
+  maxLength,
+  email,
+  minValue,
+  maxValue,
+  numeric,
+  dateFormat,
+  timeFormat,
+  version,
+  fileType,
+  tcknFormat,
+  getRegex,
+  validateText,
+  replaceText,
+  RegexpTypes,
+};
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">info</h4>
+<p><strong>File:</strong> <code>info.json</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">{
+    &quot;name&quot;: &quot;@phaselis/utils&quot;,
+    &quot;version&quot;: &quot;0.0.0&quot;,
+    &quot;description&quot;: &quot;Phaselis Utils Component&quot;,
+    &quot;keywords&quot;: &quot;@phaselis,component,utils,abstractnested,axios,service,call,hocs,inputhoc,formhoc,util,input,validator&quot;
+}</code></pre>
+<hr />
+<h4 class="c_head load-order-2">index</h4>
+<p><strong>File:</strong> <code>index.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">/* eslint-disable react/display-name */
+import React, { useEffect, useRef } from &quot;react&quot;;
+
+import hoistNonReactStatics from &quot;hoist-non-react-statics&quot;;
+import { FormContext } from &quot;@/components/form&quot;;
+
+const InputHOC = &lt;P extends React.PropsWithRef&lt;any&gt;&gt;(
+  WrappedComponent: React.ComponentType&lt;P&gt;,
+): React.ForwardRefExoticComponent&lt;
+  React.PropsWithoutRef&lt;P&gt; &amp; React.RefAttributes&lt;any&gt;
+&gt; =&gt; {
+  const ConsumedComponent = React.forwardRef&lt;
+    any,
+    P &amp; { name?: string; partofform?: boolean }
+  &gt;((props, ref) =&gt; {
+    const formContext = React.useContext(FormContext);
+
+    const prevProps = useRef(props);
+
+    useEffect(() =&gt; {
+      if (props.partofform !== false &amp;&amp; formContext?.registerComponent) {
+        formContext?.registerComponent?.(props);
+      }
+
+      return () =&gt; {
+        if (props.partofform !== false) {
+          formContext?.unRegisterComponent?.(props.name || &quot;&quot;);
+        }
+      };
+    }, []);
+
+    useEffect(() =&gt; {
+      const changedProps = {};
+      for (const key in props) {
+        //@ts-ignore
+        if (props[key] !== prevProps.current[key]) {
+          //@ts-ignore
+          changedProps[key] = props[key];
+        }
+      }
+      // Call updateComponentProps with only changed props
+      formContext?.updateComponentProps?.({
+        name: props.name,
+        ...changedProps,
+      });
+      // Update previous props with current props for next comparison
+      prevProps.current = props;
+    }, [props]);
+
+    const onChangeInput = (event: any, value: any): any =&gt; {
+      formContext.handleComponentChange(event, props.name || &quot;&quot;, value);
+    };
+    const onBlurInput = (event: any, value: any): any =&gt; {
+      formContext.handleComponentBlur(event, props.name || &quot;&quot;, value);
+    };
+
+    const inputProps = formContext?.meta?.[props?.name || &quot;&quot;];
+
+    return (
+      &lt;WrappedComponent
+        {...(props as any)}
+        {...inputProps}
+        onChange={onChangeInput}
+        onBlur={onBlurInput}
+        ref={ref}
+      /&gt;
+    );
+  });
+
+  return hoistNonReactStatics(
+    ConsumedComponent,
+    WrappedComponent,
+  ) as React.ForwardRefExoticComponent&lt;
+    React.PropsWithoutRef&lt;P&gt; &amp; React.RefAttributes&lt;any&gt;
+  &gt;;
+};
+
+export default InputHOC;
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">index</h4>
+<p><strong>File:</strong> <code>index.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">/* eslint-disable react/display-name */
+import { Text } from &quot;react-native&quot;;
+
+const hasValue = (value: any) =&gt; {
+  return !(value === null || value === undefined || value === &quot;&quot;);
+};
+
+export const required = (message?: string) =&gt; {
+  return (value: any, props: any) =&gt; {
+    const REQUIRED_MESSAGE = &quot;Bu alanın girilmesi zorunludur&quot;;
+    if (
+      !hasValue(value) ||
+      (props.isCheckable &amp;&amp; !props.checked) ||
+      (props.isFileUpload &amp;&amp;
+        props.validations.length === 1 &amp;&amp;
+        value instanceof Array &amp;&amp;
+        value.length === 0) ||
+      (!props.isFileUpload &amp;&amp;
+        typeof value === &quot;object&quot; &amp;&amp;
+        (value.value === null ||
+          value.value === undefined ||
+          value.value === &quot;&quot;))
+    ) {
+      return &lt;Text&gt;{message || REQUIRED_MESSAGE}&lt;/Text&gt;;
+    }
+  };
+};
+
+export const minLength = (length: number, message?: string) =&gt; {
+  return (value: any) =&gt; {
+    if (hasValue(value) &amp;&amp; value.length &lt; length) {
+      const MINLENGTH_MESSAGE = `Bu alan en az ${length} karakter uzunluğunda olmalıdır`;
+      return &lt;Text&gt;{message || MINLENGTH_MESSAGE}&lt;/Text&gt;;
+    }
+  };
+};
+
+export const maxLength = (length: number, message?: string) =&gt; {
+  return (value: any) =&gt; {
+    if (hasValue(value) &amp;&amp; value.length &gt; length) {
+      const MAXLENGTH_MESSAGE = `Bu alan en fazla ${length} karakter uzunluğunda olmalıdır`;
+      return &lt;Text&gt;{message || MAXLENGTH_MESSAGE}&lt;/Text&gt;;
+    }
+  };
+};
+
+export const email = (message?: string) =&gt; {
+  return (value: any) =&gt; {
+    const EMAIL_MESSAGE = `Bu alan eposta formatında olmalıdır`;
+    if (
+      hasValue(value) &amp;&amp;
+      !/[a-zA-Z0-9!#$%&amp;&#039;*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&amp;&#039;*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9]{2,}(?:[a-zA-Z0-9-]*[a-zA-Z0-9])?/.test(
+        value,
+      )
+    ) {
+      return &lt;Text&gt;{message || EMAIL_MESSAGE}&lt;/Text&gt;;
+    }
+  };
+};
+
+export const minValue = (val: any, message?: string) =&gt; {
+  return (value: any) =&gt; {
+    if (hasValue(value) &amp;&amp; parseFloat(value) &lt; val) {
+      const MINVALUE_MESSAGE = `Bu alan ${val} değerinden küçük olamaz`;
+      return &lt;Text&gt;{message || MINVALUE_MESSAGE}&lt;/Text&gt;;
+    }
+  };
+};
+
+export const maxValue = (val: any, message?: string) =&gt; {
+  return (value: any) =&gt; {
+    const MAXVALUE_MESSAGE = `Bu alan ${val} değerinden büyük olamaz`;
+    if (hasValue(value) &amp;&amp; parseFloat(value) &gt; val) {
+      return &lt;Text&gt;{message || MAXVALUE_MESSAGE}&lt;/Text&gt;;
+    }
+  };
+};
+
+export const numeric = (message?: string) =&gt; {
+  return (value: any) =&gt; {
+    const NUMERIC_MESSAGE = `Bu alan numerik formatında olmalıdır`;
+    if (hasValue(value) &amp;&amp; !/^\d+$/.test(value)) {
+      return &lt;Text&gt;{message || NUMERIC_MESSAGE}&lt;/Text&gt;;
+    }
+  };
+};
+
+export const version = (message?: string) =&gt; {
+  return (value: any) =&gt; {
+    const VERSION_MESSAGE = `Bu alan version (ÖR:0.0.1) formatında olmalıdır`;
+    if (hasValue(value) &amp;&amp; !/^(\d+\.)?(\d+\.)?(\*|\d+)$/.test(value)) {
+      return &lt;Text&gt;{message || VERSION_MESSAGE}&lt;/Text&gt;;
+    }
+  };
+};
+
+export const dateFormat = (message: string) =&gt; {
+  return (value: any) =&gt; {
+    const DATE_MESSAGE = `Bu alan tarih (ÖR:11.11.2011) formatında olmalıdır`;
+    if (
+      hasValue(value) &amp;&amp;
+      !/^\s*(3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.((?:19|20)\d{2})\s*$/.test(
+        value,
+      )
+    ) {
+      return &lt;Text&gt;{message || DATE_MESSAGE}&lt;/Text&gt;;
+    }
+  };
+};
+
+export const timeFormat = (message?: string) =&gt; {
+  return (value: any, props: any) =&gt; {
+    const TIME_MESSAGE = `Bu alan saat (ÖR:20:30) formatında olmalıdır`;
+    if (hasValue(value)) {
+      if (
+        (props.getMaskedValue &amp;&amp;
+          !/^([0-1][0-9]|[2][0-3]):([0-5][0-9])$/.test(value)) ||
+        (!props.getMaskedValue &amp;&amp;
+          !/^([0-1][0-9]|[2][0-3])([0-5][0-9])$/.test(value))
+      ) {
+        return &lt;Text&gt;{message || TIME_MESSAGE}&lt;/Text&gt;;
+      }
+    }
+  };
+};
+
+export const fileType = (message?: string) =&gt; {
+  return (value: any) =&gt; {
+    const FILE_TYPE_MESSAGE = &quot;Lütfen uygun tipte dosya seçiniz&quot;;
+    if (hasValue(value) &amp;&amp; value instanceof Array &amp;&amp; value.length === 0) {
+      return &lt;Text&gt;{message || FILE_TYPE_MESSAGE}&lt;/Text&gt;;
+    }
+  };
+};
+
+export const tcknFormat = (message?: string) =&gt; {
+  return (value: any) =&gt; {
+    const TCKN_FORMAT_MESSAGE = &quot;Lütfen uygun tipte dosya seçiniz&quot;;
+    if (hasValue(value)) {
+      value = value.toString();
+
+      let isEleven = /^[0-9]{11}$/.test(value);
+
+      let totalX = 0;
+      for (let i = 0; i &lt; 10; i++) {
+        totalX += Number(value.substr(i, 1));
+      }
+
+      let comparedisRuleX = totalX % 10;
+      let comparedisRuleXString = comparedisRuleX.toString();
+      let isRuleX = comparedisRuleXString === value.substr(10, 1);
+
+      let totalY1 = 0;
+      let totalY2 = 0;
+      for (let i = 0; i &lt; 10; i += 2) {
+        totalY1 += Number(value.substr(i, 1));
+      }
+      for (let i = 1; i &lt; 10; i += 2) {
+        totalY2 += Number(value.substr(i, 1));
+      }
+
+      let comparedisRuleY = (totalY1 * 7 - totalY2) % 10;
+      let comparedisRuleYString = comparedisRuleY.toString();
+      let isRuleY = comparedisRuleYString === value.substr(9, 0);
+
+      if (!isEleven || !isRuleX || !isRuleY) {
+        return &lt;Text&gt;{message || TCKN_FORMAT_MESSAGE}&lt;/Text&gt;;
+      }
+    }
+  };
+};
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">index</h4>
+<p><strong>File:</strong> <code>index.tsx</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">import isNumber from &quot;lodash/isNumber&quot;;
+
+export const getRegex = (regexp: string | RegExp) =&gt; {
+  if (!regexp) return getUnnecessaryRegexp();
+  if (isNumber(regexp)) {
+    switch (regexp) {
+      case RegexpTypes.Numeric:
+        return getNumericRegexp();
+      case RegexpTypes.AlphaNumeric:
+        return getAlphaNumericRegexp();
+      case RegexpTypes.Version:
+        return getVersionRegexp();
+      default:
+        return getUnnecessaryRegexp();
+    }
+  } else if (regexp instanceof RegExp) return regexp;
+  else {
+    try {
+      return new RegExp(regexp);
+    } catch (error) {
+      return getUnnecessaryRegexp();
+    }
+  }
+};
+
+const getUnnecessaryRegexp = () =&gt; {
+  return new RegExp(&quot;&quot;);
+};
+
+const getNumericRegexp = () =&gt; {
+  return new RegExp(&quot;^\\d+$&quot;);
+};
+
+const getAlphaNumericRegexp = () =&gt; {
+  return new RegExp(&quot;/^[a-z0-9]+$/i&quot;);
+};
+
+const getVersionRegexp = () =&gt; {
+  return new RegExp(&quot;[0-9.]+$&quot;);
+};
+
+export const validateText = (text: string, regex: any) =&gt; {
+  if (!regex || !(regex instanceof RegExp)) return false;
+  return regex.test(text);
+};
+
+export const replaceText = (text: string, regex: any) =&gt; {
+  if (!regex || !(regex instanceof RegExp)) return text;
+  let tempReg = text.replace(regex, &quot;&quot;);
+  return text.replace(tempReg, &quot;&quot;);
+};
+
+export const RegexpTypes = {
+  Numeric: 1,
+  AlphaNumeric: 2,
+  Version: 3,
+};
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">index</h4>
+<p><strong>File:</strong> <code>index.ts</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">export const getEvent = function (event: any) {
+  let eventToSend;
+  if (event.nativeEvent &amp;&amp; event.nativeEvent.key) {
+    eventToSend = {
+      target: {
+        value: event.nativeEvent.key,
+      },
+    };
+  } else if (event.nativeEvent) {
+    eventToSend = {
+      target: {
+        value: event.nativeEvent.text,
+        checked: event.nativeEvent.checked,
+      },
+    };
+  } else {
+    eventToSend = event;
+  }
+
+  return eventToSend;
+};
+</code></pre>
+<hr />
+<h4 class="c_head load-order-2">package</h4>
+<p><strong>File:</strong> <code>package.json</code></p>
+<p>No props found.</p>
+<pre><code class="language-typescript" data-lang="typescript">{
+  &quot;name&quot;: &quot;@phaselis/utils&quot;
+}</code></pre>
+<hr />
+</div>
+</article>

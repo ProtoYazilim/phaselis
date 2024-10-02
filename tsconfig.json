@@ -1,16 +1,51 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
+    "declaration": true,
     "strict": true,
     "paths": {
-      "@/*": [
-        "./*"
+      "@phaselis/components": [
+        "./src/components"
+      ],
+      "@phaselis/components/*": [
+        "./src/components/*"
+      ],
+      "@phaselis/utils/*": [
+        "./src/utils/*"
+      ],
+      "@phaselis/utils": [
+        "./src/utils"
+      ],
+      "@phaselis/hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@phaselis/hooks": [
+        "./src/hooks"
+      ],
+      "@phaselis/hocs/*": [
+        "./src/hocs/*"
+      ],
+      "@phaselis/hocs": [
+        "./src/hocs"
+      ],
+      "@phaselis/theme/*": [
+        "./src/theme/*"
+      ],
+      "@phaselis/theme": [
+        "./src/theme"
+      ],
+      "@phaselis/types/*": [
+        "./src/types/*"
+      ],
+      "@phaselis/types": [
+        "./src/types"
       ]
-    }
+    },
+    "outDir": "./dist/@types",
+    "esModuleInterop": true
   },
   "include": [
-    "**/*.ts",
-    "**/*.tsx",
+    "src/**/*",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
   ]

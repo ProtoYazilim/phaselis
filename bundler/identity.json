@@ -1,0 +1,13 @@
+{
+    "main": "index.js",
+    "author": {
+        "name": "Proto Team",
+        "email": "info@protoyazilim.com",
+        "url": "http://www.protoyazilim.com"
+    },
+    "license": "Proto Yazılım",
+    "publishConfig": {
+        "registry": "https://nexus.protoyazilim.rocks/repository/npm-private"
+    },
+    "dependencies": {}
+}

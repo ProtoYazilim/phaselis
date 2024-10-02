@@ -1,0 +1,9 @@
+{
+  "name": "@phaselis/textfield",
+  "version": "0.0.0",
+  "description": "Proto Native TextField Component",
+  "keywords": "@phaselis,proto,component,textfield",
+  "dependencies": {
+    "react": "^18.0.0"
+  }
+}

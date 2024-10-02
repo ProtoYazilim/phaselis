@@ -1,0 +1,7 @@
+{
+    "name": "@phaselis/stepper",
+    "version": "0.0.0",
+    "description": "Proto Native Stepper Component",
+    "keywords": "@phaselis,proto,component,stepper",
+    "dependencies": {}
+}

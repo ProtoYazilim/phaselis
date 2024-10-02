@@ -1,50 +1,46 @@
-# Welcome to your Expo app 👋
+# Welcome to Phaselis 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Installation
 
-## Get started
+- Run `npm install`
+- Run `npx expo install expo-dev-client`
+- Run `npx expo run:ios --device`
 
-1. Install dependencies
+## To-Do List
 
-   ```bash
-   npm install
-   ```
+- Update the `ALIAS` command
+- Reorganize the folder structure
+- Revisit the icon component (current implementation increases build time due to loading all icons)
+- Consider introducing common types?
+- Load and test fonts (can be done during label component implementation)
+- Remove `defaultProps`
 
-2. Start the app
+## Folder Naming Conventions
 
-   ```bash
-    npx expo start
-   ```
+- Use kebab-case for folder names
+- Use an index file to export
+- Use UpperCamelCase for the main component file
+- Use `assets/styles/index.ts` for styles
+- Use `assets/icons/index.ts` for icons
 
-In the output, you'll find options to open the app in a
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Errors
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### Common 1
 
-## Get a fresh project
+The following build commands failed:
+        PhaseScriptExecution [CP-User]\ [Hermes]\ Replace\ Hermes\ for\ the\ right\ configuration,\ if\ needed /Users/necatisarhanli/Library/Developer/Xcode/DerivedData/phaselis-ddvswxkejuqcwdbstxozaabumzwy/Build/Intermediates.noindex/Pods.build/Debug-iphoneos/hermes-engine.build/Script-46EB2E0001CC30.sh (in target 'hermes-engine' from project 'Pods')
+(1 failure)
 
-When you're ready, run:
+This error can occur due to a misconfiguration in the `ios/.xcode.env.local` file.
+
+#### Solution
+
+To fix this error, you need to delete the `ios/.xcode.env.local` file. You can do this by running the following command in your terminal:
 
 ```bash
-npm run reset-project
-```
+rm ios/.xcode.env.local
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+IOS local development on device profile
+`https://expo.dev/register-device/acbd128f-d35a-41d6-bca7-01e2f4a2b79f`

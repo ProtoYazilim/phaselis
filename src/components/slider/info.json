@@ -1,0 +1,9 @@
+{
+    "name": "@phaselis/slider",
+    "version": "0.0.0",
+    "description": "Proto Native Slider Component",
+    "keywords": "@phaselis,proto,component,slider",
+    "dependencies": {
+        "@react-native-community/slider": "^4.5.2"
+    }
+}

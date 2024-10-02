@@ -1,0 +1,10 @@
+{
+    "name": "@phaselis/datepicker",
+    "version": "0.0.0",
+    "description": "Proto Native Datepicker Component",
+    "keywords": "@phaselis,proto,component,form",
+    "dependencies": {
+        "react-native-date-picker": "^5.0.7",
+        "date-fns": "^3.6.0"
+    }
+}

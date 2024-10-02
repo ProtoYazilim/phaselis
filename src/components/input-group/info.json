@@ -1,0 +1,7 @@
+{
+    "name": "@phaselis/input-group",
+    "version": "0.0.0",
+    "description": "Proto Native Datepicker Component",
+    "keywords": "@phaselis,proto,component,form,input,group",
+    "dependencies": {}
+}

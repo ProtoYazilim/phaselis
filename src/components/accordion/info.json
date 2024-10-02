@@ -1,0 +1,9 @@
+{
+  "name": "@phaselis/accordion",
+  "version": "0.0.0",
+  "description": "Proto Native Accordion Component",
+  "keywords": "@phaselis,proto,component,accordion",
+  "dependencies": {
+    "react-native-reanimated": "^3.0.0"
+  }
+}

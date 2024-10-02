@@ -6,9 +6,7 @@ import { FormContext } from "@phaselis/components/form";
 
 const InputHOC = <P extends React.PropsWithRef<any>>(
   WrappedComponent: React.ComponentType<P>,
-): React.ForwardRefExoticComponent<
-  React.PropsWithoutRef<P> & React.RefAttributes<any>
-> => {
+): React.ForwardRefExoticComponent<P & React.RefAttributes<any>> => {
   const ConsumedComponent = React.forwardRef<
     any,
     P & { name?: string; partofform?: boolean; onChange: any; onBlur: any }
@@ -73,7 +71,8 @@ const InputHOC = <P extends React.PropsWithRef<any>>(
 
     return (
       <WrappedComponent
-        {...(props as any)}
+        //@ts-ignore
+        {...(props as P)}
         {...inputProps}
         onChange={onChangeInput}
         onBlur={onBlurInput}
@@ -85,9 +84,7 @@ const InputHOC = <P extends React.PropsWithRef<any>>(
   return hoistNonReactStatics(
     ConsumedComponent,
     WrappedComponent,
-  ) as React.ForwardRefExoticComponent<
-    React.PropsWithoutRef<P> & React.RefAttributes<any>
-  >;
+  ) as React.ForwardRefExoticComponent<P & React.RefAttributes<any>>;
 };
 
 export default InputHOC;

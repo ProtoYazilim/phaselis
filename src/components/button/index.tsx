@@ -107,6 +107,7 @@ const Button: FC<ButtonPropTypes> = ({
         disabled={disabled}
         style={getCombinedStyle("element")}
         collapsable={true}
+        {...extraProps}
       >
         <Slot
           style={getCombinedStyle("leftSlot")}

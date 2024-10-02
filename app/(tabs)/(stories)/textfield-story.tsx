@@ -33,15 +33,16 @@ const TextfieldStory = () => {
           <InputGroup label="test" message="test123123">
             <Textfield
               name="4"
-              LeftSlot={({ themeStyle }: { themeStyle: any }) => (
+              LeftSlot={({ themeStyle }) => (
                 <LucideIcon name={"Star"} style={{ ...themeStyle }} />
               )}
-              RightSlot={({ themeStyle }: { themeStyle: any }) => (
+              RightSlot={({ themeStyle }) => (
                 <LucideIcon name={icon} style={{ ...themeStyle }} />
               )}
               size="md"
               validations={[required("required")]}
               placeholder="placeholder"
+              disabled
             />
           </InputGroup>
           <InputGroup

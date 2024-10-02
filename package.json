@@ -1,6 +1,6 @@
 {
   "name": "phaselis",
-  "version": "0.0.1-alpha.4",
+  "version": "0.0.1-alpha.5",
   "main": "expo-router/entry",
   "module": "package/index.js",
   "types": "package/index.d.ts",

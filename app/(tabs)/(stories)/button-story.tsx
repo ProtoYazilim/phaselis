@@ -11,6 +11,7 @@ const ButtonExample = () => {
           text="Custom"
           size="sm"
           primary
+          half
           disabled
           style={{
             container: {

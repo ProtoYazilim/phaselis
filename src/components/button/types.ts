@@ -1,7 +1,19 @@
-import { GestureResponderEvent, TextStyle, ViewStyle } from "react-native";
-import { IBasePropType, SlotIconName, SlotChildComponent } from "@phaselis/types";
+import {
+  GestureResponderEvent,
+  PressableProps,
+  TextStyle,
+  ViewStyle,
+} from "react-native";
+import { SlotIconName, SlotChildComponent } from "@phaselis/types";
 import { MouseEvent, ReactNode } from "react";
-export interface ButtonPropTypes extends IBasePropType {
+
+export interface ButtonPropTypes extends Omit<PressableProps, "style"> {
+  id?: string;
+  children?: ReactNode | any | Element;
+  disabled?: boolean;
+  className?: string;
+  name?: string;
+  contextValue?: any;
   style?: ButtonStyles;
   text?: string;
   onClick?: (event: MouseEvent<HTMLElement> | GestureResponderEvent) => void;

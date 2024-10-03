@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import Context from "../context";
 
-function useTheme<T>() {
+function useColors<T>() {
   const context = useContext(Context);
 
   if (!context) {
@@ -11,4 +11,4 @@ function useTheme<T>() {
   return context.theme.root.colors as T;
 }
 
-export default useTheme;
+export default useColors;

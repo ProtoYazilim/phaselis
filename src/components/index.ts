@@ -13,7 +13,13 @@ import Link from "./link"; // Link
 import List from "./list"; // List
 import LucideIcon from "./lucide-icon"; // LucideIcon
 import Popup from "./popup"; // Popup
-import Provider from "./provider"; // Provider
+import Provider, {
+  PhaselisContext,
+  PhaselisHOC,
+  useColors,
+  useSpacings,
+  useTheme,
+} from "./provider"; // Provider
 import Radio, { RadioGroup } from "./radio"; // Radio
 import Row from "./row"; // Row
 import Select from "./select"; // Select
@@ -39,7 +45,14 @@ export { Link }; // Link
 export { List }; // List
 export { LucideIcon }; // LucideIcon
 export { Popup }; // Popup
-export { Provider }; // Provider
+export {
+  Provider,
+  PhaselisContext,
+  PhaselisHOC,
+  useColors,
+  useSpacings,
+  useTheme,
+}; // Provider
 export { Radio, RadioGroup }; // Radio & RadioGroup
 export { Row }; // Row
 export { Select }; // Select

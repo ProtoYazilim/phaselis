@@ -1,10 +1,11 @@
+import React, { FC } from "react";
 import { View, Text } from "react-native";
 import stylesheet from "./assets/styles";
 import { PhaselisHOC } from "@phaselis/components/provider";
 import { LabelProps } from "./types";
 import { useCombinedStyle } from "@phaselis/hooks";
 
-const Label = (props: LabelProps) => {
+const Label: FC<LabelProps> = (props) => {
   const {
     text,
     style,

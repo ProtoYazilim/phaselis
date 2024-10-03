@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 import { Text } from "react-native";
 
-const hasValue = (value: any) => {
+export const hasValue = (value: any) => {
   return !(value === null || value === undefined || value === "");
 };
 

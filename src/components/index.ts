@@ -29,7 +29,9 @@ import Stepper from "./stepper"; // Stepper
 import Switch from "./switch"; // Switch
 import TabView, { TabHeader, TabHeaderItem, TabItem } from "./tab-view"; // TabView
 import Textfield from "./textfield"; // Textfield
+import BottomSheet from "./bottom-sheet";
 
+export { BottomSheet }; // BottomSheet
 export { AccordionList, AccordionItem, Accordion }; // Accordion
 export { Badge }; // Badge
 export { Block }; // Block

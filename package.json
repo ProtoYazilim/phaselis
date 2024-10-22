@@ -47,9 +47,6 @@
     "lodash": "^4.17.21",
     "lucide-react-native": "^0.379.0",
     "path": "^0.12.7",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-native": "0.74.5",
     "react-native-awesome-slider": "^2.5.3",
     "react-native-date-picker": "^5.0.7",
     "react-native-gesture-handler": "~2.16.1",
@@ -61,7 +58,10 @@
     "react-native-screens": "3.31.1",
     "react-native-svg": "15.2.0",
     "react-native-unistyles": "^2.7.2",
-    "react-native-web": "~0.19.10"
+    "react-native-web": "~0.19.10",
+    "react-native": "0.74.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "peerDependencies": {
     "expo": "~51.0.28",

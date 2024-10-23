@@ -67,7 +67,7 @@ const config: Config = {
     colorMode: {
       defaultMode: "light",
       disableSwitch: false,
-      respectPrefersColorScheme: false,
+      respectPrefersColorScheme: true,
     },
     image: "img/docusaurus-social-card.jpg",
     navbar: {

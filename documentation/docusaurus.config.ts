@@ -63,7 +63,7 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
+    // Replace with your  project's social card
     colorMode: {
       defaultMode: "light",
       disableSwitch: false,
@@ -75,7 +75,7 @@ const config: Config = {
       logo: {
         alt: "Phaselis Logo",
         src: "img/phaselis-logo-dark.svg",
-        srcDark: "img/phaselis-logo-light.svg"
+        srcDark: "img/phaselis-logo-light.svg",
       },
       items: [
         {

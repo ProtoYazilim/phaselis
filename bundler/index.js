@@ -15,6 +15,7 @@ const getInputOptions = (componentName) => ({
     "react-native",
     "lucide-react-native",
     "react-native-unistyles",
+    "react-native-reanimated",
     "react-native-date-picker",
     "date-fns",
     "expo-router",
@@ -33,7 +34,7 @@ const getInputOptions = (componentName) => ({
         `components/${componentName}/**/*.ts+(|x)`,
         `components/${componentName}/**/*.js+(|x)`,
       ],
-      exclude: ["node_modules"],
+      exclude: ["node_modules", "react-native-reanimated"],
       compilerOptions: {
         emitDeclarationOnly: true,
         strict: false,

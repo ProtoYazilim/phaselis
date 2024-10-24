@@ -27,7 +27,9 @@ const ButtonExample = () => {
               color: "white",
             },
           }}
-        />
+        >
+          Custom
+        </Button>
         <Button
           leftIcon="Apple"
           rightIcon="ChevronRight"

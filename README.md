@@ -5,7 +5,7 @@
 - Run `npm install`
 - Run `npx expo install expo-dev-client`
 - Run `npx expo run:ios --device`
-- 
+
 ## To-Do List
 
 - Update the `ALIAS` command

@@ -1,12 +1,5 @@
-import React, { useEffect } from "react";
-import { Pressable, View } from "react-native";
-import Animated, {
-  interpolate,
-  interpolateColor,
-  useAnimatedStyle,
-  useSharedValue,
-  withTiming,
-} from "react-native-reanimated";
+import React, { useEffect, useRef } from "react";
+import { Pressable, View, Animated, Easing } from "react-native";
 import { SwitchProps } from "./types";
 import { PhaselisHOC } from "@phaselis/components/provider";
 import { InputHOC } from "@phaselis/utils";
@@ -34,71 +27,57 @@ const Switch = ({
       ...extraProps,
     });
 
-  const height = useSharedValue(0);
-  const width = useSharedValue(0);
-
-  const animatedValue = useSharedValue(Number(value));
+  const height = useRef(new Animated.Value(0)).current;
+  const width = useRef(new Animated.Value(0)).current;
+  const animatedValue = useRef(new Animated.Value(Number(value))).current;
 
   useEffect(() => {
-    animatedValue.value = Number(value);
+    Animated.timing(animatedValue, {
+      toValue: Number(value),
+      duration,
+      easing: Easing.linear,
+      useNativeDriver: false, // Make sure to useNativeDriver for performance in animations
+    }).start();
   }, [value, animatedValue]);
 
-  const trackAnimatedStyle = useAnimatedStyle(() => {
-    const onColor =
-      propStyle?.track?.onColor ||
-      themeStyles?.track?.onColor ||
-      defaultStyles?.track?.onColor;
+  const trackAnimatedStyle = {
+    backgroundColor: animatedValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: [
+        propStyle?.track?.offColor ||
+          themeStyles?.track?.offColor ||
+          defaultStyles?.track?.offColor,
+        propStyle?.track?.onColor ||
+          themeStyles?.track?.onColor ||
+          defaultStyles?.track?.onColor,
+      ],
+    }),
+    borderRadius: Animated.divide(height, 2),
+  };
 
-    const offColor =
-      propStyle?.track?.offColor ||
-      themeStyles?.track?.offColor ||
-      defaultStyles?.track?.offColor;
-
-    const color = interpolateColor(
-      animatedValue.value,
-      [0, 1],
-      [offColor, onColor],
-    );
-    const colorValue = withTiming(color, { duration });
-
-    return {
-      backgroundColor: colorValue,
-      borderRadius: height.value / 2,
-    };
-  });
-
-  const thumbAnimatedStyle = useAnimatedStyle(() => {
-    const moveValue = interpolate(
-      Number(animatedValue.value),
-      [0, 1],
-      [3, width.value - 3 - height.value],
-    );
-    const translateValue = withTiming(moveValue, { duration });
-
-    const onColor =
-      propStyle?.thumb?.onColor ||
-      themeStyles?.thumb?.onColor ||
-      defaultStyles?.thumb?.onColor;
-
-    const offColor =
-      propStyle?.thumb?.offColor ||
-      themeStyles?.thumb?.offColor ||
-      defaultStyles?.thumb?.offColor;
-
-    const color = interpolateColor(
-      animatedValue.value,
-      [0, 1],
-      [offColor, onColor],
-    );
-
-    const colorValue = withTiming(color, { duration });
-
-    return {
-      transform: [{ translateX: translateValue }],
-      borderRadius: height.value / 2,
-      backgroundColor: colorValue,
-    };
-  });
+  const thumbAnimatedStyle = {
+    transform: [
+      {
+        translateX: animatedValue.interpolate({
+          inputRange: [0, 1],
+          //@ts-ignore
+          outputRange: [3, width.__getValue() - 3 - height.__getValue()],
+        }),
+      },
+    ],
+    borderRadius: Animated.divide(height, 2),
+    backgroundColor: animatedValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: [
+        propStyle?.thumb?.offColor ||
+          themeStyles?.thumb?.offColor ||
+          defaultStyles?.thumb?.offColor,
+        propStyle?.thumb?.onColor ||
+          themeStyles?.thumb?.onColor ||
+          defaultStyles?.thumb?.onColor,
+      ],
+    }),
+  };
 
   const handlePress = () => {
     onChange?.(null, !value);
@@ -115,8 +94,8 @@ const Switch = ({
       >
         <Animated.View
           onLayout={(e) => {
-            height.value = e.nativeEvent.layout.height;
-            width.value = e.nativeEvent.layout.width;
+            height.setValue(e.nativeEvent.layout.height);
+            width.setValue(e.nativeEvent.layout.width);
           }}
           style={[...getCombinedStyle("track"), trackAnimatedStyle]}
         >

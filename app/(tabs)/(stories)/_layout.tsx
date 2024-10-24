@@ -171,13 +171,6 @@ export default function Layout() {
           title: "Tab View Story",
         }}
       />
-      <Drawer.Screen
-        name="test-tab-story"
-        options={{
-          drawerLabel: "Test Tab View",
-          title: "Temp Tab View Story",
-        }}
-      />
     </Drawer>
   );
 }

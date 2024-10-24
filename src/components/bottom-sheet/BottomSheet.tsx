@@ -1,78 +1,83 @@
-import React from "react";
-import { StyleSheet, TouchableOpacity } from "react-native";
-import Animated, {
-  useSharedValue,
-  useAnimatedStyle,
-  useDerivedValue,
-  withDelay,
-  withTiming,
-} from "react-native-reanimated";
+import React, { useEffect } from "react";
+import { StyleSheet, TouchableOpacity, Modal, Animated } from "react-native";
 
-function BottomSheet({
-  isOpen,
+interface BottomSheetProps {
+  show: boolean;
+  duration?: number;
+  children: React.ReactNode;
+  onClose: () => void;
+}
+
+const BottomSheet = ({
+  show = false,
   duration = 500,
   children,
   onClose,
-  fullScreen,
-}: any) {
-  const height = useSharedValue(0);
-  const progress = useDerivedValue(() =>
-    withTiming(isOpen.value ? 0 : 1, { duration }),
-  );
+}: BottomSheetProps) => {
+  const translateY = new Animated.Value(300);
 
-  const sheetStyle = useAnimatedStyle(() => ({
-    transform: [{ translateY: progress.value * height.value }],
-  }));
+  useEffect(() => {
+    if (show) {
+      // Animate to open position
+      Animated.timing(translateY, {
+        toValue: 0,
+        duration,
+        useNativeDriver: true,
+      }).start();
+    } else {
+      // Animate to closed position and then close the modal
+      Animated.timing(translateY, {
+        toValue: 300, // Start position
+        duration,
+        useNativeDriver: true,
+      }).start(() => {
+        onClose?.(); // Close modal after animation completes
+      });
+    }
+  }, [show, duration]);
 
-  const backdropStyle = useAnimatedStyle(() => ({
-    opacity: 1 - progress.value,
-    zIndex: isOpen.value
-      ? 1
-      : withDelay(duration, withTiming(-1, { duration: 0 })),
-  }));
+  const backdropStyle = {
+    opacity: show ? 1 : 0,
+    zIndex: show ? 1 : -1,
+  };
 
   const handleClose = () => {
-    if (isOpen.value) {
-      onClose();
+    if (show) {
+      // Trigger close animation
+      Animated.timing(translateY, {
+        toValue: 300, // Start position
+        duration,
+        useNativeDriver: true,
+      }).start(() => {
+        onClose?.(); // Close modal after animation completes
+      });
     }
   };
 
   return (
-    <>
+    <Modal transparent={true} visible={show} animationType="fade">
       <Animated.View style={[sheetStyles.backdrop, backdropStyle]}>
         <TouchableOpacity style={{ flex: 1 }} onPress={handleClose} />
       </Animated.View>
       <Animated.View
-        onLayout={(e) => {
-          height.value = e.nativeEvent.layout.height;
-        }}
-        style={[
-          sheetStyles.sheet,
-          sheetStyle,
-          { height: fullScreen ? "98%" : "auto" },
-        ]}
+        style={[sheetStyles.sheet, { transform: [{ translateY }] }]}
       >
         {children}
       </Animated.View>
-    </>
+    </Modal>
   );
-}
+};
 
 const sheetStyles = StyleSheet.create({
   sheet: {
-    padding: 16,
-    paddingRight: 10,
-    paddingLeft: 10,
     width: "100%",
     position: "absolute",
     bottom: 0,
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
-    height: "100%",
     zIndex: 2,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "white",
+    backgroundColor: "#f5f7fa",
+    padding: 20,
   },
   backdrop: {
     ...StyleSheet.absoluteFillObject,

@@ -1,12 +1,12 @@
-import React, { FC } from "react";
-import { TouchableOpacity, View, Text } from "react-native";
-import Animated, {
-  useSharedValue,
-  useAnimatedStyle,
-  useDerivedValue,
-  withDelay,
-  withTiming,
-} from "react-native-reanimated";
+import React, { FC, useEffect } from "react";
+import {
+  Pressable,
+  View,
+  Text,
+  Animated,
+  Modal,
+  StyleSheet,
+} from "react-native";
 import stylesheet from "./assets/styles";
 import { PhaselisHOC } from "@phaselis/components/provider";
 import { Slot } from "@phaselis/components";
@@ -14,7 +14,7 @@ import { useCombinedStyle } from "@phaselis/hooks";
 import { PopupProps } from "./types";
 
 const Popup: FC<PopupProps> = ({
-  isOpen,
+  show,
   duration = 500,
   children,
   onClose,
@@ -26,28 +26,45 @@ const Popup: FC<PopupProps> = ({
   title,
   ...extraProps
 }: any) => {
-  const height = useSharedValue(0);
-  const progress = useDerivedValue(() =>
-    withTiming(isOpen.value ? 0 : 1, { duration }),
-  );
+  const translateY = new Animated.Value(300);
 
-  const sheetStyle = useAnimatedStyle(() => ({
-    transform: [{ translateY: progress.value * height.value }],
-  }));
-
-  const backdropStyle = useAnimatedStyle(() => ({
-    opacity: 1 - progress.value,
-    zIndex: isOpen.value
-      ? 1
-      : withDelay(duration, withTiming(-1, { duration: 0 })),
-  }));
-
-  const handleClose = () => {
-    if (isOpen.value) {
-      onClose();
+  useEffect(() => {
+    if (show) {
+      // Animate to open position
+      Animated.timing(translateY, {
+        toValue: 0,
+        duration,
+        useNativeDriver: true,
+      }).start();
+    } else {
+      // Animate to closed position and then close the modal
+      Animated.timing(translateY, {
+        toValue: 300, // Start position
+        duration,
+        useNativeDriver: true,
+      }).start(() => {
+        onClose?.(); // Close modal after animation completes
+      });
     }
+  }, [show, duration]);
+
+  const backdropStyle = {
+    opacity: show ? 1 : 0,
+    zIndex: show ? 1 : -1,
   };
 
+  const handleClose = () => {
+    if (show) {
+      // Trigger close animation
+      Animated.timing(translateY, {
+        toValue: 300, // Start position
+        duration,
+        useNativeDriver: true,
+      }).start(() => {
+        onClose?.(); // Close modal after animation completes
+      });
+    }
+  };
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
     style,
@@ -56,17 +73,15 @@ const Popup: FC<PopupProps> = ({
   );
 
   return (
-    <>
+    <Modal transparent={true} visible={show} animationType="fade">
       <Animated.View style={[...getCombinedStyle("backDrop"), backdropStyle]}>
-        <TouchableOpacity style={{ flex: 1 }} onPress={handleClose} />
+        <Pressable style={{ flex: 1 }} onPress={handleClose} />
       </Animated.View>
       <Animated.View
-        onLayout={(e) => {
-          height.value = e.nativeEvent.layout.height;
-        }}
         style={[
           ...getCombinedStyle("container"),
-          sheetStyle,
+          sheetStyles,
+          { transform: [{ translateY }] },
           {
             height: fullScreen ? "100%" : "auto",
             flexDirection: "row",
@@ -99,8 +114,25 @@ const Popup: FC<PopupProps> = ({
           onClick={handleClose}
         />
       </Animated.View>
-    </>
+    </Modal>
   );
 };
+
+const sheetStyles = StyleSheet.create({
+  sheet: {
+    width: "100%",
+    position: "absolute",
+    bottom: 0,
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+    zIndex: 2,
+    backgroundColor: "#f5f7fa",
+    padding: 20,
+  },
+  backdrop: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: "rgba(0, 0, 0, 0.3)",
+  },
+});
 
 export default PhaselisHOC<PopupProps, PopupExtraProps>(Popup);

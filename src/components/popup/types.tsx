@@ -1,8 +1,7 @@
 import { SlotIconName } from "@phaselis/types";
-import { SharedValue } from "react-native-reanimated";
 
 interface PopupProps {
-  isOpen?: boolean | SharedValue<Boolean>;
+  show?: boolean;
   duration?: number;
   onClose: any;
   fullScreen?: boolean;

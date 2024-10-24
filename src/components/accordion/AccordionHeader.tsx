@@ -1,15 +1,10 @@
-import React, { useEffect } from "react";
-import { Pressable, Text, StyleSheet, View } from "react-native";
+import React, { useEffect, useRef } from "react";
+import { Pressable, Text, StyleSheet, View, Animated } from "react-native";
 import { AccordionHeaderProps } from "./types";
 import { PhaselisHOC } from "@phaselis/components/provider";
 import { useStyles } from "react-native-unistyles";
 import { stylesheet_header as stylesheet } from "./assets/styles";
 import { LucideChevronDown } from "lucide-react-native";
-import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-  withTiming,
-} from "react-native-reanimated";
 import LucideIcon from "@phaselis/components/lucide-icon";
 
 const AccordionHeader = ({
@@ -40,26 +35,29 @@ const AccordionHeader = ({
     size,
   });
 
+  const rotation = useRef(new Animated.Value(0)).current;
+
   useEffect(() => {
     rotateAnimation();
   }, [expanded]);
 
-  const rotation = useSharedValue(0);
-
   const rotateAnimation = () => {
-    rotation.value = withTiming(
-      expanded ? 180 : 0,
-      {
-        duration: 500,
-      },
-      () => {},
-    );
+    Animated.timing(rotation, {
+      toValue: expanded ? 1 : 0,
+      duration: 500,
+      useNativeDriver: true,
+    }).start();
   };
-  const animatedStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{ rotate: `${rotation.value}deg` }],
-    };
+
+  const rotateInterpolate = rotation.interpolate({
+    inputRange: [0, 1],
+    outputRange: ["0deg", "180deg"],
   });
+
+  const animatedStyle = {
+    transform: [{ rotate: rotateInterpolate }],
+  };
+
   return (
     <Pressable
       onPress={onPress}

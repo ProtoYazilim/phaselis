@@ -1,0 +1,133 @@
+---
+id: badge
+category: 'data-display'
+title: Badge
+version: '0.1'
+description:
+  The Badge component is a small label used to display additional information, such as a status, count, or tag.
+---
+
+## Import
+
+Phaselis exports one main component for Badge.
+
+```js
+import { Badge } from "@phaselis/components";
+```
+
+- **Badge:** Main Component import for Badge
+
+## Usage
+
+### Basic Badge
+
+```jsx
+<Badge text="999+" secondary left={-20} top={-4}>
+    <Avatar text="NA" />
+</Badge>
+```
+
+### Badge with Input Field
+
+```jsx
+<Badge text="1" primary left={-15} top={-4}>
+    <Textfield />
+</Badge>
+```
+
+## Props
+
+Badge has several customizable props to define its appearance and behavior.
+
+### text
+`string`
+
+The text displayed inside the badge.
+
+```jsx
+<Badge text="Badge">
+    <Avatar text="NA" />
+</Badge> 
+```
+
+### primary
+`boolean`
+
+If `true`, applies the primary badge style.
+
+```jsx
+<Badge text="Badge" primary >
+    <Avatar text="NA" />
+</Badge> 
+```
+
+### secondary
+`boolean`
+
+If `true`, applies the secondary badge style.
+
+```jsx
+<Badge text="Badge" secondary >
+    <Avatar text="NA" />
+</Badge> 
+```
+
+### tertiary
+`boolean`
+
+If `true`, applies the tertiary badge style.
+
+```jsx
+<Badge text="Badge" tertiary >
+    <Avatar text="NA" />
+</Badge> 
+```
+
+### outline
+`boolean`
+
+If `true`, applies an outline around the badge for emphasis.
+
+```jsx
+<Badge text="Badge" outline >
+    <Avatar text="NA" />
+</Badge> 
+```
+
+### style
+| Name | Type | Description |
+| ---- | ---- | ----  | 
+| `container` | ViewStyle | The style for the badge’s container element. |
+| `element` | ViewStyle | The style applied to the badge itself. |
+| `text` | TextStyle | The style applied to the text inside the badge. |
+
+You can style the badge with the `style` prop using React.CSSProperties.
+
+
+
+```jsx  
+<Badge
+    text="test"
+    style={{
+        element: {
+        backgroundColor: "red",
+        },
+        text: {
+        color: "black",
+        },
+    }}
+    >
+    <Avatar text="VA" />
+</Badge>
+```
+
+### top | right | bottom | left 
+`number`
+
+Optional positioning values to adjust the badge’s placement.
+
+```jsx
+<Badge text="Badge" tertiary outline left={10} top={85}>
+    <Avatar text="VA" />
+</Badge>
+```

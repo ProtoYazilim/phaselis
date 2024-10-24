@@ -1,10 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Text, Pressable } from "react-native";
-import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-  withSpring,
-} from "react-native-reanimated";
+import React, { useState, useEffect, useContext, useRef } from "react";
+import { Text, Pressable, Animated } from "react-native";
 import RadioContext from "./context";
 import { RadioProps } from "./types";
 import { PhaselisHOC } from "@phaselis/components/provider";
@@ -24,7 +19,7 @@ const Radio = ({
   ...extraProps
 }: RadioProps) => {
   const [checked, setChecked] = useState(false);
-  const animationScale = useSharedValue(0);
+  const animationScale = useRef(new Animated.Value(0)).current; // Replacing useSharedValue with useRef
   const radioContext = useContext(RadioContext);
 
   const handlePress = () => {
@@ -39,19 +34,30 @@ const Radio = ({
   }, [radioContext.groupValue, value]);
 
   useEffect(() => {
-    animationScale.value = withSpring(checked ? (width + height) / 2 : 0, {
-      damping: 12,
-      stiffness: 100,
-    });
+    // Use Animated.spring to mimic the spring animation from
+    Animated.spring(animationScale, {
+      toValue: checked ? (width + height) / 2 : 0,
+      useNativeDriver: false,
+      friction: 10, // Adjusted friction to mimic damping
+      tension: 100, // Adjusted tension to mimic stiffness
+    }).start();
   }, [checked, animationScale, width, height]);
 
-  const animatedStyle = useAnimatedStyle(() => {
-    return {
-      width: animationScale.value - 10,
-      height: animationScale.value - 10,
-      borderRadius: (animationScale.value - 10) / 2,
-    };
-  });
+  // Use the animated value for styling
+  const animatedStyle = {
+    width: animationScale.interpolate({
+      inputRange: [0, (width + height) / 2],
+      outputRange: [0, width - 10],
+    }),
+    height: animationScale.interpolate({
+      inputRange: [0, (width + height) / 2],
+      outputRange: [0, height - 10],
+    }),
+    borderRadius: animationScale.interpolate({
+      inputRange: [0, (width + height) / 2],
+      outputRange: [0, (width - 10) / 2],
+    }),
+  };
 
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,

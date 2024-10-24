@@ -13,6 +13,7 @@ const Label: FC<LabelProps> = (props) => {
     adjustsFontSizeToFit,
     minimumFontScale,
     contextValue,
+    children,
   } = props;
 
   const { getCombinedStyle } = useCombinedStyle(
@@ -30,7 +31,21 @@ const Label: FC<LabelProps> = (props) => {
         adjustsFontSizeToFit={adjustsFontSizeToFit}
         minimumFontScale={minimumFontScale}
       >
-        {text}
+        {children ? (
+          React.Children.map(children, (child, index) => {
+            if (typeof child === "string") {
+              return (
+                <Text key={index} style={getCombinedStyle("text")}>
+                  {child}
+                </Text>
+              );
+            } else {
+              return child;
+            }
+          })
+        ) : (
+          <Text style={getCombinedStyle("text")}>{text}</Text>
+        )}
       </Text>
     </View>
   );

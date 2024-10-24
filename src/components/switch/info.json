@@ -2,8 +2,5 @@
   "name": "@phaselis/switch",
   "version": "0.0.0",
   "description": "Proto Native Switch Component",
-  "keywords": "@phaselis,proto,component,switch",
-  "dependencies": {
-    "react-native-reanimated": "^3.0.0"
-  }
+  "keywords": "@phaselis,proto,component,switch"
 }

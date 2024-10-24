@@ -1,48 +1,55 @@
 import { Block, Button, Popup } from "@phaselis/components";
-import React from "react";
+import { set } from "lodash";
+import React, { useState } from "react";
 import { SafeAreaView, StyleSheet, Text } from "react-native";
-import { useSharedValue } from "react-native-reanimated";
 
 function PopupStory() {
-  const isOpen = useSharedValue(false);
+  const [show, setShow] = useState(false);
+  const [show1, setShow1] = useState(false);
+  const [show2, setShow2] = useState(false);
+  const [show3, setShow3] = useState(false);
+  const [show4, setShow4] = useState(false);
 
-  const toggleSheet = () => {
-    isOpen.value = !isOpen.value;
-  };
-
-  const isOpen2 = useSharedValue(false);
-
-  const toggleSheet2 = () => {
-    isOpen2.value = !isOpen2.value;
-  };
-
-  const isOpen3 = useSharedValue(false);
-
-  const toggleSheet3 = () => {
-    isOpen3.value = !isOpen3.value;
-  };
-
-  const isOpen4 = useSharedValue(false);
-
-  const toggleSheet4 = () => {
-    isOpen4.value = !isOpen4.value;
-  };
-
-  const isOpen5 = useSharedValue(false);
-
-  const toggleSheet5 = () => {
-    isOpen5.value = !isOpen5.value;
-  };
   return (
     <SafeAreaView style={styles.container}>
       <Block style={{ marginLeft: 10, marginRight: 10, gap: 10 }}>
-        <Button text="Show Popup" onClick={toggleSheet} />
-        <Button text="Show Info" onClick={toggleSheet2} />
-        <Button text="Show Warning" onClick={toggleSheet3} />
-        <Button text="Show Error" onClick={toggleSheet4} />
-        <Button text="Show Success" onClick={toggleSheet5} />
+        <Button
+          text="Show Popup"
+          onClick={() => {
+            setShow(true);
+          }}
+        />
+        <Button
+          text="Show Info"
+          onClick={() => {
+            setShow1(true);
+          }}
+        />
+        <Button
+          text="Show Warning"
+          onClick={() => {
+            setShow2(true);
+          }}
+        />
+        <Button
+          text="Show Error"
+          onClick={() => {
+            setShow3(true);
+          }}
+        />
+        <Button
+          text="Show Success"
+          onClick={() => {
+            setShow4(true);
+          }}
+        />
       </Block>
-      <Popup isOpen={isOpen} onClose={toggleSheet}>
+      <Popup
+        show={show}
+        onClose={() => {
+          setShow(false);
+        }}
+      >
         <Text>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
           dolores quos iure tenetur eius accusantium blanditiis, officia labore
@@ -51,8 +58,10 @@ function PopupStory() {
         </Text>
       </Popup>
       <Popup
-        isOpen={isOpen2}
-        onClose={toggleSheet2}
+        show={show1}
+        onClose={() => {
+          setShow1(false);
+        }}
         title="Info"
         style={{
           container: {
@@ -69,8 +78,10 @@ function PopupStory() {
         </Text>
       </Popup>
       <Popup
-        isOpen={isOpen3}
-        onClose={toggleSheet3}
+        show={show2}
+        onClose={() => {
+          setShow2(false);
+        }}
         title="Warning"
         style={{
           container: {
@@ -87,8 +98,10 @@ function PopupStory() {
         </Text>
       </Popup>
       <Popup
-        isOpen={isOpen4}
-        onClose={toggleSheet4}
+        show={show3}
+        onClose={() => {
+          setShow3(false);
+        }}
         title="Error"
         style={{
           container: {
@@ -105,8 +118,10 @@ function PopupStory() {
         </Text>
       </Popup>
       <Popup
-        isOpen={isOpen5}
-        onClose={toggleSheet5}
+        show={show4}
+        onClose={() => {
+          setShow4(false);
+        }}
         title="Success"
         style={{
           container: {

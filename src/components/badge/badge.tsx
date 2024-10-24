@@ -6,7 +6,7 @@ import { useCombinedStyle } from "@phaselis/hooks";
 
 interface BadgeProps {
   text: string;
-  children: any;
+  children: React.ReactNode;
   primary?: boolean;
   secondary?: boolean;
   tertiary?: boolean;

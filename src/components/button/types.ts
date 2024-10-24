@@ -9,7 +9,7 @@ import { ReactNode } from "react";
 
 export interface ButtonPropTypes extends Omit<PressableProps, "style"> {
   id?: string;
-  children?: ReactNode | any | Element;
+  children?: ReactNode;
   disabled?: boolean;
   contextValue?: any; // private
   style?: ButtonStyles;

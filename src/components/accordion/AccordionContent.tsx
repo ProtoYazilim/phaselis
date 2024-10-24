@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
-import { View } from "react-native";
-import Animated, {
-  useAnimatedStyle,
-  useDerivedValue,
-  useSharedValue,
-  withTiming,
-} from "react-native-reanimated";
+import React, { useEffect, useRef } from "react";
+import { View, Animated, UIManager, Platform } from "react-native";
+
+if (
+  Platform.OS === "android" &&
+  UIManager.setLayoutAnimationEnabledExperimental
+) {
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+}
+
 function AccordionContent({
   isExpanded,
   children,
@@ -13,21 +15,19 @@ function AccordionContent({
   style,
   duration = 500,
 }: any) {
-  const height = useSharedValue(0);
-  const isOpen = useSharedValue(isExpanded);
+  const heightAnimation = useRef(
+    new Animated.Value(isExpanded ? 1 : 0),
+  ).current;
+  const contentHeight = useRef(0); // To store content height
 
   useEffect(() => {
-    isOpen.value = isExpanded;
-  }, [isExpanded]);
-
-  const derivedHeight = useDerivedValue(() =>
-    withTiming(height.value * Number(isOpen.value), {
+    // Animate to contentHeight or 0 based on expansion state
+    Animated.timing(heightAnimation, {
+      toValue: isExpanded ? contentHeight.current : 0,
       duration,
-    }),
-  );
-  const bodyStyle = useAnimatedStyle(() => ({
-    height: derivedHeight.value,
-  }));
+      useNativeDriver: false, // height cannot use native driver
+    }).start();
+  }, [isExpanded, duration]);
 
   return (
     <Animated.View
@@ -36,14 +36,18 @@ function AccordionContent({
         {
           width: "100%",
           overflow: "hidden",
+          height: heightAnimation, // Animate height value
         },
-        bodyStyle,
         style,
       ]}
     >
       <View
         onLayout={(e) => {
-          height.value = e.nativeEvent.layout.height;
+          contentHeight.current = e.nativeEvent.layout.height; // Capture height
+          if (isExpanded) {
+            // If expanded initially, set the correct height
+            heightAnimation.setValue(contentHeight.current);
+          }
         }}
         style={{
           width: "100%",

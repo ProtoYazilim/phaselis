@@ -3,14 +3,14 @@ import { Text, View, TextInput, Pressable } from "react-native";
 import stylesheet from "./assets/styles";
 
 import { PhaselisHOC } from "@phaselis/components/provider";
-import { defaultCheckedSvg, defaultUnCheckedSvg } from "./assets/icons";
 import { InputHOC } from "@phaselis/utils";
 import { CheckboxProps } from "./types";
-import LucideIcon from "@phaselis/components/lucide-icon";
 import { useCombinedStyle } from "@phaselis/hooks";
+import { Slot } from "@phaselis/components";
 
 const Checkbox: React.FC<CheckboxProps> = (props) => {
   const {
+    id,
     disabled,
     text,
     style,
@@ -21,9 +21,10 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
     isUsed,
     error,
     size,
-    checkedSvg = defaultCheckedSvg,
-    unCheckedSvg = defaultUnCheckedSvg,
+    onBlur,
     onChange,
+    iconName = "Check",
+    IconSlot,
     ...extraProps
   } = props;
 
@@ -39,8 +40,6 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
   useEffect(() => {
     setChecked(Boolean(value));
   }, [value]);
-
-  const svg = checked ? checkedSvg : unCheckedSvg; // todo: add svg support
 
   const iconSizeLiteral = {
     xs: 16,
@@ -81,16 +80,20 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
       style={getCombinedStyle("container")}
       onPress={handleChange}
       disabled={disabled}
+      key={`checkbox-${id}`}
+      id={id}
     >
       <View style={getCombinedStyle("element")}>
         {checked ? (
-          <LucideIcon
-            name={"Check"}
+          <Slot
             style={getCombinedStyle("icon")}
+            icon={iconName}
+            strokeWidth={3}
             width={iconSizeLiteral[size || "md"]}
             height={iconSizeLiteral[size || "md"]}
-            strokeWidth={3}
-          />
+          >
+            {IconSlot && <IconSlot />}
+          </Slot>
         ) : null}
       </View>
       {children || <Text style={getCombinedStyle("text")}>{text}</Text>}
@@ -104,6 +107,7 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
         }}
         selectionColor={"transparent"}
         onBlur={() => {
+          onBlur?.(null, value);
           setIsFocus(false);
         }}
         ref={refInput}
@@ -112,4 +116,6 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
   );
 };
 
-export default InputHOC(PhaselisHOC<CheckboxProps, CheckboxExtraProps>(Checkbox));
+export default InputHOC(
+  PhaselisHOC<CheckboxProps, CheckboxExtraProps>(Checkbox),
+);

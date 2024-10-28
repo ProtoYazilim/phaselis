@@ -3,7 +3,6 @@ import { IFormPropTypes } from "@phaselis/types";
 interface FormInputComponentGenericProps extends IFormPropTypes {
   isCheckable?: boolean;
   isFileUpload?: boolean;
-  defaultValue?: any;
   checked?: boolean;
   valueKey?: string;
 }

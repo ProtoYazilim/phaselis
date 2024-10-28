@@ -1,37 +1,31 @@
 import {
-  IBaseFormStyleType,
-  IBaseStyleType,
   ICheckableEventType,
+  IconStyle,
   IFormPropTypes,
-  IGenericStyleType,
+  SlotChildComponent,
+  SlotIconName,
 } from "@phaselis/types";
-import { ChangeEvent, MouseEvent, FocusEvent, ReactNode } from "react";
-
-export interface IBaseCheckboxStyleType
-  extends IBaseFormStyleType,
-    IBaseStyleType {
-  element?: IGenericStyleType;
-  icon?: IGenericStyleType;
-}
+import { ChangeEvent } from "react";
+import { TextStyle, ViewStyle } from "react-native";
 
 export interface CheckboxProps extends IFormPropTypes {
+  id?: string;
   text?: string;
-  checked?: boolean;
-  style?: IBaseCheckboxStyleType;
-  checkedSvg?: any;
-  unCheckedSvg?: any;
-  autoFocus?: boolean;
+  style?: {
+    container?: ViewStyle;
+    element?: ViewStyle;
+    icon?: IconStyle;
+    text?: TextStyle;
+  };
+  // autoFocus?: boolean;
+  iconName?: SlotIconName;
+  IconSlot?: SlotChildComponent;
   onChange?: (
     e: ChangeEvent<HTMLInputElement> | ICheckableEventType,
     value: boolean,
   ) => any;
-  onClick?: (event: MouseEvent<HTMLElement>) => void;
-  onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
-  onMouseOut?: (event: MouseEvent<HTMLElement>) => void;
-  onMouseOver?: (event: MouseEvent<HTMLElement>) => void;
-  id?: string;
+  // onMouseOut?: (event: MouseEvent<HTMLElement>) => void;
+  // onMouseOver?: (event: MouseEvent<HTMLElement>) => void;
   disabled?: boolean;
-  activeOpacity?: number;
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
-  iconComponent?: ReactNode & ((...args: any) => ReactNode);
 }

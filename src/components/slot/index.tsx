@@ -10,6 +10,8 @@ const Slot: React.FC<SlotProps> = ({
   strokeWidth,
   onClick,
   parentStates,
+  height,
+  width,
 }) => {
   if (children) {
     const [defaultStyle, themeStyle, propStyle] = style;
@@ -31,6 +33,8 @@ const Slot: React.FC<SlotProps> = ({
       <LucideIcon
         name={icon}
         style={style}
+        width={width}
+        height={height}
         size={size}
         strokeWidth={strokeWidth}
         onClick={onClick}

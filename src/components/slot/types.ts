@@ -6,6 +6,8 @@ interface SlotProps {
   strokeWidth?: number;
   onClick?: () => void;
   parentStates?: any;
+  width?: number;
+  height?: number;
 }
 
 export default SlotProps;

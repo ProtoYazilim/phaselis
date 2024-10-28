@@ -1,0 +1,185 @@
+---
+id: checkbox
+category: 'data-display'
+title: Checkbox
+version: '0.1'
+description:
+  The Checkbox component is a UI element that allows users to select or deselect options.
+---
+
+The Checkbox component is a UI element that allows users to select or deselect options. It supports custom styling, various sizes.
+
+## Import
+
+Phaselis exports one main component for Checkbox.
+
+```js
+import { Checkbox } from "@phaselis";
+```
+
+- **Checkbox:** Main Component import for Checkbox
+
+## Usage
+
+### Basic Checkbox
+
+```jsx
+<Checkbox
+  text="Checkbox"
+  size="md"
+  name="8"
+  disabled
+  value={true}
+/>
+```
+
+## Props
+
+The props provide various properties for customizing the checkbox component, including options for styling, event handling, and state control.
+
+### disabled
+`boolean`
+
+If true, the checkbox will be disabled.
+
+```jsx
+<Checkbox disabled />
+```
+
+### text
+`string`
+
+Text to display next to the checkbox.
+
+```jsx
+<Checkbox text="checkbox" />
+```
+
+### style
+| Name | Type |
+| ---- | ---- |
+| `container` | ViewStyle |
+| `element` | ViewStyle |
+| `icon` | IconStyle |
+| `text` | TextStyle |
+
+Optional custom styles for the checkbox, including element and icon styles.
+
+```jsx  
+<Checkbox
+  text="checkbox"
+  style={{
+    icon: { color: "red" },
+    text: { fontWeight: "bold" },
+  }}
+/>
+```
+
+### value
+`boolean`
+
+A value indicating whether the checkbox is checked.
+
+```jsx  
+<Checkbox value={true} />
+```
+
+### size
+`xs | sm | md | lg | xl | xxl`
+
+Size of the checkbox.
+
+```jsx  
+<Checkbox size="lg" />
+```
+
+### onBlur
+`(event: any, value: any, ...args: any[]) => any`
+
+Event handler for when the checkbox loses focus.
+
+```jsx  
+<Checkbox onBlur={() => {}} />
+```
+
+### onChange
+`(e: ChangeEvent<HTMLInputElement> | ICheckableEventType, value: boolean) => any`
+
+Event handler for when the checkbox state changes.
+
+```jsx  
+<Checkbox onChange={() => {}} />
+```
+
+### iconName
+`SlotIconName`
+
+You can pass any Lucide icon name to be displayed when the checkbox is checked.
+
+```jsx  
+<Checkbox iconName="X" text="Checkbox" />
+```
+
+### IconSlot
+`SlotChildComponent`
+
+You can pass any component to the checkbox.
+
+```jsx
+<Checkbox
+  IconSlot={() => (
+    <Image source={{ uri: "https://example.com/remote-image.jpg" }} />
+  )}
+/>
+```
+### name
+`string`
+
+The `name` prop is used to assign an identifying name to a checkbox.
+
+```jsx
+<Checkbox name="1" />
+<Checkbox name="2" />
+```
+
+### partofform
+`boolean`
+
+The `partOfForm` prop is used to indicate whether the component is part of a form. If the `partOfForm` variable is set to `false`, it disconnects the component from the form.
+
+```jsx
+<Checkbox name="1" />
+<Checkbox name="2" partofform={false} />
+```
+
+### validations
+`Function[]`
+
+The `validations` prop is used to provide an array of validation functions for the component. Each function in the array applies specific validation rules to the component’s input.
+
+```jsx
+<Form>
+  <InputGroup label="">
+    <Checkbox
+      name="9"
+      text="Checkbox"
+      validations={[required("required")]}
+    />
+  </InputGroup>
+  <Button type="submit" text="submit" />
+</Form>
+```
+
+### resetValue
+`any`
+
+The resetValue variable is used to define the component's default value when the reset button is pressed, provided the component is part of a Form. When the reset is triggered, this variable ensures that the component reverts to its specified initial state.
+
+```jsx
+<Form ref={refForm}>
+  <Checkbox name="1" value={true} resetValue={false} />
+  <Button type="reset" text="Reset" />
+</Form>
+```
+
+

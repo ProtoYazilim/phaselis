@@ -1,0 +1,127 @@
+---
+id: rowcol
+category: 'data-display'
+title: Row & Col 
+version: '0.1'
+description:
+  The Row and Col components are used in grid systems to define layouts. 
+---
+
+The `Row` and `Col` components implement a 12-column grid system for responsive design. `Row` provides horizontal alignment, while `Col` allows column sizing and offsets across screen sizes. Both integrate with theme contexts, supporting custom styles and additional props for flexible layout management.
+
+## Import
+
+Phaselis exports Row and Col components.
+
+```js
+import { Row , Col } from "@phaselis";
+```
+
+- **Col:** Main Component import for Column
+- **Row:** Main Component import for Row
+
+## Usage
+
+### Basic Usage
+
+```jsx
+<Row>
+  <Col size={2} offset={4}>
+    <Text>Col 1</Text>
+  </Col>
+  <Col size={2} offset={4}>
+    <Text>Col 2</Text>
+  </Col>
+</Row>
+```
+
+
+## Row Props
+
+:::tip
+
+Row is basic View element with style of `flex-direction:row`
+
+:::
+
+### style
+`ViewStyle`
+
+Optional custom styles for the row component.
+
+```jsx
+<Row
+  style={{
+    alignItems: "center",
+  }}
+>
+  <Text>Centered</Text>
+</Row>`
+```
+
+
+## Col Props
+
+Props provide attributes to define the size and offset of a column within a grid system, allowing for responsive design by specifying different sizes and offsets for various screen sizes.
+
+### size
+`0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12`
+
+Defines the column size in the grid. Accepts values from 1 to 12 or 0 for no size.
+
+```jsx
+<Col size={2}>
+    <Text>Col</Text>
+</Col>
+```
+
+### offset
+`0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12`
+
+Defines the offset of the column in the grid. Accepts values from 1 to 12 or 0 for no offset.
+
+```jsx
+<Col size={2} offset={4}>
+    <Text>Col</Text>
+</Col>
+```
+
+{/* 
+### xs | md | lg | xl
+`GridSize`
+
+Defines the column size according to the screen dimensions.
+
+```jsx
+<Col xs={2} md={4} xl={8}>
+    <Text>Col</Text>
+</Col>
+```
+
+### xsOffset | mdOffset | lgOffset | xlOffset
+`GridSize`
+
+Defines the offset relative to the screen dimensions.
+
+```jsx
+<Col xs={2} xsOffset={4} md={4} mdOffset={8}>
+    <Text>Col 1</Text>
+</Col>
+``` */}
+
+### style
+`ViewStyle`
+
+Optional custom styles for the column component.
+
+```jsx
+<Col
+  size={6}
+  style={{
+    alignItems: "center",
+  }}
+>
+  <Text>Col with 6 size</Text>
+</Col>`
+```
+

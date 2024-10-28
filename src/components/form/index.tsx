@@ -56,7 +56,6 @@ export const Form: FC<FormProps> = (
       isFileUpload: !!componentProps?.isFileUpload,
       valueKey: componentProps?.valueKey || "value",
       isUsed: false,
-      defaultValue: componentProps?.defaultValue,
       ...(componentProps?.isCheckable
         ? { checked: !!componentProps?.checked }
         : {}),
@@ -115,9 +114,7 @@ export const Form: FC<FormProps> = (
       (newMeta: any, name: string) => {
         const props = metaRef.current[name];
         let resetValue =
-          props.resetValue !== undefined
-            ? props.resetValue
-            : metaRef.current[name].defaultValue || null;
+          props.resetValue !== undefined ? props.resetValue : null;
 
         if (metaRef.current[name].isCheckable && !resetValue)
           resetValue = false;

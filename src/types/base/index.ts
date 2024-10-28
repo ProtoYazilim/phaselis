@@ -17,14 +17,13 @@ export interface IFormPropTypes extends IBasePropType {
   name?: string;
   value?: any;
   partofform?: boolean;
-  validations?: any[];
-  isChanged?: any;
-  isUsed?: any;
-  error?: any;
+  validations?: Function[];
+  isChanged?: any; //not
+  isUsed?: any; //not
+  error?: any; //not
   onChange?: (event: any, value: any, ...args: any[]) => any;
   onBlur?: (event: any, value: any, ...args: any[]) => any;
   resetValue?: any;
-  defaultValue?: any;
 }
 
 export interface IBaseStyleType {
@@ -72,3 +71,8 @@ export type SlotChildComponent = ({
   themeStyle?: ViewStyle & TextStyle;
   propStyle?: ViewStyle & TextStyle;
 }) => ReactNode | FC | any | Element | null;
+
+//docs -> interfaces şeklinde tanımlanacak
+export interface IconStyle extends ViewStyle {
+  color: string;
+}

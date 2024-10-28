@@ -12,7 +12,7 @@ import { InputHOC, validateText } from "@phaselis/utils";
 import stylesheet from "./assets/styles";
 import { PhaselisHOC } from "@phaselis/components/provider";
 import { TextFieldProps } from "./types";
-import { Slot } from "@phaselis/components";
+import { Block, Slot } from "@phaselis/components";
 import { useMaskedInputProps } from "react-native-mask-input";
 import { useCombinedStyle } from "@phaselis/hooks";
 
@@ -184,7 +184,7 @@ const TextField: React.FC<TextFieldProps> = ({
     : {};
 
   return (
-    <View style={getCombinedStyle("container")}>
+    <Block style={getCombinedStyle("container")}>
       <Slot
         style={getCombinedStyle("leftSlot")}
         icon={leftIcon as any}
@@ -218,7 +218,7 @@ const TextField: React.FC<TextFieldProps> = ({
         {RightSlot && <RightSlot />}
       </Slot>
       {(loading && loadingIcon) || null}
-    </View>
+    </Block>
   );
 };
 

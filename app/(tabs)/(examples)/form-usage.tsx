@@ -28,6 +28,9 @@ const MaskedTextfieldStory = () => {
               name="username"
               rightIcon="User"
               validations={[required("required")]}
+              style={{
+                container: {},
+              }}
             />
           </InputGroup>
           <InputGroup

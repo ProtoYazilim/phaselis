@@ -11,7 +11,7 @@ type ParsedStylesheet<ST extends StyleSheetWithSuperPowers> = {
   defaultStyles: ReactNativeStyleSheet<ST>;
   themeStyles: ReactNativeStyleSheet<ST>;
   propStyle: ReactNativeStyleSheet<ST>;
-  getCombinedStyle: (section: keyof ST) => any[];
+  getCombinedStyle: (section: keyof ST) => any[] | any;
 };
 
 const useCombinedStyle = <ST extends StyleSheetWithSuperPowers>(

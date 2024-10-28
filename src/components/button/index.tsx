@@ -12,7 +12,7 @@ import { PhaselisHOC } from "@phaselis/components/provider";
 import { FormContext } from "@phaselis/components/form";
 import stylesheet from "./assets/styles";
 import { ButtonPropTypes } from "./types";
-import { Slot } from "@phaselis/components";
+import { Slot, Block } from "@phaselis/components";
 import { useCombinedStyle } from "@phaselis/hooks";
 
 const Button: FC<ButtonPropTypes> = ({
@@ -99,7 +99,7 @@ const Button: FC<ButtonPropTypes> = ({
   };
 
   return (
-    <View style={getCombinedStyle("container")}>
+    <Block style={getCombinedStyle("container") as any}>
       <Pressable
         testID={Platform.OS === "ios" ? id : undefined}
         accessibilityLabel={Platform.OS === "android" ? id : undefined}
@@ -140,7 +140,7 @@ const Button: FC<ButtonPropTypes> = ({
         </Slot>
         {loading && renderLoader()}
       </Pressable>
-    </View>
+    </Block>
   );
 };
 

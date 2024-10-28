@@ -1,5 +1,6 @@
 import { UnistylesRegistry } from "react-native-unistyles";
 import { darkTheme, lightTheme } from "@phaselis/theme";
+import { PhaselisPlugin } from "./PhaselisPlugin";
 
 type AppThemes = {
   light: typeof lightTheme;
@@ -16,4 +17,5 @@ UnistylesRegistry.addThemes({
 }).addConfig({
   adaptiveThemes: true,
   initialTheme: "light",
+  plugins: [PhaselisPlugin],
 });

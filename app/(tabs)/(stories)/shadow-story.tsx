@@ -1,0 +1,105 @@
+import { required } from "@phaselis/utils";
+import { Block, Button, Textfield, Form } from "@phaselis/components";
+import React from "react";
+import { StyleSheet, ScrollView, Text } from "react-native";
+const ShadowExample = () => {
+  return (
+    <ScrollView style={styles.container}>
+      <Block style={{ gap: 30, marginBottom: 30 }}>
+        <Form>
+          <Textfield
+            name="123"
+            validations={[required("wtf")]}
+            style={{
+              container: {
+                variants: {
+                  error: {
+                    true: {
+                      backgroundColor: "white",
+                      shadows: [
+                        {
+                          color: "red",
+                          opacity: 0.4,
+                          radius: 12,
+                          offset: [0, 0],
+                        },
+                      ],
+                    },
+                  },
+                },
+              },
+            }}
+          />
+          <Button type="submit" />
+        </Form>
+        <Button
+          leftIcon="Apple"
+          rightIcon="ChevronRight"
+          text="Custom"
+          size="sm"
+          primary
+          half
+          disabled
+          style={{
+            container: {
+              backgroundColor: "yellow",
+            },
+            text: {
+              color: "white",
+            },
+            leftSlot: {
+              color: "white",
+            },
+            rightSlot: {
+              color: "white",
+            },
+          }}
+        >
+          Custom
+        </Button>
+        <Block
+          style={{
+            width: 60,
+            height: 60,
+            borderWidth: 1,
+            borderRadius: 10,
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "red",
+            shadows: [
+              {
+                color: "blue",
+                opacity: 0.4,
+                radius: 12,
+                offset: [-5, -3],
+              },
+              {
+                color: "red",
+                opacity: 0.4,
+                radius: 12,
+                offset: [5, 3],
+              },
+            ],
+            lineerGradient: {
+              colors: ["blue", "red"], // background array ise, renkleri al
+              angle: 170,
+              useAngle: true,
+              angleCenter: { x: 0.5, y: 0.5 },
+            },
+          }}
+        >
+          <Text style={{ color: "white" }}>Test</Text>
+        </Block>
+      </Block>
+    </ScrollView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 16,
+    backgroundColor: "white",
+  },
+});
+
+export default ShadowExample;

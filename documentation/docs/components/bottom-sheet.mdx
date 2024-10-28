@@ -1,0 +1,96 @@
+---
+id: bottom-sheet
+category: 'data-display'
+title: BottomSheet
+version: '0.1'
+description:
+  The BottomSheet component provides an animated bottom sheet for React Native applications.
+---
+
+The `BottomSheet` component provides an animated bottom sheet for React Native applications.
+
+## Import
+
+Phaselis exports one main component for BottomSheet.
+
+```js
+import { BottomSheet } from "@phaselis";
+```
+
+- **BottomSheet:** Main Component import for BottomSheet
+
+## Usage
+
+### Basic BottomSheet
+
+```jsx
+const [showBottomSheet, setShowBottomSheet] = useState(false);
+
+<Button
+  text="Open Test"
+  onClick={() => {
+    setShowBottomSheet(true);
+  }}
+/>
+<BottomSheet
+  show={showBottomSheet}
+  onClose={() => {
+    setShowBottomSheet(false);
+  }}
+>
+  <Text>BottomSheet is opened.</Text>
+</BottomSheet>
+```
+
+## Props
+
+### show
+`boolean`
+
+A shared value indicating whether the bottom sheet is open or closed. The default is `false`.
+
+```jsx
+<BottomSheet show={true}>
+  <Text>BottomSheet is opened.</Text>
+</BottomSheet>
+```
+
+### duration
+`number` 
+
+The duration of the opening and closing animations default value is `500` miliseconds.
+
+```jsx
+<BottomSheet show={true} duration={200}>
+  <Text>BottomSheet is opened.</Text>
+</BottomSheet>
+```
+
+### children
+`ReactNode`
+
+The content to display inside the bottom sheet.
+
+```jsx
+<BottomSheet>
+  <Text>BottomSheet is opened.</Text>
+</BottomSheet>
+```
+
+### onClose
+`() => void`
+
+Callback function triggered when the backdrop is pressed and the bottom sheet should close.
+
+```jsx
+const [showBottomSheet, setShowBottomSheet] = useState(false);
+
+<BottomSheet
+  show={showBottomSheet}
+  onClose={() => {
+    setShowBottomSheet(false);
+  }}
+>
+  <Text>BottomSheet is opened.</Text>
+</BottomSheet>
+```

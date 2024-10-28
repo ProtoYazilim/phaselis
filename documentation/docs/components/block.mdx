@@ -1,0 +1,66 @@
+---
+id: block
+category: 'data-display'
+title: Block
+version: '0.1'
+description:
+  The Block component is a React Native component designed to apply combined styles and manage context-based theming.
+---
+
+The `Block` component is a React Native component designed to apply combined styles and manage context-based theming.
+
+## Import
+
+Phaselis exports one main component for Block.
+
+```js
+import { Block } from "@phaselis";
+```
+
+- **Block:** Main Component import for Block
+
+## Usage
+
+### Basic Block
+
+```jsx
+<Block style={{ gap: 20 }}>
+  <Button type="submit" text="submit" />
+  <Button type="reset" text="reset" />
+</Block>
+```
+
+## Props
+
+:::tip
+
+Other than listed props below, you can pass any prop that a `View` component accepts.
+
+:::
+
+### children
+`ReactNode`
+
+Rendered content inside the `Block` component.
+
+```jsx
+<Block style={{ marginLeft: 10, marginRight: 10, gap: 10 }}>
+  <Button
+    text="Show Popup"
+    onClick={() => {
+      setShow(true);
+    }}
+  />
+</Block>
+```
+
+### style
+`ViewStyle`
+
+Optional custom styles for the block component.
+
+```jsx
+<Block style={{ height: 20, backgroundColor: "red" }}/>
+```
+
+

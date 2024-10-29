@@ -3,9 +3,9 @@ import { TextStyle, ViewStyle } from "react-native";
 
 export interface LabelProps {
   text?: string;
-  style?: { container?: ViewStyle; element?: ViewStyle; text?: TextStyle };
+  style?: { container?: ViewStyle; text?: TextStyle };
   forId?: string;
-  adjustsFontSizeToFit?: boolean;
+  adjustsFontSizeToFit?: boolean; //TODO: preset özelliği variants olarak çözülecek
   numberOfLines?: number;
   minimumFontScale?: number;
   contextValue?: any;

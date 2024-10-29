@@ -1,0 +1,181 @@
+---
+id: link
+category: 'data-display'
+title: Link
+version: '0.1'
+description:
+  The Link component is used for navigating between different routes or pages in your application.
+---
+
+The `Link` component is used for navigating between different routes or pages in your application. It provides a customizable way to handle navigation with additional styling options, icons, and text.
+
+## Import
+
+Phaselis exports one main component for Link.
+
+```js
+import { Link } from "@phaselis";
+```
+
+- **Link:** Main Component import for Link
+
+## Usage
+
+### Basic Link
+
+```jsx
+<Link
+  text="Proto"
+  href={"https://www.protoyazilim.com/"}
+  leftIcon="Link"
+  rightIcon="ExternalLink"
+/>
+```
+
+## Props
+:::tip
+
+Other than listed props below, you can pass any prop that a `Pressable` component accepts.
+
+:::
+
+
+The properties available for this component include options for styling, navigation settings, as well as optional icons and slot configurations.
+
+### text
+`string`
+
+The text to display within the link.
+
+```jsx
+<Link text="Proto" href={"https://www.protoyazilim.com/"} />
+```
+
+### mode
+`push | replace`
+
+Navigation mode. Defaults to "push".
+
+```jsx
+<Link
+  text="Proto"
+  href={"https://www.protoyazilim.com/"}
+  mode="replace"
+/>
+```
+
+### primary | secondary
+`boolean`
+
+Optional boolean to apply primary or secondary styling to the link.
+
+```jsx
+<Link
+  text="Proto"
+  href={"https://www.protoyazilim.com/"}
+  mode="replace"
+  primary
+/>
+```
+
+### disabled
+`boolean`
+
+Optional boolean to disable the link and prevent user interaction.
+
+```jsx
+<Link
+  text="Proto"
+  href={"https://www.protoyazilim.com/"}
+  disabled
+/>
+```
+
+### href
+`string`
+
+The target route or URL for navigation.
+
+```jsx
+<Link
+  text="Proto"
+  href={"https://www.protoyazilim.com/"}
+/>
+```
+
+### leftSlot
+`ReactNode`
+
+You can pass any component to the left slot of the link.
+
+```jsx
+<Link
+  text="Proto"
+  href={"https://www.protoyazilim.com/"}
+  leftSlot={<Icon name="arrow-left" />}
+/>  
+```
+
+### rightSlot
+`ReactNode`
+
+You can pass any component to the right slot of the link.
+
+```jsx
+<Link
+  text="Proto"
+  href={"https://www.protoyazilim.com/"}
+  rightSlot={<Icon name="arrow-right" />}
+/>   
+```
+
+### leftIcon
+`Lucide icon name`
+
+You can pass any Lucide icon name to the left slot of the link.
+
+```jsx
+<Link
+  text="HyperLink"
+  href={"https://www.google.com"}
+  leftIcon="Link"
+/>
+```
+
+### rightIcon
+`Lucide icon name`
+
+You can pass any Lucide icon name to the right slot of the link.
+
+```jsx
+<Link
+  text="HyperLink"
+  href={"https://www.google.com"}
+  rightIcon="ExternalLink"
+/>
+```
+
+### style
+| Name       | Type      | Description                             |
+| ---- |----|----|
+| `container` | ViewStyle | Style for the outer container view.     |
+| `text`   | TextStyle | Style for the link text.                |
+| `leftSlot`  | ViewStyle | Style for the left slot of the link.    |
+| `rightSlot` | ViewStyle | Style for the right slot of the link.   |
+
+Custom styles for the link component.
+
+```jsx
+<Link
+  text="Proto"
+  href="https://www.protoyazilim.com/"
+  leftIcon="Link"
+  rightIcon="ExternalLink"
+  style={{
+    container: { padding: 10, backgroundColor: "#f0f0f0" },
+    text: { color: "#007bff", fontSize: 16 },
+    leftSlot: { marginRight: 5 },
+    rightSlot: { marginLeft: 5 },
+  }}
+/>
+```

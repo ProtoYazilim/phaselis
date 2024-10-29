@@ -1,12 +1,13 @@
-import { ViewStyle } from "react-native";
+import { PressableProps, ViewStyle } from "react-native";
 
 import { StyleProp, TextStyle } from "react-native";
 import { SlotableLeftRightProps } from "@phaselis/types";
 
-interface LinkProps extends SlotableLeftRightProps {
+//TODO: component'e uygun router'a göre adaptor yazılacak
+interface LinkProps extends SlotableLeftRightProps, PressableProps {
   style?: StyleProp<TextStyle> & {
     container?: ViewStyle;
-    element?: ViewStyle;
+    text?: TextStyle;
     leftSlot?: ViewStyle;
     rightSlot?: ViewStyle;
   };

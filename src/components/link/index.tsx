@@ -43,7 +43,7 @@ const Link: FC<LinkProps> = ({
       <Slot style={getCombinedStyle("leftSlot")} icon={leftIcon} size="md">
         {LeftSlot && <LeftSlot />}
       </Slot>
-      <Text style={getCombinedStyle("element")}>{text}</Text>
+      <Text style={getCombinedStyle("text")}>{text}</Text>
       <Slot style={getCombinedStyle("rightSlot")} icon={rightIcon} size="md">
         {RightSlot && <RightSlot />}
       </Slot>

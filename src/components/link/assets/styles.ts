@@ -36,7 +36,7 @@ export default createStyleSheet({
     },
   },
   // ELEMENT
-  element: {
+  text: {
     fontSize: 16,
     lineHeight: 22,
     variants: {

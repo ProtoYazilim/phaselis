@@ -1,0 +1,91 @@
+---
+id: image
+category: 'data-display'
+title: Image
+version: '0.1'
+description:
+  The Image component is a versatile image display utility that supports both standard images and background images.
+---
+
+The `Image` component is a versatile image display utility that supports both standard images and background images.
+
+## Import
+
+Phaselis exports one main component for Image.
+
+```js
+import { Image } from "@phaselis";
+```
+
+- **Image:** Main Component import for Image
+
+## Usage
+
+### Basic Image
+
+```jsx
+<Image
+  source={{ uri: proto_header_image.uri }}
+  height={proto_header_image.height || 0}
+  width={proto_header_image.width || 0}
+/>
+```
+
+## Props
+
+The properties that can be passed to the `Image` component include styling, context, and additional parameters for image management.
+
+### background
+`boolean`
+
+ If true, the image will be displayed as a background image. Otherwise, a standard image is rendered.
+
+```jsx
+<Image
+  source={{ uri: proto_header_image.uri }}
+  height={proto_header_image.height || 0}
+  width={proto_header_image.width || 0}
+  background
+/>
+```
+
+### style
+| Name | Type | Description |
+| ---- | ---- | ---- |
+| `container` | ViewStyle | Style for the outer container view. |
+| `element` | ViewStyle | Style for the image element itself. |
+
+Custom styles for the `Image` component.
+
+```jsx
+<Image
+  source={{ uri: proto_header_image.uri }}
+  height={proto_header_image.height || 0}
+  width={proto_header_image.width || 0}
+  style={{
+    container: { margin: 100 },
+  }}
+/>
+```
+
+### children
+`ReactNode`
+
+React nodes to be rendered inside the background image, if `background` is true.
+
+```jsx
+<Image
+  source={{ uri: proto_header_image.uri }}
+  width={proto_header_image.width || 0}
+  background={true}
+>
+  <Form>
+    <InputGroup label="User Name">
+      <Textfield name="username" rightIcon="User" />
+    </InputGroup>
+    <Button text="Submit" />
+    <Button text="Reset" type="reset" />
+  </Form>
+</Image>
+```
+

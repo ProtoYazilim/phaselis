@@ -25,13 +25,36 @@ import { Image } from "@phaselis";
 
 ```jsx
 <Image
-  source={{ uri: proto_header_image.uri }}
-  height={proto_header_image.height || 0}
-  width={proto_header_image.width || 0}
+  source={{ uri: path_to_image }}
+  height={ IMAGE_HEIGHT || 0}
+  width={ IMAGE_WIDTH || 0}
 />
 ```
 
+### Background Image
+
+```jsx
+<Image
+  source={{ uri: path_to_image }}
+  background
+>
+  <Text
+    style={{
+      color: "white",
+    }}
+  >
+    Phaselis
+  </Text>
+</Image>
+```
+
 ## Props
+
+:::tip
+
+Props interface is extended with `ImagePropsBase` so you can pass any prop that a `Image` component accepts from React Native package.
+
+:::
 
 The properties that can be passed to the `Image` component include styling, context, and additional parameters for image management.
 
@@ -42,9 +65,9 @@ The properties that can be passed to the `Image` component include styling, cont
 
 ```jsx
 <Image
-  source={{ uri: proto_header_image.uri }}
-  height={proto_header_image.height || 0}
-  width={proto_header_image.width || 0}
+  source={{ uri: path_to_image }}
+  height={ IMAGE_HEIGHT || 0}
+  width={ IMAGE_WIDTH || 0}
   background
 />
 ```
@@ -59,9 +82,9 @@ Custom styles for the `Image` component.
 
 ```jsx
 <Image
-  source={{ uri: proto_header_image.uri }}
-  height={proto_header_image.height || 0}
-  width={proto_header_image.width || 0}
+  source={{ uri: path_to_image }}
+  height={ IMAGE_HEIGHT || 0}
+  width={ IMAGE_WIDTH || 0}
   style={{
     container: { margin: 100 },
   }}
@@ -75,8 +98,9 @@ React nodes to be rendered inside the background image, if `background` is true.
 
 ```jsx
 <Image
-  source={{ uri: proto_header_image.uri }}
-  width={proto_header_image.width || 0}
+  source={{ uri: path_to_image }}
+  height={ IMAGE_HEIGHT || 0}
+  width={ IMAGE_WIDTH || 0}
   background={true}
 >
   <Form>

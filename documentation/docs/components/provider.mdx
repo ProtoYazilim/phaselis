@@ -1,0 +1,99 @@
+---
+id: provider
+category: 'core'
+title: Provider
+version: '0.1'
+description:
+  The Provider component is used to set up a context for managing themes and breakpoints across your application.
+---
+
+The `Provider` component establishes a context for theming and responsive breakpoints, enabling consistent styling and layout handling throughout your application. It serves as a wrapper for other components to inherit themes and layout properties based on breakpoints.
+
+## Import
+
+Phaselis exports one main component for Provider.
+
+```js
+import { Provider } from "@phaselis";
+```
+
+- **Provider:** Main Component import for Provider
+
+## Usage
+
+### Basic Provider
+
+```jsx
+<Provider
+  theme={customTheme}
+  breakpoints={{
+    xl: 1600,
+    lg: 1200,
+    md: 900,
+    xs: 0,
+  }}
+>
+  <App />
+</Provider>
+```
+
+## Props
+:::tip
+
+Apart from the listed props below, you can pass any other prop as required by the context setup.
+
+:::
+
+### children
+`ReactNode`
+
+The child components wrapped by the `Provider`, which will inherit the theme and breakpoint settings.
+
+```jsx
+<Provider theme={customTheme}>
+  <App />
+</Provider>
+```
+
+### breakpoints
+`object`
+
+Optional object to define custom breakpoints for responsive design. If not provided, defaults to:
+- `xl`: 1440
+- `lg`: 1024
+- `md`: 768
+- `xs`: 0
+
+```jsx
+<Provider
+  breakpoints={{
+    xl: 1600,
+    lg: 1200,
+    md: 900,
+    xs: 0,
+  }}
+>
+  <App />
+</Provider>
+```
+
+### theme
+`object`
+
+An optional theme object to provide custom styling options. This can include colors, spacings, typography, and other design tokens.
+
+```jsx
+<Provider theme={customTheme}>
+  <App />
+</Provider>
+```
+
+## Exported Components and Hooks
+
+- **PhaselisContext**: The context created by `Provider` for access to theme and breakpoint settings.
+- **PhaselisHOC**: Higher Order Component to wrap components for easy access to the Phaselis context.
+- **useColors**: Hook to access color definitions from the theme.
+- **useSpacings**: Hook to access spacing definitions from the theme.
+- **useTheme**: Hook to retrieve the entire theme object and apply it in components.
+
+By setting up `Provider` at the root of your application, all components gain access to the defined theme and responsive breakpoints, promoting a cohesive and adaptable design system.

@@ -818,7 +818,9 @@ export const lightTheme = {
       fontSize: Spacings.MD,
     },
   },
-  radioGroup: {},
+  radioGroup: {
+    group: {},
+  },
   slider: {
     container: {
       variants: {

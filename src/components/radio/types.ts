@@ -1,25 +1,27 @@
-import { ViewStyle } from "react-native";
+import { TextStyle, ViewStyle } from "react-native";
 import { IFormPropTypes } from "@phaselis/types";
 
 interface RadioGroupProps extends IFormPropTypes {
-  style?: any;
-  onChange?: (event: any, value: any) => void;
+  style?: {
+    group?: ViewStyle;
+  };
+  onChange?: (event: any, value: string) => void;
 }
 
 interface RadioProps {
   text?: string;
   value: string;
-  onChange?: (value: any) => void;
+  onChange?: (value: string) => void;
   disabled?: boolean;
   width?: number;
   height?: number;
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg"; //TODO: Add size type logic to code
   contextValue?: any;
   style?: {
     container?: ViewStyle;
     outerElement?: ViewStyle;
     innerElement?: ViewStyle;
-    text?: ViewStyle;
+    text?: TextStyle;
   };
 }
 

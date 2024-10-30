@@ -19,7 +19,7 @@ const List = ({
     contextValue?.theme?.list,
     {
       ...(extraProps as any),
-    }
+    },
   );
 
   return (

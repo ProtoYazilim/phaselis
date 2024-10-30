@@ -1,0 +1,158 @@
+---
+id: radio
+category: 'form'
+title: Radio / RadioGroup
+version: '0.1'
+description:
+  The Radio and RadioGroup components allow users to select a single option from a group of choices. It includes customization for disabled states, animations, and various styles.
+---
+
+The `Radio` and `RadioGroup` components provide a way to offer multiple choices to users, where only one option can be selected at a time. `RadioGroup` acts as a container for managing multiple `Radio` components, ensuring only one is selected at any time.
+
+## Import
+
+Phaselis exports Radio and RadioGroup components.
+
+```js
+import { Radio, RadioGroup } from "@phaselis";
+```
+
+
+- **Radio:** Main Component import for Radio
+- **RadioGroup:** Main Component import for RadioGroup
+
+## Usage
+
+### Basic Radio & Radio Group
+
+```jsx
+<RadioGroup name="Themes" value="light-theme">
+  <Radio text="Light Theme" value="light-theme" />
+  <Radio text="Dark Theme" value="dark-theme" />
+</RadioGroup>
+```
+
+## RadioGroup Props
+
+### value
+`string`
+
+ The value of the selected `Radio` button.
+
+```jsx
+<RadioGroup name="Choices" value="choice-1">
+  <Radio text="Choice 1" value="choice-1" />
+  <Radio text="Choice 2" value="choice-2" />
+</RadioGroup>
+```
+
+### onChange
+`(event: any, value: string) => void`
+
+Callback invoked when the group value changes.
+
+```jsx
+<RadioGroup
+  name="RadioGroup"
+  value="yes"
+  onChange={(event, newValue) => console.log(newValue)}
+>
+  <Radio text="Yes" value="yes" />
+  <Radio text="No" value="no" />
+</RadioGroup>
+```
+
+### style
+| Name           | Type      | Description                              |
+| -------------- | --------- | ---------------------------------------- |
+| `group`        | ViewStyle | Style for the overall radio group layout.|
+
+Defines the style properties of the RadioGroup button.
+
+```jsx
+<RadioGroup
+  name="options"
+  value="A"
+  style={{ group: { padding: 10, backgroundColor: "#f9f9f9" } }}
+>
+  <Radio text="Option A" value="A" />
+  <Radio text="Option B" value="B" />
+</RadioGroup>
+```
+
+## Radio Props
+
+### text
+`string`
+
+The text displayed next to the radio button.
+
+```jsx
+<Radio text="Accept" value="accept" />
+```
+
+### value
+`string`
+
+The unique value of the radio button.
+
+```jsx
+<RadioGroup name="selection" value="yes">
+  <Radio text="Yes" value="yes" />
+  <Radio text="No" value="no" />
+</RadioGroup>
+```
+
+### onChange
+`(value: string) => void`
+
+Callback invoked when the radio button's value changes.
+
+```jsx
+<Radio
+  text="Choice"
+  value="choice"
+  onChange={(value) => console.log("Selected:", value)}
+/>
+```
+
+### disabled
+`boolean`
+
+Disables the radio button.
+
+```jsx
+<Radio text="Unavailable Option" value="unavailable" disabled />
+```
+
+### width / height
+`number`
+
+Custom width and height for the radio button.
+
+```jsx
+<Radio text="Large Option" value="large" width={40} height={40} />
+```
+
+### style
+| Name             | Type      | Description                           |
+| ---------------- | --------- | ------------------------------------- |
+| `container`      | ViewStyle | Style for the outer container view.   |
+| `outerElement`   | ViewStyle | Style for the outer radio circle.     |
+| `innerElement`   | ViewStyle | Style for the inner circle animation. |
+| `text`           | TextStyle | Style for the label text.             |
+
+Defines the style properties of the radio button.
+
+```jsx
+<Radio
+  text="Custom Styled Radio"
+  value="custom"
+  style={{
+    container: { margin: 5 },
+    outerElement: { borderColor: "#007bff" },
+    innerElement: { backgroundColor: "#007bff" },
+    text: { fontSize: 14, color: "#333" },
+  }}
+/>
+```

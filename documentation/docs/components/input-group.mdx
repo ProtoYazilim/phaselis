@@ -25,8 +25,8 @@ import { InputGroup } from "@phaselis";
 ### Basic InputGroup
 
 ```jsx
-<InputGroup label="InputGroup">
-  <Textfield name="test" />
+<InputGroup label="User Name">
+  <Textfield name="username" rightIcon="User" />
 </InputGroup>
 ```
 
@@ -40,8 +40,8 @@ These properties can be applied to the component, offering options for labeling,
 The label text for the input group, displayed above the input field.
 
 ```jsx
-<InputGroup label="InputGroup">
-  <Textfield name="InputGroup" />
+<InputGroup label="Phone Number">
+  <Textfield name="phone" maxLength={17} />
 </InputGroup>
 ```
 
@@ -51,8 +51,13 @@ The label text for the input group, displayed above the input field.
 React nodes to be rendered inside the input group, typically an input field.
 
 ```jsx
-<InputGroup label="User Name">
-  <Textfield name="username" rightIcon="User" />
+<InputGroup label="Payment Options">
+  <RadioGroup name="paymentMethod">
+    <Radio text="Credit Card" value="credit_card" />
+    <Radio text="PayPal" value="paypal" />
+    <Radio text="Bank Transfer" value="bank_transfer" />
+    <Radio text="Cryptocurrency" value="crypto" disabled />
+  </RadioGroup>
 </InputGroup>
 ```
 

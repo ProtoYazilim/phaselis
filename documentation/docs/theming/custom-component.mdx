@@ -1,0 +1,40 @@
+---
+title: Customization Component
+sidebar_position: 2
+description: Manuel Installation for existing projects.
+---
+
+Phaselis provides a way to customize the theme of your components.
+
+## How it works
+Phaselis components have diffrent style variants , states and attributes. Let's  say you want to change the border color and radius of the select component. You can do this by passing a `borderColor` prop to the components container attribute.
+
+```jsx
+import { lightTheme } from 'phaselis';
+
+const theme = {
+    ...
+    select: {    // component name
+        container : {   // target container
+            borderColor: '#ff0000',
+            borderRadius: 16,
+        },
+        element : { // target element
+            fontFamily: "Poppins", // 
+            color: '#000000',
+            justifyContent: "flex-end",
+        }
+    }
+    ...
+};
+```
+
+> In this example, we are changing the `borderColor` and `borderRadius` of the select component. You can change any style attribute of any component by passing the attribute to the components container object.
+
+
+:::info
+  Why its so nested? 
+  Phaselis uses a theme object to style components. The theme object is a JavaScript object that contains a set of key-value pairs. Each key represents a style property, and each value represents the value of that property. Each component has sections that you can style, for example for Select there are container,element,leftSlot,rightSlot. you can also check [Select style prop](/docs/components/select#style) for more information.
+:::
+
+* Its just that simple. You can change any style attribute of any component by passing the attribute to the components container object.

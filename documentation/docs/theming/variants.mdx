@@ -1,0 +1,41 @@
+---
+title: Variants
+sidebar_position: 3
+description: Manuel Installation for existing projects.
+---
+
+Variants are a way to style components in different ways. Phaselis provides a way to customize the theme of your components.
+
+## How it works
+
+Phaselis components have diffrent style variants , states and attributes. Let's  say you want to change the focus border color of the textfield component. You can do this by passing a `borderColor` prop to the button components container attribute.
+
+```jsx
+import { lightTheme } from 'phaselis';
+
+const theme = {
+    textfield: {    // component name
+        container : {   // target container
+            variants : {    // target variants
+                focus : {   // variant key
+                    true : { // variant condition
+                        borderColor: 'aqua', // style attribute
+                    }
+                }
+            }
+        }
+    }
+};
+```
+
+> In this example, we are changing the `borderColor` of the textfield component when the focus variant is true. You can change any style attribute of any component by passing the attribute to the components container object.
+
+:::info
+  You can also create your own variants. define your variant on theme object .It will be avaliable right away. then execute the following command to generate the interface for the new variant.
+  
+  ```bash
+  npm run generate-variants
+  ```
+    This command will generate the interface for new variants.
+
+:::

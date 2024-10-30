@@ -1,0 +1,45 @@
+---
+title: Basics of Theming
+sidebar_position: 2
+description: Manuel Installation for existing projects.
+---
+
+Theme is a collection of styles that are applied to an entire application, typically including colors, typography, and spacing. Phaselis provides a way to customize the theme of your app.
+
+## How it works 
+
+Phaselis uses a theme object to style components. The theme object is a JavaScript object that contains a set of key-value pairs. Each key represents a style property, and each value represents the value of that property.
+
+the styling system is supported by `unistyles` package, which is a utility package that provides a way to create styles in a more readable and maintainable way.
+
+### Create a custom theme
+
+To create a custom theme, you need to create a theme object . You can also use existing theme values by extending the default theme.
+
+```jsx
+import { lightTheme } from 'phaselis';
+
+const customTheme = {
+  ...lightTheme,
+    colors: {
+        ...lightTheme.colors,
+        primary: 'red',
+    },
+};
+```
+
+### Apply the custom theme
+
+To apply the custom theme, you need to wrap your app with the `PhaselisProvider` component and pass the custom theme as a prop.
+
+```jsx
+import { Provider as PhaselisProvider } from 'phaselis';
+...
+return (
+  <PhaselisProvider theme={customTheme}>
+    <App />
+  </PhaselisProvider>
+);
+```
+
+Checkout the default theme values [here](https://github.com/ProtoYazilim/phaselis/blob/main/src/theme/lightTheme.tsx) for more information.

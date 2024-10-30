@@ -1,0 +1,78 @@
+---
+title: Manuel Installation
+sidebar_position: 2
+---
+
+# Manuel Installation
+
+## Prerequisites
+
+* Before we start our project follow along expo [Set up your environment](https://docs.expo.dev/get-started/set-up-your-environment/?platform=ios&device=simulated&mode=development-build&buildEnv=local) section  or [react-native without framework guide](https://reactnative.dev/docs/getting-started-without-a-framework) to prepare your local development environment.
+
+## Installation
+
+Install the latest phaselis package
+
+```bash
+npm install phaselis
+```
+
+Install the following packages
+
+```bash
+npm install react-native-gesture-handler@~2.16.1 react-native-reanimated@~3.10.1 react-native-safe-area-context@4.10.5 react-native-screens@3.31.1 react-native-svg@15.2.0 react-native-unistyles@^2.9.2
+```
+
+For ios run the following command
+
+```bash
+cd ios && pod install
+```
+
+After the Installation is done, we need to wrap our app with the `PhaselisProvider` component. lets import the `PhaselisProvider` and the `lightTheme` or `darkTheme` from the phaselis package.
+
+```jsx
+import { Provider as FrameWorkProvider, lightTheme ,darkTheme} from 'phaselis';
+```
+
+Then wrap your app with the `PhaselisProvider` component and pass the `lightTheme` or `darkTheme` as a prop.
+
+```jsx
+<FrameWorkProvider theme={isDarkMode ? darkTheme : lightTheme}>
+    <App/>
+</FrameWorkProvider>
+```
+
+Last but not least we need to configure unistyles to work with phaselis, lets create unistyles config and import it.
+
+```jsx
+import { lightTheme,darkTheme } from 'phaselis';
+import { UnistylesRegistry } from 'react-native-unistyles';
+
+
+type AppThemes = {
+  light: typeof lightTheme;
+  dark: typeof darkTheme;
+};
+
+declare module 'react-native-unistyles' {
+  export interface UnistylesThemes extends AppThemes { }
+}
+
+UnistylesRegistry.addThemes({
+  light: lightTheme,
+  dark: darkTheme,
+}).addConfig({
+  adaptiveThemes: true,
+  initialTheme: 'light',
+});
+
+```
+
+~ Import the unistyles config file in your app entry file.
+
+```jsx
+import './config/unistyle';
+```
+
+That's it, you are ready to start building your app with phaselis.

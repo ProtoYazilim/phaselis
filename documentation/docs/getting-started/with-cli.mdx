@@ -1,0 +1,71 @@
+---
+title: Quick Start With CLI
+sidebar_position: 1
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
+# Quick Start With CLI
+
+
+## Prerequisites
+
+* Before we start our project follow along expo [Set up your environment](https://docs.expo.dev/get-started/set-up-your-environment/?platform=ios&device=simulated&mode=development-build&buildEnv=local) section  or [react-native without framework guide](https://reactnative.dev/docs/getting-started-without-a-framework) to prepare your local development environment.
+
+## Installation
+
+* Open a Terminal in your project's folder
+
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+  ```bash npm2yarn
+  npx create-phaselis-app [project-name]
+  ```
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+  ```bash npm2yarn
+  npx create-phaselis-app [project-name]
+  ```
+  </TabItem>
+</Tabs>
+
+You would be prompted to choose a template for your project. You can choose between the following templates:
+
+- **[Expo Template](https://github.com/expo/expo/tree/main/templates/expo-template-blank-typescript)**  
+- **[React Native Community Template](https://github.com/react-native-community/template/tree/main/template)**
+
+
+After the installation is complete, you can navigate to your project folder by running the following command:
+
+```bash
+cd [project-name]
+```
+
+## Running the project
+
+To run the project, you can use the following commands:
+
+```bash
+npm start
+```
+
+* this will start the metro bundler.
+
+to run the project on a specific platform you can use the following commands:
+
+
+
+<Tabs>
+  <TabItem value="ios" label="ios" default>
+  ```bash 
+npm run ios
+  ```
+  </TabItem>
+  <TabItem value="android" label="android">
+  ```bash 
+npm run android
+  ```
+  </TabItem>
+</Tabs>

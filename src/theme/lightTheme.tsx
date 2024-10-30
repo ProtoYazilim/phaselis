@@ -998,7 +998,7 @@ export const lightTheme = {
   },
   link: {
     container: {},
-    element: {
+    text: {
       fontSize: 16,
       lineHeight: 22,
       variants: {

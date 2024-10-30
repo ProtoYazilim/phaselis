@@ -1,0 +1,82 @@
+---
+id: label
+category: 'data-display'
+title: Label
+version: '0.1'
+description:
+  The Label component is used to display text labels with customizable styles and properties.
+---
+
+The `Label` component is used to display text labels with customizable styles and properties. It can be integrated into forms or other components where labeling is required.
+
+
+## Import
+
+Phaselis exports one main component for Label.
+
+```js
+import { Label } from "@phaselis";
+```
+
+- **Label:** Main Component import for Label
+
+## Usage
+
+### Basic Label
+
+```jsx
+<Label text="bold" style={{ text: { fontWeight: "bold" } }} />
+```
+
+## Props
+:::tip
+
+Other than listed props below, you can pass any prop that a `Text` component accepts.
+
+:::
+
+The props specify the properties available for the component, including options for text content, styling, and font customization.
+
+### text
+`string`
+
+Optional string to specify the label's text content.
+
+```jsx
+<Label text="Text" />
+```
+
+### style
+| Name | Type | Description |
+| ---- | ---- | ---- |
+| `container` | ViewStyle | Style for the outer container view. |
+| `text` | TextStyle | Style for the label text. |
+
+Custom styles for the label.
+
+```jsx
+<Label
+  text="Label"
+  style={{
+    container: {
+      margin: 10,
+      padding: 8,
+    },
+    text: {
+      fontSize: 16,
+      fontWeight: "bold",
+      color: "#333",
+    },
+  }}
+/>
+```
+
+
+### children
+`ReactNode`
+
+Optional string to specify the content displayed within the children prop.
+
+```jsx
+<Label>Label-Children</Label>
+```

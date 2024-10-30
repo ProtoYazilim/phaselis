@@ -1,0 +1,94 @@
+---
+id: input-group
+category: 'data-display'
+title: InputGroup
+version: '0.1'
+description:
+  The InputGroup component is used to wrap an input field with a label and optional validation message.
+---
+
+The `InputGroup` component is used to wrap an input field with a label and optional validation message. It integrates with a form context to display errors and handle disabled states.
+
+
+## Import
+
+Phaselis exports one main component for InputGroup.
+
+```js
+import { InputGroup } from "@phaselis";
+```
+
+- **InputGroup:** Main Component import for InputGroup
+
+## Usage
+
+### Basic InputGroup
+
+```jsx
+<InputGroup label="User Name">
+  <Textfield name="username" rightIcon="User" />
+</InputGroup>
+```
+
+## Props
+
+These properties can be applied to the component, offering options for labeling, optional validation messages, and custom styling for enhanced flexibility.
+
+### label
+`string`
+
+The label text for the input group, displayed above the input field.
+
+```jsx
+<InputGroup label="Phone Number">
+  <Textfield name="phone" maxLength={17} />
+</InputGroup>
+```
+
+### children
+`ReactNode`
+
+React nodes to be rendered inside the input group, typically an input field.
+
+```jsx
+<InputGroup label="Payment Options">
+  <RadioGroup name="paymentMethod">
+    <Radio text="Credit Card" value="credit_card" />
+    <Radio text="PayPal" value="paypal" />
+    <Radio text="Bank Transfer" value="bank_transfer" />
+    <Radio text="Cryptocurrency" value="crypto" disabled />
+  </RadioGroup>
+</InputGroup>
+```
+
+### message
+`string`
+
+Optional message to be displayed below the input field, used for additional information or instructions.
+
+```jsx
+<InputGroup label="Iban Number" message="Enter your turkish IBAN">
+  <Textfield name="iban" />
+</InputGroup>
+```
+
+### style
+| Name | Type | Description |
+| ---- | ---- | ---- |
+| `container` | ViewStyle | Style for the outer container view. |
+
+Custom styles for the `InputGroup` component.
+
+```jsx
+<InputGroup
+  label="User Name"
+  style={{
+    container: {
+      padding: 20,
+      backgroundColor: "grey",
+    },
+  }}
+>
+  <Textfield name="username" rightIcon="User" />
+</InputGroup>
+```

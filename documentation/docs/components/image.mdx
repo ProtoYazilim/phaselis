@@ -1,0 +1,115 @@
+---
+id: image
+category: 'data-display'
+title: Image
+version: '0.1'
+description:
+  The Image component is a versatile image display utility that supports both standard images and background images.
+---
+
+The `Image` component is a versatile image display utility that supports both standard images and background images.
+
+## Import
+
+Phaselis exports one main component for Image.
+
+```js
+import { Image } from "@phaselis";
+```
+
+- **Image:** Main Component import for Image
+
+## Usage
+
+### Basic Image
+
+```jsx
+<Image
+  source={{ uri: path_to_image }}
+  height={ IMAGE_HEIGHT || 0}
+  width={ IMAGE_WIDTH || 0}
+/>
+```
+
+### Background Image
+
+```jsx
+<Image
+  source={{ uri: path_to_image }}
+  background
+>
+  <Text
+    style={{
+      color: "white",
+    }}
+  >
+    Phaselis
+  </Text>
+</Image>
+```
+
+## Props
+
+:::tip
+
+Props interface is extended with `ImagePropsBase` so you can pass any prop that a `Image` component accepts from React Native package.
+
+:::
+
+The properties that can be passed to the `Image` component include styling, context, and additional parameters for image management.
+
+### background
+`boolean`
+
+ If true, the image will be displayed as a background image. Otherwise, a standard image is rendered.
+
+```jsx
+<Image
+  source={{ uri: path_to_image }}
+  height={ IMAGE_HEIGHT || 0}
+  width={ IMAGE_WIDTH || 0}
+  background
+/>
+```
+
+### style
+| Name | Type | Description |
+| ---- | ---- | ---- |
+| `container` | ViewStyle | Style for the outer container view. |
+| `element` | ViewStyle | Style for the image element itself. |
+
+Custom styles for the `Image` component.
+
+```jsx
+<Image
+  source={{ uri: path_to_image }}
+  height={ IMAGE_HEIGHT || 0}
+  width={ IMAGE_WIDTH || 0}
+  style={{
+    container: { margin: 100 },
+  }}
+/>
+```
+
+### children
+`ReactNode`
+
+React nodes to be rendered inside the background image, if `background` is true.
+
+```jsx
+<Image
+  source={{ uri: path_to_image }}
+  height={ IMAGE_HEIGHT || 0}
+  width={ IMAGE_WIDTH || 0}
+  background={true}
+>
+  <Form>
+    <InputGroup label="User Name">
+      <Textfield name="username" rightIcon="User" />
+    </InputGroup>
+    <Button text="Submit" />
+    <Button text="Reset" type="reset" />
+  </Form>
+</Image>
+```
+

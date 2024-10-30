@@ -1,0 +1,85 @@
+---
+id: list
+category: 'data-display'
+title: List
+version: '0.1'
+description:
+  The List component offers a flexible way to display data lists with options for custom styling.
+---
+
+The `List` component offers a flexible way to display data lists with options for custom styling.
+
+## Import
+
+Phaselis exports one main component for List.
+
+```js
+import { List } from "@phaselis";
+```
+
+- **List:** Main Component import for List
+
+## Usage
+
+### Basic List
+
+```jsx
+<List
+  data={[
+    { key: "1", title: "First Item" },
+    { key: "2", title: "Second Item" },
+    { key: "3", title: "Third Item" },
+  ]}
+  renderItem={({ item }) => <Text>{item.title}</Text>}
+/>
+```
+
+## Props
+:::tip
+
+Other than listed props below, you can pass any prop that a `FlatList` component accepts.
+
+:::
+
+These properties can be passed to the component, excluding certain default styles to allow for custom styling options.
+
+### style
+| Name| Type | Description |
+| ---- | ---- | ---- |
+| `columnWrapper` | ViewStyle | Style for the column wrapper view (for multi-column lists). |
+| `container`| ViewStyle | Style for the outer container view of the list.|
+| `element`| ViewStyle | Style for the list elements.|
+| `footer`| ViewStyle | Style for the footer of the list.|
+| `header`| ViewStyle | Style for the header of the list.|
+
+Custom styles for the list component.
+
+
+```jsx
+<List
+  data={[
+    { key: "1", title: "First Item" },
+    { key: "2", title: "Second Item" },
+    { key: "3", title: "Third Item" },
+  ]}
+  style={{
+    header: { backgroundColor: "red", padding: 10 },
+    footer: { backgroundColor: "blue", padding: 10 },
+    element: {
+      backgroundColor: "green",
+      padding: 15,
+      margin: 5,
+      borderRadius: 5,
+    },
+    container: { backgroundColor: "yellow", padding: 10 },
+    columnWrapper: {
+      backgroundColor: "purple",
+      justifyContent: "space-between",
+      marginBottom: 10,
+    },
+  }}
+  ListHeaderComponent={() => <Text>Header</Text>}
+  ListFooterComponent={() => <Text>Footer</Text>}
+  renderItem={({ item }) => <Text>{item.title}</Text>}
+/>
+```

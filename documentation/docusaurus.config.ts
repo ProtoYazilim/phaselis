@@ -90,9 +90,9 @@ const config: Config = {
           label: "GitHub",
           position: "right",
         },
-        {
-          type: "docsVersionDropdown",
-        },
+        // { // ! verstion dropdown will be open after creating version https://docusaurus.io/docs/versioning
+        //   type: "docsVersionDropdown",
+        // },
       ],
     },
     footer: {

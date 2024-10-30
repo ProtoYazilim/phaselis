@@ -15,7 +15,6 @@ interface SliderProps extends IFormPropTypes {
   tapToSeek?: boolean;
   inverted?: boolean;
   renderStepNumber?: boolean;
-  vertical?: boolean;
 }
 
 export { SliderProps };

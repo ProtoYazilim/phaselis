@@ -10,32 +10,33 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: "Easy to Use",
-    Svg: require("@site/static/img/undraw_docusaurus_mountain.svg").default,
-    description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
-    ),
-  },
-  {
     title: "Focus on What Matters",
-    Svg: require("@site/static/img/undraw_docusaurus_tree.svg").default,
+    Svg: require("@site/static/img/undraw_mobile_testing_re_w7yb.svg").default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Phaselis framework boots your development process by providing a set of
+        ui components and utilities.
       </>
     ),
   },
   {
-    title: "Powered by React",
-    Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
+    title: "Themes and Styles",
+    Svg: require("@site/static/img/undraw_undraw_choose_color_uotg_-1-_5ah4.svg")
+      .default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Easily customizable with themes and styles. You can also create your
+        custom themes and styles.
+      </>
+    ),
+  },
+  {
+    title: "Dark Mode",
+    Svg: require("@site/static/img/undraw_dark_mode_2xam.svg").default,
+    description: (
+      <>
+        Phaselis framework provides dark mode support out of the box. You can
+        easily switch between light and dark modes.
       </>
     ),
   },

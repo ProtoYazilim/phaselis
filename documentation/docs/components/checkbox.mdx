@@ -25,7 +25,7 @@ import { Checkbox } from "@phaselis";
 
 ```jsx
 <Checkbox
-  text="Checkbox"
+  text="Option"
   size="md"
   name="8"
   disabled
@@ -52,7 +52,7 @@ If true, the checkbox will be disabled.
 Text to display next to the checkbox.
 
 ```jsx
-<Checkbox text="checkbox" />
+<Checkbox text="Option" />
 ```
 
 ### style
@@ -67,7 +67,7 @@ Optional custom styles for the checkbox, including element and icon styles.
 
 ```jsx  
 <Checkbox
-  text="checkbox"
+  text="Option"
   style={{
     icon: { color: "red" },
     text: { fontWeight: "bold" },
@@ -117,7 +117,7 @@ Event handler for when the checkbox state changes.
 You can pass any Lucide icon name to be displayed when the checkbox is checked.
 
 ```jsx  
-<Checkbox iconName="X" text="Checkbox" />
+<Checkbox iconName="X" text="Option 1" />
 ```
 
 ### IconSlot
@@ -128,7 +128,7 @@ You can pass any component to the checkbox.
 ```jsx
 <Checkbox
   IconSlot={() => (
-    <Image source={{ uri: "https://example.com/remote-image.jpg" }} />
+    <Image source={{ uri: path_to_image }} />
   )}
 />
 ```
@@ -138,8 +138,8 @@ You can pass any component to the checkbox.
 The `name` prop is used to assign an identifying name to a checkbox.
 
 ```jsx
-<Checkbox name="1" />
-<Checkbox name="2" />
+<Checkbox name="option-1" />
+<Checkbox name="option-2" />
 ```
 
 ### partofform
@@ -148,8 +148,8 @@ The `name` prop is used to assign an identifying name to a checkbox.
 The `partOfForm` prop is used to indicate whether the component is part of a form. If the `partOfForm` variable is set to `false`, it disconnects the component from the form.
 
 ```jsx
-<Checkbox name="1" />
-<Checkbox name="2" partofform={false} />
+<Checkbox name="option-1" />
+<Checkbox name="option-2" partofform={false} />
 ```
 
 ### validations
@@ -161,8 +161,8 @@ The `validations` prop is used to provide an array of validation functions for t
 <Form>
   <InputGroup label="">
     <Checkbox
-      name="9"
-      text="Checkbox"
+      name="option-9"
+      text="I agree"
       validations={[required("required")]}
     />
   </InputGroup>
@@ -177,7 +177,7 @@ The resetValue variable is used to define the component's default value when the
 
 ```jsx
 <Form ref={refForm}>
-  <Checkbox name="1" value={true} resetValue={false} />
+  <Checkbox name="checkbox-1" value={true} resetValue={false} />
   <Button type="reset" text="Reset" />
 </Form>
 ```

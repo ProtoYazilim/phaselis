@@ -26,6 +26,7 @@ const Select: FC<SelectProps> = ({
   size = "md",
   isChanged,
   isUsed,
+  doneText,
   ...extraProps
 }) => {
   const [isFocus, setIsFocus] = useState(false);
@@ -138,6 +139,7 @@ const Select: FC<SelectProps> = ({
                 }
               : undefined
           }
+          doneText={doneText}
         />
       </View>
       <Slot

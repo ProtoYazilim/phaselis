@@ -1,0 +1,269 @@
+---
+id: select
+category: 'core'
+title: Select
+version: '0.1'
+description:
+  The `Select` component is a dropdown menu component that allows users to select an option from a list. It offers customizable style and behavior options.
+---
+
+The `Select` component is a dropdown menu component that allows users to select an option from a list. It offers customizable style and behavior options.
+
+## Import
+
+Phaselis exports one main component for Select.
+
+```js
+import { Select } from "@phaselis";
+```
+
+- **Select:** Main Component import for Select
+
+## Usage
+
+### Basic Select
+
+```jsx
+<Select
+  options={[
+    { label: "Option 1", value: "1" },
+    { label: "Option 2", value: "2" },
+    { label: "Option 3", value: "3" },
+  ]}
+  placeholder="Choose an option"
+  onChange={(e, value) => console.log("Selected:", value)}
+/>
+```
+
+## Props
+:::tip
+
+Other than listed props below, you can pass any prop that a `Pressable` component accepts.
+
+:::
+
+### options
+`Array<IOptionType>`
+
+The array of options to display in the dropdown. Each option should have `label` and `value` properties.
+
+```jsx
+<Select
+  options={[
+    { label: "Option A", value: "A" },
+    { label: "Option B", value: "B" },
+  ]}
+/>
+```
+
+### placeholder
+`string`
+
+Placeholder text displayed to prompt the user to select an option. Defaults to `"Select an option"`.
+
+```jsx
+<Select
+  options={[
+    { label: "Developer", value: "1" },
+    { label: "Designer", value: "2" },
+    { label: "Product Manager", value: "3" },
+  ]}
+  placeholder="Choose a role"
+/>
+```
+
+### onChange
+`(e: any, value?: any, data?: any) => any`
+
+Callback invoked when the selection changes.
+
+```jsx
+<Select
+  options={[
+    { label: "Apple", value: "apple" },
+    { label: "Banana", value: "banana" },
+    { label: "Cherry", value: "cherry" },
+  ]}
+  placeholder="Choose a fruit"
+  onChange={(e, value) => {
+    console.log("Event:", e);
+    console.log("Selected Value:", value);
+  }}
+/>
+```
+
+### LeftSlot
+`ReactNode`
+
+Custom component to be placed on the left side.
+
+```jsx
+<Select
+  options={[
+    { label: "Apple", value: "apple" },
+    { label: "Banana", value: "banana" },
+    { label: "Cherry", value: "cherry" },
+  ]}
+  LeftSlot={({ themeStyle }) => (
+    <LucideIcon style={{ ...themeStyle }} name={"Apple"} />
+  )}
+/>
+```
+
+### RightSlot
+`ReactNode`
+
+Custom component to be placed on the right side.
+
+```jsx
+<Select
+  options={[
+    { label: "Apple", value: "apple" },
+    { label: "Banana", value: "banana" },
+    { label: "Cherry", value: "cherry" },
+  ]}
+  RightSlot={({ themeStyle }) => (
+    <LucideIcon style={{ ...themeStyle }} name={"ArrowBigDown"} />
+  )}
+/>
+```
+
+### leftIcon
+`Lucide icon name`
+
+Icon displayed on the left side.
+
+```jsx
+<Select
+  options={[
+    { label: "Developer", value: "1" },
+    { label: "Designer", value: "2" },
+    { label: "Product Manager", value: "3" },
+  ]}
+  leftIcon="Star"
+/>
+```
+
+### rightIcon
+`Lucide icon name`
+
+Icon displayed on the right side. Default is 'ChevronDown'.
+
+```jsx
+<Select
+  options={[
+    { label: "Developer", value: "1" },
+    { label: "Designer", value: "2" },
+    { label: "Product Manager", value: "3" },
+  ]}
+  rightIcon="MoveDown"
+/>
+```
+
+### size
+` xs | sm | md | lg | xl | xxl `
+
+The size of the component. Defaults to `"md"`.
+
+```jsx
+<Select
+  options={[
+    { label: "Full-Time", value: "full-time" },
+    { label: "Part-Time", value: "part-time" },
+    { label: "Freelance", value: "freelance" },
+    { label: "Internship", value: "internship" },
+  ]}
+  size="xs"
+/>
+```
+
+### style
+| Name            | Type              | Description                                |
+|-----------------|-------------------|--------------------------------------------|
+| `container`     | ViewStyle         | Style for the outer container view.        |
+| `element`       | ViewStyle         | Style for the main dropdown element.       |
+| `leftSlot`      | ViewStyle | Style for the left slot component.         |
+| `rightSlot`     | ViewStyle | Style for the right slot component.        |
+
+Defines the style properties of the component.
+
+```jsx
+<Select
+  options={[
+    { label: "Full-Time", value: "full-time" },
+    { label: "Part-Time", value: "part-time" },
+    { label: "Freelance", value: "freelance" },
+    { label: "Internship", value: "internship" },
+  ]}
+  placeholder="Choose employment type"
+  style={{
+    container: {
+      backgroundColor: "#f0f0f0",
+      padding: 12,
+      borderColor: "#ccc",
+      alignItems: "center",
+    },
+    leftSlot: {
+      marginRight: 8,
+      padding: 5,
+      backgroundColor: "#007bff",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    rightSlot: {
+      marginLeft: 8,
+      padding: 5,
+      backgroundColor: "#28a745",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    element: {
+      padding: 10,
+      backgroundColor: "#fff",
+    },
+  }}
+  leftSlot={<LucideIcon name="Search" />}
+/>
+```
+
+### displayField
+`string`
+
+The name of the field to display options. Default is `label`.
+
+```jsx
+<Select
+  options={[
+    { name: "Apple", id: "apple" },
+    { name: "Banana", id: "banana" },
+  ]}
+  displayField="name"
+/>
+```
+
+### valueField
+`string`
+
+ The name of the field where the option's value is stored. Default is `value`.
+
+```jsx
+<Select
+  options={[
+    { label: "Apple", code: "apple" },
+    { label: "Banana", code: "banana" },
+  ]}
+  valueField="code"
+/>
+```
+
+### doneText
+`string`
+
+Text displayed when the selection is complete.
+
+```jsx
+<Select
+  options={sampleOptions}
+  doneText="Confirm"
+/>
+``` 

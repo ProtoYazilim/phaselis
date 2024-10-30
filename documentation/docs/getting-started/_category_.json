@@ -1,0 +1,8 @@
+{
+    "label": "Getting Started Guide",
+    "position": 1,
+    "link": {
+        "type": "generated-index",
+        "description": "Start with the easy setup of Phaselis framework or manually install it."
+    }
+}

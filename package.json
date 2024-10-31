@@ -49,8 +49,11 @@
     "hoist-non-react-statics": "^3.3.2",
     "lodash": "^4.17.21",
     "lucide-react-native": "^0.379.0",
-    "path": "^0.12.7",
     "patch-package": "^8.0.0",
+    "path": "^0.12.7",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.74.5",
     "react-native-awesome-slider": "^2.5.3",
     "react-native-date-picker": "^5.0.7",
     "react-native-fast-shadow": "^0.1.1",
@@ -64,9 +67,7 @@
     "react-native-svg": "15.2.0",
     "react-native-unistyles": "^2.7.2",
     "react-native-web": "~0.19.10",
-    "react-native": "0.74.5",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-native-web-linear-gradient": "^1.1.2"
   },
   "peerDependencies": {
     "expo": "~51.0.28",

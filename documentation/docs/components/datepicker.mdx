@@ -21,8 +21,26 @@ import { Datepicker } from 'phaselis'
 
 ## Usage
 
-## Props
+### Basic Datepicker
 
+```jsx
+<Datepicker
+  placeholder="Select a date"
+  onChange={(e, date) => console.log("Date selected:", date)}
+/>
+```
+
+### Datepicker with Custom Format
+
+```jsx
+<Datepicker
+  format="yyyy-MM-dd"
+  placeholder="Choose a date"
+  onChange={(e, date) => console.log("Formatted date selected:", date)}
+/>
+```
+
+## Props
 
 ### mode
 ` date | time | datetime `

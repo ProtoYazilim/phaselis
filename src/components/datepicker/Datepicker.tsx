@@ -13,7 +13,6 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
   const {
     style,
     contextValue,
-    inputMode,
     size = "md",
     leftIcon,
     LeftSlot,
@@ -82,8 +81,8 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
           props.onChange?.(null, date);
           setShow(false);
         }}
-        maximumDate={minDate}
-        minimumDate={maxDate}
+        maximumDate={maxDate}
+        minimumDate={minDate}
         locale={locale}
         mode={mode}
         theme="auto"

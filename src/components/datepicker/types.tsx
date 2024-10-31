@@ -2,7 +2,6 @@ import { TextStyle, ViewStyle } from "react-native";
 import { IFormPropTypes, SlotableLeftRightProps } from "@phaselis/types";
 
 interface DatepickerProps extends IFormPropTypes, SlotableLeftRightProps {
-  inputMode?: "picker" | "textfield";
   contextValue?: any;
   mode?: "date" | "time" | "datetime";
   minDate?: Date;

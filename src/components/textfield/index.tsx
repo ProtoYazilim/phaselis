@@ -28,7 +28,6 @@ const TextField: React.FC<TextFieldProps> = ({
   style,
   readOnly = false,
   type = "default",
-  isCapsLockOn,
   LeftSlot,
   RightSlot,
   id,
@@ -150,7 +149,7 @@ const TextField: React.FC<TextFieldProps> = ({
     editable,
   };
 
-  if (validator || isCapsLockOn) {
+  if (validator) {
     inputProps = {
       ...getValidationEventHandlers(),
       editable,

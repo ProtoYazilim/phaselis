@@ -1,6 +1,7 @@
 import {
   NativeSyntheticEvent,
   TextInputFocusEventData,
+  TextInputProps,
   ViewStyle,
 } from "react-native";
 import {
@@ -11,27 +12,25 @@ import {
 import { ReactNode, KeyboardEvent, MouseEvent } from "react";
 import { Mask } from "react-native-mask-input";
 
-export interface TextFieldProps extends IFormPropTypes, SlotableLeftRightProps {
+export interface TextFieldProps
+  extends IFormPropTypes,
+    SlotableLeftRightProps,
+    Omit<
+      TextInputProps,
+      "children" | "onBlur" | "onChange" | "value" | "style"
+    > {
   placeholder?: string;
   readOnly?: boolean;
   validator?: any;
-  isCapsLockOn?: boolean;
   style?: ITextFieldStyleType;
   loadingIcon?: ReactNode;
   loading?: boolean;
   uppercase?: boolean;
-  onKeyUp?: (event: KeyboardEvent<HTMLInputElement>) => void;
-  onKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void;
-  onClick?: (event: MouseEvent<HTMLInputElement>) => void;
-  onCapsLockChange?: (event: any) => void;
   maxLength?: number;
   type?: "default" | "text" | "number" | "email" | "phone" | "password";
   autoFocus?: boolean;
   secureTextEntry?: boolean;
   onFocus?: (event: NativeSyntheticEvent<TextInputFocusEventData>) => void;
-  autoComplete?: AutoCompleteValue;
-  clearIndicator?: any;
-  clearable?: boolean;
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
   mask?: Mask;
   numberOfLines?: number;

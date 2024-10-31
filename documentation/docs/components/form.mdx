@@ -14,10 +14,12 @@ The `Form` component is a context-based container that handles form submission, 
 Phaselis exports `Form` as the main component for form management.
 
 ```js
-import { Form } from "@phaselis/components";
+import { Form , FormReference } from "@phaselis/components";
 ```
 
 - **Form**: Main component to handle form data, validation, and submission.
+
+- **FormReference**: interface for form reference.
 
 ## Usage
 
@@ -26,6 +28,7 @@ import { Form } from "@phaselis/components";
 ```jsx
 <Form
   id="exampleForm"
+  onReset={() => console.log("Form reset")}
   onSubmit={(e, values) => console.log("Form submitted:", values)}
   onError={(error, fields) => console.log("Form errors:", fields)}
 >
@@ -57,7 +60,7 @@ An optional unique identifier for the form, useful for debugging or tracking for
 ```
 
 ### onSubmit
-`function`
+`(event?: any, values?: any) => void`
 
 Callback triggered when the form is successfully submitted. Receives the event and all form values.
 
@@ -68,7 +71,7 @@ Callback triggered when the form is successfully submitted. Receives the event a
 ```
 
 ### onReset
-`function`
+`(event?: any) => void`
 
 Callback triggered when the form is reset, clearing all values and errors. Receives an optional event.
 
@@ -77,7 +80,7 @@ Callback triggered when the form is reset, clearing all values and errors. Recei
 ```
 
 ### onError
-`function`
+`(error?: any, extra?: any) => void`
 
 Callback triggered when validation errors are found during submission. Receives the error message and fields with errors.
 
@@ -86,7 +89,7 @@ Callback triggered when validation errors are found during submission. Receives 
 ```
 
 ### onChange
-`function`
+`(event?: any, state?: any) => void`
 
 Callback triggered whenever a form field value changes. Receives the event and the updated form state.
 
@@ -95,6 +98,9 @@ Callback triggered whenever a form field value changes. Receives the event and t
 ```
 
 ## Methods
+
+The functions below are available through the `FormReference` interface, which can be accessed using the `useRef` hook.
+
 
 ### setValues
 Sets multiple form field values programmatically.

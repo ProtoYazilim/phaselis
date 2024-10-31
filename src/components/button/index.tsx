@@ -39,7 +39,6 @@ const Button: FC<ButtonPropTypes> = ({
   ...extraProps
 }) => {
   let formContext = useContext(FormContext);
-
   const getVariation = () => {
     if (primary) {
       return "primary";

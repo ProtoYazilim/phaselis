@@ -13,7 +13,13 @@ function HomepageHeader() {
   return (
     <header
       className={clsx("hero hero--primary", styles.heroBanner)}
-      style={{ borderRadius: 20, margin: 10 }}
+      style={{
+        borderRadius: 20,
+        margin: 10,
+        marginTop: 0,
+        borderTopRightRadius: 0,
+        borderTopLeftRadius: 0,
+      }}
     >
       <div className="container">
         <Heading as="h1" className="hero__title">

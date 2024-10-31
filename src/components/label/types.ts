@@ -5,7 +5,7 @@ export interface LabelProps {
   text?: string;
   style?: { container?: ViewStyle; text?: TextStyle };
   forId?: string;
-  adjustsFontSizeToFit?: boolean; //TODO: preset özelliği variants olarak çözülecek
+  adjustsFontSizeToFit?: boolean;
   numberOfLines?: number;
   minimumFontScale?: number;
   contextValue?: any;

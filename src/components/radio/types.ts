@@ -15,7 +15,7 @@ interface RadioProps {
   disabled?: boolean;
   width?: number;
   height?: number;
-  size?: "sm" | "md" | "lg"; //TODO: Add size type logic to code
+  size?: "sm" | "md" | "lg";
   contextValue?: any;
   style?: {
     container?: ViewStyle;

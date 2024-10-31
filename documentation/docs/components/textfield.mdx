@@ -1,0 +1,207 @@
+---
+id: Textfield
+category: 'data-display'
+title: Textfield
+version: '0.1'
+description:
+  Textfield is a customizable component used for capturing user input. It supports various keyboard types and validation options.
+---
+
+`Textfield` is a customizable component used for capturing user input. It supports various keyboard types and validation options.
+
+## Import
+
+Phaselis exports one main component for Textfield.
+
+```js
+import { Textfield } from "phaselis";
+```
+
+- **Textfield:** Main Component import for Textfield
+
+## Usage
+
+### Basic Usage
+
+```jsx
+<Textfield
+  placeholder="Enter your name"
+  onChange={(e, value) => console.log("Input changed:", value)}
+/>
+```
+
+### TextArea
+
+```jsx
+<Textfield
+  name="address"
+  placeholder="Enter your address information here!"
+  textarea
+  validations={[required("required")]}
+/>
+```
+
+### Masked TextField
+
+```jsx
+import { Masks } from "react-native-mask-input";
+
+<Textfield
+  name="phone"
+  placeholder="Enter your phone number"
+  mask={Masks.USA_PHONE}
+  maxLength={17}
+  validations={[required("required")]}
+/>
+```
+
+## Props
+:::tip
+
+Other than listed props below, you can pass any prop that a `TextInput` component accepts.
+
+:::
+
+{/* ### validator
+`function | any[]`
+
+Validation function or array for checking input validity. This ensures only valid characters or patterns are allowed.
+
+```jsx
+<Textfield validator={/^\d+$/} placeholder="Enter numbers only" />
+``` */}
+
+### style
+| Name         | Type       | Description                                      |
+|--------------|------------|--------------------------------------------------|
+| `container`  | ViewStyle  | Style for the outer container of the input field.|
+| `element`    | ViewStyle  | Style for the main input field element.          |
+| `leftSlot`   | ViewStyle  | Style for the component or icon on the left side.|
+| `rightSlot`  | ViewStyle  | Style for the component or icon on the right side.|
+
+Custom styles for the `Textfield` component.
+
+```jsx
+<Textfield
+  style={{
+    container: { padding: 10, backgroundColor: "#f0f0f0" },
+    element: { color: "#333", fontSize: 16 },
+    leftSlot: { marginRight: 10 },
+    rightSlot: { marginLeft: 10 },
+  }}
+/>
+```
+
+### loading
+`boolean`
+
+If `true`, displays the `loadingIcon` component to indicate loading.
+
+```jsx
+<Textfield loading />
+```
+
+### loadingIcon
+`ReactNode`
+
+An icon or component displayed when the `loading` prop is `true`.
+
+```jsx
+<Textfield loading loadingIcon={<ActivityIndicator />} />
+```
+
+### type
+` default | text | number | email | phone | password `
+
+Specifies the type of input, which determines the keyboard type and behavior. Defaults to `"default"`.
+
+```jsx
+<Textfield type="email" placeholder="Enter your email" />
+```
+
+### size
+` xs | sm | md | lg | xl | xxlß`
+
+Defines the size of the input field, affecting padding and font size. Defaults to `"md"`.
+
+```jsx
+<Textfield size="lg" />
+```
+
+### mask
+`Mask`
+
+Applies a mask to format the input as the user types. Useful for phone numbers, dates, and more.
+
+```jsx
+import { Masks } from "react-native-mask-input";
+
+<Textfield mask={Masks.DATE_DDMMYYYY} placeholder="Enter date" />
+```
+
+### textarea
+`boolean`
+
+If `true`, the `Textfield` behaves as a multi-line text input.
+
+```jsx
+<Textfield textarea numberOfLines={5} />
+```
+
+### leftIcon
+`Lucide icon name`
+
+Displays an icon on the left side of the input field.
+
+```jsx
+<TextField
+  placeholder="Search"
+  leftIcon="Search"
+/>
+```
+
+### rightIcon
+`Lucide icon name`
+
+Displays an icon on the right side of the input field.
+
+```jsx
+<TextField
+  placeholder="Password"
+  rightIcon="Eye"
+/>
+```
+
+### LeftSlot
+`ReactNode`
+
+A custom component or element rendered on the left side of the input field.
+
+```jsx
+<Textfield
+  placeholder="Enter text"
+  LeftSlot={() => <LucideIcon name={"User"} />}
+/>
+```
+
+### RightSlot
+`ReactNode`
+
+A custom component or element rendered on the right side of the input field.
+
+```jsx
+<TextField
+  placeholder="Search"
+  RightSlot={() => <LucideIcon name={"Search"} />}
+/>
+```
+
+### disabled
+`boolean`
+
+If `true`, the input field is disabled and non-editable.
+
+```jsx
+<Textfield disabled />
+```
+

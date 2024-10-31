@@ -8,7 +8,7 @@ import { StyleProp, ViewStyle } from "react-native";
 export interface SelectProps extends IFormPropTypes {
   options: IOptionType[];
   placeholder?: string;
-  noOptionsMessage?: string; //TODO: add to types
+  noOptionsMessage?: string;
   onChange?: (e: any, value?: any, data?: any) => any;
   validator?: any[];
   doneText?: string;

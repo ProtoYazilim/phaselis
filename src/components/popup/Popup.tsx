@@ -110,7 +110,7 @@ const Popup: FC<PopupProps> = ({
           icon="X"
           size="md"
           style={getCombinedStyle("closeIcon")}
-          strokeWidth={4} // todo strokewidth not accurete with figma
+          strokeWidth={4}
           onClick={handleClose}
         />
       </Animated.View>

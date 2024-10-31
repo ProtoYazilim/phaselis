@@ -1,0 +1,155 @@
+---
+id: datepicker
+category: 'data-display'
+title: Datepicker
+version: '0.1'
+description:
+  The Datepicker component is used for selecting dates and times. It offers different customizable date formats, and supports various sizes and locales.
+---
+
+The `Datepicker` component is used for selecting dates and times. It offers different customizable date formats, and supports various sizes and locales.
+
+## Import
+
+Phaselis exports one main component for Datepicker.
+
+```js
+import { Datepicker } from 'phaselis'
+```
+
+- **Datepicker:** Main Component import for Datepicker
+
+## Usage
+
+### Basic Datepicker
+
+```jsx
+<Datepicker
+  placeholder="Select a date"
+  onChange={(e, date) => console.log("Date selected:", date)}
+/>
+```
+
+### Datepicker with Custom Format
+
+```jsx
+<Datepicker
+  format="yyyy-MM-dd"
+  placeholder="Choose a date"
+  onChange={(e, date) => console.log("Formatted date selected:", date)}
+/>
+```
+
+## Props
+
+### mode
+` date | time | datetime `
+
+Specifies the type of selection: date, time, or both. Defaults to `"date"`.
+
+```jsx
+<Datepicker mode="datetime" />
+```
+
+### minDate
+`Date`
+
+Sets the minimum selectable date.
+
+```jsx
+<Datepicker minDate={new Date(2023, 0, 1)} />
+```
+
+### maxDate
+`Date`
+
+Sets the maximum selectable date.
+
+```jsx
+<Datepicker maxDate={new Date(2023, 11, 31)} />
+```
+
+### format
+`string`
+
+Defines the display format for the selected date. Uses `date-fns` format options. Defaults to `"dd.MM.yyyy"`.
+
+```jsx
+<Datepicker format="yyyy-MM-dd" />
+```
+
+### size
+` xs | sm | md | lg | xl | xxl `
+
+Controls the size of the date picker. Defaults to `"md"`.
+
+```jsx
+<Datepicker size="lg" />
+```
+
+### locale
+`string`
+
+Specifies the locale for the date formatting. Example: `"TR_tr"`.
+
+```jsx
+<Datepicker locale="en_US" />
+```
+
+### style
+| Name       | Type      | Description                                          |
+|------------|-----------|------------------------------------------------------|
+| `container` | ViewStyle | Style for the outer container of the date picker.    |
+| `leftSlot`  | ViewStyle | Style for the left slot element (e.g., icon).        |
+| `element`   | TextStyle | Style for the text element displaying the date.      |
+
+Custom styles for the `Datepicker` component.
+
+```jsx
+<Datepicker
+  style={{
+    container: { padding: 10, borderRadius: 8, backgroundColor: "#f0f0f0" },
+    leftSlot: { marginRight: 5 },
+    element: { fontSize: 16, color: "#333" },
+  }}
+/>
+```
+
+### LeftSlot / RightSlot
+`ReactNode`
+
+Custom components or icons rendered on the left or right side of the input field.
+
+```jsx
+<Datepicker
+  LeftSlot={() => <Label text="Start Date" />}
+  RightSlot={() => <Label text="End Date" />}
+/>
+```
+
+### leftIcon / rightIcon
+`Lucide icon name`
+
+Name of the icon to display on the left or right side of the input field.
+
+```jsx
+<Datepicker leftIcon="Calendar" rightIcon="Clock" />
+```
+
+### onChange
+`(event: any, value: any, ...args: any[]) => any`
+
+Callback function triggered when the date changes. Receives the event and the selected date as parameters.
+
+```jsx
+<Datepicker onChange={(e, date) => console.log("Selected date:", date)} />
+```
+
+### disabled
+`boolean`
+
+Disables the date picker, preventing user interaction.
+
+```jsx
+<Datepicker disabled />
+```

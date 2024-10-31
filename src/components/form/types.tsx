@@ -11,10 +11,10 @@ interface FormProps {
   children: any;
   contextValue?: any;
   id?: string;
-  onReset?: (event?: any) => any;
-  onSubmit?: (event?: any, values?: any) => any;
-  onError?: (error?: any, extra?: any) => any;
-  onChange?: (event?: any, state?: any) => any;
+  onReset?: (event?: any) => void;
+  onSubmit?: (event?: any, values?: any) => void;
+  onError?: (error?: any, extra?: any) => void;
+  onChange?: (event?: any, state?: any) => void;
   [key: string]: any;
 }
 

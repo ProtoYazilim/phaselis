@@ -1,0 +1,94 @@
+---
+id: accordion-list
+category: 'data-display'
+title: AccordionList
+version: '0.1'
+description: The `AccordionList` component is used for displaying a list of collapsible items. It supports single or multiple items being expanded at a time and allows customization through props and styles.
+---
+
+# AccordionList
+
+The `AccordionList` component is designed for displaying a collection of collapsible items, making it easy to organize and present information in a structured manner. This component supports single or multiple expansion modes and can be customized using various props and styles to suit different design requirements.
+
+## Import
+
+```js
+import { AccordionList } from "phaselis";
+```
+
+## Usage
+
+### Basic AccordionList
+
+```jsx
+<AccordionList
+  data={[
+    { header: "Section 1", child: <Text>Details for section 1</Text> },
+    { header: "Section 2", child: <Text>Details for section 2</Text> },
+    { header: "Section 3", child: <Text>Details for section 3</Text> },
+  ]}
+/>
+```
+
+## Props
+
+### data
+`{ header: string; child: ReactNode }[]`
+
+An array of objects where each object represents an accordion item. The `header` key is used to display the header text of the item, and the `child` key represents the content that will be revealed when the item is expanded.
+
+
+```jsx
+const data = [
+  { header: "Introduction", child: <Text>Welcome to our guide!</Text> },
+  { header: "Details", child: <Text>Here are some detailed explanations.</Text> },
+];
+```
+
+### expandMode
+` single | multiple `
+
+Defines the behavior for item expansion. If set to `"single"`, only one item can be expanded at a time. If set to `"multiple"`, multiple items can be expanded simultaneously.
+
+
+```jsx
+<AccordionList expandMode="single" />
+```
+
+### defaultExpandedIndex
+`number[]`
+
+Specifies the indices of items that should be expanded by default when the component is rendered.
+
+
+```jsx
+<AccordionList defaultExpandedIndex={[0, 2]} />
+```
+
+### onChange
+`(index: number) => void`
+
+A callback function that is triggered when an accordion item is expanded or collapsed. It receives the index of the item that was toggled as a parameter.
+
+
+```jsx
+<AccordionList onChange={(index) => console.log("Toggled item at index:", index)} />
+```
+
+### style
+| Name        | Type      | Description                                   |
+|-------------|-----------|-----------------------------------------------|
+| `container` | ViewStyle | Style for the outer container of the accordion list. |
+| `element`   | ViewStyle | Style for the individual accordion item elements.     |
+
+Allows customization of the appearance of the `AccordionList`, including the container and the items.
+
+
+```jsx
+<AccordionList
+  style={{
+    container: { borderColor: "#ddd", borderWidth: 1, padding: 10 },
+    element: { backgroundColor: "#f7f7f7", marginBottom: 5 },
+  }}
+/>
+```

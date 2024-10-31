@@ -1,0 +1,130 @@
+---
+id: accordion-item
+category: 'data-display'
+title: AccordionItem
+version: '0.1'
+description: The `Accordion` component suite consists of `AccordionList` and `AccordionItem`, providing collapsible content sections for better organization and user interaction. These components support single or multiple expansion modes and are customizable with icons and custom styles.
+---
+
+# AccordionItem
+
+The `Accordion` component, when used with `AccordionItem`, allows for creating customizable, collapsible sections within an accordion layout. Each `AccordionItem` can be tailored with unique headers, icons, and content to suit the specific needs of your application.
+
+## Import
+
+```js
+import { Accordion, AccordionItem } from "phaselis";
+```
+
+## Usage
+
+### Basic Accordion with AccordionItem
+
+```jsx
+<Accordion>
+  <AccordionItem headerText="Section 1">
+    <Text>Content for section 1</Text>
+  </AccordionItem>
+  <AccordionItem headerText="Section 2" expand>
+    <Text>Content for section 2 (expanded by default)</Text>
+  </AccordionItem>
+  <AccordionItem headerText="Section 3">
+    <Text>Content for section 3</Text>
+  </AccordionItem>
+</Accordion>
+```
+
+## Props
+
+### headerText
+`string`
+
+The text that appears in the header of the accordion item.
+
+
+```jsx
+<AccordionItem headerText="Overview">
+  <Text>Here is a brief overview of the topic.</Text>
+</AccordionItem>
+```
+
+### expand
+`boolean`
+
+Specifies whether the accordion item should be expanded by default. The default value is `false`.
+
+
+```jsx
+<AccordionItem headerText="Details" expand>
+  <Text>This item is expanded by default.</Text>
+</AccordionItem>
+```
+
+### onChange
+`(expanded: boolean) => void`
+
+A callback function that triggers when the accordion item is expanded or collapsed. Receives the current expansion state (`true` for expanded, `false` for collapsed) as an argument.
+
+
+```jsx
+<AccordionItem headerText="Toggle Me" onChange={(expanded) => console.log("Expanded state:", expanded)}>
+  <Text>Expandable content goes here.</Text>
+</AccordionItem>
+```
+
+### style
+Defines custom styles for the accordion item.
+
+| Name        | Type      | Description                                   |
+|-------------|-----------|-----------------------------------------------|
+| `container` | ViewStyle | Style for the container of the accordion item. |
+| `element`   | ViewStyle | Style for the content inside the accordion item. |
+
+
+```jsx
+<AccordionItem
+  headerText="Styled Item"
+  style={{
+    container: { backgroundColor: "#e0e0e0", padding: 10 },
+    element: { borderBottomColor: "#ccc", borderBottomWidth: 1 },
+  }}
+>
+  <Text>Styled content within the accordion.</Text>
+</AccordionItem>
+```
+
+### headerIcon
+`Lucide icon name`
+
+The name of the icon displayed in the header, next to the text. Can be used to add visual cues or indicate the type of content within the accordion item.
+
+
+```jsx
+<AccordionItem headerText="Information" headerIcon="Info">
+  <Text>Details about this section.</Text>
+</AccordionItem>
+```
+
+### disabled
+`boolean`
+
+Disables the accordion item, preventing user interaction. The item cannot be expanded or collapsed when disabled.
+
+
+```jsx
+<AccordionItem headerText="Unavailable" disabled>
+  <Text>This section is not accessible.</Text>
+</AccordionItem>
+```
+
+### inContext
+`boolean`
+
+Indicates whether the item is part of a larger `AccordionList` context. The default value is `false`.
+
+```jsx
+<AccordionItem headerText="Contextual Item" inContext>
+  <Text>This item is used within an accordion context.</Text>
+</AccordionItem>
+```
+

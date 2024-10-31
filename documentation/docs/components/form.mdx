@@ -1,0 +1,153 @@
+---
+id: form
+category: 'form'
+title: Form
+version: '0.1'
+description:
+  The Form component provides a structured way to manage form data, validation, and component state, with support for error handling, reset, and submit actions.
+---
+
+The `Form` component is a context-based container that handles form submission, validation, and component registration within the form. It provides centralized state management and validation for all form fields.
+
+## Import
+
+Phaselis exports `Form` as the main component for form management.
+
+```js
+import { Form } from "@phaselis/components";
+```
+
+- **Form**: Main component to handle form data, validation, and submission.
+
+## Usage
+
+### Basic Form
+
+```jsx
+<Form
+  id="exampleForm"
+  onSubmit={(e, values) => console.log("Form submitted:", values)}
+  onError={(error, fields) => console.log("Form errors:", fields)}
+>
+  {/* Form fields and components go here */}
+</Form>
+```
+
+## Props
+
+### children
+`ReactNode`
+
+The form fields and components within the form, which are registered and managed by the form context.
+
+```jsx
+<Form>
+  <TextField name="username" placeholder="Username" />
+  <TextField name="password" placeholder="Password" type="password" />
+</Form>
+```
+
+### id
+`string`
+
+An optional unique identifier for the form, useful for debugging or tracking form instances.
+
+```jsx
+<Form id="loginForm" />
+```
+
+### onSubmit
+`function`
+
+Callback triggered when the form is successfully submitted. Receives the event and all form values.
+
+```jsx
+<Form
+  onSubmit={(e, values) => console.log("Form submitted with values:", values)}
+/>
+```
+
+### onReset
+`function`
+
+Callback triggered when the form is reset, clearing all values and errors. Receives an optional event.
+
+```jsx
+<Form onReset={() => console.log("Form reset")} />
+```
+
+### onError
+`function`
+
+Callback triggered when validation errors are found during submission. Receives the error message and fields with errors.
+
+```jsx
+<Form onError={(error, fields) => console.log("Form errors:", fields)} />
+```
+
+### onChange
+`function`
+
+Callback triggered whenever a form field value changes. Receives the event and the updated form state.
+
+```jsx
+<Form onChange={(e, state) => console.log("Form changed:", state)} />
+```
+
+## Methods
+
+### setValues
+Sets multiple form field values programmatically.
+
+```jsx
+formRef.current?.setValues({ username: "testUser", email: "user@example.com" });
+```
+
+### getValues
+Returns the current values of all form fields.
+
+```jsx
+const values = formRef.current?.getValues();
+```
+
+### validate
+Validates a specific form field by its name, returning `true` if it passes validation.
+
+```jsx
+const isValid = formRef.current?.validate("username");
+```
+
+### validateAll
+Validates all fields within the form. Returns `true` if all fields are valid.
+
+```jsx
+const allValid = formRef.current?.validateAll();
+```
+
+### getErrorField
+Retrieves an array of field names that have validation errors.
+
+```jsx
+const errors = formRef.current?.getErrorField();
+```
+
+### showError
+Displays a validation error message for a specific field.
+
+```jsx
+formRef.current?.showError("username", "Username is required");
+```
+
+### hideError
+Clears the error message for a specific field.
+
+```jsx
+formRef.current?.hideError("username");
+```
+
+### hideErrors
+Clears all validation error messages across all fields.
+
+```jsx
+formRef.current?.hideErrors();
+```

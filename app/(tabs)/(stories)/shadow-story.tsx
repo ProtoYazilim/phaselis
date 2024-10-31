@@ -61,34 +61,32 @@ const ShadowExample = () => {
           style={{
             width: 60,
             height: 60,
-            borderWidth: 1,
             borderRadius: 10,
             justifyContent: "center",
             alignItems: "center",
-            backgroundColor: "red",
             shadows: [
               {
-                color: "blue",
+                color: "#FCF596",
                 opacity: 0.4,
                 radius: 12,
                 offset: [-5, -3],
               },
               {
-                color: "red",
+                color: "#FF4545",
                 opacity: 0.4,
                 radius: 12,
                 offset: [5, 3],
               },
             ],
             lineerGradient: {
-              colors: ["blue", "red"], // background array ise, renkleri al
+              colors: ["#FCF596", "#FF4545"], // background array ise, renkleri al
               angle: 170,
               useAngle: true,
               angleCenter: { x: 0.5, y: 0.5 },
             },
           }}
         >
-          <Text style={{ color: "white" }}>Test</Text>
+          <Text style={{ color: "white" }}>Fancy</Text>
         </Block>
       </Block>
     </ScrollView>

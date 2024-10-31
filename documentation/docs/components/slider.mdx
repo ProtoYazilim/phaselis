@@ -1,0 +1,139 @@
+---
+id: slider
+category: 'data-display'
+title: Slider
+version: '0.1'
+description:
+  The Slider component is a control that allows users to select a value within a range.
+---
+
+The `Slider` component is a control that allows users to select a value within a range.
+
+## Import
+
+Phaselis exports one main component for Slider.
+
+```js
+import { Slider } from "@phaselis";
+```
+
+- **Slider:** Main Component import for Slider
+
+## Usage
+
+### Basic Slider
+
+```jsx
+<Slider
+  value={50}
+  minValue={0}
+  maxValue={100}
+/>
+```
+
+## Props
+:::tip
+
+You can pass additional props compatible with the `SliderCore` component from `@react-native-community/slider`.
+
+:::
+
+### value
+`number | string`
+
+The current value of the slider. Can be either a number or a string.
+
+```jsx
+<Slider value={75} />
+```
+
+### onChange
+`function`
+
+Callback function called when the slider value changes.
+
+```jsx
+<Slider
+  onChange={(e, value) => console.log("New slider value:", value)}
+/>
+```
+
+### minValue
+`number`
+
+The minimum value of the slider. Default is 0.
+
+```jsx
+<Slider minValue={10} />
+```
+
+### maxValue
+`number`
+
+The maximum value of the slider. Default is 100.
+
+```jsx
+<Slider maxValue={200} />
+```
+
+### step
+`number`
+
+The step size of the slider. Default is 10.
+
+```jsx
+<Slider step={5} />
+```
+
+### tapToSeek
+`boolean`
+
+Allows changing the value by tapping on the slider. Default is true.
+
+```jsx
+<Slider tapToSeek={false} />
+```
+
+### inverted
+`boolean`
+
+Inverts the slider. Default is false.
+
+```jsx
+<Slider inverted />
+```
+
+### renderStepNumber
+`boolean`
+
+Renders step numbers. Default is false.
+
+```jsx
+<Slider renderStepNumber />
+```
+
+
+### style
+| Name        | Type       | Description                                  |
+|-------------|------------|----------------------------------------------|
+| `container` | ViewStyle  | Style for the slider's outer container view. |
+| `element`   | ViewStyle  | Style for the slider's track and thumb.      |
+
+Defines the style properties of the component.
+
+```jsx
+<Slider
+  style={{
+    container: {
+      paddingHorizontal: 15,
+      marginVertical: 20,
+      backgroundColor: "#f0f0f0",
+      borderRadius: 8,
+    },
+    element: {
+      backgroundColor: "#d3d3d3",
+      borderRadius: 4,
+    },
+  }}
+/>
+```

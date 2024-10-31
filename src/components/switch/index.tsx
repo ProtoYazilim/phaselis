@@ -13,7 +13,6 @@ const Switch = ({
   style,
   duration = 400,
   disabled,
-  size = "md",
   contextValue,
   showIcons,
   LeftSlot,
@@ -23,7 +22,6 @@ const Switch = ({
   const { getCombinedStyle, defaultStyles, themeStyles, propStyle } =
     useCombinedStyle(stylesheet, style, contextValue.theme.switch, {
       disabled,
-      size,
       ...extraProps,
     });
 

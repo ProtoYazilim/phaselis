@@ -1,0 +1,141 @@
+---
+id: switch
+category: 'data-display'
+title: Switch
+version: '0.1'
+description:
+  A customizable switch component with animation support. It allows users to toggle between on and off states with smooth animations and customizable styles.
+---
+
+A customizable `Switch` component with animation support. It allows users to toggle between on and off states with smooth animations and customizable styles.
+
+## Import
+
+Phaselis exports one main component for Switch.
+
+```js
+import { Switch } from "@phaselis";
+```
+
+- **Switch:** Main Component import for Switch
+
+## Usage
+
+### Basic Switch
+
+```jsx
+<Switch
+  value={true}
+  onChange={(e, value) => console.log("Switch toggled:", value)}
+/>
+```
+
+## Props
+
+
+### value
+`boolean`
+Optional boolean value to control the state of the switch. Defaults to `false`.
+
+```jsx
+<Switch value={true} />
+```
+
+### onChange
+`(event: any, value: boolean) => void`
+
+Callback function triggered when the switch value changes. Receives event and new value.
+
+```jsx
+<Switch onChange={(e, value) => console.log("New switch state:", value)} />
+```
+
+### duration
+`number`
+
+Duration of the animation in milliseconds. Defaults to `400`.
+
+```jsx
+<Switch duration={300} />
+```
+
+### name
+`string`
+
+Name attribute for the switch.
+
+```jsx
+<Switch
+  name="notificationsToggle"
+  value={true}
+/>
+```
+
+### showIcons
+`boolean`
+
+Boolean to control whether to show icons inside the switch.
+
+```jsx
+<Switch showIcons />
+```
+
+### LeftSlot
+`ReactNode`
+
+Component to render on the left side of the switch.
+
+```jsx
+<Switch
+  LeftSlot={({}) => <LucideIcon name={"PowerOff"} />}
+  RightSlot={({}) => <LucideIcon name={"Power"} />}
+/>
+```
+
+### RightSlot
+`ReactNode`
+
+Component to render on the right side of the switch.
+
+```jsx
+<Switch
+  LeftSlot={({}) => <LucideIcon name={"MicOff"} />}
+  RightSlot={({}) => <LucideIcon name={"Mic"} />}
+/>
+```
+
+### style
+| Name         | Type       | Description                                       |
+|--------------|------------|---------------------------------------------------|
+| `container`  | ViewStyle  | Style for the outer container view of the switch. |
+| `element`    | ViewStyle  | Style for the main switch container.              |
+| `track`      | ViewStyle  | Style for the switch's track background.          |
+| `thumb`      | ViewStyle  | Style for the switch's thumb (toggle knob).       |
+| `leftIcon`   | TextStyle  | Style for the icon on the left side.              |
+| `rightIcon`  | TextStyle  | Style for the icon on the right side.             |
+
+Custom styles for the switch component.
+
+```jsx
+<Switch
+  style={{
+    container: {
+      marginVertical: 10,
+      padding: 5,
+      backgroundColor: "#f0f0f0",
+      borderRadius: 12,
+    },
+    element: {
+      backgroundColor: "#eee",
+      justifyContent: "center",
+    },
+    track: {
+      backgroundColor: "#ccc",
+    },
+    thumb: {
+      width: 24,
+      height: 24,
+    },
+  }}
+/>
+```

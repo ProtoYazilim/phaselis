@@ -1,0 +1,119 @@
+---
+id: slot
+category: 'data-display'
+title: Slot
+version: '0.1'
+description:
+  The Slot component allows for flexible placement of child elements or icons within other components, with additional styling and size options.
+---
+:::warning
+
+This component can be used as a foundation for creating other components with customizable design and functionality.
+
+:::
+
+The `Slot` component provides a way to render either a child component or an icon with customizable styles, sizes, and click events.
+
+## Import
+
+Phaselis exports one main component for Slot.
+
+```js
+import { Slot } from "@phaselis";
+```
+
+- **Slot:** Main Component import for Slot
+
+## Usage
+
+### Basic Slot with Icon
+
+```jsx
+<Slot icon="Check" size="md" strokeWidth={2} />
+```
+
+### Slot with Child Component
+
+```jsx
+<Slot iconsize="lg">
+  <Icon name="ArrowLeft" />
+</Slot>
+```
+
+## Props
+
+### children
+`ReactNode`
+
+An optional React child element to render within the `Slot`. If `children` is provided, it will override the `icon` prop.
+
+```jsx
+<Slot size="md">
+  {RightSlot && <RightSlot />}
+</Slot>
+```
+
+### icon
+`Lucide icon name`
+
+Name of the icon to render if `children` is not provided.
+
+```jsx
+<Slot icon="Settings" />
+```
+
+### style
+`array`
+
+An array of style objects applied to the `Slot` component or icon, containing `defaultStyle`, `themeStyle`, and `propStyle`.
+
+```jsx
+<Slot icon="star" style={[defaultStyle, themeStyle, customStyle]} />
+```
+
+### size
+` xs | sm | md | lg | xl | xxl `
+
+Controls the size of the child component or icon. Defaults to `"md"`.
+
+```jsx
+<Slot icon="Bell" size="lg" />
+```
+
+### strokeWidth
+`number`
+
+Sets the stroke width for the icon, allowing control over icon thickness.
+
+```jsx
+<Slot icon="Bell" strokeWidth={1.5} />
+```
+
+### onClick
+`() => void`
+
+An optional callback function triggered when the `Slot` component or icon is clicked.
+
+```jsx
+<Slot icon="Plus" onClick={() => console.log("Icon clicked")} />
+```
+
+### parentStates
+`any`
+
+Additional state data from the parent component, passed down to the `children` component if provided.
+
+```jsx
+<Slot parentStates={{ active: true }}>
+  <CustomComponent />
+</Slot>
+```
+
+### width / height
+`number`
+
+Custom width and height for the icon.
+
+```jsx
+<Slot icon="ArrowRight" width={20} height={40} />
+```

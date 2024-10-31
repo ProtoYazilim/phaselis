@@ -21,7 +21,6 @@ const Slider: FC<SliderProps> = ({
   tapToSeek = true,
   inverted = false,
   renderStepNumber = false,
-  vertical,
   ...extraProps
 }) => {
   const [progress, setProgress] = useState(Number(value || 0));
@@ -43,10 +42,10 @@ const Slider: FC<SliderProps> = ({
   }, [value]);
 
   const elementStyles = StyleSheet.flatten(getCombinedStyle("element"));
-
   return (
     <View style={getCombinedStyle("container")}>
       <SliderCore
+        {...extraProps}
         style={elementStyles}
         disabled={disabled}
         minimumValue={minValue}
@@ -65,7 +64,6 @@ const Slider: FC<SliderProps> = ({
         value={progress}
         tapToSeek={tapToSeek}
         inverted={inverted}
-        vertical={vertical}
         renderStepNumber={renderStepNumber}
       />
     </View>

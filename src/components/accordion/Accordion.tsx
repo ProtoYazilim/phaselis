@@ -18,34 +18,12 @@ const AccordionContext = createContext<{
 });
 
 const Accordion = ({
-  onChange,
-  style,
-  disabled,
-  size = "md",
-  contextValue,
   expandMode = "single",
-  data,
   children,
+  onChange,
 }: AccordionProps) => {
-  const { styles: defaultStyles } = useStyles(stylesheet, {
-    disabled,
-    size,
-  });
-
-  const { styles: themeStyles } = useStyles(
-    contextValue?.theme?.switch as typeof stylesheet,
-    {
-      disabled,
-      size,
-    },
-  );
-
-  const { styles: propStyle } = useStyles(style as typeof stylesheet, {
-    disabled,
-    size,
-  });
-
   const handleOnChange = (expand: boolean, index: number) => {
+    onChange?.(index);
     if (expandMode === "single") {
       setExpandedIndex(expand ? [index] : []);
       return;

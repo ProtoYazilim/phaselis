@@ -1,4 +1,5 @@
 import { icons } from "lucide-react-native";
+import { View, ViewStyle } from "react-native";
 
 interface AccordionHeaderProps {
   style?: any;
@@ -27,7 +28,10 @@ interface AccordionItemProps {
 
 interface AccordionListProps {
   onChange?: (index: number) => void;
-  style?: any;
+  style?: {
+    container?: ViewStyle;
+    element?: ViewStyle;
+  };
   disabled?: boolean;
   size?: any;
   contextValue?: any;
@@ -38,13 +42,7 @@ interface AccordionListProps {
 
 interface AccordionProps {
   onChange?: (index: number) => void;
-  style?: any;
-  disabled?: boolean;
-  size?: any;
-  contextValue?: any;
   expandMode?: "single" | "multiple";
-  defaultExpandedIndex?: number[];
-  data?: any[];
   children?: any;
 }
 

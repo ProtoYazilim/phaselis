@@ -65,6 +65,12 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your  project's social card
+    docs: {
+      sidebar: {
+        hideable: true,
+        autoCollapseCategories: true,
+      },
+    },
     colorMode: {
       defaultMode: "light",
       disableSwitch: false,
@@ -73,10 +79,12 @@ const config: Config = {
     image: "img/docusaurus-social-card.jpg",
     navbar: {
       title: "",
+      hideOnScroll: true,
       logo: {
         alt: "Phaselis Logo",
         src: "img/phaselis-logo-dark.svg",
         srcDark: "img/phaselis-logo-light.svg",
+        target: "_self",
       },
       items: [
         {
@@ -91,25 +99,36 @@ const config: Config = {
           label: "GitHub",
           position: "right",
         },
+        {
+          type: "localeDropdown",
+          position: "right",
+        },
+        {
+          type: "search",
+          position: "right",
+        },
         // { // ! verstion dropdown will be open after creating version https://docusaurus.io/docs/versioning
         //   type: "docsVersionDropdown",
         // },
       ],
     },
     footer: {
-      style: "dark",
       links: [
         {
-          title: "Docs",
+          title: "Site",
           items: [
             {
-              label: "Tutorial",
-              to: "/docs/intro",
+              label: "Components",
+              to: "/docs/components",
+            },
+            {
+              label: "Blog",
+              to: "/blog",
             },
           ],
         },
         {
-          title: "Community",
+          title: "About",
           items: [
             {
               label: "Proto Software",
@@ -120,10 +139,6 @@ const config: Config = {
         {
           title: "More",
           items: [
-            {
-              label: "Blog",
-              to: "/blog",
-            },
             {
               label: "GitHub",
               href: "https://github.com/ProtoYazilim/phaselis",

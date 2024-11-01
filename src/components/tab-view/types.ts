@@ -11,11 +11,11 @@ interface TabViewHeaderProps extends SlotableLeftRightProps {
   name?: string;
   showIcons?: boolean;
   contextValue?: any;
-  data: any[];
+  data?: any[];
   activeTab?: number;
-  id: any;
+  id?: any;
   scrollable?: boolean;
-  handleOnPress: (index: number) => void;
+  handleOnPress?: (index: number) => void;
 }
 
 interface TabHeaderItemProps extends SlotableLeftRightProps {
@@ -23,7 +23,7 @@ interface TabHeaderItemProps extends SlotableLeftRightProps {
   index: number;
   item: any;
   handleOnLayout?: (event: any, index: number) => void;
-  handleOnPress: (index: number) => void;
+  handleOnPress?: (index: number) => void;
   scrollable?: boolean;
   style?: any;
   contextValue?: any;

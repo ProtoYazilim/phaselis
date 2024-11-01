@@ -1,0 +1,110 @@
+---
+id: progress-step
+category: 'data-display'
+title: ProgressStep
+version: '0.1'
+description: The ProgressStep component is part of the Stepper suite, representing individual steps with customizable actions and styling for step-based navigation.
+---
+# ProgressStep Component
+
+The `ProgressStep` component represents an individual step within a multi-step `Stepper` process. It provides built-in handling for navigation between steps and can be customized with various props for tailored functionality and appearance.
+
+## Import
+
+```js
+import { ProgressStep } from "phaselis";
+```
+
+## Usage
+
+```jsx
+<ProgressStep
+  text="Step5"
+  onPrevious={() => {
+    console.log("called previous step");
+  }}
+  onSubmit={() => {
+    console.log("called on submit step.");
+  }}
+  disabled
+></ProgressStep>
+```
+
+## Props
+
+### text
+`string`
+
+The label or title displayed for the step.
+
+
+```jsx
+<ProgressStep text="Step 1" />
+```
+
+### onNext
+`() => Promise<void> | void`
+
+Callback function triggered when navigating to the next step.
+
+
+```jsx
+<ProgressStep text="Step 1" onNext={() => console.log("Next step initiated")} />
+```
+
+### onPrevious
+`() => void`
+
+Callback function triggered when navigating to the previous step.
+
+
+```jsx
+<ProgressStep text="Step 2" onPrevious={() => console.log("Returning to previous step")} />
+```
+
+### onSubmit
+`() => void`
+
+Callback function triggered when submitting the final step.
+
+
+```jsx
+<ProgressStep text="Final Step" onSubmit={() => console.log("Final step submitted")} />
+```
+
+### disabled
+`boolean`
+
+Disables the entire step, preventing interaction when set to `true`.
+
+```jsx
+<ProgressStep text="Step 2" disabled />
+```
+
+### previousButtonDisabled
+`boolean`
+
+Disables the "Previous" button when set to `true`.
+
+```jsx
+<ProgressStep text="Step 2" previousButtonDisabled />
+```
+
+
+### nextButtonDisabled
+`boolean`
+
+Disables the "Next" button when set to `true`.
+
+```jsx
+<ProgressStep text="Step 1" nextButtonDisabled />
+```
+
+### finishButtonDisabled
+`boolean`
+
+Disables the "Finish" button when set to `true`.
+
+```jsx
+<ProgressStep text="Final Step" finishButtonDisabled />
+```

@@ -1,0 +1,137 @@
+---
+id: tab-view
+category: 'navigation'
+title: TabView
+version: '0.1'
+description: The TabView component is used to display content divided into multiple tabs, offering a way to switch between different sections.
+---
+
+The `TabView` component is used to display content divided into multiple tabs, offering a way to switch between different sections. The component allows customization of the header, active tab behavior, and styles.
+
+## Import
+
+Phaselis exports the TabView component.
+
+```js
+import { TabView } from "phaselis";
+```
+
+- **TabView**: Main component for creating tabbed navigation.
+
+## Usage
+
+### Basic TabView
+
+```jsx
+<TabView activeTab={0}>
+  <TabItem title="Tab 1">
+    <Text>Content for Tab 1</Text>
+  </TabItem>
+  <TabItem title="Tab 2">
+    <Text>Content for Tab 2</Text>
+  </TabItem>
+</TabView>
+```
+
+### Scrollable TabView
+
+```jsx
+<TabView activeTab={2} scrollable>
+  <TabItem title="Item 1">
+    <Text>Tab Content 1</Text>
+  </TabItem>
+  <TabItem title="Item 2">
+    <Text>Tab Content 2</Text>
+  </TabItem>
+  <TabItem title="Item 3">
+    <Text>Tab Content 3</Text>
+  </TabItem>
+  <TabItem title="Item 4">
+    <Text>Tab Content 4</Text>
+  </TabItem>
+  <TabItem title="Item 5">
+    <Text>Tab Content 5</Text>
+  </TabItem>
+</TabView>
+```
+
+## Props
+
+### activeTab
+`number`
+
+The index of the tab that should be active initially.
+
+
+```jsx
+<TabView activeTab={1}>
+  {/* Tabs go here */}
+</TabView>
+```
+
+### children
+`any | any[]`
+
+The tabs to display, each represented as a `TabItem` component.
+
+
+```jsx
+<TabView>
+  <TabItem title="Overview">
+    <Text>Overview Content</Text>
+  </TabItem>
+  <TabItem title="Details">
+    <Text>Details Content</Text>
+  </TabItem>
+</TabView>
+```
+
+### scrollable
+`boolean`
+
+Determines if the tab headers are scrollable.
+
+
+```jsx
+<TabView scrollable>
+  {/* Tabs go here */}
+</TabView>
+```
+
+### headerProps
+[`TabViewHeaderProps`](tab-view-header-props)
+
+Props to customize the tab header, such as icons and styles.
+
+
+```jsx
+<TabView
+  headerProps={{
+    showIcons: true,
+    leftIcon: "ArrowLeft",
+    rightIcon: "ArrowRight",
+  }}
+>
+  {/* Tabs go here */}
+</TabView>
+```
+
+### style
+| Name        | Type      | Description                                      |
+|-------------|-----------|-------------------------------------------------- |
+| `container` | ViewStyle | Style for the main container of the `TabView`.   |
+| `element`   | ViewStyle | Style for the content area of the active tab.    |
+
+Allows customization of the `TabView` component's appearance.
+
+
+```jsx
+<TabView
+  style={{
+    container: { backgroundColor: "#f0f0f0", padding: 20 },
+    element: { padding: 15 },
+  }}
+>
+  {/* Tabs go here */}
+</TabView>
+```

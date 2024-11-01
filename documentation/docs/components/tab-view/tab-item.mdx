@@ -1,0 +1,55 @@
+---
+id: tab-item
+category: 'navigation'
+title: TabItem
+version: '0.1'
+description: The TabItem component is a part of a tab navigation system, allowing for the encapsulation and display of tab content within a React Native application.
+---
+
+# TabItem
+
+The `TabItem` component is used to represent the content of an individual tab in a tab-based navigation system.
+
+## Import
+
+```js
+import { TabItem } from "phaselis";
+```
+
+## Usage
+
+ ```jsx
+ <TabView>
+  <TabItem title="Item 1">
+    <Text>Tab Content 1</Text>
+  </TabItem>
+  <TabItem title="Item 2">
+    <Text>Tab Content 2</Text>
+  </TabItem>
+</TabView>
+```
+
+## Props
+
+### title
+`string`
+
+The title prop for the `TabItem` component defines the text displayed as the tab's label in the `TabViewHeader`.
+
+```jsx
+  <TabItem title="Item 1">
+    <Text>Content for Item 1</Text>
+  </TabItem>
+```
+
+### children
+`any`
+
+Content to be rendered inside the `TabItem`. 
+
+
+```jsx
+<TabItem>
+  <Text>Content for this tab</Text>
+</TabItem>
+```

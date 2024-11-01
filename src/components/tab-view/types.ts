@@ -7,9 +7,6 @@ interface TabViewHeaderProps extends SlotableLeftRightProps {
   onPress?: () => void;
   duration?: number;
   style?: any;
-  size?: any;
-  name?: string;
-  showIcons?: boolean;
   contextValue?: any;
   data?: any[];
   activeTab?: number;

@@ -23,8 +23,6 @@ const TabViewHeader = ({
   onChange,
   style,
   duration = 400,
-  size = "md",
-  showIcons,
   LeftSlot,
   RightSlot,
   contextValue,

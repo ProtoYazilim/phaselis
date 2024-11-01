@@ -1,0 +1,95 @@
+---
+id: lucide-icon
+category: 'data-display'
+title: LucideIcon
+version: '0.1'
+description: The LucideIcon component provides customizable SVG icons using the lucide-react-native library.
+---
+
+# LucideIcon
+
+The `LucideIcon` component allows you to display SVG icons from the `lucide-react-native` library with customizable properties such as size, color, stroke width, and more.
+
+## Import
+
+```js
+import { LucideIcon } from "phaselis";
+```
+
+## Usage
+
+```jsx
+<LucideIcon name="Search" size="md" />
+<LucideIcon name="Settings" width={50} height={50} />
+```
+
+## Props
+
+### name
+`Lucide icon name`
+
+The name of the icon to be displayed. This should correspond to an icon from the `lucide-react-native` library.
+
+
+```jsx
+<LucideIcon name="Heart" />
+```
+
+### size
+` xs | sm | md | lg | xl | xxl `
+
+Specifies the size of the icon.
+
+```jsx
+<LucideIcon name="Home" size="lg" />
+```
+
+### style
+`any`
+
+Custom styles to apply to the icon.
+
+
+```jsx
+<LucideIcon name="Star" style={{ color: "gold" }} />
+```
+
+### width
+`number`
+
+The width of the icon in pixels.
+
+
+```jsx
+<LucideIcon name="Bell" width={40} />
+```
+
+### height
+`number`
+
+The height of the icon in pixels.
+
+
+```jsx
+<LucideIcon name="Clock" height={40} />
+```
+
+### strokeWidth
+`number`
+
+Specifies the stroke width of the icon lines.
+
+
+```jsx
+<LucideIcon name="Check" strokeWidth={3} />
+```
+
+### onClick
+`() => void`
+
+Callback function triggered when the icon is pressed.
+
+
+```jsx
+<LucideIcon name="ThumbsUp" onClick={() => alert("Icon clicked!")} />
+```

@@ -8,20 +8,11 @@ const ProgressStep: React.FC<ProgressStepProps> = ({
   onSubmit,
   setActiveStep,
 
-  nextButtonText = "Next",
   nextButtonDisabled = false,
-  nextButtonStyle,
-  nextButtonTextStyle,
 
-  previousButtonText = "Previous",
   previousButtonDisabled = false,
-  previousButtonStyle,
-  previousButtonTextStyle,
 
-  finishButtonText = "Previous",
   finishButtonDisabled = false,
-  finishButtonStyle,
-  finishButtonTextStyle,
 
   stepCount,
   scrollViewProps,
@@ -56,24 +47,18 @@ const ProgressStep: React.FC<ProgressStepProps> = ({
         stepCount: stepCount,
       },
       nextButtonProps: {
-        text: nextButtonText,
         disabled: nextButtonDisabled,
-        style: nextButtonStyle,
-        textStyle: nextButtonTextStyle,
+
         onPress: activeStep === stepCount! - 1 ? onSubmitHandler : onNextStep,
       },
       previousButtonProps: {
-        text: previousButtonText, 
         disabled: previousButtonDisabled,
-        style: previousButtonStyle,
-        textStyle: previousButtonTextStyle,
+
         onPress: onPreviousStep,
       },
       finishButtonProps: {
-        text: finishButtonText,
         disabled: finishButtonDisabled,
-        style: finishButtonStyle,
-        textStyle: finishButtonTextStyle,
+
         onPress: onSubmitHandler,
       },
     });

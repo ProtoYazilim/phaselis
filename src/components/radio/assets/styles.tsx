@@ -11,17 +11,6 @@ const stylesheet = createStyleSheet({
           opacity: 0.51,
         },
       },
-      size: {
-        sm: {
-          height: 36,
-        },
-        md: {
-          height: 48,
-        },
-        lg: {
-          height: 56,
-        },
-      },
     },
   },
   text: {
@@ -42,14 +31,36 @@ const stylesheet = createStyleSheet({
     borderWidth: 2,
     alignItems: "center",
     justifyContent: "center",
+    height: 36,
     variants: {
       disabled: {
         true: {},
       },
       size: {
-        sm: {},
-        md: {},
-        lg: {},
+        xs: {
+          height: 16,
+          width: 16,
+        },
+        sm: {
+          height: 20,
+          width: 20,
+        },
+        md: {
+          height: 26,
+          width: 26,
+        },
+        lg: {
+          height: 42,
+          width: 42,
+        },
+        xl: {
+          height: 50,
+          width: 50,
+        },
+        xxl: {
+          height: 80,
+          width: 80,
+        },
       },
     },
   },

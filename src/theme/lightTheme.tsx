@@ -812,7 +812,36 @@ export const lightTheme = {
     },
     outerElement: {
       borderColor: Colors.Gray[900],
+      variants: {
+        size: {
+          xs: {
+            height: 16,
+            width: 16,
+          },
+          sm: {
+            height: 20,
+            width: 20,
+          },
+          md: {
+            height: 26,
+            width: 26,
+          },
+          lg: {
+            height: 42,
+            width: 42,
+          },
+          xl: {
+            height: 50,
+            width: 50,
+          },
+          xxl: {
+            height: 80,
+            width: 80,
+          },
+        },
+      },
     },
+    container: {},
     text: {
       color: Colors.Gray[900],
       fontSize: Spacings.MD,

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
-import { Text, Pressable, Animated } from "react-native";
+import { Text, Pressable, Animated, StyleSheet } from "react-native";
 import RadioContext from "./context";
 import { RadioProps } from "./types";
 import { PhaselisHOC } from "@phaselis/components/provider";
@@ -7,13 +7,11 @@ import stylesheet from "./assets/styles";
 import { useCombinedStyle } from "@phaselis/hooks";
 
 const Radio = ({
-  width = 30,
-  height = 30,
   text,
   value,
   onChange,
   disabled,
-  size,
+  size = "md",
   contextValue,
   style,
   ...extraProps
@@ -21,6 +19,13 @@ const Radio = ({
   const [checked, setChecked] = useState(false);
   const animationScale = useRef(new Animated.Value(0)).current; // Replacing useSharedValue with useRef
   const radioContext = useContext(RadioContext);
+
+  const { getCombinedStyle } = useCombinedStyle(
+    stylesheet,
+    style,
+    contextValue?.theme?.radio,
+    { disabled, size, ...extraProps },
+  );
 
   const handlePress = () => {
     if (disabled) return;
@@ -32,6 +37,8 @@ const Radio = ({
   useEffect(() => {
     setChecked(radioContext.groupValue === value);
   }, [radioContext.groupValue, value]);
+  const width = StyleSheet.flatten(getCombinedStyle("outerElement")).width;
+  const height = StyleSheet.flatten(getCombinedStyle("outerElement")).height;
 
   useEffect(() => {
     // Use Animated.spring to mimic the spring animation from
@@ -58,13 +65,6 @@ const Radio = ({
       outputRange: [0, (width - 10) / 2],
     }),
   };
-
-  const { getCombinedStyle } = useCombinedStyle(
-    stylesheet,
-    style,
-    contextValue?.theme?.radio,
-    { disabled, size, ...extraProps },
-  );
 
   return (
     <Pressable onPressIn={handlePress} style={getCombinedStyle("container")}>

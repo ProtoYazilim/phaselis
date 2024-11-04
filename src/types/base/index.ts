@@ -13,6 +13,8 @@ export interface IBasePropType {
 
 export type IGenericStyleType = CSSProperties | ViewStyle | TextStyle;
 
+export type ComponentSize = "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+
 export interface IFormPropTypes extends IBasePropType {
   name?: string;
   value?: any;
@@ -66,7 +68,7 @@ export type SlotChildComponent = ({
   themeStyle,
   propStyle,
 }: {
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+  size?: ComponentSize;
   defaultStyle?: ViewStyle & TextStyle;
   themeStyle?: ViewStyle & TextStyle;
   propStyle?: ViewStyle & TextStyle;

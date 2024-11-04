@@ -44,7 +44,7 @@ const TabHeaderItem = ({
       style={getCombinedStyle("container")}
       onLayout={(event) => handleOnLayout?.(event, index)}
       onPress={() => {
-        handleOnPress(index);
+        handleOnPress?.(index);
       }}
     >
       <Slot style={getCombinedStyle("leftSlot")} icon={leftIcon}>

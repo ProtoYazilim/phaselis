@@ -23,8 +23,6 @@ const TabViewHeader = ({
   onChange,
   style,
   duration = 400,
-  size = "md",
-  showIcons,
   LeftSlot,
   RightSlot,
   contextValue,
@@ -81,7 +79,7 @@ const TabViewHeader = ({
       newWidths[index] = width;
       return newWidths;
     });
-    if (data.length === index + 1 && scrollable) {
+    if (data?.length === index + 1 && scrollable) {
       const totalWidth = itemWidths.reduce((acc, width) => acc + width, 0);
       if (totalWidth > refScrollViewWidth.current) {
         setScrollEnabled(true);
@@ -144,9 +142,9 @@ const TabViewHeader = ({
           const { width } = event.nativeEvent.layout;
           refScrollViewWidth.current = width;
         }}
-        key={`${data.length}-${id}-tab-view`}
+        key={`${data?.length}-${id}-tab-view`}
       >
-        {data.map((item, index) => {
+        {data?.map((item, index) => {
           return (
             <TabHeaderItem
               activeTabIndex={activeTab}

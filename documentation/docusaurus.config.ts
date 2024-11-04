@@ -15,7 +15,7 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "protosoftware", // Usually your GitHub org/user name.
+  organizationName: "protoyazilim", // Usually your GitHub org/user name.
   projectName: "phaselis", // Usually your repo name.
 
   onBrokenLinks: "throw",
@@ -131,7 +131,7 @@ const config: Config = {
           title: "About",
           items: [
             {
-              label: "Proto Software",
+              label: ";proto",
               href: "https://www.protoyazilim.com/",
             },
           ],

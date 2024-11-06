@@ -1,0 +1,102 @@
+---
+id: use-popup
+category: 'hooks'
+title: usePopup
+version: '0.1'
+description: The usePopup hook provides a simple way to manage popups with customizable types, icons, and extra properties in your React and React Native applications.
+---
+
+# usePopup
+
+The `usePopup` hook allows developers to manage popups with various types and customizable properties. This hook can be used in combination with the `PopupProvider` to display popups throughout the application.
+
+## Import
+
+```js
+import usePopup, { PopupProvider } from "phaselis/hooks/usePopup";
+```
+
+- **usePopup**: The custom hook for managing popups.
+- **PopupProvider**: A provider component that needs to wrap your application or specific component tree to enable the use of `usePopup`.
+
+## Usage
+
+### Basic Example
+
+Ensure that your application is wrapped with the `PopupProvider` so that the context is accessible.
+
+```jsx
+import React from 'react';
+import { PopupProvider } from 'phaselis/hooks/usePopup';
+import AppContent from './AppContent';
+
+const App = () => {
+  return (
+    <PopupProvider>
+      <AppContent />
+    </PopupProvider>
+  );
+};
+
+export default App;
+```
+
+### Using the `usePopup` Hook
+
+```jsx
+import React from 'react';
+import usePopup from 'phaselis/hooks/usePopup';
+import { Button, Text } from 'react-native';
+
+const ExampleComponent = () => {
+  const [show, setShow] = usePopup('info', <Text>This is an info popup</Text>, {
+    duration: 3000,
+    title: 'Info',
+  });
+
+  return (
+    <Button
+      title="Show Popup"
+      onPress={() => setShow(show === 'show' ? 'hide' : 'show')}
+    />
+  );
+};
+```
+
+## Props and Configuration
+
+### Popup Types
+The `usePopup` hook supports different popup types, which change the appearance and icons used:
+
+- **default**
+- **info** (uses the "Info" icon)
+- **success** (uses the "CheckCheck" icon)
+- **warning** (uses the "MessageSquareWarning" icon)
+- **error** (uses the "Bomb" icon)
+
+### Popup Props
+
+| Name          | Type               | Description                                                                 |
+|---------------|--------------------|-----------------------------------------------------------------------------|
+| `id`          | `string`           | Unique identifier for the popup.                                            |
+| `show`        | `"show" | "hide"`  | The state of the popup, determining if it is visible or hidden.            |
+| `content`     | `ReactNode`        | The content displayed inside the popup.                                     |
+| `type`        | `PopupType`        | The type of popup (e.g., `info`, `success`).                                |
+| `extraProps`  | `PopupExtraProps`  | Additional properties for customizing the popup.                            |
+
+### PopupExtraProps
+
+| Name           | Type              | Description                                                                 |
+|----------------|-------------------|-----------------------------------------------------------------------------|
+| `duration`     | `number`          | The duration for which the popup is shown (in milliseconds).                |
+| `onClose`      | `() => void`      | Callback function triggered when the popup is closed.                       |
+| `fullScreen`   | `boolean`         | Determines if the popup should be displayed in fullscreen mode.             |
+| `contextValue` | `any`             | Context value for further customization.                                    |
+| `style`        | `any`             | Custom styles for the popup container.                                      |
+| `leftIcon`     | `SlotIconName`    | The name of the icon displayed on the left side of the popup header.        |
+| `LeftSlot`     | `ReactNode`       | Custom component to be displayed in the left slot of the popup header.      |
+| `title`        | `string`          | The title displayed in the popup header.                                    |
+
+## Info
+
+For available icons, refer to the [Lucide Icons](https://lucide.dev/icons/).

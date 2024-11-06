@@ -1,142 +1,71 @@
-import { Block, Button, Popup } from "@phaselis/components";
-import { set } from "lodash";
-import React, { useState } from "react";
+import { Block, Button } from "@phaselis/components";
+import React from "react";
 import { SafeAreaView, StyleSheet, Text } from "react-native";
+import { usePopup } from "@phaselis/hooks";
 
 function PopupStory() {
-  const [show, setShow] = useState(false);
-  const [show1, setShow1] = useState(false);
-  const [show2, setShow2] = useState(false);
-  const [show3, setShow3] = useState(false);
-  const [show4, setShow4] = useState(false);
+  const [showDefault, setShowDefault] = usePopup(
+    "default",
+    <Text>Popup Content ADADAD</Text>,
+    {
+      title: "Default Popup",
+      duration: 1000,
+      style: { backgroundColor: "red" },
+    },
+  );
+  const [showInfo, setShowInfo] = usePopup("info", <Text>Popup Content</Text>);
+  const [showWarning, setShowWarning] = usePopup(
+    "warning",
+    <Text>Popup Content</Text>,
+    {
+      style: { container: { backgroundColor: "yellow" } },
+      leftIcon: "SquareX",
+      title: "Warning Popup Test",
+    },
+  );
+  const [showError, setShowError] = usePopup(
+    "error",
+    <Text>Popup Content</Text>,
+  );
+  const [showSuccess, setShowSuccess] = usePopup(
+    "success",
+    <Text>Popup Content</Text>,
+  );
 
   return (
     <SafeAreaView style={styles.container}>
       <Block style={{ marginLeft: 10, marginRight: 10, gap: 10 }}>
         <Button
-          text="Show Popup"
+          text="Show Default Popup"
           onClick={() => {
-            setShow(true);
+            setShowDefault?.("show");
           }}
         />
         <Button
-          text="Show Info"
+          text="Show Info Popup"
           onClick={() => {
-            setShow1(true);
+            setShowInfo?.("show");
           }}
         />
         <Button
-          text="Show Warning"
+          text="Show Warning Popup"
           onClick={() => {
-            setShow2(true);
+            setShowWarning?.("show");
           }}
         />
         <Button
-          text="Show Error"
+          text="Show Error Popup"
           onClick={() => {
-            setShow3(true);
+            setShowError?.("show");
           }}
         />
         <Button
-          text="Show Success"
+          text="Show Success Popup"
           onClick={() => {
-            setShow4(true);
+            setShowSuccess?.("show");
           }}
         />
       </Block>
-      <Popup
-        show={show}
-        onClose={() => {
-          setShow(false);
-        }}
-      >
-        <Text>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-          dolores quos iure tenetur eius accusantium blanditiis, officia labore
-          molestias corporis enim consequatur cum deserunt quae error cumque,
-          eaque facilis dolorum!
-        </Text>
-      </Popup>
-      <Popup
-        show={show1}
-        onClose={() => {
-          setShow1(false);
-        }}
-        title="Info"
-        style={{
-          container: {
-            backgroundColor: "#D8EEFF",
-          },
-        }}
-        leftIcon="Info"
-      >
-        <Text>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-          dolores quos iure tenetur eius accusantium blanditiis, officia labore
-          molestias corporis enim consequatur cum deserunt quae error cumque,
-          eaque facilis dolorum!
-        </Text>
-      </Popup>
-      <Popup
-        show={show2}
-        onClose={() => {
-          setShow2(false);
-        }}
-        title="Warning"
-        style={{
-          container: {
-            backgroundColor: "#FFFBC5",
-          },
-        }}
-        leftIcon="MessageSquareWarning"
-      >
-        <Text>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-          dolores quos iure tenetur eius accusantium blanditiis, officia labore
-          molestias corporis enim consequatur cum deserunt quae error cumque,
-          eaque facilis dolorum!
-        </Text>
-      </Popup>
-      <Popup
-        show={show3}
-        onClose={() => {
-          setShow3(false);
-        }}
-        title="Error"
-        style={{
-          container: {
-            backgroundColor: "#FEE6E5",
-          },
-        }}
-        leftIcon="Bomb"
-      >
-        <Text>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-          dolores quos iure tenetur eius accusantium blanditiis, officia labore
-          molestias corporis enim consequatur cum deserunt quae error cumque,
-          eaque facilis dolorum!
-        </Text>
-      </Popup>
-      <Popup
-        show={show4}
-        onClose={() => {
-          setShow4(false);
-        }}
-        title="Success"
-        style={{
-          container: {
-            backgroundColor: "#CEFDE8",
-          },
-        }}
-        leftIcon="CheckCheck"
-      >
-        <Text>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-          dolores quos iure tenetur eius accusantium blanditiis, officia labore
-          molestias corporis enim consequatur cum deserunt quae error cumque,
-          eaque facilis dolorum!
-        </Text>
-      </Popup>
     </SafeAreaView>
   );
 }

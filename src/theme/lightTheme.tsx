@@ -1200,6 +1200,22 @@ export const lightTheme = {
     container: {
       backgroundColor: Colors.Gray[50],
       padding: Spacings.MD,
+      variants: {
+        type: {
+          info: {
+            backgroundColor: "#D8EEFF",
+          },
+          success: {
+            backgroundColor: "#CEFDE8",
+          },
+          warning: {
+            backgroundColor: "#FFFBC5",
+          },
+          error: {
+            backgroundColor: "#FEE6E5",
+          },
+        },
+      },
     },
     leftSlot: {
       color: Colors.Gray[950],

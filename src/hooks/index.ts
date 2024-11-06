@@ -1,3 +1,4 @@
 import useCombinedStyle from "./useCombinedStyle";
+import usePopup from "./usePopup";
 
-export { useCombinedStyle };
+export { useCombinedStyle, usePopup };

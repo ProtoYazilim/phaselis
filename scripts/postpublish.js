@@ -7,7 +7,12 @@ const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf-8"));
 
 packageJson.main = "expo-router/entry";
 
-const depsToMove = ["react-native", "react", "react-dom"];
+const depsToMove = [
+  "react-native",
+  "react",
+  "react-dom",
+  "react-native-reanimted",
+];
 packageJson.dependencies = packageJson.dependencies || {};
 
 depsToMove.forEach((dep) => {

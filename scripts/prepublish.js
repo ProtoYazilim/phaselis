@@ -8,7 +8,12 @@ const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf-8"));
 packageJson.main = "package/index.js";
 
 // Belirtilen bağımlılıkları dependencies'den kaldırıp peerDependencies'e taşıyalım
-const depsToMove = ["react-native", "react", "react-dom"];
+const depsToMove = [
+  "react-native",
+  "react",
+  "react-dom",
+  "react-native-reanimted",
+];
 packageJson.peerDependencies = packageJson.peerDependencies || {};
 
 depsToMove.forEach((dep) => {

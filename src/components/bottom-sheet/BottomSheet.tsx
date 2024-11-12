@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { StyleSheet, TouchableOpacity, Modal, Animated } from "react-native";
 
 interface BottomSheetProps {
@@ -6,6 +6,8 @@ interface BottomSheetProps {
   duration?: number;
   children: React.ReactNode;
   onClose: () => void;
+  fullScreenModal?: boolean;
+  maxHeightModal?: any;
 }
 
 const BottomSheet = ({
@@ -13,11 +15,21 @@ const BottomSheet = ({
   duration = 500,
   children,
   onClose,
+  fullScreenModal = false,
+  maxHeightModal = "40%",
 }: BottomSheetProps) => {
-  const translateY = new Animated.Value(300);
+  const HEIGHT = useRef(500);
+  const translateY = useRef(new Animated.Value(0)).current;
+  const [isModalVisible, setIsModalVisible] = React.useState(false);
+
+  const backdropOpacity = translateY.interpolate({
+    inputRange: [0, HEIGHT.current],
+    outputRange: [1, 0],
+  });
 
   useEffect(() => {
     if (show) {
+      setIsModalVisible(true);
       // Animate to open position
       Animated.timing(translateY, {
         toValue: 0,
@@ -27,40 +39,31 @@ const BottomSheet = ({
     } else {
       // Animate to closed position and then close the modal
       Animated.timing(translateY, {
-        toValue: 300, // Start position
+        toValue: HEIGHT.current,
         duration,
         useNativeDriver: true,
       }).start(() => {
+        setIsModalVisible(false);
         onClose?.(); // Close modal after animation completes
       });
     }
-  }, [show, duration]);
-
-  const backdropStyle = {
-    opacity: show ? 1 : 0,
-    zIndex: show ? 1 : -1,
-  };
-
-  const handleClose = () => {
-    if (show) {
-      // Trigger close animation
-      Animated.timing(translateY, {
-        toValue: 300, // Start position
-        duration,
-        useNativeDriver: true,
-      }).start(() => {
-        onClose?.(); // Close modal after animation completes
-      });
-    }
-  };
+  }, [show, duration, onClose]);
 
   return (
-    <Modal transparent={true} visible={show} animationType="fade">
-      <Animated.View style={[sheetStyles.backdrop, backdropStyle]}>
-        <TouchableOpacity style={{ flex: 1 }} onPress={handleClose} />
+    <Modal transparent={true} visible={isModalVisible} animationType="fade">
+      <Animated.View
+        style={[sheetStyles.backdrop, { opacity: backdropOpacity }]}
+      >
+        <TouchableOpacity style={{ flex: 1 }} onPress={onClose} />
       </Animated.View>
       <Animated.View
-        style={[sheetStyles.sheet, { transform: [{ translateY }] }]}
+        style={[
+          sheetStyles.sheet,
+          {
+            transform: [{ translateY }],
+            maxHeight: fullScreenModal ? "100%" : maxHeightModal,
+          },
+        ]}
       >
         {children}
       </Animated.View>

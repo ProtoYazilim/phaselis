@@ -86,6 +86,9 @@ const stylesheet = createStyleSheet({
       focus: {},
     },
   },
+  // Custom Picker Header Component
+  headerSlot: {},
+  headerInnerSlot: {},
 });
 
 export default stylesheet;

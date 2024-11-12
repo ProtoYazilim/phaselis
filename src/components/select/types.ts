@@ -1,8 +1,12 @@
 import {
+  InputSlotComponent,
   IFormPropTypes,
   SlotChildComponent,
   SlotIconName,
+  HeaderSlotComponent,
+  ComponentSize,
 } from "@phaselis/types";
+import React, { Component } from "react";
 import { StyleProp, ViewStyle } from "react-native";
 
 export interface SelectProps extends IFormPropTypes {
@@ -17,9 +21,24 @@ export interface SelectProps extends IFormPropTypes {
   valueField?: string;
   LeftSlot?: SlotChildComponent;
   RightSlot?: SlotChildComponent;
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+  size?: ComponentSize;
   leftIcon?: SlotIconName;
   rightIcon?: SlotIconName;
+  HeaderSlot?: React.ComponentType<{
+    closeIcon: SlotIconName;
+    closeIconSize: ComponentSize;
+    CloseIconSlot?: React.ComponentType;
+  }>;
+  closeIcon?: SlotIconName;
+  closeIconSize?: ComponentSize;
+  CloseIconSlot?: React.ComponentType;
+  pickerType?: "native" | "custom";
+  InputSlot?: InputSlotComponent;
+  OptionSlot?: React.ComponentType<{ option: any }>;
+  maxHeightModal?: number | string;
+  fullScreenModal?: boolean;
+  closeOnSelect?: boolean;
+  NoOptionSlot?: React.ComponentType;
 }
 
 export interface IOptionType {

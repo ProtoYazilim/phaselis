@@ -390,6 +390,7 @@ export const lightTheme = {
     },
     rightSlot: {
       color: Colors.Gray[950],
+      marginRight: Spacings.SM,
       variants: {
         focus: {
           true: {
@@ -447,6 +448,17 @@ export const lightTheme = {
           },
         },
       },
+    },
+    headerSlot: {
+      marginLeft: Spacings.SM,
+      marginRight: Spacings.SM,
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+    },
+    headerInnerSlot: {
+      padding: Spacings.MD,
+      flex: 1,
     },
   },
   checkbox: {

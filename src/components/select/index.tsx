@@ -1,5 +1,5 @@
 import React, { FC, useMemo, useRef, useState } from "react";
-import { View, ViewStyle, StyleSheet } from "react-native";
+import { View, StyleSheet, Pressable, Text } from "react-native";
 import { PhaselisHOC } from "@phaselis/components/provider";
 import ReactNativePickerSelect from "react-native-picker-select";
 import { InputHOC } from "@phaselis/utils";
@@ -7,11 +7,13 @@ import stylesheet from "./assets/styles";
 import { SelectProps } from "./types";
 import { Slot } from "@phaselis/components";
 import { useCombinedStyle } from "@phaselis/hooks";
+import CustomPicker from "./CustomPicker";
+import NativePicker from "./NativePicker";
 
 const Select: FC<SelectProps> = ({
   contextValue,
   style,
-  options,
+  options = [],
   valueField = "value",
   displayField = "label",
   placeholder = "Select an option",
@@ -27,27 +29,30 @@ const Select: FC<SelectProps> = ({
   isChanged,
   isUsed,
   doneText,
+  pickerType = "native",
+  InputSlot,
+  OptionSlot,
+  HeaderSlot,
+  maxHeightModal,
+  fullScreenModal,
+  closeOnSelect = true,
+  NoOptionSlot,
+  closeIcon = "X",
+  closeIconSize = "md",
+  CloseIconSlot,
   ...extraProps
 }) => {
   const [isFocus, setIsFocus] = useState(false);
+  const [showPicker, setShowPicker] = useState(false);
   const refPicker = useRef<ReactNativePickerSelect>(null);
 
   const showError = useMemo(() => {
     return isChanged && isUsed && error ? true : false;
   }, [error, isUsed, isChanged]);
 
-  const memorizedOptions = useMemo(() => {
-    return options.map((option) => {
-      return {
-        label: option[displayField],
-        value: option[valueField],
-      };
-    });
-  }, [options, valueField, displayField]);
-
   const selectedItem = useMemo(() => {
-    return memorizedOptions.find((option) => option.value === value);
-  }, [value, memorizedOptions]);
+    return options.find((option) => option.value === value);
+  }, [value, options]);
 
   const { getCombinedStyle, themeStyles, defaultStyles, propStyle } =
     useCombinedStyle(stylesheet, style, contextValue?.theme?.select, {
@@ -64,12 +69,73 @@ const Select: FC<SelectProps> = ({
     propStyle?.element,
   ]);
 
-  const handleOnFocus = () => {
-    setIsFocus(true);
-  };
-
-  const handleOnBlur = () => {
-    setIsFocus(false);
+  const renderHelperInput = (): React.ReactNode => {
+    if (true) {
+      return (
+        <Pressable
+          style={{ flex: 1 }}
+          disabled={disabled}
+          onPress={() => {
+            refPicker.current?.togglePicker(true);
+            setShowPicker(true);
+          }}
+        >
+          {pickerType === "custom" && InputSlot ? (
+            <InputSlot
+              defaultStyle={getCombinedStyle("element")}
+              selectedItem={selectedItem}
+            />
+          ) : (
+            <Text style={getCombinedStyle("element")}>
+              {selectedItem?.label || placeholder}
+            </Text>
+          )}
+          <View
+            style={{
+              flex: 1,
+              width: 0,
+              height: 0,
+              opacity: 0,
+              position: "absolute",
+              zIndex: -1,
+            }}
+          >
+            {pickerType === "native" ? (
+              <NativePicker
+                refPicker={refPicker}
+                onChange={onChange}
+                options={options}
+                value={value}
+                elementStyles={elementStyles}
+                disabled={disabled}
+                placeholder={placeholder}
+                doneText={doneText}
+                selectedItem={selectedItem}
+                setIsFocus={setIsFocus}
+              />
+            ) : (
+              <CustomPicker
+                showPicker={showPicker}
+                setShowPicker={setShowPicker}
+                maxHeightModal={maxHeightModal}
+                fullScreenModal={fullScreenModal}
+                options={options}
+                HeaderSlot={HeaderSlot}
+                closeIcon={closeIcon}
+                closeIconSize={closeIconSize}
+                CloseIconSlot={CloseIconSlot}
+                OptionSlot={OptionSlot}
+                onChange={onChange}
+                selectedItem={selectedItem}
+                getCombinedStyle={getCombinedStyle}
+                closeOnSelect={closeOnSelect}
+                NoOptionSlot={NoOptionSlot}
+              />
+            )}
+          </View>
+        </Pressable>
+      );
+    }
   };
 
   return (
@@ -81,67 +147,7 @@ const Select: FC<SelectProps> = ({
       >
         {LeftSlot && <LeftSlot />}
       </Slot>
-      <View
-        style={{
-          flex: 1,
-          width: "100%",
-        }}
-      >
-        <ReactNativePickerSelect
-          ref={refPicker}
-          onValueChange={(value, index) => {
-            if (onChange) {
-              onChange(
-                {
-                  target: {
-                    value: value,
-                  },
-                },
-                value,
-                selectedItem,
-              );
-            }
-          }}
-          items={memorizedOptions}
-          value={value}
-          style={{
-            headlessAndroidContainer: {
-              width: "100%",
-            },
-            inputIOSContainer: {
-              width: "100%",
-            },
-            inputAndroidContainer: {
-              width: "100%",
-            },
-            inputAndroid: {
-              ...(elementStyles as ViewStyle),
-            },
-            inputIOS: {
-              ...(elementStyles as ViewStyle),
-            },
-          }}
-          Icon={() => null}
-          useNativeAndroidPickerStyle={false}
-          fixAndroidTouchableBug={true}
-          onOpen={handleOnFocus}
-          onClose={handleOnBlur}
-          pickerProps={{
-            onFocus: handleOnFocus,
-            onBlur: handleOnBlur,
-          }}
-          disabled={disabled}
-          placeholder={
-            placeholder
-              ? {
-                  label: placeholder,
-                  value: null,
-                }
-              : undefined
-          }
-          doneText={doneText}
-        />
-      </View>
+      {renderHelperInput()}
       <Slot
         style={getCombinedStyle("rightSlot")}
         icon={rightIcon as any}

@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import { View, Pressable, FlatList } from "react-native";
 import { BottomSheet, Slot, Button } from "@phaselis/components";
 import { ComponentSize, SlotIconName } from "@phaselis/types";
+import HeaderSlotDefault from "./lib/HeaderSlotDefault";
 
 interface CustomPickerProps {
   showPicker: boolean;
@@ -19,7 +20,7 @@ interface CustomPickerProps {
   CloseIconSlot?: React.ComponentType;
   OptionSlot: React.ComponentType<{ option: any }>;
   NoOptionSlot?: React.ComponentType;
-  onChange: (e: any, value?: any, data?: any) => any;
+  onChange?: (e: any, value?: any, data?: any) => any;
   selectedItem?: any;
   getCombinedStyle: any;
   closeOnSelect?: boolean;
@@ -31,16 +32,16 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
   maxHeightModal,
   fullScreenModal,
   options,
-  HeaderSlot,
   closeIcon,
   closeIconSize,
-  CloseIconSlot,
-  OptionSlot,
   onChange,
   selectedItem,
   getCombinedStyle,
   closeOnSelect,
   NoOptionSlot,
+  OptionSlot,
+  HeaderSlot = <HeaderSlotDefault text="123" />,
+  CloseIconSlot,
 }) => {
   const memorizedOptions = useMemo(() => {
     return options.map((option) => {
@@ -53,6 +54,17 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
   const noOptionLayout = useMemo(() => {
     return memorizedOptions.length > 0;
   }, [memorizedOptions]);
+
+  const cloneSlot = (slot: any, props: any) => {
+    if (!slot) {
+      return null;
+    }
+    if (typeof slot === "function") {
+      return slot(props);
+    } else if (React.isValidElement(slot)) {
+      return React.cloneElement(slot, props);
+    }
+  };
 
   return (
     <BottomSheet
@@ -78,13 +90,11 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
           </Pressable>
         ) : null}
         <View style={getCombinedStyle("headerInnerSlot")}>
-          {HeaderSlot && (
-            <HeaderSlot
-              closeIcon={closeIcon}
-              closeIconSize={closeIconSize}
-              CloseIconSlot={CloseIconSlot}
-            />
-          )}
+          {cloneSlot(HeaderSlot, {
+            closeIcon,
+            closeIconSize,
+            CloseIconSlot,
+          })}
         </View>
         {closeOnSelect ? (
           <Pressable

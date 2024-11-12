@@ -22,28 +22,6 @@ const SelectStory = () => {
               size="md"
               validations={[required("required")]}
               closeOnSelect={false}
-              NoOptionSlot={() => (
-                <View
-                  style={{
-                    flex: 1,
-                    alignItems: "center",
-                    justifyContent: "center",
-                    padding: 16,
-                    height: 100,
-                    backgroundColor: "#e4e4e4",
-                  }}
-                >
-                  <Text
-                    style={{
-                      fontSize: 16,
-                      color: "#00d882",
-                      fontStyle: "italic",
-                    }}
-                  >
-                    No option available
-                  </Text>
-                </View>
-              )}
               options={[
                 { value: "1", label: "Option 1", subLabel: "1 text" },
                 { value: "2", label: "Option 2" },
@@ -68,6 +46,28 @@ const SelectStory = () => {
               ]}
               pickerType="custom"
               maxHeightModal={"50%"}
+              NoOptionSlot={() => (
+                <View
+                  style={{
+                    flex: 1,
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: 16,
+                    height: 100,
+                    backgroundColor: "#e4e4e4",
+                  }}
+                >
+                  <Text
+                    style={{
+                      fontSize: 16,
+                      color: "#00d882",
+                      fontStyle: "italic",
+                    }}
+                  >
+                    No option available
+                  </Text>
+                </View>
+              )}
               InputSlot={({ selectedItem, defaultStyle }) => (
                 <>
                   <Text>{selectedItem?.label || "Select option (Custom)"}</Text>
@@ -92,19 +92,6 @@ const SelectStory = () => {
                   <Text style={{ color: "black" }}>{option.label}</Text>
                   {option?.subLabel ? <Text>{option?.subLabel}</Text> : null}
                 </Block>
-              )}
-              HeaderSlot={() => (
-                <View
-                  style={{
-                    flex: 1,
-                    flexDirection: "row",
-                    justifyContent: "center",
-                    backgroundColor: "lightblue",
-                    padding: 10,
-                  }}
-                >
-                  <Text>Custom Picker Header</Text>
-                </View>
               )}
               closeIcon="SearchX"
             />
@@ -133,14 +120,6 @@ const SelectStory = () => {
           <Button text="Reset" type="reset" />
         </Block>
       </Form>
-      <Block style={{ gap: 10 }}>
-        {/* <Select options={[]} size="xs" disabled />
-        <Select options={[]} size="sm" disabled />
-        <Select options={[]} size="md" disabled />
-        <Select options={[]} size="lg" disabled />
-        <Select options={[]} size="xl" disabled />
-        <Select options={[]} size="xxl" disabled /> */}
-      </Block>
     </ScrollView>
   );
 };

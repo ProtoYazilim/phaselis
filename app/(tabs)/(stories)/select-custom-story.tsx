@@ -1,9 +1,16 @@
 import React, { useRef } from "react";
-import { ScrollView, Text, View } from "react-native";
-
+import { ScrollView } from "react-native";
 import { FormReference } from "@phaselis/components/form";
 import { required } from "@phaselis/utils";
-import { Block, Button, Select, InputGroup, Form } from "@phaselis/components";
+import {
+  Block,
+  Button,
+  Select,
+  InputGroup,
+  Form,
+  Textfield,
+  LucideIcon,
+} from "@phaselis/components";
 
 const SelectStory = () => {
   const refForm = useRef<FormReference>(null);
@@ -23,7 +30,11 @@ const SelectStory = () => {
               validations={[required("required")]}
               closeOnSelect={false}
               options={[
-                { value: "1", label: "Option 1", subLabel: "1 text" },
+                {
+                  value: "1",
+                  label: "Banka Kombetare Tregrate",
+                  subLabel: "1 text",
+                },
                 { value: "2", label: "Option 2" },
                 { value: "3", label: "Option 3" },
                 { value: "4", label: "Option 4" },
@@ -46,57 +57,24 @@ const SelectStory = () => {
               ]}
               pickerType="custom"
               maxHeightModal={"50%"}
-              NoOptionSlot={() => (
-                <View
-                  style={{
-                    flex: 1,
-                    alignItems: "center",
-                    justifyContent: "center",
-                    padding: 16,
-                    height: 100,
-                    backgroundColor: "#e4e4e4",
-                  }}
-                >
-                  <Text
-                    style={{
-                      fontSize: 16,
-                      color: "#00d882",
-                      fontStyle: "italic",
-                    }}
-                  >
-                    No option available
-                  </Text>
-                </View>
-              )}
-              InputSlot={({ selectedItem, defaultStyle }) => (
-                <>
-                  <Text>{selectedItem?.label || "Select option (Custom)"}</Text>
-                  {selectedItem?.subLabel ? (
-                    <Text>{selectedItem?.subLabel}</Text>
-                  ) : null}
-                </>
-              )}
-              OptionSlot={({
-                option,
-              }: {
-                option: { label: string; value: string; subLabel?: string };
-              }) => (
-                <Block
-                  style={{
-                    padding: 10,
-                    margin: 10,
-                    backgroundColor: "lightgray",
-                    borderRadius: 20,
-                  }}
-                >
-                  <Text style={{ color: "black" }}>{option.label}</Text>
-                  {option?.subLabel ? <Text>{option?.subLabel}</Text> : null}
-                </Block>
-              )}
-              closeIcon="SearchX"
             />
           </InputGroup>
         </Block>
+        <InputGroup label="test" message="test123123">
+          <Textfield
+            name="3241"
+            LeftSlot={({ themeStyle }) => (
+              <LucideIcon name={"Star"} style={{ ...themeStyle }} />
+            )}
+            RightSlot={({ themeStyle }) => (
+              <LucideIcon name={"Apple"} style={{ ...themeStyle }} />
+            )}
+            size="md"
+            validations={[required("required")]}
+            placeholder="placeholder"
+            disabled={false}
+          />
+        </InputGroup>
         <Block style={{ gap: 20, width: "100%" }}>
           <InputGroup label="Native Select" message="test123123">
             <Select

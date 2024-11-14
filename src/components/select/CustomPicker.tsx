@@ -1,30 +1,15 @@
-import React, { useMemo } from "react";
-import { View, Pressable, FlatList } from "react-native";
-import { BottomSheet, Slot, Button } from "@phaselis/components";
-import { ComponentSize, SlotIconName } from "@phaselis/types";
+import React, { useEffect, useMemo } from "react";
+import { View, FlatList } from "react-native";
+import { BottomSheet } from "@phaselis/components";
 import HeaderSlotDefault from "./lib/HeaderSlotDefault";
-
-interface CustomPickerProps {
-  showPicker: boolean;
-  setShowPicker: React.Dispatch<React.SetStateAction<boolean>>;
-  maxHeightModal?: number | string;
-  fullScreenModal?: boolean;
-  options: any[];
-  HeaderSlot?: React.ComponentType<{
-    closeIcon: SlotIconName;
-    closeIconSize: ComponentSize;
-    CloseIconSlot?: React.ComponentType;
-  }>;
-  closeIcon?: SlotIconName;
-  closeIconSize?: ComponentSize;
-  CloseIconSlot?: React.ComponentType;
-  OptionSlot: React.ComponentType<{ option: any }>;
-  NoOptionSlot?: React.ComponentType;
-  onChange?: (e: any, value?: any, data?: any) => any;
-  selectedItem?: any;
-  getCombinedStyle: any;
-  closeOnSelect?: boolean;
-}
+import { cloneSlot } from "@phaselis/utils/lib/util/index";
+import OptionSlotDefault from "./lib/OptionSlotDefault";
+import NoOptionSlotDefault from "./lib/NoOptionSlotDefault";
+import { RadioGroup } from "@phaselis/components";
+import { useCombinedStyle } from "@phaselis/hooks";
+import { PhaselisHOC } from "@phaselis/components";
+import { stylesheet_picker_options_slot } from "./assets/styles";
+import { CustomPickerProps } from "./types";
 
 const CustomPicker: React.FC<CustomPickerProps> = ({
   showPicker,
@@ -36,12 +21,19 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
   closeIconSize,
   onChange,
   selectedItem,
-  getCombinedStyle,
   closeOnSelect,
-  NoOptionSlot,
-  OptionSlot,
-  HeaderSlot = <HeaderSlotDefault text="123" />,
+  NoOptionSlot = <NoOptionSlotDefault />,
+  OptionSlot = <OptionSlotDefault />,
+  HeaderSlot = <HeaderSlotDefault />,
   CloseIconSlot,
+  disabled,
+  contextValue,
+  style,
+  showError,
+  isFocus,
+  size,
+  setIsFocus,
+  ...extraProps
 }) => {
   const memorizedOptions = useMemo(() => {
     return options.map((option) => {
@@ -49,110 +41,90 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
         ...option,
       };
     });
-  }, [options]);
+  }, [options?.length]);
 
   const noOptionLayout = useMemo(() => {
     return memorizedOptions.length > 0;
   }, [memorizedOptions]);
 
-  const cloneSlot = (slot: any, props: any) => {
-    if (!slot) {
-      return null;
-    }
-    if (typeof slot === "function") {
-      return slot(props);
-    } else if (React.isValidElement(slot)) {
-      return React.cloneElement(slot, props);
-    }
+  const { getCombinedStyle } = useCombinedStyle(
+    stylesheet_picker_options_slot,
+    style,
+    contextValue?.theme?.select?._picker?._optionsSlot,
+  );
+
+  const handleOnFocus = () => {
+    setIsFocus(true);
   };
+
+  const handleOnBlur = () => {
+    setIsFocus(false);
+  };
+
+  useEffect(() => {
+    if (showPicker) {
+      handleOnFocus();
+    }
+  }, [showPicker]);
 
   return (
     <BottomSheet
       show={showPicker}
-      onClose={() => setShowPicker(false)}
+      onClose={() => {
+        setShowPicker(false);
+        handleOnBlur();
+      }}
       maxHeightModal={maxHeightModal}
       fullScreenModal={fullScreenModal}
     >
-      <View style={getCombinedStyle("headerSlot")}>
-        {!closeOnSelect ? (
-          <Pressable
-            onPress={() => {
-              setShowPicker(false);
-            }}
-          >
-            <Slot
-              style={getCombinedStyle("rightSlot")}
-              icon={closeIcon as any}
-              size={closeIconSize}
-            >
-              {CloseIconSlot && <CloseIconSlot />}
-            </Slot>
-          </Pressable>
-        ) : null}
-        <View style={getCombinedStyle("headerInnerSlot")}>
-          {cloneSlot(HeaderSlot, {
-            closeIcon,
-            closeIconSize,
-            CloseIconSlot,
-          })}
-        </View>
-        {closeOnSelect ? (
-          <Pressable
-            onPress={() => {
-              setShowPicker(false);
-            }}
-          >
-            <Slot
-              style={getCombinedStyle("rightSlot")}
-              icon={closeIcon as any}
-              size={closeIconSize}
-            >
-              {CloseIconSlot && <CloseIconSlot />}
-            </Slot>
-          </Pressable>
-        ) : (
-          <Button
-            text="Done"
-            size="sm"
-            outline
-            onPress={() => {
-              setShowPicker(false);
-            }}
-          />
-        )}
+      <View style={getCombinedStyle("container")}>
+        {cloneSlot(HeaderSlot, {
+          closeIcon,
+          closeIconSize,
+          CloseIconSlot,
+          setShowPicker,
+          getCombinedStyle,
+          closeOnSelect,
+        })}
       </View>
       {noOptionLayout ? (
         <FlatList
           data={memorizedOptions}
           renderItem={({ item }) => (
-            <Pressable
-              onPress={() => {
-                if (selectedItem?.value !== item.value && onChange) {
-                  onChange(
-                    {
-                      target: {
-                        value: item.value,
+            <View style={getCombinedStyle("subContainer")}>
+              <RadioGroup
+                value={selectedItem?.value}
+                onChange={(e) => {
+                  if (selectedItem?.value !== item.value && onChange) {
+                    onChange(
+                      {
+                        target: {
+                          value: item.value,
+                        },
                       },
-                    },
-                    item.value,
-                    item,
-                  );
-                }
-                if (closeOnSelect) {
-                  setShowPicker(false);
-                }
-              }}
-            >
-              <OptionSlot option={item} />
-            </Pressable>
+                      item.value,
+                      item,
+                    );
+                  }
+                  if (closeOnSelect) {
+                    setShowPicker(false);
+                  }
+                }}
+              >
+                {cloneSlot(OptionSlot, {
+                  item,
+                  selectedItem,
+                })}
+              </RadioGroup>
+            </View>
           )}
           keyExtractor={(item) => item.value.toString()}
         />
       ) : (
-        NoOptionSlot && <NoOptionSlot />
+        cloneSlot(NoOptionSlot, {})
       )}
     </BottomSheet>
   );
 };
 
-export default CustomPicker;
+export default PhaselisHOC<CustomPickerProps, any>(CustomPicker);

@@ -1,31 +1,28 @@
 import React, { useMemo } from "react";
-import { ViewStyle } from "react-native";
+import { StyleSheet } from "react-native";
 import ReactNativePickerSelect from "react-native-picker-select";
-
-interface NativePickerProps {
-  refPicker: React.RefObject<ReactNativePickerSelect>;
-  onChange: (e: any, value?: any, data?: any) => any;
-  options: any[];
-  value: any;
-  elementStyles: ViewStyle;
-  disabled?: boolean;
-  placeholder?: string;
-  doneText?: string;
-  setIsFocus: React.Dispatch<React.SetStateAction<boolean>>;
-  selectedItem: any | undefined;
-}
+import { useCombinedStyle } from "@phaselis/hooks";
+import { PhaselisHOC } from "@phaselis/components";
+import stylesheet from "./assets/styles";
+import { NativePickerProps } from "./types";
 
 const NativePicker: React.FC<NativePickerProps> = ({
-  refPicker,
+  refIOSPicker,
+  refAndroidPicker,
   onChange,
   options,
   value,
-  elementStyles,
+  contextValue,
   disabled,
   placeholder,
   doneText,
   selectedItem,
   setIsFocus,
+  style,
+  showError,
+  isFocus,
+  size,
+  ...extraProps
 }) => {
   const handleOnFocus = () => {
     setIsFocus(true);
@@ -34,6 +31,25 @@ const NativePicker: React.FC<NativePickerProps> = ({
   const handleOnBlur = () => {
     setIsFocus(false);
   };
+
+  const { themeStyles, defaultStyles, propStyle } = useCombinedStyle(
+    stylesheet,
+    style,
+    contextValue?.theme?.select,
+    {
+      error: showError,
+      disabled,
+      focus: isFocus,
+      size,
+      ...extraProps,
+    },
+  );
+
+  const elementStyles = StyleSheet.flatten([
+    defaultStyles?.element,
+    themeStyles?.element,
+    propStyle?.element,
+  ]);
 
   const memorizedOptions = useMemo(() => {
     return options.map((option) => {
@@ -46,17 +62,24 @@ const NativePicker: React.FC<NativePickerProps> = ({
 
   return (
     <ReactNativePickerSelect
-      ref={refPicker}
+      ref={refIOSPicker}
+      pickerProps={{
+        // @ts-ignore
+        ref: refAndroidPicker,
+        onFocus: handleOnFocus,
+        onBlur: handleOnBlur,
+      }}
       onValueChange={(value) => {
-        onChange(
-          {
-            target: {
-              value: value,
+        onChange &&
+          onChange(
+            {
+              target: {
+                value: value,
+              },
             },
-          },
-          value,
-          selectedItem,
-        );
+            value,
+            selectedItem,
+          );
       }}
       items={memorizedOptions}
       value={value}
@@ -73,15 +96,10 @@ const NativePicker: React.FC<NativePickerProps> = ({
         inputAndroid: elementStyles,
         inputIOS: elementStyles,
       }}
-      Icon={() => null}
       useNativeAndroidPickerStyle={false}
       fixAndroidTouchableBug={true}
       onOpen={handleOnFocus}
       onClose={handleOnBlur}
-      pickerProps={{
-        onFocus: handleOnFocus,
-        onBlur: handleOnBlur,
-      }}
       disabled={disabled}
       placeholder={
         placeholder
@@ -95,4 +113,4 @@ const NativePicker: React.FC<NativePickerProps> = ({
   );
 };
 
-export default NativePicker;
+export default PhaselisHOC<NativePickerProps, any>(NativePicker);

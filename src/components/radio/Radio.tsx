@@ -5,6 +5,7 @@ import { RadioProps } from "./types";
 import { PhaselisHOC } from "@phaselis/components/provider";
 import stylesheet from "./assets/styles";
 import { useCombinedStyle } from "@phaselis/hooks";
+import { Block } from "@phaselis/components";
 
 const Radio = ({
   text,
@@ -68,7 +69,8 @@ const Radio = ({
 
   return (
     <Pressable onPressIn={handlePress} style={getCombinedStyle("container")}>
-      <Animated.View
+      <Block
+        //@ts-ignore TODO: BlockStyleInterface
         style={[
           {
             width: width,
@@ -81,7 +83,7 @@ const Radio = ({
         <Animated.View
           style={[animatedStyle, ...getCombinedStyle("innerElement")]}
         />
-      </Animated.View>
+      </Block>
       <Text style={getCombinedStyle("text")}>{text}</Text>
     </Pressable>
   );

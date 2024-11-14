@@ -1,5 +1,74 @@
 import { createStyleSheet } from "react-native-unistyles";
 
+const stylesheet_picker_header = createStyleSheet({
+  container: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+  },
+  text: {
+    fontWeight: "bold",
+    fontSize: 20,
+  },
+  closeIconSlot: {
+    color: "black",
+  },
+  doneText: {
+    color: "#127aff",
+    fontWeight: "bold",
+    fontSize: 18,
+  },
+});
+
+const stylesheet_picker_no_option = createStyleSheet({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    height: 100,
+    marginHorizontal: 10,
+  },
+  text: {
+    marginTop: 10,
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#333",
+    textAlign: "center",
+  },
+});
+
+const stylesheet_picker_option_slot = createStyleSheet({
+  container: {},
+  selected: {
+    backgroundColor: "white",
+  },
+  outerElement: {
+    borderColor: "#FFFFFF",
+    backgroundColor: "#FFFFFF",
+    //@ts-ignore TODO: BlockStyleInterface
+    shadows: [
+      {
+        color: "#127aff", // Shadow color
+        opacity: 0.4, // Shadow opacity
+        radius: 12, // Blur radius
+      },
+    ],
+  },
+  innerElement: {
+    backgroundColor: "#127aff",
+  },
+  text: {},
+});
+
+const stylesheet_picker_options_slot = createStyleSheet({
+  container: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  subContainer: {},
+});
+
 const stylesheet = createStyleSheet({
   // CONTAINER
   container: {
@@ -50,6 +119,7 @@ const stylesheet = createStyleSheet({
   },
   // ELEMENT
   element: {
+    flex: 1,
     width: "100%",
     flexDirection: "row",
     justifyContent: "center",
@@ -86,9 +156,12 @@ const stylesheet = createStyleSheet({
       focus: {},
     },
   },
-  // Custom Picker Header Component
-  headerSlot: {},
-  headerInnerSlot: {},
 });
 
+export {
+  stylesheet_picker_header,
+  stylesheet_picker_no_option,
+  stylesheet_picker_option_slot,
+  stylesheet_picker_options_slot,
+};
 export default stylesheet;

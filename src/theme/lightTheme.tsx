@@ -321,6 +321,176 @@ export const lightTheme = {
     },
   },
   select: {
+    _picker: {
+      _header: {
+        container: {
+          padding: Spacings.MD,
+          marginLeft: Spacings.MD,
+          marginRight: Spacings.MD,
+        },
+        text: {},
+        closeIconSlot: {},
+        doneText: {},
+      },
+      _inputSlot: {
+        container: {
+          borderColor: Colors.Gray[950],
+          borderRadius: Radius.MD,
+          paddingLeft: Spacings.MD,
+          paddingRight: Spacings.MD,
+          variants: {
+            focus: {
+              true: {
+                borderColor: Colors.Primary[600],
+              },
+            },
+            error: {
+              true: {
+                borderColor: Colors.Danger[400],
+                backgroundColor: Colors.Danger[50],
+              },
+            },
+            disabled: {
+              true: {
+                opacity: 1,
+                borderColor: Colors.Gray[400],
+                backgroundColor: Colors.Gray[50],
+              },
+            },
+            size: {
+              xs: {
+                height: Heights.XSminHeight,
+              },
+              sm: {
+                height: Heights.SMminHeight,
+              },
+              md: {
+                height: Heights.MDminHeight,
+              },
+              lg: {
+                height: Heights.LGminHeight,
+              },
+              xl: {
+                height: Heights.XLminHeight,
+              },
+              xxl: {
+                height: Heights.XXLminHeight,
+              },
+            },
+          },
+        },
+        leftSlot: {
+          marginRight: Spacings.SM,
+          color: Colors.Gray[950],
+          variants: {
+            focus: {
+              true: {
+                color: Colors.Primary[600],
+              },
+            },
+            error: {
+              true: {
+                color: Colors.Danger[700],
+              },
+            },
+            disabled: {
+              true: {
+                color: Colors.Gray[400],
+              },
+            },
+          },
+        },
+        rightSlot: {
+          color: Colors.Gray[950],
+
+          variants: {
+            focus: {
+              true: {
+                color: Colors.Primary[600],
+              },
+            },
+            error: {
+              true: {
+                color: Colors.Danger[700],
+              },
+            },
+            disabled: {
+              true: {
+                color: Colors.Gray[400],
+              },
+            },
+          },
+        },
+        element: {
+          color: Colors.Gray[950],
+          variants: {
+            focus: {
+              true: {
+                color: Colors.Primary[600],
+              },
+            },
+            error: {
+              true: {
+                color: Colors.Danger[700],
+              },
+            },
+            disabled: {
+              true: {
+                color: Colors.Gray[400],
+              },
+            },
+            size: {
+              xs: {
+                fontSize: 14,
+              },
+              sm: {
+                fontSize: 16,
+              },
+              md: {
+                fontSize: 16,
+              },
+              lg: {
+                fontSize: 18,
+              },
+              xl: {
+                fontSize: 22,
+              },
+              xxl: {
+                fontSize: 22,
+              },
+            },
+          },
+        },
+      },
+      _noOptionSlot: {
+        container: {},
+        text: {},
+      },
+      _optionSlot: {
+        container: {
+          margin: Spacings.SM,
+          padding: Spacings.SM,
+          paddingVertical: Spacings.MD,
+          borderRadius: Radius.LG,
+        },
+        selected: {},
+        outerElement: {},
+        innerElement: {},
+        text: {
+          marginLeft: Spacings.MD,
+        },
+      },
+      _optionsSlot: {
+        container: {
+          marginHorizontal: Spacings.MD,
+          marginBottom: Spacings.MD,
+        },
+        subContainer: {
+          marginLeft: Spacings.MD,
+          marginRight: Spacings.MD,
+        },
+      },
+    },
     container: {
       borderColor: Colors.Gray[950],
       borderRadius: Radius.MD,

@@ -151,6 +151,13 @@ export default function Layout() {
         }}
       />
       <Drawer.Screen
+        name="select-custom-story"
+        options={{
+          drawerLabel: "Custom Select",
+          title: "Custom Select Story",
+        }}
+      />
+      <Drawer.Screen
         name="stepper-story"
         options={{
           drawerLabel: "Stepper",

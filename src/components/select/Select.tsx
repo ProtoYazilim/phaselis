@@ -1,0 +1,129 @@
+import React, { FC, useMemo, useRef, useState } from "react";
+import { View } from "react-native";
+import { PhaselisHOC } from "@phaselis/components/provider";
+import ReactNativePickerSelect from "react-native-picker-select";
+import { InputHOC } from "@phaselis/utils";
+import { SelectProps } from "./types";
+import CustomPicker from "./CustomPicker";
+import NativePicker from "./NativePicker";
+import InputSlotDefault from "./lib/InputSlotDefault";
+import { cloneSlot } from "@phaselis/utils/lib/util";
+
+const Select: FC<SelectProps> = ({
+  contextValue,
+  style,
+  options = [],
+  valueField = "value",
+  displayField = "label",
+  placeholder = "Select an option",
+  value,
+  onChange,
+  error,
+  disabled,
+  LeftSlot,
+  RightSlot,
+  leftIcon,
+  rightIcon = "ChevronDown",
+  size = "md",
+  isChanged,
+  isUsed,
+  doneText,
+  pickerType = "native",
+  InputSlot = <InputSlotDefault />,
+  OptionSlot,
+  HeaderSlot,
+  maxHeightModal,
+  fullScreenModal,
+  closeOnSelect = true,
+  NoOptionSlot,
+  closeIcon,
+  closeIconSize,
+  CloseIconSlot,
+  ...extraProps
+}) => {
+  const [isFocus, setIsFocus] = useState(false);
+  const [showPicker, setShowPicker] = useState(false);
+  const refAndroidPicker = useRef<ReactNativePickerSelect>(null);
+  const refIOSPicker = useRef<ReactNativePickerSelect>(null);
+
+  const showError = useMemo(() => {
+    return isChanged && isUsed && error ? true : false;
+  }, [error, isUsed, isChanged]);
+
+  const selectedItem = useMemo(() => {
+    return options.find((option) => option.value === value);
+  }, [value, options]);
+
+  return (
+    <>
+      {cloneSlot(InputSlot, {
+        selectedItem,
+        placeholder,
+        rightIcon,
+        RightSlot,
+        leftIcon,
+        LeftSlot,
+        size,
+        disabled,
+        refAndroidPicker,
+        refIOSPicker,
+        setShowPicker,
+        style,
+        showError,
+        isFocus,
+        ...extraProps,
+      })}
+      <View
+        style={{
+          flex: 1,
+          width: 0,
+          height: 0,
+          opacity: 0,
+          position: "absolute",
+          zIndex: -1,
+        }}
+      >
+        {pickerType === "native" ? (
+          <NativePicker
+            refIOSPicker={refIOSPicker}
+            refAndroidPicker={refAndroidPicker}
+            onChange={onChange}
+            options={options}
+            value={value}
+            disabled={disabled}
+            placeholder={placeholder}
+            doneText={doneText}
+            selectedItem={selectedItem}
+            setIsFocus={setIsFocus}
+            showError={showError}
+            isFocus={isFocus}
+            size={size}
+          />
+        ) : (
+          <CustomPicker
+            showPicker={showPicker}
+            setShowPicker={setShowPicker}
+            setIsFocus={setIsFocus}
+            maxHeightModal={maxHeightModal}
+            fullScreenModal={fullScreenModal}
+            options={options}
+            HeaderSlot={HeaderSlot}
+            closeIcon={closeIcon}
+            closeIconSize={closeIconSize}
+            CloseIconSlot={CloseIconSlot}
+            OptionSlot={OptionSlot}
+            onChange={onChange}
+            selectedItem={selectedItem}
+            closeOnSelect={closeOnSelect}
+            NoOptionSlot={NoOptionSlot}
+            disabled={disabled}
+          />
+        )}
+      </View>
+    </>
+  );
+};
+
+Select.displayName = "Select";
+
+export default InputHOC(PhaselisHOC<SelectProps, SelectExtraProps>(Select));

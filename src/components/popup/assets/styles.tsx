@@ -20,6 +20,20 @@ const stylesheet = createStyleSheet({
         xl: {},
         xxl: {},
       },
+      type: {
+        info: {
+          backgroundColor: "#D8EEFF",
+        },
+        success: {
+          backgroundColor: "#CEFDE8",
+        },
+        warning: {
+          backgroundColor: "#FFFBC5",
+        },
+        error: {
+          backgroundColor: "#FEE6E5",
+        },
+      },
     },
   },
   header: {

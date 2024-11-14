@@ -11,7 +11,7 @@ const Switch = ({
   value = false,
   onChange,
   style,
-  duration = 400,
+  duration = 300,
   disabled,
   contextValue,
   showIcons,
@@ -33,7 +33,7 @@ const Switch = ({
     Animated.timing(animatedValue, {
       toValue: Number(value),
       duration,
-      easing: Easing.linear,
+      easing: Easing.quad,
       useNativeDriver: false, // Make sure to useNativeDriver for performance in animations
     }).start();
   }, [value, animatedValue]);
@@ -53,28 +53,29 @@ const Switch = ({
     borderRadius: Animated.divide(height, 2),
   };
 
-  const thumbAnimatedStyle = {
-    transform: [
-      {
-        translateX: animatedValue.interpolate({
-          inputRange: [0, 1],
-          //@ts-ignore
-          outputRange: [3, width.__getValue() - 3 - height.__getValue()],
-        }),
-      },
-    ],
-    borderRadius: Animated.divide(height, 2),
-    backgroundColor: animatedValue.interpolate({
-      inputRange: [0, 1],
-      outputRange: [
-        propStyle?.thumb?.offColor ||
-          themeStyles?.thumb?.offColor ||
-          defaultStyles?.thumb?.offColor,
-        propStyle?.thumb?.onColor ||
-          themeStyles?.thumb?.onColor ||
-          defaultStyles?.thumb?.onColor,
+  const getThumbAnimatedStyle = () => {
+    return {
+      transform: [
+        {
+          translateX: animatedValue.interpolate({
+            inputRange: [0, 1],
+            outputRange: [3, 50],
+          }),
+        },
       ],
-    }),
+      borderRadius: Animated.divide(height, 2),
+      backgroundColor: animatedValue.interpolate({
+        inputRange: [0, 1],
+        outputRange: [
+          propStyle?.thumb?.offColor ||
+            themeStyles?.thumb?.offColor ||
+            defaultStyles?.thumb?.offColor,
+          propStyle?.thumb?.onColor ||
+            themeStyles?.thumb?.onColor ||
+            defaultStyles?.thumb?.onColor,
+        ],
+      }),
+    };
   };
 
   const handlePress = () => {
@@ -112,7 +113,7 @@ const Switch = ({
             </>
           )}
           <Animated.View
-            style={[...getCombinedStyle("thumb"), thumbAnimatedStyle]}
+            style={[...getCombinedStyle("thumb"), getThumbAnimatedStyle()]}
           />
         </Animated.View>
       </Pressable>

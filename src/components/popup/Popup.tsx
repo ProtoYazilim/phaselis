@@ -24,6 +24,7 @@ const Popup: FC<PopupProps> = ({
   leftIcon,
   LeftSlot,
   title,
+  type = "default",
   ...extraProps
 }: any) => {
   const translateY = new Animated.Value(300);
@@ -69,7 +70,7 @@ const Popup: FC<PopupProps> = ({
     stylesheet,
     style,
     contextValue?.theme?.popup,
-    { ...extraProps },
+    { type, ...extraProps },
   );
 
   return (

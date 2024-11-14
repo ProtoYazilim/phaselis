@@ -12,6 +12,7 @@ interface PopupProps {
   LeftSlot?: any;
   title?: string;
   children?: any;
+  type?: "default" | "info" | "warning" | "error" | "success";
 }
 
 export { PopupProps };

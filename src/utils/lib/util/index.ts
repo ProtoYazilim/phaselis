@@ -1,3 +1,5 @@
+import React from "react";
+
 export const getEvent = function (event: any) {
   let eventToSend;
   if (event.nativeEvent && event.nativeEvent.key) {
@@ -18,4 +20,15 @@ export const getEvent = function (event: any) {
   }
 
   return eventToSend;
+};
+
+export const cloneSlot = (slot: any, props: any) => {
+  if (!slot) {
+    return null;
+  }
+  if (typeof slot === "function") {
+    return slot(props);
+  } else if (React.isValidElement(slot)) {
+    return React.cloneElement(slot, props);
+  }
 };

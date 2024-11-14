@@ -6,19 +6,21 @@ import {
   ReactNativeStyleSheet,
   StyleSheetWithSuperPowers,
 } from "react-native-unistyles/lib/typescript/src/types";
+import { StyleSheet } from "react-native";
 
 type ParsedStylesheet<ST extends StyleSheetWithSuperPowers> = {
   defaultStyles: ReactNativeStyleSheet<ST>;
   themeStyles: ReactNativeStyleSheet<ST>;
   propStyle: ReactNativeStyleSheet<ST>;
   getCombinedStyle: (section: keyof ST) => any[] | any;
+  getFlattenStyle: (section: keyof ST) => any[] | any;
 };
 
 const useCombinedStyle = <ST extends StyleSheetWithSuperPowers>(
   stylesheet: ST,
   style: any,
   contextThemeStyles: any,
-  variantsMap: ExtractVariantNames<typeof stylesheet>,
+  variantsMap?: ExtractVariantNames<typeof stylesheet>,
 ): ParsedStylesheet<ST> => {
   const { styles: defaultStyles } = useStyles(stylesheet, variantsMap);
 
@@ -47,11 +49,30 @@ const useCombinedStyle = <ST extends StyleSheetWithSuperPowers>(
     [defaultStyles, variantsMap, themeStyles, style],
   );
 
+  const getFlattenStyle = useMemo(
+    () =>
+      (section: keyof ST): any[] => {
+        const dStyles = defaultStyles[section];
+        const dExtraStyles =
+          defaultStyles?.extraStyles?.[section]?.(variantsMap);
+        const tStyles = themeStyles[section];
+        const tExtraStyles = themeStyles?.extraStyles?.[section]?.(variantsMap);
+        let pStyles = propStyle?.[section];
+        return StyleSheet.flatten([
+          { ...dStyles, ...dExtraStyles },
+          { ...tStyles, ...tExtraStyles },
+          { ...pStyles },
+        ]);
+      },
+    [defaultStyles, variantsMap, themeStyles, style],
+  );
+
   return {
     defaultStyles,
     themeStyles,
     propStyle,
     getCombinedStyle,
+    getFlattenStyle,
   };
 };
 

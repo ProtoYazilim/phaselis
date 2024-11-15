@@ -13,7 +13,7 @@ export interface IBasePropType {
 
 export type IGenericStyleType = CSSProperties | ViewStyle | TextStyle;
 
-export type ComponentSize = "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+export type ComponentSize = "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
 
 export interface IFormPropTypes extends IBasePropType {
   name?: string;

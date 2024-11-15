@@ -7,16 +7,25 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import "../config/unistyle";
 import { Provider as FrameWorkProvider } from "@phaselis/components";
 import { lightTheme } from "@phaselis/theme/lightTheme";
-import { Stack } from "expo-router";
+import { Tabs } from "expo-router";
 import { LogBox } from "react-native";
+import {
+  LucideAirplay,
+  LucideComponent,
+  DraftingCompass,
+} from "lucide-react-native";
+import { Colors } from "@phaselis/theme";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 
 LogBox.ignoreLogs(["Require cycles are allowed"]);
 
 SplashScreen.preventAutoHideAsync();
+
+export const unstable_settings = {
+  initialRouteName: "/stories",
+};
 export default function RootLayout() {
-  // const colorScheme = useColorScheme()
   const [loaded] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
   });
@@ -35,9 +44,38 @@ export default function RootLayout() {
     <FrameWorkProvider theme={lightTheme}>
       <ThemeProvider value={DefaultTheme}>
         <GestureHandlerRootView style={{ flex: 1 }}>
-          <Stack>
-            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          </Stack>
+          <Tabs
+            screenOptions={{
+              tabBarHideOnKeyboard: true,
+              tabBarActiveTintColor: Colors.Primary[500],
+              tabBarInactiveTintColor: Colors.Gray[500],
+              headerShown: false,
+            }}
+            initialRouteName="stories"
+          >
+            <Tabs.Screen
+              name="stories"
+              options={{
+                title: "Stories",
+                tabBarIcon: ({ color }) => <LucideComponent color={color} />,
+              }}
+            />
+            <Tabs.Screen
+              name="examples"
+              options={{
+                title: "Examples",
+                tabBarIcon: ({ color }) => <LucideAirplay color={color} />,
+              }}
+            />
+            <Tabs.Screen
+              name="utils"
+              options={{
+                title: "Utils",
+                tabBarIcon: ({ color }) => <DraftingCompass color={color} />,
+              }}
+            />
+            <Tabs.Screen name="index" redirect={true} />
+          </Tabs>
         </GestureHandlerRootView>
       </ThemeProvider>
     </FrameWorkProvider>

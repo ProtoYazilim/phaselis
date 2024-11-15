@@ -8,7 +8,7 @@ function useColors<T>() {
     throw new Error("useTheme must be used within a Context Provider");
   }
 
-  return context.theme.root.colors as T;
+  return context.theme.root?.colors as T;
 }
 
 export default useColors;

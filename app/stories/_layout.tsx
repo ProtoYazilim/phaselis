@@ -1,8 +1,26 @@
 import { Drawer } from "expo-router/drawer";
+import { useNavigationContainerRef } from "expo-router";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Colors } from "@phaselis/theme";
 
 export default function Layout() {
+  const rootNav = useNavigationContainerRef();
   return (
-    <Drawer>
+    <Drawer
+      screenOptions={{
+        headerTintColor: Colors.Primary[500],
+      }}
+      screenListeners={{
+        focus: () => {
+          const routeName = rootNav.getCurrentRoute()?.name;
+          if (routeName !== "index" && routeName !== undefined) {
+            AsyncStorage.setItem("lastStoryRouteName", routeName || "/").catch(
+              console.error,
+            );
+          }
+        },
+      }}
+    >
       <Drawer.Screen
         name="index"
         options={{

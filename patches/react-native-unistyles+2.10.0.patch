@@ -1,8 +1,8 @@
 diff --git a/node_modules/react-native-unistyles/src/useStyles.ts b/node_modules/react-native-unistyles/src/useStyles.ts
-index 2fc4a4d..0247b5d 100644
+index 2fc4a4d..56baf8d 100644
 --- a/node_modules/react-native-unistyles/src/useStyles.ts
 +++ b/node_modules/react-native-unistyles/src/useStyles.ts
-@@ -32,13 +32,16 @@ export const useStyles = <ST extends StyleSheetWithSuperPowers>(
+@@ -32,13 +32,13 @@ export const useStyles = <ST extends StyleSheetWithSuperPowers>(
      const dynamicStyleSheet = useMemo(() => Object
          .entries(parsedStyles || {})
          .reduce((acc, [key, value]) => {
@@ -14,9 +14,6 @@ index 2fc4a4d..0247b5d 100644
                  }
              }
 -
-+            if (key === 'container') {
-+                console.log("==================>",value)
-+            }
              return StyleSheet.create({
                  ...acc,
                  [key]: withPlugins(key, parseStyle(

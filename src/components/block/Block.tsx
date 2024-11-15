@@ -24,10 +24,9 @@ const Block: FC<BlockProps> = ({
   const renderShadows = (child: React.ReactNode) => {
     if (!shadows || shadows.length === 0) return child;
 
-    return shadows.reduceRight((acc, shadow, index) => {
+    return shadows.reduceRight((acc, shadow) => {
       return (
         <ShadowedView
-          key={`${shadow.color}-${shadow.offset}-${index}`}
           style={shadowStyle({
             color: shadow.color,
             opacity: shadow.opacity,

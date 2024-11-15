@@ -12,16 +12,24 @@ const ShadowExample = () => {
             validations={[required("wtf")]}
             style={{
               container: {
+                backgroundColor: "white",
+                shadows: [{}, {}],
                 variants: {
                   error: {
                     true: {
                       backgroundColor: "white",
                       shadows: [
                         {
-                          color: "red",
-                          opacity: 0.4,
+                          color: "#FCF596",
+                          opacity: 0.8,
                           radius: 12,
-                          offset: [0, 0],
+                          offset: [-5, -3],
+                        },
+                        {
+                          color: "#FF4545",
+                          opacity: 0.8,
+                          radius: 12,
+                          offset: [5, 3],
                         },
                       ],
                     },

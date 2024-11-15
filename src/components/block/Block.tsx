@@ -27,12 +27,15 @@ const Block: FC<BlockProps> = ({
     return shadows.reduceRight((acc, shadow) => {
       return (
         <ShadowedView
-          style={shadowStyle({
-            color: shadow.color,
-            opacity: shadow.opacity,
-            radius: shadow.radius,
-            offset: shadow.offset,
-          })}
+          style={[
+            shadowStyle({
+              color: shadow.color,
+              opacity: shadow.opacity,
+              radius: shadow.radius,
+              offset: shadow.offset,
+            }),
+            { alignSelf: "flex-start" },
+          ]}
         >
           {acc}
         </ShadowedView>

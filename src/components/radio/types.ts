@@ -21,6 +21,8 @@ interface RadioProps {
     innerElement?: ViewStyle;
     text?: TextStyle;
   };
+  partOfGroup?: boolean;
+  checked?: boolean;
 }
 
 export { RadioGroupProps, RadioProps };

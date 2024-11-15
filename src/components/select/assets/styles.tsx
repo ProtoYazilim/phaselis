@@ -48,9 +48,9 @@ const stylesheet_picker_option_slot = createStyleSheet({
     //@ts-ignore TODO: BlockStyleInterface
     shadows: [
       {
-        color: "#127aff", // Shadow color
-        opacity: 0.4, // Shadow opacity
-        radius: 12, // Blur radius
+        color: "#127aff",
+        opacity: 0.4,
+        radius: 12,
       },
     ],
   },
@@ -66,7 +66,7 @@ const stylesheet_picker_options_slot = createStyleSheet({
     justifyContent: "space-between",
     alignItems: "center",
   },
-  subContainer: {},
+  element: {},
 });
 
 const stylesheet = createStyleSheet({

@@ -51,7 +51,7 @@ const Select: FC<SelectProps> = ({
   }, [error, isUsed, isChanged]);
 
   const selectedItem = useMemo(() => {
-    return options.find((option) => option.value === value);
+    return options?.find((option) => option.value === value);
   }, [value, options]);
 
   return (

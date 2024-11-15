@@ -52,13 +52,12 @@ const NativePicker: React.FC<NativePickerProps> = ({
   ]);
 
   const memorizedOptions = useMemo(() => {
-    return options.map((option) => {
+    return options?.map((option) => {
       return {
         ...option,
       };
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [options]);
 
   return (
     <ReactNativePickerSelect

@@ -8,6 +8,9 @@ import { OptionSlotProps } from "../types";
 const OptionSlotDefault = ({
   item,
   selectedItem,
+  onChange,
+  setShowPicker,
+  closeOnSelect,
   style,
   contextValue,
 }: OptionSlotProps) => {
@@ -28,6 +31,15 @@ const OptionSlotDefault = ({
     >
       {item ? (
         <Radio
+          onChange={(value) => {
+            onChange?.(null, value, item);
+
+            if (closeOnSelect) {
+              setShowPicker?.(false);
+            }
+          }}
+          checked={isSelected}
+          partOfGroup={false}
           style={{
             outerElement: getFlattenStyle("outerElement"),
             innerElement: getFlattenStyle("innerElement"),

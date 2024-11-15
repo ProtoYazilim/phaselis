@@ -15,11 +15,17 @@ const Radio = ({
   size = "md",
   contextValue,
   style,
+  checked: checkedProp = false,
+  partOfGroup = true,
   ...extraProps
 }: RadioProps) => {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(checkedProp);
   const animationScale = useRef(new Animated.Value(0)).current; // Replacing useSharedValue with useRef
   const radioContext = useContext(RadioContext);
+
+  useEffect(() => {
+    setChecked(checkedProp);
+  }, [checkedProp]);
 
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
@@ -36,8 +42,11 @@ const Radio = ({
   };
 
   useEffect(() => {
-    setChecked(radioContext.groupValue === value);
-  }, [radioContext.groupValue, value]);
+    if (partOfGroup) {
+      setChecked(radioContext.groupValue === value);
+    }
+  }, [radioContext.groupValue, value, partOfGroup]);
+
   const width = StyleSheet.flatten(getCombinedStyle("outerElement")).width;
   const height = StyleSheet.flatten(getCombinedStyle("outerElement")).height;
 

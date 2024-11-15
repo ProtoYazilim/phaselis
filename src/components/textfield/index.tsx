@@ -6,7 +6,6 @@ import {
   TextInputChangeEventData,
   TextInputFocusEventData,
   TextInputKeyPressEventData,
-  View,
 } from "react-native";
 import { InputHOC, validateText } from "@phaselis/utils";
 import stylesheet from "./assets/styles";

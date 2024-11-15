@@ -11,7 +11,32 @@ export interface IBasePropType {
   contextValue?: any;
 }
 
-export type IGenericStyleType = CSSProperties | ViewStyle | TextStyle;
+export interface ShadowAttributes {
+  color?: string;
+  opacity?: number;
+  offset?: [number, number];
+  radius?: number;
+}
+
+export interface LinearGradientAttributes {
+  colors: (string | number)[];
+  start?: { x: number; y: number };
+  end?: { x: number; y: number };
+  locations?: number[];
+  useAngle?: boolean;
+  angleCenter?: { x: number; y: number };
+  angle?: number;
+}
+
+export type IGenericStyleType =
+  | CSSProperties
+  | ViewStyle
+  | TextStyle
+  | {
+      shadows?: ShadowAttributes[];
+      lineerGradient?: LinearGradientAttributes;
+      variants?: any;
+    };
 
 export type ComponentSize = "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
 

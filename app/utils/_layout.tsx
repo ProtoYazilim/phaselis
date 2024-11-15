@@ -1,5 +1,5 @@
 import { Drawer } from "expo-router/drawer";
-import { PopupProvider } from "../../../src/hooks/usePopup";
+import { PopupProvider } from "../../src/hooks/usePopup";
 
 export default function Layout() {
   return (

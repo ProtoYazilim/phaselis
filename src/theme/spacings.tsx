@@ -1,4 +1,10 @@
-const Spacings = {
+import { ComponentSize } from "../types";
+
+type SpacingsType = {
+  [key in Uppercase<ComponentSize>]: number;
+};
+
+const Spacings: SpacingsType = {
   XXS: 2,
   XS: 4,
   SM: 8,

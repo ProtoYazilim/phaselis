@@ -23,16 +23,12 @@ export interface SelectProps extends IFormPropTypes {
   size?: ComponentSize;
   leftIcon?: SlotIconName;
   rightIcon?: SlotIconName;
-  HeaderSlot?: ComponentType<{
-    closeIcon: SlotIconName;
-    closeIconSize: ComponentSize;
-    CloseIconSlot?: ComponentType;
-  }>;
+  HeaderSlot?: ComponentType<HeaderSlotProps>;
   closeIcon?: SlotIconName;
   closeIconSize?: ComponentSize;
   CloseIconSlot?: ComponentType;
   pickerType?: "native" | "custom";
-  InputSlot?: ComponentType;
+  InputSlot?: ComponentType<InputSlotProps>;
   OptionSlot?: ComponentType<OptionSlotProps>;
   maxHeightModal?: number | string;
   fullScreenModal?: boolean;
@@ -143,11 +139,7 @@ export interface CustomPickerProps extends PickerProps {
   setShowPicker: React.Dispatch<React.SetStateAction<boolean>>;
   maxHeightModal?: number | string;
   fullScreenModal?: boolean;
-  HeaderSlot?: React.ComponentType<{
-    closeIcon: SlotIconName;
-    closeIconSize: ComponentSize;
-    CloseIconSlot?: React.ComponentType;
-  }>;
+  HeaderSlot?: React.ComponentType<HeaderSlotProps>;
   closeIcon?: SlotIconName;
   closeIconSize?: ComponentSize;
   CloseIconSlot?: React.ComponentType;

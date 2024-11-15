@@ -74,26 +74,6 @@ export type SlotChildComponent = ({
   propStyle?: ViewStyle & TextStyle;
 }) => ReactNode | FC | any | Element | null;
 
-export type InputSlotComponent = ({
-  selectedItem,
-  defaultStyle,
-}: {
-  selectedItem?: any;
-  defaultStyle?: ViewStyle;
-}) => ReactNode | FC | any | Element | null;
-
-export type HeaderSlotComponent = ({
-  elementArea,
-  defaultStyle,
-  RightSlot,
-  rightIcon,
-}: {
-  elementArea?: any;
-  defaultStyle?: ViewStyle;
-  RightSlot?: SlotChildComponent;
-  rightIcon?: SlotIconName;
-}) => ReactNode | FC | any | Element | null;
-
 //docs -> interfaces şeklinde tanımlanacak
 export interface IconStyle extends ViewStyle {
   color: string;

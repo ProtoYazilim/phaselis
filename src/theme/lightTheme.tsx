@@ -485,7 +485,7 @@ export const lightTheme = {
           marginHorizontal: Spacings.MD,
           marginBottom: Spacings.MD,
         },
-        subContainer: {
+        element: {
           marginLeft: Spacings.MD,
           marginRight: Spacings.MD,
         },

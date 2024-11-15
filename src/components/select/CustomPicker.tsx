@@ -5,7 +5,6 @@ import HeaderSlotDefault from "./lib/HeaderSlotDefault";
 import { cloneSlot } from "@phaselis/utils/lib/util/index";
 import OptionSlotDefault from "./lib/OptionSlotDefault";
 import NoOptionSlotDefault from "./lib/NoOptionSlotDefault";
-import { RadioGroup } from "@phaselis/components";
 import { useCombinedStyle } from "@phaselis/hooks";
 import { PhaselisHOC } from "@phaselis/components";
 import { stylesheet_picker_options_slot } from "./assets/styles";
@@ -91,31 +90,14 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
         <FlatList
           data={memorizedOptions}
           renderItem={({ item }) => (
-            <View style={getCombinedStyle("subContainer")}>
-              <RadioGroup
-                value={selectedItem?.value}
-                onChange={(e) => {
-                  if (selectedItem?.value !== item.value && onChange) {
-                    onChange(
-                      {
-                        target: {
-                          value: item.value,
-                        },
-                      },
-                      item.value,
-                      item,
-                    );
-                  }
-                  if (closeOnSelect) {
-                    setShowPicker(false);
-                  }
-                }}
-              >
-                {cloneSlot(OptionSlot, {
-                  item,
-                  selectedItem,
-                })}
-              </RadioGroup>
+            <View style={getCombinedStyle("element")}>
+              {cloneSlot(OptionSlot, {
+                item,
+                selectedItem,
+                onChange,
+                setShowPicker,
+                closeOnSelect,
+              })}
             </View>
           )}
           keyExtractor={(item) => item.value.toString()}

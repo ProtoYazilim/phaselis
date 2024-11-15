@@ -4,7 +4,7 @@ import {
   SlotIconName,
   ComponentSize,
 } from "@phaselis/types";
-import { ComponentType } from "react";
+import { ComponentType, RefObject } from "react";
 import { StyleProp, TextStyle, ViewStyle } from "react-native";
 import ReactNativePickerSelect from "react-native-picker-select";
 
@@ -23,16 +23,12 @@ export interface SelectProps extends IFormPropTypes {
   size?: ComponentSize;
   leftIcon?: SlotIconName;
   rightIcon?: SlotIconName;
-  HeaderSlot?: ComponentType<{
-    closeIcon: SlotIconName;
-    closeIconSize: ComponentSize;
-    CloseIconSlot?: ComponentType;
-  }>;
+  HeaderSlot?: ComponentType<HeaderSlotProps>;
   closeIcon?: SlotIconName;
   closeIconSize?: ComponentSize;
   CloseIconSlot?: ComponentType;
   pickerType?: "native" | "custom";
-  InputSlot?: ComponentType;
+  InputSlot?: ComponentType<InputSlotProps>;
   OptionSlot?: ComponentType<OptionSlotProps>;
   maxHeightModal?: number | string;
   fullScreenModal?: boolean;
@@ -71,6 +67,9 @@ export interface OptionSlotProps {
     text?: TextStyle;
   };
   contextValue?: any;
+  onChange?: (e: any, value?: any, data?: any) => any;
+  setShowPicker?: (show: boolean) => void;
+  closeOnSelect?: boolean;
 }
 
 export interface NoOptionSlotProps {
@@ -140,11 +139,7 @@ export interface CustomPickerProps extends PickerProps {
   setShowPicker: React.Dispatch<React.SetStateAction<boolean>>;
   maxHeightModal?: number | string;
   fullScreenModal?: boolean;
-  HeaderSlot?: React.ComponentType<{
-    closeIcon: SlotIconName;
-    closeIconSize: ComponentSize;
-    CloseIconSlot?: React.ComponentType;
-  }>;
+  HeaderSlot?: React.ComponentType<HeaderSlotProps>;
   closeIcon?: SlotIconName;
   closeIconSize?: ComponentSize;
   CloseIconSlot?: React.ComponentType;
@@ -154,8 +149,8 @@ export interface CustomPickerProps extends PickerProps {
 }
 
 export interface NativePickerProps extends PickerProps {
-  refIOSPicker: React.RefObject<ReactNativePickerSelect>;
-  refAndroidPicker: React.RefObject<ReactNativePickerSelect>;
+  refIOSPicker: RefObject<ReactNativePickerSelect>;
+  refAndroidPicker: RefObject<ReactNativePickerSelect>;
   value: any;
   placeholder?: string;
   doneText?: string;

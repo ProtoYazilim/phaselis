@@ -1,12 +1,5 @@
-import React, { FC, useContext } from "react";
-import {
-  ActivityIndicator,
-  Platform,
-  Text,
-  View,
-  GestureResponderEvent,
-  Pressable,
-} from "react-native";
+import React, { FC, useContext, useMemo, useState } from "react";
+import { Platform, Text, GestureResponderEvent, Pressable } from "react-native";
 
 import { PhaselisHOC } from "@phaselis/components/provider";
 import { FormContext } from "@phaselis/components/form";
@@ -15,11 +8,17 @@ import { ButtonPropTypes } from "./types";
 import { Slot, Block } from "@phaselis/components";
 import { useCombinedStyle } from "@phaselis/hooks";
 
+type ButtonDefaultVariants =
+  | "primary"
+  | "secondary"
+  | "tertiary"
+  | "primary_outline"
+  | "secondary_outline"
+  | "tertiary_outline";
+
 const Button: FC<ButtonPropTypes> = ({
   type = "submit",
-  disabled,
   style,
-  loading,
   id,
   text,
   children,
@@ -28,29 +27,46 @@ const Button: FC<ButtonPropTypes> = ({
   onClick,
   contextValue,
   size = "md",
-  outline,
+  outline = false,
+  disabled = false,
   leftIcon,
   rightIcon,
   primary,
   secondary,
   tertiary,
   variants,
-  full,
+  onPressIn,
+  onPressOut,
   ...extraProps
 }) => {
   let formContext = useContext(FormContext);
-  const getVariation = () => {
+  const [isPressed, setPressed] = useState(false);
+
+  const variation = useMemo<ButtonDefaultVariants>(() => {
+    let variant = "";
+    const variantLiteral = {
+      primary: "primary",
+      secondary: "secondary",
+      tertiary: "tertiary",
+      default: "primary",
+    };
+
     if (primary) {
-      return "primary";
+      variant = variantLiteral.primary;
+    } else if (secondary) {
+      variant = variantLiteral.secondary;
+    } else if (tertiary) {
+      variant = variantLiteral.tertiary;
+    } else {
+      variant = variantLiteral.default;
     }
-    if (secondary) {
-      return "secondary";
+
+    if (outline) {
+      variant = `${variant}_outline`;
     }
-    if (tertiary) {
-      return "tertiary";
-    }
-    return "primary";
-  };
+
+    return variant as ButtonDefaultVariants;
+  }, [primary, secondary, tertiary, outline]);
 
   const handleClick = (event: GestureResponderEvent) => {
     event.persist();
@@ -69,25 +85,23 @@ const Button: FC<ButtonPropTypes> = ({
     style,
     contextValue?.theme?.button,
     {
-      disabled: disabled && getVariation(),
-      loading,
+      base: variation,
+      disabled: disabled ? variation : undefined,
+      pressed: isPressed ? variation : undefined,
       size,
-      outline: outline && getVariation(),
-      base: getVariation(),
-      full: full,
-      ...variants,
       ...extraProps,
     },
   );
 
-  const renderLoader = () => {
-    return (
-      <View style={getCombinedStyle("loader")}>
-        <ActivityIndicator size="small" color="white" />
-      </View>
-    );
+  const handleOnPressIn = (event: GestureResponderEvent) => {
+    onPressIn?.(event);
+    setPressed(true);
   };
 
+  const handleOnPressOut = (event: GestureResponderEvent) => {
+    onPressOut?.(event);
+    setPressed(false);
+  };
   const sizeIconSizeLiteral = {
     xs: "sm",
     sm: "md",
@@ -106,6 +120,8 @@ const Button: FC<ButtonPropTypes> = ({
         disabled={disabled}
         style={getCombinedStyle("element")}
         collapsable={true}
+        onPressIn={handleOnPressIn}
+        onPressOut={handleOnPressOut}
         {...extraProps}
       >
         <Slot
@@ -137,7 +153,6 @@ const Button: FC<ButtonPropTypes> = ({
         >
           {RightSlot && <RightSlot />}
         </Slot>
-        {loading && renderLoader()}
       </Pressable>
     </Block>
   );

@@ -16,8 +16,6 @@ export interface ButtonPropTypes extends Omit<PressableProps, "style"> {
   text?: string;
   onClick?: ((event: GestureResponderEvent) => void) | null | undefined;
   type?: buttonType;
-  full?: boolean; // testing
-  loading?: boolean;
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
   LeftSlot?: SlotChildComponent;
   RightSlot?: SlotChildComponent;

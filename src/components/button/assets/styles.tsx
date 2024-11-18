@@ -8,162 +8,105 @@ const stylesheet = createStyleSheet({
         primary: {},
         secondary: {},
         tertiary: {},
+        primary_outline: {},
+        secondary_outline: {},
+        tertiary_outline: {},
       },
-      outline: {
+      pressed: {
         primary: {},
         secondary: {},
         tertiary: {},
-        false: {},
+        primary_outline: {},
+        secondary_outline: {},
+        tertiary_outline: {},
       },
       disabled: {
         primary: {},
         secondary: {},
         tertiary: {},
-        false: {},
-      },
-      loading: {
-        true: {},
+        primary_outline: {},
+        secondary_outline: {},
+        tertiary_outline: {},
       },
     },
   },
   element: {
     variants: {
-      primary: {
-        true: {},
-      },
-      secondary: {
-        true: {},
-      },
-      tertiary: {
-        true: {},
-      },
-      outline: {
-        true: {},
-      },
-      disabled: {
-        true: {},
-      },
-      loading: {
-        true: {},
-      },
       size: {
-        xs: {
-          minHeight: 20,
-        },
-        sm: {
-          minHeight: 28,
-        },
-        md: {
-          minHeight: 36,
-        },
-        lg: {
-          minHeight: 44,
-        },
-        xl: {
-          minHeight: 52,
-        },
-        xxl: {
-          minHeight: 60,
-        },
+        xs: {},
+        sm: {},
+        md: {},
+        lg: {},
+        xl: {},
+        xxl: {},
       },
     },
   },
   text: {
-    color: "white",
-    fontSize: 18,
     variants: {
-      primary: {
-        true: {},
-      },
-      secondary: {
-        true: {},
-      },
-      tertiary: {
-        true: {},
-      },
-      outline: {
-        true: {},
+      base: {
+        primary: {},
+        secondary: {},
+        tertiary: {},
+        primary_outline: {},
+        secondary_outline: {},
+        tertiary_outline: {},
       },
       disabled: {
-        true: {},
+        primary: {},
+        secondary: {},
+        tertiary: {},
+        primary_outline: {},
+        secondary_outline: {},
+        tertiary_outline: {},
       },
-      loading: {
-        true: {},
+      size: {
+        xs: {},
+        sm: {},
+        md: {},
+        lg: {},
+        xl: {},
+        xxl: {},
       },
     },
   },
   leftSlot: {
-    color: "white",
-    fontSize: 18,
     variants: {
-      primary: {
-        true: {},
-      },
-      secondary: {
-        true: {},
-      },
-      tertiary: {
-        true: {},
-      },
-      outline: {
-        true: {},
+      base: {
+        primary: {},
+        secondary: {},
+        tertiary: {},
+        primary_outline: {},
+        secondary_outline: {},
+        tertiary_outline: {},
       },
       disabled: {
-        true: {},
-      },
-      loading: {
-        true: {},
+        primary: {},
+        secondary: {},
+        tertiary: {},
+        primary_outline: {},
+        secondary_outline: {},
+        tertiary_outline: {},
       },
     },
   },
   rightSlot: {
-    color: "white",
-    fontSize: 18,
     variants: {
-      primary: {
-        true: {},
-      },
-      secondary: {
-        true: {},
-      },
-      tertiary: {
-        true: {},
-      },
-      outline: {
-        true: {},
+      base: {
+        primary: {},
+        secondary: {},
+        tertiary: {},
+        primary_outline: {},
+        secondary_outline: {},
+        tertiary_outline: {},
       },
       disabled: {
-        true: {},
-      },
-      loading: {
-        true: {},
-      },
-    },
-  },
-  loader: {
-    variants: {
-      primary: {
-        true: {},
-      },
-      secondary: {
-        true: {},
-      },
-      tertiary: {
-        true: {},
-      },
-      outline: {
-        true: {},
-      },
-      disabled: {
-        true: {},
-      },
-      loading: {
-        true: {},
-      },
-      size: {
-        sm: {},
-        md: {},
-        lg: {},
+        primary: {},
+        secondary: {},
+        tertiary: {},
+        primary_outline: {},
+        secondary_outline: {},
+        tertiary_outline: {},
       },
     },
   },

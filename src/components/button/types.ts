@@ -4,23 +4,21 @@ import {
   TextStyle,
   ViewStyle,
 } from "react-native";
-import { SlotIconName, SlotChildComponent } from "@phaselis/types";
+import { SlotableLeftRightProps } from "@phaselis/types";
 import { ReactNode } from "react";
 
-export interface ButtonPropTypes extends Omit<PressableProps, "style"> {
+export interface ButtonPropTypes
+  extends SlotableLeftRightProps,
+    Omit<PressableProps, "style"> {
   id?: string;
   children?: ReactNode;
   disabled?: boolean;
-  contextValue?: any; // private
+  contextValue?: any;
   style?: ButtonStyles;
   text?: string;
   onClick?: ((event: GestureResponderEvent) => void) | null | undefined;
   type?: buttonType;
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
-  LeftSlot?: SlotChildComponent;
-  RightSlot?: SlotChildComponent;
-  leftIcon?: SlotIconName;
-  rightIcon?: SlotIconName;
   primary?: boolean;
   secondary?: boolean;
   outline?: boolean;

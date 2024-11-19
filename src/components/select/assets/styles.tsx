@@ -80,7 +80,11 @@ const stylesheet = createStyleSheet({
     borderRadius: 6,
     width: "100%",
     variants: {
-      disabled: {},
+      disabled: {
+        true: {
+          backgroundColor: "gray",
+        },
+      },
       focus: {
         true: {
           borderColor: "blue",

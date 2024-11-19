@@ -14,7 +14,9 @@ const stylesheet = createStyleSheet({
   text: {
     variants: {
       disabled: {
-        true: {},
+        true: {
+          color: "gray",
+        },
       },
       size: {
         sm: {},
@@ -32,7 +34,10 @@ const stylesheet = createStyleSheet({
     height: 36,
     variants: {
       disabled: {
-        true: {},
+        true: {
+          borderColor: "gray",
+          backgroundColor: "gray",
+        },
       },
       size: {
         xs: {
@@ -96,7 +101,9 @@ const stylesheet_group = createStyleSheet({
     gap: 10,
     variants: {
       disabled: {
-        true: {},
+        true: {
+          backgroundColor: "gray",
+        },
       },
       size: {
         sm: {},

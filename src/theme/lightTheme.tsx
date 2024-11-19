@@ -766,42 +766,12 @@ export const lightTheme = {
     },
   },
   button: {
-    extraStyles: {
-      container: ({ disabled, outline, base }: any) => {
-        if (disabled && outline) {
-          let borderColor = Colors.Primary[300];
-          if (base === "secondary") {
-            borderColor = Colors.Secondary[300];
-          }
-          if (base === "tertiary") {
-            borderColor = Colors.Gray[300];
-          }
-          return {
-            backgroundColor: Colors.Transparent,
-            borderColor: borderColor,
-          };
-        }
-      },
-      text: ({ disabled, outline, base }: any) => {
-        if (disabled && outline) {
-          if (base === "secondary") {
-            return {
-              color: Colors.Secondary[300],
-            };
-          }
-          if (base === "tertiary") {
-            return {
-              color: Colors.Gray[300],
-            };
-          }
-          return Colors.Primary[300];
-        }
-      },
-    },
     container: {
       borderWidth: 1,
       borderRadius: Radius.MD,
       justifyContent: "center",
+      backgroundColor: Colors.Primary[700],
+      borderColor: Colors.Primary[600],
       variants: {
         base: {
           primary: {
@@ -816,19 +786,43 @@ export const lightTheme = {
             backgroundColor: Colors.Gray[500],
             borderColor: Colors.Gray[600],
           },
-        },
-        outline: {
-          primary: {
+          primary_outline: {
             backgroundColor: Colors.Transparent,
             borderColor: Colors.Primary[700],
           },
-          secondary: {
+          secondary_outline: {
             backgroundColor: Colors.Transparent,
             borderColor: Colors.Secondary[600],
           },
-          tertiary: {
+          tertiary_outline: {
             backgroundColor: Colors.Transparent,
             borderColor: Colors.Gray[600],
+          },
+        },
+        pressed: {
+          primary: {
+            backgroundColor: Colors.Primary[800],
+            borderColor: Colors.Primary[600],
+          },
+          secondary: {
+            backgroundColor: Colors.Secondary[800],
+            borderColor: Colors.Secondary[600],
+          },
+          tertiary: {
+            backgroundColor: Colors.Gray[800],
+            borderColor: Colors.Gray[600],
+          },
+          primary_outline: {
+            backgroundColor: Colors.Primary[50],
+            borderColor: Colors.Primary[700],
+          },
+          secondary_outline: {
+            backgroundColor: Colors.Secondary[50],
+            borderColor: Colors.Secondary[600],
+          },
+          tertiary_outline: {
+            backgroundColor: Colors.Gray[50],
+            borderColor: Colors.Gray[950],
           },
         },
         disabled: {
@@ -844,10 +838,17 @@ export const lightTheme = {
             backgroundColor: Colors.Gray[100],
             borderColor: Colors.Gray[200],
           },
-        },
-        half: {
-          true: {
-            width: "50%",
+          primary_outline: {
+            backgroundColor: Colors.Transparent,
+            borderColor: Colors.Primary[300],
+          },
+          secondary_outline: {
+            backgroundColor: Colors.Transparent,
+            borderColor: Colors.Secondary[300],
+          },
+          tertiary_outline: {
+            backgroundColor: Colors.Transparent,
+            borderColor: Colors.Gray[300],
           },
         },
       },
@@ -887,14 +888,23 @@ export const lightTheme = {
       fontFamily: "Poppins",
       textAlign: "center",
       variants: {
-        outline: {
+        base: {
           primary: {
-            color: Colors.Primary[700],
+            color: Colors.Shades.white,
           },
           secondary: {
-            color: Colors.Secondary[600],
+            color: Colors.Shades.white,
           },
           tertiary: {
+            color: Colors.Shades.white,
+          },
+          primary_outline: {
+            color: Colors.Primary[700],
+          },
+          secondary_outline: {
+            color: Colors.Secondary[600],
+          },
+          tertiary_outline: {
             color: Colors.Gray[950],
           },
         },
@@ -906,6 +916,15 @@ export const lightTheme = {
             color: Colors.Secondary[300],
           },
           tertiary: {
+            color: Colors.Gray[300],
+          },
+          primary_outline: {
+            color: Colors.Primary[300],
+          },
+          secondary_outline: {
+            color: Colors.Secondary[300],
+          },
+          tertiary_outline: {
             color: Colors.Gray[300],
           },
         },
@@ -933,14 +952,23 @@ export const lightTheme = {
     },
     leftSlot: {
       variants: {
-        outline: {
+        base: {
           primary: {
-            color: Colors.Primary[700],
+            color: Colors.Shades.white,
           },
           secondary: {
-            color: Colors.Secondary[600],
+            color: Colors.Shades.white,
           },
           tertiary: {
+            color: Colors.Shades.white,
+          },
+          primary_outline: {
+            color: Colors.Primary[700],
+          },
+          secondary_outline: {
+            color: Colors.Secondary[600],
+          },
+          tertiary_outline: {
             color: Colors.Gray[950],
           },
         },
@@ -954,19 +982,37 @@ export const lightTheme = {
           tertiary: {
             color: Colors.Gray[300],
           },
+          primary_outline: {
+            color: Colors.Primary[300],
+          },
+          secondary_outline: {
+            color: Colors.Secondary[300],
+          },
+          tertiary_outline: {
+            color: Colors.Gray[300],
+          },
         },
       },
     },
     rightSlot: {
       variants: {
-        outline: {
+        base: {
           primary: {
-            color: Colors.Primary[700],
+            color: Colors.Shades.white,
           },
           secondary: {
-            color: Colors.Secondary[600],
+            color: Colors.Shades.white,
           },
           tertiary: {
+            color: Colors.Shades.white,
+          },
+          primary_outline: {
+            color: Colors.Primary[700],
+          },
+          secondary_outline: {
+            color: Colors.Secondary[600],
+          },
+          tertiary_outline: {
             color: Colors.Gray[950],
           },
         },
@@ -978,6 +1024,15 @@ export const lightTheme = {
             color: Colors.Secondary[300],
           },
           tertiary: {
+            color: Colors.Gray[300],
+          },
+          primary_outline: {
+            color: Colors.Primary[300],
+          },
+          secondary_outline: {
+            color: Colors.Secondary[300],
+          },
+          tertiary_outline: {
             color: Colors.Gray[300],
           },
         },

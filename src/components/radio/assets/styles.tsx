@@ -7,9 +7,7 @@ const stylesheet = createStyleSheet({
     alignItems: "center",
     variants: {
       disabled: {
-        true: {
-          opacity: 0.51,
-        },
+        true: {},
       },
     },
   },
@@ -98,9 +96,7 @@ const stylesheet_group = createStyleSheet({
     gap: 10,
     variants: {
       disabled: {
-        true: {
-          opacity: 0.51,
-        },
+        true: {},
       },
       size: {
         sm: {},

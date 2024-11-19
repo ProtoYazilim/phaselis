@@ -80,11 +80,7 @@ const stylesheet = createStyleSheet({
     borderRadius: 6,
     width: "100%",
     variants: {
-      disabled: {
-        true: {
-          opacity: 0.51,
-        },
-      },
+      disabled: {},
       focus: {
         true: {
           borderColor: "blue",

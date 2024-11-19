@@ -26,7 +26,6 @@ export const darkTheme = {
         },
         disabled: {
           true: {
-            opacity: 1,
             borderColor: Colors.Gray[400],
             backgroundColor: Colors.Gray[50],
           },
@@ -128,7 +127,6 @@ export const darkTheme = {
         },
         disabled: {
           true: {
-            opacity: 1,
             borderColor: Colors.Gray[400],
             backgroundColor: Colors.Gray[50],
           },

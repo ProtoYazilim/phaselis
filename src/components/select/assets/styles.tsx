@@ -82,7 +82,7 @@ const stylesheet = createStyleSheet({
     variants: {
       disabled: {
         true: {
-          opacity: 0.51,
+          backgroundColor: "gray",
         },
       },
       focus: {

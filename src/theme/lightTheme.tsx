@@ -28,7 +28,6 @@ export const lightTheme = {
         },
         disabled: {
           true: {
-            opacity: 1,
             borderColor: Colors.Gray[500],
             backgroundColor: Colors.Gray[100],
           },
@@ -184,7 +183,6 @@ export const lightTheme = {
         },
         disabled: {
           true: {
-            opacity: 1,
             borderColor: Colors.Gray[500],
             backgroundColor: Colors.Gray[100],
           },
@@ -352,7 +350,6 @@ export const lightTheme = {
             },
             disabled: {
               true: {
-                opacity: 1,
                 borderColor: Colors.Gray[400],
                 backgroundColor: Colors.Gray[50],
               },
@@ -510,7 +507,6 @@ export const lightTheme = {
         },
         disabled: {
           true: {
-            opacity: 1,
             borderColor: Colors.Gray[400],
             backgroundColor: Colors.Gray[50],
           },
@@ -1021,16 +1017,36 @@ export const lightTheme = {
             width: 80,
           },
         },
+        disabled: {
+          true: {
+            borderColor: Colors.Gray[300],
+          },
+        },
       },
     },
     container: {},
     text: {
       color: Colors.Gray[900],
       fontSize: Spacings.MD,
+      variants: {
+        disabled: {
+          true: {
+            color: Colors.Gray[200],
+          },
+        },
+      },
     },
   },
   radioGroup: {
-    group: {},
+    group: {
+      variants: {
+        disabled: {
+          true: {
+            backgroundColor: Colors.Gray[100],
+          },
+        },
+      },
+    },
   },
   slider: {
     container: {

@@ -12,7 +12,8 @@ const stylesheet = createStyleSheet({
     variants: {
       disabled: {
         true: {
-          opacity: 0.51,
+          borderColor: "gray",
+          backgroundColor: "gray",
         },
       },
       focus: {

@@ -7,16 +7,16 @@ const stylesheet = createStyleSheet({
     alignItems: "center",
     variants: {
       disabled: {
-        true: {
-          opacity: 0.51,
-        },
+        true: {},
       },
     },
   },
   text: {
     variants: {
       disabled: {
-        true: {},
+        true: {
+          color: "gray",
+        },
       },
       size: {
         sm: {},
@@ -34,7 +34,10 @@ const stylesheet = createStyleSheet({
     height: 36,
     variants: {
       disabled: {
-        true: {},
+        true: {
+          borderColor: "gray",
+          backgroundColor: "gray",
+        },
       },
       size: {
         xs: {
@@ -99,7 +102,7 @@ const stylesheet_group = createStyleSheet({
     variants: {
       disabled: {
         true: {
-          opacity: 0.51,
+          backgroundColor: "gray",
         },
       },
       size: {

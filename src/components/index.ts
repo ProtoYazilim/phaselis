@@ -30,6 +30,7 @@ import Switch from "./switch"; // Switch
 import TabView, { TabHeader, TabHeaderItem, TabItem } from "./tab-view"; // TabView
 import Textfield from "./textfield"; // Textfield
 import BottomSheet from "./bottom-sheet";
+import Avatar from "./avatar"; // Avatar
 
 export { BottomSheet }; // BottomSheet
 export { AccordionList, AccordionItem, Accordion }; // Accordion
@@ -64,3 +65,4 @@ export { Stepper }; // Stepper
 export { Switch }; // Switch
 export { TabView, TabHeader, TabHeaderItem, TabItem }; // TabView & TabHeader & TabHeaderItem & TabItem
 export { Textfield }; // Textfield
+export { Avatar }; // Avatar

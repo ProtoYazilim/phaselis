@@ -1635,4 +1635,152 @@ export const lightTheme = {
   row: {},
   label: {},
   list: {},
+  avatar: {
+    container: {
+      backgroundColor: Colors.Gray[100],
+      variants: {
+        size: {
+          xs: {
+            height: 32,
+            width: 32,
+          },
+          sm: {
+            height: 48,
+            width: 48,
+          },
+          md: {
+            height: 64,
+            width: 64,
+          },
+          lg: {
+            height: 128,
+            width: 128,
+          },
+          xl: {
+            height: 256,
+            width: 256,
+          },
+        },
+        circle: {
+          xs: {
+            borderRadius: 16,
+          },
+          sm: {
+            borderRadius: 24,
+          },
+          md: {
+            borderRadius: 32,
+          },
+          lg: {
+            borderRadius: 64,
+          },
+          xl: {
+            borderRadius: 128,
+          },
+        },
+        rounded: {
+          xs: {
+            borderRadius: Spacings.XS,
+          },
+          sm: {
+            borderRadius: Spacings.SM,
+          },
+          md: {
+            borderRadius: Spacings.MD,
+          },
+          lg: {
+            borderRadius: Spacings.LG,
+          },
+          xl: {
+            borderRadius: Spacings.XL,
+          },
+        },
+      },
+    },
+    image: {
+      variants: {
+        size: {
+          xs: {
+            height: 32,
+            width: 32,
+          },
+          sm: {
+            height: 48,
+            width: 48,
+          },
+          md: {
+            height: 64,
+            width: 64,
+          },
+          lg: {
+            height: 128,
+            width: 128,
+          },
+          xl: {
+            height: 256,
+            width: 256,
+          },
+        },
+        circle: {
+          xs: {
+            borderRadius: 16,
+          },
+          sm: {
+            borderRadius: 24,
+          },
+          md: {
+            borderRadius: 32,
+          },
+          lg: {
+            borderRadius: 64,
+          },
+          xl: {
+            borderRadius: 128,
+          },
+        },
+        rounded: {
+          xs: {
+            borderRadius: Spacings.XS,
+          },
+          sm: {
+            borderRadius: Spacings.SM,
+          },
+          md: {
+            borderRadius: Spacings.MD,
+          },
+          lg: {
+            borderRadius: Spacings.LG,
+          },
+          xl: {
+            borderRadius: Spacings.XL,
+          },
+        },
+      },
+    },
+    text: {
+      color: Colors.Gray[700],
+      variants: {
+        size: {
+          xs: {
+            fontSize: 16,
+          },
+          sm: {
+            fontSize: 24,
+          },
+          md: {
+            fontSize: 32,
+          },
+          lg: {
+            fontSize: 64,
+          },
+          xl: {
+            fontSize: 128,
+          },
+        },
+      },
+    },
+    icon: {
+      color: Colors.Gray[700],
+    },
+  },
 };

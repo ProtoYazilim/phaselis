@@ -1,4 +1,5 @@
 ---
+id: components
 sidebar_position: 3
 ---
 

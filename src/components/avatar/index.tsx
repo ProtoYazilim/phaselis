@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useCallback } from "react";
 import { AvatarProps } from "./types";
 import stylesheet from "./assets/styles";
 import { useCombinedStyle } from "@phaselis/hooks";
@@ -31,9 +31,22 @@ const Avatar: FC<AvatarProps> = ({
   text,
   ...extraProps
 }) => {
-  if (!circle && !rounded && !square) {
-    circle = true;
-  }
+  const getVariant = useCallback(
+    (variant: string) => {
+      if (variant === "square" && square) {
+        return size;
+      } else if (variant === "rounded" && rounded) {
+        return size;
+      } else if (variant === "circle" && circle) {
+        return size;
+      } else if (variant === "circle" && !circle && !rounded && !square) {
+        return size;
+      } else {
+        return undefined;
+      }
+    },
+    [size, circle, rounded, square],
+  );
 
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
@@ -41,9 +54,9 @@ const Avatar: FC<AvatarProps> = ({
     contextValue?.theme?.avatar,
     {
       size,
-      circle: circle ? size : undefined,
-      rounded: rounded ? size : undefined,
-      square: square ? size : undefined,
+      circle: getVariant("circle"),
+      rounded: getVariant("rounded"),
+      square: getVariant("square"),
       ...extraProps,
     } as any,
   );

@@ -40,6 +40,10 @@ const stylesheet = createStyleSheet({
         },
       },
       size: {
+        xxs: {
+          height: 10,
+          width: 10,
+        },
         xs: {
           height: 16,
           width: 16,

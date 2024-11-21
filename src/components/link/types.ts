@@ -17,6 +17,7 @@ interface LinkProps extends SlotableLeftRightProps, PressableProps {
   secondary?: boolean;
   disabled?: boolean;
   href?: string;
+  canOpenURL?: boolean;
 }
 
 export { LinkProps };

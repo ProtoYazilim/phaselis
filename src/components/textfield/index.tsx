@@ -10,12 +10,12 @@ import {
 import { InputHOC, validateText } from "@phaselis/utils";
 import stylesheet from "./assets/styles";
 import { PhaselisHOC } from "@phaselis/components/provider";
-import { TextFieldProps } from "./types";
+import { TextfieldProps } from "./types";
 import { Block, Slot } from "@phaselis/components";
 import { useMaskedInputProps } from "react-native-mask-input";
 import { useCombinedStyle } from "@phaselis/hooks";
 
-const TextField: React.FC<TextFieldProps> = ({
+const Textfield: React.FC<TextfieldProps> = ({
   error,
   autoFocus,
   onChange,
@@ -222,5 +222,5 @@ const TextField: React.FC<TextFieldProps> = ({
 
 // @ts-ignore
 export default InputHOC(
-  PhaselisHOC<TextFieldProps, TextfieldExtraProps>(TextField),
+  PhaselisHOC<TextfieldProps, TextfieldExtraProps>(Textfield),
 );

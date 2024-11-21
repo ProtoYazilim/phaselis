@@ -9,10 +9,10 @@ import {
   IFormPropTypes,
   SlotableLeftRightProps,
 } from "@phaselis/types";
-import { ReactNode, KeyboardEvent, MouseEvent } from "react";
+import { ReactNode } from "react";
 import { Mask } from "react-native-mask-input";
 
-export interface TextFieldProps
+export interface TextfieldProps
   extends IFormPropTypes,
     SlotableLeftRightProps,
     Omit<
@@ -22,7 +22,7 @@ export interface TextFieldProps
   placeholder?: string;
   readOnly?: boolean;
   validator?: any;
-  style?: ITextFieldStyleType;
+  style?: ITextfieldStyleType;
   loadingIcon?: ReactNode;
   loading?: boolean;
   uppercase?: boolean;
@@ -40,12 +40,12 @@ export interface TextFieldProps
   error?: any;
 }
 
-export interface ITextFieldStyleType extends IBaseStyleType {
+export interface ITextfieldStyleType extends IBaseStyleType {
   leftSlot?: ViewStyle;
   rightSlot?: ViewStyle;
 }
 
-export interface ITextFieldStateType {
+export interface ITextfieldStateType {
   focused?: boolean;
 }
 export enum EnumKeyboardType {
@@ -56,51 +56,3 @@ export enum EnumKeyboardType {
   Phone = "phone",
   Password = "password",
 }
-
-type AutoCompleteValue =
-  | "on"
-  | "off"
-  | "name"
-  | "honorific-prefix"
-  | "given-name"
-  | "additional-name"
-  | "family-name"
-  | "honorific-suffix"
-  | "nickname"
-  | "username"
-  | "new-password"
-  | "current-password"
-  | "one-time-code"
-  | "organization-title"
-  | "organization"
-  | "street-address"
-  | "address-line1"
-  | "address-line2"
-  | "address-line3"
-  | "address-level4"
-  | "address-level3"
-  | "address-level2"
-  | "address-level1"
-  | "country"
-  | "country-name"
-  | "postal-code"
-  | "cc-name"
-  | "cc-given-name"
-  | "cc-additional-name"
-  | "cc-family-name"
-  | "cc-number"
-  | "cc-exp"
-  | "cc-exp-month"
-  | "cc-exp-year"
-  | "cc-csc"
-  | "cc-type"
-  | "transaction-currency"
-  | "transaction-amount"
-  | "language"
-  | "bday"
-  | "bday-day"
-  | "bday-month"
-  | "bday-year"
-  | "sex"
-  | "url"
-  | "photo";

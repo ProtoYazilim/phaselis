@@ -1,4 +1,4 @@
-# Phaselis UI 🎨
+# Phaselis Framework 🎨
 
 A powerful, customizable, and beautiful UI component library for React Native applications. Phaselis provides a comprehensive set of pre-built components that help you build stunning mobile applications faster.
 

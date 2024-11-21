@@ -29,7 +29,7 @@ const Radius = {
   MD: 8,
   LG: 12,
   XL: 16,
-  XXL: 20,
+  XXL: 32,
 };
 
 export { Spacings, Heights, Radius };

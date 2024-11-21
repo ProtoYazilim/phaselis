@@ -43,6 +43,13 @@ export default function Layout() {
         }}
       />
       <Drawer.Screen
+        name="avatar-story"
+        options={{
+          drawerLabel: "Avatar",
+          title: "Avatar Story",
+        }}
+      />
+      <Drawer.Screen
         name="button-story"
         options={{
           drawerLabel: "Button",

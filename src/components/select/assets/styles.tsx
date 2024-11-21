@@ -96,6 +96,9 @@ const stylesheet = createStyleSheet({
         },
       },
       size: {
+        xxs: {
+          height: 16,
+        },
         xs: {
           height: 24,
         },

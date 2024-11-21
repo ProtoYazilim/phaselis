@@ -10,7 +10,7 @@ packageJson.main = "expo-router/entry";
 const depsToMove = [
   "react-native-safe-area-context",
   "react-native-screens",
-  "react-native-reanimted",
+  "react-native-reanimated",
   "@react-native-async-storage/async-storage",
   "@react-navigation/drawer",
   "@react-navigation/native",
@@ -32,7 +32,7 @@ peerDepsToMove.forEach((dep) => {
     packageJson.dependencies[dep] = packageJson.peerDependencies[dep].replace(
       /^>=/,
       "",
-    ); // >= ifadesini kaldır
+    );
     delete packageJson.peerDependencies[dep];
   }
 });

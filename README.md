@@ -76,14 +76,7 @@ UnistylesRegistry.addThemes({
 
 Phaselis includes a wide range of components:
 
-- **Layout**: Block, Row, Col
-- **Forms**: TextField, Checkbox, Radio, Select, Form
-- **Navigation**: TabView, Accordion
-- **Feedback**: Badge, Label
-- **Data Display**: List
-- **Overlays**: BottomSheet, Popup
-- **Media**: Image
-- **Icons**: LucideIcon
+[Component Documentation](https://www.protoyazilim.com/phaselis/docs/components/)
 
 ## 💅 Styling
 
@@ -122,10 +115,10 @@ Example:
 
 We welcome contributions! Please read our contributing guidelines before submitting pull requests.
 
-## 📄 License
+<!-- ## 📄 License
 
-MIT © [Your Organization]
+MIT © ProtoYazılım
 
----
+--- -->
 
 <p align="center">Made with ❤️ by the Phaselis team</p>

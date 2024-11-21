@@ -1,8 +1,10 @@
+import { ComponentSize } from "@phaselis/types/base";
+
 interface SlotProps {
   children?: any;
   icon?: any;
   style?: any;
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+  size?: ComponentSize;
   strokeWidth?: number;
   onClick?: () => void;
   parentStates?: any;

@@ -1,3 +1,4 @@
+import { ComponentSize } from "@phaselis/types/base";
 import { icons } from "lucide-react-native";
 import React from "react";
 import { StyleSheet } from "react-native";
@@ -12,7 +13,7 @@ const LucideIcon = ({
   onClick,
 }: {
   name?: keyof typeof icons;
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+  size?: ComponentSize;
   style?: any;
   width?: number;
   height?: number;
@@ -26,6 +27,7 @@ const LucideIcon = ({
   const combinedStyles = StyleSheet.flatten(style);
 
   const sizeLiteral = {
+    xxs: 4,
     xs: 8,
     sm: 12,
     md: 16,
@@ -35,6 +37,7 @@ const LucideIcon = ({
   };
 
   const sizeStrokeWidthLiteral = {
+    xxs: 4,
     xs: 2,
     sm: 2,
     md: 2,

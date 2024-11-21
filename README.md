@@ -1,50 +1,131 @@
-# Welcome to Phaselis 👋
+# Phaselis UI 🎨
 
-## Installation
+A powerful, customizable, and beautiful UI component library for React Native applications. Phaselis provides a comprehensive set of pre-built components that help you build stunning mobile applications faster.
 
-- Run `npm install`
-- Run `npx expo install expo-dev-client`
-- Run `npx expo run:ios --device`
+## ✨ Features
 
-## To-Do List
+- 🎯 **20+ Ready-to-use Components**: From basic buttons to complex form elements
+- 🎨 **Customizable Theming**: Built-in light and dark themes with easy customization
+- 📱 **Cross-Platform**: Works seamlessly on both iOS and Android
+- 🔧 **TypeScript Support**: Full TypeScript support with detailed type definitions
+- 🎭 **Style Variants**: Multiple style variants for each component
+- 🚀 **Performance Optimized**: Minimal build size and optimal runtime performance
 
-- Update the `ALIAS` command
-- Reorganize the folder structure
-- Revisit the icon component (current implementation increases build time due to loading all icons)
-- Consider introducing common types?
-- Load and test fonts (can be done during label component implementation)
-- Remove `defaultProps`
-
-## Folder Naming Conventions
-
-- Use kebab-case for folder names
-- Use an index file to export
-- Use UpperCamelCase for the main component file
-- Use `assets/styles/index.ts` for styles
-- Use `assets/icons/index.ts` for icons
-
-
-## Errors
-
-### Common 1
-
-The following build commands failed:
-        PhaseScriptExecution [CP-User]\ [Hermes]\ Replace\ Hermes\ for\ the\ right\ configuration,\ if\ needed /Users/necatisarhanli/Library/Developer/Xcode/DerivedData/phaselis-ddvswxkejuqcwdbstxozaabumzwy/Build/Intermediates.noindex/Pods.build/Debug-iphoneos/hermes-engine.build/Script-46EB2E0001CC30.sh (in target 'hermes-engine' from project 'Pods')
-(1 failure)
-
-This error can occur due to a misconfiguration in the `ios/.xcode.env.local` file.
-
-#### Solution
-
-To fix this error, you need to delete the `ios/.xcode.env.local` file. You can do this by running the following command in your terminal:
+## 📦 Installation
 
 ```bash
-rm ios/.xcode.env.local
-
-
-IOS local development on device profile
-`https://expo.dev/register-device/acbd128f-d35a-41d6-bca7-01e2f4a2b79f`
+npm install phaselis
 ```
 
-### TODOs
-TODO: BlockStyleInterface
+### Required Dependencies
+
+```bash
+npm install react-native-gesture-handler@~2.16.1 react-native-reanimated@~3.10.1 react-native-safe-area-context@4.10.5 react-native-screens@3.31.1 react-native-svg@15.2.0 react-native-unistyles@^2.9.2
+```
+
+For iOS, run:
+```bash
+cd ios && pod install
+```
+
+## 📚 Documentation
+
+For detailed documentation and examples, visit our [documentation site](https://www.protoyazilim.com/phaselis).
+
+## 🔧 Setup
+
+1. Import and configure the PhaselisProvider:
+
+```jsx
+import { Provider as PhaselisProvider, lightTheme, darkTheme } from 'phaselis';
+
+function App() {
+  return (
+    <PhaselisProvider theme={isDarkMode ? darkTheme : lightTheme}>
+      <YourApp />
+    </PhaselisProvider>
+  );
+}
+```
+
+2. Configure Unistyles:
+
+```typescript
+import { lightTheme, darkTheme } from 'phaselis';
+import { UnistylesRegistry } from 'react-native-unistyles';
+
+type AppThemes = {
+  light: typeof lightTheme;
+  dark: typeof darkTheme;
+};
+
+declare module 'react-native-unistyles' {
+  export interface UnistylesThemes extends AppThemes {}
+}
+
+UnistylesRegistry.addThemes({
+  light: lightTheme,
+  dark: darkTheme,
+}).addConfig({
+  adaptiveThemes: true,
+  initialTheme: 'light',
+});
+```
+
+## 🎯 Components
+
+Phaselis includes a wide range of components:
+
+- **Layout**: Block, Row, Col
+- **Forms**: TextField, Checkbox, Radio, Select, Form
+- **Navigation**: TabView, Accordion
+- **Feedback**: Badge, Label
+- **Data Display**: List
+- **Overlays**: BottomSheet, Popup
+- **Media**: Image
+- **Icons**: LucideIcon
+
+## 💅 Styling
+
+Phaselis components are highly customizable through:
+
+- Theme customization
+- Style props
+- Variant props
+- Shadow support
+- Linear gradient support
+
+Example:
+```jsx
+<Button
+  primary
+  style={{
+    container: {
+      backgroundColor: 'yellow',
+      shadows: [{
+        color: '#FCF596',
+        opacity: 0.8,
+        radius: 12,
+        offset: [-5, -3],
+      }]
+    },
+    text: {
+      color: 'white'
+    }
+  }}
+>
+  Custom Button
+</Button>
+```
+
+## 🤝 Contributing
+
+We welcome contributions! Please read our contributing guidelines before submitting pull requests.
+
+## 📄 License
+
+MIT © [Your Organization]
+
+---
+
+<p align="center">Made with ❤️ by the Phaselis team</p>

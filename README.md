@@ -13,20 +13,15 @@ A powerful, customizable, and beautiful UI component library for React Native ap
 
 ## 📦 Installation
 
-```bash
-npm install phaselis
-```
-
-### Required Dependencies
+### With CLI
 
 ```bash
-npm install react-native-gesture-handler@~2.16.1 react-native-reanimated@~3.10.1 react-native-safe-area-context@4.10.5 react-native-screens@3.31.1 react-native-svg@15.2.0 react-native-unistyles@^2.9.2
+npx create-phaselis-app
 ```
 
-For iOS, run:
-```bash
-cd ios && pod install
-```
+### Manual Installation
+
+Please visit [Manual Installation Guide](https://www.protoyazilim.com/phaselis/docs/getting-started/manuel).
 
 ## 📚 Documentation
 

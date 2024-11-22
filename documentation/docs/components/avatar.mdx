@@ -1,0 +1,150 @@
+---
+id: avatar
+category: 'data-display'
+title: Avatar
+version: '0.1'
+description:
+  The Avatar component is used to display images, icons, or initials in various shapes and sizes.
+---
+
+The `Avatar` component is used to display images, icons, or initials in various shapes and sizes. It supports flexible styling options and allows for dynamic content such as text, images, or icons.
+
+
+## Import  
+
+```javascript
+import { Avatar } from "phaselis";
+```
+
+- **Avatar:** Main Component import for Avatar
+
+
+## Usage  
+
+### Basic Avatar  
+
+```jsx
+<Avatar size="md" circle text="AB" />
+```
+
+### Avatar with an Image  
+
+```jsx
+<Avatar size="lg" img="assets/phaselis.png" />
+```
+
+### Avatar with an Icon  
+
+```jsx
+<Avatar size="sm" iconName="User" />
+```
+
+## Props  
+
+### id  
+`string`  
+
+Unique identifier for the avatar.  
+
+```jsx
+<Avatar id="user-avatar" size="lg" circle img="assets/phaselis.png" />
+```
+
+### children  
+`ReactNode`  
+
+Custom content to render inside the avatar. Overrides `text`, `img`, and `iconName` props.  
+
+```jsx
+<Avatar>
+  <Text>VIP</Text>
+</Avatar>
+```
+
+### style
+| Name       | Type      | Description                             |
+| ---- |----|----|
+| `container` | ViewStyle | Style for the outer container view.     |
+| `text`   | TextStyle | Style for the avatar text.                |
+| `icon`  | TextStyle | Style for the icon of the avatar.    |
+| `image` | ViewStyle | Style for the image of the avatar.   |
+
+Custom styles for the avatar container, text, and icon.  
+
+```jsx
+<Avatar
+  size="md"
+  circle
+  text="AB"
+  style={{
+    container: { backgroundColor: "#007bff" },
+    text: { color: "#fff", fontWeight: "bold" },
+  }}
+/>
+```
+
+### iconName  
+`SlotIconName`  
+
+The name of the Lucide icon to display inside the avatar.  
+
+```jsx
+<Avatar iconName="User" size="md" />
+```
+
+### text  
+`string`  
+
+Text or initials to display inside the avatar.  
+
+```jsx
+<Avatar text="JD" size="lg" circle />
+```
+
+### size  
+`xxs | xs | sm | md | lg | xl | xxl`  
+
+Sets the size of the avatar. Default value is `md`.    
+
+```jsx
+<Avatar size="lg" img="assets/phaselis.png" />
+```
+
+
+### circle 
+`boolean`  
+
+Displays the avatar as a circle. Default is `true`.
+
+```jsx
+<Avatar circle text="AB" />
+```
+
+### rounded 
+`boolean`  
+
+Displays the avatar with rounded corners.  
+
+```jsx
+<Avatar rounded text="CD" />
+```
+
+
+### square  
+`boolean`  
+
+Displays the avatar as a square.  
+
+```jsx
+<Avatar square text="EF" />
+```
+
+
+### img  
+`string`  
+
+URL of the image to display inside the avatar.  
+
+```jsx
+<Avatar img="assets/phaselis.png" />
+```

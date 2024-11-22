@@ -1,6 +1,6 @@
 {
   "name": "phaselis",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "expo-router/entry",
   "module": "package/index.js",
   "types": "package/index.d.ts",
@@ -106,5 +106,10 @@
     "ts-node": "^10.9.2",
     "typescript": "~5.3.3"
   },
-  "private": false
+  "private": false,
+  "homepage": "https://www.protoyazilim.com/phaselis",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ProtoYazilim/phaselis.git"
+  }
 }

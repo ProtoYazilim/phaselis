@@ -28,10 +28,13 @@ import { Button } from 'phaselis'
 Put in some content in the `Button` to get a basic button.
 
 ```jsx
-  <Button
-    text="Start End"
-    primary
-  />  
+import { Button } from "phaselis";
+
+function BasicUsage(): React.ReactElement {
+  return <Button text="Phaselis" primary />;
+}
+
+export default BasicUsage; 
 ```
 
 ## Props
@@ -57,9 +60,7 @@ Other than listed props below, you can pass any prop that a `Pressable` componen
 If `true`, the button will be disabled.
 
 ```jsx
-  <Button
-    disabled
-  />  
+<Button disabled />
 ```
 
 
@@ -70,9 +71,7 @@ If `true`, the button will be disabled.
 Function to execute when the button is pressed.
 
 ```jsx
-  <Button
-    onClick={() => console.log('Button clicked')}
-  />
+<Button onClick={() => console.log("Button clicked")} />
 ```
 
 ### type 
@@ -81,9 +80,7 @@ Function to execute when the button is pressed.
 If compenent is used in a form, you can set the type of the button.
 
 ```jsx
-  <Button
-    type="submit"
-  />  
+<Button type="submit" /> 
 ```
 
 ### style
@@ -97,16 +94,16 @@ If compenent is used in a form, you can set the type of the button.
 You can style the button with the `style` prop using React.CSSProperties.
 
 ```jsx  
-  <Button
+<Button
     style={{
       container: {
-        backgroundColor: 'red'
+        backgroundColor: "red",
       },
       text: {
-        color: 'white'
-      }
+        color: "white",
+      },
     }}
-  />  
+  />
 ```
 
 ### loading
@@ -115,9 +112,7 @@ You can style the button with the `style` prop using React.CSSProperties.
 If `true`, the button will show a loading spinner.
 
 ```jsx
-  <Button
-    loading
-  />  
+<Button loading />  
 ```
 
 ### size 
@@ -126,9 +121,7 @@ If `true`, the button will show a loading spinner.
 The size of the button.
 
 ```jsx
-  <Button
-    size="xl"
-  />  
+<Button size="xl" />  
 ```
 
 ### primary
@@ -137,9 +130,7 @@ The size of the button.
 If `true`, the button will have a primary color.
 
 ```jsx
-  <Button
-    primary
-  />  
+<Button primary />  
 ```
 
 ### secondary
@@ -148,9 +139,7 @@ If `true`, the button will have a primary color.
 If `true`, the button will have a secondary color.
 
 ```jsx
-  <Button
-    secondary
-  />  
+<Button secondary />  
 ```
 
 ### tertiary
@@ -159,9 +148,7 @@ If `true`, the button will have a secondary color.
 If `true`, the button will have a tertiary color.
 
 ```jsx
-  <Button
-    tertiary
-  />  
+<Button tertiary />  
 ```
 
 ### outline
@@ -170,42 +157,42 @@ If `true`, the button will have a tertiary color.
 If `true`, the button will have an outline.
 
 ```jsx
-  <Button
-    outline
-  />  
+<Button outline />  
 ```
 
-### variants
+{/* ### variants
 `any`
 
 You can pass any variant that you defined from theme object.
 
 ```jsx
-  <Button
-    variants="half"
-  />  
-```
+<Button variants="half" />  
+``` */}
 
-### leftSlot
+### LeftSlot
 `ReactNode`
 
 You can pass any component to the left slot of the button.
 
 ```jsx
-  <Button
-    leftSlot={<Icon name="arrow-left" />}
-  />  
+import { LucideIcon } from "phaselis";
+
+{...}
+  <Button LeftSlot={() => <LucideIcon name={"ArrowLeft"} />} />;
+{...}
 ```
 
-### rightSlot
+### RightSlot
 `ReactNode`
 
 You can pass any component to the right slot of the button.
 
 ```jsx
-  <Button
-    rightSlot={<Icon name="arrow-right" />}
-  />  
+import { LucideIcon } from "phaselis";
+
+{...}
+  <Button RightSlot={() => <LucideIcon name={"ArrowRight"} />} />;
+{...}
 ```
 
 ### leftIcon
@@ -214,9 +201,7 @@ You can pass any component to the right slot of the button.
 You can pass any Lucide icon name to the left slot of the button.
 
 ```jsx
-  <Button
-    leftIcon="arrow-left"
-  />  
+<Button leftIcon="ArrowLeft" />
 ```
 
 ### rightIcon
@@ -225,9 +210,7 @@ You can pass any Lucide icon name to the left slot of the button.
 You can pass any Lucide icon name to the right slot of the button.
 
 ```jsx
-  <Button
-    rightIcon="arrow-right"
-  />  
+<Button rightIcon="ArrowRight" />;
 ```
 
 ### children
@@ -236,7 +219,11 @@ You can pass any Lucide icon name to the right slot of the button.
 You can pass any component to the button.
 
 ```jsx
+import { Text } from "react-native";
+
+{...}
   <Button>
     <Text>Click me</Text>
-  </Button>  
+  </Button>
+{...}
 ```

@@ -24,37 +24,58 @@ import { Avatar } from "phaselis";
 ### Basic Avatar  
 
 ```jsx
-<Avatar size="md" circle text="AB" />
+import { Avatar } from "phaselis";
+
+const Example = () => {
+  return <Avatar size="md" circle text="AB" />;
+};
+
+export default Example;
 ```
 
 ### Avatar with an Image  
 
 ```jsx
-<Avatar size="lg" img="assets/phaselis.png" />
+import { Avatar } from "phaselis";
+
+const Example = () => {
+  return <Avatar size="lg" img="assets/phaselis.png" />;
+};
+
+export default Example;
+
 ```
 
 ### Avatar with an Icon  
 
 ```jsx
-<Avatar size="sm" iconName="User" />
+import { Avatar } from "phaselis";
+
+const Example = () => {
+  return <Avatar size="sm" iconName="User" />;
+};
+
+export default Example;
 ```
 
 ## Props  
 
-### id  
+{/* ### id  
 `string`  
 
 Unique identifier for the avatar.  
 
 ```jsx
 <Avatar id="user-avatar" size="lg" circle img="assets/phaselis.png" />
-```
+``` */}
 
 ### children  
 `ReactNode`  
 
 Custom content to render inside the avatar. Overrides `text`, `img`, and `iconName` props.  
-
+```jsx
+import { Text } from "react-native";
+```
 ```jsx
 <Avatar>
   <Text>VIP</Text>
@@ -107,7 +128,7 @@ Text or initials to display inside the avatar.
 Sets the size of the avatar. Default value is `md`.    
 
 ```jsx
-<Avatar size="lg" img="assets/phaselis.png" />
+<Avatar size="lg" iconName="Umbrella" />
 ```
 
 

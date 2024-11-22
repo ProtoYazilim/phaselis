@@ -24,10 +24,18 @@ import { Block } from "phaselis";
 ### Basic Block
 
 ```jsx
-<Block style={{ gap: 20 }}>
-  <Button type="submit" text="submit" />
-  <Button type="reset" text="reset" />
-</Block>
+import { Block, Button } from "phaselis";
+
+const Example = () => {
+  return (
+    <Block style={{ gap: 20, padding: 20, backgroundColor: "#d8eeff" }}>
+      <Button type="submit" text="submit" />
+      <Button type="reset" text="reset" />
+    </Block>
+  );
+};
+
+export default Example;
 ```
 
 ## Props
@@ -44,13 +52,11 @@ Other than listed props below, you can pass any prop that a `View` component acc
 Rendered content inside the `Block` component.
 
 ```jsx
+import { Button } from "phaselis";
+```
+```jsx
 <Block style={{ marginLeft: 10, marginRight: 10, gap: 10 }}>
-  <Button
-    text="Show Popup"
-    onClick={() => {
-      setShow(true);
-    }}
-  />
+  <Button text="Show Popup" />
 </Block>
 ```
 

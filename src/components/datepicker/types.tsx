@@ -9,9 +9,9 @@ interface DatepickerProps extends IFormPropTypes, SlotableLeftRightProps {
   format?: string;
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
   style?: {
-    container: ViewStyle;
-    leftSlot: ViewStyle;
-    element: TextStyle;
+    container?: ViewStyle;
+    leftSlot?: ViewStyle;
+    element?: TextStyle;
   };
   locale?: string; //locale type example > TR_tr
 }

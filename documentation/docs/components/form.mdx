@@ -26,27 +26,37 @@ import { Form , FormReference } from "phaselis";
 ### Basic Form
 
 ```jsx
-<Form
-  id="exampleForm"
-  onReset={() => console.log("Form reset")}
-  onSubmit={(e, values) => console.log("Form submitted:", values)}
-  onError={(error, fields) => console.log("Form errors:", fields)}
->
-  {/* Form fields and components go here */}
-</Form>
+import { Form, FormReference, Textfield, InputGroup, Button } from "phaselis";
+import { useRef } from "react";
+
+const Example = () => {
+  const refForm = useRef<FormReference>(null);
+
+  return (
+    <Form ref={refForm}>
+      <InputGroup label="User Name">
+        <Textfield name="username" rightIcon="User" />
+      </InputGroup>
+      <Button text="Submit" />
+      <Button text="Reset" type="reset" />
+    </Form>
+  );
+};
+
+export default Example;
 ```
 
 ## Props
 
-### children
+### children *`required`*
 `ReactNode`
 
 The form fields and components within the form, which are registered and managed by the form context.
 
 ```jsx
 <Form>
-  <TextField name="username" placeholder="Username" />
-  <TextField name="password" placeholder="Password" type="password" />
+  <Textfield name="username" placeholder="Username" />
+  <Textfield name="password" placeholder="Password" type="password" />
 </Form>
 ```
 
@@ -56,7 +66,12 @@ The form fields and components within the form, which are registered and managed
 An optional unique identifier for the form, useful for debugging or tracking form instances.
 
 ```jsx
-<Form id="loginForm" />
+import { Textfield } from "phaselis";
+```
+```jsx
+<Form id="loginForm">
+  <Textfield />
+</Form>
 ```
 
 ### onSubmit
@@ -65,9 +80,17 @@ An optional unique identifier for the form, useful for debugging or tracking for
 Callback triggered when the form is successfully submitted. Receives the event and all form values.
 
 ```jsx
+import { Textfield, Button } from "phaselis";
+```
+```jsx
 <Form
-  onSubmit={(e, values) => console.log("Form submitted with values:", values)}
-/>
+  onSubmit={(e, values) =>
+    console.log("Form submitted with values:", values)
+  }
+>
+  <Textfield />
+  <Button type="submit">Submit</Button>
+</Form>
 ```
 
 ### onReset
@@ -76,7 +99,13 @@ Callback triggered when the form is successfully submitted. Receives the event a
 Callback triggered when the form is reset, clearing all values and errors. Receives an optional event.
 
 ```jsx
-<Form onReset={() => console.log("Form reset")} />
+import { Textfield, Button } from "phaselis";
+```
+```jsx
+<Form onReset={() => console.log("Form reset")}>
+  <Textfield />
+  <Button type="reset">Reset</Button>
+</Form>
 ```
 
 ### onError
@@ -85,7 +114,19 @@ Callback triggered when the form is reset, clearing all values and errors. Recei
 Callback triggered when validation errors are found during submission. Receives the error message and fields with errors.
 
 ```jsx
-<Form onError={(error, fields) => console.log("Form errors:", fields)} />
+import { Textfield, InputGroup, Button, required } from "phaselis";
+```
+```jsx
+<Form onError={(error, fields) => console.log("Form errors:", fields)}>
+  <InputGroup label="User Name">
+    <Textfield
+      name="username"
+      rightIcon="User"
+      validations={[required("required")]}
+    />
+  </InputGroup>
+  <Button type="submit">Submit</Button>
+</Form>
 ```
 
 ### onChange
@@ -94,7 +135,14 @@ Callback triggered when validation errors are found during submission. Receives 
 Callback triggered whenever a form field value changes. Receives the event and the updated form state.
 
 ```jsx
-<Form onChange={(e, state) => console.log("Form changed:", state)} />
+import { Textfield, InputGroup } from "phaselis";
+```
+```jsx
+<Form onChange={(e, state) => console.log("Form changed:", state)}>
+  <InputGroup label="User Name">
+    <Textfield name="username" rightIcon="User" />
+  </InputGroup>
+</Form>
 ```
 
 ## Methods

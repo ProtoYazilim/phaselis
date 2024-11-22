@@ -24,28 +24,49 @@ import { Image } from "phaselis";
 ### Basic Image
 
 ```jsx
-<Image
-  source={{ uri: path_to_image }}
-  height={ IMAGE_HEIGHT || 0}
-  width={ IMAGE_WIDTH || 0}
-/>
+import { Image } from "phaselis";
+
+const Example = () => {
+  return (
+    <Image
+      source={{
+        uri: "assets/phaselis.png",
+      }}
+      height={200}
+      width={200}
+    />
+  );
+};
+
+export default Example;
 ```
 
 ### Background Image
 
 ```jsx
-<Image
-  source={{ uri: path_to_image }}
-  background
->
-  <Text
-    style={{
-      color: "white",
-    }}
-  >
-    Phaselis
-  </Text>
-</Image>
+import { Image } from "phaselis";
+import { Text } from "react-native";
+
+const Example = () => {
+  return (
+    <Image
+      source={{
+        uri: "assets/phaselis.png",
+      }}
+      background
+    >
+      <Text
+        style={{
+          color: "#11295a",
+        }}
+      >
+        Phaselis
+      </Text>
+    </Image>
+  );
+};
+
+export default Example;
 ```
 
 ## Props
@@ -65,9 +86,11 @@ The properties that can be passed to the `Image` component include styling, cont
 
 ```jsx
 <Image
-  source={{ uri: path_to_image }}
-  height={ IMAGE_HEIGHT || 0}
-  width={ IMAGE_WIDTH || 0}
+  source={{
+    uri: "assets/phaselis.png",
+  }}
+  height={200}
+  width={200}
   background
 />
 ```
@@ -82,9 +105,11 @@ Custom styles for the `Image` component.
 
 ```jsx
 <Image
-  source={{ uri: path_to_image }}
-  height={ IMAGE_HEIGHT || 0}
-  width={ IMAGE_WIDTH || 0}
+  source={{
+    uri: "assets/phaselis.png",
+  }}
+  height={200}
+  width={200}
   style={{
     container: { margin: 100 },
   }}
@@ -95,13 +120,19 @@ Custom styles for the `Image` component.
 `ReactNode`
 
 React nodes to be rendered inside the background image, if `background` is true.
-
+```jsx
+import { Button, Form, InputGroup, Textfield } from "phaselis";
+```
 ```jsx
 <Image
-  source={{ uri: path_to_image }}
-  height={ IMAGE_HEIGHT || 0}
-  width={ IMAGE_WIDTH || 0}
-  background={true}
+  source={{
+    uri: "assets/phaselis.png",
+  }}
+  height={200}
+  width={200}
+  style={{
+    container: { margin: 100 },
+  }}
 >
   <Form>
     <InputGroup label="User Name">

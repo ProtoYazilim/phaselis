@@ -24,32 +24,65 @@ import { Badge } from "phaselis";
 ### Basic Badge
 
 ```jsx
-<Badge text="999+" secondary left={-20} top={-4}>
-  <Avatar text="NA" />
-</Badge>
+import { Badge, Avatar } from "phaselis";
+
+const Example = () => {
+  return (
+    <Badge text="999+" secondary left={-20} top={-4}>
+      <Avatar text="NA" />
+    </Badge>
+  );
+};
+
+export default Example;
 ```
 
 ### Badge with Input Field
 
 ```jsx
-<Badge text="1" primary left={-15} top={-4}>
-  <Textfield />
-</Badge>
+import { Badge, Textfield } from "phaselis";
+
+const Example = () => {
+  return (
+    <Badge text="1" primary left={-15} top={-4}>
+      <Textfield />
+    </Badge>
+  );
+};
+
+export default Example;
 ```
 
 ## Props
 
 Badge has several customizable props to define its appearance and behavior.
 
-### text
+### text *`required`*
 `string`
 
 The text displayed inside the badge.
 
 ```jsx
+import { Avatar } from "phaselis";
+```
+```jsx
 <Badge text="9+">
   <Avatar text="NA" />
-</Badge> 
+</Badge>
+```
+
+### children *`required`*
+`ReactNode`
+
+The component or content that the badge is associated with.
+
+```jsx
+import { Avatar } from "phaselis";
+```
+```jsx
+<Badge text="xxx">
+  <Avatar text="SY" />
+</Badge>
 ```
 
 ### primary
@@ -57,6 +90,9 @@ The text displayed inside the badge.
 
 If `true`, applies the primary badge style.
 
+```jsx
+import { Avatar } from "phaselis";
+```
 ```jsx
 <Badge text="99+" primary >
   <Avatar text="NA" />
@@ -69,6 +105,9 @@ If `true`, applies the primary badge style.
 If `true`, applies the secondary badge style.
 
 ```jsx
+import { Avatar } from "phaselis";
+```
+```jsx
 <Badge text="99+" secondary >
   <Avatar text="NA" />
 </Badge> 
@@ -80,9 +119,12 @@ If `true`, applies the secondary badge style.
 If `true`, applies the tertiary badge style.
 
 ```jsx
-<Badge text="99+" tertiary >
-  <Avatar text="NA" />
-</Badge> 
+import { Textfield } from "phaselis";
+```
+```jsx
+<Badge text="99+" tertiary>
+  <Textfield />
+</Badge>
 ```
 
 ### outline
@@ -90,6 +132,9 @@ If `true`, applies the tertiary badge style.
 
 If `true`, applies an outline around the badge for emphasis.
 
+```jsx
+import { Avatar } from "phaselis";
+```
 ```jsx
 <Badge text="99+" outline >
   <Avatar text="NA" />
@@ -105,17 +150,18 @@ If `true`, applies an outline around the badge for emphasis.
 
 You can style the badge with the `style` prop using React.CSSProperties.
 
-
-
+```jsx
+import { Avatar } from "phaselis";
+```
 ```jsx  
 <Badge
   text="999+"
   style={{
     element: {
-      backgroundColor: "red",
+      backgroundColor: "#2a91ff",
     },
     text: {
-      color: "black",
+      color: "#d8eeff",
     },
   }}
 >
@@ -129,18 +175,10 @@ You can style the badge with the `style` prop using React.CSSProperties.
 Optional positioning values to adjust the badge’s placement.
 
 ```jsx
-<Badge text="9+" tertiary outline left={10} top={85}>
-  <Avatar text="VA" />
-</Badge>
+import { Avatar } from "phaselis";
 ```
-
-### children
-`ReactNode`
-
-The component or content that the badge is associated with.
-
 ```jsx
-<Badge text="xxx">
-  <Avatar text="SY" />
+<Badge text="9+" tertiary outline left={-25} top={1}>
+  <Avatar text="VA" />
 </Badge>
 ```

@@ -30,11 +30,11 @@ Put in some content in the `Button` to get a basic button.
 ```jsx
 import { Button } from "phaselis";
 
-function BasicUsage(): React.ReactElement {
+const Example = () => {
   return <Button text="Phaselis" primary />;
-}
+};
 
-export default BasicUsage; 
+export default Example;
 ```
 
 ## Props
@@ -49,13 +49,10 @@ Other than listed props below, you can pass any prop that a `Pressable` componen
   prop="text" 
   type="string" 
   description="The text to display in the button." 
-  code={`<Button
-    text="Click me"
-  />`} />
+  code={`<Button text="Click me" />`} />
 
-
-### disabled 
-`boolean`
+### disabled
+`boolean` 
 
 If `true`, the button will be disabled.
 
@@ -95,15 +92,17 @@ You can style the button with the `style` prop using React.CSSProperties.
 
 ```jsx  
 <Button
-    style={{
-      container: {
-        backgroundColor: "red",
-      },
-      text: {
-        color: "white",
-      },
-    }}
-  />
+  style={{
+    container: {
+      backgroundColor: "#11295a",
+      borderColor: "#d8eeff",
+    },
+    text: {
+      color: "#d8eeff",
+    },
+  }}
+  text="Phaselis"
+/>
 ```
 
 ### loading
@@ -176,10 +175,9 @@ You can pass any component to the left slot of the button.
 
 ```jsx
 import { LucideIcon } from "phaselis";
-
-{...}
-  <Button LeftSlot={() => <LucideIcon name={"ArrowLeft"} />} />;
-{...}
+```
+```jsx
+<Button LeftSlot={() => <LucideIcon name={"ArrowLeft"} />} />;
 ```
 
 ### RightSlot
@@ -189,10 +187,9 @@ You can pass any component to the right slot of the button.
 
 ```jsx
 import { LucideIcon } from "phaselis";
-
-{...}
-  <Button RightSlot={() => <LucideIcon name={"ArrowRight"} />} />;
-{...}
+```
+```jsx
+<Button RightSlot={() => <LucideIcon name={"ArrowRight"} />} />;
 ```
 
 ### leftIcon
@@ -220,10 +217,9 @@ You can pass any component to the button.
 
 ```jsx
 import { Text } from "react-native";
-
-{...}
-  <Button>
-    <Text>Click me</Text>
-  </Button>
-{...}
+```
+```jsx
+<Button>
+  <Text>Click me</Text>
+</Button>
 ```

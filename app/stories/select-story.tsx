@@ -58,6 +58,15 @@ const SelectStory = () => {
             />
           </InputGroup>
         </Block>
+        <Block style={{ justifyContent: "center", alignItems: "center" }}>
+          <InputGroup label="123">
+            <Select
+              style={{ container: { width: "50%" } }}
+              options={[]}
+              name="center test"
+            />
+          </InputGroup>
+        </Block>
         <Block style={{ gap: 10, marginTop: 10 }}>
           <Button text="Submit" onClick={handleLogin} />
           <Button text="Reset" type="reset" />

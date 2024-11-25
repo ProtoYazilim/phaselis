@@ -57,9 +57,6 @@ interface PopupProviderProps {
 
 const PopupProvider = ({ children }: PopupProviderProps) => {
   const [popups, setPopups] = useState<PopupProps[]>([]);
-
-  console.log("popups---------------------->", popups);
-
   const updatePopupShow = useCallback(
     (id: string | undefined, value: "show" | "hide") => {
       setPopups((popups) =>

@@ -39,9 +39,9 @@ function HomepageHeader() {
 }
 
 export default function Home(): JSX.Element {
-  const { siteConfig } = useDocusaurusContext();
+  // const { siteConfig } = useDocusaurusContext();
   return (
-    <Layout description="Description will go into a meta tag in <head />">
+    <Layout description="React Native UI Framework">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

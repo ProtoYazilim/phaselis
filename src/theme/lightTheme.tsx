@@ -1,5 +1,5 @@
 import Colors from "./colors";
-import { Spacings, Heights, Radius } from "./spacings";
+import { Spacings, Heights, Radius, FontSizes } from "./spacings";
 
 export const layeredComponents = ["tab"];
 
@@ -85,22 +85,22 @@ export const lightTheme = {
         },
         size: {
           xs: {
-            fontSize: 14,
+            fontSize: FontSizes.SM,
           },
           sm: {
-            fontSize: 16,
+            fontSize: FontSizes.MD,
           },
           md: {
-            fontSize: 16,
+            fontSize: FontSizes.MD,
           },
           lg: {
-            fontSize: 18,
+            fontSize: FontSizes.LG,
           },
           xl: {
-            fontSize: 22,
+            fontSize: FontSizes.XL,
           },
           xxl: {
-            fontSize: 22,
+            fontSize: FontSizes.XL,
           },
         },
         textarea: {
@@ -240,22 +240,22 @@ export const lightTheme = {
         },
         size: {
           xs: {
-            fontSize: 14,
+            fontSize: FontSizes.SM,
           },
           sm: {
-            fontSize: 16,
+            fontSize: FontSizes.MD,
           },
           md: {
-            fontSize: 16,
+            fontSize: FontSizes.MD,
           },
           lg: {
-            fontSize: 18,
+            fontSize: FontSizes.LG,
           },
           xl: {
-            fontSize: 22,
+            fontSize: FontSizes.XL,
           },
           xxl: {
-            fontSize: 22,
+            fontSize: FontSizes.XL,
           },
         },
         textarea: {
@@ -438,22 +438,22 @@ export const lightTheme = {
             },
             size: {
               xs: {
-                fontSize: 14,
+                fontSize: FontSizes.SM,
               },
               sm: {
-                fontSize: 16,
+                fontSize: FontSizes.MD,
               },
               md: {
-                fontSize: 16,
+                fontSize: FontSizes.MD,
               },
               lg: {
-                fontSize: 18,
+                fontSize: FontSizes.LG,
               },
               xl: {
-                fontSize: 22,
+                fontSize: FontSizes.XL,
               },
               xxl: {
-                fontSize: 22,
+                fontSize: FontSizes.XL,
               },
             },
           },
@@ -595,22 +595,22 @@ export const lightTheme = {
         },
         size: {
           xs: {
-            fontSize: 14,
+            fontSize: FontSizes.SM,
           },
           sm: {
-            fontSize: 16,
+            fontSize: FontSizes.MD,
           },
           md: {
-            fontSize: 16,
+            fontSize: FontSizes.MD,
           },
           lg: {
-            fontSize: 18,
+            fontSize: FontSizes.LG,
           },
           xl: {
-            fontSize: 22,
+            fontSize: FontSizes.XL,
           },
           xxl: {
-            fontSize: 22,
+            fontSize: FontSizes.XL,
           },
         },
       },
@@ -744,22 +744,22 @@ export const lightTheme = {
         },
         size: {
           xs: {
-            fontSize: 14,
+            fontSize: FontSizes.SM,
           },
           sm: {
-            fontSize: 16,
+            fontSize: FontSizes.MD,
           },
           md: {
-            fontSize: 16,
+            fontSize: FontSizes.MD,
           },
           lg: {
-            fontSize: 18,
+            fontSize: FontSizes.LG,
           },
           xl: {
-            fontSize: 22,
+            fontSize: FontSizes.XL,
           },
           xxl: {
-            fontSize: 22,
+            fontSize: FontSizes.XL,
           },
         },
       },
@@ -884,7 +884,7 @@ export const lightTheme = {
       },
     },
     text: {
-      fontSize: Spacings.MD,
+      fontSize: FontSizes.MD,
       fontFamily: "Poppins",
       textAlign: "center",
       variants: {
@@ -930,22 +930,22 @@ export const lightTheme = {
         },
         size: {
           xs: {
-            fontSize: 14,
+            fontSize: FontSizes.SM,
           },
           sm: {
-            fontSize: 16,
+            fontSize: FontSizes.MD,
           },
           md: {
-            fontSize: 16,
+            fontSize: FontSizes.MD,
           },
           lg: {
-            fontSize: 18,
+            fontSize: FontSizes.LG,
           },
           xl: {
-            fontSize: 22,
+            fontSize: FontSizes.XL,
           },
           xxl: {
-            fontSize: 22,
+            fontSize: FontSizes.XL,
           },
         },
       },
@@ -1230,7 +1230,7 @@ export const lightTheme = {
 
   accordion_header: {
     text: {
-      fontSize: 16,
+      fontSize: FontSizes.MD,
       fontWeight: 700,
       lineHeight: 20,
       color: Colors.Gray[950],
@@ -1283,7 +1283,7 @@ export const lightTheme = {
   link: {
     container: {},
     text: {
-      fontSize: 16,
+      fontSize: FontSizes.MD,
       lineHeight: 22,
       variants: {
         primary: {
@@ -1386,7 +1386,7 @@ export const lightTheme = {
     },
     text: {
       color: "white",
-      fontSize: 14,
+      fontSize: FontSizes.SM,
       variants: {
         base: {
           primary: {
@@ -1487,7 +1487,7 @@ export const lightTheme = {
       marginBottom: Spacings.SM,
     },
     title: {
-      fontSize: 16,
+      fontSize: FontSizes.MD,
       fontWeight: 700,
       lineHeight: 20,
       color: Colors.Gray[950],
@@ -1524,7 +1524,7 @@ export const lightTheme = {
         },
       },
       text: {
-        fontSize: 16,
+        fontSize: FontSizes.MD,
         color: Colors.Gray[950],
       },
     },

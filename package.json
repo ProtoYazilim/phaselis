@@ -8,6 +8,15 @@
   "files": [
     "package"
   ],
+  "keywords": [
+    "react-native",
+    "android",
+    "ios",
+    "typescript",
+    "ui-kit",
+    "ui-library",
+    "component library"
+  ],
   "exports": {
     ".": {
       "main": "package/index.js",

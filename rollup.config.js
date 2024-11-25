@@ -29,7 +29,7 @@ export default [
         babelHelpers: "runtime",
         presets: [
           ["@babel/preset-env", { loose: true }],
-          ["@babel/preset-react", { loose: true }],
+          ["@babel/preset-react", { loose: true, runtime: "automatic" }],
           ["@babel/preset-typescript", { loose: true }],
         ],
         plugins: ["@babel/plugin-transform-runtime"],

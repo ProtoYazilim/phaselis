@@ -13,20 +13,15 @@ A powerful, customizable, and beautiful UI component library for React Native ap
 
 ## 📦 Installation
 
-```bash
-npm install phaselis
-```
-
-### Required Dependencies
+### With CLI
 
 ```bash
-npm install react-native-gesture-handler@~2.16.1 react-native-reanimated@~3.10.1 react-native-safe-area-context@4.10.5 react-native-screens@3.31.1 react-native-svg@15.2.0 react-native-unistyles@^2.9.2
+npx create-phaselis-app
 ```
 
-For iOS, run:
-```bash
-cd ios && pod install
-```
+### Manual Installation
+
+Please visit [Manual Installation Guide](https://www.protoyazilim.com/phaselis/docs/getting-started/manuel).
 
 ## 📚 Documentation
 
@@ -76,14 +71,7 @@ UnistylesRegistry.addThemes({
 
 Phaselis includes a wide range of components:
 
-- **Layout**: Block, Row, Col
-- **Forms**: TextField, Checkbox, Radio, Select, Form
-- **Navigation**: TabView, Accordion
-- **Feedback**: Badge, Label
-- **Data Display**: List
-- **Overlays**: BottomSheet, Popup
-- **Media**: Image
-- **Icons**: LucideIcon
+[Component Documentation](https://www.protoyazilim.com/phaselis/docs/components/)
 
 ## 💅 Styling
 
@@ -122,10 +110,10 @@ Example:
 
 We welcome contributions! Please read our contributing guidelines before submitting pull requests.
 
-## 📄 License
+<!-- ## 📄 License
 
-MIT © [Your Organization]
+MIT © ProtoYazılım
 
----
+--- -->
 
 <p align="center">Made with ❤️ by the Phaselis team</p>

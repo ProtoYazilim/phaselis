@@ -174,8 +174,6 @@ export default function DocSidebarItemCategory({
             "menu__link--active": isActive,
           })}
           onClick={(e) => {
-            console.log("collapsible", collapsible);
-            console.log("href", href);
             if (collapsible) {
               onItemClick?.(item);
               if (href) {

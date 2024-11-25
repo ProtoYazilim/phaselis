@@ -4,6 +4,7 @@ import { createStyleSheet } from "react-native-unistyles";
 const stylesheet = createStyleSheet({
   //@ts-ignore
   container: {
+    alignItems: "flex-start",
     variants: {
       error: {
         true: {},

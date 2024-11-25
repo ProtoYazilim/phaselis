@@ -11,7 +11,7 @@ packageJson.main = "package/index.js";
 const depsToMove = [
   "react-native-safe-area-context",
   "react-native-screens",
-  "react-native-reanimted",
+  "react-native-reanimated",
   "@react-native-async-storage/async-storage",
   "@react-navigation/drawer",
   "@react-navigation/native",
@@ -24,8 +24,7 @@ packageJson.tempDependencies = packageJson.tempDependencies || {};
 
 depsToMove.forEach((dep) => {
   if (packageJson.dependencies && packageJson.dependencies[dep]) {
-    // Sürümün önüne ">=" ekleyerek peerDependencies'e taşıyalım
-    packageJson.tempDependencies[dep] = ">=" + packageJson.dependencies[dep];
+    packageJson.tempDependencies[dep] = packageJson.dependencies[dep];
     delete packageJson.dependencies[dep];
   }
 });
@@ -40,7 +39,6 @@ Object.keys(packageJson.peerDependencies).forEach((dep) => {
 
 peerDepsToMove.forEach((dep) => {
   if (packageJson.dependencies && packageJson.dependencies[dep]) {
-    // Sürümün önüne ">=" ekleyerek peerDependencies'e taşıyalım
     packageJson.peerDependencies[dep] = ">=" + packageJson.dependencies[dep];
     delete packageJson.dependencies[dep];
   }

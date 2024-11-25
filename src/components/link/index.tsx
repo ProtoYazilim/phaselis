@@ -43,7 +43,6 @@ const Link: FC<LinkProps> = ({
             .then((supported) => {
               if (supported) {
                 Linking.openURL(href);
-                console.log("This URL is supported", href);
               }
             })
             .catch((err) => {

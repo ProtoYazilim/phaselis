@@ -32,4 +32,13 @@ const Radius = {
   XXL: 32,
 };
 
-export { Spacings, Heights, Radius };
+const FontSizes = {
+  XS: 12,
+  SM: 14,
+  MD: 16,
+  LG: 18,
+  XL: 22,
+  XXL: 26,
+};
+
+export { Spacings, Heights, Radius, FontSizes };

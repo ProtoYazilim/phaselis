@@ -8,6 +8,7 @@ export interface AvatarProps {
     container?: ViewStyle;
     icon?: IconStyle;
     text?: TextStyle;
+    image?: ViewStyle;
   };
   iconName?: SlotIconName;
   text?: string;

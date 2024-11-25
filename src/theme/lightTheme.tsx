@@ -1046,6 +1046,12 @@ export const lightTheme = {
     outerElement: {
       borderColor: Colors.Gray[900],
       variants: {
+        disabled: {
+          true: {
+            borderColor: Colors.Gray[500],
+            backgroundColor: Colors.Gray[100],
+          },
+        },
         size: {
           xs: {
             height: 16,
@@ -1072,11 +1078,6 @@ export const lightTheme = {
             width: 80,
           },
         },
-        disabled: {
-          true: {
-            borderColor: Colors.Gray[300],
-          },
-        },
       },
     },
     container: {},
@@ -1086,7 +1087,7 @@ export const lightTheme = {
       variants: {
         disabled: {
           true: {
-            color: Colors.Gray[200],
+            color: Colors.Gray[300],
           },
         },
       },

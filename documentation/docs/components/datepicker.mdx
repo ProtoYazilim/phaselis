@@ -24,20 +24,30 @@ import { Datepicker } from 'phaselis'
 ### Basic Datepicker
 
 ```jsx
-<Datepicker
-  placeholder="Select a date"
-  onChange={(e, date) => console.log("Date selected:", date)}
-/>
+import { Datepicker } from "phaselis";
+
+const Example = () => {
+  return <Datepicker />;
+};
+
+export default Example;
 ```
 
 ### Datepicker with Custom Format
 
 ```jsx
-<Datepicker
-  format="yyyy-MM-dd"
-  placeholder="Choose a date"
-  onChange={(e, date) => console.log("Formatted date selected:", date)}
-/>
+import { Datepicker } from "phaselis";
+
+const Example = () => {
+  return (
+    <Datepicker
+      format="yyyy-MM-dd"
+      onChange={(e, date) => console.log("Formatted date selected:", date)}
+    />
+  );
+};
+
+export default Example;
 ```
 
 ## Props
@@ -108,9 +118,13 @@ Custom styles for the `Datepicker` component.
 ```jsx
 <Datepicker
   style={{
-    container: { padding: 10, borderRadius: 8, backgroundColor: "#f0f0f0" },
+    container: {
+      padding: 10,
+      borderRadius: 8,
+      backgroundColor: "#b9e0ff",
+    },
     leftSlot: { marginRight: 5 },
-    element: { fontSize: 16, color: "#333" },
+    element: { fontSize: 16, color: "#11295a" },
   }}
 />
 ```
@@ -121,9 +135,12 @@ Custom styles for the `Datepicker` component.
 Custom components or icons rendered on the left or right side of the input field.
 
 ```jsx
+import { Text } from "react-native";
+```
+```jsx
 <Datepicker
-  LeftSlot={() => <Label text="Start Date" />}
-  RightSlot={() => <Label text="End Date" />}
+  LeftSlot={() => <Text>Start Date</Text>}
+  RightSlot={() => <Text>End Date</Text>}
 />
 ```
 

@@ -24,14 +24,23 @@ import { List } from "phaselis";
 ### Basic List
 
 ```jsx
-<List
-  data={[
-    { key: "1", title: "First Item" },
-    { key: "2", title: "Second Item" },
-    { key: "3", title: "Third Item" },
-  ]}
-  renderItem={({ item }) => <Text>{item.title}</Text>}
-/>
+import { List } from "phaselis";
+import { Text } from "react-native";
+
+const Example = () => {
+  return (
+    <List
+      data={[
+        { key: "1", title: "First Item" },
+        { key: "2", title: "Second Item" },
+        { key: "3", title: "Third Item" },
+      ]}
+      renderItem={({ item }) => <Text>{item.title}</Text>}
+    />
+  );
+};
+
+export default Example;
 ```
 
 ## Props
@@ -54,7 +63,9 @@ These properties can be passed to the component, excluding certain default style
 
 Custom styles for the list component.
 
-
+```jsx
+import { Text } from "react-native";
+```
 ```jsx
 <List
   data={[
@@ -63,15 +74,15 @@ Custom styles for the list component.
     { key: "3", title: "Third Item" },
   ]}
   style={{
-    header: { backgroundColor: "red", padding: 10 },
-    footer: { backgroundColor: "blue", padding: 10 },
+    header: { backgroundColor: "#2a91ff", padding: 10 },
+    footer: { backgroundColor: "#2a91ff", padding: 10 },
     element: {
-      backgroundColor: "green",
+      backgroundColor: "#d8eeff",
       padding: 15,
       margin: 5,
       borderRadius: 5,
     },
-    container: { backgroundColor: "yellow", padding: 10 },
+    container: { backgroundColor: "#89cfff", padding: 10 },
     columnWrapper: {
       backgroundColor: "purple",
       justifyContent: "space-between",

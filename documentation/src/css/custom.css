@@ -73,3 +73,12 @@
     padding: 0 25px;
   }
 }
+
+h3>em>code {
+  padding: 2px;
+  font-size: 10px;
+}
+
+.table-of-contents__link em>code {
+  font-size: 8px;
+}

@@ -25,7 +25,15 @@ import { Label } from "phaselis";
 ### Basic Label
 
 ```jsx
-<Label text="bold" style={{ text: { fontWeight: "bold" } }} />
+import { Label } from "phaselis";
+
+const Example = () => {
+  return (
+    <Label text="Header 1" preset="h1" style={{ text: { color: "#0c5ae9" } }} />
+  );
+};
+
+export default Example;
 ```
 
 ## Props
@@ -65,7 +73,7 @@ Custom styles for the label.
     text: {
       fontSize: 16,
       fontWeight: "bold",
-      color: "#333",
+      color: "#2a91ff",
     },
   }}
 />
@@ -78,5 +86,5 @@ Custom styles for the label.
 Optional string to specify the content displayed within the children prop.
 
 ```jsx
-<Label>Label-Children</Label>
+<Label>Phaselis Label</Label>
 ```

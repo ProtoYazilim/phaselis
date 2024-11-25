@@ -25,14 +25,23 @@ import { Row , Col } from "phaselis";
 ### Basic Usage
 
 ```jsx
-<Row>
-  <Col size={2} offset={4}>
-    <Text>Col 1</Text>
-  </Col>
-  <Col size={2} offset={4}>
-    <Text>Col 2</Text>
-  </Col>
-</Row>
+import { Row, Col } from "phaselis";
+import { Text } from "react-native";
+
+const Example = () => {
+  return (
+    <Row>
+      <Col size={2} offset={4}>
+        <Text>Col 1</Text>
+      </Col>
+      <Col size={2} offset={4}>
+        <Text>Col 2</Text>
+      </Col>
+    </Row>
+  );
+};
+
+export default Example;
 ```
 
 
@@ -50,13 +59,16 @@ Row is basic View element with style of `flex-direction:row`
 Optional custom styles for the row component.
 
 ```jsx
+import { Text } from "react-native";
+```
+```jsx
 <Row
   style={{
     alignItems: "center",
   }}
 >
   <Text>Centered</Text>
-</Row>`
+</Row>
 ```
 
 
@@ -70,6 +82,9 @@ Props provide attributes to define the size and offset of a column within a grid
 Defines the column size in the grid. Accepts values from 1 to 12 or 0 for no size.
 
 ```jsx
+import { Text } from "react-native";
+```
+```jsx
 <Col size={2}>
     <Text>Col</Text>
 </Col>
@@ -80,6 +95,9 @@ Defines the column size in the grid. Accepts values from 1 to 12 or 0 for no siz
 
 Defines the offset of the column in the grid. Accepts values from 1 to 12 or 0 for no offset.
 
+```jsx
+import { Text } from "react-native";
+```
 ```jsx
 <Col size={2} offset={4}>
     <Text>Col</Text>
@@ -114,6 +132,9 @@ Defines the offset relative to the screen dimensions.
 
 Optional custom styles for the column component.
 
+```jsx
+import { Text } from "react-native";
+```
 ```jsx
 <Col
   size={6}

@@ -1,8 +1,8 @@
 ---
 id: stepper
-category: 'data-display'
+category: "data-display"
 title: Stepper
-version: '0.1'
+version: "0.1"
 description: The Stepper component provides a structure for multi-step processes, managing the display and navigation of each step.
 ---
 
@@ -12,7 +12,7 @@ The `Stepper` component is designed to guide users through a series of steps in 
 
 ## Import
 
-```js
+```jsx
 import { Stepper } from "phaselis";
 ```
 
@@ -54,30 +54,30 @@ import { Stepper } from "phaselis";
 ## Props
 
 ### isComplete
+
 `boolean`
 
 Indicates if the process is complete. When set to `true`, it marks all steps as completed.
-
 
 ```jsx
 <Stepper isComplete />
 ```
 
 ### activeStep
+
 `number`
 
 The current active step index. Defaults to `0`.
-
 
 ```jsx
 <Stepper activeStep={2} />
 ```
 
 ### children
+
 `React.ReactNode[]`
 
 The steps to display, each represented as a `ProgressStep` component.
-
 
 ```jsx
 <Stepper>
@@ -131,6 +131,7 @@ renderFooter?: ({
 #### Parameters
 
 - **`nextButtonProps`**: Contains the properties for the "Next" button.
+
   - `text`: The text displayed on the button.
   - `disabled`: Boolean indicating if the button should be disabled.
   - `style`: Custom style for the button.
@@ -138,6 +139,7 @@ renderFooter?: ({
   - `onPress`: Function triggered when the button is pressed.
 
 - **`finishButtonProps`**: Contains the properties for the "Finish" button (shown on the last step).
+
   - `text`: The text displayed on the button.
   - `disabled`: Boolean indicating if the button should be disabled.
   - `style`: Custom style for the button.
@@ -145,6 +147,7 @@ renderFooter?: ({
   - `onPress`: Function triggered when the button is pressed.
 
 - **`previousButtonProps`**: Contains the properties for the "Previous" button.
+
   - `text`: The text displayed on the button.
   - `disabled`: Boolean indicating if the button should be disabled.
   - `style`: Custom style for the button.

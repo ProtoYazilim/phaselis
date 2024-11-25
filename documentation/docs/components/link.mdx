@@ -24,12 +24,20 @@ import { Link } from "phaselis";
 ### Basic Link
 
 ```jsx
-<Link
-  text="Proto"
-  href={"https://www.protoyazilim.com/"}
-  leftIcon="Link"
-  rightIcon="ExternalLink"
-/>
+import { Link } from "phaselis";
+
+const Example = () => {
+  return (
+    <Link
+      text="Proto Yazılım"
+      href={"https://www.protoyazilim.com"}
+      leftIcon="Link"
+      rightIcon="ExternalLink"
+    />
+  );
+};
+
+export default Example;
 ```
 
 ## Props
@@ -42,6 +50,16 @@ Other than listed props below, you can pass any prop that a `Pressable` componen
 
 The properties available for this component include options for styling, navigation settings, as well as optional icons and slot configurations.
 
+
+### href *`required`*
+`string`
+
+The target route or URL for navigation.
+
+```jsx
+<Link text="Proto" href={"https://www.protoyazilim.com/"} />
+```
+
 ### text
 `string`
 
@@ -51,31 +69,13 @@ The text to display within the link.
 <Link text="Proto" href={"https://www.protoyazilim.com/"} />
 ```
 
-### mode
-`push | replace`
-
-Navigation mode. Defaults to "push".
-
-```jsx
-<Link
-  text="Proto"
-  href={"https://www.protoyazilim.com/"}
-  mode="replace"
-/>
-```
-
 ### primary | secondary
 `boolean`
 
 Optional boolean to apply primary or secondary styling to the link.
 
 ```jsx
-<Link
-  text="Proto"
-  href={"https://www.protoyazilim.com/"}
-  mode="replace"
-  primary
-/>
+<Link text="Proto" href={"https://www.protoyazilim.com/"} secondary />
 ```
 
 ### disabled
@@ -84,49 +84,48 @@ Optional boolean to apply primary or secondary styling to the link.
 Optional boolean to disable the link and prevent user interaction.
 
 ```jsx
-<Link
-  text="Proto"
-  href={"https://www.protoyazilim.com/"}
-  disabled
-/>
+<Link text="Proto" href={"https://www.protoyazilim.com/"} disabled />
 ```
 
-### href
-`string`
+### canOpenURL  
+`boolean`  
 
-The target route or URL for navigation.
+Validates whether the provided URL can be opened before attempting to navigate.  
 
 ```jsx
-<Link
-  text="Proto"
-  href={"https://www.protoyazilim.com/"}
-/>
+<Link text="Check and Open URL" href="https://example.com" canOpenURL />
 ```
 
-### leftSlot
+### LeftSlot
 `ReactNode`
 
 You can pass any component to the left slot of the link.
 
 ```jsx
+import { LucideIcon } from "phaselis";
+```
+```jsx
 <Link
   text="Proto"
   href={"https://www.protoyazilim.com/"}
-  leftSlot={<Icon name="arrow-left" />}
-/>  
+  LeftSlot={() => <LucideIcon name={"ArrowLeft"} />}
+/>
 ```
 
-### rightSlot
+### RightSlot
 `ReactNode`
 
 You can pass any component to the right slot of the link.
 
 ```jsx
+import { LucideIcon } from "phaselis";
+```
+```jsx
 <Link
   text="Proto"
   href={"https://www.protoyazilim.com/"}
-  rightSlot={<Icon name="arrow-right" />}
-/>   
+  RightSlot={() => <LucideIcon name={"ArrowRight"} />}
+/>
 ```
 
 ### leftIcon
@@ -135,11 +134,7 @@ You can pass any component to the right slot of the link.
 You can pass any Lucide icon name to the left slot of the link.
 
 ```jsx
-<Link
-  text="HyperLink"
-  href={"https://www.google.com"}
-  leftIcon="Link"
-/>
+<Link text="HyperLink" href={"https://www.google.com"} leftIcon="Link" />
 ```
 
 ### rightIcon
@@ -172,8 +167,8 @@ Custom styles for the link component.
   leftIcon="Link"
   rightIcon="ExternalLink"
   style={{
-    container: { padding: 10, backgroundColor: "#f0f0f0" },
-    text: { color: "#007bff", fontSize: 16 },
+    container: { padding: 10, backgroundColor: "#eef8ff" },
+    text: { color: "#0c5ae9", fontSize: 16 },
     leftSlot: { marginRight: 5 },
     rightSlot: { marginLeft: 5 },
   }}

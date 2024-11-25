@@ -40,6 +40,7 @@ export const Form: FC<FormProps> = (
     showError,
     hideError,
     hideErrors,
+    setErrorByName,
   }));
 
   const formId = useId();
@@ -145,6 +146,7 @@ export const Form: FC<FormProps> = (
     setMeta(metaRef.current);
   };
 
+  // TODO: check this function
   const setErrorByName = (newMeta: any, name: string) => {
     const tempNewMeta = { ...newMeta };
     tempNewMeta[name] = {

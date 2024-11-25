@@ -25,8 +25,18 @@ import { LucideIcon } from "phaselis";
 ## Usage
 
 ```jsx
-<LucideIcon name="Search" size="md" />
-<LucideIcon name="Settings" width={50} height={50} />
+import { LucideIcon } from "phaselis";
+
+const Example = () => {
+  return (
+    <>
+      <LucideIcon name="Search" size="md" />
+      <LucideIcon name="Settings" width={50} height={50} />
+    </>
+  );
+};
+
+export default Example;
 ```
 
 ## Props
@@ -57,7 +67,7 @@ Custom styles to apply to the icon.
 
 
 ```jsx
-<LucideIcon name="Star" style={{ color: "gold" }} />
+<LucideIcon name="Star" style={{ color: "#144194" }} />
 ```
 
 ### width

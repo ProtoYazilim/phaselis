@@ -12,11 +12,10 @@ interface LinkProps extends SlotableLeftRightProps, PressableProps {
   };
   contextValue?: any;
   text?: string;
-  mode?: "push" | "replace";
   primary?: boolean;
   secondary?: boolean;
   disabled?: boolean;
-  href?: string;
+  href: string;
   canOpenURL?: boolean;
 }
 

@@ -24,11 +24,13 @@ import { Slider } from "phaselis";
 ### Basic Slider
 
 ```jsx
-<Slider
-  value={50}
-  minValue={0}
-  maxValue={100}
-/>
+import { Slider } from "phaselis";
+
+const Example = () => {
+  return <Slider value={50} minValue={0} maxValue={100} />;
+};
+
+export default Example;
 ```
 
 ## Props
@@ -127,11 +129,11 @@ Defines the style properties of the component.
     container: {
       paddingHorizontal: 15,
       marginVertical: 20,
-      backgroundColor: "#f0f0f0",
+      backgroundColor: "#d8eeff",
       borderRadius: 8,
     },
     element: {
-      backgroundColor: "#d3d3d3",
+      backgroundColor: "#eef8ff",
       borderRadius: 4,
     },
   }}

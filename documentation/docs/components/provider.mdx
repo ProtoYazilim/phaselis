@@ -24,17 +24,24 @@ import { Provider } from "phaselis";
 ### Basic Provider
 
 ```jsx
-<Provider
-  theme={customTheme}
-  breakpoints={{
-    xl: 1600,
-    lg: 1200,
-    md: 900,
-    xs: 0,
-  }}
->
-  <App />
-</Provider>
+import { View } from "react-native";
+import { LucideIcon, Provider, lightTheme } from "phaselis";
+
+export default function PhaselisScreen() {
+  return (
+    <Provider theme={lightTheme}>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          padding: 20,
+        }}
+      >
+        <LucideIcon name="Star" style={{ color: "#144194" }} />
+      </View>
+    </Provider>
+  );
+}
 ```
 
 ## Props
@@ -50,8 +57,11 @@ Apart from the listed props below, you can pass any other prop as required by th
 The child components wrapped by the `Provider`, which will inherit the theme and breakpoint settings.
 
 ```jsx
+import { customTheme } from "phaselis";
+```
+```jsx
 <Provider theme={customTheme}>
-  <App />
+  {...}
 </Provider>
 ```
 
@@ -73,7 +83,7 @@ Optional object to define custom breakpoints for responsive design. If not provi
     xs: 0,
   }}
 >
-  <App />
+  {...}
 </Provider>
 ```
 
@@ -83,8 +93,11 @@ Optional object to define custom breakpoints for responsive design. If not provi
 An optional theme object to provide custom styling options. This can include colors, spacings, typography, and other design tokens.
 
 ```jsx
-<Provider theme={customTheme}>
-  <App />
+import { lightTheme } from "phaselis";
+```
+```jsx
+<Provider theme={lightTheme}>
+  {...}
 </Provider>
 ```
 

@@ -12,7 +12,6 @@ const Link: FC<LinkProps> = ({
   disabled,
   text,
   href,
-  mode = "push",
   leftIcon,
   LeftSlot,
   rightIcon,

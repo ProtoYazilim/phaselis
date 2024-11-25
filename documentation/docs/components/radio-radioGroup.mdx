@@ -26,10 +26,18 @@ import { Radio, RadioGroup } from "phaselis";
 ### Basic Radio & Radio Group
 
 ```jsx
-<RadioGroup name="Themes" value="light-theme">
-  <Radio text="Light Theme" value="light-theme" />
-  <Radio text="Dark Theme" value="dark-theme" />
-</RadioGroup>
+import { Radio, RadioGroup } from "phaselis";
+
+const Example = () => {
+  return (
+    <RadioGroup name="Themes" value="light-theme">
+      <Radio text="Light Theme" value="light-theme" />
+      <Radio text="Dark Theme" value="dark-theme" />
+    </RadioGroup>
+  );
+};
+
+export default Example;
 ```
 
 ## RadioGroup Props
@@ -73,7 +81,7 @@ Defines the style properties of the RadioGroup button.
 <RadioGroup
   name="options"
   value="A"
-  style={{ group: { padding: 10, backgroundColor: "#f9f9f9" } }}
+  style={{ group: { padding: 10, backgroundColor: "#b9e0ff" } }}
 >
   <Radio text="Option A" value="A" />
   <Radio text="Option B" value="B" />
@@ -91,7 +99,7 @@ The text displayed next to the radio button.
 <Radio text="Accept" value="accept" />
 ```
 
-### value
+### value  *`required`*
 `string`
 
 The unique value of the radio button.
@@ -141,9 +149,9 @@ Defines the style properties of the radio button.
   value="custom"
   style={{
     container: { margin: 5 },
-    outerElement: { borderColor: "#007bff" },
-    innerElement: { backgroundColor: "#007bff" },
-    text: { fontSize: 14, color: "#333" },
+    outerElement: { borderColor: "#0c5ae9" },
+    innerElement: { backgroundColor: "#0c5ae9" },
+    text: { fontSize: 14, color: "#323439" },
   }}
 />
 ```

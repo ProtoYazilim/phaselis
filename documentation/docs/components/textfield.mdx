@@ -24,35 +24,58 @@ import { Textfield } from "phaselis";
 ### Basic Usage
 
 ```jsx
-<Textfield
-  placeholder="Enter your name"
-  onChange={(e, value) => console.log("Input changed:", value)}
-/>
+import { Textfield } from "phaselis";
+
+const Example = () => {
+  return (
+    <Textfield
+      placeholder="Enter your name"
+      onChange={(e, value) => console.log("Input changed:", value)}
+    />
+  );
+};
+
+export default Example;
 ```
 
-### TextArea
+### textarea
 
 ```jsx
-<Textfield
-  name="address"
-  placeholder="Enter your address information here!"
-  textarea
-  validations={[required("required")]}
-/>
+import { required, Textfield } from "phaselis";
+
+const Example = () => {
+  return (
+    <Textfield
+      name="address"
+      placeholder="Enter your address information here!"
+      textarea
+      validations={[required("required")]}
+    />
+  );
+};
+
+export default Example;
 ```
 
 ### Masked TextField
 
 ```jsx
+import { required, Textfield } from "phaselis";
 import { Masks } from "react-native-mask-input";
 
-<Textfield
-  name="phone"
-  placeholder="Enter your phone number"
-  mask={Masks.USA_PHONE}
-  maxLength={17}
-  validations={[required("required")]}
-/>
+const Example = () => {
+  return (
+    <Textfield
+      name="phone"
+      placeholder="Enter your phone number"
+      mask={Masks.USA_PHONE}
+      maxLength={17}
+      validations={[required("required")]}
+    />
+  );
+};
+
+export default Example;
 ```
 
 ## Props
@@ -84,15 +107,15 @@ Custom styles for the `Textfield` component.
 ```jsx
 <Textfield
   style={{
-    container: { padding: 10, backgroundColor: "#f0f0f0" },
-    element: { color: "#333", fontSize: 16 },
+    container: { padding: 10, backgroundColor: "#eef8ff" },
+    element: { color: "#323439", fontSize: 16 },
     leftSlot: { marginRight: 10 },
     rightSlot: { marginLeft: 10 },
   }}
 />
 ```
 
-### loading
+{/* ### loading
 `boolean`
 
 If `true`, displays the `loadingIcon` component to indicate loading.
@@ -108,7 +131,7 @@ An icon or component displayed when the `loading` prop is `true`.
 
 ```jsx
 <Textfield loading loadingIcon={<ActivityIndicator />} />
-```
+``` */}
 
 ### type
 ` default | text | number | email | phone | password `
@@ -135,7 +158,8 @@ Applies a mask to format the input as the user types. Useful for phone numbers, 
 
 ```jsx
 import { Masks } from "react-native-mask-input";
-
+```
+```jsx
 <Textfield mask={Masks.DATE_DDMMYYYY} placeholder="Enter date" />
 ```
 
@@ -178,6 +202,9 @@ Displays an icon on the right side of the input field.
 A custom component or element rendered on the left side of the input field.
 
 ```jsx
+import { LucideIcon } from "phaselis";
+```
+```jsx
 <Textfield
   placeholder="Enter text"
   LeftSlot={() => <LucideIcon name={"User"} />}
@@ -189,6 +216,9 @@ A custom component or element rendered on the left side of the input field.
 
 A custom component or element rendered on the right side of the input field.
 
+```jsx
+import { LucideIcon } from "phaselis";
+```
 ```jsx
 <TextField
   placeholder="Search"

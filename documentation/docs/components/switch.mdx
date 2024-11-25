@@ -24,14 +24,21 @@ import { Switch } from "phaselis";
 ### Basic Switch
 
 ```jsx
-<Switch
-  value={true}
-  onChange={(e, value) => console.log("Switch toggled:", value)}
-/>
+import { Switch } from "phaselis";
+
+const Example = () => {
+  return (
+    <Switch
+      value={true}
+      onChange={(e, value) => console.log("Switch toggled:", value)}
+    />
+  );
+};
+
+export default Example;
 ```
 
 ## Props
-
 
 ### value
 `boolean`
@@ -86,6 +93,9 @@ Boolean to control whether to show icons inside the switch.
 Component to render on the left side of the switch.
 
 ```jsx
+import { LucideIcon } from "phaselis";
+```
+```jsx
 <Switch
   LeftSlot={({}) => <LucideIcon name={"PowerOff"} />}
   RightSlot={({}) => <LucideIcon name={"Power"} />}
@@ -97,6 +107,9 @@ Component to render on the left side of the switch.
 
 Component to render on the right side of the switch.
 
+```jsx
+import { LucideIcon } from "phaselis";
+```
 ```jsx
 <Switch
   LeftSlot={({}) => <LucideIcon name={"MicOff"} />}
@@ -122,15 +135,15 @@ Custom styles for the switch component.
     container: {
       marginVertical: 10,
       padding: 5,
-      backgroundColor: "#f0f0f0",
+      backgroundColor: "#eef8ff",
       borderRadius: 12,
     },
     element: {
-      backgroundColor: "#eee",
+      backgroundColor: "#eef8ff",
       justifyContent: "center",
     },
     track: {
-      backgroundColor: "#ccc",
+      backgroundColor: "#eef8ff",
     },
     thumb: {
       width: 24,

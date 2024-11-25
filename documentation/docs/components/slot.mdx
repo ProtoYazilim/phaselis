@@ -29,15 +29,29 @@ import { Slot } from "phaselis";
 ### Basic Slot with Icon
 
 ```jsx
-<Slot icon="Check" size="md" strokeWidth={2} />
+import { Slot } from "phaselis";
+
+const Example = () => {
+  return <Slot icon="Check" size="md" strokeWidth={2} />;
+};
+
+export default Example;
 ```
 
 ### Slot with Child Component
 
 ```jsx
-<Slot iconsize="lg">
-  <Icon name="ArrowLeft" />
-</Slot>
+import { LucideIcon, Slot } from "phaselis";
+
+const Example = () => {
+  return (
+    <Slot>
+      <LucideIcon name="ArrowLeft" />
+    </Slot>
+  );
+};
+
+export default Example;
 ```
 
 ## Props
@@ -48,8 +62,11 @@ import { Slot } from "phaselis";
 An optional React child element to render within the `Slot`. If `children` is provided, it will override the `icon` prop.
 
 ```jsx
+import { LucideIcon } from "phaselis";
+```
+```jsx
 <Slot size="md">
-  {RightSlot && <RightSlot />}
+  <LucideIcon name="ArrowRight" />
 </Slot>
 ```
 
@@ -96,17 +113,6 @@ An optional callback function triggered when the `Slot` component or icon is cli
 
 ```jsx
 <Slot icon="Plus" onClick={() => console.log("Icon clicked")} />
-```
-
-### parentStates
-`any`
-
-Additional state data from the parent component, passed down to the `children` component if provided.
-
-```jsx
-<Slot parentStates={{ active: true }}>
-  <CustomComponent />
-</Slot>
 ```
 
 ### width / height

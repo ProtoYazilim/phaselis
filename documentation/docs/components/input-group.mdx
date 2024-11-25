@@ -25,34 +25,48 @@ import { InputGroup } from "phaselis";
 ### Basic InputGroup
 
 ```jsx
-<InputGroup label="User Name">
-  <Textfield name="username" rightIcon="User" />
-</InputGroup>
+import { InputGroup, Textfield } from "phaselis";
+
+const Example = () => {
+  return (
+    <InputGroup label="User Name">
+      <Textfield name="username" rightIcon="User" />
+    </InputGroup>
+  );
+};
+
+export default Example;
 ```
 
 ## Props
 
 These properties can be applied to the component, offering options for labeling, optional validation messages, and custom styling for enhanced flexibility.
 
-### label
+### label *`required`*
 `string`
 
 The label text for the input group, displayed above the input field.
 
+```jsx
+import { Textfield } from "phaselis";
+```
 ```jsx
 <InputGroup label="Phone Number">
   <Textfield name="phone" maxLength={17} />
 </InputGroup>
 ```
 
-### children
+### children *`required`*
 `ReactNode`
 
 React nodes to be rendered inside the input group, typically an input field.
 
 ```jsx
+import { Radio, RadioGroup } from "phaselis";
+```
+```jsx
 <InputGroup label="Payment Options">
-  <RadioGroup name="paymentMethod">
+  <RadioGroup name="paymentMethod" value="paypal">
     <Radio text="Credit Card" value="credit_card" />
     <Radio text="PayPal" value="paypal" />
     <Radio text="Bank Transfer" value="bank_transfer" />
@@ -67,6 +81,9 @@ React nodes to be rendered inside the input group, typically an input field.
 Optional message to be displayed below the input field, used for additional information or instructions.
 
 ```jsx
+import { Textfield } from "phaselis";
+```
+```jsx
 <InputGroup label="Iban Number" message="Enter your turkish IBAN">
   <Textfield name="iban" />
 </InputGroup>
@@ -80,12 +97,15 @@ Optional message to be displayed below the input field, used for additional info
 Custom styles for the `InputGroup` component.
 
 ```jsx
+import { Textfield } from "phaselis";
+```
+```jsx
 <InputGroup
   label="User Name"
   style={{
     container: {
       padding: 20,
-      backgroundColor: "grey",
+      backgroundColor: "#b9e0ff",
     },
   }}
 >

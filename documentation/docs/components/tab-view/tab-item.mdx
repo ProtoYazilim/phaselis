@@ -19,14 +19,23 @@ import { TabItem } from "phaselis";
 ## Usage
 
  ```jsx
- <TabView>
-  <TabItem title="Item 1">
-    <Text>Tab Content 1</Text>
-  </TabItem>
-  <TabItem title="Item 2">
-    <Text>Tab Content 2</Text>
-  </TabItem>
-</TabView>
+import { TabItem, TabView } from "phaselis";
+import { Text } from "react-native";
+
+const Example = () => {
+  return (
+    <TabView>
+      <TabItem title="Item 1">
+        <Text>Tab Content 1</Text>
+      </TabItem>
+      <TabItem title="Item 2">
+        <Text>Tab Content 2</Text>
+      </TabItem>
+    </TabView>
+  );
+};
+
+export default Example;
 ```
 
 ## Props
@@ -37,9 +46,12 @@ import { TabItem } from "phaselis";
 The title prop for the `TabItem` component defines the text displayed as the tab's label in the `TabViewHeader`.
 
 ```jsx
-  <TabItem title="Item 1">
-    <Text>Content for Item 1</Text>
-  </TabItem>
+import { Text } from "react-native";
+```
+```jsx
+<TabItem title="Item 2">
+  <Text>Tab Content 2</Text>
+</TabItem>
 ```
 
 ### children
@@ -48,6 +60,9 @@ The title prop for the `TabItem` component defines the text displayed as the tab
 Content to be rendered inside the `TabItem`. 
 
 
+```jsx
+import { Text } from "react-native";
+```
 ```jsx
 <TabItem>
   <Text>Content for this tab</Text>

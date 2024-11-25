@@ -13,26 +13,34 @@ The `TabViewHeader` component is used to customize and control the appearance an
 ## Usage
 
 ```jsx
-<TabView
-  headerProps={{
-    data: [{ text: 'Overview' }, { text: 'Details' }, { text: 'More' }],
-    activeTab: 1,
-    handleOnPress: (index) => console.log(`Tab ${index} pressed`),
-    showIcons: true,
-    scrollable: true,
-    style: { backgroundColor: "#e0e0e0", padding: 5 },
-  }}
->
-  <TabItem title="Overview">
-    <Text>Overview Content</Text>
-  </TabItem>
-  <TabItem title="Details">
-    <Text>Details Content</Text>
-  </TabItem>
-  <TabItem title="More">
-    <Text>More Content</Text>
-  </TabItem>
-</TabView>
+import { TabItem, TabView } from "phaselis";
+import { Text } from "react-native";
+
+const Example = () => {
+  return (
+    <TabView
+      headerProps={{
+        data: [{ text: "Overview" }, { text: "Details" }, { text: "More" }],
+        activeTab: 1,
+        handleOnPress: (index) => console.log(`Tab ${index} pressed`),
+        scrollable: true,
+        style: { backgroundColor: "#e0e0e0", padding: 5 },
+      }}
+    >
+      <TabItem title="Overview">
+        <Text>Overview Content</Text>
+      </TabItem>
+      <TabItem title="Details">
+        <Text>Details Content</Text>
+      </TabItem>
+      <TabItem title="More">
+        <Text>More Content</Text>
+      </TabItem>
+    </TabView>
+  );
+};
+
+export default Example;
 ```
 
 ## Props
@@ -42,14 +50,23 @@ The `TabViewHeader` component is used to customize and control the appearance an
 
 The data array used to display tab headers, typically derived from the `title` props of `TabItem` components.
 
-
+```jsx
+import { TabItem, TabView } from "phaselis";
+import { Text } from "react-native";
+```
 ```jsx
 <TabView
   headerProps={{
     data: [{ text: 'Tab 1' }, { text: 'Tab 2' }],
   }}
 >
-  {/* Tabs go here */}
+  <TabItem title="Item 1">
+    <Text>Tab Content 1</Text>
+  </TabItem>
+  <TabItem title="Item 2">
+    <Text>Tab Content 2</Text>
+  </TabItem>
+  {/* Add more tabs here */}
 </TabView>
 ```
 
@@ -58,14 +75,23 @@ The data array used to display tab headers, typically derived from the `title` p
 
 The index of the currently active tab.
 
-
+```jsx
+import { TabItem, TabView } from "phaselis";
+import { Text } from "react-native";
+```
 ```jsx
 <TabView
   headerProps={{
     activeTab: 0,
   }}
 >
-  {/* Tabs go here */}
+  <TabItem title="Item 1">
+    <Text>Tab Content 1</Text>
+  </TabItem>
+  <TabItem title="Item 2">
+    <Text>Tab Content 2</Text>
+  </TabItem>
+  {/* Add more tabs here */}
 </TabView>
 ```
 
@@ -74,14 +100,23 @@ The index of the currently active tab.
 
 Function called when a tab header is pressed. It is used to set the active tab and handle any additional behavior needed on tab click.
 
-
+```jsx
+import { TabItem, TabView } from "phaselis";
+import { Text } from "react-native";
+```
 ```jsx
 <TabView
   headerProps={{
     handleOnPress: (index) => console.log(`Tab ${index} pressed`),
   }}
 >
-  {/* Tabs go here */}
+  <TabItem title="Item 1">
+    <Text>Tab Content 1</Text>
+  </TabItem>
+  <TabItem title="Item 2">
+    <Text>Tab Content 2</Text>
+  </TabItem>
+  {/* Add more tabs here */}
 </TabView>
 ```
 
@@ -92,11 +127,15 @@ Function called when a tab header is pressed. It is used to set the active tab a
 | `element`   | ViewStyle | Style for the individual tab elements within the header.    |
 
 ```jsx
+import { TabItem, TabView } from "phaselis";
+import { Text } from "react-native";
+```
+```jsx
 <TabView
   headerProps={{
     style: {
-      container: { backgroundColor: "#e0e0e0", padding: 10 },
-      element: { borderBottomWidth: 2, borderColor: "blue" },
+      container: { backgroundColor: "#eef8ff", padding: 10 },
+      element: { borderBottomWidth: 2, borderColor: "#1149bc" },
     },
   }}
 >
@@ -114,14 +153,23 @@ Function called when a tab header is pressed. It is used to set the active tab a
 
 Indicates if the tab headers should be scrollable when they exceed the container width.
 
-
+```jsx
+import { TabItem, TabView } from "phaselis";
+import { Text } from "react-native";
+```
 ```jsx
 <TabView
   headerProps={{
     scrollable: true,
   }}
 >
-  {/* Tabs go here */}
+  <TabItem title="Item 1">
+    <Text>Tab Content 1</Text>
+  </TabItem>
+  <TabItem title="Item 2">
+    <Text>Tab Content 2</Text>
+  </TabItem>
+  {/* Add more tabs here */}
 </TabView>
 ```
 
@@ -130,7 +178,10 @@ Indicates if the tab headers should be scrollable when they exceed the container
 
 Optional icons that can be displayed on the left or right side of the tab headers.
 
-
+```jsx
+import { TabItem, TabView } from "phaselis";
+import { Text } from "react-native";
+```
 ```jsx
 <TabView
   headerProps={{
@@ -138,6 +189,12 @@ Optional icons that can be displayed on the left or right side of the tab header
     rightIcon: "ArrowRight",
   }}
 >
-  {/* Tabs go here */}
+  <TabItem title="Item 1">
+    <Text>Tab Content 1</Text>
+  </TabItem>
+  <TabItem title="Item 2">
+    <Text>Tab Content 2</Text>
+  </TabItem>
+  {/* Add more tabs here */}
 </TabView>
 ```

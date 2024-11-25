@@ -26,113 +26,138 @@ import { Select } from "phaselis";
 ### Native Picker Usage  
 
 ```jsx
-<InputGroup label="Native Select">
-  <Select
-    name="nativeSelect"
-    leftIcon="Globe"
-    size="md"
-    validations={[required("This field is required")]}
-    options={[
-      { value: "usa", label: "USA" },
-      { value: "canada", label: "Canada" },
-      { value: "mexico", label: "Mexico" },
-    ]}
-    pickerType="native"
-    placeholder="Select a country"
-  />
-</InputGroup>
+import { InputGroup, Select, required } from "phaselis";
+
+const Example = () => {
+  return (
+    <InputGroup label="Native Select">
+      <Select
+        name="nativeSelect"
+        leftIcon="Globe"
+        size="md"
+        validations={[required("This field is required")]}
+        options={[
+          { value: "usa", label: "USA" },
+          { value: "canada", label: "Canada" },
+          { value: "mexico", label: "Mexico" },
+        ]}
+        pickerType="native"
+        placeholder="Select a country"
+      />
+    </InputGroup>
+  );
+};
+
+export default Example;
 ```  
 
 ### Custom Picker (Default) Usage  
 
 ```jsx
-<InputGroup label="Custom Select">
-  <Select
-    name="customDefault"
-    leftIcon="ArrowRight"
-    size="lg"
-    validations={[required("Selection is required")]}
-    options={[
-      { value: "apple", label: "Apple" },
-      { value: "banana", label: "Banana" },
-      { value: "cherry", label: "Cherry" },
-    ]}
-    pickerType="custom"
-    placeholder="Pick a fruit"
-  />
-</InputGroup>
+import { InputGroup, Select, required } from "phaselis";
+
+const Example = () => {
+  return (
+    <InputGroup label="Custom Select">
+      <Select
+        name="customDefault"
+        leftIcon="ArrowRight"
+        size="lg"
+        validations={[required("Selection is required")]}
+        options={[
+          { value: "apple", label: "Apple" },
+          { value: "banana", label: "Banana" },
+          { value: "cherry", label: "Cherry" },
+        ]}
+        pickerType="custom"
+        placeholder="Pick a fruit"
+      />
+    </InputGroup>
+  );
+};
+
+export default Example;
 ```  
 
 ### Custom Picker with Customization  
 
 ```jsx
-<InputGroup label="Custom Select with Customization">
-  <Select
-    name="customSelectWithSlots"
-    leftIcon="User"
-    size="md"
-    pickerType="custom"
-    options={[
-      { value: "admin", label: "Admin" },
-      { value: "editor", label: "Editor" },
-      { value: "viewer", label: "Viewer" },
-    ]}
-    placeholder="Select a role"
-    OptionSlot={({
-      item,
-      selectedItem,
-      onChange,
-      setShowPicker,
-      closeOnSelect,
-    }) => (
-      <TouchableOpacity
-        onPress={() => {
-          onChange?.(null, item?.value, item);
-          if (closeOnSelect) setShowPicker?.(false);
-        }}
-        style={{
-          padding: 10,
-          backgroundColor:
-            selectedItem?.value === item?.value ? "#e0e0e0" : "transparent",
-        }}
-      >
-        <Text>{item?.label}</Text>
-      </TouchableOpacity>
-    )}
-    HeaderSlot={({ text, setShowPicker, closeIcon, closeIconSize }) => (
-      <View style={{ padding: 15, backgroundColor: "#f0f0f0" }}>
-        <Text style={{ fontSize: 18, fontWeight: "bold" }}>{text}</Text>
-        <Pressable onPress={() => setShowPicker?.(false)}>
-          <Slot icon={closeIcon} />
-        </Pressable>
-      </View>
-    )}
-    InputSlot={({
-      selectedItem,
-      placeholder,
-      leftIcon,
-      rightIcon,
-      setShowPicker,
-    }) => (
-      <Pressable
-        onPress={() => setShowPicker?.(true)}
-        style={{
-          flexDirection: "row",
-          padding: 10,
-          borderWidth: 1,
-          borderColor: "#ccc",
-          borderRadius: 5,
-        }}
-      >
-        <Slot icon={leftIcon} size="md" />
-        <Text style={{ flex: 1, paddingHorizontal: 10 }}>
-          {selectedItem?.label || placeholder}
-        </Text>
-        <Slot icon={rightIcon} size="md" />
-      </Pressable>
-    )}
-  />
-</InputGroup>
+import { InputGroup, Select, Slot } from "phaselis";
+import { Pressable, Text, TouchableOpacity, View } from "react-native";
+
+const Example = () => {
+  return (
+    <InputGroup label="Custom Select with Customization">
+      <Select
+        name="customSelectWithSlots"
+        leftIcon="User"
+        size="md"
+        pickerType="custom"
+        options={[
+          { value: "admin", label: "Admin" },
+          { value: "editor", label: "Editor" },
+          { value: "viewer", label: "Viewer" },
+        ]}
+        placeholder="Select a role"
+        OptionSlot={({
+          item,
+          selectedItem,
+          onChange,
+          setShowPicker,
+          closeOnSelect,
+        }) => (
+          <TouchableOpacity
+            onPress={() => {
+              onChange?.(null, item?.value, item);
+              if (closeOnSelect) setShowPicker?.(false);
+            }}
+            style={{
+              padding: 10,
+              backgroundColor:
+                selectedItem?.value === item?.value ? "#e0e0e0" : "transparent",
+            }}
+          >
+            <Text>{item?.label}</Text>
+          </TouchableOpacity>
+        )}
+        HeaderSlot={({ text, setShowPicker, closeIcon, closeIconSize }) => (
+          <View style={{ padding: 15, backgroundColor: "#f0f0f0" }}>
+            <Text style={{ fontSize: 18, fontWeight: "bold" }}>{text}</Text>
+            <Pressable onPress={() => setShowPicker?.(false)}>
+              <Slot icon={closeIcon} />
+            </Pressable>
+          </View>
+        )}
+        InputSlot={({
+          selectedItem,
+          placeholder,
+          leftIcon,
+          rightIcon,
+          setShowPicker,
+        }) => (
+          <Pressable
+            onPress={() => setShowPicker?.(true)}
+            style={{
+              flexDirection: "row",
+              padding: 10,
+              borderWidth: 1,
+              borderColor: "#ccc",
+              borderRadius: 5,
+            }}
+          >
+            <Slot icon={leftIcon} size="md" />
+            <Text style={{ flex: 1, paddingHorizontal: 10 }}>
+              {selectedItem?.label || placeholder}
+            </Text>
+            <Slot icon={rightIcon} size="md" />
+          </Pressable>
+        )}
+      />
+    </InputGroup>
+  );
+};
+
+export default Example;
 ```  
 
 ## Props
@@ -141,22 +166,50 @@ import { Select } from "phaselis";
 
 These are the main props available to both `native` and `custom` picker types:
 
+### options *`required`*
+`Array<{ value: any; label: string; }>[]`
+
+An array of options to display in the picker. Each option should contain a `value` and `label` property.
+
+```jsx
+<Select
+  pickerType="native"
+  options={[
+    { value: "1", label: "Option 1" },
+    { value: "2", label: "Option 2" },
+  ]}
+/>
+```
+
 ### onChange
 `(e: any, value?: any, data?: any) => any`
 
 A callback function triggered when the value changes. It receives the event object, the selected value, and optional data.
 
 ```jsx
-<Select onChange={(e, value) => console.log(value)} />
+<Select
+  pickerType="custom"
+  options={[
+    { value: "1", label: "Option 1" },
+    { value: "2", label: "Option 2" },
+  ]}
+  onChange={(e, value) => console.log(value)}
+/>
 ```
 
-### options
-`Array<{ value: any; label: string; }>[]`
+### pickerType
+`native | custom`  
 
-An array of options to display in the picker. Each option should contain a `value` and `label` property.
+Defines the type of picker to use. `native` is for platform-specific pickers, while `custom` is for a customizable interface. Default is `native`.
 
 ```jsx
-<Select options={[{ value: "1", label: "Option 1" }, { value: "2", label: "Option 2" }]} />
+<Select
+  pickerType="native"
+  options={[
+    { value: "1", label: "Option 1" },
+    { value: "2", label: "Option 2" },
+  ]}
+/>
 ```
 
 ### style
@@ -165,13 +218,20 @@ An array of options to display in the picker. Each option should contain a `valu
 |--------------|------------|--------------------------------------------------|
 | `container`  | ViewStyle  | Style for the outer container of the picker component. |
 | `element`    | TextStyle  | Style for the text displayed in the input field or picker element. |
-| `leftSlot`   | ViewStyle \| TextStyle | Style for the component or icon on the left side of the picker. |
-| `rightSlot`  | ViewStyle \| TextStyle | Style for the component or icon on the right side of the picker. |
+| `leftSlot`   | ViewStyle  | TextStyle | Style for the component or icon on the left side of the picker. |
+| `rightSlot`  | ViewStyle  | TextStyle | Style for the component or icon on the right side of the picker. |
 
 You can style the picker using the `style` prop with `ViewStyle` and `TextStyle` for respective components.
 
 ```jsx
-<Select style={{ container: { padding: 10 }, element: { fontSize: 16 } }} />
+<Select
+  style={{ container: { padding: 10 }, element: { fontSize: 16 } }}
+  options={[
+    { value: "1", label: "Option 1" },
+    { value: "2", label: "Option 2" },
+  ]}
+  pickerType="custom"
+/>
 ```
 
 ### size
@@ -180,7 +240,15 @@ You can style the picker using the `style` prop with `ViewStyle` and `TextStyle`
 The size of the picker.
 
 ```jsx
-<Select size="md" />
+<Select
+  pickerType="native"
+  size="lg"
+  options={[
+    { value: "1", label: "1" },
+    { value: "2", label: "2" },
+    { value: "3", label: "3" },
+  ]}
+/>
 ```
 
 ### selectedItem
@@ -189,7 +257,29 @@ The size of the picker.
 The currently selected item from the options.
 
 ```jsx
-<Select selectedItem={selectedItem} />
+import { Text, TouchableOpacity } from "react-native";
+```
+```jsx
+<Select
+  pickerType="custom"
+  options={[
+    { value: "admin", label: "Admin" },
+    { value: "editor", label: "Editor" },
+    { value: "viewer", label: "Viewer" },
+  ]}
+  OptionSlot={({ item, selectedItem, onChange }) => (
+    <TouchableOpacity
+      onPress={() => onChange?.(null, item?.value, item)}
+      style={{
+        padding: 10,
+        backgroundColor:
+          selectedItem?.value === item?.value ? "#e0e0e0" : "transparent",
+      }}
+    >
+      <Text>{item?.label}</Text>
+    </TouchableOpacity>
+  )}
+/>
 ```
 
 ### disabled
@@ -198,7 +288,15 @@ The currently selected item from the options.
 A flag to disable the picker, preventing user interaction.
 
 ```jsx
-<Select disabled={true} />
+<Select
+  pickerType="native"
+  options={[
+    { value: "admin", label: "Admin" },
+    { value: "editor", label: "Editor" },
+    { value: "viewer", label: "Viewer" },
+  ]}
+  disabled
+/>
 ```
 
 ## Native Picker Props
@@ -206,14 +304,14 @@ A flag to disable the picker, preventing user interaction.
 These are the additional props specifically available when the `pickerType` is set to `"native"`:
 
 
-### doneText
+{/* ### doneText
 `string`
 
 Text to display on the "Done" button in the iOS picker. This is specific to iOS when using the native picker.
 
 ```jsx
 <Select pickerType="native" doneText="Done" />
-```
+``` */}
 
 ### placeholder
 `string`
@@ -221,7 +319,15 @@ Text to display on the "Done" button in the iOS picker. This is specific to iOS 
 The placeholder text displayed when no value is selected in the native picker. This is used to prompt the user to make a selection.
 
 ```jsx
-<Select pickerType="native" placeholder="Select a country" />
+<Select
+  pickerType="native"
+  options={[
+    { value: "admin", label: "Admin" },
+    { value: "editor", label: "Editor" },
+    { value: "viewer", label: "Viewer" },
+  ]}
+  placeholder="Select a role"
+/>
 ```
 
 ## Custom Picker Props
@@ -235,7 +341,26 @@ These are the additional props specifically available when the `pickerType` is s
 A setter function to control the visibility of the picker. This function should be used to change the `showPicker` state.
 
 ```jsx
-<Select pickerType="custom" setShowPicker={setShowPicker} />
+import { Slot } from "phaselis";
+import { Pressable, Text, View } from "react-native";
+```
+```jsx
+<Select
+  pickerType="custom"
+  options={[
+    { value: "admin", label: "Admin" },
+    { value: "editor", label: "Editor" },
+    { value: "viewer", label: "Viewer" },
+  ]}
+  HeaderSlot={({ text, setShowPicker, closeIcon, closeIconSize }) => (
+    <View style={{ padding: 15, backgroundColor: "#f0f0f0" }}>
+      <Text style={{ fontSize: 18, fontWeight: "bold" }}>{text}</Text>
+      <Pressable onPress={() => setShowPicker?.(false)}>
+        <Slot icon={closeIcon} />
+      </Pressable>
+    </View>
+  )}
+/>
 ```
 
 ### maxHeightModal
@@ -244,7 +369,7 @@ A setter function to control the visibility of the picker. This function should 
 The maximum height of the modal where the picker is displayed. It can be a number or a string value (e.g., `"50%"`, `"400px"`) to control the size of the bottom sheet.
 
 ```jsx
-<Select pickerType="custom" maxHeightModal={400} />
+<Select pickerType="custom" options={[]} maxHeightModal={500} />
 ```
 
 ### fullScreenModal
@@ -253,7 +378,7 @@ The maximum height of the modal where the picker is displayed. It can be a numbe
 A flag to determine whether the modal should take up the full screen. If set to `true`, the picker will be displayed in full-screen mode.
 
 ```jsx
-<Select pickerType="custom" fullScreenModal={true} />
+<Select pickerType="custom" options={[]} fullScreenModal={true} />
 ```
 
 ### HeaderSlot
@@ -262,7 +387,7 @@ A flag to determine whether the modal should take up the full screen. If set to 
 A slot component used to customize the header of the picker.
 
 ```jsx
-<Select pickerType="custom" HeaderSlot={CustomHeaderSlot} />
+<Select pickerType="custom" options={[]} HeaderSlot={CustomHeaderSlot} />
 ```
 
 ### closeIcon
@@ -271,7 +396,7 @@ A slot component used to customize the header of the picker.
 The name of the close icon to be displayed in the header of the picker. This is used in conjunction with `HeaderSlot`.
 
 ```jsx
-<Select pickerType="custom" closeIcon="Close" />
+<Select pickerType="custom" options={[]} closeIcon="Close" />
 ```
 
 ### closeIconSize
@@ -280,7 +405,7 @@ The name of the close icon to be displayed in the header of the picker. This is 
 The size of the close icon in the header.
 
 ```jsx
-<Select pickerType="custom" closeIconSize="md" />
+<Select pickerType="custom" options={[]} closeIconSize="md" />
 ```
 
 ### CloseIconSlot
@@ -289,7 +414,7 @@ The size of the close icon in the header.
 A slot component used to customize the close icon in the header. If provided, this will replace the default close icon.
 
 ```jsx
-<Select pickerType="custom" CloseIconSlot={CustomCloseIcon} />
+<Select pickerType="custom" options={[]} CloseIconSlot={CustomCloseIcon} />
 ```
 
 ### OptionSlot
@@ -298,7 +423,7 @@ A slot component used to customize the close icon in the header. If provided, th
 A slot component used to customize the rendering of each option in the picker.
 
 ```jsx
-<Select pickerType="custom" OptionSlot={CustomOptionSlot} />
+<Select pickerType="custom" options={[]} OptionSlot={CustomOptionSlot} />
 ```
 
 ### NoOptionSlot
@@ -307,7 +432,7 @@ A slot component used to customize the rendering of each option in the picker.
 A slot component used when there are no available options to display in the picker. You can customize what appears when there are no options.
 
 ```jsx
-<Select pickerType="custom" NoOptionSlot={CustomNoOptionSlot} />
+<Select pickerType="custom" options={[]} NoOptionSlot={CustomNoOptionSlot} />
 ```
 
 ### closeOnSelect
@@ -316,16 +441,7 @@ A slot component used when there are no available options to display in the pick
 A flag that determines whether the picker should close automatically after an option is selected. When set to `true`, the picker will be closed immediately after an option is selected.
 
 ```jsx
-<Select pickerType="custom" closeOnSelect={true} />
-```
-
-### disabled
-`boolean`
-
-A flag to disable the custom picker, preventing user interaction.
-
-```jsx
-<Select pickerType="custom" disabled={true} />
+<Select pickerType="custom" options={[]} closeOnSelect={true} />
 ```
 
 ### style
@@ -340,5 +456,9 @@ A flag to disable the custom picker, preventing user interaction.
 You can style the picker using the `style` prop with `ViewStyle` and `TextStyle` for respective components.
 
 ```jsx
-<Select pickerType="custom" style={{ container: { padding: 10 }, element: { fontSize: 16 } }} />
+<Select
+  pickerType="custom"
+  options={[]}
+  style={{ container: { padding: 10 }, element: { fontSize: 16 } }}
+/>
 ```

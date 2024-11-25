@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState, useId, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { View, Text } from "react-native";
 import { FormContext } from "@phaselis/components/form";
 
@@ -16,13 +16,10 @@ const InputGroup: React.FC<InputGroupProps> = ({
 }) => {
   const [disabled, setDisabled] = useState(false);
   const [error, setError] = useState("");
-  const [required, setRequired] = useState(isRequired);
-  const inputId = useId();
 
   const formContext = useContext(FormContext);
 
-  const { id, name } = (React.Children.only(children) as React.ReactElement)
-    .props;
+  const { name } = (React.Children.only(children) as React.ReactElement).props;
 
   useEffect(() => {
     if (
@@ -52,7 +49,7 @@ const InputGroup: React.FC<InputGroupProps> = ({
     stylesheet,
     style,
     {},
-    { disabled, error: Boolean(error), required },
+    { disabled, error: Boolean(error) },
   );
 
   return (

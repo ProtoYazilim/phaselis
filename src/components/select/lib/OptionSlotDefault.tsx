@@ -1,5 +1,4 @@
-import { Radio } from "@phaselis/components";
-import { View } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import { PhaselisHOC } from "@phaselis/components";
 import { useCombinedStyle } from "@phaselis/hooks";
 import { stylesheet_picker_option_slot } from "../assets/styles";
@@ -16,7 +15,7 @@ const OptionSlotDefault = ({
 }: OptionSlotProps) => {
   const isSelected = selectedItem?.value === item?.value;
 
-  const { getCombinedStyle, getFlattenStyle } = useCombinedStyle(
+  const { getCombinedStyle } = useCombinedStyle(
     stylesheet_picker_option_slot,
     style,
     contextValue?.theme?.select?._picker?._optionSlot,
@@ -30,25 +29,16 @@ const OptionSlotDefault = ({
       ]}
     >
       {item ? (
-        <Radio
-          onChange={(value) => {
-            onChange?.(null, value, item);
-
+        <Pressable
+          onPress={() => {
+            onChange?.(null, item?.value, item);
             if (closeOnSelect) {
               setShowPicker?.(false);
             }
           }}
-          checked={isSelected}
-          partOfGroup={false}
-          style={{
-            outerElement: getFlattenStyle("outerElement"),
-            innerElement: getFlattenStyle("innerElement"),
-            text: getFlattenStyle("text"),
-          }}
-          text={item.label}
-          value={item.value}
-          size="md"
-        />
+        >
+          <Text>{item.label}</Text>
+        </Pressable>
       ) : null}
     </View>
   );

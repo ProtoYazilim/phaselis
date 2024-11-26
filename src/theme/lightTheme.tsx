@@ -322,13 +322,22 @@ export const lightTheme = {
     _picker: {
       _header: {
         container: {
-          padding: Spacings.MD,
-          marginLeft: Spacings.MD,
-          marginRight: Spacings.MD,
+          paddingHorizontal: Spacings.LG,
         },
-        text: {},
-        closeIconSlot: {},
-        doneText: {},
+        text: {
+          color: Colors.Gray[950],
+        },
+        closeIconSlot: {
+          width: Heights.SMminHeight,
+          height: Heights.SMminHeight,
+          paddingRight: Spacings.SM,
+          paddingLeft: Spacings.SM,
+          backgroundColor: Colors.Primary[600],
+          borderColor: Colors.Primary[50],
+        },
+        closeIcon: {
+          color: Colors.Primary[50],
+        },
       },
       _inputSlot: {
         container: {
@@ -465,29 +474,30 @@ export const lightTheme = {
       },
       _optionSlot: {
         container: {
-          margin: Spacings.SM,
-          padding: Spacings.SM,
-          paddingVertical: Spacings.MD,
-          borderRadius: Radius.LG,
+          paddingTop: Spacings.SM,
+          paddingRight: Spacings.MD,
+          paddingBottom: Spacings.SM,
+          paddingLeft: Spacings.MD,
+          marginTop: Spacings.XS,
+          borderColor: Colors.Gray[400],
         },
-        selected: {},
-        outerElement: {},
-        innerElement: {},
-        text: {
-          marginLeft: Spacings.MD,
+        selected: {
+          backgroundColor: Colors.Primary[600],
+          borderColor: Colors.Primary[400],
         },
+        text: {},
       },
       _optionsSlot: {
-        container: {
-          marginHorizontal: Spacings.MD,
-          marginBottom: Spacings.MD,
-        },
+        container: {},
         element: {
-          marginLeft: Spacings.MD,
-          marginRight: Spacings.MD,
+          paddingTop: Spacings.MD,
+          paddingBottom: Spacings.MD,
+          paddingRight: Spacings.LG,
+          paddingLeft: Spacings.LG,
         },
       },
     },
+    //InputSlot
     container: {
       borderColor: Colors.Gray[950],
       borderRadius: Radius.MD,
@@ -614,17 +624,6 @@ export const lightTheme = {
           },
         },
       },
-    },
-    headerSlot: {
-      marginLeft: Spacings.SM,
-      marginRight: Spacings.SM,
-      flexDirection: "row",
-      justifyContent: "space-between",
-      alignItems: "center",
-    },
-    headerInnerSlot: {
-      padding: Spacings.MD,
-      flex: 1,
     },
   },
   checkbox: {

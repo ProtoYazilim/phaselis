@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { Children, useMemo, useState } from "react";
 import { View } from "react-native";
 
 import { PhaselisHOC } from "@phaselis/components/provider";
@@ -19,7 +19,7 @@ const TabView = ({
   const [activeTabIndex, setActiveTabIndex] = useState(activeTab);
 
   const data = useMemo(() => {
-    return children?.map((item: any, index: any) => {
+    return Children.map(children, (item: any, index: any) => {
       return {
         text: item.props.title,
       };

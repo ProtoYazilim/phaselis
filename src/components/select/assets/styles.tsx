@@ -4,20 +4,18 @@ const stylesheet_picker_header = createStyleSheet({
   container: {
     flex: 1,
     flexDirection: "row",
+    alignItems: "center",
     justifyContent: "center",
   },
   text: {
-    fontWeight: "bold",
-    fontSize: 20,
+    fontSize: 22,
   },
   closeIconSlot: {
-    color: "black",
+    borderRadius: 28,
+    borderWidth: 1,
+    justifyContent: "center",
   },
-  doneText: {
-    color: "#127aff",
-    fontWeight: "bold",
-    fontSize: 18,
-  },
+  closeIcon: {},
 });
 
 const stylesheet_picker_no_option = createStyleSheet({
@@ -38,37 +36,22 @@ const stylesheet_picker_no_option = createStyleSheet({
 });
 
 const stylesheet_picker_option_slot = createStyleSheet({
-  container: {},
-  selected: {
-    backgroundColor: "white",
-  },
-  outerElement: {
-    borderColor: "#FFFFFF",
+  container: {
     backgroundColor: "#FFFFFF",
-    //@ts-ignore TODO: BlockStyleInterface
-    shadows: [
-      {
-        color: "#127aff",
-        opacity: 0.4,
-        radius: 12,
-      },
-    ],
+    marginVertical: 5,
+    borderWidth: 1,
+    borderRadius: 19,
   },
-  innerElement: {
-    backgroundColor: "#127aff",
-  },
+  selected: {},
   text: {},
 });
 
 const stylesheet_picker_options_slot = createStyleSheet({
-  container: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
+  container: {},
   element: {},
 });
 
+//InputSlot
 const stylesheet = createStyleSheet({
   // CONTAINER
   container: {

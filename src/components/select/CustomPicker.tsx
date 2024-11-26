@@ -6,7 +6,7 @@ import { cloneSlot } from "@phaselis/utils/lib/util/index";
 import OptionSlotDefault from "./lib/OptionSlotDefault";
 import NoOptionSlotDefault from "./lib/NoOptionSlotDefault";
 import { useCombinedStyle } from "@phaselis/hooks";
-import { PhaselisHOC } from "@phaselis/components";
+import { PhaselisHOC, Block } from "@phaselis/components";
 import { stylesheet_picker_options_slot } from "./assets/styles";
 import { CustomPickerProps } from "./types";
 
@@ -87,21 +87,22 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
         })}
       </View>
       {noOptionLayout ? (
-        <FlatList
-          data={memorizedOptions}
-          renderItem={({ item }) => (
-            <View style={getCombinedStyle("element")}>
-              {cloneSlot(OptionSlot, {
+        <Block style={getCombinedStyle("element")}>
+          <FlatList
+            data={memorizedOptions}
+            renderItem={({ item }) =>
+              cloneSlot(OptionSlot, {
                 item,
                 selectedItem,
                 onChange,
                 setShowPicker,
                 closeOnSelect,
-              })}
-            </View>
-          )}
-          keyExtractor={(item) => item.value.toString()}
-        />
+                contextValue,
+              })
+            }
+            keyExtractor={(item) => item.value.toString()}
+          />
+        </Block>
       ) : (
         cloneSlot(NoOptionSlot, {})
       )}

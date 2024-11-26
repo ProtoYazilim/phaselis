@@ -8,8 +8,8 @@ import { HeaderSlotProps, CloseIconSlotProps } from "../types";
 
 const CloseIconSlotDefault = ({
   setShowPicker,
-  closeIcon = "X",
-  closeIconSize = "xl",
+  closeIcon = "Check",
+  closeIconSize = "md",
   style,
   contextValue,
 }: CloseIconSlotProps) => {
@@ -24,11 +24,14 @@ const CloseIconSlotDefault = ({
         setShowPicker?.(false);
       }}
     >
-      <Slot
-        style={getCombinedStyle("closeIconSlot")}
-        icon={closeIcon as any}
-        size={closeIconSize}
-      ></Slot>
+      <View style={getCombinedStyle("closeIconSlot")}>
+        <Slot
+          style={getCombinedStyle("closeIcon")}
+          icon={closeIcon as any}
+          size={closeIconSize}
+          strokeWidth={3}
+        ></Slot>
+      </View>
     </Pressable>
   );
 };
@@ -51,26 +54,22 @@ const HeaderSlotDefault = ({
   );
 
   return (
-    <>
-      {cloneSlot(CloseIconSlot, {
-        setShowPicker,
-        getCombinedStyle,
-        closeIcon,
-        closeIconSize,
-      })}
-      <View style={getCombinedStyle("container")}>
-        <Text style={getCombinedStyle("text")}>{text}</Text>
-      </View>
-      {!closeOnSelect ? (
-        <Pressable
-          onPress={() => {
-            setShowPicker?.(false);
-          }}
-        >
-          <Text style={getCombinedStyle("doneText")}>{doneText}</Text>
-        </Pressable>
-      ) : null}
-    </>
+    <View
+      style={[
+        getCombinedStyle("container"),
+        !closeOnSelect && { justifyContent: "space-between" },
+      ]}
+    >
+      <Text style={getCombinedStyle("text")}>{text}</Text>
+      {!closeOnSelect
+        ? cloneSlot(CloseIconSlot, {
+            setShowPicker,
+            closeIcon,
+            closeIconSize,
+            contextValue,
+          })
+        : null}
+    </View>
   );
 };
 

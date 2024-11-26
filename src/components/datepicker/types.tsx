@@ -14,6 +14,7 @@ interface DatepickerProps extends IFormPropTypes, SlotableLeftRightProps {
     element?: TextStyle;
   };
   locale?: string; //locale type example > TR_tr
+  disabled?: boolean;
 }
 
 export { DatepickerProps };

@@ -25,6 +25,7 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
     locale = "TR_tr",
     format = "dd.MM.yyyy",
     onChange,
+    disabled = false,
     ...extraProps
   } = props;
   const [show, setShow] = useState(false);
@@ -39,12 +40,16 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
     stylesheet,
     style,
     contextValue?.theme?.datepicker,
-    { size, focus: show, ...extraProps },
+    { size, focus: show, disabled, ...extraProps },
   );
 
   const renderInput = () => {
     return (
-      <Pressable style={getCombinedStyle("container")} onPress={toggle}>
+      <Pressable
+        style={getCombinedStyle("container")}
+        onPress={toggle}
+        disabled={disabled}
+      >
         <Slot
           style={getCombinedStyle("leftSlot")}
           icon={leftIcon as any}

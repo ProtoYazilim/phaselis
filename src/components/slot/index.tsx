@@ -14,7 +14,13 @@ const Slot: React.FC<SlotProps> = ({
   width,
 }) => {
   if (children) {
+    if (!style) {
+      style = [{}, {}, {}];
+    }
     const [defaultStyle, themeStyle, propStyle] = style;
+
+    console.log("Slot -> style", style);
+
     return (
       <>
         {React.cloneElement(children as React.ReactElement, {

@@ -44,6 +44,7 @@ interface TabItemProps {
   style?: {
     container?: ViewStyle;
   };
+  title: string;
 }
 
 export { TabViewHeaderProps, TabHeaderItemProps, TabViewProps, TabItemProps };

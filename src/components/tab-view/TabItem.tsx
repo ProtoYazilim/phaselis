@@ -8,6 +8,7 @@ const TabItem = ({
   children,
   contextValue,
   style,
+  title,
   ...extraProps
 }: TabItemProps) => {
   const { getCombinedStyle } = useCombinedStyle(
@@ -24,4 +25,4 @@ const TabItem = ({
 
 TabItem.displayName = "TABITEM";
 
-export default PhaselisHOC<any, any>(TabItem);
+export default PhaselisHOC<TabItemProps, any>(TabItem);

@@ -1,17 +1,27 @@
-import { SlotIconName } from "@phaselis/types";
+import { IconStyle, SlotChildComponent, SlotIconName } from "@phaselis/types";
+import { ReactNode } from "react";
+import { TextStyle, ViewStyle } from "react-native";
 
 interface PopupProps {
   show?: boolean;
   duration?: number;
-  onClose: any;
+  onClose: () => void;
   fullScreen?: boolean;
   contextValue?: any;
-  style?: any;
+  style?: {
+    title?: TextStyle;
+    container?: ViewStyle;
+    header?: ViewStyle;
+    element?: ViewStyle;
+    leftSlot?: IconStyle;
+    closeIcon?: IconStyle;
+    backDrop?: ViewStyle;
+  };
   leftIcon?: SlotIconName;
   rightIcon?: SlotIconName;
-  LeftSlot?: any;
+  LeftSlot?: SlotChildComponent;
   title?: string;
-  children?: any;
+  children?: ReactNode;
   type?: "default" | "info" | "warning" | "error" | "success";
 }
 

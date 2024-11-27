@@ -1116,6 +1116,7 @@ export const lightTheme = {
           true: {},
         },
         size: {
+          xs: {},
           sm: {
             height: 36,
           },
@@ -1125,6 +1126,8 @@ export const lightTheme = {
           lg: {
             height: 56,
           },
+          xl: {},
+          xxl: {},
         },
       },
     },

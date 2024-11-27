@@ -1,7 +1,13 @@
 import { ViewStyle } from "react-native";
-import { IBasePropType } from "@phaselis/types";
+import { FC, ReactNode } from "react";
 
-interface RowProps extends IBasePropType {
+interface RowProps {
+  id?: string;
+  children?: ReactNode | FC | any | Element;
+  disabled?: boolean;
+  // className?: string;
+  // name?: string;
+  contextValue?: any;
   style?: ViewStyle;
 }
 

@@ -1,21 +1,30 @@
 import {
-  IFormPropTypes,
   SlotChildComponent,
   SlotIconName,
   ComponentSize,
 } from "@phaselis/types";
-import { ComponentType, RefObject } from "react";
+import { ComponentType, FC, ReactNode, RefObject } from "react";
 import { StyleProp, TextStyle, ViewStyle } from "react-native";
 import ReactNativePickerSelect from "react-native-picker-select";
 
-export interface SelectProps extends IFormPropTypes {
-  options: IOptionType[];
+export interface SelectProps {
+  disabled?: boolean;
+  value?: any;
+  isChanged?: any; //not
+  isUsed?: any; //not
+  error?: any; //not
+  options: { value: string; label: string; [key: string]: any }[];
   placeholder?: string;
   noOptionsMessage?: string;
   onChange?: (e: any, value?: any, data?: any) => any;
   validator?: any[];
   doneText?: string;
-  style?: ISelectStyleType;
+  style?: {
+    leftSlot?: StyleProp<ViewStyle>;
+    rightSlot?: StyleProp<ViewStyle>;
+    container?: ViewStyle;
+    element?: ViewStyle;
+  };
   displayField?: string;
   valueField?: string;
   LeftSlot?: SlotChildComponent;
@@ -30,26 +39,19 @@ export interface SelectProps extends IFormPropTypes {
   pickerType?: "native" | "custom";
   InputSlot?: ComponentType<InputSlotProps>;
   OptionSlot?: ComponentType<OptionSlotProps>;
-  maxHeightModal?: number | string;
+  maxHeightModal?: number | "auto" | `${number}%`;
   fullScreenModal?: boolean;
   closeOnSelect?: boolean;
   NoOptionSlot?: ComponentType;
-}
-
-export interface IOptionType {
-  value: string;
-  label: string;
-  [key: string]: any;
-}
-
-export interface ISelectStateType {
-  value?: string | null;
-}
-export interface ISelectStyleType {
-  leftSlot?: StyleProp<ViewStyle>;
-  rightSlot?: StyleProp<ViewStyle>;
-  container?: ViewStyle;
-  element?: ViewStyle;
+  id?: string; //not used but maybe in the future
+  children?: ReactNode | FC | any | Element; //not used but maybe in the future
+  className?: string; //not used but maybe in the future
+  name?: string; //not used but maybe in the future
+  contextValue?: any; //not used but maybe in the future
+  partofform?: boolean; //not used but maybe in the future
+  validations?: Function[]; //not used but maybe in the future
+  onBlur?: (event: any, value: any, ...args: any[]) => void; //not used but maybe in the future
+  resetValue?: any; //not used but maybe in the future
 }
 
 export interface OptionSlotProps {
@@ -109,7 +111,8 @@ export interface CloseIconSlotProps {
   };
 }
 
-export interface InputSlotProps extends IFormPropTypes {
+export interface InputSlotProps {
+  error?: any; //not
   placeholder?: string;
   selectedItem?: any;
   rightIcon?: SlotIconName;
@@ -132,12 +135,24 @@ export interface InputSlotProps extends IFormPropTypes {
   showError?: boolean;
   isFocus?: boolean;
   size?: ComponentSize;
+  id?: string; //not used but maybe in the future
+  children?: ReactNode | FC | any | Element; //not used but maybe in the future
+  className?: string; //not used but maybe in the future
+  name?: string; //not used but maybe in the future
+  value?: any; //not used but maybe in the future
+  partofform?: boolean; //not used but maybe in the future
+  validations?: Function[]; //not used but maybe in the future
+  isChanged?: any; //not
+  isUsed?: any; //not
+  onChange?: (event: any, value: any, ...args: any[]) => void; //not used but maybe in the future
+  onBlur?: (event: any, value: any, ...args: any[]) => void; //not used but maybe in the future
+  resetValue?: any; //not used but maybe in the future
 }
 
 export interface CustomPickerProps extends PickerProps {
   showPicker: boolean;
   setShowPicker: React.Dispatch<React.SetStateAction<boolean>>;
-  maxHeightModal?: number | string;
+  maxHeightModal?: number | "auto" | `${number}%`;
   fullScreenModal?: boolean;
   HeaderSlot?: React.ComponentType<HeaderSlotProps>;
   closeIcon?: SlotIconName;

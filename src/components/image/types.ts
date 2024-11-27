@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { ImagePropsBase, ViewStyle } from "react-native";
 
 interface ImageProps extends ImagePropsBase {
@@ -8,7 +9,7 @@ interface ImageProps extends ImagePropsBase {
   contextValue?: any;
   disabled?: boolean;
   background?: boolean;
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
 export { ImageProps };

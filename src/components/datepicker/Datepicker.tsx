@@ -18,7 +18,6 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
     LeftSlot,
     rightIcon = "CalendarDays",
     RightSlot,
-    value,
     mode = "date",
     minDate,
     maxDate,

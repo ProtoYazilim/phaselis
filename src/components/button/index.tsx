@@ -34,7 +34,6 @@ const Button: FC<ButtonPropTypes> = ({
   primary,
   secondary,
   tertiary,
-  variants,
   onPressIn,
   onPressOut,
   ...extraProps

@@ -1,15 +1,6 @@
 import { TextStyle, ViewStyle } from "react-native";
-import { ReactNode, FC, CSSProperties } from "react";
+import { ReactNode, FC } from "react";
 import { icons } from "lucide-react-native";
-
-export interface IBasePropType {
-  id?: string;
-  children?: ReactNode | FC | any | Element;
-  disabled?: boolean;
-  className?: string;
-  name?: string;
-  contextValue?: any;
-}
 
 export interface ShadowAttributes {
   color?: string;
@@ -28,48 +19,7 @@ export interface LinearGradientAttributes {
   angle?: number;
 }
 
-export type IGenericStyleType =
-  | CSSProperties
-  | ViewStyle
-  | TextStyle
-  | {
-      shadows?: ShadowAttributes[];
-      lineerGradient?: LinearGradientAttributes;
-      variants?: any;
-    };
-
-export type ComponentSize = "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
-
-export interface IFormPropTypes extends IBasePropType {
-  name?: string;
-  value?: any;
-  partofform?: boolean;
-  validations?: Function[];
-  isChanged?: any; //not
-  isUsed?: any; //not
-  error?: any; //not
-  onChange?: (event: any, value: any, ...args: any[]) => any;
-  onBlur?: (event: any, value: any, ...args: any[]) => any;
-  resetValue?: any;
-}
-
-export interface IBaseStyleType {
-  container?: IGenericStyleType;
-  element?: IGenericStyleType;
-}
-
-export interface IBaseTextStyleType {
-  element?: IGenericStyleType;
-  text?: IGenericStyleType;
-}
-
-export interface IBaseGridStyleType {
-  style?: IGenericStyleType;
-}
-
-export interface INavigationStyleType extends IBaseTextStyleType {}
-
-export interface IBaseFormStyleType extends IBaseTextStyleType {}
+export type ComponentSize = "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
 
 export interface ICheckableEventType {
   nativeEvent: {

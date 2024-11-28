@@ -2,6 +2,25 @@ import { TextStyle, ViewStyle } from "react-native";
 import { ReactNode, FC } from "react";
 import { icons } from "lucide-react-native";
 
+export interface InputControlProps<
+  ValueType,
+  ChangeEventType,
+  BlurEventType,
+  DataType = undefined,
+> {
+  value?: ValueType;
+  isChanged?: boolean;
+  isUsed?: boolean;
+  error?: any; //not
+  partofform?: boolean;
+  validations?: Function[];
+  resetValue?: any;
+  name?: string;
+  onChange?: (e?: ChangeEventType, value?: ValueType, data?: DataType) => void;
+  onBlur?: (e?: BlurEventType, value?: ValueType, data?: DataType) => void;
+  // autoFocus?: boolean;
+}
+
 export interface ShadowAttributes {
   color?: string;
   opacity?: number;

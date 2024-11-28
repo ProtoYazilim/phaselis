@@ -1,15 +1,9 @@
+import { InputControlProps } from "@phaselis/types";
 import { FC, ReactNode } from "react";
 
-interface FormInputComponentGenericProps {
+interface FormInputComponentGenericProps
+  extends InputControlProps<any, any, any> {
   children?: ReactNode | FC | any | Element;
-  name?: string;
-  value?: any;
-  validations?: Function[];
-  isChanged?: any; //not
-  isUsed?: any; //not
-  error?: any; //not
-  onChange?: (event: any, value: any, ...args: any[]) => void;
-  resetValue?: any;
   isCheckable?: boolean;
   isFileUpload?: boolean;
   checked?: boolean;
@@ -18,8 +12,6 @@ interface FormInputComponentGenericProps {
   disabled?: boolean; //not used but maybe used in future
   className?: string; //not used but maybe used in future
   contextValue?: any; //not used but maybe used in future
-  partofform?: boolean; //not used but maybe used in future
-  onBlur?: (event: any, value: any, ...args: any[]) => void; //not used but maybe used in future
 }
 
 interface FormProps {

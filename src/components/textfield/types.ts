@@ -9,12 +9,18 @@ import {
   SlotableLeftRightProps,
   ComponentSize,
   IconStyle,
+  InputControlProps,
 } from "@phaselis/types";
 import { FC, ReactNode } from "react";
 import { Mask } from "react-native-mask-input";
 
 export interface TextfieldProps
   extends SlotableLeftRightProps,
+    InputControlProps<
+      string,
+      NativeSyntheticEvent<TextInputChangeEventData> | null,
+      any
+    >,
     Omit<
       TextInputProps,
       "children" | "onBlur" | "onChange" | "value" | "style"
@@ -24,7 +30,6 @@ export interface TextfieldProps
   value?: any;
   isChanged?: any; //not
   isUsed?: any; //not
-  onBlur?: (event: any, value: any, ...args: any[]) => void;
   placeholder?: string;
   readOnly?: boolean;
   validator?: any;
@@ -49,11 +54,6 @@ export interface TextfieldProps
   onChangeText?: (text: string) => void;
   disabled?: boolean;
   error?: any;
-  onChange?: (
-    event: NativeSyntheticEvent<TextInputChangeEventData> | null,
-    value: string,
-    ...args: any[]
-  ) => void;
   children?: ReactNode | FC | any | Element; //not used but maybe used in future
   className?: string; //not used but maybe used in future
   name?: string; //not used but maybe used in future

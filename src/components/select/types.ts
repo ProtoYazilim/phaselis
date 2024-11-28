@@ -2,21 +2,16 @@ import {
   SlotChildComponent,
   SlotIconName,
   ComponentSize,
+  InputControlProps,
 } from "@phaselis/types";
 import { ComponentType, FC, ReactNode, RefObject } from "react";
 import { StyleProp, TextStyle, ViewStyle } from "react-native";
 import ReactNativePickerSelect from "react-native-picker-select";
-
-export interface SelectProps {
+export interface SelectProps extends InputControlProps<string, any, any, any> {
   disabled?: boolean;
-  value?: any;
-  isChanged?: any; //not
-  isUsed?: any; //not
-  error?: any; //not
-  options: { value: string; label: string; [key: string]: any }[];
+  options: any[];
   placeholder?: string;
   noOptionsMessage?: string;
-  onChange?: (e: any, value?: any, data?: any) => any;
   validator?: any[];
   doneText?: string;
   style?: {
@@ -25,8 +20,8 @@ export interface SelectProps {
     container?: ViewStyle;
     element?: ViewStyle;
   };
-  displayField?: string;
-  valueField?: string;
+  displayField?: string; // Use the keys of Option
+  valueField?: string; // Use the keys of Option
   LeftSlot?: SlotChildComponent;
   RightSlot?: SlotChildComponent;
   size?: ComponentSize;
@@ -43,15 +38,10 @@ export interface SelectProps {
   fullScreenModal?: boolean;
   closeOnSelect?: boolean;
   NoOptionSlot?: ComponentType;
-  id?: string; //not used but maybe in the future
-  children?: ReactNode | FC | any | Element; //not used but maybe in the future
-  className?: string; //not used but maybe in the future
-  name?: string; //not used but maybe in the future
-  contextValue?: any; //not used but maybe in the future
-  partofform?: boolean; //not used but maybe in the future
-  validations?: Function[]; //not used but maybe in the future
-  onBlur?: (event: any, value: any, ...args: any[]) => void; //not used but maybe in the future
-  resetValue?: any; //not used but maybe in the future
+  id?: string;
+  children?: ReactNode | FC | any | Element;
+  className?: string;
+  contextValue?: any;
 }
 
 export interface OptionSlotProps {
@@ -111,8 +101,7 @@ export interface CloseIconSlotProps {
   };
 }
 
-export interface InputSlotProps {
-  error?: any; //not
+export interface InputSlotProps extends InputControlProps<any, any, any> {
   placeholder?: string;
   selectedItem?: any;
   rightIcon?: SlotIconName;
@@ -138,15 +127,6 @@ export interface InputSlotProps {
   id?: string; //not used but maybe in the future
   children?: ReactNode | FC | any | Element; //not used but maybe in the future
   className?: string; //not used but maybe in the future
-  name?: string; //not used but maybe in the future
-  value?: any; //not used but maybe in the future
-  partofform?: boolean; //not used but maybe in the future
-  validations?: Function[]; //not used but maybe in the future
-  isChanged?: any; //not
-  isUsed?: any; //not
-  onChange?: (event: any, value: any, ...args: any[]) => void; //not used but maybe in the future
-  onBlur?: (event: any, value: any, ...args: any[]) => void; //not used but maybe in the future
-  resetValue?: any; //not used but maybe in the future
 }
 
 export interface CustomPickerProps extends PickerProps {

@@ -1,7 +1,7 @@
 import { Image } from "@phaselis/components";
 import React from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
-import { git_logo_image, proto_header_image } from "./assets";
+import { git_logo_image, proto_header_image } from "../assets";
 
 function ImageStory() {
   console.log(proto_header_image.width);

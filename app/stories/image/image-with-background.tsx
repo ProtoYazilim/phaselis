@@ -1,7 +1,7 @@
 import { Image } from "@phaselis/components";
 import React from "react";
 import { SafeAreaView, StyleSheet, Text } from "react-native";
-import { react_background_image } from "./assets";
+import { react_background_image } from "../assets";
 
 function ImageBackgroundStory() {
   return (

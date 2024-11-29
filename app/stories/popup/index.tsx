@@ -1,5 +1,4 @@
 import { Block, Button, Popup } from "@phaselis/components";
-import { set } from "lodash";
 import React, { useState } from "react";
 import { SafeAreaView, StyleSheet, Text } from "react-native";
 

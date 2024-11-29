@@ -7,13 +7,22 @@ import { View, StyleSheet, Text } from "react-native";
 
 export default function Index() {
   const navigation = useNavigation();
+
   const [lastStoryRouteName, setLastStoryRouteName] = React.useState<
+    string | null
+  >(null);
+  const [lastStoryRouteBase, setLastStoryRouteBase] = React.useState<
     string | null
   >(null);
 
   useFocusEffect(() => {
     AsyncStorage.getItem("lastStoryRouteName").then((routeName) => {
-      if (routeName && routeName !== "index") setLastStoryRouteName(routeName);
+      // if (routeName && routeName !== "index") setLastStoryRouteName(routeName);
+      setLastStoryRouteName(routeName);
+    });
+    AsyncStorage.getItem("lastStoryRouteBase").then((routeBase) => {
+      // if (routeName && routeName !== "index") setLastStoryRouteName(routeName);
+      setLastStoryRouteBase(routeBase);
     });
   });
 
@@ -35,8 +44,13 @@ export default function Index() {
           primary
           text="Go to last story"
           onClick={() => {
-            console.log("lastStoryRouteName", lastStoryRouteName);
-            navigation.navigate(lastStoryRouteName as never);
+            if (lastStoryRouteBase === null) {
+              navigation.navigate(lastStoryRouteName as never);
+            } else {
+              navigation.navigate(lastStoryRouteBase, {
+                screen: lastStoryRouteName,
+              });
+            }
           }}
         />
       )}

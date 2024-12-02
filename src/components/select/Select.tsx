@@ -10,7 +10,6 @@ import InputSlotDefault from "./lib/InputSlotDefault";
 import { cloneSlot } from "@phaselis/utils/lib/util";
 
 const Select: FC<SelectProps> = ({
-  contextValue,
   style,
   options = [],
   valueField = "value",

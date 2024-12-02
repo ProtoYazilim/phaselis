@@ -11,17 +11,6 @@ export interface Breakpoints {
   lg: number;
   xl: number;
 }
-export interface IProviderStateType {
-  theme?: object;
-  deviceSize?: SizeEnum;
-  orientation?: OrientationEnum;
-  dimensions?: IDimensions;
-}
-
-export interface IDimensions {
-  width: number;
-  height: number;
-}
 
 export enum PlatformEnum {
   Desktop = "Desktop",

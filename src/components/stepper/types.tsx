@@ -1,5 +1,6 @@
+import { IconStyle } from "@phaselis/types/base";
 import { ReactNode } from "react";
-import { ViewStyle } from "react-native";
+import { TextStyle, ViewStyle } from "react-native";
 
 interface StepHeaderProps {
   stepCount: number;
@@ -18,9 +19,9 @@ interface StepHeaderProps {
     element?: ViewStyle;
     leftTrail?: ViewStyle;
     rightTrail?: ViewStyle;
-    completeIcon?: ViewStyle;
+    completeIcon?: IconStyle;
     number?: ViewStyle;
-    text?: ViewStyle;
+    text?: TextStyle;
   };
   contextValue?: any;
 }
@@ -52,7 +53,7 @@ interface ProgressStepProps {
 interface ProgressStepsProps {
   isComplete?: boolean;
   activeStep?: number;
-  children: React.ReactNode[];
+  children: ReactNode[];
 
   renderFooter?: ({
     nextButtonProps,

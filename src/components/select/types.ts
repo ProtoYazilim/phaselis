@@ -1,23 +1,27 @@
 import {
-  IFormPropTypes,
   SlotChildComponent,
   SlotIconName,
   ComponentSize,
+  InputControlProps,
 } from "@phaselis/types";
-import { ComponentType, RefObject } from "react";
+import { ComponentType, FC, ReactNode, RefObject } from "react";
 import { StyleProp, TextStyle, ViewStyle } from "react-native";
 import ReactNativePickerSelect from "react-native-picker-select";
-
-export interface SelectProps extends IFormPropTypes {
-  options: IOptionType[];
+export interface SelectProps extends InputControlProps<string, any, any, any> {
+  disabled?: boolean;
+  options: any[];
   placeholder?: string;
   noOptionsMessage?: string;
-  onChange?: (e: any, value?: any, data?: any) => any;
   validator?: any[];
   doneText?: string;
-  style?: ISelectStyleType;
-  displayField?: string;
-  valueField?: string;
+  style?: {
+    leftSlot?: StyleProp<ViewStyle>;
+    rightSlot?: StyleProp<ViewStyle>;
+    container?: ViewStyle;
+    element?: ViewStyle;
+  };
+  displayField?: string; // Use the keys of Option
+  valueField?: string; // Use the keys of Option
   LeftSlot?: SlotChildComponent;
   RightSlot?: SlotChildComponent;
   size?: ComponentSize;
@@ -30,26 +34,14 @@ export interface SelectProps extends IFormPropTypes {
   pickerType?: "native" | "custom";
   InputSlot?: ComponentType<InputSlotProps>;
   OptionSlot?: ComponentType<OptionSlotProps>;
-  maxHeightModal?: number | string;
+  maxHeightModal?: number | "auto" | `${number}%`;
   fullScreenModal?: boolean;
   closeOnSelect?: boolean;
   NoOptionSlot?: ComponentType;
-}
-
-export interface IOptionType {
-  value: string;
-  label: string;
-  [key: string]: any;
-}
-
-export interface ISelectStateType {
-  value?: string | null;
-}
-export interface ISelectStyleType {
-  leftSlot?: StyleProp<ViewStyle>;
-  rightSlot?: StyleProp<ViewStyle>;
-  container?: ViewStyle;
-  element?: ViewStyle;
+  id?: string;
+  children?: ReactNode | FC | any | Element;
+  className?: string;
+  contextValue?: any;
 }
 
 export interface OptionSlotProps {
@@ -109,7 +101,7 @@ export interface CloseIconSlotProps {
   };
 }
 
-export interface InputSlotProps extends IFormPropTypes {
+export interface InputSlotProps extends InputControlProps<any, any, any> {
   placeholder?: string;
   selectedItem?: any;
   rightIcon?: SlotIconName;
@@ -132,12 +124,15 @@ export interface InputSlotProps extends IFormPropTypes {
   showError?: boolean;
   isFocus?: boolean;
   size?: ComponentSize;
+  id?: string; //not used but maybe in the future
+  children?: ReactNode | FC | any | Element; //not used but maybe in the future
+  className?: string; //not used but maybe in the future
 }
 
 export interface CustomPickerProps extends PickerProps {
   showPicker: boolean;
   setShowPicker: React.Dispatch<React.SetStateAction<boolean>>;
-  maxHeightModal?: number | string;
+  maxHeightModal?: number | "auto" | `${number}%`;
   fullScreenModal?: boolean;
   HeaderSlot?: React.ComponentType<HeaderSlotProps>;
   closeIcon?: SlotIconName;

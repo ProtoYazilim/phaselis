@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Pressable, Text } from "react-native";
 import stylesheet from "./assets/styles";
 import { PhaselisHOC } from "@phaselis/components/provider";
@@ -18,7 +18,6 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
     LeftSlot,
     rightIcon = "CalendarDays",
     RightSlot,
-    value,
     mode = "date",
     minDate,
     maxDate,
@@ -34,7 +33,11 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
     setShow(!show);
   };
 
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(value || new Date());
+
+  useEffect(() => {
+    setDate(value || new Date());
+  }, [value]);
 
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,

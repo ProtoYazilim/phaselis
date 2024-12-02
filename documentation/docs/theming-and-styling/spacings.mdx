@@ -1,0 +1,43 @@
+---
+title: Spacings
+sidebar_position: 6
+description: The Spacings object defines a standardized set of spacing values, enabling consistent margin, padding, and layout spacing throughout the framework.  
+---
+
+### Spacings Interface
+
+#### Description  
+The `Spacings` object defines a standardized set of spacing values, enabling consistent margin, padding, and layout spacing throughout the framework.  
+
+| Key   | Description          | Pixel Value |  
+|-------|----------------------|-------------|  
+| `XS`  | Extra small spacing. | 4px         |  
+| `SM`  | Small spacing.       | 8px         |  
+| `MD`  | Medium spacing.      | 16px        |  
+| `LG`  | Large spacing.       | 32px        |  
+| `XL`  | Extra large spacing. | 64px        |  
+| `XXL` | Extra extra large spacing. | 128px  |  
+
+#### Type Definition  
+```typescript
+export type SpacingsType = {
+  XS: number;
+  SM: number;
+  MD: number;
+  LG: number;
+  XL: number;
+  XXL: number;
+};
+```
+
+#### Object Definition  
+```typescript
+export const Spacings: SpacingsType = {
+  XS: 4,
+  SM: 8,
+  MD: 16,
+  LG: 32,
+  XL: 64,
+  XXL: 128,
+};
+```

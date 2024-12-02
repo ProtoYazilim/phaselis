@@ -1,14 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { StyleSheet, TouchableOpacity, Modal, Animated } from "react-native";
-
-interface BottomSheetProps {
-  show: boolean;
-  duration?: number;
-  children: React.ReactNode;
-  onClose: () => void;
-  fullScreenModal?: boolean;
-  maxHeightModal?: any;
-}
+import { BottomSheetProps } from "./types";
 
 const BottomSheet = ({
   show = false,

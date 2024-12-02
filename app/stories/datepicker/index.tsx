@@ -18,10 +18,16 @@ const DatepickerStory = () => {
         <Block style={{ gap: 20, width: "100%" }}>
           <Datepicker
             name="datepicker"
-            onChange={(e, date) =>
-              console.log("Formatted date selected:", date)
-            }
-            disabled
+            onChange={(e, date) => {
+              console.log("Formatted date selected:", typeof date);
+              console.log("Date object selected:", date);
+            }}
+          />
+          <Button
+            onClick={() => {
+              refForm.current?.setValues({ datepicker: new Date() });
+            }}
+            type="button"
           />
           <Button type="submit" text="submit" />
         </Block>

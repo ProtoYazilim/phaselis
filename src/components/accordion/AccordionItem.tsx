@@ -85,7 +85,7 @@ function AccordionItem({
         expanded={expanded}
         disabled={disabled}
         text={headerText || ""}
-        icon={headerIcon || ""}
+        icon={headerIcon}
       />
       <AccordionContent isExpanded={expanded}>
         <View

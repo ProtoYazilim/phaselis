@@ -1,28 +1,44 @@
 import {
   NativeSyntheticEvent,
+  TextInputChangeEventData,
   TextInputFocusEventData,
   TextInputProps,
   ViewStyle,
 } from "react-native";
 import {
-  IBaseStyleType,
-  IFormPropTypes,
   SlotableLeftRightProps,
+  ComponentSize,
+  IconStyle,
+  InputControlProps,
 } from "@phaselis/types";
-import { ReactNode } from "react";
+import { FC, ReactNode } from "react";
 import { Mask } from "react-native-mask-input";
 
 export interface TextfieldProps
-  extends IFormPropTypes,
-    SlotableLeftRightProps,
+  extends SlotableLeftRightProps,
+    InputControlProps<
+      string,
+      NativeSyntheticEvent<TextInputChangeEventData> | null,
+      any
+    >,
     Omit<
       TextInputProps,
       "children" | "onBlur" | "onChange" | "value" | "style"
     > {
+  id?: string;
+  contextValue?: any;
+  value?: any;
+  isChanged?: any; //not
+  isUsed?: any; //not
   placeholder?: string;
   readOnly?: boolean;
   validator?: any;
-  style?: ITextfieldStyleType;
+  style?: {
+    container?: ViewStyle;
+    element?: ViewStyle;
+    leftSlot?: IconStyle;
+    rightSlot?: IconStyle;
+  };
   loadingIcon?: ReactNode;
   loading?: boolean;
   uppercase?: boolean;
@@ -31,23 +47,21 @@ export interface TextfieldProps
   autoFocus?: boolean;
   secureTextEntry?: boolean;
   onFocus?: (event: NativeSyntheticEvent<TextInputFocusEventData>) => void;
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+  size?: ComponentSize;
   mask?: Mask;
   numberOfLines?: number;
   textarea?: boolean;
-  onChangeText?: any;
+  onChangeText?: (text: string) => void;
   disabled?: boolean;
   error?: any;
+  children?: ReactNode | FC | any | Element; //not used but maybe used in future
+  className?: string; //not used but maybe used in future
+  name?: string; //not used but maybe used in future
+  partofform?: boolean; //not used but maybe used in future
+  validations?: Function[]; //not used but maybe used in future
+  resetValue?: any; //not used but maybe used in future
 }
 
-export interface ITextfieldStyleType extends IBaseStyleType {
-  leftSlot?: ViewStyle;
-  rightSlot?: ViewStyle;
-}
-
-export interface ITextfieldStateType {
-  focused?: boolean;
-}
 export enum EnumKeyboardType {
   Default = "default",
   Text = "text",

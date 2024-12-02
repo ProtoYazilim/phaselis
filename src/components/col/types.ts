@@ -1,7 +1,13 @@
+import { FC, ReactNode } from "react";
 import { ViewStyle } from "react-native";
-import { IBasePropType } from "@phaselis/types";
 
-interface ColProps extends IBasePropType {
+type GridSize = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 0;
+interface ColProps {
+  id?: string;
+  children?: ReactNode | FC | any | Element;
+  disabled?: boolean;
+  // name?: string;
+  contextValue?: any;
   size?: GridSize;
   offset?: GridSize;
   xs?: GridSize;
@@ -15,7 +21,5 @@ interface ColProps extends IBasePropType {
   className?: string;
   style?: ViewStyle;
 }
-
-type GridSize = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 0;
 
 export { ColProps, GridSize };

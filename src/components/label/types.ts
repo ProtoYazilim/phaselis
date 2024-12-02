@@ -3,7 +3,10 @@ import { TextStyle, ViewStyle } from "react-native";
 
 export interface LabelProps {
   text?: string;
-  style?: { container?: ViewStyle; text?: TextStyle };
+  style?: {
+    container?: ViewStyle;
+    text?: TextStyle;
+  };
   forId?: string;
   adjustsFontSizeToFit?: boolean;
   numberOfLines?: number;

@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React, { Children, cloneElement, useState } from "react";
 import { AccordionProps } from "./types";
 import { PhaselisHOC } from "@phaselis/components/provider";
-import { useStyles } from "react-native-unistyles";
-import stylesheet from "./assets/styles";
 import { createContext } from "react";
 
 const AccordionContext = createContext<{
@@ -52,24 +50,27 @@ const Accordion = ({
         expandMode: expandMode,
       }}
     >
-      {React.Children.map(children, (child, index) => {
-        return React.cloneElement(child, {
-          style: {
-            container: {
-              borderTopWidth: index === 0 ? 1 : 0,
-              borderBottomWidth: 1,
-              ...child.props.style?.container,
+      {Children.map(children, (child, index) => {
+        if (child) {
+          return cloneElement(child, {
+            style: {
+              container: {
+                borderTopWidth: index === 0 ? 1 : 0,
+                borderBottomWidth: 1,
+                ...child?.props.style?.container,
+              },
+              element: {
+                ...child?.props.style?.element,
+              },
+              header: {
+                ...child?.props.style?.header,
+              },
             },
-            element: {
-              ...child.props.style?.element,
-            },
-            header: {
-              ...child.props.style?.header,
-            },
-          },
-          index: index,
-          inContext: true,
-        });
+            index: index,
+            inContext: true,
+          });
+        }
+        return null;
       })}
     </AccordionContext.Provider>
   );

@@ -48,6 +48,15 @@ const RadioStory = () => {
           </RadioGroup>
         </InputGroup>
         <Block style={{ gap: Spacings.MD }}>
+          <Button
+            text="Set Value to 2"
+            type="button"
+            onClick={() => {
+              refForm.current?.setValues({
+                test: "2",
+              });
+            }}
+          />
           <Button type="submit" text="submit" />
           <Button type="reset" text="Reset" />
         </Block>

@@ -5,6 +5,7 @@ import { RadioGroupProps } from "./types";
 import { stylesheet_group as stylesheet } from "./assets/styles";
 import { PhaselisHOC } from "@phaselis/components/provider";
 import { useCombinedStyle } from "@phaselis/hooks";
+import { useEffect, useState } from "react";
 
 const RadioGroup = ({
   children,
@@ -15,7 +16,14 @@ const RadioGroup = ({
   contextValue,
   ...extraProps
 }: RadioGroupProps) => {
+  const [innerValue, setInnerValue] = useState(value);
+
+  useEffect(() => {
+    setInnerValue(value);
+  }, [value]);
+
   const handleOnChange = (newVal: any) => {
+    setInnerValue(newVal);
     onChange?.(null, newVal);
   };
 
@@ -31,7 +39,7 @@ const RadioGroup = ({
 
   return (
     <RadioContext.Provider
-      value={{ onChange: handleOnChange, groupValue: value }}
+      value={{ onChange: handleOnChange, groupValue: innerValue }}
     >
       <View style={getCombinedStyle("group")}>{children}</View>
     </RadioContext.Provider>

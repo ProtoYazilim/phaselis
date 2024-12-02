@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Pressable, View, Animated, Easing } from "react-native";
 import { SwitchProps } from "./types";
 import { PhaselisHOC } from "@phaselis/components/provider";
@@ -19,6 +19,12 @@ const Switch = ({
   RightSlot,
   ...extraProps
 }: SwitchProps) => {
+  const [innerValue, setInnerValue] = useState(value);
+
+  useEffect(() => {
+    setInnerValue(value);
+  }, [value]);
+
   const { getCombinedStyle, defaultStyles, themeStyles, propStyle } =
     useCombinedStyle(stylesheet, style, contextValue.theme.switch, {
       disabled,
@@ -27,16 +33,16 @@ const Switch = ({
 
   const height = useRef(new Animated.Value(0)).current;
   const width = useRef(new Animated.Value(0)).current;
-  const animatedValue = useRef(new Animated.Value(Number(value))).current;
+  const animatedValue = useRef(new Animated.Value(Number(innerValue))).current;
 
   useEffect(() => {
     Animated.timing(animatedValue, {
-      toValue: Number(value),
+      toValue: Number(innerValue),
       duration,
       easing: Easing.quad,
       useNativeDriver: false, // Make sure to useNativeDriver for performance in animations
     }).start();
-  }, [value, animatedValue]);
+  }, [innerValue, animatedValue]);
 
   const trackAnimatedStyle = {
     backgroundColor: animatedValue.interpolate({
@@ -79,7 +85,8 @@ const Switch = ({
   };
 
   const handlePress = () => {
-    onChange?.(null, !value);
+    setInnerValue(!innerValue);
+    onChange?.(null, !innerValue);
   };
 
   return (

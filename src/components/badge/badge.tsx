@@ -1,27 +1,9 @@
 import React, { useMemo } from "react";
-import { View, Text, ViewStyle, TextStyle } from "react-native";
+import { View, Text } from "react-native";
 import stylesheet from "./assets/styles";
 import { PhaselisHOC } from "@phaselis/components/provider";
 import { useCombinedStyle } from "@phaselis/hooks";
-
-interface BadgeProps {
-  text: string;
-  children: React.ReactNode;
-  primary?: boolean;
-  secondary?: boolean;
-  tertiary?: boolean;
-  outline?: boolean;
-  style?: {
-    container?: ViewStyle;
-    element?: ViewStyle;
-    text?: TextStyle;
-  };
-  contextValue?: any;
-  top?: number;
-  bottom?: number;
-  right?: number;
-  left?: number;
-}
+import { BadgeProps } from "./types";
 
 const Badge: React.FC<BadgeProps> = ({
   text,

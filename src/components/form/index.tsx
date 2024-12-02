@@ -12,10 +12,6 @@ import FormContext from "./context";
 import FormReference from "./reference";
 import { FormInputComponentGenericProps, FormProps } from "./types";
 
-export interface IActionComponent {
-  type: "submit" | "reset";
-}
-
 export const Form: FC<FormProps> = (
   {
     children,

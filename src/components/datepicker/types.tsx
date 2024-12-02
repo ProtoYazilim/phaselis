@@ -1,13 +1,20 @@
 import { TextStyle, ViewStyle } from "react-native";
-import { IFormPropTypes, SlotableLeftRightProps } from "@phaselis/types";
+import {
+  SlotableLeftRightProps,
+  ComponentSize,
+  InputControlProps,
+} from "@phaselis/types";
+import { FC, ReactNode } from "react";
 
-interface DatepickerProps extends IFormPropTypes, SlotableLeftRightProps {
+interface DatepickerProps
+  extends SlotableLeftRightProps,
+    InputControlProps<Date, any, any> {
   contextValue?: any;
   mode?: "date" | "time" | "datetime";
   minDate?: Date;
   maxDate?: Date;
   format?: string;
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+  size?: ComponentSize;
   style?: {
     container?: ViewStyle;
     leftSlot?: ViewStyle;
@@ -15,6 +22,9 @@ interface DatepickerProps extends IFormPropTypes, SlotableLeftRightProps {
   };
   locale?: string; //locale type example > TR_tr
   disabled?: boolean;
+  id?: string; //not used but maybe used in future
+  children?: ReactNode | FC | any | Element; //not used but maybe used in future
+  className?: string; //not used but maybe used in future
 }
 
 export { DatepickerProps };

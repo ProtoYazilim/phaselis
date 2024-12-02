@@ -5,7 +5,6 @@ type SpacingsType = {
 };
 
 const Spacings: SpacingsType = {
-  XXS: 2,
   XS: 4,
   SM: 8,
   MD: 16,

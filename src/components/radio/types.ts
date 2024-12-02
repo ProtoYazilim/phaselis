@@ -1,11 +1,16 @@
 import { TextStyle, ViewStyle } from "react-native";
-import { ComponentSize, IFormPropTypes } from "@phaselis/types";
+import { ComponentSize, InputControlProps } from "@phaselis/types";
+import { FC, ReactNode } from "react";
 
-interface RadioGroupProps extends IFormPropTypes {
+interface RadioGroupProps extends InputControlProps<string, any, any> {
+  children?: ReactNode | FC | any | Element;
+  disabled?: boolean;
+  contextValue?: any;
   style?: {
     group?: ViewStyle;
   };
-  onChange?: (event: any, value: string) => void;
+  id?: string; //not used but maybe used
+  className?: string; //not used but maybe used
 }
 
 interface RadioProps {

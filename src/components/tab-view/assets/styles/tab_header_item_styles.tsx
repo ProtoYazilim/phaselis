@@ -30,25 +30,6 @@ const tab_header_item_styles = createStyleSheet({
       },
     },
   },
-  element: {
-    // VARIANTS
-    variants: {
-      scrollable: {
-        true: {
-          width: "100%",
-          flexWrap: "wrap",
-          flexDirection: "row",
-        },
-        false: {
-          flexWrap: "wrap",
-          flexDirection: "row",
-          justifyContent: "center",
-          flex: 1,
-        },
-      },
-      active: {},
-    },
-  },
   text: {},
   leftSlot: {
     variants: {

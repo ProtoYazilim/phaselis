@@ -2,6 +2,7 @@ import {
   LinearGradientAttributes,
   ShadowAttributes,
 } from "@phaselis/types/base";
+import { ReactNode } from "react";
 import { ViewProps, ViewStyle } from "react-native";
 
 interface ExtendedViewStyle extends ViewStyle {
@@ -11,7 +12,7 @@ interface ExtendedViewStyle extends ViewStyle {
 }
 
 interface BlockProps extends ViewProps {
-  children?: any;
+  children?: ReactNode;
   contextValue?: any;
   style?: ExtendedViewStyle;
 }

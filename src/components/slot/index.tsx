@@ -9,7 +9,6 @@ const Slot: React.FC<SlotProps> = ({
   size,
   strokeWidth,
   onClick,
-  parentStates,
   height,
   width,
 }) => {
@@ -21,7 +20,6 @@ const Slot: React.FC<SlotProps> = ({
           defaultStyle: style?.[0],
           themeStyle: style?.[1],
           propStyle: style?.[2],
-          parentStates,
           ...children?.props,
         })}
       </>

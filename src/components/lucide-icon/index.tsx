@@ -1,7 +1,7 @@
-import { ComponentSize } from "@phaselis/types/base";
 import { icons } from "lucide-react-native";
 import React from "react";
 import { StyleSheet } from "react-native";
+import { LucideIconProps } from "./types";
 
 const LucideIcon = ({
   name,
@@ -11,15 +11,7 @@ const LucideIcon = ({
   height,
   strokeWidth,
   onClick,
-}: {
-  name?: keyof typeof icons;
-  size?: ComponentSize;
-  style?: any;
-  width?: number;
-  height?: number;
-  strokeWidth?: number;
-  onClick?: () => void;
-}) => {
+}: LucideIconProps) => {
   // @ts-ignore
   // eslint-disable-next-line import/namespace
   const GenericIcon = icons[name];

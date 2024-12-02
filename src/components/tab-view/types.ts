@@ -1,16 +1,20 @@
-import { SlotableLeftRightProps } from "@phaselis/types";
-import { ViewStyle } from "react-native";
+import { IconStyle, SlotableLeftRightProps } from "@phaselis/types";
+import { ReactNode } from "react";
+import { TextStyle, ViewStyle } from "react-native";
 
 interface TabViewHeaderProps extends SlotableLeftRightProps {
   value?: boolean;
   onChange?: (event: any, value: boolean) => void;
   onPress?: () => void;
   duration?: number;
-  style?: any;
+  style?: {
+    container?: ViewStyle;
+    element?: ViewStyle;
+  };
   contextValue?: any;
   data?: any[];
   activeTab?: number;
-  id?: any;
+  id?: string | number;
   scrollable?: boolean;
   handleOnPress?: (index: number) => void;
 }
@@ -22,7 +26,13 @@ interface TabHeaderItemProps extends SlotableLeftRightProps {
   handleOnLayout?: (event: any, index: number) => void;
   handleOnPress?: (index: number) => void;
   scrollable?: boolean;
-  style?: any;
+  style?: {
+    container?: ViewStyle;
+    text?: TextStyle;
+    element?: ViewStyle;
+    leftSlot?: IconStyle;
+    rightSlot?: IconStyle;
+  };
   contextValue?: any;
 }
 
@@ -39,7 +49,7 @@ interface TabViewProps {
 }
 
 interface TabItemProps {
-  children: any;
+  children: ReactNode;
   contextValue?: any;
   style?: {
     container?: ViewStyle;

@@ -18,6 +18,7 @@ const stylesheet = createStyleSheet({
         true: {},
       },
       size: {
+        xs: {},
         sm: {
           height: 36,
         },
@@ -27,6 +28,8 @@ const stylesheet = createStyleSheet({
         lg: {
           height: 56,
         },
+        xl: {},
+        xxl: {},
       },
     },
   },

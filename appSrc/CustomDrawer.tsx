@@ -1,5 +1,4 @@
 import { Drawer } from "expo-router/drawer";
-
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Colors } from "@phaselis/theme";
 import { LucideIcon } from "@phaselis/components";
@@ -23,15 +22,17 @@ const CustomDrawer: FC<{
   rightIcon?: SlotIconName;
   headerTintColor?: string;
   showRightIcon?: boolean;
+  sceneContainerStyle?: any;
 }> = ({
   navigation,
   rootNav,
   drawerScreens,
   componentName,
-  leftIcon = "SquareChevronRight",
-  rightIcon = "Puzzle",
+  leftIcon = "AlignLeft",
+  rightIcon = "SquareChevronLeft",
   headerTintColor = Colors.Primary[500],
   showRightIcon = true,
+  sceneContainerStyle,
 }) => {
   return (
     <Drawer
@@ -39,6 +40,7 @@ const CustomDrawer: FC<{
         headerTintColor: headerTintColor,
         drawerPosition: "right",
         swipeEnabled: showRightIcon ? true : false,
+        sceneContainerStyle: sceneContainerStyle,
         headerLeft: () => (
           <Pressable
             onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}

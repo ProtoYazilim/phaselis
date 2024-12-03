@@ -41,7 +41,13 @@
       ],
       "@phaselis/types": [
         "../src/types"
-      ]
+      ],
+      "@appSrc/*": [
+        "/Users/aliberkislam/Development/phaselis/appSrc/*"
+      ],
+      "@appSrc": [
+        "/Users/aliberkislam/Development/phaselis/appSrc"
+      ],
     },
   },
   "include": [

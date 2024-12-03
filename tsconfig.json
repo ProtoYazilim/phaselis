@@ -39,14 +39,15 @@
       ],
       "@phaselis/types": [
         "./src/types"
-      ]
+      ],
     },
     "outDir": "./dist/@types",
     "esModuleInterop": true
+    
   },
   "include": [
     "src/**/*",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts"
+    "expo-env.d.ts",
   ]
 }

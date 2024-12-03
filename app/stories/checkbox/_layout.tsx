@@ -1,4 +1,4 @@
-import { CustomDrawer } from "@phaselis/utils";
+import { CustomDrawer } from "../../../appSrc";
 import { useNavigationContainerRef } from "expo-router";
 import { useNavigation } from "@react-navigation/native";
 

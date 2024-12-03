@@ -1,5 +1,4 @@
 import InputHOC from "./lib/hocs/inputhoc";
-import CustomDrawer from "./lib/util/CustomDrawer";
 
 import {
   dateFormat,
@@ -25,7 +24,6 @@ import {
 
 export {
   InputHOC,
-  CustomDrawer,
   required,
   minLength,
   maxLength,

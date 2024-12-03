@@ -1,6 +1,7 @@
 import { useNavigationContainerRef } from "expo-router";
 import { useNavigation } from "@react-navigation/native";
-import { CustomDrawer } from "@phaselis/utils";
+import { CustomDrawer } from "../../../appSrc";
+// import { CustomDrawer } from "@appSrc";
 
 export default function Layout() {
   const rootNav = useNavigationContainerRef();
@@ -23,9 +24,9 @@ export default function Layout() {
           title: "Badge with Textfield",
         },
         {
-          name: "simple-badge",
-          drawerLabel: "Simple Badge",
-          title: "Simple Badge",
+          name: "badge-with-avatar",
+          drawerLabel: "Badge With Avatar",
+          title: "Badge With Avatar",
         },
       ]}
     />

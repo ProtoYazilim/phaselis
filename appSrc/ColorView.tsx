@@ -11,7 +11,7 @@ const ColorView: FC<{
 
     const newColor = color
       .lightness(
-        lightness > 40
+        lightness > 49
           ? 50 - lightness + (lightness - 50) * 0.5
           : 1000 - lightness,
       )
@@ -20,10 +20,10 @@ const ColorView: FC<{
 
     return (
       <View style={[styles.colorItem, { backgroundColor: item[1] }]}>
-        <Text
-          style={[styles.colorText, { color: newColor }]}
-        >{`${item[0]}`}</Text>
-        <Text style={styles.colorHex}>{item[1]}</Text>
+        <Text style={[styles.colorText, { color: newColor }]}>
+          {`${item[0]}`}
+        </Text>
+        <Text style={[styles.colorHex, { color: newColor }]}>{item[1]}</Text>
       </View>
     );
   };

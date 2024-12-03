@@ -78,6 +78,14 @@ export default function Layout() {
         }}
       />
       <Drawer.Screen
+        name="colors"
+        options={{
+          drawerLabel: "Colors",
+          title: "Colors",
+          headerShown: false,
+        }}
+      />
+      <Drawer.Screen
         name="datepicker"
         options={{
           drawerLabel: "Datepicker",
@@ -130,6 +138,7 @@ export default function Layout() {
         options={{
           drawerLabel: "Popup",
           title: "Popup Story",
+          headerShown: false,
         }}
       />
       <Drawer.Screen

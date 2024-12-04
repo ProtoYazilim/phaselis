@@ -15,6 +15,7 @@ import {
   DraftingCompass,
 } from "lucide-react-native";
 import { Colors } from "@phaselis/theme";
+import { getEnvironmentType } from "../appSrc";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 
@@ -40,6 +41,8 @@ export default function RootLayout() {
     return null;
   }
 
+  const environment = getEnvironmentType();
+
   return (
     <FrameWorkProvider theme={lightTheme}>
       <ThemeProvider value={DefaultTheme}>
@@ -55,6 +58,7 @@ export default function RootLayout() {
           >
             <Tabs.Screen
               name="stories"
+              redirect={environment === "production"}
               options={{
                 title: "Stories",
                 tabBarIcon: ({ color }) => <LucideComponent color={color} />,

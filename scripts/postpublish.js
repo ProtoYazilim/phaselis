@@ -14,6 +14,8 @@ const depsToMove = [
   "@react-native-async-storage/async-storage",
   "@react-navigation/drawer",
   "@react-navigation/native",
+  "expo",
+  "expo-status-bar",
 ];
 
 const peerDepsToMove = ["react", "react-dom", "react-native"];

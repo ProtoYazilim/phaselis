@@ -5,6 +5,7 @@ import { Colors } from "@phaselis/theme";
 
 export default function Layout() {
   const rootNav = useNavigationContainerRef();
+
   return (
     <Drawer
       screenOptions={{

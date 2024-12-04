@@ -5,6 +5,7 @@ import { Colors } from "@phaselis/theme";
 
 export default function Layout() {
   const rootNav = useNavigationContainerRef();
+
   return (
     <Drawer
       screenOptions={{
@@ -17,6 +18,7 @@ export default function Layout() {
             AsyncStorage.setItem("lastStoryRouteName", routeName || "/").catch(
               console.error,
             );
+            AsyncStorage.setItem("lastStoryRouteBase", "").catch(console.error);
           }
         },
       }}
@@ -29,136 +31,123 @@ export default function Layout() {
         }}
       />
       <Drawer.Screen
-        name="accordion-story"
+        name="accordion"
         options={{
           drawerLabel: "Accordion",
           title: "Accordion Story",
+          headerShown: false,
         }}
       />
       <Drawer.Screen
-        name="accordion-list-story"
-        options={{
-          drawerLabel: "Accordion List",
-          title: "Accordion List Story",
-        }}
-      />
-      <Drawer.Screen
-        name="avatar-story"
+        name="avatar"
         options={{
           drawerLabel: "Avatar",
           title: "Avatar Story",
+          headerShown: false,
         }}
       />
       <Drawer.Screen
-        name="button-story"
-        options={{
-          drawerLabel: "Button",
-          title: "Button Story",
-        }}
-      />
-      <Drawer.Screen
-        name="badge-story"
+        name="badge"
         options={{
           drawerLabel: "Badge",
           title: "Badge Story",
+          headerShown: false,
         }}
       />
       <Drawer.Screen
-        name="bottom-sheet-story"
+        name="bottom-sheet"
         options={{
           drawerLabel: "Bottom Sheet",
           title: "Bottom Sheet Story",
+          headerShown: false,
         }}
       />
       <Drawer.Screen
-        name="checkbox-story"
+        name="button"
+        options={{
+          drawerLabel: "Button",
+          title: "Button Story",
+          headerShown: false,
+        }}
+      />
+      <Drawer.Screen
+        name="checkbox"
         options={{
           drawerLabel: "Checkbox",
           title: "Checkbox Story",
+          headerShown: false,
         }}
       />
       <Drawer.Screen
-        name="datepicker-story"
+        name="colors"
+        options={{
+          drawerLabel: "Colors",
+          title: "Colors",
+          headerShown: false,
+        }}
+      />
+      <Drawer.Screen
+        name="datepicker"
         options={{
           drawerLabel: "Datepicker",
           title: "Datepicker Story",
+          headerShown: false,
         }}
       />
       <Drawer.Screen
-        name="image-background-story"
-        options={{
-          drawerLabel: "Image Background",
-          title: "Image Background Story",
-        }}
-      />
-      <Drawer.Screen
-        name="image-story"
+        name="image"
         options={{
           drawerLabel: "Image",
           title: "Image Story",
+          headerShown: false,
         }}
       />
       <Drawer.Screen
-        name="label-story"
+        name="label"
         options={{
           drawerLabel: "Label",
           title: "Label Story",
+          headerShown: false,
         }}
       />
       <Drawer.Screen
-        name="link-story"
+        name="link"
         options={{
           drawerLabel: "Link",
           title: "Link Story",
+          headerShown: false,
         }}
       />
       <Drawer.Screen
-        name="list-story"
+        name="list"
         options={{
           drawerLabel: "List",
           title: "List Story",
+          headerShown: false,
         }}
       />
       <Drawer.Screen
-        name="popup-story"
+        name="modal"
+        options={{
+          drawerLabel: "Modal",
+          title: "Modal Story",
+          headerShown: false,
+        }}
+      />
+      <Drawer.Screen
+        name="popup"
         options={{
           drawerLabel: "Popup",
           title: "Popup Story",
+          headerShown: false,
         }}
       />
       <Drawer.Screen
-        name="textfield-story"
-        options={{
-          drawerLabel: "Textfield",
-          title: "Textfield Story",
-        }}
-      />
-      <Drawer.Screen
-        name="masked-textfield-story"
-        options={{
-          drawerLabel: "Masked Textfield",
-          title: "Masked Textfield Story",
-        }}
-      />
-      <Drawer.Screen
-        name="textarea-story"
-        options={{
-          drawerLabel: "Textarea",
-          title: "Textarea Story",
-        }}
-      />
-      <Drawer.Screen
-        name="switch-story"
-        options={{
-          drawerLabel: "Switch",
-          title: "Switch Story",
-        }}
-      />
-      <Drawer.Screen
-        name="radio-story"
+        name="radio"
         options={{
           drawerLabel: "Radio / RadioGroup",
           title: "Radio Story",
+          headerShown: false,
         }}
       />
       <Drawer.Screen
@@ -166,41 +155,71 @@ export default function Layout() {
         options={{
           drawerLabel: "Row / Col / Block",
           title: "Row / Col / Block Story",
+          headerShown: false,
         }}
       />
       <Drawer.Screen
-        name="select-story"
+        name="select"
         options={{
           drawerLabel: "Select",
           title: "Select Story",
+          headerShown: false,
         }}
       />
       <Drawer.Screen
-        name="select-custom-story"
+        name="shadow"
         options={{
-          drawerLabel: "Custom Select",
-          title: "Custom Select Story",
+          drawerLabel: "Shadow",
+          title: "Shadow Story",
+          headerShown: false,
         }}
       />
       <Drawer.Screen
-        name="stepper-story"
-        options={{
-          drawerLabel: "Stepper",
-          title: "Stepper Story",
-        }}
-      />
-      <Drawer.Screen
-        name="slider-story"
+        name="slider"
         options={{
           drawerLabel: "Slider",
           title: "Slider Story",
+          headerShown: false,
         }}
       />
       <Drawer.Screen
-        name="tab-view-story"
+        name="stepper"
+        options={{
+          drawerLabel: "Stepper",
+          title: "Stepper Story",
+          headerShown: false,
+        }}
+      />
+      <Drawer.Screen
+        name="switch"
+        options={{
+          drawerLabel: "Switch",
+          title: "Switch Story",
+          headerShown: false,
+        }}
+      />
+      <Drawer.Screen
+        name="tab-view"
         options={{
           drawerLabel: "Tab View",
           title: "Tab View Story",
+          headerShown: false,
+        }}
+      />
+      <Drawer.Screen
+        name="textarea"
+        options={{
+          drawerLabel: "Textarea",
+          title: "Textarea Story",
+          headerShown: false,
+        }}
+      />
+      <Drawer.Screen
+        name="textfield"
+        options={{
+          drawerLabel: "Textfield",
+          title: "Textfield Story",
+          headerShown: false,
         }}
       />
     </Drawer>

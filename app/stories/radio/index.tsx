@@ -32,31 +32,7 @@ const RadioStory = () => {
             <Radio text={"value 4"} value={"4"} />
           </RadioGroup>
         </InputGroup>
-        <InputGroup label="Radio Group with Size">
-          <RadioGroup
-            name="test-2"
-            resetValue={""}
-            validations={[required("En az bi deger seciniz")]}
-          >
-            <Radio text={"Checkbox XSmall"} value={"1"} size="xs" />
-            <Radio text={"Checkbox Small"} value={"2"} size="sm" />
-            <Radio text={"Checkbox Medium"} value={"3"} size="md" />
-            <Radio text={"Checkbox Large"} value={"4"} size="lg" />
-            <Radio text={"Checkbox XLarge"} value={"5"} size="xl" />
-            <Radio text={"Checkbox XXLarge"} value={"6"} size="xxl" />
-            <Radio text={"Checkbox Default"} value={"7"} />
-          </RadioGroup>
-        </InputGroup>
         <Block style={{ gap: Spacings.MD }}>
-          <Button
-            text="Set Value to 2"
-            type="button"
-            onClick={() => {
-              refForm.current?.setValues({
-                test: "2",
-              });
-            }}
-          />
           <Button type="submit" text="submit" />
           <Button type="reset" text="Reset" />
         </Block>

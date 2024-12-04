@@ -24,6 +24,7 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
     locale = "TR_tr",
     format = "dd.MM.yyyy",
     onChange,
+    value,
     disabled = false,
     ...extraProps
   } = props;

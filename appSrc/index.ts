@@ -5,5 +5,5 @@ import ColorView from "./ColorView";
 export { CustomDrawer, ColorView };
 
 export const getEnvironmentType = () => {
-  return Constants.manifest.environment;
+  return Constants.expoConfig?.extra?.stories;
 };

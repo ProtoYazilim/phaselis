@@ -8,7 +8,7 @@
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "extra": {
-      "stories": "dev"
+      "stories": "internal"
     },
     "splash": {
       "image": "./assets/images/splash.png",

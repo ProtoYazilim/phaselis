@@ -4,6 +4,9 @@
     "declaration": true,
     "strict": true,
     "paths": {
+      "@/*": [
+        "./*"
+      ],
       "@phaselis/components": [
         "./src/components"
       ],
@@ -40,12 +43,19 @@
       "@phaselis/types": [
         "./src/types"
       ],
+      "@appSrc/*": [
+        "./appSrc/*"
+      ],
+      "@appSrc": [
+        "./appSrc"
+      ],
     },
     "outDir": "./dist/@types",
     "esModuleInterop": true
   },
   "include": [
     "src/**/*",
+    "appSrc/**/*",
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
   ]

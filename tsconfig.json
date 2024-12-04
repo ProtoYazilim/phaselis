@@ -43,7 +43,6 @@
     },
     "outDir": "./dist/@types",
     "esModuleInterop": true
-    
   },
   "include": [
     "src/**/*",

@@ -8,7 +8,7 @@ import {
   useId,
 } from "react";
 import { Popup } from "@phaselis/components";
-import { SlotIconName } from "@phaselis/types";
+import { SlotChildComponent, SlotIconName } from "@phaselis/types";
 
 const PopupTitleIcon: Record<
   PopupType,
@@ -30,7 +30,7 @@ interface PopupExtraProps {
   contextValue?: any;
   style?: any;
   leftIcon?: SlotIconName;
-  LeftSlot?: ReactNode;
+  LeftSlot?: SlotChildComponent;
   title?: string;
 }
 

@@ -13,7 +13,7 @@ The `Accordion` component, when used with `AccordionItem`, allows for creating c
 ## Import
 
 ```js
-import { Accordion, AccordionItem } from "phaselis";
+import { AccordionItem } from "phaselis";
 ```
 
 ## Usage
@@ -21,17 +21,26 @@ import { Accordion, AccordionItem } from "phaselis";
 ### Basic Accordion with AccordionItem
 
 ```jsx
-<Accordion>
-  <AccordionItem headerText="Section 1">
-    <Text>Content for section 1</Text>
-  </AccordionItem>
-  <AccordionItem headerText="Section 2" expand>
-    <Text>Content for section 2 (expanded by default)</Text>
-  </AccordionItem>
-  <AccordionItem headerText="Section 3">
-    <Text>Content for section 3</Text>
-  </AccordionItem>
-</Accordion>
+import { Accordion, AccordionItem } from "phaselis";
+import { Text } from "react-native";
+
+const Example = () => {
+  return (
+    <Accordion>
+      <AccordionItem headerText="Section 1">
+        <Text>Content for section 1</Text>
+      </AccordionItem>
+      <AccordionItem headerText="Section 2" expand>
+        <Text>Content for section 2 (expanded by default)</Text>
+      </AccordionItem>
+      <AccordionItem headerText="Section 3">
+        <Text>Content for section 3</Text>
+      </AccordionItem>
+    </Accordion>
+  );
+};
+
+export default Example;
 ```
 
 ## Props
@@ -41,7 +50,9 @@ import { Accordion, AccordionItem } from "phaselis";
 
 The text that appears in the header of the accordion item.
 
-
+```jsx
+import { Text } from "react-native";
+```
 ```jsx
 <AccordionItem headerText="Overview">
   <Text>Here is a brief overview of the topic.</Text>
@@ -53,7 +64,9 @@ The text that appears in the header of the accordion item.
 
 Specifies whether the accordion item should be expanded by default. The default value is `false`.
 
-
+```jsx
+import { Text } from "react-native";
+```
 ```jsx
 <AccordionItem headerText="Details" expand>
   <Text>This item is expanded by default.</Text>
@@ -65,7 +78,9 @@ Specifies whether the accordion item should be expanded by default. The default 
 
 A callback function that triggers when the accordion item is expanded or collapsed. Receives the current expansion state (`true` for expanded, `false` for collapsed) as an argument.
 
-
+```jsx
+import { Text } from "react-native";
+```
 ```jsx
 <AccordionItem headerText="Toggle Me" onChange={(expanded) => console.log("Expanded state:", expanded)}>
   <Text>Expandable content goes here.</Text>
@@ -80,7 +95,9 @@ Defines custom styles for the accordion item.
 | `container` | ViewStyle | Style for the container of the accordion item. |
 | `element`   | ViewStyle | Style for the content inside the accordion item. |
 
-
+```jsx
+import { Text } from "react-native";
+```
 ```jsx
 <AccordionItem
   headerText="Styled Item"
@@ -98,7 +115,9 @@ Defines custom styles for the accordion item.
 
 The name of the icon displayed in the header, next to the text. Can be used to add visual cues or indicate the type of content within the accordion item.
 
-
+```jsx
+import { Text } from "react-native";
+```
 ```jsx
 <AccordionItem headerText="Information" headerIcon="Info">
   <Text>Details about this section.</Text>
@@ -110,7 +129,9 @@ The name of the icon displayed in the header, next to the text. Can be used to a
 
 Disables the accordion item, preventing user interaction. The item cannot be expanded or collapsed when disabled.
 
-
+```jsx
+import { Text } from "react-native";
+```
 ```jsx
 <AccordionItem headerText="Unavailable" disabled>
   <Text>This section is not accessible.</Text>
@@ -122,6 +143,9 @@ Disables the accordion item, preventing user interaction. The item cannot be exp
 
 Indicates whether the item is part of a larger `AccordionList` context. The default value is `false`.
 
+```jsx
+import { Text } from "react-native";
+```
 ```jsx
 <AccordionItem headerText="Contextual Item" inContext>
   <Text>This item is used within an accordion context.</Text>

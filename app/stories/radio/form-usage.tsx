@@ -1,7 +1,7 @@
 import React from "react";
 import { Radio, RadioGroup, InputGroup } from "@phaselis/components";
 import { required } from "@phaselis/utils";
-import FormStoryView from "../../../appSrc/FormStoryView";
+import FormStoryView from "@appSrc/FormStoryView";
 
 const FormUsage = () => {
   return (

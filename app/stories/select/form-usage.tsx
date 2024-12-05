@@ -1,4 +1,4 @@
-import FormStoryView from "../../../appSrc/FormStoryView";
+import FormStoryView from "@appSrc/FormStoryView";
 import { Select } from "@phaselis/components";
 import React from "react";
 

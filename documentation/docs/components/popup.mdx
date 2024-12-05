@@ -1,0 +1,292 @@
+---
+
+id: popup  
+category: 'data-display'  
+title: Popup  
+version: '0.1'  
+description:  
+  The `Popup` component provides a modal-like interface to display content overlaying the main screen, supporting customization, animations, and slots for enhanced flexibility.  
+
+---
+
+The `Popup` component is a versatile overlay designed to present temporary content or facilitate user interactions with customizable options.
+
+## Import
+
+Phaselis exports one main component for Popup.
+
+```js
+import { Popup } from 'phaselis';
+```
+
+- **Popup:** Main Component import for Popup
+
+## Usage
+
+### Basic Popup
+
+Display a basic popup with a title and close action.
+
+```jsx
+import { Button, Popup } from "phaselis";
+import { useState } from "react";
+import { Text } from "react-native";
+
+const Example = () => {
+  const [visible, setVisible] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setVisible(true)} text="Open Popup" />
+      <Popup
+        show={visible}
+        onClose={() => setVisible(false)}
+        title="Popup Title"
+      >
+        <Text>This is the popup content</Text>
+      </Popup>
+    </>
+  );
+};
+
+export default Example;
+```
+
+## Props
+
+:::tip
+
+Other than the listed props below, you can pass any prop that a `Modal` component accepts.
+
+:::
+
+### show  
+`boolean`  
+
+If `true`, the popup is visible.
+```jsx
+import { Button } from "phaselis";
+import { useState } from "react";
+```
+```jsx
+const [visible, setVisible] = useState(false);
+```
+```jsx
+<Button onClick={() => setVisible(true)} />
+<Popup show={visible} onClose={() => setVisible(false)}></Popup>
+```
+
+### duration  
+`number`  
+
+The duration of the show/hide animation in milliseconds. Defaults to `500`.
+
+```jsx
+import { Button } from "phaselis";
+import { useState } from "react";
+import { Text } from "react-native";
+```
+```jsx
+const [visible, setVisible] = useState(false);
+```
+```jsx
+<Button onClick={() => setVisible(true)} text="Open Popup" />
+<Popup show={visible} onClose={() => setVisible(false)} duration={700}>
+<Text>Phaselis</Text>
+</Popup>
+```
+
+### onClose  
+`() => void`  
+
+Callback triggered when the popup is closed.
+
+```jsx
+import { Button } from "phaselis";
+import { useState } from "react";
+import { Text } from "react-native";
+```
+```jsx
+const [visible, setVisible] = useState(false);
+```
+```jsx
+<Button onClick={() => setVisible(true)} text="Open Popup" />
+<Popup
+show={visible}
+onClose={() => {
+    console.log("Popup closed");
+    setVisible(false);
+}}
+>
+<Text>Phaselis</Text>
+</Popup>
+```
+
+### fullScreen  
+`boolean`  
+
+If `true`, the popup takes the full screen. Defaults to `false`.
+
+```jsx
+import { Button } from "phaselis";
+import { useState } from "react";
+import { Text } from "react-native";
+```
+```jsx
+const [visible, setVisible] = useState(false);
+```
+```jsx
+<Button onClick={() => setVisible(true)} text="Open Popup" />
+<Popup show={visible} onClose={() => setVisible(false)} fullScreen>
+<Text>Phaselis</Text>
+</Popup>
+```
+
+### style  
+`object`  
+
+An object to customize various parts of the popup's style.
+
+| Name         | Type       |
+| ------------ | ---------- |
+| `title`      | TextStyle  |
+| `container`  | ViewStyle  |
+| `header`     | ViewStyle  |
+| `element`    | ViewStyle  |
+| `leftSlot`   | IconStyle  |
+| `closeIcon`  | IconStyle  |
+| `backDrop`   | ViewStyle  |
+
+```jsx
+import { Button } from "phaselis";
+import { useState } from "react";
+import { Text } from "react-native";
+```
+```jsx
+const [visible, setVisible] = useState(false);
+```
+```jsx
+<Button onClick={() => setVisible(true)} text="Open Popup" />
+<Popup
+title="Phaselis"
+show={visible}
+onClose={() => setVisible(false)}
+style={{
+    container: { backgroundColor: "#fff" },
+    title: { fontSize: 18, fontWeight: "bold" },
+}}
+>
+<Text>Phaselis</Text>
+</Popup>
+```
+
+### leftIcon  
+[`SlotIconName`](https://lucide.dev/icons/)  
+
+Specify an icon for the left slot in the header.
+
+```jsx
+import { Button } from "phaselis";
+import { useState } from "react";
+import { Text } from "react-native";
+```
+```jsx
+const [visible, setVisible] = useState(false);
+```
+```jsx
+<Button onClick={() => setVisible(true)} />
+<Popup
+title="Phaselis"
+leftIcon="Star"
+show={visible}
+onClose={() => setVisible(false)}
+>
+<Text>Phaselis</Text>
+</Popup>
+```
+
+### LeftSlot  
+`SlotChildComponent`  
+
+Pass a custom component to the left slot of the header.
+
+```jsx
+import { Button, LucideIcon } from "phaselis";
+import { useState } from "react";
+import { Text } from "react-native";
+```
+```jsx
+const [visible, setVisible] = useState(false);
+```
+```jsx
+<Button onClick={() => setVisible(true)} />
+<Popup
+    title="Phaselis"
+    LeftSlot={() => <LucideIcon name="Star" />}
+    show={visible}
+    onClose={() => setVisible(false)}
+>
+    <Text>Phaselis</Text>
+</Popup>
+```
+
+### title  
+`string`  
+
+Title text displayed in the popup header.
+
+```jsx
+import { Button } from "phaselis";
+import { useState } from "react";
+import { Text } from "react-native";
+```
+```jsx
+const [visible, setVisible] = useState(false);
+```
+```jsx
+<Button onClick={() => setVisible(true)} />
+<Popup title="Phaselis" show={visible} onClose={() => setVisible(false)}>
+<Text>Phaselis</Text>
+</Popup>
+```
+
+### children  
+`ReactNode`  
+
+Content to display inside the popup.
+
+```jsx
+import { Button } from "phaselis";
+import { useState } from "react";
+import { Text } from "react-native";
+```
+```jsx
+const [visible, setVisible] = useState(false);
+```
+```jsx
+<Button onClick={() => setVisible(true)} text="Open Popup" />
+<Popup show={visible} onClose={() => setVisible(false)}>
+<Text>Phaselis</Text>
+</Popup>
+```
+
+### type  
+`"default" | "info" | "warning" | "error" | "success"`  
+
+Sets the style type of the popup. Defaults to `"default"`.
+
+```jsx
+import { Button } from "phaselis";
+import { useState } from "react";
+import { Text } from "react-native";
+```
+```jsx
+const [visible, setVisible] = useState(false);
+```
+```jsx
+<Button onClick={() => setVisible(true)} text="Open Popup" />
+<Popup type="error" show={visible} onClose={() => setVisible(false)}>
+<Text>Phaselis</Text>
+</Popup>
+```
+

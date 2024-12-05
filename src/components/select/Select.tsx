@@ -56,7 +56,6 @@ const Select: FC<SelectProps> = ({
   }, [error, isUsed, isChanged]);
 
   const selectedItem = useMemo(() => {
-    console.log(options?.find((option) => option.value === innerValue));
     return options?.find((option) => option.value === innerValue);
   }, [options, innerValue]);
 

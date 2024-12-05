@@ -1,10 +1,9 @@
 ---
 id: accordion
-category: 'data-display'
+category: "data-display"
 title: Accordion
-version: '0.1'
-description:
-  Accordion is a customizable component used to display collapsible items. It supports multiple expand modes and animated transitions.
+version: "0.1"
+description: Accordion is a customizable component used to display collapsible items. It supports multiple expand modes and animated transitions.
 ---
 
 # Accordion
@@ -14,7 +13,7 @@ description:
 ## Import
 
 ```js
-import { Accordion, AccordionList, AccordionItem } from "phaselis";
+import { Accordion } from "phaselis";
 ```
 
 - **Accordion**: Container component for the collapsible structure.
@@ -22,6 +21,7 @@ import { Accordion, AccordionList, AccordionItem } from "phaselis";
 - **AccordionItem**: Individual items with headers and collapsible content.
 
 ### Navigation
+
 - [AccordionList](accordion-list)
 - [Accordion with AccordionItem](accordion-item)
 
@@ -30,32 +30,54 @@ import { Accordion, AccordionList, AccordionItem } from "phaselis";
 ### Basic Accordion with AccordionItem
 
 ```jsx
-<Accordion expandMode="multiple" onChange={(index) => console.log(`Toggled section at index: ${index}`)}>
-  <AccordionItem headerText="Overview" headerIcon="info">
-    <Text>This is an overview section with general content.</Text>
-  </AccordionItem>
-  <AccordionItem headerText="Specifications" expand>
-    <Text>Specifications for the product are detailed here. This section is expanded by default.</Text>
-  </AccordionItem>
-  <AccordionItem headerText="Reviews" headerIcon="star">
-    <Text>Read customer reviews in this section.</Text>
-  </AccordionItem>
-  <AccordionItem headerText="FAQ" headerIcon="help-circle">
-    <Text>Find answers to frequently asked questions here.</Text>
-  </AccordionItem>
-</Accordion>
+import { Accordion, AccordionItem } from "phaselis";
+import { Text } from "react-native";
+
+const Example = () => {
+  return (
+    <Accordion
+      expandMode="multiple"
+      onChange={(index) => console.log(`Toggled section at index: ${index}`)}
+    >
+      <AccordionItem headerText="Overview" headerIcon="Info">
+        <Text>This is an overview section with general content.</Text>
+      </AccordionItem>
+      <AccordionItem headerText="Specifications" expand>
+        <Text>
+          Specifications for the product are detailed here. This section is
+          expanded by default.
+        </Text>
+      </AccordionItem>
+      <AccordionItem headerText="Reviews" headerIcon="Star">
+        <Text>Read customer reviews in this section.</Text>
+      </AccordionItem>
+      <AccordionItem headerText="FAQ" headerIcon="CircleHelp">
+        <Text>Find answers to frequently asked questions here.</Text>
+      </AccordionItem>
+    </Accordion>
+  );
+};
+
+export default Example;
 ```
 
 ## Props
 
 ### onChange
+
 `(index: number) => void`
 
 A callback function that is triggered when an accordion item is expanded or collapsed. It receives the index of the item that was toggled as a parameter.
 
+```jsx
+import { AccordionItem } from "phaselis";
+import { Text } from "react-native";
+```
 
 ```jsx
-<Accordion onChange={(index) => console.log("Accordion item changed at index:", index)}>
+<Accordion
+  onChange={(index) => console.log("Accordion item changed at index:", index)}
+>
   <AccordionItem headerText="Item 1">
     <Text>Content for item 1</Text>
   </AccordionItem>
@@ -66,10 +88,15 @@ A callback function that is triggered when an accordion item is expanded or coll
 ```
 
 ### expandMode
+
 `single | multiple`
 
 Defines how the accordion items behave when expanded. The default value is `"single"`.
 
+```jsx
+import { AccordionItem } from "phaselis";
+import { Text } from "react-native";
+```
 
 ```jsx
 <Accordion expandMode="multiple">
@@ -83,10 +110,15 @@ Defines how the accordion items behave when expanded. The default value is `"sin
 ```
 
 ### children
+
 `ReactNode`
 
 The `Accordion` component can include one or more `AccordionItem` components as its children. Each `AccordionItem` represents an expandable/collapsible section.
 
+```jsx
+import { AccordionItem } from "phaselis";
+import { Text } from "react-native";
+```
 
 ```jsx
 <Accordion>

@@ -18,16 +18,35 @@ import { ProgressStep } from "phaselis";
 ## Usage
 
 ```jsx
-<ProgressStep
-  text="Step5"
-  onPrevious={() => {
-    console.log("called previous step");
-  }}
-  onSubmit={() => {
-    console.log("called on submit step.");
-  }}
-  disabled
-></ProgressStep>
+import { Stepper, ProgressStep } from "phaselis";
+import { Text } from "react-native";
+
+const Example = () => {
+  return (
+    <Stepper>
+      <ProgressStep
+        text="Step5"
+        onPrevious={() => {
+          console.log("called previous step");
+        }}
+        onSubmit={() => {
+          console.log("called on submit step.");
+        }}
+        disabled
+      >
+        <Text>Content for Step 1</Text>
+      </ProgressStep>
+      <ProgressStep text="Step 2" previousButtonDisabled>
+        <Text>Content for Step 2</Text>
+      </ProgressStep>
+      <ProgressStep text="Step 3">
+        <Text>Content for Step 3</Text>
+      </ProgressStep>
+    </Stepper>
+  );
+};
+
+export default Example;
 ```
 
 ## Props
@@ -37,9 +56,15 @@ import { ProgressStep } from "phaselis";
 
 The label or title displayed for the step.
 
-
 ```jsx
-<ProgressStep text="Step 1" />
+import { Stepper } from "phaselis";
+```
+```jsx
+<Stepper>
+  <ProgressStep text="Step 1" />
+  <ProgressStep text="Step 2" />
+  <ProgressStep text="Step 3" />
+</Stepper>
 ```
 
 ### onNext
@@ -47,9 +72,35 @@ The label or title displayed for the step.
 
 Callback function triggered when navigating to the next step.
 
-
 ```jsx
-<ProgressStep text="Step 1" onNext={() => console.log("Next step initiated")} />
+import { Button, Row, Stepper } from "phaselis";
+```
+```jsx
+<Stepper
+  renderFooter={({ nextButtonProps }) => (
+    <Row style={{ justifyContent: "space-between", marginTop: 10 }}>
+      <Button
+        text="Next"
+        size="sm"
+        disabled={nextButtonProps.disabled}
+        onClick={nextButtonProps.onPress}
+      />
+    </Row>
+  )}
+>
+  <ProgressStep
+    text="Step 1"
+    onNext={() => console.log("Next step initiated")}
+  />
+  <ProgressStep
+    text="Step 2"
+    onNext={() => console.log("Next step initiated")}
+  />
+  <ProgressStep
+    text="Step 3"
+    onNext={() => console.log("Next step initiated")}
+  />
+</Stepper>
 ```
 
 ### onPrevious
@@ -57,9 +108,36 @@ Callback function triggered when navigating to the next step.
 
 Callback function triggered when navigating to the previous step.
 
-
 ```jsx
-<ProgressStep text="Step 2" onPrevious={() => console.log("Returning to previous step")} />
+import { Button, Row, Stepper } from "phaselis";
+```
+```jsx
+<Stepper
+  activeStep={2}
+  renderFooter={({ previousButtonProps }) => (
+    <Row style={{ justifyContent: "space-between", marginTop: 10 }}>
+      <Button
+        text="Previous"
+        size="sm"
+        disabled={previousButtonProps.disabled}
+        onClick={previousButtonProps.onPress}
+      />
+    </Row>
+  )}
+>
+  <ProgressStep
+    text="Step 1"
+    onPrevious={() => console.log("Returning to previous step")}
+  />
+  <ProgressStep
+    text="Step 2"
+    onPrevious={() => console.log("Returning to previous step")}
+  />
+  <ProgressStep
+    text="Step 3"
+    onPrevious={() => console.log("Returning to previous step")}
+  />
+</Stepper>
 ```
 
 ### onSubmit
@@ -67,9 +145,29 @@ Callback function triggered when navigating to the previous step.
 
 Callback function triggered when submitting the final step.
 
-
 ```jsx
-<ProgressStep text="Final Step" onSubmit={() => console.log("Final step submitted")} />
+import { Button, Row, Stepper } from "phaselis";
+```
+```jsx
+<Stepper
+  renderFooter={({ nextButtonProps }) => (
+    <Row style={{ justifyContent: "space-between", marginTop: 10 }}>
+      <Button
+        text="Next"
+        size="sm"
+        disabled={nextButtonProps.disabled}
+        onClick={nextButtonProps.onPress}
+      />
+    </Row>
+  )}
+>
+  <ProgressStep text="Step 1"/>
+  <ProgressStep text="Step 2"/>
+  <ProgressStep
+    text="Final Step"
+    onSubmit={() => console.log("Final step submitted")}
+  />
+</Stepper>
 ```
 
 ### disabled
@@ -78,7 +176,14 @@ Callback function triggered when submitting the final step.
 Disables the entire step, preventing interaction when set to `true`.
 
 ```jsx
-<ProgressStep text="Step 2" disabled />
+import { Stepper } from "phaselis";
+```
+```jsx
+<Stepper>
+  <ProgressStep text="Step 1"/>
+  <ProgressStep text="Step 2"/>
+  <ProgressStep text="Step 3" disabled />
+</Stepper>
 ```
 
 ### previousButtonDisabled
@@ -87,7 +192,31 @@ Disables the entire step, preventing interaction when set to `true`.
 Disables the "Previous" button when set to `true`.
 
 ```jsx
-<ProgressStep text="Step 2" previousButtonDisabled />
+import { Button, Stepper } from "phaselis";
+import { Text } from "react-native";
+```
+```jsx
+<Stepper
+  activeStep={2}
+  renderFooter={({ previousButtonProps }) => (
+    <Button
+      text="Previous"
+      size="sm"
+      disabled={previousButtonProps.disabled}
+      onClick={previousButtonProps.onPress}
+    />
+  )}
+>
+  <ProgressStep text="Step 1">
+    <Text>Content for Step 1</Text>
+  </ProgressStep>
+  <ProgressStep text="Step 2" previousButtonDisabled>
+    <Text>Content for Step 2</Text>
+  </ProgressStep>
+  <ProgressStep text="Step 3">
+    <Text>Content for Step 3</Text>
+  </ProgressStep>
+</Stepper>
 ```
 
 
@@ -97,7 +226,30 @@ Disables the "Previous" button when set to `true`.
 Disables the "Next" button when set to `true`.
 
 ```jsx
-<ProgressStep text="Step 1" nextButtonDisabled />
+import { Button, Stepper } from "phaselis";
+import { Text } from "react-native";
+```
+```jsx
+<Stepper
+  renderFooter={({ nextButtonProps }) => (
+    <Button
+      text="Next"
+      size="sm"
+      disabled={nextButtonProps.disabled}
+      onClick={nextButtonProps.onPress}
+    />
+  )}
+>
+  <ProgressStep text="Step 1" nextButtonDisabled>
+    <Text>Content for Step 1</Text>
+  </ProgressStep>
+  <ProgressStep text="Step 2">
+    <Text>Content for Step 2</Text>
+  </ProgressStep>
+  <ProgressStep text="Step 3">
+    <Text>Content for Step 3</Text>
+  </ProgressStep>
+</Stepper>
 ```
 
 ### finishButtonDisabled
@@ -106,5 +258,28 @@ Disables the "Next" button when set to `true`.
 Disables the "Finish" button when set to `true`.
 
 ```jsx
-<ProgressStep text="Final Step" finishButtonDisabled />
+import { Button, Stepper } from "phaselis";
+import { Text } from "react-native";
+```
+```jsx
+  <Stepper
+    renderFooter={({ nextButtonProps }) => (
+      <Button
+        text="Next"
+        size="sm"
+        disabled={nextButtonProps.disabled}
+        onClick={nextButtonProps.onPress}
+      />
+    )}
+  >
+    <ProgressStep text="Step 1">
+      <Text>Content for Step 1</Text>
+    </ProgressStep>
+    <ProgressStep text="Step 2">
+      <Text>Content for Step 2</Text>
+    </ProgressStep>
+    <ProgressStep text="Step 3" finishButtonDisabled>
+      <Text>Content for Step 3</Text>
+    </ProgressStep>
+  </Stepper>
 ```

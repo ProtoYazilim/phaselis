@@ -94,6 +94,7 @@ const CustomDrawer: FC<{
     >
       {drawerScreens.map((screen: DrawerScreen, index) => (
         <Drawer.Screen
+          key={screen.name}
           name={screen.name}
           key={`screen.name-${index}`}
           options={{

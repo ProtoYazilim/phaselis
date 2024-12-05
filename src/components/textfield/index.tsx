@@ -172,6 +172,7 @@ const Textfield: React.FC<TextfieldProps> = ({
   const maskedInputProps = useMaskedInputProps({
     value: value,
     onChangeText: (masked, unmasked) => {
+      //@ts-ignore TODO: fix this
       onChange?.(null, unmasked, masked);
     },
     mask: mask,

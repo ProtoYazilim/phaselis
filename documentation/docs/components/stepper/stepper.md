@@ -19,26 +19,66 @@ import { Stepper } from "phaselis";
 ## Usage
 
 ```jsx
-<Stepper
-  renderFooter={({ nextButtonProps, previousButtonProps, stepperState }) => (
-    <Row style={{ justifyContent: "space-between", marginTop: 10 }}>
-      {stepperState?.activeStepIndex !== 0 && (
-        <Button
-          text="Previous"
-          size="sm"
-          disabled={previousButtonProps.disabled}
-          onClick={previousButtonProps.onPress}
-        />
+import { Button, Row, Stepper, ProgressStep } from "phaselis";
+import { Text } from "react-native";
+
+const Example = () => {
+  return (
+    <Stepper
+      renderFooter={({
+        nextButtonProps,
+        previousButtonProps,
+        stepperState,
+      }) => (
+        <Row style={{ justifyContent: "space-between", marginTop: 10 }}>
+          {stepperState?.activeStepIndex !== 0 && (
+            <Button
+              text="Previous"
+              size="sm"
+              disabled={previousButtonProps.disabled}
+              onClick={previousButtonProps.onPress}
+            />
+          )}
+          <Button
+            text="Next"
+            size="sm"
+            disabled={nextButtonProps.disabled}
+            onClick={nextButtonProps.onPress}
+          />
+        </Row>
       )}
-      <Button
-        text="Next"
-        size="sm"
-        disabled={nextButtonProps.disabled}
-        onClick={nextButtonProps.onPress}
-      />
-    </Row>
-  )}
->
+    >
+      <ProgressStep text="Step 1">
+        <Text>Content for Step 1</Text>
+      </ProgressStep>
+      <ProgressStep text="Step 2" previousButtonDisabled>
+        <Text>Content for Step 2</Text>
+      </ProgressStep>
+      <ProgressStep text="Step 3">
+        <Text>Content for Step 3</Text>
+      </ProgressStep>
+    </Stepper>
+  );
+};
+
+export default Example;
+```
+
+## Props
+
+### isComplete
+
+`boolean`
+
+Indicates if the process is complete. When set to `true`, it marks all steps as completed.
+
+```jsx
+import { ProgressStep } from "phaselis";
+import { Text } from "react-native";
+```
+
+```jsx
+<Stepper isComplete>
   <ProgressStep text="Step 1">
     <Text>Content for Step 1</Text>
   </ProgressStep>
@@ -51,18 +91,6 @@ import { Stepper } from "phaselis";
 </Stepper>
 ```
 
-## Props
-
-### isComplete
-
-`boolean`
-
-Indicates if the process is complete. When set to `true`, it marks all steps as completed.
-
-```jsx
-<Stepper isComplete />
-```
-
 ### activeStep
 
 `number`
@@ -70,7 +98,22 @@ Indicates if the process is complete. When set to `true`, it marks all steps as 
 The current active step index. Defaults to `0`.
 
 ```jsx
-<Stepper activeStep={2} />
+import { ProgressStep } from "phaselis";
+import { Text } from "react-native";
+```
+
+```jsx
+<Stepper activeStep={2}>
+  <ProgressStep text="Step 1">
+    <Text>Content for Step 1</Text>
+  </ProgressStep>
+  <ProgressStep text="Step 2" previousButtonDisabled>
+    <Text>Content for Step 2</Text>
+  </ProgressStep>
+  <ProgressStep text="Step 3">
+    <Text>Content for Step 3</Text>
+  </ProgressStep>
+</Stepper>
 ```
 
 ### children
@@ -78,6 +121,10 @@ The current active step index. Defaults to `0`.
 `React.ReactNode[]`
 
 The steps to display, each represented as a `ProgressStep` component.
+
+```jsx
+import { ProgressStep } from "phaselis";
+```
 
 ```jsx
 <Stepper>
@@ -159,6 +206,10 @@ renderFooter?: ({
   - `stepCount`: The total number of steps in the stepper.
 
 ```jsx
+import { Button, Row, ProgressStep } from "phaselis";
+```
+
+```jsx
 <Stepper
   renderFooter={({
     nextButtonProps,
@@ -192,5 +243,9 @@ renderFooter?: ({
       )}
     </Row>
   )}
-></Stepper>
+>
+  <ProgressStep text="Step 1" />
+  <ProgressStep text="Step 2" />
+  <ProgressStep text="Step 3" />
+</Stepper>
 ```

@@ -20,6 +20,10 @@ export default function Layout() {
           drawerLabel: "Switch",
           title: "Switch Story",
         },
+        {
+          name: "form-usage",
+          title: "Form Usage",
+        },
       ]}
     />
   );

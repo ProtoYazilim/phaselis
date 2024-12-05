@@ -121,13 +121,13 @@ export const Form: FC<FormProps> = (
         };
         newMeta[name].isChanged = false;
         newMeta[name].isUsed = false;
-        newMeta[name].error = null;
         newMeta[name][metaRef.current[name]?.valueKey || "value"] = resetValue;
         return newMeta;
       },
       {},
     );
     setMeta(metaRef.current);
+    setErrors();
   };
 
   const getComponentProps = (name: string) => {

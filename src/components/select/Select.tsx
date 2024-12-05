@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useRef, useState } from "react";
+import React, { FC, useEffect, useMemo, useRef, useState } from "react";
 import { View } from "react-native";
 import { PhaselisHOC } from "@phaselis/components/provider";
 import ReactNativePickerSelect from "react-native-picker-select";
@@ -44,14 +44,26 @@ const Select: FC<SelectProps> = ({
   const [showPicker, setShowPicker] = useState(false);
   const refAndroidPicker = useRef<ReactNativePickerSelect>(null);
   const refIOSPicker = useRef<ReactNativePickerSelect>(null);
+  const [innerValue, setInnerValue] = useState(value);
+
+  const handleOnChange = (e: any, value: string) => {
+    setInnerValue(value);
+    onChange?.(e, value);
+  };
 
   const showError = useMemo(() => {
     return isChanged && isUsed && error ? true : false;
   }, [error, isUsed, isChanged]);
 
   const selectedItem = useMemo(() => {
-    return options?.find((option) => option.value === value);
-  }, [value, options]);
+    return options?.find((option) => option.value === innerValue);
+  }, [options, innerValue]);
+
+  useEffect(() => {
+    if (value !== innerValue) {
+      setInnerValue(value);
+    }
+  }, [innerValue, value]);
 
   return (
     <>
@@ -86,9 +98,9 @@ const Select: FC<SelectProps> = ({
           <NativePicker
             refIOSPicker={refIOSPicker}
             refAndroidPicker={refAndroidPicker}
-            onChange={onChange}
+            onChange={handleOnChange}
             options={options}
-            value={value}
+            value={innerValue}
             disabled={disabled}
             placeholder={placeholder}
             doneText={doneText}
@@ -111,7 +123,7 @@ const Select: FC<SelectProps> = ({
             closeIconSize={closeIconSize}
             CloseIconSlot={CloseIconSlot}
             OptionSlot={OptionSlot}
-            onChange={onChange}
+            onChange={handleOnChange}
             selectedItem={selectedItem}
             closeOnSelect={closeOnSelect}
             NoOptionSlot={NoOptionSlot}

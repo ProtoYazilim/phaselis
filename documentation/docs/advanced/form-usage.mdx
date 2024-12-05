@@ -1,0 +1,119 @@
+
+# Connecting a Component to a Form Using `InputHOC`
+
+`InputHOC` is a Higher-Order Component (HOC) that facilitates the connection of a UI component to a form managed by the `FormContext`. This enables seamless integration with form handling, including registration, validation, and change tracking.
+
+## Overview
+
+The `InputHOC` enhances your component by:
+
+1. Registering it with the `FormContext` when it's part of a form.
+2. Automatically handling value changes and blur events.
+3. Providing additional props from the form context (`meta`).
+### Key Features
+
+- Automatic registration and unregistration in the form lifecycle.
+- Centralized management of form field state.
+- Support for `onChange` and `onBlur` event handling for form updates.
+
+---
+
+## Usage Example
+
+### Step 1: Create a Base Component
+
+Start by creating a base component that represents a form field.
+
+```tsx
+import React from 'react';
+import { TextInput, View } from 'react-native';
+
+const MyInput = ({ value, onChange, onBlur, ...props }) => {
+  return (
+    <View>
+      <TextInput
+        value={value}
+        onChangeText={(text) => onChange?.(null, text)}
+        onBlur={(e) => onBlur?.(e, value)}
+        {...props}
+      />
+    </View>
+  );
+};
+
+export default MyInput;
+```
+
+### Step 2: Enhance the Component with `InputHOC`
+
+Use `InputHOC` to wrap the base component, enabling it to integrate with the form.
+
+```tsx
+import React from 'react';
+import InputHOC from '@phaselis/utils/inputhoc';
+import MyInput from './MyInput';
+
+const MyFormInput = InputHOC(MyInput);
+
+export default MyFormInput;
+```
+
+### Step 3: Use the Enhanced Component in a Form
+
+Now, include the enhanced component in a form and pass the necessary props, such as `name` and `partofform`.
+
+```tsx
+import React from 'react';
+import { View, Button } from 'react-native';
+import { FormProvider } from '@phaselis/components/form';
+import MyFormInput from './MyFormInput';
+
+const MyForm = () => {
+  const handleSubmit = (formData) => {
+    console.log('Form submitted:', formData);
+  };
+
+  return (
+    <FormProvider onSubmit={handleSubmit}>
+      <View>
+        <MyFormInput name="username" placeholder="Enter your username" />
+        <MyFormInput
+          name="password"
+          placeholder="Enter your password"
+          secureTextEntry
+        />
+        <Button title="Submit" onPress={() => formContext.submitForm()} />
+      </View>
+    </FormProvider>
+  );
+};
+
+export default MyForm;
+```
+
+---
+
+## Props Provided by `InputHOC`
+
+| Prop        | Description                                                                                   |
+|-------------|-----------------------------------------------------------------------------------------------|
+| **`name`**  | The unique identifier for the field in the form.                                              |
+| **`partofform`** | Determines whether the component is part of the form. Defaults to `true`.                   |
+| **`onChange`** | Function triggered when the field's value changes. Calls the `formContext` handler if applicable. |
+| **`onBlur`**   | Function triggered when the field loses focus. Calls the `formContext` handler if applicable. |
+| **`meta`**     | Metadata provided by the `formContext` for the field, such as validation errors or touched state. |
+
+---
+
+## Advanced Notes
+
+- Components wrapped with `InputHOC` inherit all props from the base component, plus additional functionality for form integration.
+- The `InputHOC` automatically handles cleanup, unregistering the component from the `formContext` when it is unmounted.
+
+---
+
+## Benefits of Using `InputHOC`
+
+- Simplifies integration of custom components with forms.
+- Eliminates boilerplate for managing form field states.
+- Provides a consistent API for working with form fields.

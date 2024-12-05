@@ -42,9 +42,16 @@
       "@phaselis/types": [
         "../src/types"
       ],
+      "@appSrc/*": [
+        "../appSrc/*"
+      ],
+      "@appSrc": [
+        "../appSrc"
+      ],
     },
   },
   "include": [
     "./**/*",
+    "../appSrc/**/*",
   ]
 }

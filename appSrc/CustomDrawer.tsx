@@ -9,7 +9,7 @@ import { SlotIconName } from "@phaselis/types/base";
 
 type DrawerScreen = {
   name: string;
-  drawerLabel: string;
+  drawerLabel?: string;
   title: string;
 };
 
@@ -57,7 +57,7 @@ const CustomDrawer: FC<{
           </Pressable>
         ),
         headerRight: () =>
-          showRightIcon ? (
+          drawerScreens.length > 1 && showRightIcon ? (
             <Pressable
               onPress={() => rootNav.dispatch(DrawerActions.toggleDrawer())}
               style={{
@@ -76,7 +76,6 @@ const CustomDrawer: FC<{
       screenListeners={{
         focus: () => {
           const routeName = rootNav.getCurrentRoute()?.name;
-          console.log("routeName", routeName);
           if (routeName !== "index" && routeName !== undefined) {
             AsyncStorage.setItem("lastStoryRouteName", routeName || "/").catch(
               console.error,
@@ -93,12 +92,13 @@ const CustomDrawer: FC<{
         },
       }}
     >
-      {drawerScreens.map((screen: DrawerScreen) => (
+      {drawerScreens.map((screen: DrawerScreen, index) => (
         <Drawer.Screen
           key={screen.name}
           name={screen.name}
+          key={`screen.name-${index}`}
           options={{
-            drawerLabel: screen.drawerLabel,
+            drawerLabel: screen.title || screen.drawerLabel,
             title: screen.title,
           }}
         />

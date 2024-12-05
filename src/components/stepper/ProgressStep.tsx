@@ -49,7 +49,7 @@ const ProgressStep: React.FC<ProgressStepProps> = ({
       nextButtonProps: {
         disabled: nextButtonDisabled,
 
-        onPress: activeStep === stepCount! - 1 ? onSubmitHandler : onNextStep,
+        onPress: onNextStep,
       },
       previousButtonProps: {
         disabled: previousButtonDisabled,

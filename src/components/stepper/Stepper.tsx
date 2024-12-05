@@ -64,14 +64,25 @@ const ProgressSteps: React.FC<ProgressStepsProps> = ({
   }, [children]);
 
   const isNextButtonDisabled = useMemo(() => {
-    if (disabledStepsIndexes && disabledStepsIndexes?.length > 0) {
-      return (
-        currentStep === stepCount - 1 ||
-        disabledStepsIndexes?.includes(currentStep + 1)
-      );
-    }
-    return false;
+    return (
+      currentStep === stepCount - 1 ||
+      disabledStepsIndexes?.includes(currentStep + 1) ||
+      false
+    );
   }, [disabledStepsIndexes, currentStep, stepCount]);
+
+  const isPreviousButtonDisabled = useMemo(() => {
+    return (
+      currentStep === 0 ||
+      disabledStepsIndexes?.includes(currentStep - 1) ||
+      false
+    );
+  }, [disabledStepsIndexes, currentStep]);
+
+  const isFinishButtonDisabled = useMemo(
+    () => currentStep !== stepCount - 1,
+    [currentStep, stepCount],
+  );
 
   return (
     <View>
@@ -94,6 +105,8 @@ const ProgressSteps: React.FC<ProgressStepsProps> = ({
           stepCount,
           renderFooter,
           nextButtonDisabled: isNextButtonDisabled,
+          previousButtonDisabled: isPreviousButtonDisabled,
+          finishButtonDisabled: isFinishButtonDisabled,
         })}
       </View>
     </View>

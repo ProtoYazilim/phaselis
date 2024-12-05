@@ -25,7 +25,7 @@ import Row from "./row"; // Row
 import Select from "./select"; // Select
 import Slider from "./slider"; // Slider
 import Slot from "./slot"; // Slot
-import Stepper from "./stepper"; // Stepper
+import Stepper, { ProgressStep } from "./stepper"; // Stepper
 import Switch from "./switch"; // Switch
 import TabView, { TabHeader, TabHeaderItem, TabItem } from "./tab-view"; // TabView
 import Textfield from "./textfield"; // Textfield
@@ -61,7 +61,7 @@ export { Row }; // Row
 export { Select }; // Select
 export { Slider }; // Slider
 export { Slot }; // Slot
-export { Stepper }; // Stepper
+export { Stepper, ProgressStep }; // Stepper
 export { Switch }; // Switch
 export { TabView, TabHeader, TabHeaderItem, TabItem }; // TabView & TabHeader & TabHeaderItem & TabItem
 export { Textfield }; // Textfield

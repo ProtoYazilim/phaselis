@@ -21,13 +21,22 @@ import { AccordionList } from "phaselis";
 ### Basic AccordionList
 
 ```jsx
-<AccordionList
-  data={[
-    { header: "Section 1", child: <Text>Details for section 1</Text> },
-    { header: "Section 2", child: <Text>Details for section 2</Text> },
-    { header: "Section 3", child: <Text>Details for section 3</Text> },
-  ]}
-/>
+import { AccordionList } from "phaselis";
+import { Text } from "react-native";
+
+const Example = () => {
+  return (
+    <AccordionList
+      data={[
+        { header: "Section 1", child: <Text>Details for section 1</Text> },
+        { header: "Section 2", child: <Text>Details for section 2</Text> },
+        { header: "Section 3", child: <Text>Details for section 3</Text> },
+      ]}
+    />
+  );
+};
+
+export default Example;
 ```
 
 ## Props
@@ -37,7 +46,9 @@ import { AccordionList } from "phaselis";
 
 An array of objects where each object represents an accordion item. The `header` key is used to display the header text of the item, and the `child` key represents the content that will be revealed when the item is expanded.
 
-
+```jsx
+import { Text } from "react-native";
+```
 ```jsx
 const data = [
   { header: "Introduction", child: <Text>Welcome to our guide!</Text> },
@@ -50,9 +61,18 @@ const data = [
 
 Defines the behavior for item expansion. If set to `"single"`, only one item can be expanded at a time. If set to `"multiple"`, multiple items can be expanded simultaneously.
 
-
 ```jsx
-<AccordionList expandMode="single" />
+import { Text } from "react-native";
+```
+```jsx
+<AccordionList
+  data={[
+    { header: "Section 1", child: <Text>Details for section 1</Text> },
+    { header: "Section 2", child: <Text>Details for section 2</Text> },
+    { header: "Section 3", child: <Text>Details for section 3</Text> },
+  ]}
+  expandMode="multiple"
+/>
 ```
 
 ### defaultExpandedIndex
@@ -60,9 +80,19 @@ Defines the behavior for item expansion. If set to `"single"`, only one item can
 
 Specifies the indices of items that should be expanded by default when the component is rendered.
 
-
 ```jsx
-<AccordionList defaultExpandedIndex={[0, 2]} />
+import { Text } from "react-native";
+```
+```jsx
+<AccordionList
+  data={[
+    { header: "Section 1", child: <Text>Details for section 1</Text> },
+    { header: "Section 2", child: <Text>Details for section 2</Text> },
+    { header: "Section 3", child: <Text>Details for section 3</Text> },
+    { header: "Section 4", child: <Text>Details for section 4</Text> },
+  ]}
+  defaultExpandedIndex={[0, 2]}
+/>
 ```
 
 ### onChange
@@ -70,9 +100,17 @@ Specifies the indices of items that should be expanded by default when the compo
 
 A callback function that is triggered when an accordion item is expanded or collapsed. It receives the index of the item that was toggled as a parameter.
 
-
 ```jsx
-<AccordionList onChange={(index) => console.log("Toggled item at index:", index)} />
+import { Text } from "react-native";
+```
+```jsx
+<AccordionList
+  onChange={(index) => console.log("Toggled item at index:", index)}
+  data={[
+    { header: "Section 1", child: <Text>Details for section 1</Text> },
+    { header: "Section 2", child: <Text>Details for section 2</Text> },
+  ]}
+/>
 ```
 
 ### style
@@ -83,12 +121,18 @@ A callback function that is triggered when an accordion item is expanded or coll
 
 Allows customization of the appearance of the `AccordionList`, including the container and the items.
 
-
+```jsx
+import { Text } from "react-native";
+```
 ```jsx
 <AccordionList
   style={{
     container: { borderColor: "#ddd", borderWidth: 1, padding: 10 },
     element: { backgroundColor: "#f7f7f7", marginBottom: 5 },
   }}
+  data={[
+    { header: "Section 1", child: <Text>Details for section 1</Text> },
+    { header: "Section 2", child: <Text>Details for section 2</Text> },
+  ]}
 />
 ```

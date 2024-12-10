@@ -74,6 +74,7 @@ const Avatar: FC<AvatarProps> = ({
     if (iconName) {
       return (
         <LucideIcon
+          deneme
           style={getCombinedStyle("icon")}
           name={iconName}
           width={sizeIconSizeLiteral[size]}

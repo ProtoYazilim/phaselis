@@ -10,6 +10,7 @@ interface SlotProps {
   onClick?: () => void;
   width?: number;
   height?: number;
+  loading?: boolean;
 }
 
 export default SlotProps;

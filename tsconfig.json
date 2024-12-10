@@ -3,6 +3,7 @@
   "compilerOptions": {
     "declaration": true,
     "strict": true,
+    "noEmitOnError": true,
     "paths": {
       "@/*": [
         "./*"

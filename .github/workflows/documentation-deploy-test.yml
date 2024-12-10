@@ -1,4 +1,4 @@
-name: Test deployment
+name: Test Documentation Deployment
 
 defaults:
   run:
@@ -9,12 +9,14 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - "documentation/**"
     # Review gh actions docs if you want to further define triggers, paths, etc
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
 jobs:
   test-deploy:
-    name: Test deployment
+    name: Test documentation deployment
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

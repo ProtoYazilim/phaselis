@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import LucideIcon from "@phaselis/components/lucide-icon";
 import SlotProps from "./types";
+import { Animated, Easing } from "react-native";
 
 const Slot: React.FC<SlotProps> = ({
   children,
@@ -11,7 +12,29 @@ const Slot: React.FC<SlotProps> = ({
   onClick,
   height,
   width,
+  loading,
 }) => {
+  const rotateValue = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    const spinAnimation = Animated.loop(
+      Animated.timing(rotateValue, {
+        toValue: 1,
+        duration: 1000, // 1 second for a full spin
+        useNativeDriver: true,
+        easing: Easing.linear,
+      }),
+    );
+    spinAnimation.start();
+
+    return () => spinAnimation.stop(); // Clean up on unmount
+  }, [rotateValue]);
+
+  const spin = rotateValue.interpolate({
+    inputRange: [0, 1],
+    outputRange: ["0deg", "360deg"], // Full rotation
+  });
+
   if (children) {
     return (
       <>
@@ -23,6 +46,21 @@ const Slot: React.FC<SlotProps> = ({
           ...children?.props,
         })}
       </>
+    );
+  }
+  if (loading) {
+    return (
+      <Animated.View style={{ transform: [{ rotate: spin }] }}>
+        <LucideIcon
+          name="LoaderCircle"
+          style={style}
+          width={width}
+          height={height}
+          size={size}
+          strokeWidth={strokeWidth}
+          onClick={onClick}
+        />
+      </Animated.View>
     );
   }
   if (icon) {

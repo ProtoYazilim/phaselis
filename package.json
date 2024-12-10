@@ -109,6 +109,9 @@
     "ts-node": "^10.9.2",
     "typescript": "~5.3.3"
   },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "*"
+  },
   "private": false,
   "homepage": "https://www.protoyazilim.com/phaselis",
   "repository": {

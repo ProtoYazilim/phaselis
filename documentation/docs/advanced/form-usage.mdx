@@ -33,7 +33,8 @@ const MyInput = ({ value, onChange, onBlur, ...props }) => {
     <View>
       <TextInput
         value={value}
-        onChangeText={(text) => onChange?.(null, text)}
+        onChange={(e) => onChange?.(e, e.target.value)}
+        // onChangeText={(text) => onChange?.(null, text)} alternative
         onBlur={(e) => onBlur?.(e, value)}
         {...props}
       />

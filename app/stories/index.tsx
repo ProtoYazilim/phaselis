@@ -47,6 +47,7 @@ export default function Index() {
             if (lastStoryRouteBase === null) {
               navigation.navigate(lastStoryRouteName as never);
             } else {
+              // @ts-ignore
               navigation.navigate(lastStoryRouteBase, {
                 screen: lastStoryRouteName,
               });

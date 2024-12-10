@@ -3,34 +3,24 @@ import { createStyleSheet } from "react-native-unistyles";
 const stylesheet = createStyleSheet({
   //@ts-ignore
   container: {
+    borderWidth: 1,
+    justifyContent: "center",
     variants: {
-      base: {
-        primary: {},
-        secondary: {},
-        tertiary: {},
-        primary_outline: {},
-        secondary_outline: {},
-        tertiary_outline: {},
-      },
       pressed: {
-        primary: {},
-        secondary: {},
-        tertiary: {},
-        primary_outline: {},
-        secondary_outline: {},
-        tertiary_outline: {},
+        true: {},
       },
       disabled: {
-        primary: {},
-        secondary: {},
-        tertiary: {},
-        primary_outline: {},
-        secondary_outline: {},
-        tertiary_outline: {},
+        true: {},
+      },
+      loading: {
+        true: {},
       },
     },
   },
   element: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
     variants: {
       size: {
         xs: {},
@@ -43,22 +33,11 @@ const stylesheet = createStyleSheet({
     },
   },
   text: {
+    fontFamily: "Poppins",
+    textAlign: "center",
     variants: {
-      base: {
-        primary: {},
-        secondary: {},
-        tertiary: {},
-        primary_outline: {},
-        secondary_outline: {},
-        tertiary_outline: {},
-      },
       disabled: {
-        primary: {},
-        secondary: {},
-        tertiary: {},
-        primary_outline: {},
-        secondary_outline: {},
-        tertiary_outline: {},
+        true: {},
       },
       size: {
         xs: {},
@@ -72,41 +51,15 @@ const stylesheet = createStyleSheet({
   },
   leftSlot: {
     variants: {
-      base: {
-        primary: {},
-        secondary: {},
-        tertiary: {},
-        primary_outline: {},
-        secondary_outline: {},
-        tertiary_outline: {},
-      },
       disabled: {
-        primary: {},
-        secondary: {},
-        tertiary: {},
-        primary_outline: {},
-        secondary_outline: {},
-        tertiary_outline: {},
+        true: {},
       },
     },
   },
   rightSlot: {
     variants: {
-      base: {
-        primary: {},
-        secondary: {},
-        tertiary: {},
-        primary_outline: {},
-        secondary_outline: {},
-        tertiary_outline: {},
-      },
       disabled: {
-        primary: {},
-        secondary: {},
-        tertiary: {},
-        primary_outline: {},
-        secondary_outline: {},
-        tertiary_outline: {},
+        true: {},
       },
     },
   },

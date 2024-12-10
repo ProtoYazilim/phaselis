@@ -34,6 +34,7 @@ const Button: FC<ButtonPropTypes> = ({
   primary,
   secondary,
   tertiary,
+  loading,
   onPressIn,
   onPressOut,
   ...extraProps
@@ -43,6 +44,7 @@ const Button: FC<ButtonPropTypes> = ({
 
   const variation = useMemo<ButtonDefaultVariants>(() => {
     let variant = "";
+
     const variantLiteral = {
       primary: "primary",
       secondary: "secondary",
@@ -82,12 +84,12 @@ const Button: FC<ButtonPropTypes> = ({
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
     style,
-    contextValue?.theme?.button,
+    contextValue?.theme?.button[variation],
     {
-      base: variation,
-      disabled: disabled ? variation : undefined,
-      pressed: isPressed ? variation : undefined,
+      disabled: disabled,
+      pressed: isPressed,
       size,
+      loading,
       ...extraProps,
     },
   );
@@ -127,24 +129,23 @@ const Button: FC<ButtonPropTypes> = ({
           style={getCombinedStyle("leftSlot")}
           icon={leftIcon}
           size={sizeIconSizeLiteral[size] as any}
+          loading={loading}
         >
           {LeftSlot && <LeftSlot />}
         </Slot>
-        {children ? (
-          React.Children.map(children, (child, index) => {
-            if (typeof child === "string") {
-              return (
-                <Text key={index} style={getCombinedStyle("text")}>
-                  {child}
-                </Text>
-              );
-            } else {
-              return child;
-            }
-          })
-        ) : (
-          <Text style={getCombinedStyle("text")}>{text}</Text>
-        )}
+        {children
+          ? React.Children.map(children, (child, index) => {
+              if (typeof child === "string") {
+                return (
+                  <Text key={index} style={getCombinedStyle("text")}>
+                    {child}
+                  </Text>
+                );
+              } else {
+                return child;
+              }
+            })
+          : text && <Text style={getCombinedStyle("text")}>{text}</Text>}
         <Slot
           style={getCombinedStyle("rightSlot")}
           icon={rightIcon}

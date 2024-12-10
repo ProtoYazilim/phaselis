@@ -23,6 +23,7 @@ export interface ButtonPropTypes
   secondary?: boolean;
   outline?: boolean;
   tertiary?: boolean;
+  loading?: boolean;
 }
 
 export interface ButtonStyles {

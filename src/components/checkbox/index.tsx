@@ -51,7 +51,6 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
   };
 
   const handleChange = () => {
-    console.log("handleChange");
     const newValue = !checked;
     setChecked(newValue);
     refInput.current?.focus();

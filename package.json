@@ -1,6 +1,6 @@
 {
   "name": "phaselis",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "main": "expo-router/entry",
   "module": "package/index.js",
   "types": "package/index.d.ts",
@@ -108,6 +108,9 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "ts-node": "^10.9.2",
     "typescript": "~5.3.3"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "*"
   },
   "private": false,
   "homepage": "https://www.protoyazilim.com/phaselis",

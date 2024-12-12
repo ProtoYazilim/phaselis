@@ -1,20 +1,21 @@
-name: Test deployment
+name: Build Framework
 
 defaults:
   run:
     shell: bash
-    working-directory: ./documentation
 
 on:
   pull_request:
     branches:
       - main
+    paths:
+      - "src/**"
     # Review gh actions docs if you want to further define triggers, paths, etc
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
 jobs:
-  test-deploy:
-    name: Test deployment
+  build:
+    name: Test framework deployment
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,10 +23,11 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
         run: npm install --frozen-lockfile
-      - name: Test build website
+
+      - name: Test build framework
         run: npm run build

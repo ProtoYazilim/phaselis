@@ -7,6 +7,7 @@ import {
   StyleSheetWithSuperPowers,
 } from "react-native-unistyles/lib/typescript/src/types";
 import { StyleSheet } from "react-native";
+import { merge, mergeWith, isObject } from "lodash";
 
 type ParsedStylesheet<ST extends StyleSheetWithSuperPowers> = {
   defaultStyles: ReactNativeStyleSheet<ST>;
@@ -20,12 +21,16 @@ const useCombinedStyle = <ST extends StyleSheetWithSuperPowers>(
   stylesheet: ST,
   style: any,
   contextThemeStyles: any,
+  variation?: any,
   variantsMap?: ExtractVariantNames<typeof stylesheet>,
 ): ParsedStylesheet<ST> => {
   const { styles: defaultStyles } = useStyles(stylesheet, variantsMap);
 
   const { styles: themeStyles } = useStyles(
-    contextThemeStyles as typeof stylesheet,
+    mergeStyles(
+      contextThemeStyles[variation],
+      contextThemeStyles?.default || contextThemeStyles,
+    ),
     variantsMap,
   );
 
@@ -77,3 +82,12 @@ const useCombinedStyle = <ST extends StyleSheetWithSuperPowers>(
 };
 
 export default useCombinedStyle;
+
+function mergeStyles(obj1, obj2) {
+  return mergeWith({}, obj1, obj2, (objValue, srcValue) => {
+    if (isObject(objValue) && isObject(srcValue)) {
+      return merge({}, objValue, srcValue);
+    }
+    return srcValue !== undefined ? srcValue : objValue;
+  });
+}

@@ -14,12 +14,14 @@ const Label: FC<LabelProps> = (props) => {
     minimumFontScale,
     contextValue,
     children,
+    variation,
   } = props;
 
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
     style,
     contextValue?.theme?.label,
+    variation,
     props as never,
   );
 

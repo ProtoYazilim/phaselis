@@ -41,7 +41,6 @@ export default function Index() {
       </Text>
       {lastStoryRouteName && (
         <Button
-          primary
           text="Go to last story"
           onClick={() => {
             if (lastStoryRouteBase === null) {

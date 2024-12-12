@@ -52,6 +52,7 @@ const Avatar: FC<AvatarProps> = ({
     stylesheet,
     style,
     contextValue?.theme?.avatar,
+    "circle",
     {
       size,
       circle: getVariant("circle"),

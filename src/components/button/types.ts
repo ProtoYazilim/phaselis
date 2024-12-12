@@ -19,11 +19,8 @@ export interface ButtonPropTypes
   onClick?: ((event: GestureResponderEvent) => void) | null | undefined;
   type?: buttonType;
   size?: ComponentSize;
-  primary?: boolean;
-  secondary?: boolean;
-  outline?: boolean;
-  tertiary?: boolean;
   loading?: boolean;
+  variation?: any;
 }
 
 export interface ButtonStyles {

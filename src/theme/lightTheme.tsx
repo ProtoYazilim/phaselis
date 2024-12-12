@@ -1,5 +1,6 @@
 import Colors from "./colors";
 import buttonTheme from "./light/button-theme";
+import labelTheme from "./light/label-theme";
 import { Spacings, Heights, Radius, FontSizes } from "./spacings";
 
 export const layeredComponents = ["tab"];
@@ -10,6 +11,7 @@ export const lightTheme = {
     spacings: Spacings,
   },
   ...buttonTheme,
+  ...labelTheme,
   textfield: {
     container: {
       borderColor: Colors.Gray[950],
@@ -1364,7 +1366,6 @@ export const lightTheme = {
   block: {},
   col: {},
   row: {},
-  label: {},
   list: {},
   avatar: {
     container: {

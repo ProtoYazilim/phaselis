@@ -13,4 +13,5 @@ export interface LabelProps {
   minimumFontScale?: number;
   contextValue?: any;
   children?: ReactNode;
+  variation?: any;
 }

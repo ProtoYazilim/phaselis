@@ -37,6 +37,7 @@ const Badge: React.FC<BadgeProps> = ({
     stylesheet,
     style,
     contextValue?.theme?.badge,
+    "default",
     {
       outline: outline && getVariation(),
       base: getVariation(),

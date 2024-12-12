@@ -1,4 +1,4 @@
-import React, { FC, useContext, useMemo, useState } from "react";
+import React, { FC, useContext, useState } from "react";
 import { Platform, Text, GestureResponderEvent, Pressable } from "react-native";
 
 import { PhaselisHOC } from "@phaselis/components/provider";
@@ -7,14 +7,6 @@ import stylesheet from "./assets/styles";
 import { ButtonPropTypes } from "./types";
 import { Slot, Block } from "@phaselis/components";
 import { useCombinedStyle } from "@phaselis/hooks";
-
-type ButtonDefaultVariants =
-  | "primary"
-  | "secondary"
-  | "tertiary"
-  | "primary_outline"
-  | "secondary_outline"
-  | "tertiary_outline";
 
 const Button: FC<ButtonPropTypes> = ({
   type = "submit",
@@ -27,47 +19,17 @@ const Button: FC<ButtonPropTypes> = ({
   onClick,
   contextValue,
   size = "md",
-  outline = false,
   disabled = false,
   leftIcon,
   rightIcon,
-  primary,
-  secondary,
-  tertiary,
   loading,
   onPressIn,
   onPressOut,
+  variation = "primary",
   ...extraProps
 }) => {
   let formContext = useContext(FormContext);
   const [isPressed, setPressed] = useState(false);
-
-  const variation = useMemo<ButtonDefaultVariants>(() => {
-    let variant = "";
-
-    const variantLiteral = {
-      primary: "primary",
-      secondary: "secondary",
-      tertiary: "tertiary",
-      default: "primary",
-    };
-
-    if (primary) {
-      variant = variantLiteral.primary;
-    } else if (secondary) {
-      variant = variantLiteral.secondary;
-    } else if (tertiary) {
-      variant = variantLiteral.tertiary;
-    } else {
-      variant = variantLiteral.default;
-    }
-
-    if (outline) {
-      variant = `${variant}_outline`;
-    }
-
-    return variant as ButtonDefaultVariants;
-  }, [primary, secondary, tertiary, outline]);
 
   const handleClick = (event: GestureResponderEvent) => {
     event.persist();
@@ -84,7 +46,8 @@ const Button: FC<ButtonPropTypes> = ({
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
     style,
-    contextValue?.theme?.button[variation],
+    contextValue?.theme?.button,
+    variation,
     {
       disabled: disabled,
       pressed: isPressed,

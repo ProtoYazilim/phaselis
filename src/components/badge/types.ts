@@ -4,10 +4,6 @@ import { TextStyle, ViewStyle } from "react-native";
 export interface BadgeProps {
   text: string;
   children: ReactNode;
-  primary?: boolean;
-  secondary?: boolean;
-  tertiary?: boolean;
-  outline?: boolean;
   style?: {
     container?: ViewStyle;
     element?: ViewStyle;
@@ -18,4 +14,6 @@ export interface BadgeProps {
   bottom?: number;
   right?: number;
   left?: number;
+  variation?: any;
+  size?: any;
 }

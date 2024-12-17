@@ -28,6 +28,7 @@ interface RadioProps {
   };
   partOfGroup?: boolean;
   checked?: boolean;
+  variation?: any;
 }
 
 export { RadioGroupProps, RadioProps };

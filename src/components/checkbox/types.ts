@@ -2,17 +2,20 @@ import {
   IconStyle,
   SlotChildComponent,
   SlotIconName,
-  ComponentSize,
+  // ComponentSize,
   InputControlProps,
 } from "@phaselis/types";
 import { FC, ReactNode } from "react";
 import { TextStyle, ViewStyle } from "react-native";
+import { CheckboxExtraProps } from "@/global.d";
 
-export interface CheckboxProps extends InputControlProps<boolean, any, any> {
+export interface CheckboxProps
+  extends InputControlProps<boolean, any, any>,
+    CheckboxExtraProps {
   children?: ReactNode | FC | any | Element;
   contextValue?: any;
   disabled?: boolean;
-  size?: ComponentSize;
+  // size?: ComponentSize;
   id?: string;
   text?: string;
   iconName?: SlotIconName;
@@ -23,4 +26,5 @@ export interface CheckboxProps extends InputControlProps<boolean, any, any> {
     icon?: IconStyle;
     text?: TextStyle;
   };
+  // variation?: any;
 }

@@ -17,7 +17,7 @@
     }
   },
   "scripts": {
-    "start": "expo start --dev-client",
+    "start": "expo start --dev-client || npx ts-node ./scripts/generate-theme-interface.ts",
     "start-no-cache": "expo start -c",
     "patch-all": "patch-package",
     "generate-theme-interface": "npx ts-node ./scripts/generate-theme-interface.ts",
@@ -44,8 +44,11 @@
     "@react-native-picker/picker": "^2.9.0",
     "@react-navigation/drawer": "^6.6.15",
     "@react-navigation/native": "^6.0.2",
+    "chokidar": "^4.0.1",
     "color": "^4.2.3",
     "date-fns": "^3.6.0",
+    "expo": "~51.0.28",
+    "expo-status-bar": "~1.12.1",
     "hoist-non-react-statics": "^3.3.2",
     "lodash": "^4.17.21",
     "lucide-react-native": "^0.379.0",
@@ -66,9 +69,7 @@
     "react-native-svg": "^15.9.0",
     "react-native-unistyles": "^2.7.2",
     "react-native-web": "~0.19.10",
-    "react-native-web-linear-gradient": "^1.1.2",
-    "expo": "~51.0.28",
-    "expo-status-bar": "~1.12.1"
+    "react-native-web-linear-gradient": "^1.1.2"
   },
   "peerDependencies": {
     "expo-constants": "~16.0.2",

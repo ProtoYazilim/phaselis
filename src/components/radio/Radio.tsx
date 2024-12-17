@@ -17,6 +17,7 @@ const Radio = ({
   style,
   checked: checkedProp = false,
   partOfGroup = true,
+  variation = "primary",
   ...extraProps
 }: RadioProps) => {
   const [checked, setChecked] = useState(checkedProp);
@@ -31,6 +32,7 @@ const Radio = ({
     stylesheet,
     style,
     contextValue?.theme?.radio,
+    variation,
     { disabled, size, ...extraProps },
   );
 
@@ -53,7 +55,7 @@ const Radio = ({
   useEffect(() => {
     // Use Animated.spring to mimic the spring animation from
     Animated.spring(animationScale, {
-      toValue: checked ? (width + height) / 2 : 0,
+      toValue: checked ? width : 0,
       useNativeDriver: false,
       friction: 10, // Adjusted friction to mimic damping
       tension: 100, // Adjusted tension to mimic stiffness
@@ -63,12 +65,12 @@ const Radio = ({
   // Use the animated value for styling
   const animatedStyle = {
     width: animationScale.interpolate({
-      inputRange: [0, (width + height) / 2],
-      outputRange: [0, width - 10],
+      inputRange: [0, width],
+      outputRange: [0, width / 1.33],
     }),
     height: animationScale.interpolate({
-      inputRange: [0, (width + height) / 2],
-      outputRange: [0, height - 10],
+      inputRange: [0, height],
+      outputRange: [0, height / 1.33],
     }),
     borderRadius: animationScale.interpolate({
       inputRange: [0, (width + height) / 2],

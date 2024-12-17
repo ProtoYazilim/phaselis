@@ -2,101 +2,40 @@
 
 /* eslint-disable prettier/prettier */
 
-interface TextfieldExtraProps {
-  focus?: boolean;
-  error?: boolean;
-  disabled?: boolean;
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
-  textarea?: boolean;
-}
-
-interface SelectExtraProps {
-  focus?: boolean;
-  error?: boolean;
-  disabled?: boolean;
+export interface BadgeExtraProps {
+  variation?: "default" | "primary" | "primary_outline" | "secondary" | "secondary_outline" | "tertiary" | "tertiary_outline";
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
 }
 
-interface CheckboxExtraProps {
+export interface ButtonExtraProps {
+  variation?: "default" | "primary" | "primary_outline" | "secondary" | "secondary_outline" | "tertiary" | "tertiary_outline" | "danger" | "success";
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
-  focus?: boolean;
-  error?: boolean;
+  pressed?: boolean;
   disabled?: boolean;
+  loading?: boolean;
 }
 
-interface ButtonExtraProps {
-  base?: "primary" | "secondary" | "tertiary";
-  outline?: "primary" | "secondary" | "tertiary";
-  disabled?: "primary" | "secondary" | "tertiary";
-  half?: boolean;
+export interface CheckboxExtraProps {
+  variation?: "default" | "primary" | "secondary" | "tertiary";
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
-}
-
-interface RadioExtraProps {
-}
-
-interface RadioGroupExtraProps {
-}
-
-interface SliderExtraProps {
-  focus?: boolean;
-  error?: boolean;
-  disabled?: boolean;
-  size?: "sm" | "md" | "lg";
-}
-
-interface SwitchExtraProps {
-  focus?: boolean;
-  error?: boolean;
-  disabled?: boolean;
-  size?: "sm" | "md" | "lg";
-}
-
-interface Accordion_headerExtraProps {
   disabled?: boolean;
 }
 
-interface Accordion_itemExtraProps {
+export interface LabelExtraProps {
+  variation?: "default" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "quot" | "small";
+  bold?: boolean;
+  italic?: boolean;
+  weight?: "light" | "regular" | "medium" | "semiBold" | "bold";
+}
+
+export interface Radio-groupExtraProps {
+  variation?: "default";
   disabled?: boolean;
 }
 
-interface LinkExtraProps {
-  primary?: boolean;
-  secondary?: boolean;
-}
-
-interface BadgeExtraProps {
-  base?: "primary" | "secondary" | "tertiary";
-  outline?: "primary" | "secondary" | "tertiary" | "false" | boolean;
-  primary?: boolean;
-  secondary?: boolean;
-  tertiary?: boolean;
-}
-
-interface PopupExtraProps {
-}
-
-interface TabExtraProps {
-}
-
-interface StepperExtraProps {
-}
-
-interface ImageExtraProps {
-}
-
-interface BlockExtraProps {
-}
-
-interface ColExtraProps {
-}
-
-interface RowExtraProps {
-}
-
-interface LabelExtraProps {
-}
-
-interface ListExtraProps {
+export interface RadioExtraProps {
+  variation?: "default" | "primary" | "secondary" | "tertiary";
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+  disabled?: boolean;
 }
 

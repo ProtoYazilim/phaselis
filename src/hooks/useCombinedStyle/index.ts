@@ -28,8 +28,8 @@ const useCombinedStyle = <ST extends StyleSheetWithSuperPowers>(
 
   const { styles: themeStyles } = useStyles(
     mergeStyles(
-      contextThemeStyles[variation],
       contextThemeStyles?.default || contextThemeStyles,
+      contextThemeStyles[variation],
     ),
     variantsMap,
   );

@@ -25,6 +25,7 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
     onChange,
     iconName = "Check",
     IconSlot,
+    variation = "primary",
     ...extraProps
   } = props;
 
@@ -43,11 +44,11 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
 
   const iconSizeLiteral = {
     xs: 16,
-    sm: 20,
-    md: 26,
-    lg: 42,
-    xl: 50,
-    xxl: 80,
+    sm: 24,
+    md: 32,
+    lg: 56,
+    xl: 64,
+    xxl: 96,
   };
 
   const handleChange = () => {
@@ -73,6 +74,7 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
     stylesheet,
     style,
     contextValue?.theme?.checkbox,
+    variation,
     { error: showError, disabled, focus: isFocus, size, ...extraProps },
   );
 

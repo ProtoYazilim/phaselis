@@ -8,39 +8,23 @@ import { BadgeProps } from "./types";
 const Badge: React.FC<BadgeProps> = ({
   text,
   children,
-  primary,
-  secondary,
-  tertiary,
   style,
-  outline,
   contextValue,
   top,
   bottom,
   right,
   left,
+  size = "md",
+  variation = "primary",
   ...extraProps
 }) => {
-  const getVariation = () => {
-    if (primary) {
-      return "primary";
-    }
-    if (secondary) {
-      return "secondary";
-    }
-    if (tertiary) {
-      return "tertiary";
-    }
-    return "tertiary";
-  };
-
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
     style,
     contextValue?.theme?.badge,
-    "default",
+    variation,
     {
-      outline: outline && getVariation(),
-      base: getVariation(),
+      size,
       ...extraProps,
     },
   );

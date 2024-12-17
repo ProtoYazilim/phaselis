@@ -1,7 +1,8 @@
 import { ReactNode } from "react";
 import { TextStyle, ViewStyle } from "react-native";
+import { LabelExtraProps } from "@/global.d";
 
-export interface LabelProps {
+export interface LabelProps extends LabelExtraProps {
   text?: string;
   style?: {
     container?: ViewStyle;
@@ -13,5 +14,5 @@ export interface LabelProps {
   minimumFontScale?: number;
   contextValue?: any;
   children?: ReactNode;
-  variation?: any;
+  // variation?: any;
 }

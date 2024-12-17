@@ -23,7 +23,6 @@ const ButtonExample = () => {
         <Button
           text="Primary"
           variation="primary"
-          necati
           onClick={() => {
             setScreenProps({ variation: "primary" });
           }}

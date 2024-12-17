@@ -34,6 +34,8 @@ const useCombinedStyle = <ST extends StyleSheetWithSuperPowers>(
     variantsMap,
   );
 
+  console.log("themeStyles", themeStyles.text);
+
   const { styles: propStyle } = useStyles(createStyleSheet(style), variantsMap);
 
   const getCombinedStyle = useMemo(
@@ -84,10 +86,29 @@ const useCombinedStyle = <ST extends StyleSheetWithSuperPowers>(
 export default useCombinedStyle;
 
 function mergeStyles(obj1, obj2) {
-  return mergeWith({}, obj1, obj2, (objValue, srcValue) => {
+  const merged = mergeWith({}, obj1, obj2, (objValue, srcValue) => {
     if (isObject(objValue) && isObject(srcValue)) {
       return merge({}, objValue, srcValue);
     }
     return srcValue !== undefined ? srcValue : objValue;
   });
+
+  return sortValues(merged);
+}
+
+function sortValues(obj) {
+  const entries = Object.entries(obj);
+  entries.sort(([, a], [, b]) => {
+    const isAObject = isObject(a);
+    const isBObject = isObject(b);
+
+    if (isAObject === isBObject) return 0;
+    return isAObject ? 1 : -1;
+  });
+
+  const sortedObj = {};
+  for (const [key, value] of entries) {
+    sortedObj[key] = isObject(value) ? sortValues(value) : value;
+  }
+  return sortedObj;
 }

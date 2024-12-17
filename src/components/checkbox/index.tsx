@@ -20,7 +20,7 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
     isChanged,
     isUsed,
     error,
-    size,
+    size = "md",
     onBlur,
     onChange,
     iconName = "Check",
@@ -41,15 +41,6 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
   useEffect(() => {
     setChecked(Boolean(value));
   }, [value]);
-
-  const iconSizeLiteral = {
-    xs: 16,
-    sm: 24,
-    md: 32,
-    lg: 56,
-    xl: 64,
-    xxl: 96,
-  };
 
   const handleChange = () => {
     console.log("handleChange");
@@ -92,8 +83,6 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
             style={getCombinedStyle("icon")}
             icon={iconName}
             strokeWidth={3}
-            width={iconSizeLiteral[size || "md"]}
-            height={iconSizeLiteral[size || "md"]}
           >
             {IconSlot && <IconSlot />}
           </Slot>

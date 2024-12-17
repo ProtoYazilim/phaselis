@@ -1,5 +1,5 @@
 import { icons } from "lucide-react-native";
-import React from "react";
+import React, { useMemo } from "react";
 import { StyleSheet } from "react-native";
 import { LucideIconProps } from "./types";
 
@@ -18,31 +18,23 @@ const LucideIcon = ({
 
   const combinedStyles = StyleSheet.flatten(style);
 
-  const sizeLiteral = {
-    xxs: 4,
-    xs: 8,
-    sm: 12,
-    md: 16,
-    lg: 24,
-    xl: 32,
-    xxl: 64,
-  };
+  const memorizedHeight = useMemo(() => {
+    if (height) return height;
+    if (combinedStyles?.height) return combinedStyles?.height;
+    return sizeLiteral[size || "md"];
+  }, [height, combinedStyles?.height, size]);
 
-  const sizeStrokeWidthLiteral = {
-    xxs: 4,
-    xs: 2,
-    sm: 2,
-    md: 2,
-    lg: 2,
-    xl: 2,
-    xxl: 2,
-  };
+  const memorizedWidth = useMemo(() => {
+    if (width) return width;
+    if (combinedStyles?.width) return combinedStyles?.width;
+    return sizeLiteral[size || "md"];
+  }, [width, combinedStyles?.width, size]);
 
   return (
     <GenericIcon
       style={combinedStyles}
-      width={width ? width : sizeLiteral[size || "md"]}
-      height={height ? height : sizeLiteral[size || "md"]}
+      width={memorizedWidth}
+      height={memorizedHeight}
       color={combinedStyles?.color}
       strokeWidth={
         strokeWidth ? strokeWidth : sizeStrokeWidthLiteral[size || "md"]
@@ -53,3 +45,23 @@ const LucideIcon = ({
 };
 
 export default LucideIcon;
+
+const sizeLiteral = {
+  xxs: 4,
+  xs: 8,
+  sm: 12,
+  md: 16,
+  lg: 24,
+  xl: 32,
+  xxl: 64,
+};
+
+const sizeStrokeWidthLiteral = {
+  xxs: 4,
+  xs: 2,
+  sm: 2,
+  md: 2,
+  lg: 2,
+  xl: 2,
+  xxl: 2,
+};

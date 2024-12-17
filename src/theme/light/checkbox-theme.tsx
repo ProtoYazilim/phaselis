@@ -33,28 +33,28 @@ export default {
           // buradan beslenmiyor, index içindeki iconSizeLiteral'dan besleniyor
           size: {
             xs: {
-              height: 100,
-              width: 100,
-            },
-            sm: {
-              height: 12,
-              width: 12,
-            },
-            md: {
               height: 16,
               width: 16,
             },
-            lg: {
+            sm: {
               height: 24,
               width: 24,
             },
-            xl: {
+            md: {
               height: 32,
               width: 32,
             },
-            xxl: {
+            lg: {
+              height: 56,
+              width: 56,
+            },
+            xl: {
               height: 64,
               width: 64,
+            },
+            xxl: {
+              height: 96,
+              width: 96,
             },
           },
         },

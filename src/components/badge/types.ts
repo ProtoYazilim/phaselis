@@ -2,7 +2,7 @@ import { SlotIconName } from "@phaselis/types";
 import { ReactNode } from "react";
 import { TextStyle, ViewStyle } from "react-native";
 
-export interface BadgeProps {
+export interface BadgeProps extends BadgeExtraProps {
   text?: string;
   children: ReactNode;
   style?: {

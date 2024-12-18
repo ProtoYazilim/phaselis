@@ -108,6 +108,4 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
   );
 };
 
-export default InputHOC(
-  PhaselisHOC<CheckboxProps, CheckboxExtraProps>(Checkbox),
-);
+export default InputHOC(PhaselisHOC<CheckboxProps>(Checkbox));

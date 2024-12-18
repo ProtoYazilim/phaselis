@@ -76,4 +76,4 @@ const Badge: React.FC<BadgeProps> = ({
   );
 };
 
-export default PhaselisHOC<BadgeProps, BadgeExtraProps>(Badge);
+export default PhaselisHOC<BadgeProps>(Badge);

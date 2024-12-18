@@ -7,7 +7,6 @@ import {
 } from "@phaselis/types";
 import { FC, ReactNode } from "react";
 import { TextStyle, ViewStyle } from "react-native";
-import { CheckboxExtraProps } from "@/global.d";
 
 export interface CheckboxProps
   extends InputControlProps<boolean, any, any>,
@@ -26,5 +25,4 @@ export interface CheckboxProps
     icon?: IconStyle;
     text?: TextStyle;
   };
-  // variation?: any;
 }

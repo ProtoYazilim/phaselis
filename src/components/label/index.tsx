@@ -55,4 +55,4 @@ const Label: FC<LabelProps> = (props) => {
 
 Label.displayName = "label";
 
-export default PhaselisHOC<LabelProps, LabelExtraProps>(Label);
+export default PhaselisHOC<LabelProps>(Label);

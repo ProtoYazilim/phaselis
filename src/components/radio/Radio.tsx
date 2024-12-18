@@ -100,4 +100,4 @@ const Radio = ({
   );
 };
 
-export default PhaselisHOC<RadioProps, RadioExtraProps>(Radio);
+export default PhaselisHOC<RadioProps>(Radio);

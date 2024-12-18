@@ -8,5 +8,20 @@ export default createStyleSheet({
   },
   text: {
     color: "#373d3f",
+    variants: {
+      bold: {
+        true: {},
+      },
+      italic: {
+        true: {},
+      },
+      weight: {
+        light: {},
+        regular: {},
+        medium: {},
+        semiBold: {},
+        bold: {},
+      },
+    },
   },
 });

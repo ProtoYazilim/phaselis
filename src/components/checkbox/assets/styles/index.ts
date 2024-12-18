@@ -8,44 +8,36 @@ const stylesheet = createStyleSheet({
     marginVertical: 5,
     marginRight: 10,
     variants: {
+      size: {
+        xs: {},
+        sm: {},
+        md: {},
+        lg: {},
+        xl: {},
+        xxl: {},
+      },
+      error: {
+        true: {},
+      },
       disabled: {
         true: {},
       },
       focus: {
-        true: {
-          borderColor: "blue",
-        },
-      },
-      error: {
-        true: {
-          borderColor: "red",
-        },
-      },
-      size: {
-        xs: {
-          height: 10,
-        },
-        sm: {
-          height: 20,
-        },
-        md: {
-          height: 30,
-        },
-        lg: {
-          height: 40,
-        },
-        xl: {
-          height: 45,
-        },
-        xxl: {
-          height: 50,
-        },
+        true: {},
       },
     },
   },
   icon: {
-    height: 24,
-    width: 24,
+    variants: {
+      size: {
+        xs: {},
+        sm: {},
+        md: {},
+        lg: {},
+        xl: {},
+        xxl: {},
+      },
+    },
   },
   element: {
     alignItems: "center",
@@ -56,13 +48,27 @@ const stylesheet = createStyleSheet({
     borderRadius: 8,
     width: 32,
     height: 32,
+    variants: {
+      size: {
+        xs: {},
+        sm: {},
+        md: {},
+        lg: {},
+        xl: {},
+        xxl: {},
+      },
+    },
   },
   text: {
+    fontFamily: "Poppins",
     variants: {
-      error: {},
-      disabled: {},
-      focus: {
-        true: {},
+      size: {
+        xs: {},
+        sm: {},
+        md: {},
+        lg: {},
+        xl: {},
+        xxl: {},
       },
     },
   },

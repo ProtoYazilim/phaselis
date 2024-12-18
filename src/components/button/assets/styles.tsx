@@ -6,12 +6,6 @@ const stylesheet = createStyleSheet({
     borderWidth: 1,
     justifyContent: "center",
     variants: {
-      pressed: {
-        true: {},
-      },
-      disabled: {
-        true: {},
-      },
       loading: {
         true: {},
       },
@@ -36,9 +30,6 @@ const stylesheet = createStyleSheet({
     fontFamily: "Poppins",
     textAlign: "center",
     variants: {
-      disabled: {
-        true: {},
-      },
       size: {
         xs: {},
         sm: {},
@@ -47,8 +38,12 @@ const stylesheet = createStyleSheet({
         xl: {},
         xxl: {},
       },
+      loading: {
+        true: {},
+      },
     },
   },
+
   leftSlot: {
     variants: {
       disabled: {

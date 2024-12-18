@@ -13,6 +13,7 @@ interface AccordionHeaderProps {
   size?: ComponentSize;
   contextValue?: any;
   onPress?: () => void;
+  onClick?: () => void;
   expanded?: boolean;
   text: string;
   icon?: SlotIconName;

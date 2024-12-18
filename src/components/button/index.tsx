@@ -17,6 +17,7 @@ const Button: FC<ButtonPropTypes> = ({
   LeftSlot,
   RightSlot,
   onClick,
+  onPress,
   contextValue,
   size = "md",
   disabled = false,
@@ -33,7 +34,8 @@ const Button: FC<ButtonPropTypes> = ({
 
   const handleClick = (event: GestureResponderEvent) => {
     event.persist();
-    onClick?.(event as any);
+    onClick && onClick?.(event as any);
+    onPress && onPress?.(event as any);
     if (formContext) {
       if (type === "submit") {
         formContext?.submit();

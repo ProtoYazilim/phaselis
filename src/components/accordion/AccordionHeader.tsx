@@ -13,6 +13,7 @@ const AccordionHeader = ({
   size = "md",
   contextValue,
   onPress,
+  onClick,
   expanded,
   text,
   icon,
@@ -60,7 +61,7 @@ const AccordionHeader = ({
 
   return (
     <Pressable
-      onPress={onPress}
+      onPress={onPress || onClick}
       style={[
         defaultStyles.container,
         themeStyles.container,

@@ -60,10 +60,16 @@ const Badge: React.FC<BadgeProps> = ({
           flexDirection: "row",
         }}
       >
-        <View style={[...getCombinedStyle("element"), absoluteMesurements]}>
-          <Slot style={getCombinedStyle("leftIcon")} icon={leftIcon} />
+        <View style={[getCombinedStyle("element"), absoluteMesurements]}>
+          <Slot
+            style={[getCombinedStyle("leftIcon"), !text && { marginRight: 0 }]}
+            icon={leftIcon}
+          />
           {text && <Text style={getCombinedStyle("text")}>{text}</Text>}
-          <Slot style={getCombinedStyle("rightIcon")} icon={rightIcon} />
+          <Slot
+            style={[getCombinedStyle("rightIcon"), !text && { marginLeft: 0 }]}
+            icon={rightIcon}
+          />
         </View>
       </View>
     </View>

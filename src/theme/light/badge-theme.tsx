@@ -65,6 +65,7 @@ export default {
       },
       leftIcon: {
         color: "white",
+        marginRight: Spacings.XS,
         width: 12,
         height: 12,
         variants: {
@@ -82,6 +83,7 @@ export default {
       },
       rightIcon: {
         color: "white",
+        marginLeft: Spacings.XS,
         width: 12,
         height: 12,
         variants: {

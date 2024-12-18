@@ -3,7 +3,7 @@ import buttonTheme from "./light/button-theme";
 import labelTheme from "./light/label-theme";
 import checkboxTheme from "./light/checkbox-theme";
 import radioTheme from "./light/radio-theme";
-import radioGroupTheme from "./light/radio-group-theme";
+import radioGroupTheme from "./light/radioGroup-theme";
 import badgeTheme from "./light/badge-theme";
 import { Spacings, Heights, Radius, FontSizes } from "./spacings";
 

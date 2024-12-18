@@ -1,3 +1,4 @@
+import { size } from "lodash";
 import Colors from "../colors";
 import { FontSizes, Heights, Radius, Spacings } from "../spacings";
 
@@ -11,6 +12,9 @@ export default {
         paddingRight: Spacings.SM,
         backgroundColor: Colors.Primary[900],
         borderColor: Colors.Primary[950],
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center",
         variants: {
           size: {
             xs: {
@@ -35,6 +39,7 @@ export default {
         },
       },
       text: {
+        color: "white",
         variants: {
           size: {
             xs: {
@@ -58,13 +63,48 @@ export default {
           },
         },
       },
-      leftSlot: {
+      leftIcon: {
         color: "white",
-        marginRight: 8,
+        width: 12,
+        height: 12,
+        variants: {
+          size: {
+            xs: {
+              width: 8,
+              height: 8,
+            },
+            sm: {
+              width: 10,
+              height: 10,
+            },
+          },
+        },
       },
-      rightSlot: {
+      rightIcon: {
         color: "white",
-        marginLeft: 8,
+        width: 12,
+        height: 12,
+        variants: {
+          size: {
+            xs: {
+              width: 8,
+              height: 8,
+            },
+            sm: {
+              width: 10,
+              height: 10,
+            },
+          },
+        },
+      },
+    },
+    default_outline: {
+      element: {
+        backgroundColor: "transparent",
+        borderColor: Colors.Primary[950],
+      },
+      text: {
+        color: Colors.Primary[950],
       },
     },
     primary: {
@@ -75,8 +115,22 @@ export default {
       color: {
         color: Colors.Primary[50],
       },
+      leftIcon: {
+        color: Colors.Primary[50],
+      },
+      rightIcon: {
+        color: Colors.Primary[50],
+      },
     },
-    primary_outline: {},
+    primary_outline: {
+      element: {
+        backgroundColor: "transparent",
+        borderColor: Colors.Primary[600],
+      },
+      text: {
+        color: Colors.Primary[600],
+      },
+    },
     secondary: {
       element: {
         backgroundColor: Colors.Secondary[500],
@@ -86,7 +140,15 @@ export default {
         color: Colors.Secondary[50],
       },
     },
-    secondary_outline: {},
+    secondary_outline: {
+      element: {
+        backgroundColor: "transparent",
+        borderColor: Colors.Secondary[600],
+      },
+      text: {
+        color: Colors.Secondary[600],
+      },
+    },
     tertiary: {
       element: {
         backgroundColor: Colors.Tertiary[500],
@@ -96,6 +158,14 @@ export default {
         color: Colors.Tertiary[50],
       },
     },
-    tertiary_outline: {},
+    tertiary_outline: {
+      element: {
+        backgroundColor: "transparent",
+        borderColor: Colors.Tertiary[600],
+      },
+      text: {
+        color: Colors.Tertiary[600],
+      },
+    },
   },
 };

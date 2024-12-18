@@ -3,6 +3,7 @@ import { View, Text } from "react-native";
 import stylesheet from "./assets/styles";
 import { PhaselisHOC } from "@phaselis/components/provider";
 import { useCombinedStyle } from "@phaselis/hooks";
+import { Slot } from "@phaselis/components";
 import { BadgeProps } from "./types";
 
 const Badge: React.FC<BadgeProps> = ({
@@ -14,6 +15,8 @@ const Badge: React.FC<BadgeProps> = ({
   bottom,
   right,
   left,
+  leftIcon,
+  rightIcon,
   size = "md",
   variation = "primary",
   ...extraProps
@@ -58,7 +61,9 @@ const Badge: React.FC<BadgeProps> = ({
         }}
       >
         <View style={[...getCombinedStyle("element"), absoluteMesurements]}>
-          <Text style={getCombinedStyle("text")}>{text}</Text>
+          <Slot style={getCombinedStyle("leftIcon")} icon={leftIcon} />
+          {text && <Text style={getCombinedStyle("text")}>{text}</Text>}
+          <Slot style={getCombinedStyle("rightIcon")} icon={rightIcon} />
         </View>
       </View>
     </View>

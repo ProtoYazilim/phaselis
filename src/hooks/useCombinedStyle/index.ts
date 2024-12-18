@@ -34,8 +34,6 @@ const useCombinedStyle = <ST extends StyleSheetWithSuperPowers>(
     variantsMap,
   );
 
-  console.log("themeStyles", themeStyles.text);
-
   const { styles: propStyle } = useStyles(createStyleSheet(style), variantsMap);
 
   const getCombinedStyle = useMemo(

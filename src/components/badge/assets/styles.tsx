@@ -70,9 +70,8 @@ const stylesheet = createStyleSheet({
       },
     },
   },
-  leftSlot: {
+  leftIcon: {
     color: "white",
-    marginRight: 8,
     variants: {
       primary: {
         true: {},
@@ -88,9 +87,8 @@ const stylesheet = createStyleSheet({
       },
     },
   },
-  rightSlot: {
+  rightIcon: {
     color: "white",
-    marginLeft: 8,
     variants: {
       primary: {
         true: {},

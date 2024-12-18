@@ -2,12 +2,12 @@
 
 /* eslint-disable prettier/prettier */
 
-export interface BadgeExtraProps {
-  variation?: "default" | "primary" | "primary_outline" | "secondary" | "secondary_outline" | "tertiary" | "tertiary_outline";
+interface BadgeExtraProps {
+  variation?: "default" | "default_outline" | "primary" | "primary_outline" | "secondary" | "secondary_outline" | "tertiary" | "tertiary_outline";
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
 }
 
-export interface ButtonExtraProps {
+interface ButtonExtraProps {
   variation?: "default" | "primary" | "primary_outline" | "secondary" | "secondary_outline" | "tertiary" | "tertiary_outline" | "danger" | "success";
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
   pressed?: boolean;
@@ -15,27 +15,27 @@ export interface ButtonExtraProps {
   loading?: boolean;
 }
 
-export interface CheckboxExtraProps {
+interface CheckboxExtraProps {
   variation?: "default" | "primary" | "secondary" | "tertiary";
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
   disabled?: boolean;
 }
 
-export interface LabelExtraProps {
+interface LabelExtraProps {
   variation?: "default" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "quot" | "small";
   bold?: boolean;
   italic?: boolean;
   weight?: "light" | "regular" | "medium" | "semiBold" | "bold";
 }
 
-export interface Radio-groupExtraProps {
-  variation?: "default";
+interface RadioExtraProps {
+  variation?: "default" | "primary" | "secondary" | "tertiary";
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
   disabled?: boolean;
 }
 
-export interface RadioExtraProps {
-  variation?: "default" | "primary" | "secondary" | "tertiary";
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+interface RadioGroupExtraProps {
+  variation?: "default";
   disabled?: boolean;
 }
 

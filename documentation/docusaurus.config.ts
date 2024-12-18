@@ -118,10 +118,6 @@ const config: Config = {
           title: "Site",
           items: [
             {
-              label: "Components",
-              to: "/docs/components",
-            },
-            {
               label: "Blog",
               to: "/blog",
             },

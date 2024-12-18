@@ -1,6 +1,6 @@
 {
-  "label": "Theming And Styling",
-  "position": 3,
+  "label": "Hooks",
+  "position": 4,
   "link": {
     "type": "generated-index",
     "description": "Basics of theming, styling and customization of Phaselis framework."

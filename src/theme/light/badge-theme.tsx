@@ -1,6 +1,5 @@
-import { size } from "lodash";
 import Colors from "../colors";
-import { FontSizes, Heights, Radius, Spacings } from "../spacings";
+import { Radius, Spacings } from "../spacings";
 
 export default {
   badge: {

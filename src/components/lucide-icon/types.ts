@@ -8,4 +8,5 @@ export interface LucideIconProps {
   height?: number;
   strokeWidth?: number;
   onClick?: () => void;
+  onPress?: () => void;
 }

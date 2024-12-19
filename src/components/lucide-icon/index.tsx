@@ -11,6 +11,7 @@ const LucideIcon = ({
   height,
   strokeWidth,
   onClick,
+  onPress,
 }: LucideIconProps) => {
   // @ts-ignore
   // eslint-disable-next-line import/namespace
@@ -39,7 +40,7 @@ const LucideIcon = ({
       strokeWidth={
         strokeWidth ? strokeWidth : sizeStrokeWidthLiteral[size || "md"]
       }
-      onPress={onClick}
+      onPress={onClick || onPress}
     />
   );
 };

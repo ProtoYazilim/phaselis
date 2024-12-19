@@ -10,6 +10,7 @@ const Slot: React.FC<SlotProps> = ({
   size,
   strokeWidth,
   onClick,
+  onPress,
   height,
   width,
   loading,
@@ -59,6 +60,7 @@ const Slot: React.FC<SlotProps> = ({
           size={size}
           strokeWidth={strokeWidth}
           onClick={onClick}
+          onPress={onPress}
         />
       </Animated.View>
     );
@@ -73,6 +75,7 @@ const Slot: React.FC<SlotProps> = ({
         size={size}
         strokeWidth={strokeWidth}
         onClick={onClick}
+        onPress={onPress}
       />
     );
   }

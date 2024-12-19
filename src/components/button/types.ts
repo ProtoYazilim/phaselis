@@ -18,6 +18,7 @@ export interface ButtonPropTypes
   style?: ButtonStyles;
   text?: string;
   onClick?: ((event: GestureResponderEvent) => void) | null | undefined;
+  onPress?: ((event: GestureResponderEvent) => void) | null | undefined;
   type?: buttonType;
 }
 

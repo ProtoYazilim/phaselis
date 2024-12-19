@@ -40,13 +40,9 @@ interface ProgressStepProps {
   children?: ReactNode;
   activeStep?: number;
   disabled?: boolean;
-
   previousButtonDisabled?: boolean;
-
   finishButtonDisabled?: boolean;
-
   nextButtonDisabled?: boolean;
-
   renderFooter?: (...args: any[]) => any;
 }
 

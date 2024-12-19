@@ -8,6 +8,7 @@ interface SlotProps {
   size?: ComponentSize;
   strokeWidth?: number;
   onClick?: () => void;
+  onPress?: () => void;
   width?: number;
   height?: number;
   loading?: boolean;

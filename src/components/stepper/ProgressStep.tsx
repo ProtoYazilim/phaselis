@@ -7,13 +7,9 @@ const ProgressStep: React.FC<ProgressStepProps> = ({
   onPrevious,
   onSubmit,
   setActiveStep,
-
   nextButtonDisabled = false,
-
   previousButtonDisabled = false,
-
   finishButtonDisabled = false,
-
   stepCount,
   scrollViewProps,
   viewProps,

@@ -1,6 +1,10 @@
 import Colors from "./colors";
 import buttonTheme from "./light/button-theme";
 import labelTheme from "./light/label-theme";
+import checkboxTheme from "./light/checkbox-theme";
+import radioTheme from "./light/radio-theme";
+import radioGroupTheme from "./light/radioGroup-theme";
+import badgeTheme from "./light/badge-theme";
 import { Spacings, Heights, Radius, FontSizes } from "./spacings";
 
 export const layeredComponents = ["tab"];
@@ -12,6 +16,10 @@ export const lightTheme = {
   },
   ...buttonTheme,
   ...labelTheme,
+  ...checkboxTheme,
+  ...radioTheme,
+  ...radioGroupTheme,
+  ...badgeTheme,
   textfield: {
     container: {
       borderColor: Colors.Gray[950],
@@ -630,209 +638,6 @@ export const lightTheme = {
       },
     },
   },
-  checkbox: {
-    container: {
-      borderRadius: 0,
-      borderColor: Colors.Gray[900],
-      height: Heights.MDminHeight,
-      variants: {
-        size: {
-          xs: {
-            height: Heights.XSminHeight,
-          },
-          sm: {
-            height: Heights.SMminHeight,
-          },
-          md: {
-            height: Heights.MDminHeight,
-          },
-          lg: {
-            height: Heights.LGminHeight,
-          },
-          xl: {
-            height: Heights.XLminHeight,
-          },
-          xxl: {
-            height: Heights.XXLminHeight,
-          },
-        },
-      },
-    },
-    icon: {
-      color: Colors.Gray[900],
-      variants: {
-        focus: {
-          true: {
-            // color: Colors.Primary[600],
-          },
-        },
-        error: {
-          true: {
-            color: Colors.Danger[700],
-          },
-        },
-        disabled: {
-          true: {
-            color: Colors.Gray[400],
-          },
-        },
-      },
-    },
-    element: {
-      borderRadius: Radius.MD,
-      variants: {
-        focus: {
-          true: {
-            // borderColor: Colors.Primary[600],
-          },
-        },
-        error: {
-          true: {
-            borderColor: Colors.Danger[400],
-            backgroundColor: Colors.Danger[50],
-          },
-        },
-        disabled: {
-          true: {
-            borderColor: Colors.Gray[400],
-            backgroundColor: Colors.Gray[100],
-          },
-        },
-        size: {
-          xs: {
-            height: Heights.XSminHeight,
-            width: Heights.XSminHeight,
-          },
-          sm: {
-            height: Heights.SMminHeight,
-            width: Heights.SMminHeight,
-          },
-          md: {
-            height: Heights.MDminHeight,
-            width: Heights.MDminHeight,
-          },
-          lg: {
-            height: Heights.LGminHeight,
-            width: Heights.LGminHeight,
-          },
-          xl: {
-            height: Heights.XLminHeight,
-            width: Heights.XLminHeight,
-          },
-          xxl: {
-            height: Heights.XXLminHeight,
-            width: Heights.XXLminHeight,
-          },
-        },
-      },
-    },
-    text: {
-      fontFamily: "Poppins",
-      color: Colors.Gray[900],
-      variants: {
-        focus: {
-          true: {
-            // color: Colors.Primary[600],
-          },
-        },
-        error: {
-          true: {
-            color: Colors.Danger[700],
-          },
-        },
-        disabled: {
-          true: {
-            color: Colors.Gray[400],
-          },
-        },
-        size: {
-          xs: {
-            fontSize: FontSizes.SM,
-          },
-          sm: {
-            fontSize: FontSizes.MD,
-          },
-          md: {
-            fontSize: FontSizes.MD,
-          },
-          lg: {
-            fontSize: FontSizes.LG,
-          },
-          xl: {
-            fontSize: FontSizes.XL,
-          },
-          xxl: {
-            fontSize: FontSizes.XL,
-          },
-        },
-      },
-    },
-  },
-  radio: {
-    innerElement: {
-      backgroundColor: Colors.Primary[600],
-    },
-    outerElement: {
-      borderColor: Colors.Gray[900],
-      variants: {
-        disabled: {
-          true: {
-            borderColor: Colors.Gray[500],
-            backgroundColor: Colors.Gray[100],
-          },
-        },
-        size: {
-          xs: {
-            height: 16,
-            width: 16,
-          },
-          sm: {
-            height: 20,
-            width: 20,
-          },
-          md: {
-            height: 26,
-            width: 26,
-          },
-          lg: {
-            height: 42,
-            width: 42,
-          },
-          xl: {
-            height: 50,
-            width: 50,
-          },
-          xxl: {
-            height: 80,
-            width: 80,
-          },
-        },
-      },
-    },
-    container: {},
-    text: {
-      color: Colors.Gray[900],
-      fontSize: Spacings.MD,
-      variants: {
-        disabled: {
-          true: {
-            color: Colors.Gray[300],
-          },
-        },
-      },
-    },
-  },
-  radioGroup: {
-    group: {
-      variants: {
-        disabled: {
-          true: {
-            backgroundColor: Colors.Gray[100],
-          },
-        },
-      },
-    },
-  },
   slider: {
     container: {
       variants: {
@@ -1060,124 +865,6 @@ export const lightTheme = {
           true: {
             color: Colors.Secondary[600],
           },
-        },
-      },
-    },
-  },
-  badge: {
-    //@ts-ignore
-    container: {
-      variants: {
-        base: {
-          primary: {},
-          secondary: {},
-          tertiary: {},
-        },
-        outline: {
-          primary: {},
-          secondary: {},
-          tertiary: {},
-          false: {},
-        },
-      },
-    },
-    element: {
-      borderRadius: Radius.XL,
-      height: 20,
-      paddingLeft: Spacings.SM,
-      paddingRight: Spacings.SM,
-      variants: {
-        base: {
-          primary: {
-            backgroundColor: Colors.Primary[700],
-            borderColor: Colors.Primary[600],
-          },
-          secondary: {
-            backgroundColor: Colors.Secondary[500],
-            borderColor: Colors.Secondary[600],
-          },
-          tertiary: {
-            backgroundColor: Colors.Gray[500],
-            borderColor: Colors.Gray[600],
-          },
-        },
-        outline: {
-          primary: {
-            backgroundColor: "white",
-            borderColor: Colors.Primary[500],
-          },
-          secondary: {
-            backgroundColor: "white",
-            borderColor: Colors.Secondary[500],
-          },
-          tertiary: {
-            backgroundColor: "white",
-            borderColor: Colors.Gray[950],
-          },
-        },
-      },
-    },
-    text: {
-      color: "white",
-      fontSize: FontSizes.SM,
-      variants: {
-        base: {
-          primary: {
-            color: Colors.Primary[50],
-          },
-          secondary: {
-            color: Colors.Secondary[50],
-          },
-          tertiary: {
-            color: Colors.Gray[50],
-          },
-        },
-        outline: {
-          primary: {
-            color: Colors.Primary[500],
-          },
-          secondary: {
-            color: Colors.Secondary[500],
-          },
-          tertiary: {
-            color: Colors.Gray[950],
-          },
-        },
-      },
-    },
-    leftSlot: {
-      color: "white",
-      marginRight: 8,
-      variants: {
-        primary: {
-          true: {},
-        },
-        secondary: {
-          true: {},
-        },
-        tertiary: {
-          true: {},
-        },
-        outline: {
-          true: {},
-        },
-      },
-    },
-    rightSlot: {
-      color: "white",
-      marginLeft: 8,
-      variants: {
-        primary: {
-          true: {},
-        },
-        secondary: {
-          true: {},
-        },
-        tertiary: {
-          true: {},
-        },
-        outline: {
-          true: {},
         },
       },
     },

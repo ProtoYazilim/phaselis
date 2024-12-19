@@ -1,24 +1,82 @@
 import React from "react";
 import { View } from "react-native";
-import { Radio, RadioGroup, InputGroup } from "@phaselis/components";
-import { required } from "@phaselis/utils";
+import { Radio, RadioGroup } from "@phaselis/components";
+import StoryView from "@appSrc/StoryView";
+import StorySection from "@/appSrc/StorySection";
 
 const RadioStory = () => {
   return (
-    <View style={{ padding: 10, backgroundColor: "white", height: "100%" }}>
-      <InputGroup label="Radio Group">
-        <RadioGroup
-          name="test"
-          resetValue={""}
-          validations={[required("En az bi deger seciniz")]}
-        >
-          <Radio text={"value 1"} value={"1"} disabled />
-          <Radio text={"value 2"} value={"2"} />
-          <Radio text={"value 3"} value={"3"} />
-          <Radio text={"value 4"} value={"4"} />
+    <StoryView>
+      <StorySection leftText="Variation" rightText="Solid MD">
+        <RadioGroup name="rg-story-1">
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <Radio text="Primary" variation="primary" value={"1"} checked />
+            <Radio text="Secondary" variation="secondary" value={"2"} checked />
+            <Radio text="Tertiary" variation="tertiary" value={"3"} checked />
+          </View>
         </RadioGroup>
-      </InputGroup>
-    </View>
+      </StorySection>
+      <StorySection leftText="Disabled" rightText="Solid MD">
+        <RadioGroup name="rg-story-2">
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <Radio
+              text="Primary"
+              variation="primary"
+              disabled
+              value={"4"}
+              checked
+            />
+            <Radio
+              text="Secondary"
+              variation="secondary"
+              disabled
+              value={"5"}
+              checked
+            />
+            <Radio
+              text="Tertiary"
+              variation="tertiary"
+              disabled
+              value={"6"}
+              checked
+            />
+          </View>
+        </RadioGroup>
+      </StorySection>
+      <StorySection leftText="Sizes" rightText="Solid MD">
+        <RadioGroup name="rg-story-3">
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+              columnGap: 100,
+              rowGap: 30,
+              flexWrap: "wrap",
+            }}
+          >
+            <Radio text="XS" size="xs" value={"7"} checked />
+            <Radio text="SM" size="sm" value={"8"} checked />
+            <Radio text="MD" size="md" value={"9"} checked />
+            <Radio text="LG" size="lg" value={"10"} checked />
+            <Radio text="XL" size="xl" value={"11"} checked />
+            <Radio text="XXL" size="xxl" value={"12"} checked />
+          </View>
+        </RadioGroup>
+      </StorySection>
+    </StoryView>
   );
 };
 

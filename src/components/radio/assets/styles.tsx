@@ -1,29 +1,8 @@
 import { createStyleSheet } from "react-native-unistyles";
 
 const stylesheet = createStyleSheet({
-  container: {
-    gap: 10,
-    flexDirection: "row",
-    alignItems: "center",
-    variants: {
-      disabled: {
-        true: {},
-      },
-    },
-  },
-  text: {
-    variants: {
-      disabled: {
-        true: {
-          color: "gray",
-        },
-      },
-      size: {
-        sm: {},
-        md: {},
-        lg: {},
-      },
-    },
+  innerElement: {
+    backgroundColor: "blue",
   },
   outerElement: {
     borderColor: "black",
@@ -33,67 +12,25 @@ const stylesheet = createStyleSheet({
     justifyContent: "center",
     height: 36,
     variants: {
-      disabled: {
-        true: {
-          borderColor: "gray",
-          backgroundColor: "gray",
-        },
-      },
       size: {
-        xxs: {
-          height: 10,
-          width: 10,
-        },
-        xs: {
-          height: 16,
-          width: 16,
-        },
-        sm: {
-          height: 20,
-          width: 20,
-        },
-        md: {
-          height: 26,
-          width: 26,
-        },
-        lg: {
-          height: 42,
-          width: 42,
-        },
-        xl: {
-          height: 50,
-          width: 50,
-        },
-        xxl: {
-          height: 80,
-          width: 80,
-        },
-      },
-    },
-  },
-  innerElement: {
-    backgroundColor: "blue",
-    variants: {
-      disabled: {
-        true: {},
-      },
-      size: {
+        xs: {},
         sm: {},
         md: {},
         lg: {},
+        xl: {},
+        xxl: {},
       },
     },
   },
-  slot: {
-    flex: 1,
+  container: {
+    gap: 10,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  text: {
     variants: {
       disabled: {
         true: {},
-      },
-      size: {
-        sm: {},
-        md: {},
-        lg: {},
       },
     },
   },
@@ -105,14 +42,7 @@ const stylesheet_group = createStyleSheet({
     gap: 10,
     variants: {
       disabled: {
-        true: {
-          backgroundColor: "gray",
-        },
-      },
-      size: {
-        sm: {},
-        md: {},
-        lg: {},
+        true: {},
       },
     },
   },

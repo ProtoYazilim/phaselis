@@ -4,22 +4,6 @@ const stylesheet = createStyleSheet({
   //@ts-ignore
   container: {
     flexDirection: "row",
-    variants: {
-      base: {
-        primary: {},
-        secondary: {},
-        tertiary: {},
-      },
-      outline: {
-        primary: {},
-        secondary: {},
-        tertiary: {},
-        false: {},
-      },
-      loading: {
-        true: {},
-      },
-    },
   },
   element: {
     backgroundColor: "aqua",
@@ -32,23 +16,13 @@ const stylesheet = createStyleSheet({
     paddingLeft: 8,
     paddingRight: 8,
     variants: {
-      primary: {
-        true: {},
-      },
-      secondary: {
-        true: {},
-      },
-      tertiary: {
-        true: {},
-      },
-      outline: {
-        true: {},
-      },
-      disabled: {
-        true: {},
-      },
-      loading: {
-        true: {},
+      size: {
+        xs: {},
+        sm: {},
+        md: {},
+        lg: {},
+        xl: {},
+        xxl: {},
       },
     },
   },
@@ -56,53 +30,32 @@ const stylesheet = createStyleSheet({
     color: "white",
     fontSize: 14,
     variants: {
-      primary: {
-        true: {},
-      },
-      secondary: {
-        true: {},
-      },
-      tertiary: {
-        true: {},
-      },
-      outline: {
-        true: {},
+      size: {
+        xs: {},
+        sm: {},
+        md: {},
+        lg: {},
+        xl: {},
+        xxl: {},
       },
     },
   },
-  leftSlot: {
+  leftIcon: {
     color: "white",
-    marginRight: 8,
     variants: {
-      primary: {
-        true: {},
-      },
-      secondary: {
-        true: {},
-      },
-      tertiary: {
-        true: {},
-      },
-      outline: {
-        true: {},
+      size: {
+        xs: {},
+        sm: {},
       },
     },
   },
-  rightSlot: {
+  rightIcon: {
     color: "white",
-    marginLeft: 8,
+
     variants: {
-      primary: {
-        true: {},
-      },
-      secondary: {
-        true: {},
-      },
-      tertiary: {
-        true: {},
-      },
-      outline: {
-        true: {},
+      size: {
+        xs: {},
+        sm: {},
       },
     },
   },

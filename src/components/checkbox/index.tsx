@@ -20,11 +20,12 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
     isChanged,
     isUsed,
     error,
-    size,
+    size = "md",
     onBlur,
     onChange,
     iconName = "Check",
     IconSlot,
+    variation = "primary",
     ...extraProps
   } = props;
 
@@ -40,15 +41,6 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
   useEffect(() => {
     setChecked(Boolean(value));
   }, [value]);
-
-  const iconSizeLiteral = {
-    xs: 16,
-    sm: 20,
-    md: 26,
-    lg: 42,
-    xl: 50,
-    xxl: 80,
-  };
 
   const handleChange = () => {
     console.log("handleChange");
@@ -73,6 +65,7 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
     stylesheet,
     style,
     contextValue?.theme?.checkbox,
+    variation,
     { error: showError, disabled, focus: isFocus, size, ...extraProps },
   );
 
@@ -90,8 +83,6 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
             style={getCombinedStyle("icon")}
             icon={iconName}
             strokeWidth={3}
-            width={iconSizeLiteral[size || "md"]}
-            height={iconSizeLiteral[size || "md"]}
           >
             {IconSlot && <IconSlot />}
           </Slot>
@@ -117,6 +108,4 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
   );
 };
 
-export default InputHOC(
-  PhaselisHOC<CheckboxProps, CheckboxExtraProps>(Checkbox),
-);
+export default InputHOC(PhaselisHOC<CheckboxProps>(Checkbox));

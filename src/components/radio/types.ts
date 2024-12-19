@@ -1,8 +1,10 @@
 import { TextStyle, ViewStyle } from "react-native";
-import { ComponentSize, InputControlProps } from "@phaselis/types";
+import { InputControlProps } from "@phaselis/types";
 import { FC, ReactNode } from "react";
 
-interface RadioGroupProps extends InputControlProps<string, any, any> {
+interface RadioGroupProps
+  extends InputControlProps<string, any, any>,
+    RadioGroupExtraProps {
   children?: ReactNode | FC | any | Element;
   disabled?: boolean;
   contextValue?: any;
@@ -13,12 +15,10 @@ interface RadioGroupProps extends InputControlProps<string, any, any> {
   className?: string; //not used but maybe used
 }
 
-interface RadioProps {
+interface RadioProps extends RadioExtraProps {
   text?: string;
   value: string;
   onChange?: (value: string) => void;
-  disabled?: boolean;
-  size?: ComponentSize;
   contextValue?: any;
   style?: {
     container?: ViewStyle;

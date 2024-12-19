@@ -3,44 +3,31 @@ import { View, Text } from "react-native";
 import stylesheet from "./assets/styles";
 import { PhaselisHOC } from "@phaselis/components/provider";
 import { useCombinedStyle } from "@phaselis/hooks";
+import { Slot } from "@phaselis/components";
 import { BadgeProps } from "./types";
 
 const Badge: React.FC<BadgeProps> = ({
   text,
   children,
-  primary,
-  secondary,
-  tertiary,
   style,
-  outline,
   contextValue,
   top,
   bottom,
   right,
   left,
+  leftIcon,
+  rightIcon,
+  size = "md",
+  variation = "primary",
   ...extraProps
 }) => {
-  const getVariation = () => {
-    if (primary) {
-      return "primary";
-    }
-    if (secondary) {
-      return "secondary";
-    }
-    if (tertiary) {
-      return "tertiary";
-    }
-    return "tertiary";
-  };
-
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
     style,
     contextValue?.theme?.badge,
-    "default",
+    variation,
     {
-      outline: outline && getVariation(),
-      base: getVariation(),
+      size,
       ...extraProps,
     },
   );
@@ -73,12 +60,20 @@ const Badge: React.FC<BadgeProps> = ({
           flexDirection: "row",
         }}
       >
-        <View style={[...getCombinedStyle("element"), absoluteMesurements]}>
-          <Text style={getCombinedStyle("text")}>{text}</Text>
+        <View style={[getCombinedStyle("element"), absoluteMesurements]}>
+          <Slot
+            style={[getCombinedStyle("leftIcon"), !text && { marginRight: 0 }]}
+            icon={leftIcon}
+          />
+          {text && <Text style={getCombinedStyle("text")}>{text}</Text>}
+          <Slot
+            style={[getCombinedStyle("rightIcon"), !text && { marginLeft: 0 }]}
+            icon={rightIcon}
+          />
         </View>
       </View>
     </View>
   );
 };
 
-export default PhaselisHOC<BadgeProps, BadgeExtraProps>(Badge);
+export default PhaselisHOC<BadgeProps>(Badge);

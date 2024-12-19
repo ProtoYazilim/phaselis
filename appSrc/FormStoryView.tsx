@@ -64,7 +64,7 @@ const FormStoryView = ({
         <Block style={{ gap: Spacings.MD }}>
           <Button type="submit" text="Submit" />
           {renderSetters()}
-          <Button type="reset" text="Reset" outline />
+          <Button type="reset" text="Reset" />
         </Block>
       </Form>
     </View>

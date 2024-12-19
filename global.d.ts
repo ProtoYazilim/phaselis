@@ -2,101 +2,40 @@
 
 /* eslint-disable prettier/prettier */
 
-interface TextfieldExtraProps {
-  focus?: boolean;
-  error?: boolean;
-  disabled?: boolean;
+interface BadgeExtraProps {
+  variation?: "default" | "default_outline" | "primary" | "primary_outline" | "secondary" | "secondary_outline" | "tertiary" | "tertiary_outline";
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
-  textarea?: boolean;
-}
-
-interface SelectExtraProps {
-  focus?: boolean;
-  error?: boolean;
-  disabled?: boolean;
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
-}
-
-interface CheckboxExtraProps {
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
-  focus?: boolean;
-  error?: boolean;
-  disabled?: boolean;
 }
 
 interface ButtonExtraProps {
-  base?: "primary" | "secondary" | "tertiary";
-  outline?: "primary" | "secondary" | "tertiary";
-  disabled?: "primary" | "secondary" | "tertiary";
-  half?: boolean;
+  variation?: "default" | "primary" | "primary_outline" | "secondary" | "secondary_outline" | "tertiary" | "tertiary_outline" | "danger" | "success";
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
-}
-
-interface RadioExtraProps {
-}
-
-interface RadioGroupExtraProps {
-}
-
-interface SliderExtraProps {
-  focus?: boolean;
-  error?: boolean;
+  pressed?: boolean;
   disabled?: boolean;
-  size?: "sm" | "md" | "lg";
+  loading?: boolean;
 }
 
-interface SwitchExtraProps {
-  focus?: boolean;
-  error?: boolean;
+interface CheckboxExtraProps {
+  variation?: "default" | "primary" | "secondary" | "tertiary";
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
   disabled?: boolean;
-  size?: "sm" | "md" | "lg";
-}
-
-interface Accordion_headerExtraProps {
-  disabled?: boolean;
-}
-
-interface Accordion_itemExtraProps {
-  disabled?: boolean;
-}
-
-interface LinkExtraProps {
-  primary?: boolean;
-  secondary?: boolean;
-}
-
-interface BadgeExtraProps {
-  base?: "primary" | "secondary" | "tertiary";
-  outline?: "primary" | "secondary" | "tertiary" | "false" | boolean;
-  primary?: boolean;
-  secondary?: boolean;
-  tertiary?: boolean;
-}
-
-interface PopupExtraProps {
-}
-
-interface TabExtraProps {
-}
-
-interface StepperExtraProps {
-}
-
-interface ImageExtraProps {
-}
-
-interface BlockExtraProps {
-}
-
-interface ColExtraProps {
-}
-
-interface RowExtraProps {
 }
 
 interface LabelExtraProps {
+  variation?: "default" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "quot" | "small";
+  bold?: boolean;
+  italic?: boolean;
+  weight?: "light" | "regular" | "medium" | "semiBold" | "bold";
 }
 
-interface ListExtraProps {
+interface RadioExtraProps {
+  variation?: "default" | "primary" | "secondary" | "tertiary";
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+  disabled?: boolean;
+}
+
+interface RadioGroupExtraProps {
+  variation?: "default";
+  disabled?: boolean;
 }
 

@@ -4,12 +4,13 @@ import {
   TextStyle,
   ViewStyle,
 } from "react-native";
-import { SlotableLeftRightProps, ComponentSize } from "@phaselis/types";
+import { SlotableLeftRightProps } from "@phaselis/types";
 import { ReactNode } from "react";
 
 export interface ButtonPropTypes
   extends SlotableLeftRightProps,
-    Omit<PressableProps, "style"> {
+    Omit<PressableProps, "style">,
+    ButtonExtraProps {
   id?: string;
   children?: ReactNode;
   disabled?: boolean;
@@ -18,9 +19,6 @@ export interface ButtonPropTypes
   text?: string;
   onClick?: ((event: GestureResponderEvent) => void) | null | undefined;
   type?: buttonType;
-  size?: ComponentSize;
-  loading?: boolean;
-  variation?: any;
 }
 
 export interface ButtonStyles {

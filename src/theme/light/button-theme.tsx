@@ -225,7 +225,6 @@ export default {
               color: Colors.Secondary[300],
             },
           },
-          size: {},
         },
       },
       leftSlot: {

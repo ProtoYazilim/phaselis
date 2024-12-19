@@ -46,6 +46,4 @@ const RadioGroup = ({
   );
 };
 
-export default InputHOC(
-  PhaselisHOC<RadioGroupProps, RadioGroupExtraProps>(RadioGroup),
-);
+export default InputHOC(PhaselisHOC<RadioGroupProps>(RadioGroup));

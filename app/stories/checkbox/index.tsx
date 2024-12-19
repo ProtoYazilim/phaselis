@@ -1,29 +1,63 @@
-import React, { useRef } from "react";
-import { View, StyleSheet } from "react-native";
-import { Checkbox, Block, Form } from "@phaselis/components";
-import { FormReference } from "@phaselis/components/form";
+import StoryView from "@appSrc/StoryView";
+import { Checkbox } from "@phaselis/components";
+import React from "react";
+import StorySection from "@/appSrc/StorySection";
 
-const CheckboxStory = () => {
-  const refForm = useRef<FormReference>(null);
-
+const CheckboxExample = () => {
   return (
-    <View style={styles.container}>
-      <Form ref={refForm}>
-        <Block style={{ gap: 20, width: "100%" }}>
-          <Checkbox text="index Checkbox XSmall" size="xs" name="1" />
-        </Block>
-      </Form>
-    </View>
+    <StoryView>
+      <StorySection
+        leftText="Variation"
+        rightText="Solid MD"
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <Checkbox text="Primary" variation="primary" value={true} />
+        <Checkbox text="Secondary" variation="secondary" value={true} />
+        <Checkbox text="Tertiary" variation="tertiary" value={true} />
+      </StorySection>
+      <StorySection
+        leftText="Disabled"
+        rightText="Solid MD"
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <Checkbox text="Primary" variation="primary" disabled value={true} />
+        <Checkbox
+          text="Secondary"
+          variation="secondary"
+          disabled
+          value={true}
+        />
+        <Checkbox text="Tertiary" variation="tertiary" disabled value={true} />
+      </StorySection>
+      <StorySection
+        leftText="Sizes"
+        rightText="Solid MD"
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+          columnGap: 100,
+          rowGap: 30,
+          flexWrap: "wrap",
+        }}
+      >
+        <Checkbox text="XS" size="xs" value={true} />
+        <Checkbox text="SM" size="sm" value={true} />
+        <Checkbox text="MD" size="md" value={true} />
+        <Checkbox text="LG" size="lg" value={true} />
+        <Checkbox text="XL" size="xl" value={true} />
+        <Checkbox text="XXL" size="xxl" value={true} />
+      </StorySection>
+    </StoryView>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-    backgroundColor: "white",
-  },
-  input: {},
-});
-
-export default CheckboxStory;
+export default CheckboxExample;

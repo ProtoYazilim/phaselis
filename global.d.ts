@@ -39,3 +39,49 @@ interface RadioGroupExtraProps {
   disabled?: boolean;
 }
 
+interface PopupExtraProps {
+}
+
+interface TabExtraProps {
+}
+
+interface StepperExtraProps {
+}
+
+interface ImageExtraProps {
+}
+
+interface BlockExtraProps {
+}
+
+interface ColExtraProps {
+}
+
+interface RowExtraProps {
+}
+
+interface LabelExtraProps {
+}
+
+interface ListExtraProps {
+}
+
+interface LinkExtraProps {
+
+}
+
+interface SelectExtraProps {
+
+}
+
+interface SliderExtraProps {
+
+}
+
+interface SwitchExtraProps {
+
+}
+
+interface TextfieldExtraProps {
+  
+}

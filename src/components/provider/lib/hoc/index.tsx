@@ -12,7 +12,7 @@ const PhaselisHOC = <P extends React.PropsWithRef<any>, T = {}>(
   WrappedComponent: React.FC<CombinedProps<P, T>>,
 ): React.FC<CombinedProps<P, T>> => {
   const ConsumedComponent = React.forwardRef<any, CombinedProps<P, T>>(
-    (props: CombinedProps<P, T> & { contextValue?: any }, ref) => {
+    (props, ref) => {
       const contextValue = React.useContext(Context);
       return (
         <WrappedComponent

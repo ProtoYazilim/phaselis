@@ -19,7 +19,12 @@ const depsToMove = [
   "expo-status-bar",
 ];
 
-const peerDepsToMove = ["react", "react-dom", "react-native"];
+const peerDependenciesNotToMove = [
+  "react",
+  "react-dom",
+  "react-native",
+  "react-test-renderer",
+];
 
 packageJson.peerDependencies = packageJson.peerDependencies || {};
 packageJson.tempDependencies = packageJson.tempDependencies || {};
@@ -35,15 +40,11 @@ packageJson.peerDependencies = packageJson.peerDependencies || {};
 packageJson.tempPeerDependencies = packageJson.tempPeerDependencies || {};
 
 Object.keys(packageJson.peerDependencies).forEach((dep) => {
+  if (peerDependenciesNotToMove.includes(dep)) {
+    return;
+  }
   packageJson.tempPeerDependencies[dep] = packageJson.peerDependencies[dep];
   delete packageJson.peerDependencies[dep];
-});
-
-peerDepsToMove.forEach((dep) => {
-  if (packageJson.dependencies && packageJson.dependencies[dep]) {
-    packageJson.peerDependencies[dep] = ">=" + packageJson.dependencies[dep];
-    delete packageJson.dependencies[dep];
-  }
 });
 
 fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));

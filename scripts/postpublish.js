@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 const fs = require("fs");
 const path = require("path");
+console.log("POST PUBLISH STARTED");
 
 const packageJsonPath = path.join(__dirname, "../package.json");
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf-8"));
@@ -18,24 +19,12 @@ const depsToMove = [
   "expo-status-bar",
 ];
 
-const peerDepsToMove = ["react", "react-dom", "react-native"];
-
 packageJson.dependencies = packageJson.dependencies || {};
 
 depsToMove.forEach((dep) => {
   if (packageJson.tempDependencies && packageJson.tempDependencies[dep]) {
     packageJson.dependencies[dep] = packageJson.tempDependencies[dep];
     delete packageJson.tempDependencies[dep];
-  }
-});
-
-peerDepsToMove.forEach((dep) => {
-  if (packageJson.peerDependencies && packageJson.peerDependencies[dep]) {
-    packageJson.dependencies[dep] = packageJson.peerDependencies[dep].replace(
-      /^>=/,
-      "",
-    );
-    delete packageJson.peerDependencies[dep];
   }
 });
 

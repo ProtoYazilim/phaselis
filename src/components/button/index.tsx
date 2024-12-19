@@ -125,4 +125,4 @@ const Button: FC<ButtonPropTypes> = ({
 
 Button.displayName = "button";
 
-export default PhaselisHOC<ButtonPropTypes>(Button);
+export default PhaselisHOC(Button);

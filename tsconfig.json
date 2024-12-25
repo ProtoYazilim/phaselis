@@ -8,7 +8,7 @@
       "phaselis": [
         "./src"
       ],
-      "phaselis/*": [
+      "src/*": [
         "./src/*"
       ],
       "appSrc/*": [
@@ -21,11 +21,11 @@
     "outDir": "./dist/@types",
     "esModuleInterop": true
   },
-  "include": [
-    "src/**/*",
-    "appSrc/**/*",
-    ".expo/types/**/*.ts",
-    "expo-env.d.ts",
-    "global.d.ts"
+  "exclude": [
+    "app/**/*",
+    "node_modules",
+    "dist",
+    "ios",
+    "android"
   ]
 }

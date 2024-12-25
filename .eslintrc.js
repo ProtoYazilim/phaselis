@@ -1,15 +1,16 @@
 module.exports = {
   extends: ["expo", "prettier"],
-  plugins: ["prettier"],
+  parser: "@typescript-eslint/parser",
+  plugins: ["prettier", "@typescript-eslint"],
   rules: {
     "prettier/prettier": "error",
     "@typescript-eslint/no-unused-vars": ["error"],
   },
   overrides: [
     {
-      files: ["documentation/**", "appSrc/**"], // specify the path or glob pattern
+      files: ["documentation/**", "appSrc/**"],
       rules: {
-        "import/no-unresolved": "off", // disable the rule for this path
+        "import/no-unresolved": "off",
       },
     },
   ],

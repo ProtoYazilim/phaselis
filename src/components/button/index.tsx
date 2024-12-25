@@ -4,7 +4,7 @@ import stylesheet from "./assets/styles";
 import { ButtonPropTypes } from "./types";
 import { Slot, Block, PhaselisHOC, FormContext, useCombinedStyle } from "phaselis";
 
-export const Button: FC<ButtonPropTypes> = ({
+const Button: FC<ButtonPropTypes> = ({
   type = "submit",
   style,
   id,
@@ -96,16 +96,16 @@ export const Button: FC<ButtonPropTypes> = ({
         </Slot>
         {children
           ? React.Children.map(children, (child, index) => {
-              if (typeof child === "string") {
-                return (
-                  <Text key={index} style={getCombinedStyle("text")}>
-                    {child}
-                  </Text>
-                );
-              } else {
-                return child;
-              }
-            })
+            if (typeof child === "string") {
+              return (
+                <Text key={index} style={getCombinedStyle("text")}>
+                  {child}
+                </Text>
+              );
+            } else {
+              return child;
+            }
+          })
           : text && <Text style={getCombinedStyle("text")}>{text}</Text>}
         <Slot
           style={getCombinedStyle("rightSlot")}

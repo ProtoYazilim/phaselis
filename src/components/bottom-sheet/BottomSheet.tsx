@@ -1,15 +1,15 @@
-import React, { useEffect, useRef } from "react";
+import React, { FC, useEffect, useRef } from "react";
 import { StyleSheet, TouchableOpacity, Modal, Animated } from "react-native";
 import { BottomSheetProps } from "./types";
 
-const BottomSheet = ({
+const BottomSheet: FC<BottomSheetProps> = ({
   show = false,
   duration = 500,
   children,
   onClose,
   fullScreenModal = false,
   maxHeightModal = "40%",
-}: BottomSheetProps) => {
+}) => {
   const HEIGHT = useRef(500);
   const translateY = useRef(new Animated.Value(0)).current;
   const [isModalVisible, setIsModalVisible] = React.useState(false);

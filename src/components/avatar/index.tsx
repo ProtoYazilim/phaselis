@@ -2,8 +2,10 @@ import { FC, useCallback } from "react";
 import { AvatarProps } from "./types";
 import stylesheet from "./assets/styles";
 import { View, Text, Image } from "react-native";
-import { LucideIcon, useCombinedStyle } from "phaselis";
-import { PhaselisHOC } from "phaselis";
+import LucideIcon from "../lucide-icon";
+import { PhaselisHOC } from "src/components/provider";
+import useCombinedStyle from "src/hooks/useCombinedStyle";
+
 
 const sizeIconSizeLiteral = {
   xxs: 16,
@@ -15,7 +17,7 @@ const sizeIconSizeLiteral = {
   xxl: 128,
 };
 
-export const Avatar: FC<AvatarProps> = ({
+const Avatar: FC<AvatarProps> = ({
   id,
   children,
   style,
@@ -85,5 +87,7 @@ export const Avatar: FC<AvatarProps> = ({
 
   return <View style={getCombinedStyle("container")}>{renderHelper()}</View>;
 };
+
+export default PhaselisHOC(Avatar);
 
 Avatar.displayName = "avatar";

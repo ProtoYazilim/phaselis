@@ -1,9 +1,9 @@
 {
-    "name": "@phaselis/hooks",
-    "version": "0.0.0",
-    "description": "phaselis hooks",
-    "keywords": "hooks",
-    "dependencies": {
-        "react-native-unistyles": "^2.7.0"
-    }
+  "name": "phaselis/hooks",
+  "version": "0.0.0",
+  "description": "phaselis hooks",
+  "keywords": "hooks",
+  "dependencies": {
+    "react-native-unistyles": "^2.7.0"
+  }
 }

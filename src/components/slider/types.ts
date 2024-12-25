@@ -1,4 +1,4 @@
-import { ComponentSize, InputControlProps } from "@phaselis/types";
+import { ComponentSize, InputControlProps } from "phaselis";
 import { FC, ReactNode } from "react";
 import { ViewStyle } from "react-native";
 

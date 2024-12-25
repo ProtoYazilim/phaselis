@@ -1,4 +1,4 @@
-import { Block, Button } from "@phaselis/components";
+import { Block, Button } from "phaselis";
 import React from "react";
 import { StyleSheet, ScrollView } from "react-native";
 const ButtonExample = () => {

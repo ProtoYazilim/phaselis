@@ -1,6 +1,6 @@
 import React, { Children, cloneElement, useState } from "react";
 import { AccordionProps } from "./types";
-import { PhaselisHOC } from "@phaselis/components/provider";
+import { PhaselisHOC } from "phaselis";
 import { createContext } from "react";
 
 const AccordionContext = createContext<{
@@ -76,5 +76,5 @@ const Accordion = ({
   );
 };
 
-export default PhaselisHOC<AccordionProps>(Accordion);
+export default PhaselisHOC(Accordion);
 export { AccordionContext };

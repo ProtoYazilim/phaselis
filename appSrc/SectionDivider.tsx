@@ -1,6 +1,5 @@
 import React, { FC } from "react";
-import { Colors, Spacings } from "@phaselis/theme";
-import { Block } from "@phaselis/components";
+import { Colors, Spacings, Block } from "phaselis";
 import { Text } from "react-native";
 
 const SectionDivider: FC<{

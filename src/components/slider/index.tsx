@@ -1,11 +1,9 @@
 import React, { FC, useEffect, useState } from "react";
 import { View, StyleSheet } from "react-native";
-import { PhaselisHOC } from "@phaselis/components/provider";
-import { InputHOC } from "@phaselis/utils";
+import { PhaselisHOC, InputHOC, useCombinedStyle } from "phaselis";
 import SliderCore from "@react-native-community/slider";
 import stylesheet from "./assets/styles";
 import { SliderProps } from "./types";
-import { useCombinedStyle } from "@phaselis/hooks";
 
 const Slider: FC<SliderProps> = ({
   contextValue,
@@ -70,4 +68,4 @@ const Slider: FC<SliderProps> = ({
 
 Slider.displayName = "Slider";
 
-export default InputHOC(PhaselisHOC<SliderProps, SliderExtraProps>(Slider));
+export default InputHOC(PhaselisHOC(Slider));

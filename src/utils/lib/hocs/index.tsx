@@ -2,9 +2,9 @@
 import React, { useEffect, useRef } from "react";
 
 import hoistNonReactStatics from "hoist-non-react-statics";
-import { FormContext } from "@phaselis/components/form";
+import { FormContext } from "phaselis";
 
-const InputHOC = <P extends React.PropsWithRef<any>>(
+export const InputHOC = <P extends React.PropsWithRef<any>>(
   WrappedComponent: React.ComponentType<P>,
 ): React.ForwardRefExoticComponent<P & React.RefAttributes<any>> => {
   const ConsumedComponent = React.forwardRef<
@@ -86,5 +86,3 @@ const InputHOC = <P extends React.PropsWithRef<any>>(
     WrappedComponent,
   ) as React.ForwardRefExoticComponent<P & React.RefAttributes<any>>;
 };
-
-export default InputHOC;

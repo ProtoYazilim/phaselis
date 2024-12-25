@@ -1,10 +1,7 @@
-import Slot from "@phaselis/components/slot";
 import { View, Text, Pressable } from "react-native";
-import { cloneSlot } from "@phaselis/utils/lib/util";
-import { PhaselisHOC } from "@phaselis/components";
-import { useCombinedStyle } from "@phaselis/hooks";
 import { stylesheet_picker_header } from "../assets/styles";
 import { HeaderSlotProps, CloseIconSlotProps } from "../types";
+import { Slot, cloneSlot, PhaselisHOC, useCombinedStyle } from "phaselis";
 
 const CloseIconSlotDefault = ({
   setShowPicker,

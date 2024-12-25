@@ -1,12 +1,9 @@
 import React, { useEffect, useMemo } from "react";
 import { View, FlatList } from "react-native";
-import { BottomSheet } from "@phaselis/components";
+import { BottomSheet, cloneSlot, useCombinedStyle, PhaselisHOC, Block } from "phaselis";
 import HeaderSlotDefault from "./lib/HeaderSlotDefault";
-import { cloneSlot } from "@phaselis/utils/lib/util/index";
 import OptionSlotDefault from "./lib/OptionSlotDefault";
 import NoOptionSlotDefault from "./lib/NoOptionSlotDefault";
-import { useCombinedStyle } from "@phaselis/hooks";
-import { PhaselisHOC, Block } from "@phaselis/components";
 import { stylesheet_picker_options_slot } from "./assets/styles";
 import { CustomPickerProps } from "./types";
 

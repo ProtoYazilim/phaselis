@@ -1,6 +1,5 @@
 import React from "react";
-import { required } from "@phaselis/utils";
-import { Select } from "@phaselis/components";
+import { Select, required } from "phaselis";
 
 const SelectStory = () => {
   return (

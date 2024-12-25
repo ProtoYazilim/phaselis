@@ -29,7 +29,7 @@ const useCombinedStyle = <ST extends StyleSheetWithSuperPowers>(
   const { styles: themeStyles } = useStyles(
     mergeStyles(
       contextThemeStyles?.default || contextThemeStyles,
-      contextThemeStyles[variation],
+      contextThemeStyles?.[variation],
     ),
     variantsMap,
   );

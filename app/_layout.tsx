@@ -5,8 +5,7 @@ import { useEffect } from "react";
 import "react-native-reanimated";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import "../config/unistyle";
-import { Provider as FrameWorkProvider } from "@phaselis/components";
-import { lightTheme } from "@phaselis/theme/lightTheme";
+import { Provider as FrameWorkProvider, lightTheme, Colors } from "phaselis";
 import { Tabs } from "expo-router";
 import { LogBox } from "react-native";
 import {
@@ -14,7 +13,6 @@ import {
   LucideComponent,
   DraftingCompass,
 } from "lucide-react-native";
-import { Colors } from "@phaselis/theme";
 import { getEnvironmentType } from "../appSrc";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.

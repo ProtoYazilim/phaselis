@@ -1,4 +1,3 @@
-import { Colors } from "@phaselis/theme";
 import { createStyleSheet } from "react-native-unistyles";
 
 const stylesheet = createStyleSheet({
@@ -29,18 +28,18 @@ const stylesheet = createStyleSheet({
     },
   },
   label: {
-    color: Colors.Gray[900],
+
     lineHeight: 24,
     marginBottom: 4,
     variants: {
       disabled: {
         true: {
-          color: Colors.Gray[400],
+
         },
       },
       error: {
         true: {
-          color: Colors.Danger[700],
+
         },
       },
       size: {
@@ -52,18 +51,18 @@ const stylesheet = createStyleSheet({
     },
   },
   message: {
-    color: Colors.Gray[900],
+
     lineHeight: 21,
     marginTop: 4,
     variants: {
       disabled: {
         true: {
-          color: Colors.Gray[400],
+
         },
       },
       error: {
         true: {
-          color: Colors.Danger[700],
+
         },
       },
       required: { true: {} },

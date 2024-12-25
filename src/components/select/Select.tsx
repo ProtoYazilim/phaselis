@@ -1,13 +1,11 @@
 import React, { FC, useEffect, useMemo, useRef, useState } from "react";
 import { View } from "react-native";
-import { PhaselisHOC } from "@phaselis/components/provider";
+import { PhaselisHOC, InputHOC, cloneSlot } from "phaselis";
 import ReactNativePickerSelect from "react-native-picker-select";
-import { InputHOC } from "@phaselis/utils";
 import { SelectProps } from "./types";
 import CustomPicker from "./CustomPicker";
 import NativePicker from "./NativePicker";
 import InputSlotDefault from "./lib/InputSlotDefault";
-import { cloneSlot } from "@phaselis/utils/lib/util";
 
 const Select: FC<SelectProps> = ({
   style,
@@ -137,4 +135,4 @@ const Select: FC<SelectProps> = ({
 
 Select.displayName = "Select";
 
-export default InputHOC(PhaselisHOC<SelectProps, SelectExtraProps>(Select));
+export default InputHOC(PhaselisHOC(Select));

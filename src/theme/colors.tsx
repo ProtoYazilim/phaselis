@@ -110,5 +110,4 @@ const Colors = {
   Transparent: "transparent",
 };
 
-export default Colors;
 export { Colors };

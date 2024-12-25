@@ -1,10 +1,8 @@
 import { View } from "react-native";
-import { InputHOC } from "@phaselis/utils";
+import { InputHOC, PhaselisHOC, useCombinedStyle } from "phaselis";
 import RadioContext from "./context";
 import { RadioGroupProps } from "./types";
 import { stylesheet_group as stylesheet } from "./assets/styles";
-import { PhaselisHOC } from "@phaselis/components/provider";
-import { useCombinedStyle } from "@phaselis/hooks";
 import { useEffect, useState } from "react";
 
 const RadioGroup = ({
@@ -46,4 +44,4 @@ const RadioGroup = ({
   );
 };
 
-export default InputHOC(PhaselisHOC<RadioGroupProps>(RadioGroup));
+export default InputHOC(PhaselisHOC(RadioGroup));

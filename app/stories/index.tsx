@@ -1,5 +1,4 @@
-import { Colors } from "@phaselis/theme";
-import { Button } from "@phaselis/components";
+import { Button, Colors } from "phaselis";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect, useNavigation } from "expo-router";
 import React from "react";
@@ -52,6 +51,7 @@ export default function Index() {
               });
             }
           }}
+          variation="secondary"
         />
       )}
     </View>

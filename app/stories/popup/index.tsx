@@ -1,4 +1,4 @@
-import { Block, Button, Popup } from "@phaselis/components";
+import { Block, Button, Popup } from "phaselis";
 import React, { useState } from "react";
 import { SafeAreaView, StyleSheet, Text } from "react-native";
 

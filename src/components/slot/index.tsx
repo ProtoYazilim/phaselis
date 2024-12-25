@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from "react";
-import LucideIcon from "@phaselis/components/lucide-icon";
+import { LucideIcon } from "phaselis";
 import SlotProps from "./types";
 import { Animated, Easing } from "react-native";
 
-const Slot: React.FC<SlotProps> = ({
+export const Slot: React.FC<SlotProps> = ({
   children,
   icon,
   style,
@@ -81,5 +81,3 @@ const Slot: React.FC<SlotProps> = ({
   }
   return null;
 };
-
-export default Slot;

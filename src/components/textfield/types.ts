@@ -10,7 +10,7 @@ import {
   ComponentSize,
   IconStyle,
   InputControlProps,
-} from "@phaselis/types";
+} from "phaselis";
 import { FC, ReactNode } from "react";
 import { Mask } from "react-native-mask-input";
 

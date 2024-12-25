@@ -1,5 +1,5 @@
-import FormStoryView from "@appSrc/FormStoryView";
-import { Switch } from "@phaselis/components";
+import FormStoryView from "appSrc/FormStoryView";
+import { Switch } from "phaselis";
 import React from "react";
 import { Text } from "react-native";
 

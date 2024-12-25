@@ -1,8 +1,6 @@
 import React, { useRef } from "react";
 import { View, StyleSheet } from "react-native";
-import { Block, Form, Button } from "@phaselis/components";
-import { FormReference } from "@phaselis/components/form";
-import { Datepicker } from "@phaselis/components";
+import { Block, Form, Button, FormReference, Datepicker } from "phaselis";
 
 const DatepickerStory = () => {
   const refForm = useRef<FormReference>(null);

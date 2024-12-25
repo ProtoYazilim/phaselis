@@ -1,9 +1,7 @@
 import React, { useMemo } from "react";
 import { View, Text } from "react-native";
 import stylesheet from "./assets/styles";
-import { PhaselisHOC } from "@phaselis/components/provider";
-import { useCombinedStyle } from "@phaselis/hooks";
-import { Slot } from "@phaselis/components";
+import { Slot, PhaselisHOC, useCombinedStyle } from "phaselis";
 import { BadgeProps } from "./types";
 
 const Badge: React.FC<BadgeProps> = ({
@@ -76,4 +74,4 @@ const Badge: React.FC<BadgeProps> = ({
   );
 };
 
-export default PhaselisHOC<BadgeProps>(Badge);
+export default PhaselisHOC(Badge);

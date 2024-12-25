@@ -1,8 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { Block, Button, Row } from "@phaselis/components";
-import Stepper from "@phaselis/components/stepper/Stepper";
-import ProgressStep from "@phaselis/components/stepper/ProgressStep";
+import { Block, Button, Row, Stepper, ProgressStep } from "phaselis";
 
 const StepperStory = () => {
   const onNextStep = () => {
@@ -33,7 +31,7 @@ const StepperStory = () => {
                   size="sm"
                   disabled={previousButtonProps.disabled}
                   onClick={() => {
-                    previousButtonProps.onPress();
+                    previousButtonProps.onPress?.();
                     console.log("clicked previous");
                   }}
                 />
@@ -45,7 +43,7 @@ const StepperStory = () => {
                 size="sm"
                 disabled={nextButtonProps.disabled}
                 onClick={() => {
-                  nextButtonProps.onPress();
+                  nextButtonProps.onPress?.();
                   console.log("clicked next");
                 }}
               />
@@ -54,20 +52,20 @@ const StepperStory = () => {
         }}
       >
         <ProgressStep text="Step1" onNext={onNextStep} onPrevious={onPrevStep}>
-          <Button text="Step 1" disabled secondary outline />
+          <Button text="Step 1" disabled variation="secondary_outline"/>
         </ProgressStep>
         <ProgressStep text="Step2" onNext={onNextStep} onPrevious={onPrevStep}>
-          <Button text="Step 2" disabled secondary outline />
+          <Button text="Step 2" disabled variation="secondary_outline"/>
         </ProgressStep>
         <ProgressStep text="Step3" onNext={onNextStep} onPrevious={onPrevStep}>
-          <Button text="Step 3" disabled secondary outline />
+          <Button text="Step 3" disabled variation="secondary_outline"/>
         </ProgressStep>
         <ProgressStep
           text="Step 4"
           onPrevious={onPrevStep}
           onSubmit={onSubmitSteps}
         >
-          <Button text="Step 4" disabled secondary outline />
+          <Button text="Step 4" variation="secondary_outline" disabled/>
         </ProgressStep>
         <ProgressStep
           text="Step5"
@@ -75,7 +73,7 @@ const StepperStory = () => {
           onSubmit={onSubmitSteps}
           disabled
         >
-          <Button text="Step 5" disabled secondary outline />
+          <Button text="Step 5"  variation="secondary_outline" disabled/>
         </ProgressStep>
       </Stepper>
     </View>

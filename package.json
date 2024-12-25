@@ -1,19 +1,19 @@
 {
   "name": "phaselis",
   "version": "0.0.10",
-  "main": "package/index.js",
-  "module": "package/index.js",
-  "types": "package/index.d.ts",
+  "main": "expo-router/entry",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "commonjs",
   "files": [
-    "package"
+    "dist"
   ],
   "exports": {
     ".": {
-      "main": "package/index.js",
-      "import": "package/index.js",
-      "require": "package/index.js",
-      "types": "package/index.d.ts"
+      "main": "dist/index.js",
+      "import": "dist/index.js",
+      "require": "dist/index.js",
+      "types": "dist/index.d.ts"
     }
   },
   "scripts": {
@@ -59,11 +59,27 @@
     "react-native-svg": "15.8.0",
     "react-native-unistyles": "^2.7.2",
     "react-native-web": "~0.19.10",
-    "react-native-web-linear-gradient": "^1.1.2"
+    "react-native-web-linear-gradient": "^1.1.2",
+    "react-native-safe-area-context": "4.12.0",
+    "react-native-screens": "~4.1.0",
+    "react-native-reanimated": "~3.16.1",
+    "@react-native-async-storage/async-storage": "1.23.1",
+    "@react-navigation/drawer": "^6.6.15",
+    "@react-navigation/native": "^6.0.2",
+    "expo": "^52.0.0",
+    "expo-status-bar": "~2.0.0"
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "expo-constants": "~16.0.2",
+    "expo-font": "~12.0.9",
+    "expo-linking": "~6.3.1",
+    "expo-router": "~3.5.23",
+    "expo-splash-screen": "~0.27.5",
+    "expo-status-bar": "~1.12.1",
+    "expo-system-ui": "~3.0.7",
+    "expo-web-browser": "~13.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
@@ -102,25 +118,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ProtoYazilim/phaselis.git"
-  },
-  "tempDependencies": {
-    "react-native-safe-area-context": "4.12.0",
-    "react-native-screens": "~4.1.0",
-    "react-native-reanimated": "~3.16.1",
-    "@react-native-async-storage/async-storage": "1.23.1",
-    "@react-navigation/drawer": "^6.6.15",
-    "@react-navigation/native": "^6.0.2",
-    "expo": "^52.0.0",
-    "expo-status-bar": "~2.0.0"
-  },
-  "tempPeerDependencies": {
-    "expo-constants": "~16.0.2",
-    "expo-font": "~12.0.9",
-    "expo-linking": "~6.3.1",
-    "expo-router": "~3.5.23",
-    "expo-splash-screen": "~0.27.5",
-    "expo-status-bar": "~1.12.1",
-    "expo-system-ui": "~3.0.7",
-    "expo-web-browser": "~13.0.3"
   }
 }

@@ -1,7 +1,6 @@
-import { Block, Button } from "@phaselis/components";
+import { Block, Button, usePopup } from "phaselis";
 import React from "react";
 import { SafeAreaView, StyleSheet, Text } from "react-native";
-import { usePopup } from "@phaselis/hooks";
 
 function PopupStory() {
   const [showDefault, setShowDefault] = usePopup(

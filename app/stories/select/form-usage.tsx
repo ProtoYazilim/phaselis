@@ -1,5 +1,5 @@
-import FormStoryView from "@appSrc/FormStoryView";
-import { Select } from "@phaselis/components";
+import FormStoryView from "appSrc/FormStoryView";
+import { Select } from "phaselis";
 import React from "react";
 
 function SwitchStory() {

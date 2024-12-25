@@ -1,4 +1,4 @@
-import { Block, Label } from "@phaselis/components";
+import { Block, Label } from "phaselis";
 import React from "react";
 import { StyleSheet, ScrollView } from "react-native";
 

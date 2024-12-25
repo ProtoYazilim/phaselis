@@ -1,14 +1,10 @@
 import React, { FC, useContext, useState } from "react";
 import { Platform, Text, GestureResponderEvent, Pressable } from "react-native";
-
-import { PhaselisHOC } from "@phaselis/components/provider";
-import { FormContext } from "@phaselis/components/form";
 import stylesheet from "./assets/styles";
 import { ButtonPropTypes } from "./types";
-import { Slot, Block } from "@phaselis/components";
-import { useCombinedStyle } from "@phaselis/hooks";
+import { Slot, Block, PhaselisHOC, FormContext, useCombinedStyle } from "phaselis";
 
-const Button: FC<ButtonPropTypes> = ({
+export const Button: FC<ButtonPropTypes> = ({
   type = "submit",
   style,
   id,

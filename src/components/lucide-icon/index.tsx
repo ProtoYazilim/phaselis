@@ -3,7 +3,7 @@ import React, { useMemo } from "react";
 import { StyleSheet } from "react-native";
 import { LucideIconProps } from "./types";
 
-const LucideIcon = ({
+export const LucideIcon = ({
   name,
   size,
   style,
@@ -44,8 +44,6 @@ const LucideIcon = ({
     />
   );
 };
-
-export default LucideIcon;
 
 const sizeLiteral = {
   xxs: 4,

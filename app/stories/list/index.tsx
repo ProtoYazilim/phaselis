@@ -1,4 +1,4 @@
-import { List } from "@phaselis/components";
+import { List } from "phaselis";
 import React from "react";
 import { View, Text } from "react-native";
 

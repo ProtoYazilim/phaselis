@@ -1,8 +1,7 @@
-import { PhaselisHOC } from "@phaselis/components/provider";
+import { PhaselisHOC, useCombinedStyle } from "phaselis";
 import { View } from "react-native";
 import { TabItemProps } from "./types";
 import { tab_item_styles as stylesheet } from "./assets/styles";
-import { useCombinedStyle } from "@phaselis/hooks";
 
 const TabItem = ({
   children,
@@ -25,4 +24,4 @@ const TabItem = ({
 
 TabItem.displayName = "TABITEM";
 
-export default PhaselisHOC<TabItemProps, any>(TabItem);
+export default PhaselisHOC(TabItem);

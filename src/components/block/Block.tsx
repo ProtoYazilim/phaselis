@@ -1,6 +1,6 @@
 import React, { FC, useMemo } from "react";
 import { View } from "react-native";
-import { PhaselisHOC } from "@phaselis/components/provider";
+import { PhaselisHOC } from "phaselis";
 import { BlockProps } from "./types";
 import LinearGradient from "react-native-linear-gradient";
 import { ShadowedView, shadowStyle } from "react-native-fast-shadow";
@@ -62,4 +62,4 @@ const Block: FC<BlockProps> = ({
 
 Block.displayName = "Block";
 
-export default PhaselisHOC<BlockProps, BlockExtraProps>(Block);
+export default PhaselisHOC(Block);

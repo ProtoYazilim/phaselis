@@ -5,49 +5,16 @@
     "strict": true,
     "noEmitOnError": true,
     "paths": {
-      "@/*": [
-        "./*"
+      "phaselis": [
+        "./src"
       ],
-      "@phaselis/components": [
-        "./src/components"
+      "phaselis/*": [
+        "./src/*"
       ],
-      "@phaselis/components/*": [
-        "./src/components/*"
-      ],
-      "@phaselis/utils/*": [
-        "./src/utils/*"
-      ],
-      "@phaselis/utils": [
-        "./src/utils"
-      ],
-      "@phaselis/hooks/*": [
-        "./src/hooks/*"
-      ],
-      "@phaselis/hooks": [
-        "./src/hooks"
-      ],
-      "@phaselis/hocs/*": [
-        "./src/hocs/*"
-      ],
-      "@phaselis/hocs": [
-        "./src/hocs"
-      ],
-      "@phaselis/theme/*": [
-        "./src/theme/*"
-      ],
-      "@phaselis/theme": [
-        "./src/theme"
-      ],
-      "@phaselis/types/*": [
-        "./src/types/*"
-      ],
-      "@phaselis/types": [
-        "./src/types"
-      ],
-      "@appSrc/*": [
+      "appSrc/*": [
         "./appSrc/*"
       ],
-      "@appSrc": [
+      "appSrc": [
         "./appSrc"
       ],
     },

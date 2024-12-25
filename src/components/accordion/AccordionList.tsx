@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { View, FlatList } from "react-native";
-
 import { AccordionListProps } from "./types";
-import { PhaselisHOC } from "@phaselis/components/provider";
+import { PhaselisHOC } from "phaselis";
 import { useStyles } from "react-native-unistyles";
 import { stylesheet_list as stylesheet } from "./assets/styles";
 import AccordionItem from "./AccordionItem";
@@ -87,4 +86,4 @@ const AccordionList = ({
   );
 };
 
-export default PhaselisHOC<AccordionListProps>(AccordionList);
+export default PhaselisHOC(AccordionList);

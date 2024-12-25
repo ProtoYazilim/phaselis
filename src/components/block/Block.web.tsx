@@ -1,6 +1,6 @@
 import React, { FC, useMemo } from "react";
 import { View } from "react-native";
-import { PhaselisHOC } from "@phaselis/components/provider";
+import { PhaselisHOC } from "phaselis";
 import { BlockProps } from "./types";
 //@ts-ignore
 import LinearGradient from "react-native-web-linear-gradient";
@@ -61,4 +61,4 @@ const Block: FC<BlockProps> = ({
 
 Block.displayName = "Block";
 
-export default PhaselisHOC<BlockProps, BlockExtraProps>(Block);
+export default PhaselisHOC(Block);

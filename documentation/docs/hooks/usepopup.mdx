@@ -14,7 +14,7 @@ The `usePopup` hook allows developers to manage popups with various types and cu
 ## Import
 
 ```js
-import usePopup, { PopupProvider } from "phaselis/hooks/usePopup";
+import usePopup, { PopupProvider } from "phaselis";
 ```
 
 - **usePopup**: The custom hook for managing popups.
@@ -28,7 +28,7 @@ Ensure that your application is wrapped with the `PopupProvider` so that the con
 
 ```jsx
 import React from 'react';
-import { PopupProvider } from 'phaselis/hooks/usePopup';
+import { PopupProvider } from 'phaselis';
 import AppContent from './AppContent';
 
 const App = () => {
@@ -46,7 +46,7 @@ export default App;
 
 ```jsx
 import React from 'react';
-import usePopup from 'phaselis/hooks/usePopup';
+import usePopup from 'phaselis';
 import { Button, Text } from 'react-native';
 
 const ExampleComponent = () => {

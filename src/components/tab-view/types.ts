@@ -1,4 +1,4 @@
-import { IconStyle, SlotableLeftRightProps } from "@phaselis/types";
+import { IconStyle, SlotableLeftRightProps } from "phaselis";
 import { ReactNode } from "react";
 import { TextStyle, ViewStyle } from "react-native";
 

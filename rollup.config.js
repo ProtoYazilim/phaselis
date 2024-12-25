@@ -10,7 +10,7 @@ export default [
     input: "src/index.ts",
     output: [
       {
-        file: "package/index.js",
+        file: "dist/index.js",
         format: "es",
         sourcemap: true,
       },
@@ -55,7 +55,7 @@ export default [
   },
   {
     input: "src/index.ts",
-    output: [{ file: "package/index.d.ts", format: "es" }],
+    output: [{ file: "dist/index.d.ts", format: "es" }],
     plugins: [dts()],
     external: [/\.css$/, /\.png$/, /\.jpg$/, /\.gif$/],
   },

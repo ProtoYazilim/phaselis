@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 
-import { Textfield, Badge } from "@phaselis/components";
+import { Textfield, Badge } from "phaselis";
 
 const BadgeStory = () => {
   return (

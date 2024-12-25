@@ -1,6 +1,6 @@
 {
-    "name": "@phaselis/components",
-    "version": "0.0.0",
-    "description": "Proto Native Components",
-    "keywords": "@phaselis,proto,component"
+  "name": "phaselis",
+  "version": "0.0.0",
+  "description": "Proto Native Components",
+  "keywords": "@phaselis,proto,component"
 }

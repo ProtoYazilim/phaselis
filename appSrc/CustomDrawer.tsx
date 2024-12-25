@@ -1,11 +1,9 @@
 import { Drawer } from "expo-router/drawer";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Colors } from "@phaselis/theme";
-import { LucideIcon } from "@phaselis/components";
+import { LucideIcon, Colors, SlotIconName} from "phaselis";
 import { DrawerActions } from "@react-navigation/native";
 import { Pressable } from "react-native";
 import { FC } from "react";
-import { SlotIconName } from "@phaselis/types/base";
 
 type DrawerScreen = {
   name: string;

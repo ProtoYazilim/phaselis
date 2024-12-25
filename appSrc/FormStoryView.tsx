@@ -1,9 +1,6 @@
 import React, { useRef } from "react";
 import { Alert, ScrollView, View, ViewStyle } from "react-native";
-import { FormReference } from "@phaselis/components/form";
-import { Button, Form, Block } from "@phaselis/components";
-import { useSpacings } from "@phaselis/components/provider/lib/hooks";
-import { PhaselisSpacings } from "@phaselis/theme";
+import { Button, Form, Block, useSpacings, PhaselisSpacings, FormReference } from "phaselis";
 
 const FormStoryView = ({
   children,

@@ -1,7 +1,7 @@
 import {
   LinearGradientAttributes,
   ShadowAttributes,
-} from "@phaselis/types/base";
+} from "phaselis";
 import { ReactNode } from "react";
 import { ViewProps, ViewStyle } from "react-native";
 

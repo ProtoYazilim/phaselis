@@ -1,5 +1,4 @@
-import { required } from "@phaselis/utils";
-import { Block, Button, Textfield, Form } from "@phaselis/components";
+import { Block, Button, Textfield, Form,required } from "phaselis";
 import React from "react";
 import { StyleSheet, ScrollView, Text } from "react-native";
 const ShadowExample = () => {
@@ -45,8 +44,6 @@ const ShadowExample = () => {
           rightIcon="ChevronRight"
           text="Custom"
           size="sm"
-          primary
-          half
           disabled
           style={{
             container: {

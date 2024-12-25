@@ -1,9 +1,8 @@
 import React, { FC } from "react";
 import { View } from "react-native";
-import { PhaselisHOC } from "@phaselis/components/provider";
+import { PhaselisHOC, useCombinedStyle } from "phaselis";
 import { RowProps } from "./types";
 import stylesheet from "./assets/styles";
-import { useCombinedStyle } from "@phaselis/hooks";
 
 const Row: FC<RowProps> = ({
   contextValue,
@@ -29,4 +28,4 @@ const Row: FC<RowProps> = ({
 
 Row.displayName = "Row";
 
-export default PhaselisHOC<RowProps, RowExtraProps>(Row);
+export default PhaselisHOC(Row);

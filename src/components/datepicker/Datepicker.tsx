@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Pressable, Text } from "react-native";
 import stylesheet from "./assets/styles";
-import { PhaselisHOC } from "@phaselis/components/provider";
-import { InputHOC } from "@phaselis/utils";
-import { useCombinedStyle } from "@phaselis/hooks";
 import { DatepickerProps } from "./types";
 import CoreDatePicker from "react-native-date-picker";
-import { Slot } from "@phaselis/components";
+import { Slot, PhaselisHOC, InputHOC, useCombinedStyle } from "phaselis";
 import { format as formatFns } from "date-fns";
 
 const Datepicker: React.FC<DatepickerProps> = (props) => {

@@ -1,7 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { Radio, RadioGroup } from "@phaselis/components";
-import { required } from "@phaselis/utils";
+import { Radio, RadioGroup, required } from "phaselis";
 
 const RadioStory = () => {
   return (

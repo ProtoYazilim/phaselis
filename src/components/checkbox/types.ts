@@ -4,7 +4,7 @@ import {
   SlotIconName,
   // ComponentSize,
   InputControlProps,
-} from "@phaselis/types";
+} from "phaselis";
 import { FC, ReactNode } from "react";
 import { TextStyle, ViewStyle } from "react-native";
 

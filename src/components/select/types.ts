@@ -3,7 +3,7 @@ import {
   SlotIconName,
   ComponentSize,
   InputControlProps,
-} from "@phaselis/types";
+} from "phaselis";
 import { ComponentType, FC, ReactNode, RefObject } from "react";
 import { StyleProp, TextStyle, ViewStyle } from "react-native";
 import ReactNativePickerSelect from "react-native-picker-select";

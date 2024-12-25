@@ -1,9 +1,8 @@
 import React, { FC } from "react";
 import { View, Text } from "react-native";
 import stylesheet from "./assets/styles";
-import { PhaselisHOC } from "@phaselis/components/provider";
+import { PhaselisHOC, useCombinedStyle } from "phaselis";
 import { LabelProps } from "./types";
-import { useCombinedStyle } from "@phaselis/hooks";
 
 const Label: FC<LabelProps> = (props) => {
   const {
@@ -55,4 +54,4 @@ const Label: FC<LabelProps> = (props) => {
 
 Label.displayName = "label";
 
-export default PhaselisHOC<LabelProps>(Label);
+export default PhaselisHOC(Label);

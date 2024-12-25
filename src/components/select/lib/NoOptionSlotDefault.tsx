@@ -1,7 +1,6 @@
 import { View, Text } from "react-native";
 import { stylesheet_picker_no_option } from "../assets/styles";
-import { PhaselisHOC } from "@phaselis/components";
-import { useCombinedStyle } from "@phaselis/hooks";
+import { PhaselisHOC, useCombinedStyle } from "phaselis";
 import { NoOptionSlotProps } from "../types";
 
 const NoOptionSlotDefault = ({
@@ -22,4 +21,4 @@ const NoOptionSlotDefault = ({
   );
 };
 
-export default PhaselisHOC<NoOptionSlotProps, any>(NoOptionSlotDefault);
+export default PhaselisHOC(NoOptionSlotDefault);

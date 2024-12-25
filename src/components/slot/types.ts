@@ -1,4 +1,4 @@
-import { ComponentSize, SlotIconName } from "@phaselis/types/base";
+import { ComponentSize, SlotIconName } from "phaselis";
 import { ReactElement } from "react";
 
 interface SlotProps {

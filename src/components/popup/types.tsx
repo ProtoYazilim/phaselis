@@ -1,4 +1,4 @@
-import { IconStyle, SlotChildComponent, SlotIconName } from "@phaselis/types";
+import { IconStyle, SlotChildComponent, SlotIconName } from "phaselis";
 import { ReactNode } from "react";
 import { TextStyle, ViewStyle } from "react-native";
 

@@ -1,4 +1,4 @@
-import Colors from "../colors";
+import { Colors } from "../colors";
 import { FontSizes, Heights, Radius, Spacings } from "../spacings";
 
 export default {

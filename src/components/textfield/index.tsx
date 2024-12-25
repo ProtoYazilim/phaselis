@@ -7,13 +7,10 @@ import {
   TextInputFocusEventData,
   TextInputKeyPressEventData,
 } from "react-native";
-import { InputHOC, validateText } from "@phaselis/utils";
 import stylesheet from "./assets/styles";
-import { PhaselisHOC } from "@phaselis/components/provider";
+import { PhaselisHOC, InputHOC, validateText, Block, Slot, useCombinedStyle } from "phaselis";
 import { TextfieldProps } from "./types";
-import { Block, Slot } from "@phaselis/components";
 import { useMaskedInputProps } from "react-native-mask-input";
-import { useCombinedStyle } from "@phaselis/hooks";
 
 const Textfield: React.FC<TextfieldProps> = ({
   error,
@@ -223,5 +220,5 @@ const Textfield: React.FC<TextfieldProps> = ({
 
 // @ts-ignore
 export default InputHOC(
-  PhaselisHOC<TextfieldProps, TextfieldExtraProps>(Textfield),
+  PhaselisHOC(Textfield),
 );

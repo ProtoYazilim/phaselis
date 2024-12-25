@@ -1,4 +1,4 @@
-import { IconStyle } from "@phaselis/types/base";
+import { IconStyle } from "phaselis";
 import { ReactNode } from "react";
 import { TextStyle, ViewStyle } from "react-native";
 

@@ -5,13 +5,10 @@ import {
   NativeScrollEvent,
   NativeSyntheticEvent,
 } from "react-native";
-
-import { PhaselisHOC } from "@phaselis/components/provider";
-import LucideIcon from "@phaselis/components/lucide-icon";
+import { PhaselisHOC, LucideIcon, useCombinedStyle } from "phaselis";
 import { TabViewHeaderProps } from "./types";
 import TabHeaderItem from "./TabHeaderItem";
 import { tab_header_styles as stylesheet } from "./assets/styles";
-import { useCombinedStyle } from "@phaselis/hooks";
 
 const elementComponents = {
   view: View,
@@ -163,4 +160,4 @@ const TabViewHeader = ({
   );
 };
 
-export default PhaselisHOC<TabViewHeaderProps, any>(TabViewHeader);
+export default PhaselisHOC(TabViewHeader);

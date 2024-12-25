@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 
-import { Badge, Avatar } from "@phaselis/components";
+import { Badge, Avatar } from "phaselis";
 
 const BadgeStory = () => {
   return (

@@ -1,11 +1,8 @@
 import React, { useMemo } from "react";
 import { Pressable, Text } from "react-native";
-
-import { PhaselisHOC } from "@phaselis/components/provider";
+import { PhaselisHOC, Slot, useCombinedStyle } from "phaselis";
 import { TabHeaderItemProps } from "./types";
-import { Slot } from "@phaselis/components";
 import { tab_header_item_styles as stylesheet } from "./assets/styles";
-import { useCombinedStyle } from "@phaselis/hooks";
 
 const TabHeaderItem = ({
   activeTabIndex,
@@ -58,4 +55,4 @@ const TabHeaderItem = ({
   );
 };
 
-export default PhaselisHOC<TabHeaderItemProps, any>(TabHeaderItem);
+export default PhaselisHOC(TabHeaderItem);

@@ -1,4 +1,4 @@
-import { Block, Label, Button } from "@phaselis/components";
+import { Block, Label, Button } from "phaselis";
 import { useState } from "react";
 import { ScrollView } from "react-native-gesture-handler";
 

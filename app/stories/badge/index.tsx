@@ -1,7 +1,7 @@
 import React from "react";
-import { Badge, Button, Col, Row } from "@phaselis/components";
-import StoryView from "@/appSrc/StoryView";
-import StorySection from "@/appSrc/StorySection";
+import { Badge, Button, Col, Row } from "phaselis";
+import StoryView from "appSrc/StoryView";
+import StorySection from "appSrc/StorySection";
 
 const BadgeStory = () => {
   return (

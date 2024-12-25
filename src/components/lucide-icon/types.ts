@@ -1,4 +1,4 @@
-import { ComponentSize, SlotIconName } from "@phaselis/types";
+import { ComponentSize, SlotIconName } from "phaselis";
 
 export interface LucideIconProps {
   name?: SlotIconName;

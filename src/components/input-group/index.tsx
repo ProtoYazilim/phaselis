@@ -1,10 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState, useContext } from "react";
 import { View, Text } from "react-native";
-import { FormContext } from "@phaselis/components/form";
-
+import { FormContext, useCombinedStyle } from "phaselis";
 import stylesheet from "./assets/styles";
-import { useCombinedStyle } from "@phaselis/hooks";
 import InputGroupProps from "./types";
 
 const InputGroup: React.FC<InputGroupProps> = ({

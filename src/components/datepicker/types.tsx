@@ -3,7 +3,7 @@ import {
   SlotableLeftRightProps,
   ComponentSize,
   InputControlProps,
-} from "@phaselis/types";
+} from "phaselis";
 import { FC, ReactNode } from "react";
 
 interface DatepickerProps

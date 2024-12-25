@@ -1,5 +1,5 @@
-import { Colors } from "@phaselis/theme";
-import { ColorView } from "../../../appSrc";
+import { Colors } from "phaselis";
+import { ColorView } from "appSrc";
 
 const ColorPalette = Object.entries(Colors.Secondary);
 

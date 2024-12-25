@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text } from "react-native";
-
-import { AccordionList } from "@phaselis/components";
+import { AccordionList } from "phaselis";
 
 const AccordionListStory = () => {
   return (

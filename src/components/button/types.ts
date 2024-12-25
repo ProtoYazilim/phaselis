@@ -4,7 +4,7 @@ import {
   TextStyle,
   ViewStyle,
 } from "react-native";
-import { SlotableLeftRightProps } from "@phaselis/types";
+import { SlotableLeftRightProps } from "phaselis";
 import { ReactNode } from "react";
 
 export interface ButtonPropTypes

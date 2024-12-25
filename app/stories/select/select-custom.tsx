@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ScrollView } from "react-native";
-import { FormReference } from "@phaselis/components/form";
-import { required } from "@phaselis/utils";
-import { Block, Button, Select, InputGroup, Form } from "@phaselis/components";
+import { Block, Button, Select, InputGroup, Form, required, FormReference } from "phaselis";
 
 async function testAPI() {
   return new Promise<{ value: string; label: string }[]>((resolve) => {

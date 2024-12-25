@@ -1,5 +1,5 @@
 import { TextStyle, ViewStyle } from "react-native";
-import { InputControlProps } from "@phaselis/types";
+import { InputControlProps } from "phaselis";
 import { FC, ReactNode } from "react";
 
 interface RadioGroupProps

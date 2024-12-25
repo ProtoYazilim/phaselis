@@ -1,10 +1,9 @@
 import React, { Children, useMemo, useState } from "react";
 import { View } from "react-native";
-import { PhaselisHOC } from "@phaselis/components/provider";
+import { PhaselisHOC, useCombinedStyle } from "phaselis";
 import { TabViewProps } from "./types";
 import TabHeader from "./TabHeader";
 import { tab_view_styles as stylesheet } from "./assets/styles";
-import { useCombinedStyle } from "@phaselis/hooks";
 
 const TabView = ({
   children,
@@ -63,4 +62,4 @@ const TabView = ({
   );
 };
 
-export default PhaselisHOC<TabViewProps>(TabView);
+export default PhaselisHOC(TabView);

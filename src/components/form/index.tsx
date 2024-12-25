@@ -6,7 +6,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { PhaselisHOC } from "@phaselis/components/provider";
+import { PhaselisHOC } from "phaselis";
 import { isValid } from "./lib";
 import FormContext from "./context";
 import FormReference from "./reference";

@@ -8,9 +8,7 @@ import {
   StyleSheet,
 } from "react-native";
 import stylesheet from "./assets/styles";
-import { PhaselisHOC } from "@phaselis/components/provider";
-import { Slot } from "@phaselis/components";
-import { useCombinedStyle } from "@phaselis/hooks";
+import { Slot, PhaselisHOC, useCombinedStyle } from "phaselis";
 import { PopupProps } from "./types";
 
 const Popup: FC<PopupProps> = ({

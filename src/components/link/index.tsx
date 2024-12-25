@@ -1,10 +1,8 @@
 import React, { FC } from "react";
 import { Linking, Pressable, Text } from "react-native";
-import { PhaselisHOC } from "@phaselis/components/provider";
 import stylesheet from "./assets/styles";
 import { LinkProps } from "./types";
-import { Slot } from "@phaselis/components";
-import { useCombinedStyle } from "@phaselis/hooks";
+import { Slot, PhaselisHOC, useCombinedStyle } from "phaselis";
 
 const Link: FC<LinkProps> = ({
   contextValue,
@@ -66,4 +64,4 @@ const Link: FC<LinkProps> = ({
 
 Link.displayName = "Link";
 
-export default PhaselisHOC<LinkProps, LinkExtraProps>(Link);
+export default PhaselisHOC(Link);

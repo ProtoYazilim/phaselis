@@ -1,8 +1,7 @@
 import React, { useMemo } from "react";
 import { StyleSheet } from "react-native";
 import ReactNativePickerSelect from "react-native-picker-select";
-import { useCombinedStyle } from "@phaselis/hooks";
-import { PhaselisHOC } from "@phaselis/components";
+import { useCombinedStyle, PhaselisHOC } from "phaselis";
 import stylesheet from "./assets/styles";
 import { NativePickerProps } from "./types";
 
@@ -112,4 +111,4 @@ const NativePicker: React.FC<NativePickerProps> = ({
   );
 };
 
-export default PhaselisHOC<NativePickerProps, any>(NativePicker);
+export default PhaselisHOC(NativePicker);

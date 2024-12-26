@@ -8,7 +8,7 @@ import {
   LucideIcon,
   Form,
   FormReference,
-  required
+  required,
 } from "phaselis";
 
 const TextAreaStory = () => {

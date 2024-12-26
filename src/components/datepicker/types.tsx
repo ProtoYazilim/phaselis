@@ -1,10 +1,10 @@
 import { TextStyle, ViewStyle } from "react-native";
+import { FC, ReactNode } from "react";
 import {
-  SlotableLeftRightProps,
   ComponentSize,
   InputControlProps,
-} from "phaselis";
-import { FC, ReactNode } from "react";
+  SlotableLeftRightProps,
+} from "src/types";
 
 interface DatepickerProps
   extends SlotableLeftRightProps,

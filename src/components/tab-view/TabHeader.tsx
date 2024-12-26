@@ -5,10 +5,12 @@ import {
   NativeScrollEvent,
   NativeSyntheticEvent,
 } from "react-native";
-import { PhaselisHOC, LucideIcon, useCombinedStyle } from "phaselis";
+import { PhaselisHOC } from "src/components/provider";
 import { TabViewHeaderProps } from "./types";
 import TabHeaderItem from "./TabHeaderItem";
 import { tab_header_styles as stylesheet } from "./assets/styles";
+import { useCombinedStyle } from "src/hooks";
+import LucideIcon from "src/components/lucide-icon";
 
 const elementComponents = {
   view: View,
@@ -16,12 +18,7 @@ const elementComponents = {
 };
 
 const TabViewHeader = ({
-  value = false,
-  onChange,
   style,
-  duration = 400,
-  LeftSlot,
-  RightSlot,
   contextValue,
   activeTab = 0,
   id = "",

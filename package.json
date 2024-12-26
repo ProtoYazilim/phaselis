@@ -27,6 +27,7 @@
     "web": "expo start --web",
     "test": "jest --watchAll",
     "lint": "expo lint",
+    "lint-fix": "eslint '**/*.{js,jsx,ts,tsx}' --fix",
     "cloud-build:android": "eas build --platform android --profile development",
     "cloud-build:ios": "eas build --platform ios --profile development",
     "cloud-build:ios-simulator": "eas build --platform ios --profile ios-simulator",

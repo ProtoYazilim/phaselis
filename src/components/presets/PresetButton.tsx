@@ -1,4 +1,4 @@
-import { Colors } from "phaselis";
+import { Colors } from "src/theme";
 import { ButtonPropTypes } from "../button/types";
 
 type ButtonPresets = "primary" | "secondary" | "slate";

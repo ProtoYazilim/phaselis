@@ -48,7 +48,10 @@ const FullCustomStyling = () => {
         <DemoButton text="My Demo Button" />
         <DemoButton text="My Demo Button Secondary" variation="secondary" />
         <DemoButton text="My Demo Button" variation="primary_outline" />
-        <DemoButton text="My Demo Button Secondary" variation="secondary_outline" />
+        <DemoButton
+          text="My Demo Button Secondary"
+          variation="secondary_outline"
+        />
       </Block>
     </ScrollView>
   );

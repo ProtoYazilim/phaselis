@@ -1,4 +1,4 @@
-import { AlarmCheck, Check, AppleIcon } from "lucide-react-native";
+import { AppleIcon } from "lucide-react-native";
 import { CheckboxProps } from "../checkbox/types";
 
 type CheckboxPresets = "";

@@ -1,9 +1,11 @@
 import React, { FC, useEffect, useState } from "react";
 import { View, StyleSheet } from "react-native";
-import { PhaselisHOC, InputHOC, useCombinedStyle } from "phaselis";
+import { PhaselisHOC } from "src/components/provider";
 import SliderCore from "@react-native-community/slider";
 import stylesheet from "./assets/styles";
 import { SliderProps } from "./types";
+import { useCombinedStyle } from "src/hooks";
+import { InputHOC } from "src/utils/lib/hocs";
 
 const Slider: FC<SliderProps> = ({
   contextValue,

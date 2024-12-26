@@ -16,7 +16,7 @@
       ],
       "appSrc": [
         "./appSrc"
-      ],
+      ]
     },
     "outDir": "./dist/@types",
     "esModuleInterop": true
@@ -27,5 +27,11 @@
     "dist",
     "ios",
     "android"
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
   ]
 }

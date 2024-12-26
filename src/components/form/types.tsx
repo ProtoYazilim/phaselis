@@ -1,5 +1,5 @@
-import { InputControlProps } from "phaselis";
 import { FC, ReactNode } from "react";
+import { InputControlProps } from "src/types";
 
 interface FormInputComponentGenericProps
   extends InputControlProps<any, any, any> {

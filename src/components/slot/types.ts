@@ -1,5 +1,5 @@
-import { ComponentSize, SlotIconName } from "phaselis";
 import { ReactElement } from "react";
+import { ComponentSize, SlotIconName } from "src/types";
 
 interface SlotProps {
   children?: ReactElement;

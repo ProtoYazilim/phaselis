@@ -3,7 +3,7 @@ import React from "react";
 import { SafeAreaView, StyleSheet, Text } from "react-native";
 
 function PopupStory() {
-  const [showDefault, setShowDefault] = usePopup(
+  const [_showDefault, setShowDefault] = usePopup(
     "default",
     <Text>Default usePopup</Text>,
     {
@@ -11,16 +11,16 @@ function PopupStory() {
       style: { backgroundColor: "red" },
     },
   );
-  const [showInfo, setShowInfo] = usePopup("info", <Text>info usePopup</Text>);
-  const [showWarning, setShowWarning] = usePopup(
+  const [_showInfo, setShowInfo] = usePopup("info", <Text>info usePopup</Text>);
+  const [_showWarning, setShowWarning] = usePopup(
     "warning",
     <Text>warning usePopup</Text>,
   );
-  const [showError, setShowError] = usePopup(
+  const [_showError, setShowError] = usePopup(
     "error",
     <Text>error usePopup</Text>,
   );
-  const [showSuccess, setShowSuccess] = usePopup(
+  const [_showSuccess, setShowSuccess] = usePopup(
     "success",
     <Text>success usePopup</Text>,
   );

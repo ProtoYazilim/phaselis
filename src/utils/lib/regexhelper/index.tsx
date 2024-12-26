@@ -18,6 +18,7 @@ export const getRegex = (regexp: string | RegExp) => {
     try {
       return new RegExp(regexp);
     } catch (error) {
+      console.log("Error in regex", error);
       return getUnnecessaryRegexp();
     }
   }

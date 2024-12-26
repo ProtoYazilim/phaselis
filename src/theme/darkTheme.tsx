@@ -1,4 +1,4 @@
-import {Colors} from "./colors";
+import { Colors } from "./colors";
 import { Spacings, Heights, Radius } from "./spacings";
 
 export const darkTheme = {

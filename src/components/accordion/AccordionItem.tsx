@@ -4,9 +4,9 @@ import AccordionHeader from "./AccordionHeader";
 import AccordionContent from "./AccordionContent";
 import { useStyles } from "react-native-unistyles";
 import { stylesheet_item as stylesheet } from "./assets/styles";
-import { PhaselisHOC } from "phaselis";
 import { AccordionItemProps } from "./types";
 import { AccordionContext } from "./Accordion";
+import { PhaselisHOC } from "src/components/provider";
 
 function AccordionItem({
   style,

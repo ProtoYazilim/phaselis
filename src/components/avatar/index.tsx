@@ -6,7 +6,6 @@ import LucideIcon from "../lucide-icon";
 import { PhaselisHOC } from "src/components/provider";
 import useCombinedStyle from "src/hooks/useCombinedStyle";
 
-
 const sizeIconSizeLiteral = {
   xxs: 16,
   xs: 16,
@@ -18,11 +17,9 @@ const sizeIconSizeLiteral = {
 };
 
 const Avatar: FC<AvatarProps> = ({
-  id,
   children,
   style,
   iconName,
-  disabled,
   size = "md",
   circle,
   rounded,

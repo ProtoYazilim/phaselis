@@ -1,8 +1,9 @@
 import React, { FC } from "react";
 import { View } from "react-native";
-import { PhaselisHOC, useCombinedStyle } from "phaselis";
+import { PhaselisHOC } from "src/components/provider";
 import { RowProps } from "./types";
 import stylesheet from "./assets/styles";
+import { useCombinedStyle } from "src/hooks";
 
 const Row: FC<RowProps> = ({
   contextValue,

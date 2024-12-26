@@ -8,7 +8,7 @@ import {
   Button,
   FormReference,
   useColors,
-  PhaselisColors
+  PhaselisColors,
 } from "phaselis";
 import React, { useEffect, useRef, useState } from "react";
 import { Text, View } from "react-native";
@@ -41,8 +41,7 @@ const CalculatorButton = ({
         text={text}
         type={type}
         size="sm"
-        outline
-        tertiary
+        variation="tertiary_outline"
         onClick={handleOnClick}
       />
     )
@@ -62,7 +61,7 @@ const Calculator = () => {
     let lcdText = (lcd || "") + text;
     numPad.current?.setValues({ lcd: lcdText });
   };
-  const resetCalc = (text: string) => {
+  const resetCalc = () => {
     numPad.current?.setValues({ lcd: "" });
   };
   const calcCalc = () => {
@@ -119,7 +118,7 @@ const Calculator = () => {
           >
             <List
               data={data}
-              renderItem={({ item, index }) => {
+              renderItem={({ item }) => {
                 return (
                   <Text>
                     {item.math}={item.result}

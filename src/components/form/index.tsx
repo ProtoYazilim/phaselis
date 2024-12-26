@@ -6,7 +6,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { PhaselisHOC } from "phaselis";
+import { PhaselisHOC } from "src/components/provider";
 import { isValid } from "./lib";
 import FormContext from "./context";
 import FormReference from "./reference";
@@ -15,13 +15,13 @@ import { FormInputComponentGenericProps, FormProps } from "./types";
 export const Form: FC<FormProps> = (
   {
     children,
-    contextValue,
-    id,
+    _contextValue,
+    _id,
     onReset,
     onSubmit,
     onError,
     onChange,
-    ...otherProps
+    ..._otherProps
   },
   ref,
 ) => {
@@ -81,7 +81,7 @@ export const Form: FC<FormProps> = (
     }
   };
 
-  const setValues = (object: any, callback?: Function) => {
+  const setValues = (object: any, _callback?: Function) => {
     metaRef.current = {
       ...metaRef.current,
       ...Object.keys(object).reduce((newMeta: any, name: string) => {
@@ -106,7 +106,7 @@ export const Form: FC<FormProps> = (
     setErrors();
   };
 
-  const resetValues = (callback?: Function) => {
+  const resetValues = (_callback?: Function) => {
     metaRef.current = Object.keys(metaRef.current).reduce(
       (newMeta: any, name: string) => {
         const props = metaRef.current[name];

@@ -1,13 +1,13 @@
-import { PhaselisHOC, useCombinedStyle } from "phaselis";
+import { PhaselisHOC } from "src/components/provider";
 import { View } from "react-native";
 import { TabItemProps } from "./types";
 import { tab_item_styles as stylesheet } from "./assets/styles";
+import { useCombinedStyle } from "src/hooks";
 
 const TabItem = ({
   children,
   contextValue,
   style,
-  title,
   ...extraProps
 }: TabItemProps) => {
   const { getCombinedStyle } = useCombinedStyle(

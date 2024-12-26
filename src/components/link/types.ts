@@ -1,14 +1,18 @@
 import { PressableProps, ViewStyle } from "react-native";
 import { StyleProp, TextStyle } from "react-native";
-import { SlotableLeftRightProps, IconStyle } from "phaselis";
+import { IconStyle, SlotableLeftRightProps } from "src/types";
 
-interface LinkProps extends SlotableLeftRightProps, Omit<PressableProps, 'style'> {
-  style?: (StyleProp<TextStyle> & {
-    container?: ViewStyle;
-    text?: TextStyle;
-    leftSlot?: IconStyle;
-    rightSlot?: IconStyle;
-  }) | undefined;
+interface LinkProps
+  extends SlotableLeftRightProps,
+    Omit<PressableProps, "style"> {
+  style?:
+    | (StyleProp<TextStyle> & {
+        container?: ViewStyle;
+        text?: TextStyle;
+        leftSlot?: IconStyle;
+        rightSlot?: IconStyle;
+      })
+    | undefined;
   contextValue?: any;
   text?: string;
   primary?: boolean;

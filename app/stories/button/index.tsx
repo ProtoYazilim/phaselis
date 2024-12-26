@@ -1,9 +1,8 @@
 import StoryView from "appSrc/StoryView";
-import { Button, useSpacings, PhaselisSpacings } from "phaselis";
+import { Button } from "phaselis";
 import React from "react";
 import StorySection from "appSrc/StorySection";
 const ButtonExample = () => {
-  const Spacings = useSpacings<PhaselisSpacings>();
   const [screenProps, setScreenProps] = React.useState<any>({ primary: true });
 
   return (

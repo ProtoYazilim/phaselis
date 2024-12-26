@@ -2,7 +2,11 @@ import React, { FC, useContext, useState } from "react";
 import { Platform, Text, GestureResponderEvent, Pressable } from "react-native";
 import stylesheet from "./assets/styles";
 import { ButtonPropTypes } from "./types";
-import { Slot, Block, PhaselisHOC, FormContext, useCombinedStyle } from "phaselis";
+import { PhaselisHOC } from "src/components/provider";
+import Block from "src/components/block";
+import Slot from "src/components/slot";
+import FormContext from "src/components/form/context";
+import { useCombinedStyle } from "src/hooks";
 
 const Button: FC<ButtonPropTypes> = ({
   type = "submit",
@@ -96,16 +100,16 @@ const Button: FC<ButtonPropTypes> = ({
         </Slot>
         {children
           ? React.Children.map(children, (child, index) => {
-            if (typeof child === "string") {
-              return (
-                <Text key={index} style={getCombinedStyle("text")}>
-                  {child}
-                </Text>
-              );
-            } else {
-              return child;
-            }
-          })
+              if (typeof child === "string") {
+                return (
+                  <Text key={index} style={getCombinedStyle("text")}>
+                    {child}
+                  </Text>
+                );
+              } else {
+                return child;
+              }
+            })
           : text && <Text style={getCombinedStyle("text")}>{text}</Text>}
         <Slot
           style={getCombinedStyle("rightSlot")}

@@ -18,7 +18,7 @@ const ListStory = () => {
         }}
         ListHeaderComponent={() => <Text>Header</Text>}
         ListFooterComponent={() => <Text>Footer</Text>}
-        renderItem={({ item, index }) => {
+        renderItem={({ item }) => {
           return (
             <Text>
               {item.name}`/` {item.surname}

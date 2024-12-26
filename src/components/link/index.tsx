@@ -2,7 +2,9 @@ import React, { FC } from "react";
 import { Linking, Pressable, Text } from "react-native";
 import stylesheet from "./assets/styles";
 import { LinkProps } from "./types";
-import { Slot, PhaselisHOC, useCombinedStyle } from "phaselis";
+import { PhaselisHOC } from "src/components/provider";
+import Slot from "src/components/slot";
+import { useCombinedStyle } from "src/hooks";
 
 const Link: FC<LinkProps> = ({
   contextValue,
@@ -43,7 +45,7 @@ const Link: FC<LinkProps> = ({
                 Linking.openURL(href);
               }
             })
-            .catch((err) => {
+            .catch((_err) => {
               alert(`This URL is not supported ${href}`);
             });
         else {

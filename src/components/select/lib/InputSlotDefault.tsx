@@ -1,7 +1,9 @@
-import { Slot, PhaselisHOC, useCombinedStyle } from "phaselis";
+import Slot from "src/components/slot";
+import { PhaselisHOC } from "src/components/provider";
 import { Text, View, Pressable } from "react-native";
 import stylesheet from "../assets/styles";
 import { InputSlotProps } from "../types";
+import { useCombinedStyle } from "src/hooks";
 
 const InputSlotDefault = ({
   selectedItem,

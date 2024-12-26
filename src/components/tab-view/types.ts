@@ -1,6 +1,6 @@
-import { IconStyle, SlotableLeftRightProps } from "phaselis";
 import { ReactNode } from "react";
 import { TextStyle, ViewStyle } from "react-native";
+import { IconStyle, SlotableLeftRightProps } from "src/types";
 
 interface TabViewHeaderProps extends SlotableLeftRightProps {
   value?: boolean;

@@ -1,8 +1,10 @@
 import React, { useMemo } from "react";
 import { Pressable, Text } from "react-native";
-import { PhaselisHOC, Slot, useCombinedStyle } from "phaselis";
+import { PhaselisHOC } from "src/components/provider";
 import { TabHeaderItemProps } from "./types";
 import { tab_header_item_styles as stylesheet } from "./assets/styles";
+import { useCombinedStyle } from "src/hooks";
+import Slot from "src/components/slot";
 
 const TabHeaderItem = ({
   activeTabIndex,

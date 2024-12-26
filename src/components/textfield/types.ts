@@ -5,14 +5,14 @@ import {
   TextInputProps,
   ViewStyle,
 } from "react-native";
+import { FC, ReactNode } from "react";
+import { Mask } from "react-native-mask-input";
 import {
-  SlotableLeftRightProps,
   ComponentSize,
   IconStyle,
   InputControlProps,
-} from "phaselis";
-import { FC, ReactNode } from "react";
-import { Mask } from "react-native-mask-input";
+  SlotableLeftRightProps,
+} from "src/types";
 
 export interface TextfieldProps
   extends SlotableLeftRightProps,

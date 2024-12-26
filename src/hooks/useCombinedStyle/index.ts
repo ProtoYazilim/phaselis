@@ -9,7 +9,6 @@ import {
 import { StyleSheet } from "react-native";
 import { merge, mergeWith, isObject } from "lodash";
 
-
 function mergeStyles(obj1, obj2) {
   const merged = mergeWith({}, obj1, obj2, (objValue, srcValue) => {
     if (isObject(objValue) && isObject(srcValue)) {
@@ -37,7 +36,6 @@ function sortValues(obj) {
   }
   return sortedObj;
 }
-
 
 type ParsedStylesheet<ST extends StyleSheetWithSuperPowers> = {
   defaultStyles: ReactNativeStyleSheet<ST>;

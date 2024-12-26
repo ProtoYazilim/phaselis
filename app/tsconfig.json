@@ -6,9 +6,6 @@
       "phaselis": [
         "../src"
       ],
-      "phaselis/*": [
-        "./src/*"
-      ],
       "appSrc/*": [
         "../appSrc/*"
       ],

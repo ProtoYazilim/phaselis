@@ -1,7 +1,8 @@
 import { View, Text, Pressable } from "react-native";
-import { PhaselisHOC, useCombinedStyle } from "phaselis";
+import { PhaselisHOC } from "src/components/provider";
 import { stylesheet_picker_option_slot } from "../assets/styles";
 import { OptionSlotProps } from "../types";
+import { useCombinedStyle } from "src/hooks";
 
 const OptionSlotDefault = ({
   item,

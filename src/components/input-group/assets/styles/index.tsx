@@ -28,19 +28,14 @@ const stylesheet = createStyleSheet({
     },
   },
   label: {
-
     lineHeight: 24,
     marginBottom: 4,
     variants: {
       disabled: {
-        true: {
-
-        },
+        true: {},
       },
       error: {
-        true: {
-
-        },
+        true: {},
       },
       size: {
         sm: {},
@@ -51,19 +46,14 @@ const stylesheet = createStyleSheet({
     },
   },
   message: {
-
     lineHeight: 21,
     marginTop: 4,
     variants: {
       disabled: {
-        true: {
-
-        },
+        true: {},
       },
       error: {
-        true: {
-
-        },
+        true: {},
       },
       required: { true: {} },
     },

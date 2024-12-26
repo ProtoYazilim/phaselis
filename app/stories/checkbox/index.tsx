@@ -1,7 +1,7 @@
-import StoryView from "@appSrc/StoryView";
-import { Checkbox } from "@phaselis/components";
+import StoryView from "appSrc/StoryView";
+import { Checkbox } from "phaselis";
 import React from "react";
-import StorySection from "@/appSrc/StorySection";
+import StorySection from "appSrc/StorySection";
 
 const CheckboxExample = () => {
   return (

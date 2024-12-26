@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import { Pressable, Text, StyleSheet, View, Animated } from "react-native";
 import { AccordionHeaderProps } from "./types";
-import { PhaselisHOC } from "@phaselis/components/provider";
 import { useStyles } from "react-native-unistyles";
 import { stylesheet_header as stylesheet } from "./assets/styles";
 import { LucideChevronDown } from "lucide-react-native";
-import LucideIcon from "@phaselis/components/lucide-icon";
+import LucideIcon from "src/components/lucide-icon";
+import { PhaselisHOC } from "src/components/provider";
 
 const AccordionHeader = ({
   style,
@@ -97,4 +97,4 @@ const AccordionHeader = ({
   );
 };
 
-export default PhaselisHOC<AccordionHeaderProps>(AccordionHeader);
+export default PhaselisHOC(AccordionHeader);

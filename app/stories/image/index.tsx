@@ -1,4 +1,4 @@
-import { Image } from "@phaselis/components";
+import { Image } from "phaselis";
 import React from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
 import { git_logo_image, proto_header_image } from "../assets";

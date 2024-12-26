@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Pressable, Text } from "react-native";
 import stylesheet from "./assets/styles";
-import { PhaselisHOC } from "@phaselis/components/provider";
-import { InputHOC } from "@phaselis/utils";
-import { useCombinedStyle } from "@phaselis/hooks";
 import { DatepickerProps } from "./types";
 import CoreDatePicker from "react-native-date-picker";
-import { Slot } from "@phaselis/components";
+import { PhaselisHOC } from "src/components/provider";
 import { format as formatFns } from "date-fns";
+import { InputHOC } from "src/utils/lib/hocs";
+import { useCombinedStyle } from "src/hooks";
+import Slot from "src/components/slot";
 
 const Datepicker: React.FC<DatepickerProps> = (props) => {
   const {
@@ -23,7 +23,6 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
     maxDate,
     locale = "TR_tr",
     format = "dd.MM.yyyy",
-    onChange,
     value,
     disabled = false,
     ...extraProps

@@ -1,6 +1,6 @@
-import { IconStyle, SlotChildComponent } from "@phaselis/types";
 import { FC, ReactNode } from "react";
 import { ViewStyle } from "react-native";
+import { IconStyle, SlotChildComponent } from "src/types";
 
 interface SwitchProps {
   disabled?: boolean;

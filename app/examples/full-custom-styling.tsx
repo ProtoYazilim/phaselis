@@ -1,7 +1,5 @@
-import { Block, Button } from "@phaselis/components";
-import { ButtonPropTypes } from "@phaselis/components/button/types";
-import { useColors } from "@phaselis/components/provider/lib/hooks";
-import { PhaselisColors } from "@phaselis/theme";
+import { Block, Button, useColors, PhaselisColors } from "phaselis";
+import { ButtonPropTypes } from "../../src/components/button/types";
 import React from "react";
 import { StyleSheet, ScrollView } from "react-native";
 
@@ -48,9 +46,12 @@ const FullCustomStyling = () => {
     <ScrollView style={styles.container}>
       <Block style={{ gap: 10, marginBottom: 30 }}>
         <DemoButton text="My Demo Button" />
-        <DemoButton text="My Demo Button Secondary" secondary />
-        <DemoButton text="My Demo Button" outline />
-        <DemoButton text="My Demo Button Secondary" secondary outline />
+        <DemoButton text="My Demo Button Secondary" variation="secondary" />
+        <DemoButton text="My Demo Button" variation="primary_outline" />
+        <DemoButton
+          text="My Demo Button Secondary"
+          variation="secondary_outline"
+        />
       </Block>
     </ScrollView>
   );

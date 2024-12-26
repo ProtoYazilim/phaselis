@@ -1,8 +1,8 @@
 import React from "react";
 import { View } from "react-native";
-import { Radio, RadioGroup } from "@phaselis/components";
-import StoryView from "@appSrc/StoryView";
-import StorySection from "@/appSrc/StorySection";
+import { Radio, RadioGroup } from "phaselis";
+import StoryView from "appSrc/StoryView";
+import StorySection from "appSrc/StorySection";
 
 const RadioStory = () => {
   return (

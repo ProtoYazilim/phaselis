@@ -1,6 +1,6 @@
 import { useNavigationContainerRef } from "expo-router";
 import { useNavigation } from "@react-navigation/native";
-import { CustomDrawer, getEnvironmentType } from "@appSrc";
+import { CustomDrawer, getEnvironmentType } from "appSrc";
 
 export default function Layout() {
   const rootNav = useNavigationContainerRef();

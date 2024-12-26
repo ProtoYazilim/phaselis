@@ -6,7 +6,6 @@ import Link from "@docusaurus/Link";
 import isInternalUrl from "@docusaurus/isInternalUrl";
 import IconExternalLink from "@theme/Icon/ExternalLink";
 import type { Props } from "@theme/DocSidebarItem/Link";
-
 import styles from "./styles.module.css";
 
 export default function DocSidebarItemLink({
@@ -14,7 +13,6 @@ export default function DocSidebarItemLink({
   onItemClick,
   activePath,
   level,
-  index,
   ...props
 }: Props): JSX.Element {
   const { href, label, className, autoAddBaseUrl } = item;

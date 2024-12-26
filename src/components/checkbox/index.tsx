@@ -1,12 +1,11 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Text, View, TextInput, Pressable } from "react-native";
 import stylesheet from "./assets/styles";
-
-import { PhaselisHOC } from "@phaselis/components/provider";
-import { InputHOC } from "@phaselis/utils";
 import { CheckboxProps } from "./types";
-import { useCombinedStyle } from "@phaselis/hooks";
-import { Slot } from "@phaselis/components";
+import { PhaselisHOC } from "src/components/provider";
+import Slot from "src/components/slot";
+import { useCombinedStyle } from "src/hooks";
+import { InputHOC } from "src/utils/lib/hocs";
 
 const Checkbox: React.FC<CheckboxProps> = (props) => {
   const {
@@ -108,4 +107,4 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
   );
 };
 
-export default InputHOC(PhaselisHOC<CheckboxProps>(Checkbox));
+export default InputHOC(PhaselisHOC(Checkbox));

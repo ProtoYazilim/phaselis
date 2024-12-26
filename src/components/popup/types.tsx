@@ -1,6 +1,6 @@
-import { IconStyle, SlotChildComponent, SlotIconName } from "@phaselis/types";
 import { ReactNode } from "react";
 import { TextStyle, ViewStyle } from "react-native";
+import { IconStyle, SlotChildComponent, SlotIconName } from "src/types";
 
 interface PopupProps {
   show?: boolean;

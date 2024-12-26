@@ -1,4 +1,4 @@
-import { Avatar, Block } from "@phaselis/components";
+import { Avatar, Block } from "phaselis";
 import { StyleSheet } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 const AvatarStory = () => {

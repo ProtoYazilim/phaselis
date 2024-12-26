@@ -51,7 +51,7 @@ Use `InputHOC` to wrap the base component, enabling it to integrate with the for
 
 ```tsx
 import React from 'react';
-import InputHOC from '@phaselis/utils/inputhoc';
+import InputHOC from 'phaselis';
 import MyInput from './MyInput';
 
 const MyFormInput = InputHOC(MyInput);
@@ -66,7 +66,7 @@ Now, include the enhanced component in a form and pass the necessary props, such
 ```tsx
 import React from 'react';
 import { View, Button } from 'react-native';
-import { FormProvider } from '@phaselis/components/form';
+import { FormProvider } from 'phaselis';
 import MyFormInput from './MyFormInput';
 
 const MyForm = () => {

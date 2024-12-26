@@ -1,6 +1,6 @@
-import { ComponentSize, IconStyle, SlotIconName } from "@phaselis/types/base";
 import { ReactNode } from "react";
 import { TextStyle, ViewStyle } from "react-native";
+import { ComponentSize, IconStyle, SlotIconName } from "src/types";
 
 export interface AvatarProps {
   id?: string;

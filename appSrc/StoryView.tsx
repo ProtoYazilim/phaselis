@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Spacings } from "@phaselis/theme";
+import { Spacings } from "phaselis";
 import { ScrollView } from "react-native";
 
 const StoryView: FC<{

@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { View, StyleSheet } from "react-native";
-import { Checkbox, Block, Form } from "@phaselis/components";
-import { FormReference } from "@phaselis/components/form";
+import { Checkbox, Block, Form, FormReference } from "phaselis";
 
 const CheckboxStory = () => {
   const refForm = useRef<FormReference>(null);

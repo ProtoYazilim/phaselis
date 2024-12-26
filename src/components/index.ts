@@ -1,68 +1,45 @@
-import { AccordionList, AccordionItem, Accordion } from "./accordion"; // Accordion
-import Badge from "./badge"; // Badge
-import Block from "./block"; // Block
-import Button from "./button"; // Button
-import Checkbox from "./checkbox"; // Checkbox
-import Col from "./col"; // Col
-import Datepicker from "./datepicker"; // Datepicker
-import Form from "./form"; // Form
-import Image from "./image"; // Image
-import InputGroup from "./input-group"; // InputGroup
-import Label from "./label"; // Label
-import Link from "./link"; // Link
-import List from "./list"; // List
-import LucideIcon from "./lucide-icon"; // LucideIcon
-import Popup from "./popup"; // Popup
-import Provider, {
-  PhaselisContext,
-  PhaselisHOC,
-  useColors,
-  useSpacings,
-  useTheme,
-} from "./provider"; // Provider
-import Radio, { RadioGroup } from "./radio"; // Radio
-import Row from "./row"; // Row
-import Select from "./select"; // Select
-import Slider from "./slider"; // Slider
-import Slot from "./slot"; // Slot
-import Stepper, { ProgressStep } from "./stepper"; // Stepper
-import Switch from "./switch"; // Switch
-import TabView, { TabHeader, TabHeaderItem, TabItem } from "./tab-view"; // TabView
-import Textfield from "./textfield"; // Textfield
-import BottomSheet from "./bottom-sheet";
-import Avatar from "./avatar"; // Avatar
-
-export { BottomSheet }; // BottomSheet
-export { AccordionList, AccordionItem, Accordion }; // Accordion
-export { Badge }; // Badge
-export { Block }; // Block
-export { Button }; // Button
-export { Checkbox }; // Checkbox
-export { Col }; // Col
-export { Datepicker }; // Datepicker
-export { Form }; // Form
-export { Image }; // Image
-export { InputGroup }; // InputGroup
-export { Label }; // Label
-export { Link }; // Link
-export { List }; // List
-export { LucideIcon }; // LucideIcon
-export { Popup }; // Popup
+// Components
 export {
-  Provider,
+  default as Accordion,
+  AccordionList,
+  AccordionItem,
+} from "./accordion";
+export { default as Avatar } from "./avatar";
+export { default as Badge } from "./badge";
+export { default as Block } from "./block";
+export { default as BottomSheet } from "./bottom-sheet";
+export { default as Button } from "./button";
+export { default as Checkbox } from "./checkbox";
+export { default as Col } from "./col";
+export { default as Datepicker } from "./datepicker";
+export { default as Form, FormContext, FormReference } from "./form";
+export { default as Image } from "./image";
+export { default as InputGroup } from "./input-group";
+export { default as Label } from "./label";
+export { default as Link } from "./link";
+export { default as List } from "./list";
+export { default as LucideIcon } from "./lucide-icon";
+export { default as Popup } from "./popup";
+export { default as Radio, RadioGroup } from "./radio";
+export { default as Row } from "./row";
+export { default as Select } from "./select";
+export { default as Slider } from "./slider";
+export { default as Slot } from "./slot";
+export { default as Stepper, ProgressStep } from "./stepper";
+export { default as Switch } from "./switch";
+export {
+  default as TabView,
+  TabHeader,
+  TabHeaderItem,
+  TabItem,
+} from "./tab-view";
+export { default as Textfield } from "./textfield";
+
+export {
+  default as Provider,
   PhaselisContext,
   PhaselisHOC,
   useColors,
   useSpacings,
   useTheme,
-}; // Provider
-export { Radio, RadioGroup }; // Radio & RadioGroup
-export { Row }; // Row
-export { Select }; // Select
-export { Slider }; // Slider
-export { Slot }; // Slot
-export { Stepper, ProgressStep }; // Stepper
-export { Switch }; // Switch
-export { TabView, TabHeader, TabHeaderItem, TabItem }; // TabView & TabHeader & TabHeaderItem & TabItem
-export { Textfield }; // Textfield
-export { Avatar }; // Avatar
+} from "./provider";

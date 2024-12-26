@@ -1,4 +1,4 @@
-import { Switch } from "@phaselis/components";
+import { Switch } from "phaselis";
 import React from "react";
 import { SafeAreaView, StyleSheet, Text } from "react-native";
 

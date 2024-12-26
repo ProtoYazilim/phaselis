@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 import { View } from "react-native";
-import { PhaselisHOC } from "@phaselis/components/provider";
+import { PhaselisHOC } from "src/components/provider";
 import { ColProps } from "./types";
 import stylesheet from "./assets/styles";
-import { useCombinedStyle } from "@phaselis/hooks";
+import { useCombinedStyle } from "src/hooks";
 
 const Col: FC<ColProps> = ({
   contextValue,

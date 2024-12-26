@@ -1,16 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState, useContext } from "react";
 import { View, Text } from "react-native";
-import { FormContext } from "@phaselis/components/form";
-
 import stylesheet from "./assets/styles";
-import { useCombinedStyle } from "@phaselis/hooks";
 import InputGroupProps from "./types";
+import FormContext from "src/components/form/context";
+import { useCombinedStyle } from "src/hooks";
 
 const InputGroup: React.FC<InputGroupProps> = ({
   label,
   children,
-  required: isRequired,
   message,
   style,
 }) => {

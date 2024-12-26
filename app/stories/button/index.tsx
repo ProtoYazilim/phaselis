@@ -1,10 +1,8 @@
-import StoryView from "@appSrc/StoryView";
-import { PhaselisSpacings } from "@/src/theme";
-import { Button, useSpacings } from "@phaselis/components";
+import StoryView from "appSrc/StoryView";
+import { Button } from "phaselis";
 import React from "react";
-import StorySection from "@/appSrc/StorySection";
+import StorySection from "appSrc/StorySection";
 const ButtonExample = () => {
-  const Spacings = useSpacings<PhaselisSpacings>();
   const [screenProps, setScreenProps] = React.useState<any>({ primary: true });
 
   return (
@@ -44,7 +42,6 @@ const ButtonExample = () => {
         <Button
           text="outline"
           variation="primary_outline"
-          half
           onClick={() => {
             setScreenProps({ variation: "primary_outline" });
           }}

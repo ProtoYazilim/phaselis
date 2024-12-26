@@ -1,10 +1,10 @@
 import React, { Children, useMemo, useState } from "react";
 import { View } from "react-native";
-import { PhaselisHOC } from "@phaselis/components/provider";
+import { PhaselisHOC } from "src/components/provider";
 import { TabViewProps } from "./types";
 import TabHeader from "./TabHeader";
 import { tab_view_styles as stylesheet } from "./assets/styles";
-import { useCombinedStyle } from "@phaselis/hooks";
+import { useCombinedStyle } from "src/hooks";
 
 const TabView = ({
   children,
@@ -18,7 +18,7 @@ const TabView = ({
   const [activeTabIndex, setActiveTabIndex] = useState(activeTab);
 
   const data = useMemo(() => {
-    return Children.map(children, (item: any, index: any) => {
+    return Children.map(children, (item: any, _index: any) => {
       if (item && item.type && item.type.displayName === "TABITEM") {
         return {
           text: item.props.title,
@@ -63,4 +63,4 @@ const TabView = ({
   );
 };
 
-export default PhaselisHOC<TabViewProps>(TabView);
+export default PhaselisHOC(TabView);

@@ -1,9 +1,6 @@
-import {
-  LinearGradientAttributes,
-  ShadowAttributes,
-} from "@phaselis/types/base";
 import { ReactNode } from "react";
 import { ViewProps, ViewStyle } from "react-native";
+import { LinearGradientAttributes, ShadowAttributes } from "src/types";
 
 interface ExtendedViewStyle extends ViewStyle {
   background?: string[] | string;

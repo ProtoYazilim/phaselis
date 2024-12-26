@@ -1,9 +1,9 @@
-import { Slot } from "@phaselis/components";
+import Slot from "src/components/slot";
+import { PhaselisHOC } from "src/components/provider";
 import { Text, View, Pressable } from "react-native";
-import { PhaselisHOC } from "@phaselis/components";
-import { useCombinedStyle } from "@phaselis/hooks";
 import stylesheet from "../assets/styles";
 import { InputSlotProps } from "../types";
+import { useCombinedStyle } from "src/hooks";
 
 const InputSlotDefault = ({
   selectedItem,
@@ -73,4 +73,4 @@ const InputSlotDefault = ({
   );
 };
 
-export default PhaselisHOC<InputSlotProps, any>(InputSlotDefault);
+export default PhaselisHOC(InputSlotDefault);

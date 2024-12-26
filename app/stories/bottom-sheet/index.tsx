@@ -1,4 +1,4 @@
-import { Button, BottomSheet, Block } from "@phaselis/components";
+import { Button, BottomSheet, Block } from "phaselis";
 import React, { useState } from "react";
 import { SafeAreaView, StyleSheet, Text } from "react-native";
 

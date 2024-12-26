@@ -1,12 +1,12 @@
-import {
-  SlotChildComponent,
-  SlotIconName,
-  ComponentSize,
-  InputControlProps,
-} from "@phaselis/types";
 import { ComponentType, FC, ReactNode, RefObject } from "react";
 import { StyleProp, TextStyle, ViewStyle } from "react-native";
 import ReactNativePickerSelect from "react-native-picker-select";
+import {
+  ComponentSize,
+  InputControlProps,
+  SlotChildComponent,
+  SlotIconName,
+} from "src/types";
 export interface SelectProps extends InputControlProps<string, any, any, any> {
   disabled?: boolean;
   options: any[];

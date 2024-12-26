@@ -1,4 +1,4 @@
-import { Link } from "@phaselis/components";
+import { Link } from "phaselis";
 import React from "react";
 import { View } from "react-native";
 

@@ -1,4 +1,4 @@
-import { List } from "@phaselis/components";
+import { List } from "phaselis";
 import React from "react";
 import { View, Text } from "react-native";
 
@@ -18,7 +18,7 @@ const ListStory = () => {
         }}
         ListHeaderComponent={() => <Text>Header</Text>}
         ListFooterComponent={() => <Text>Footer</Text>}
-        renderItem={({ item, index }) => {
+        renderItem={({ item }) => {
           return (
             <Text>
               {item.name}`/` {item.surname}

@@ -1,7 +1,7 @@
 import { Drawer } from "expo-router/drawer";
 import { useNavigationContainerRef } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Colors } from "@phaselis/theme";
+import { Colors } from "phaselis";
 
 export default function Layout() {
   const rootNav = useNavigationContainerRef();
@@ -123,14 +123,6 @@ export default function Layout() {
         options={{
           drawerLabel: "List",
           title: "List Story",
-          headerShown: false,
-        }}
-      />
-      <Drawer.Screen
-        name="modal"
-        options={{
-          drawerLabel: "Modal",
-          title: "Modal Story",
           headerShown: false,
         }}
       />

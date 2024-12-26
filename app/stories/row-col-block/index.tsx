@@ -1,6 +1,6 @@
 import React from "react";
 import { ScrollView, View, Text } from "react-native";
-import { Row, Block, Col } from "@phaselis/components";
+import { Row, Block, Col } from "phaselis";
 
 const RowColBlockStory = () => {
   return (

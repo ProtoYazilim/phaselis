@@ -1,4 +1,4 @@
-import Colors from "./colors";
+import { Colors } from "./colors";
 import buttonTheme from "./light/button-theme";
 import labelTheme from "./light/label-theme";
 import checkboxTheme from "./light/checkbox-theme";

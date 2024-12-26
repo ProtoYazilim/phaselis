@@ -1,4 +1,4 @@
-import { Accordion, AccordionItem } from "@phaselis/components";
+import { Accordion, AccordionItem } from "phaselis";
 import React from "react";
 import { View, Text } from "react-native";
 

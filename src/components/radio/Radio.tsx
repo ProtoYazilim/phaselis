@@ -2,10 +2,10 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 import { Text, Pressable, Animated, StyleSheet } from "react-native";
 import RadioContext from "./context";
 import { RadioProps } from "./types";
-import { PhaselisHOC } from "@phaselis/components/provider";
 import stylesheet from "./assets/styles";
-import { useCombinedStyle } from "@phaselis/hooks";
-import { Block } from "@phaselis/components";
+import Block from "src/components/block";
+import { PhaselisHOC } from "src/components/provider";
+import { useCombinedStyle } from "src/hooks";
 
 const Radio = ({
   text,
@@ -100,4 +100,4 @@ const Radio = ({
   );
 };
 
-export default PhaselisHOC<RadioProps>(Radio);
+export default PhaselisHOC(Radio);

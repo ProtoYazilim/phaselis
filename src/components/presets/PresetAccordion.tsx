@@ -1,4 +1,4 @@
-import { Colors } from "@phaselis/theme";
+import { Colors } from "src/theme";
 
 type AccordionPresets = "primary" | "secondary" | "slate";
 

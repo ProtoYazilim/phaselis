@@ -1,14 +1,15 @@
 import React, { useEffect, useMemo } from "react";
 import { View, FlatList } from "react-native";
-import { BottomSheet } from "@phaselis/components";
+import Block from "src/components/block";
+import BottomSheet from "src/components/bottom-sheet";
+import { PhaselisHOC } from "src/components/provider";
 import HeaderSlotDefault from "./lib/HeaderSlotDefault";
-import { cloneSlot } from "@phaselis/utils/lib/util/index";
 import OptionSlotDefault from "./lib/OptionSlotDefault";
 import NoOptionSlotDefault from "./lib/NoOptionSlotDefault";
-import { useCombinedStyle } from "@phaselis/hooks";
-import { PhaselisHOC, Block } from "@phaselis/components";
 import { stylesheet_picker_options_slot } from "./assets/styles";
 import { CustomPickerProps } from "./types";
+import { useCombinedStyle } from "src/hooks";
+import { cloneSlot } from "src/utils";
 
 const CustomPicker: React.FC<CustomPickerProps> = ({
   showPicker,
@@ -25,14 +26,10 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
   OptionSlot = <OptionSlotDefault />,
   HeaderSlot = <HeaderSlotDefault />,
   CloseIconSlot,
-  disabled,
   contextValue,
   style,
-  showError,
-  isFocus,
-  size,
   setIsFocus,
-  ...extraProps
+  ..._extraProps
 }) => {
   const memorizedOptions = useMemo(() => {
     return options.map((option) => {

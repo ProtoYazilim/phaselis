@@ -1,4 +1,4 @@
-import Colors from "../colors";
+import { Colors } from "../colors";
 import { Radius, Spacings } from "../spacings";
 
 export default {

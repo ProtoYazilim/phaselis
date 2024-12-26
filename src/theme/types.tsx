@@ -1,6 +1,6 @@
 import { UnistylesValues } from "react-native-unistyles";
 import { lightTheme } from "./lightTheme";
-import Colors from "./colors";
+import { Colors } from "./colors";
 import { Spacings } from "./spacings";
 
 export type StyleSheet = {

@@ -1,9 +1,9 @@
 import React from "react";
 import { FlatList as NativeFlatList } from "react-native";
-import { PhaselisHOC } from "@phaselis/components/provider";
+import { PhaselisHOC } from "src/components/provider";
 import stylesheet from "./assets/styles";
 import { ListProps } from "./types";
-import { useCombinedStyle } from "@phaselis/hooks";
+import { useCombinedStyle } from "src/hooks";
 
 const List = ({
   data,
@@ -38,4 +38,4 @@ const List = ({
   );
 };
 
-export default PhaselisHOC<ListProps, ListExtraProps>(List);
+export default PhaselisHOC(List);

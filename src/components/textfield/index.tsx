@@ -7,13 +7,15 @@ import {
   TextInputFocusEventData,
   TextInputKeyPressEventData,
 } from "react-native";
-import { InputHOC, validateText } from "@phaselis/utils";
 import stylesheet from "./assets/styles";
-import { PhaselisHOC } from "@phaselis/components/provider";
+import Block from "src/components/block";
+import Slot from "src/components/slot";
+import { PhaselisHOC } from "src/components/provider";
 import { TextfieldProps } from "./types";
-import { Block, Slot } from "@phaselis/components";
 import { useMaskedInputProps } from "react-native-mask-input";
-import { useCombinedStyle } from "@phaselis/hooks";
+import { validateText } from "src/utils";
+import { useCombinedStyle } from "src/hooks";
+import { InputHOC } from "src/utils/lib/hocs";
 
 const Textfield: React.FC<TextfieldProps> = ({
   error,
@@ -32,7 +34,6 @@ const Textfield: React.FC<TextfieldProps> = ({
   id,
   loading,
   loadingIcon,
-  uppercase = false,
   size = "md",
   isChanged,
   isUsed,
@@ -40,7 +41,6 @@ const Textfield: React.FC<TextfieldProps> = ({
   rightIcon,
   value,
   mask,
-  numberOfLines = 4,
   textarea,
   onChangeText,
   ...extraProps
@@ -222,6 +222,4 @@ const Textfield: React.FC<TextfieldProps> = ({
 };
 
 // @ts-ignore
-export default InputHOC(
-  PhaselisHOC<TextfieldProps, TextfieldExtraProps>(Textfield),
-);
+export default InputHOC(PhaselisHOC(Textfield));

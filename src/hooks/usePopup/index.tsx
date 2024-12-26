@@ -7,8 +7,8 @@ import {
   useEffect,
   useId,
 } from "react";
-import { Popup } from "@phaselis/components";
-import { SlotChildComponent, SlotIconName } from "@phaselis/types";
+import Popup from "src/components/popup";
+import { SlotChildComponent, SlotIconName } from "src/types";
 
 const PopupTitleIcon: Record<
   PopupType,

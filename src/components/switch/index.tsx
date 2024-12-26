@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Pressable, View, Animated, Easing } from "react-native";
 import { SwitchProps } from "./types";
-import { PhaselisHOC } from "@phaselis/components/provider";
-import { InputHOC } from "@phaselis/utils";
+import { PhaselisHOC } from "src/components/provider";
 import stylesheet from "./assets/styles";
-import LucideIcon from "@phaselis/components/lucide-icon";
-import { useCombinedStyle } from "@phaselis/hooks";
+import { useCombinedStyle } from "src/hooks";
+import { InputHOC } from "src/utils/lib/hocs";
+import LucideIcon from "src/components/lucide-icon";
 
 const Switch = ({
   value = false,
@@ -129,4 +129,4 @@ const Switch = ({
   );
 };
 
-export default InputHOC(PhaselisHOC<SwitchProps, SwitchExtraProps>(Switch));
+export default InputHOC(PhaselisHOC(Switch));

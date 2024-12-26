@@ -1,6 +1,6 @@
-import { IconStyle } from "@phaselis/types/base";
 import { ReactNode } from "react";
 import { TextStyle, ViewStyle } from "react-native";
+import { IconStyle } from "src/types";
 
 interface StepHeaderProps {
   stepCount: number;

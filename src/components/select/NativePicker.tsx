@@ -1,10 +1,10 @@
 import React, { useMemo } from "react";
 import { StyleSheet } from "react-native";
 import ReactNativePickerSelect from "react-native-picker-select";
-import { useCombinedStyle } from "@phaselis/hooks";
-import { PhaselisHOC } from "@phaselis/components";
+import { PhaselisHOC } from "src/components/provider";
 import stylesheet from "./assets/styles";
 import { NativePickerProps } from "./types";
+import { useCombinedStyle } from "src/hooks";
 
 const NativePicker: React.FC<NativePickerProps> = ({
   refIOSPicker,
@@ -15,7 +15,6 @@ const NativePicker: React.FC<NativePickerProps> = ({
   contextValue,
   disabled,
   placeholder,
-  doneText,
   selectedItem,
   setIsFocus,
   style,
@@ -112,4 +111,4 @@ const NativePicker: React.FC<NativePickerProps> = ({
   );
 };
 
-export default PhaselisHOC<NativePickerProps, any>(NativePicker);
+export default PhaselisHOC(NativePicker);

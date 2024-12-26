@@ -1,7 +1,7 @@
 import React from "react";
-import { Badge, Button, Col, Row } from "@phaselis/components";
-import StoryView from "@/appSrc/StoryView";
-import StorySection from "@/appSrc/StorySection";
+import { Badge, Button, Col, Row } from "phaselis";
+import StoryView from "appSrc/StoryView";
+import StorySection from "appSrc/StorySection";
 
 const BadgeStory = () => {
   return (
@@ -24,7 +24,7 @@ const BadgeStory = () => {
           <Button text="Secondary" variation="secondary" size="sm" />
         </Badge>
         <Badge text="43" variation="tertiary" top={-6} left={-14} size="xs">
-          <Button text="Tertiary" variation="tertiary" size="xs" />
+          <Button variation="tertiary" size="xs" />
         </Badge>
       </StorySection>
       <StorySection

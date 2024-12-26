@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { View } from "react-native";
-import { FormReference } from "@phaselis/components/form";
-import { Block, Button, Slider, Form } from "@phaselis/components";
+import { Block, Button, Slider, Form, FormReference } from "phaselis";
 
 const SliderStory = () => {
   const refForm = useRef<FormReference>(null);

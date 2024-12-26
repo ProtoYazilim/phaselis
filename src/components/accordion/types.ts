@@ -1,6 +1,6 @@
 import { TextStyle, ViewStyle } from "react-native";
-import { ComponentSize, IconStyle, SlotIconName } from "@phaselis/types";
 import { ReactElement, ReactNode } from "react";
+import { ComponentSize, IconStyle, SlotIconName } from "src/types";
 
 interface AccordionHeaderProps {
   style?: {

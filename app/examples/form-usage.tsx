@@ -1,7 +1,5 @@
 import React, { useRef } from "react";
 import { ScrollView, StyleSheet, Text } from "react-native";
-import { FormReference } from "@phaselis/components/form";
-import { required } from "@phaselis/utils";
 import {
   Block,
   Button,
@@ -10,7 +8,9 @@ import {
   InputGroup,
   Form,
   Select,
-} from "@phaselis/components";
+  FormReference,
+  required,
+} from "phaselis";
 
 const MaskedTextfieldStory = () => {
   const refForm = useRef<FormReference>(null);

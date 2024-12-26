@@ -1,6 +1,5 @@
 import React, { FC } from "react";
-// import { Colors, Spacings } from "@phaselis/theme";
-import { Block } from "@phaselis/components";
+import { Block } from "phaselis";
 import SectionDivider from "./SectionDivider";
 import { ViewStyle } from "react-native";
 

@@ -1,4 +1,4 @@
-package com.proto.phaselis
+package com.phaselis
 
 import android.os.Build
 import android.os.Bundle

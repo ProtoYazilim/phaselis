@@ -1,4 +1,4 @@
-package com.proto.phaselis
+package com.phaselis
 
 import android.app.Application
 import android.content.res.Configuration

@@ -3,7 +3,7 @@ PODS:
   - BVLinearGradient (2.8.3):
     - React-Core
   - DoubleConversion (1.1.6)
-  - EXConstants (16.0.2):
+  - EXConstants (17.0.3):
     - ExpoModulesCore
   - Expo (52.0.23):
     - ExpoModulesCore
@@ -11,11 +11,11 @@ PODS:
     - ExpoModulesCore
   - ExpoFileSystem (18.0.6):
     - ExpoModulesCore
-  - ExpoFont (12.0.10):
-    - ExpoModulesCore
-  - ExpoHead (3.5.24):
+  - ExpoFont (13.0.2):
     - ExpoModulesCore
   - ExpoKeepAwake (14.0.1):
+    - ExpoModulesCore
+  - ExpoLinking (7.0.3):
     - ExpoModulesCore
   - ExpoModulesCore (2.1.2):
     - DoubleConversion
@@ -40,32 +40,8 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - ExpoSystemUI (3.0.7):
+  - ExpoSplashScreen (0.29.18):
     - ExpoModulesCore
-  - ExpoWebBrowser (13.0.3):
-    - ExpoModulesCore
-  - EXSplashScreen (0.27.7):
-    - DoubleConversion
-    - ExpoModulesCore
-    - glog
-    - hermes-engine
-    - RCT-Folly (= 2024.01.01.00)
-    - RCTRequired
-    - RCTTypeSafety
-    - React-Core
-    - React-debug
-    - React-Fabric
-    - React-featureflags
-    - React-graphics
-    - React-ImageManager
-    - React-NativeModulesApple
-    - React-RCTFabric
-    - React-rendererdebug
-    - React-utils
-    - ReactCodegen
-    - ReactCommon/turbomodule/bridging
-    - ReactCommon/turbomodule/core
-    - Yoga
   - FBLazyVector (0.76.5)
   - fmt (9.1.0)
   - glog (0.3.5)
@@ -1875,7 +1851,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNScreens (4.1.0):
+  - RNScreens (4.4.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1896,9 +1872,9 @@ PODS:
     - ReactCodegen
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
-    - RNScreens/common (= 4.1.0)
+    - RNScreens/common (= 4.4.0)
     - Yoga
-  - RNScreens/common (4.1.0):
+  - RNScreens/common (4.4.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1975,12 +1951,10 @@ DEPENDENCIES:
   - ExpoAsset (from `../node_modules/expo-asset/ios`)
   - ExpoFileSystem (from `../node_modules/expo-file-system/ios`)
   - ExpoFont (from `../node_modules/expo-font/ios`)
-  - ExpoHead (from `../node_modules/expo-router/ios`)
   - ExpoKeepAwake (from `../node_modules/expo-keep-awake/ios`)
+  - ExpoLinking (from `../node_modules/expo-linking/ios`)
   - ExpoModulesCore (from `../node_modules/expo-modules-core`)
-  - ExpoSystemUI (from `../node_modules/expo-system-ui/ios`)
-  - ExpoWebBrowser (from `../node_modules/expo-web-browser/ios`)
-  - EXSplashScreen (from `../node_modules/expo-splash-screen/ios`)
+  - ExpoSplashScreen (from `../node_modules/expo-splash-screen/ios`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - fmt (from `../node_modules/react-native/third-party-podspecs/fmt.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
@@ -2076,17 +2050,13 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-file-system/ios"
   ExpoFont:
     :path: "../node_modules/expo-font/ios"
-  ExpoHead:
-    :path: "../node_modules/expo-router/ios"
   ExpoKeepAwake:
     :path: "../node_modules/expo-keep-awake/ios"
+  ExpoLinking:
+    :path: "../node_modules/expo-linking/ios"
   ExpoModulesCore:
     :path: "../node_modules/expo-modules-core"
-  ExpoSystemUI:
-    :path: "../node_modules/expo-system-ui/ios"
-  ExpoWebBrowser:
-    :path: "../node_modules/expo-web-browser/ios"
-  EXSplashScreen:
+  ExpoSplashScreen:
     :path: "../node_modules/expo-splash-screen/ios"
   FBLazyVector:
     :path: "../node_modules/react-native/Libraries/FBLazyVector"
@@ -2236,17 +2206,15 @@ SPEC CHECKSUMS:
   boost: 1dca942403ed9342f98334bf4c3621f011aa7946
   BVLinearGradient: 880f91a7854faff2df62518f0281afb1c60d49a3
   DoubleConversion: f16ae600a246532c4020132d54af21d0ddb2a385
-  EXConstants: 409690fbfd5afea964e5e9d6c4eb2c2b59222c59
+  EXConstants: dd2fe64c6cdb1383b694c309a63028a8e9f2be6d
   Expo: 37cea4167605a3a1b88fa0caf8349ae76c0d389c
   ExpoAsset: 8138f2a9ec55ae1ad7c3871448379f7d97692d15
   ExpoFileSystem: 179a0661fd6d3c4e5d7e500a99a9cd8b295d9566
-  ExpoFont: 00756e6c796d8f7ee8d211e29c8b619e75cbf238
-  ExpoHead: a79e263b73039b41940c220dd67b83572e7cac09
+  ExpoFont: 260fb85279912421894060d9aea453cee4ffc01c
   ExpoKeepAwake: 783e68647b969b210a786047c3daa7b753dcac1f
+  ExpoLinking: a8332a219379ba80f8e612d5a5de4a3da446886e
   ExpoModulesCore: 41844ce131433b266261b44012d5b41ac0513999
-  ExpoSystemUI: d4f065a016cae6721b324eb659cdee4d4cf0cb26
-  ExpoWebBrowser: 7595ccac6938eb65b076385fd23d035db9ecdc8e
-  EXSplashScreen: a4941ba8f00e9a8c0dc9988e40f78d283450e507
+  ExpoSplashScreen: 5818efe67bdbcc862b97fef589571c5b4d53fa7d
   FBLazyVector: 1bf99bb46c6af9a2712592e707347315f23947aa
   fmt: 10c6e61f4be25dc963c36bd73fc7b1705fe975be
   glog: 08b301085f15bcbb6ff8632a8ebaf239aae04e6a
@@ -2315,11 +2283,11 @@ SPEC CHECKSUMS:
   RNCPicker: b978067931744f5a7316b48b8dcf145d4d722672
   RNGestureHandler: fc5ce5bf284640d3af6431c3a5c3bc121e98d045
   RNReanimated: 56fffbede49b5bddb327616096e822f342978794
-  RNScreens: 27587018b2e6082f5172b1ecf158c14a0e8842d6
+  RNScreens: d022507f2b6d76c73335e9e35aedcf7bb2f791b0
   RNSVG: 536cd3c866c878faf72beaba166c8b02fe2b762b
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: fcc198acd4a55599b3468cfb6ebc526baff5f06e
 
 PODFILE CHECKSUM: c440e9eb95cf489bf15f940880e0f37f110304e9
 
-COCOAPODS: 1.16.2
+COCOAPODS: 1.15.2

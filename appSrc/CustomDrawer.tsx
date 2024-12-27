@@ -38,7 +38,7 @@ const CustomDrawer: FC<{
         headerTintColor: headerTintColor,
         drawerPosition: "right",
         swipeEnabled: showRightIcon ? true : false,
-        sceneContainerStyle: sceneContainerStyle,
+        sceneStyle: sceneContainerStyle,
         headerLeft: () => (
           <Pressable
             onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}

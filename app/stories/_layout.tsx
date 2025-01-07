@@ -9,7 +9,7 @@ export default function Layout() {
   return (
     <Drawer
       screenOptions={{
-        headerTintColor: Colors.Primary[500],
+        headerTintColor: Colors.Primary[600],
       }}
       screenListeners={{
         focus: () => {

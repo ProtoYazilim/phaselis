@@ -28,7 +28,7 @@ const CustomDrawer: FC<{
   componentName,
   leftIcon = "AlignLeft",
   rightIcon = "SquareChevronLeft",
-  headerTintColor = Colors.Primary[500],
+  headerTintColor = Colors.Primary[600],
   showRightIcon = true,
   sceneContainerStyle,
 }) => {

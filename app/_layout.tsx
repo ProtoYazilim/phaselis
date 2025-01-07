@@ -5,14 +5,14 @@ import { useEffect } from "react";
 import "react-native-reanimated";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import "../config/unistyle";
-import { Provider as FrameWorkProvider, lightTheme, Colors } from "phaselis";
+import {
+  Provider as FrameWorkProvider,
+  lightTheme,
+  Colors,
+  LucideIcon,
+} from "phaselis";
 import { Tabs } from "expo-router";
 import { LogBox } from "react-native";
-import {
-  LucideAirplay,
-  LucideComponent,
-  DraftingCompass,
-} from "lucide-react-native";
 import { getEnvironmentType } from "../appSrc";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -48,9 +48,17 @@ export default function RootLayout() {
           <Tabs
             screenOptions={{
               tabBarHideOnKeyboard: true,
-              tabBarActiveTintColor: Colors.Primary[500],
-              tabBarInactiveTintColor: Colors.Gray[500],
+              tabBarActiveTintColor: Colors.Primary[800],
+              tabBarInactiveTintColor: Colors.Primary[300],
               headerShown: false,
+              tabBarStyle: {
+                backgroundColor: Colors.Primary[50],
+                display: "flex",
+              },
+              tabBarLabelStyle: {
+                // fontSize: 16,
+                fontWeight: 700,
+              },
             }}
             initialRouteName="stories"
           >
@@ -59,21 +67,51 @@ export default function RootLayout() {
               redirect={environment === "production"}
               options={{
                 title: "Stories",
-                tabBarIcon: ({ color }) => <LucideComponent color={color} />,
+                tabBarIcon: ({ focused }) => (
+                  <LucideIcon
+                    name="BookImage"
+                    // size={"lg"}
+                    style={{
+                      color: focused
+                        ? Colors.Primary[800]
+                        : Colors.Primary[300],
+                    }}
+                  />
+                ),
               }}
             />
             <Tabs.Screen
               name="examples"
               options={{
                 title: "Examples",
-                tabBarIcon: ({ color }) => <LucideAirplay color={color} />,
+                tabBarIcon: ({ focused }) => (
+                  <LucideIcon
+                    name="TabletSmartphone"
+                    // size={"lg"}
+                    style={{
+                      color: focused
+                        ? Colors.Primary[800]
+                        : Colors.Primary[300],
+                    }}
+                  />
+                ),
               }}
             />
             <Tabs.Screen
               name="utils"
               options={{
                 title: "Utils",
-                tabBarIcon: ({ color }) => <DraftingCompass color={color} />,
+                tabBarIcon: ({ focused }) => (
+                  <LucideIcon
+                    name="Webhook"
+                    // size={"lg"}
+                    style={{
+                      color: focused
+                        ? Colors.Primary[800]
+                        : Colors.Primary[300],
+                    }}
+                  />
+                ),
               }}
             />
             <Tabs.Screen name="index" redirect={true} />

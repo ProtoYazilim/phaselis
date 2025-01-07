@@ -1,7 +1,8 @@
 import React from "react";
-import { Badge, Button, Col, Row } from "phaselis";
+import { Badge, Button, Col, Colors, Label, Row } from "phaselis";
 import StoryView from "appSrc/StoryView";
 import StorySection from "appSrc/StorySection";
+import { Text } from "react-native";
 
 const BadgeStory = () => {
   return (
@@ -10,23 +11,79 @@ const BadgeStory = () => {
         leftText="Usage"
         rightText="Various"
         style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-          flexWrap: "wrap",
-          gap: 20,
+          gap: 32,
         }}
       >
-        <Badge text="43" variation="primary" top={-6} right={-14}>
-          <Button text="Primary" variation="primary" />
-        </Badge>
-        <Badge text="43" variation="secondary" top={-6} left={-14} size="sm">
-          <Button text="Secondary" variation="secondary" size="sm" />
-        </Badge>
-        <Badge text="43" variation="tertiary" top={-6} left={-14} size="xs">
-          <Button variation="tertiary" size="xs" />
-        </Badge>
+        <Row style={{ alignItems: "center", gap: 32 }}>
+          <Col size={4}>
+            <Badge text="43" variation="primary" top={-6} right={-14}>
+              <Button
+                text="Primary"
+                variation="primary"
+                style={{ container: { width: "100%" } }}
+              />
+            </Badge>
+          </Col>
+          <Col size={4}>
+            <Badge
+              text="43"
+              variation="secondary"
+              top={-6}
+              left={-14}
+              size="sm"
+            >
+              <Button
+                text="Secondary"
+                variation="secondary"
+                size="sm"
+                style={{ container: { width: "100%" } }}
+              />
+            </Badge>
+          </Col>
+          <Col size={4}>
+            <Badge text="43" variation="tertiary" top={-6} left={-14} size="xs">
+              <Button
+                text="Tertiary"
+                variation="tertiary"
+                size="xs"
+                style={{ container: { width: "100%" } }}
+              />
+            </Badge>
+          </Col>
+        </Row>
+        <Row style={{ alignItems: "center", gap: 32 }}>
+          <Col size={4}>
+            <Badge text="43" variation="primary_outline">
+              <Label
+                text="H1"
+                variation="h1"
+                style={{
+                  text: { color: Colors.Primary[600] },
+                }}
+              />
+            </Badge>
+          </Col>
+          <Col size={4} style={{ paddingLeft: 17 }}>
+            <Badge text="43" variation="secondary_outline" size="sm">
+              <Label
+                text="H2"
+                variation="h2"
+                style={{ text: { color: Colors.Secondary[600] } }}
+              />
+            </Badge>
+          </Col>
+          <Col size={4} style={{ paddingLeft: 21 }}>
+            <Badge text="43" variation="tertiary_outline" size="xs">
+              <Label
+                text="H3"
+                variation="h3"
+                style={{ text: { color: Colors.Tertiary[600] } }}
+              />
+            </Badge>
+          </Col>
+        </Row>
       </StorySection>
+
       <StorySection
         leftText="Colors"
         rightText="Solid MD"
@@ -35,19 +92,63 @@ const BadgeStory = () => {
           justifyContent: "space-between",
         }}
       >
-        <Badge text="Default" variation="default">
+        <Badge
+          text="Default"
+          variation="default"
+          style={{ element: { width: 76 } }}
+        >
           <></>
         </Badge>
-        <Badge text="Primary" variation="primary">
+        <Badge
+          text="Primary"
+          variation="primary"
+          style={{ element: { width: 76 } }}
+          left={-29}
+        >
           <></>
         </Badge>
-        <Badge text="Secondary" variation="secondary">
+        <Badge text="Secondary" variation="secondary" left={-58}>
           <></>
         </Badge>
-        <Badge text="Tertiary" variation="tertiary">
+        <Badge
+          text="Tertiary"
+          variation="tertiary"
+          style={{ element: { width: 76 } }}
+          left={-75}
+        >
           <></>
         </Badge>
       </StorySection>
+
+      <StorySection
+        leftText="Sizes"
+        rightText="Primary Solid"
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          marginRight: 45,
+        }}
+      >
+        <Badge text="XS" variation="primary" size="xs" top={9}>
+          <></>
+        </Badge>
+        <Badge text="SM" variation="primary" size="sm" top={8}>
+          <></>
+        </Badge>
+        <Badge text="MD" variation="primary" top={6}>
+          <></>
+        </Badge>
+        <Badge text="LG" variation="primary" size="lg" top={4}>
+          <></>
+        </Badge>
+        <Badge text="XL" variation="primary" size="xl" top={2}>
+          <></>
+        </Badge>
+        <Badge text="XXL" variation="primary" size="xxl">
+          <></>
+        </Badge>
+      </StorySection>
+
       <StorySection leftText="Slots & Labels" rightText="Primary Solid MD">
         <Row>
           <Col>
@@ -56,12 +157,12 @@ const BadgeStory = () => {
             </Badge>
           </Col>
           <Col>
-            <Badge text="Label" variation="primary">
+            <Badge text="Label" variation="primary" left={-21}>
               <></>
             </Badge>
           </Col>
           <Col>
-            <Badge text="Label" variation="primary" leftIcon="Bell">
+            <Badge text="Label" variation="primary" leftIcon="Bell" left={-14}>
               <></>
             </Badge>
           </Col>
@@ -79,49 +180,62 @@ const BadgeStory = () => {
       </StorySection>
       <StorySection leftText="Solid & Outline" rightText="MD">
         <Row>
-          <Col>
+          <Col size={3}>
             <Badge text="Default" variation="default">
               <></>
             </Badge>
           </Col>
-          <Col>
-            <Badge text="Default" variation="default_outline">
+          <Col size={3}>
+            <Badge text="Default" variation="default_outline" left={16}>
               <></>
             </Badge>
           </Col>
-          <Col>
-            <Badge text="Primary" variation="primary">
+          <Col size={3}>
+            <Badge text="Primary" variation="primary" left={16}>
               <></>
             </Badge>
           </Col>
-          <Col>
-            <Badge text="Primary" variation="primary_outline">
+          <Col size={3}>
+            <Badge text="Primary" variation="primary_outline" left={16}>
               <></>
             </Badge>
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col size={3}>
             <Badge text="Secondary" variation="secondary" top={36}>
               <></>
             </Badge>
           </Col>
-          <Col>
-            <Badge text="Secondary" variation="secondary_outline" top={36}>
+          <Col size={3}>
+            <Badge
+              text="Secondary"
+              variation="secondary_outline"
+              top={36}
+              left={8}
+            >
               <></>
             </Badge>
           </Col>
-          <Col>
-            <Badge text="Tertiary" variation="tertiary" top={36}>
+          <Col size={3}>
+            <Badge text="Tertiary" variation="tertiary" top={36} left={16}>
               <></>
             </Badge>
           </Col>
-          <Col>
-            <Badge text="Tertiary" variation="tertiary_outline" top={36}>
+          <Col size={3}>
+            <Badge
+              text="Tertiary"
+              variation="tertiary_outline"
+              top={36}
+              left={16}
+            >
               <></>
             </Badge>
           </Col>
         </Row>
+        <Text></Text>
+        <Text></Text>
+        <Text></Text>
       </StorySection>
     </StoryView>
   );

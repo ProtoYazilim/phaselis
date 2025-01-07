@@ -5,6 +5,7 @@ import checkboxTheme from "./light/checkbox-theme";
 import radioTheme from "./light/radio-theme";
 import radioGroupTheme from "./light/radioGroup-theme";
 import badgeTheme from "./light/badge-theme";
+import switchTheme from "./light/switch-theme";
 import { Spacings, Heights, Radius, FontSizes } from "./spacings";
 
 export const layeredComponents = ["tab"];
@@ -20,6 +21,7 @@ export const lightTheme = {
   ...radioTheme,
   ...radioGroupTheme,
   ...badgeTheme,
+  ...switchTheme,
   textfield: {
     container: {
       borderColor: Colors.Gray[950],
@@ -680,87 +682,6 @@ export const lightTheme = {
         },
         disabled: {
           true: {},
-        },
-      },
-    },
-  },
-  switch: {
-    container: {
-      variants: {
-        focus: {
-          true: {},
-        },
-        error: {
-          true: {},
-        },
-        disabled: {
-          true: {},
-        },
-        size: {
-          sm: {},
-          md: {},
-          lg: {},
-        },
-      },
-    },
-    track: {
-      width: 96,
-      height: 42,
-      backgroundColor: Colors.Primary[500],
-      onColor: Colors.Primary[500],
-      offColor: Colors.Gray[300],
-      variants: {
-        focus: {
-          true: {},
-        },
-        error: {
-          true: {},
-        },
-        disabled: {
-          true: {
-            onColor: Colors.Primary[100],
-            offColor: Colors.Gray[100],
-          },
-        },
-      },
-    },
-    thumb: {
-      width: Spacings.LG,
-      height: Spacings.LG,
-      onColor: Colors.Gray[50],
-      offColor: Colors.Gray[50],
-      variants: {
-        focus: {
-          true: {},
-        },
-        error: {
-          true: {},
-        },
-        disabled: {
-          true: {
-            onColor: Colors.Primary[50],
-            offColor: Colors.Gray[50],
-          },
-        },
-      },
-    },
-    leftIcon: {
-      color: Colors.Gray[100],
-      variants: {
-        disabled: {
-          true: {
-            color: Colors.Gray[50],
-          },
-        },
-      },
-    },
-    rightIcon: {
-      color: Colors.Gray[100],
-      variants: {
-        disabled: {
-          true: {
-            color: Colors.Gray[50],
-          },
         },
       },
     },

@@ -1,5 +1,5 @@
 import StoryView from "appSrc/StoryView";
-import { Button } from "phaselis";
+import { Button, Row } from "phaselis";
 import React from "react";
 import StorySection from "appSrc/StorySection";
 const ButtonExample = () => {
@@ -8,7 +8,7 @@ const ButtonExample = () => {
   return (
     <StoryView>
       <StorySection
-        leftText="Variation"
+        leftText="Colors"
         rightText="Solid MD"
         style={{
           flexDirection: "row",
@@ -39,59 +39,14 @@ const ButtonExample = () => {
             setScreenProps({ variation: "tertiary" });
           }}
         />
-        <Button
-          text="outline"
-          variation="primary_outline"
-          onClick={() => {
-            setScreenProps({ variation: "primary_outline" });
-          }}
-        />
-        <Button
-          text="outline"
-          variation="secondary_outline"
-          onClick={() => {
-            setScreenProps({ variation: "secondary_outline" });
-          }}
-        />
-        <Button
-          text="outline"
-          variation="tertiary_outline"
-          onClick={() => {
-            setScreenProps({ variation: "tertiary_outline" });
-          }}
-        />
-      </StorySection>
-      <StorySection
-        leftText="Loading"
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <Button text="Loading" {...screenProps} loading />
-        <Button {...screenProps} loading />
-        <Button text="Loading" {...screenProps} loading />
-      </StorySection>
-      <StorySection
-        leftText="Disabled"
-        rightText="Solid MD"
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <Button text="I am a Disabled Button" {...screenProps} disabled />
       </StorySection>
       <StorySection
         leftText="Sizes"
-        rightText="Solid MD"
+        rightText="Primary Solid"
         style={{
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
-          gap: 8,
           flexWrap: "wrap",
         }}
       >
@@ -144,14 +99,15 @@ const ButtonExample = () => {
           }}
         />
       </StorySection>
+
       <StorySection
         leftText="Slots & Labels"
         rightText="Primary Solid MD"
         style={{
           flexDirection: "row",
+          justifyContent: "space-between",
           alignItems: "center",
           flexWrap: "wrap",
-          justifyContent: "space-between",
         }}
       >
         <Button leftIcon="ChevronLeft" {...screenProps} />
@@ -163,6 +119,65 @@ const ButtonExample = () => {
           {...screenProps}
         />
         <Button text="End" rightIcon="ChevronRight" {...screenProps} />
+      </StorySection>
+      <StorySection
+        leftText="Solid & Outline"
+        rightText="Primary MD"
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+          flexWrap: "wrap",
+          gap: 16,
+        }}
+      >
+        <Button
+          leftIcon="ChevronLeft"
+          text="Primary"
+          style={{ container: { flex: 1 } }}
+        />
+        <Button
+          leftIcon="ChevronLeft"
+          text="Outline"
+          variation="primary_outline"
+          style={{ container: { flex: 1 } }}
+        />
+      </StorySection>
+      <StorySection
+        leftText="States"
+        rightText="Primary Solid MD"
+        style={{
+          gap: 16,
+        }}
+      >
+        <Row style={{ gap: 16 }}>
+          <Button
+            leftIcon="ChevronLeft"
+            text="Primary"
+            style={{ container: { flex: 1 } }}
+          />
+          <Button
+            leftIcon="ChevronLeft"
+            text="Disabled"
+            variation="primary_outline"
+            disabled
+            style={{ container: { flex: 1 } }}
+          />
+        </Row>
+        <Row style={{ gap: 16 }}>
+          <Button
+            leftIcon="ChevronLeft"
+            text="Pressed"
+            pressed
+            style={{ container: { flex: 1 } }}
+          />
+          <Button
+            leftIcon="ChevronLeft"
+            variation="primary"
+            loading
+            style={{ container: { flex: 1 } }}
+          />
+        </Row>
       </StorySection>
     </StoryView>
   );

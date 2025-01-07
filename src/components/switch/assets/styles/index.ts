@@ -6,42 +6,6 @@ const stylesheet = createStyleSheet({
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
-    // VARIANTS
-    variants: {
-      outline: {
-        true: {},
-      },
-      disabled: {
-        true: {},
-      },
-      loading: {
-        true: {},
-      },
-      size: {
-        sm: {},
-        md: {},
-        lg: {},
-      },
-    },
-  },
-  element: {
-    // VARIANTS
-    variants: {
-      outline: {
-        true: {},
-      },
-      disabled: {
-        true: {},
-      },
-      loading: {
-        true: {},
-      },
-      size: {
-        sm: {},
-        md: {},
-        lg: {},
-      },
-    },
   },
   track: {
     // STYLES
@@ -52,13 +16,7 @@ const stylesheet = createStyleSheet({
     offColor: "red",
     // VARIANTS
     variants: {
-      outline: {
-        true: {},
-      },
       disabled: {
-        true: {},
-      },
-      loading: {
         true: {},
       },
     },
@@ -74,13 +32,7 @@ const stylesheet = createStyleSheet({
     offColor: "red",
     // VARIANTS
     variants: {
-      outline: {
-        true: {},
-      },
       disabled: {
-        true: {},
-      },
-      loading: {
         true: {},
       },
     },
@@ -88,7 +40,7 @@ const stylesheet = createStyleSheet({
   leftIcon: {
     position: "absolute",
     left: 10,
-    top: 10,
+    top: 8,
     color: "red",
     variants: {
       disabled: {
@@ -99,7 +51,7 @@ const stylesheet = createStyleSheet({
   rightIcon: {
     position: "absolute",
     right: 10,
-    top: 10,
+    top: 8,
     color: "blue",
     variants: {
       disabled: {

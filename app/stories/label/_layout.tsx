@@ -17,7 +17,10 @@ export default function Layout() {
       drawerScreens={[
         {
           name: "index",
-          drawerLabel: "Label",
+          title: "Typography",
+        },
+        {
+          name: "label-story",
           title: "Label Story",
         },
       ]}

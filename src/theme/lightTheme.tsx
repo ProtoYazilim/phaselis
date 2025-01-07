@@ -7,6 +7,7 @@ import radioGroupTheme from "./light/radioGroup-theme";
 import badgeTheme from "./light/badge-theme";
 import switchTheme from "./light/switch-theme";
 import avatarTheme from "./light/avatar-theme";
+import imageTheme from "./light/image-theme";
 import { Spacings, Heights, Radius, FontSizes } from "./spacings";
 
 export const layeredComponents = ["tab"];
@@ -24,6 +25,7 @@ export const lightTheme = {
   ...badgeTheme,
   ...switchTheme,
   ...avatarTheme,
+  ...imageTheme,
   textfield: {
     container: {
       borderColor: Colors.Gray[950],
@@ -972,7 +974,6 @@ export const lightTheme = {
       },
     },
   },
-  image: {},
   block: {},
   col: {},
   row: {},

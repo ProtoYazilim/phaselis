@@ -1,47 +1,45 @@
 import { Image } from "phaselis";
 import React from "react";
-import { SafeAreaView, StyleSheet, Text } from "react-native";
-import { react_background_image } from "../assets";
+import { Text, View } from "react-native";
+
+import { phaselis_wood_image } from "../assets";
 
 function ImageBackgroundStory() {
   return (
-    <SafeAreaView style={styles.container}>
-      <Image
-        source={{ uri: react_background_image.uri }}
-        resizeMode="cover"
-        onLoad={() => {
-          console.log("Proto header loaded");
-        }}
-        background
+    <Image background source={{ uri: phaselis_wood_image.uri }}>
+      <View
         style={{
-          element: {
-            justifyContent: "center",
-          },
+          backgroundColor: "rgba(0,0,0,0.5)",
+          padding: 64,
+          alignItems: "center",
+          borderRadius: 16,
+          margin: 24,
         }}
       >
+        <Text style={{ color: "white", fontSize: 22, lineHeight: 26 }}>
+          Image Background
+        </Text>
         <Text
           style={{
             color: "white",
-            fontSize: 42,
-            lineHeight: 84,
-            fontWeight: "bold",
-            textAlign: "center",
-            backgroundColor: "#000000c0",
+            fontSize: 16,
+            fontWeight: 700,
+            lineHeight: 20,
           }}
         >
-          Phaselis
+          Center Text
         </Text>
-      </Image>
-    </SafeAreaView>
+        <Text
+          style={{
+            color: "white",
+            lineHeight: 18,
+          }}
+        >
+          Blur Background XXL
+        </Text>
+      </View>
+    </Image>
   );
 }
 
 export default ImageBackgroundStory;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    height: 300,
-    backgroundColor: "white",
-  },
-});

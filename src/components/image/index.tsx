@@ -9,21 +9,23 @@ import { useCombinedStyle } from "src/hooks";
 const Image = ({
   style,
   contextValue,
-  disabled,
   background,
   children,
+  variation = "default",
   ...imageNativeProps
 }: ImageProps) => {
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
     style,
     contextValue?.theme?.image,
+    variation,
     {
-      disabled,
       background,
       ...imageNativeProps,
     },
   );
+
+  console.log("element", getCombinedStyle("element"));
 
   const renderImage = () => {
     if (background) {
@@ -45,4 +47,4 @@ const Image = ({
   return <View style={getCombinedStyle("container")}>{renderImage()}</View>;
 };
 
-export default PhaselisHOC<ImageProps, ImageExtraProps>(Image);
+export default PhaselisHOC(Image);

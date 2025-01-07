@@ -4,6 +4,7 @@ import { IconStyle, SlotableLeftRightProps } from "src/types";
 
 interface LinkProps
   extends SlotableLeftRightProps,
+    LinkExtraProps,
     Omit<PressableProps, "style"> {
   style?:
     | (StyleProp<TextStyle> & {

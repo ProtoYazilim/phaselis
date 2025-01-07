@@ -8,6 +8,7 @@ import badgeTheme from "./light/badge-theme";
 import switchTheme from "./light/switch-theme";
 import avatarTheme from "./light/avatar-theme";
 import imageTheme from "./light/image-theme";
+import linkTheme from "./light/link-theme";
 import { Spacings, Heights, Radius, FontSizes } from "./spacings";
 
 export const layeredComponents = ["tab"];
@@ -26,6 +27,7 @@ export const lightTheme = {
   ...switchTheme,
   ...avatarTheme,
   ...imageTheme,
+  ...linkTheme,
   textfield: {
     container: {
       borderColor: Colors.Gray[950],
@@ -743,57 +745,7 @@ export const lightTheme = {
       marginTop: Spacings.MD,
     },
   },
-  link: {
-    container: {},
-    text: {
-      fontSize: FontSizes.MD,
-      lineHeight: 22,
-      variants: {
-        primary: {
-          true: {
-            color: Colors.Primary[600],
-          },
-        },
-        secondary: {
-          true: {
-            color: Colors.Secondary[600],
-          },
-        },
-      },
-    },
-    leftSlot: {
-      color: Colors.Gray[900],
-      marginRight: 2,
-      variants: {
-        primary: {
-          true: {
-            color: Colors.Primary[600],
-          },
-        },
-        secondary: {
-          true: {
-            color: Colors.Secondary[600],
-          },
-        },
-      },
-    },
-    rightSlot: {
-      color: Colors.Gray[900],
-      marginLeft: 2,
-      variants: {
-        primary: {
-          true: {
-            color: Colors.Primary[600],
-          },
-        },
-        secondary: {
-          true: {
-            color: Colors.Secondary[600],
-          },
-        },
-      },
-    },
-  },
+
   popup: {
     container: {
       backgroundColor: Colors.Gray[50],

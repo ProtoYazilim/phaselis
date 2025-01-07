@@ -66,11 +66,11 @@ const Radio = ({
   const animatedStyle = {
     width: animationScale.interpolate({
       inputRange: [0, width],
-      outputRange: [0, width / 1.33],
+      outputRange: [0, width / 1.6],
     }),
     height: animationScale.interpolate({
       inputRange: [0, height],
-      outputRange: [0, height / 1.33],
+      outputRange: [0, height / 1.6],
     }),
     borderRadius: animationScale.interpolate({
       inputRange: [0, (width + height) / 2],

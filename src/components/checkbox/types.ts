@@ -24,4 +24,5 @@ export interface CheckboxProps
     icon?: IconStyle;
     text?: TextStyle;
   };
+  pressed?: boolean;
 }

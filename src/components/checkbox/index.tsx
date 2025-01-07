@@ -30,6 +30,8 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
 
   const [checked, setChecked] = useState<boolean>(Boolean(value));
   const [isFocus, setIsFocus] = useState(false);
+  const strokeWidth = ["xs", "sm", "md"].includes(size) ? 4 : 3;
+  const [isPressed, setIsPressed] = useState(false);
 
   const refInput = useRef<TextInput>(null);
 
@@ -42,7 +44,8 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
   }, [value]);
 
   const handleChange = () => {
-    console.log("handleChange");
+    // console.log("handleChange");
+    setIsPressed(false);
     const newValue = !checked;
     setChecked(newValue);
     refInput.current?.focus();
@@ -65,13 +68,23 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
     style,
     contextValue?.theme?.checkbox,
     variation,
-    { error: showError, disabled, focus: isFocus, size, ...extraProps },
+    {
+      error: showError,
+      disabled,
+      focus: isFocus,
+      size,
+      pressed: isPressed,
+      ...extraProps,
+    },
   );
 
   return (
     <Pressable
       style={getCombinedStyle("container")}
       onPress={handleChange}
+      onPressIn={() => {
+        setIsPressed(true);
+      }}
       disabled={disabled}
       key={`checkbox-${id}`}
       id={id}
@@ -81,7 +94,7 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
           <Slot
             style={getCombinedStyle("icon")}
             icon={iconName}
-            strokeWidth={3}
+            strokeWidth={strokeWidth}
           >
             {IconSlot && <IconSlot />}
           </Slot>

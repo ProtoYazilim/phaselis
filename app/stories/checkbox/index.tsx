@@ -1,5 +1,5 @@
 import StoryView from "appSrc/StoryView";
-import { Checkbox } from "phaselis";
+import { Checkbox, Col, Row } from "phaselis";
 import React from "react";
 import StorySection from "appSrc/StorySection";
 
@@ -7,8 +7,8 @@ const CheckboxExample = () => {
   return (
     <StoryView>
       <StorySection
-        leftText="Variation"
-        rightText="Solid MD"
+        leftText="Default"
+        rightText="MD"
         style={{
           flexDirection: "row",
           justifyContent: "space-between",
@@ -21,7 +21,7 @@ const CheckboxExample = () => {
       </StorySection>
       <StorySection
         leftText="Disabled"
-        rightText="Solid MD"
+        rightText="MD"
         style={{
           flexDirection: "row",
           justifyContent: "space-between",
@@ -38,23 +38,43 @@ const CheckboxExample = () => {
         <Checkbox text="Tertiary" variation="tertiary" disabled value={true} />
       </StorySection>
       <StorySection
-        leftText="Sizes"
-        rightText="Solid MD"
+        leftText="Pressed"
+        rightText="MD"
         style={{
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
-          columnGap: 100,
-          rowGap: 30,
-          flexWrap: "wrap",
         }}
       >
-        <Checkbox text="XS" size="xs" value={true} />
-        <Checkbox text="SM" size="sm" value={true} />
-        <Checkbox text="MD" size="md" value={true} />
-        <Checkbox text="LG" size="lg" value={true} />
-        <Checkbox text="XL" size="xl" value={true} />
-        <Checkbox text="XXL" size="xxl" value={true} />
+        <Checkbox text="Primary" value={true} variation="primary" pressed />
+        <Checkbox text="Secondary" value={true} variation="secondary" pressed />
+        <Checkbox text="Tertiary" value={true} variation="tertiary" pressed />
+      </StorySection>
+      <StorySection leftText="Sizes" rightText="Primary" style={{ gap: 16 }}>
+        <Row style={{ alignItems: "center" }}>
+          <Col>
+            <Checkbox text="XS" size="xs" value={true} />
+          </Col>
+          <Col>
+            <Checkbox text="SM" size="sm" value={true} />
+          </Col>
+        </Row>
+        <Row style={{ alignItems: "center" }}>
+          <Col>
+            <Checkbox text="MD" size="md" value={true} />
+          </Col>
+          <Col>
+            <Checkbox text="LG" size="lg" value={true} />
+          </Col>
+        </Row>
+        <Row style={{ alignItems: "center" }}>
+          <Col>
+            <Checkbox text="XL" size="xl" value={true} />
+          </Col>
+          <Col>
+            <Checkbox text="XXL" size="xxl" value={true} />
+          </Col>
+        </Row>
       </StorySection>
     </StoryView>
   );

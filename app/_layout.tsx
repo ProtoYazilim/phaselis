@@ -41,6 +41,8 @@ export default function RootLayout() {
 
   const environment = getEnvironmentType();
 
+  DefaultTheme.colors.background = "white";
+
   return (
     <FrameWorkProvider theme={lightTheme}>
       <ThemeProvider value={DefaultTheme}>

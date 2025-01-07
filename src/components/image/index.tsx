@@ -25,8 +25,6 @@ const Image = ({
     },
   );
 
-  console.log("element", getCombinedStyle("element"));
-
   const renderImage = () => {
     if (background) {
       return (

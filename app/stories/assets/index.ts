@@ -9,6 +9,7 @@ const phaselis_avatar_image = Asset.fromModule(
   require("./phaselis_avatar.png"),
 );
 const phaselis_wood_image = Asset.fromModule(require("./phaselis_wood.png"));
+const phaselis_logo_image = Asset.fromModule(require("./phaselis_logo.png"));
 
 export {
   proto_header_image,
@@ -17,4 +18,5 @@ export {
   avatar_image,
   phaselis_avatar_image,
   phaselis_wood_image,
+  phaselis_logo_image,
 };

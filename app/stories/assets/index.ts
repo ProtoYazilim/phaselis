@@ -4,4 +4,11 @@ const git_logo_image = Asset.fromModule(require("./git_logo.png"));
 const react_background_image = Asset.fromModule(
   require("./react_background.png"),
 );
-export { proto_header_image, git_logo_image, react_background_image };
+const avatar_image = Asset.fromModule(require("./avatar_image.png"));
+
+export {
+  proto_header_image,
+  git_logo_image,
+  react_background_image,
+  avatar_image,
+};

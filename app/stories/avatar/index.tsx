@@ -1,53 +1,54 @@
-import { Avatar, Block } from "phaselis";
-import { StyleSheet } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+import StorySection from "appSrc/StorySection";
+import StoryView from "appSrc/StoryView";
+import { Avatar } from "phaselis";
+import { avatar_image } from "../assets";
+
 const AvatarStory = () => {
   return (
-    <ScrollView style={styles.container}>
-      <Block style={{ gap: 10 }}>
-        <Avatar
-          style={{
-            container: {
-              backgroundColor: "red",
-            },
-            icon: {
-              color: "white",
-            },
-          }}
-          iconName="Umbrella"
-          size="md"
-        />
-        <Avatar img="/Users/aliberkislam/Development/phaselis/app/stories/assets/phaselis.png" />
-        <Avatar circle text="XX" />
-        <Avatar circle size="xs" text="XX" />
-        <Avatar circle size="sm" text="XX" />
-        <Avatar circle size="md" text="XX" />
-        <Avatar circle size="lg" text="XX" />
-        <Avatar circle size="xl" text="XX" />
-        <Avatar rounded text="XX" />
-        <Avatar rounded size="xs" text="XX" />
-        <Avatar rounded size="sm" text="XX" />
-        <Avatar rounded size="md" text="XX" />
-        <Avatar rounded size="lg" text="XX" />
-        <Avatar rounded size="xl" text="XX" />
-        <Avatar square text="XX" />
-        <Avatar square size="xs" text="XX" />
-        <Avatar square size="sm" text="XX" />
-        <Avatar square size="md" text="XX" />
-        <Avatar square size="lg" text="XX" />
-        <Avatar square size="xl" text="XX" />
-      </Block>
-    </ScrollView>
+    <StoryView>
+      <StorySection
+        leftText="Image or Text"
+        rightText="MD"
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          paddingTop: 16,
+        }}
+      >
+        <Avatar size="md" img={avatar_image.uri} />
+        <Avatar size="md" text="MD" />
+      </StorySection>
+      <StorySection
+        leftText="Sizes"
+        style={{
+          flexDirection: "row",
+          flexWrap: "wrap",
+          alignItems: "center",
+          justifyContent: "space-around",
+          paddingTop: 16,
+        }}
+      >
+        <Avatar size="xs" text="XS" />
+        <Avatar size="sm" text="SM" />
+        <Avatar size="md" text="MD" />
+        <Avatar size="lg" text="LG" />
+        <Avatar size="xl" text="XL" />
+      </StorySection>
+      <StorySection
+        leftText="Corner"
+        rightText="MD"
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          paddingTop: 16,
+        }}
+      >
+        <Avatar size="md" text="MD" />
+        <Avatar size="md" text="MD" variation="rounded" />
+        <Avatar size="md" text="MD" variation="square" />
+      </StorySection>
+    </StoryView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "white",
-    flex: 1,
-    padding: 16,
-    gap: 10,
-  },
-});
 
 export default AvatarStory;

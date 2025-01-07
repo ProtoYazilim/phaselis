@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 import { TextStyle, ViewStyle } from "react-native";
-import { ComponentSize, IconStyle, SlotIconName } from "src/types";
+import { IconStyle, SlotIconName } from "src/types";
 
-export interface AvatarProps {
+export interface AvatarProps extends AvatarExtraProps {
   id?: string;
   children?: ReactNode;
   style?: {
@@ -14,10 +14,6 @@ export interface AvatarProps {
   iconName?: SlotIconName;
   text?: string;
   disabled?: boolean;
-  size?: ComponentSize;
-  circle?: boolean;
-  rounded?: boolean;
-  square?: boolean;
   contextValue?: any;
   img?: string;
 }

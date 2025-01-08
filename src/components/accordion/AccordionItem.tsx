@@ -2,16 +2,15 @@ import React, { useContext, useEffect, useState } from "react";
 import { View } from "react-native";
 import AccordionHeader from "./AccordionHeader";
 import AccordionContent from "./AccordionContent";
-import { useStyles } from "react-native-unistyles";
 import { stylesheet_item as stylesheet } from "./assets/styles";
 import { AccordionItemProps } from "./types";
 import { AccordionContext } from "./Accordion";
 import { PhaselisHOC } from "src/components/provider";
+import { useCombinedStyle } from "src/hooks";
 
 function AccordionItem({
   style,
   disabled,
-  size,
   contextValue,
   expand = false,
   onChange,
@@ -20,26 +19,19 @@ function AccordionItem({
   inContext = false,
   headerText,
   headerIcon,
+  variation = "default",
 }: AccordionItemProps) {
   const [expanded, setExpanded] = useState(expand);
 
-  const { styles: defaultStyles } = useStyles(stylesheet, {
-    disabled,
-    size,
-  });
-
-  const { styles: themeStyles } = useStyles(
-    contextValue?.theme?.accordion_item as typeof stylesheet,
+  const { getCombinedStyle } = useCombinedStyle(
+    stylesheet,
+    style,
+    contextValue?.theme?.accordion_item,
+    variation,
     {
-      disabled,
-      size,
+      disabled: disabled,
     },
   );
-
-  const { styles: propStyle } = useStyles(style as typeof stylesheet, {
-    disabled,
-    size,
-  });
 
   const accordionContext = useContext(AccordionContext);
 
@@ -65,13 +57,7 @@ function AccordionItem({
   }, [accordionContext?.expandedIndex, index]);
 
   return (
-    <View
-      style={[
-        defaultStyles.container,
-        themeStyles.container,
-        propStyle?.container,
-      ]}
-    >
+    <View style={getCombinedStyle("container")}>
       <AccordionHeader
         onPress={() => {
           if (!disabled) {
@@ -81,22 +67,13 @@ function AccordionItem({
           }
         }}
         style={undefined}
-        size={undefined}
         expanded={expanded}
         disabled={disabled}
         text={headerText || ""}
         icon={headerIcon}
       />
       <AccordionContent isExpanded={expanded}>
-        <View
-          style={[
-            defaultStyles.element,
-            themeStyles.element,
-            propStyle?.element,
-          ]}
-        >
-          {children}
-        </View>
+        <View style={getCombinedStyle("element")}>{children}</View>
       </AccordionContent>
     </View>
   );

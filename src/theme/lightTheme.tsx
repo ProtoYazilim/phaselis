@@ -9,6 +9,7 @@ import switchTheme from "./light/switch-theme";
 import avatarTheme from "./light/avatar-theme";
 import imageTheme from "./light/image-theme";
 import linkTheme from "./light/link-theme";
+import accordionHeaderTheme from "./light/accordion-theme";
 import { Spacings, Heights, Radius, FontSizes } from "./spacings";
 
 export const layeredComponents = ["tab"];
@@ -28,6 +29,7 @@ export const lightTheme = {
   ...avatarTheme,
   ...imageTheme,
   ...linkTheme,
+  ...accordionHeaderTheme,
   textfield: {
     container: {
       borderColor: Colors.Gray[950],
@@ -692,60 +694,6 @@ export const lightTheme = {
       },
     },
   },
-
-  accordion_header: {
-    text: {
-      fontSize: FontSizes.MD,
-      fontWeight: 700,
-      lineHeight: 20,
-      color: Colors.Gray[950],
-      variants: {
-        disabled: {
-          true: {
-            color: Colors.Gray[300],
-          },
-        },
-      },
-    },
-    icon: {
-      color: Colors.Gray[950],
-      variants: {
-        disabled: {
-          true: {
-            color: Colors.Gray[300],
-          },
-        },
-      },
-    },
-    drop: {
-      color: Colors.Gray[950],
-      variants: {
-        disabled: {
-          true: {
-            color: Colors.Gray[300],
-          },
-        },
-      },
-    },
-  },
-  accordion_item: {
-    container: {
-      padding: Spacings.MD,
-      borderColor: Colors.Gray[500],
-      variants: {
-        disabled: {
-          true: {
-            borderColor: Colors.Gray[500],
-            backgroundColor: Colors.Gray[100],
-          },
-        },
-      },
-    },
-    element: {
-      marginTop: Spacings.MD,
-    },
-  },
-
   popup: {
     container: {
       backgroundColor: Colors.Gray[50],

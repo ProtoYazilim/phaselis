@@ -13,7 +13,6 @@ function BottomSheetStory() {
           variation="primary_outline"
           leftIcon="Eye"
           size="xl"
-          // style={{ container: { height: 96 } }}
           onClick={() => {
             setIsOpen1(true);
           }}

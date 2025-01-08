@@ -37,7 +37,7 @@ const CloseIconSlotDefault = ({
 };
 
 const HeaderSlotDefault = ({
-  text = "Option Selection",
+  text = "Select Title",
   setShowPicker,
   closeIcon,
   closeIconSize,

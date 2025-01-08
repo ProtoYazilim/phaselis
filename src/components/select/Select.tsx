@@ -12,7 +12,7 @@ import { InputHOC } from "src/utils/lib/hocs";
 const Select: FC<SelectProps> = ({
   style,
   options = [],
-  placeholder = "Select an option",
+  placeholder = "Please Select",
   value,
   onChange,
   error,

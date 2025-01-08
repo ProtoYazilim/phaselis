@@ -9,6 +9,7 @@ const BottomSheet: FC<BottomSheetProps> = ({
   onClose,
   fullScreenModal = false,
   maxHeightModal = "40%",
+  backgroundColor = "#F6F7F8",
 }) => {
   const HEIGHT = useRef(500);
   const translateY = useRef(new Animated.Value(0)).current;
@@ -50,7 +51,7 @@ const BottomSheet: FC<BottomSheetProps> = ({
       </Animated.View>
       <Animated.View
         style={[
-          sheetStyles.sheet,
+          [sheetStyles.sheet, { backgroundColor }],
           {
             transform: [{ translateY }],
             maxHeight: fullScreenModal ? "100%" : maxHeightModal,
@@ -71,7 +72,6 @@ const sheetStyles = StyleSheet.create({
     borderTopRightRadius: 16,
     borderTopLeftRadius: 16,
     zIndex: 2,
-    backgroundColor: "#F6F7F8",
     paddingVertical: 16,
   },
   backdrop: {

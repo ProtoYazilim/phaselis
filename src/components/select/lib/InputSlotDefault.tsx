@@ -23,12 +23,14 @@ const InputSlotDefault = ({
   showError,
   isFocus,
   size,
+  variation = "default",
   ...extraProps
 }: InputSlotProps) => {
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
     style,
-    contextValue?.theme?.select?._picker?._inputSlot,
+    contextValue?.theme?.select,
+    variation,
     {
       error: showError,
       disabled,

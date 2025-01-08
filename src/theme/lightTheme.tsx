@@ -10,6 +10,7 @@ import avatarTheme from "./light/avatar-theme";
 import imageTheme from "./light/image-theme";
 import linkTheme from "./light/link-theme";
 import accordionHeaderTheme from "./light/accordion-theme";
+import popupTheme from "./light/popup-theme";
 import { Spacings, Heights, Radius, FontSizes } from "./spacings";
 
 export const layeredComponents = ["tab"];
@@ -30,6 +31,7 @@ export const lightTheme = {
   ...imageTheme,
   ...linkTheme,
   ...accordionHeaderTheme,
+  ...popupTheme,
   textfield: {
     container: {
       borderColor: Colors.Gray[950],
@@ -692,50 +694,6 @@ export const lightTheme = {
           true: {},
         },
       },
-    },
-  },
-  popup: {
-    container: {
-      backgroundColor: Colors.Gray[50],
-      padding: Spacings.MD,
-      variants: {
-        type: {
-          info: {
-            backgroundColor: "#D8EEFF",
-          },
-          success: {
-            backgroundColor: "#CEFDE8",
-          },
-          warning: {
-            backgroundColor: "#FFFBC5",
-          },
-          error: {
-            backgroundColor: "#FEE6E5",
-          },
-        },
-      },
-    },
-    leftSlot: {
-      color: Colors.Gray[950],
-      marginRight: Spacings.SM,
-    },
-    closeIcon: {
-      marginBottom: Spacings.MD,
-      marginRight: Spacings.MD,
-      marginTop: Spacings.MD,
-      color: Colors.Gray[950],
-    },
-    element: {
-      padding: Spacings.MD,
-    },
-    header: {
-      marginBottom: Spacings.SM,
-    },
-    title: {
-      fontSize: FontSizes.MD,
-      fontWeight: 700,
-      lineHeight: 20,
-      color: Colors.Gray[950],
     },
   },
   // ? TAB Component [Layered Component]

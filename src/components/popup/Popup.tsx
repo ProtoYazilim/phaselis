@@ -24,7 +24,7 @@ const Popup: FC<PopupProps> = ({
   leftIcon,
   LeftSlot,
   title,
-  type = "default",
+  variation = "default",
   ...extraProps
 }: any) => {
   const translateY = new Animated.Value(300);
@@ -70,7 +70,8 @@ const Popup: FC<PopupProps> = ({
     stylesheet,
     style,
     contextValue?.theme?.popup,
-    { type, ...extraProps },
+    variation,
+    { ...extraProps },
   );
 
   return (
@@ -136,4 +137,4 @@ const sheetStyles = StyleSheet.create({
   },
 });
 
-export default PhaselisHOC<PopupProps, PopupExtraProps>(Popup);
+export default PhaselisHOC(Popup);

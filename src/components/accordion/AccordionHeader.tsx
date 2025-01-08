@@ -28,8 +28,6 @@ const AccordionHeader = ({
     },
   );
 
-  console.log(getCombinedStyle("container"));
-
   const rotation = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {

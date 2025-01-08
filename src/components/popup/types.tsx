@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { TextStyle, ViewStyle } from "react-native";
 import { IconStyle, SlotChildComponent, SlotIconName } from "src/types";
 
-interface PopupProps {
+interface PopupProps extends PopupExtraProps {
   show?: boolean;
   duration?: number;
   onClose: () => void;
@@ -22,7 +22,6 @@ interface PopupProps {
   LeftSlot?: SlotChildComponent;
   title?: string;
   children?: ReactNode;
-  type?: "default" | "info" | "warning" | "error" | "success";
 }
 
 export { PopupProps };

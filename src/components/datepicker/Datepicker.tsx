@@ -25,6 +25,7 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
     format = "dd.MM.yyyy",
     value,
     disabled = false,
+    variation = "default",
     ...extraProps
   } = props;
   const [show, setShow] = useState(false);
@@ -43,6 +44,7 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
     stylesheet,
     style,
     contextValue?.theme?.datepicker,
+    variation,
     { size, focus: show, disabled, ...extraProps },
   );
 

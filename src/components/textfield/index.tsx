@@ -43,6 +43,7 @@ const Textfield: React.FC<TextfieldProps> = ({
   mask,
   textarea,
   onChangeText,
+  variation = "default",
   ...extraProps
 }) => {
   const [isFocus, setIsFocus] = useState(autoFocus);
@@ -159,6 +160,22 @@ const Textfield: React.FC<TextfieldProps> = ({
     stylesheet,
     style,
     contextValue?.theme?.textfield,
+    variation,
+    {
+      error: showError,
+      disabled,
+      focus: isFocus,
+      size,
+      textarea,
+      ...extraProps,
+    },
+  );
+
+  const { getFlattenStyle } = useCombinedStyle(
+    stylesheet,
+    style,
+    contextValue?.theme?.textfield,
+    variation,
     {
       error: showError,
       disabled,
@@ -200,7 +217,7 @@ const Textfield: React.FC<TextfieldProps> = ({
         underlineColorAndroid="rgba(0,0,0,0)"
         autoCorrect={false}
         secureTextEntry={type === "password" ? true : false}
-        placeholderTextColor={contextValue?.theme?.colors?.Gray[300]}
+        placeholderTextColor={getFlattenStyle("element").color}
         multiline={textarea}
         numberOfLines={5}
         value={value}

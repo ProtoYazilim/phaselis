@@ -8,6 +8,7 @@ import {
 
 interface DatepickerProps
   extends SlotableLeftRightProps,
+    Omit<DatepickerExtraProps, "error">,
     InputControlProps<Date, any, any> {
   contextValue?: any;
   mode?: "date" | "time" | "datetime";

@@ -16,6 +16,7 @@ import {
 
 export interface TextfieldProps
   extends SlotableLeftRightProps,
+    TextfieldExtraProps,
     InputControlProps<
       string,
       NativeSyntheticEvent<TextInputChangeEventData> | null,

@@ -15,6 +15,7 @@ import selectTheme from "./light/select-theme";
 import textfieldTheme from "./light/textfield-theme";
 import datepickerStory from "./light/datepicker-theme";
 import stepperTheme from "./light/stepper-theme";
+import sliderTheme from "./light/slider-theme";
 import { Spacings, Radius, FontSizes } from "./spacings";
 
 export const layeredComponents = ["tab"];
@@ -40,52 +41,7 @@ export const lightTheme = {
   ...textfieldTheme,
   ...datepickerStory,
   ...stepperTheme,
-  slider: {
-    container: {
-      variants: {
-        focus: {
-          true: {},
-        },
-        error: {
-          true: {},
-        },
-        disabled: {
-          true: {},
-        },
-        size: {
-          xs: {},
-          sm: {
-            height: 36,
-          },
-          md: {
-            height: 48,
-          },
-          lg: {
-            height: 56,
-          },
-          xl: {},
-          xxl: {},
-        },
-      },
-    },
-    element: {
-      color: Colors.Gray[900],
-      minimumTrackTintColor: Colors.Primary[600],
-      maximumTrackTintColor: Colors.Gray[300],
-      thumbTintColor: Colors.Primary[600],
-      variants: {
-        focus: {
-          true: {},
-        },
-        error: {
-          true: {},
-        },
-        disabled: {
-          true: {},
-        },
-      },
-    },
-  },
+  ...sliderTheme,
   // ? TAB Component [Layered Component]
   tab: {
     header: {

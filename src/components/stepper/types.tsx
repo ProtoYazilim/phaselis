@@ -1,13 +1,16 @@
 import { ReactNode } from "react";
 import { TextStyle, ViewStyle } from "react-native";
-import { IconStyle } from "src/types";
+import { IconStyle, SlotIconName } from "src/types";
 
-interface StepHeaderProps {
+interface StepHeaderProps extends StepperExtraProps {
   stepCount: number;
   stepNum: number;
   isFirst: boolean;
   isLast: boolean;
   text?: string;
+  leftText?: string;
+  rightText?: string;
+  topText?: string;
   isActive?: boolean;
   isCompleted?: boolean;
   stepPositions?: { x: number; y: number }[];
@@ -24,10 +27,16 @@ interface StepHeaderProps {
     text?: TextStyle;
   };
   contextValue?: any;
+  stepIcon?: SlotIconName;
+  completeIcon?: SlotIconName;
+  activeIcon?: SlotIconName;
 }
 
 interface ProgressStepProps {
   text?: string;
+  leftText?: string;
+  rightText?: string;
+  topText?: string;
   onNext?: () => Promise<void> | void;
   onPrevious?: () => void;
   onSubmit?: () => void;
@@ -49,7 +58,12 @@ interface ProgressStepProps {
 interface ProgressStepsProps {
   isComplete?: boolean;
   activeStep?: number;
-  children: ReactNode[];
+  children: ReactNode[] | ReactNode;
+  stepIcon?: SlotIconName;
+  completeIcon?: SlotIconName;
+  activeIcon?: SlotIconName;
+  firstTrailShown?: boolean;
+  lastTrailShown?: boolean;
 
   renderFooter?: ({
     nextButtonProps,

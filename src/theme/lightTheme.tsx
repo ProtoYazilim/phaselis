@@ -14,6 +14,7 @@ import popupTheme from "./light/popup-theme";
 import selectTheme from "./light/select-theme";
 import textfieldTheme from "./light/textfield-theme";
 import datepickerStory from "./light/datepicker-theme";
+import stepperTheme from "./light/stepper-theme";
 import { Spacings, Radius, FontSizes } from "./spacings";
 
 export const layeredComponents = ["tab"];
@@ -38,6 +39,7 @@ export const lightTheme = {
   ...selectTheme,
   ...textfieldTheme,
   ...datepickerStory,
+  ...stepperTheme,
   slider: {
     container: {
       variants: {
@@ -120,106 +122,7 @@ export const lightTheme = {
       },
     },
   },
-  stepper: {
-    header: {
-      container: {},
-      element: {
-        backgroundColor: Colors.Gray[100],
-        variants: {
-          isActive: {
-            true: {
-              backgroundColor: Colors.Primary[200],
-            },
-          },
-          isCompleted: {
-            true: {
-              backgroundColor: Colors.Primary[500],
-            },
-          },
-          isDisabled: {
-            true: {
-              backgroundColor: Colors.Gray[100],
-            },
-          },
-        },
-      },
-      text: {
-        color: Colors.Gray[950],
-        variants: {
-          isActive: {
-            true: {
-              color: Colors.Gray[950],
-            },
-          },
-          isCompleted: {
-            true: {
-              color: Colors.Primary[500],
-            },
-          },
-          isDisabled: {
-            true: {
-              color: Colors.Gray[300],
-            },
-          },
-        },
-      },
-      number: {
-        color: Colors.Gray[950],
-        variants: {
-          isActive: {
-            true: {
-              color: Colors.Gray[950],
-            },
-          },
-          isCompleted: {
-            true: {
-              color: Colors.Primary[500],
-            },
-          },
-          isDisabled: {
-            true: {
-              color: Colors.Gray[300],
-            },
-          },
-        },
-      },
-      leftTrail: {
-        backgroundColor: Colors.Gray[200],
-        variants: {
-          isCompleted: {
-            true: {
-              backgroundColor: Colors.Primary[500],
-            },
-          },
-          isActive: {
-            true: {
-              backgroundColor: Colors.Primary[500],
-            },
-          },
-          isFirst: {
-            true: {
-              backgroundColor: Colors.Transparent,
-            },
-          },
-        },
-      },
-      rightTrail: {
-        backgroundColor: Colors.Gray[200],
-        variants: {
-          isCompleted: {
-            true: {
-              backgroundColor: Colors.Primary[500],
-            },
-          },
-          isLast: {
-            true: {
-              backgroundColor: Colors.Transparent,
-            },
-          },
-        },
-      },
-    },
-  },
+
   block: {},
   col: {},
   row: {},

@@ -9,6 +9,11 @@ const ProgressSteps: React.FC<ProgressStepsProps> = ({
   activeStep = 0,
   children,
   renderFooter,
+  completeIcon,
+  stepIcon,
+  activeIcon,
+  firstTrailShown = false,
+  lastTrailShown = false,
 }: ProgressStepsProps) => {
   const [stepCount, setStepCount] = useState<number>(0);
   const [currentStep, setCurrentStep] = useState<number>(activeStep);
@@ -16,6 +21,8 @@ const ProgressSteps: React.FC<ProgressStepsProps> = ({
   const [stepPositions, setStepPositions] = useState<
     { x: number; y: number }[]
   >([]);
+
+  const childrenArray = React.Children.toArray(children);
 
   useEffect(() => {
     setStepCount(React.Children.count(children));
@@ -34,10 +41,23 @@ const ProgressSteps: React.FC<ProgressStepsProps> = ({
           key={i}
           stepNum={i + 1}
           text={
-            (children[i] as React.ReactElement<{ text: string }>).props.text
+            (childrenArray[i] as React.ReactElement<{ text: string }>).props
+              .text
           }
-          isFirst={i === 0}
-          isLast={i === stepCount - 1}
+          leftText={
+            (childrenArray[i] as React.ReactElement<{ leftText: string }>).props
+              .leftText
+          }
+          rightText={
+            (childrenArray[i] as React.ReactElement<{ rightText: string }>)
+              .props.rightText
+          }
+          topText={
+            (childrenArray[i] as React.ReactElement<{ topText: string }>).props
+              .topText
+          }
+          isFirst={!firstTrailShown && i === 0}
+          isLast={i === stepCount - 1 && !lastTrailShown}
           isCompleted={isCompletedStep}
           isActive={isActiveStep}
           active={activeStep}
@@ -47,9 +67,12 @@ const ProgressSteps: React.FC<ProgressStepsProps> = ({
           }}
           stepCount={stepCount}
           isDisabled={
-            (children[i] as React.ReactElement<{ disabled: boolean }>).props
-              .disabled
+            (childrenArray[i] as React.ReactElement<{ disabled: boolean }>)
+              .props.disabled
           }
+          completeIcon={completeIcon}
+          stepIcon={stepIcon}
+          activeIcon={activeIcon}
         />
       );
     });
@@ -99,7 +122,7 @@ const ProgressSteps: React.FC<ProgressStepsProps> = ({
         {renderHeader()}
       </View>
       <View>
-        {React.cloneElement(children[currentStep] as React.ReactElement, {
+        {React.cloneElement(childrenArray[currentStep] as React.ReactElement, {
           setActiveStep: setCurrentStep,
           activeStep: currentStep,
           stepCount,

@@ -11,16 +11,24 @@ const StepHeader: React.FC<StepHeaderProps> = ({
   isActive,
   isCompleted,
   text,
+  leftText,
+  rightText,
+  topText,
   isFirst,
   isLast,
   isDisabled,
   style,
   contextValue,
+  variation = "default",
+  completeIcon = "Check",
+  stepIcon,
+  activeIcon,
 }: StepHeaderProps) => {
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
     style,
-    contextValue?.theme?.stepper?.header,
+    contextValue?.theme?.stepper?.default?.header,
+    variation,
     {
       isActive,
       isCompleted,
@@ -32,12 +40,23 @@ const StepHeader: React.FC<StepHeaderProps> = ({
 
   return (
     <View style={getCombinedStyle("container")}>
+      {topText && <Text style={getCombinedStyle("topText")}>{topText}</Text>}
       <View style={{ flexDirection: "row", alignItems: "center" }}>
         <View style={getCombinedStyle("leftTrail")} />
+        {leftText && (
+          <Text style={getCombinedStyle("leftText")}>{leftText}</Text>
+        )}
         <View style={getCombinedStyle("element")}>
           {isCompleted ? (
             <LucideIcon
-              name="Check"
+              name={completeIcon}
+              size="md"
+              strokeWidth={3}
+              style={getCombinedStyle("completeIcon")}
+            />
+          ) : stepIcon ? (
+            <LucideIcon
+              name={isActive ? activeIcon || stepIcon : stepIcon}
               size="md"
               strokeWidth={3}
               style={getCombinedStyle("completeIcon")}
@@ -46,9 +65,17 @@ const StepHeader: React.FC<StepHeaderProps> = ({
             <Text style={getCombinedStyle("number")}>{stepNum}</Text>
           )}
         </View>
+        {rightText && (
+          <Text style={getCombinedStyle("rightText")}>{rightText}</Text>
+        )}
         <View style={getCombinedStyle("rightTrail")} />
       </View>
-      {text && <Text style={getCombinedStyle("text")}>{text}</Text>}
+      {text &&
+        (leftText || rightText ? (
+          <Text style={getCombinedStyle("bottomText")}>{text}</Text>
+        ) : (
+          <Text style={getCombinedStyle("text")}>{text}</Text>
+        ))}
     </View>
   );
 };

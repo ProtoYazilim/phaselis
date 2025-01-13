@@ -53,6 +53,70 @@ const tab_header_styles = createStyleSheet({
       },
     },
   },
+  topText: {
+    textAlign: "center",
+    // VARIANTS
+    variants: {
+      isCompleted: {
+        true: {
+          color: "blue",
+        },
+      },
+      isActive: {
+        true: {
+          color: "black",
+        },
+      },
+    },
+  },
+  leftText: {
+    textAlign: "center",
+    // VARIANTS
+    variants: {
+      isCompleted: {
+        true: {
+          color: "blue",
+        },
+      },
+      isActive: {
+        true: {
+          color: "black",
+        },
+      },
+    },
+  },
+  rightText: {
+    textAlign: "center",
+    // VARIANTS
+    variants: {
+      isCompleted: {
+        true: {
+          color: "blue",
+        },
+      },
+      isActive: {
+        true: {
+          color: "black",
+        },
+      },
+    },
+  },
+  bottomText: {
+    textAlign: "center",
+    // VARIANTS
+    variants: {
+      isCompleted: {
+        true: {
+          color: "blue",
+        },
+      },
+      isActive: {
+        true: {
+          color: "black",
+        },
+      },
+    },
+  },
   number: {
     color: "white",
     variants: {

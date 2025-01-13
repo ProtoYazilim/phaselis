@@ -25,12 +25,14 @@ const TabViewHeader = ({
   data,
   handleOnPress,
   scrollable = false,
+  variation = "default",
   ...extraProps
 }: TabViewHeaderProps) => {
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
     style,
-    contextValue?.theme?.tab?.header,
+    contextValue?.theme?.tab[variation]?.header,
+    variation,
     {
       scrollable,
       ...extraProps,

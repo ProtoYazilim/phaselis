@@ -2,6 +2,16 @@
 
 /* eslint-disable prettier/prettier */
 
+interface AccordionExtraProps {
+  variation?: "default";
+  disabled?: boolean;
+}
+
+interface AvatarExtraProps {
+  variation?: "default" | "rounded" | "square";
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
+}
+
 interface BadgeExtraProps {
   variation?: "default" | "default_outline" | "primary" | "primary_outline" | "secondary" | "secondary_outline" | "tertiary" | "tertiary_outline";
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
@@ -18,7 +28,22 @@ interface ButtonExtraProps {
 interface CheckboxExtraProps {
   variation?: "default" | "primary" | "secondary" | "tertiary";
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+  pressed?: boolean;
   disabled?: boolean;
+}
+
+interface DatepickerExtraProps {
+  variation?: "default";
+  focus?: boolean;
+  error?: boolean;
+  disabled?: boolean;
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+  textarea?: boolean;
+}
+
+interface ImageExtraProps {
+  variation?: "default";
+  background?: boolean;
 }
 
 interface LabelExtraProps {
@@ -26,6 +51,14 @@ interface LabelExtraProps {
   bold?: boolean;
   italic?: boolean;
   weight?: "light" | "regular" | "medium" | "semiBold" | "bold";
+}
+
+interface LinkExtraProps {
+  variation?: "default" | "primary" | "secondary" | "tertiary";
+}
+
+interface PopupExtraProps {
+  variation?: "default" | "info" | "success" | "warning" | "error";
 }
 
 interface RadioExtraProps {
@@ -39,49 +72,47 @@ interface RadioGroupExtraProps {
   disabled?: boolean;
 }
 
-interface PopupExtraProps {
-}
-
-interface TabExtraProps {
-}
-
-interface StepperExtraProps {
-}
-
-interface ImageExtraProps {
-}
-
-interface BlockExtraProps {
-}
-
-interface ColExtraProps {
-}
-
-interface RowExtraProps {
-}
-
-interface LabelExtraProps {
-}
-
-interface ListExtraProps {
-}
-
-interface LinkExtraProps {
-
-}
-
 interface SelectExtraProps {
-
+  variation?: "default";
+  focus?: boolean;
+  error?: boolean;
+  disabled?: boolean;
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
 }
 
 interface SliderExtraProps {
+  variation?: "default";
+  focus?: boolean;
+  error?: boolean;
+  disabled?: boolean;
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+}
 
+interface StepperExtraProps {
+  variation?: "default";
+  isActive?: boolean;
+  isCompleted?: boolean;
+  isDisabled?: boolean;
+  isFirst?: boolean;
+  isLast?: boolean;
 }
 
 interface SwitchExtraProps {
+  variation?: "default" | "primary" | "secondary" | "tertiary";
+  disabled?: boolean;
+}
 
+interface TabViewExtraProps {
+  variation?: "default";
+  active?: boolean;
 }
 
 interface TextfieldExtraProps {
-  
+  variation?: "default";
+  focus?: boolean;
+  disabled?: boolean;
+  error?: boolean;
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+  textarea?: boolean;
 }
+

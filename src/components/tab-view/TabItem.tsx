@@ -8,12 +8,14 @@ const TabItem = ({
   children,
   contextValue,
   style,
+  variation = "default",
   ...extraProps
 }: TabItemProps) => {
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
     style,
-    contextValue?.theme?.tab?.tabItem,
+    contextValue?.theme?.tab[variation]?.tabItem,
+    variation,
     {
       ...extraProps,
     },

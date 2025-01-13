@@ -27,7 +27,7 @@ const StepHeader: React.FC<StepHeaderProps> = ({
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
     style,
-    contextValue?.theme?.stepper?.default?.header,
+    contextValue?.theme?.stepper[variation]?.header,
     variation,
     {
       isActive,

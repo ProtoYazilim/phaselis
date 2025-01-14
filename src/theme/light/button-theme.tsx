@@ -6,6 +6,13 @@ export default {
     default: {
       container: {
         borderRadius: Radius.MD,
+        variants: {
+          full: {
+            true: {
+              flex: 1,
+            },
+          },
+        },
       },
       element: {
         gap: Spacings.SM,

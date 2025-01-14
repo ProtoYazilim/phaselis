@@ -10,42 +10,42 @@ const ButtonExample = () => {
           rightIcon="ChevronRight"
           text="Start End"
           size="xs"
-          primary
+          variation="primary"
         />
         <Button
           leftIcon="Apple"
           rightIcon="ChevronRight"
           text="Start End"
           size="sm"
-          primary
+          variation="primary"
         />
         <Button
           leftIcon="Apple"
           rightIcon="ChevronRight"
           text="Start End"
           size="md"
-          primary
+          variation="primary"
         />
         <Button
           leftIcon="Apple"
           rightIcon="ChevronRight"
           text="Start End"
           size="lg"
-          primary
+          variation="primary"
         />
         <Button
           leftIcon="Apple"
           rightIcon="ChevronRight"
           text="Start End"
           size="xl"
-          primary
+          variation="primary"
         />
         <Button
           leftIcon="Apple"
           rightIcon="ChevronRight"
           text="Start End"
           size="xxl"
-          primary
+          variation="primary"
         />
       </Block>
     </ScrollView>

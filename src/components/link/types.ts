@@ -19,7 +19,7 @@ interface LinkProps
   primary?: boolean;
   secondary?: boolean;
   disabled?: boolean;
-  href: string;
+  href?: string;
   canOpenURL?: boolean;
 }
 

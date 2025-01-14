@@ -30,8 +30,16 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
 
   const [checked, setChecked] = useState<boolean>(Boolean(value));
   const [isFocus, setIsFocus] = useState(false);
-  const strokeWidth = ["xs", "sm", "md"].includes(size) ? 4 : 3;
   const [isPressed, setIsPressed] = useState(false);
+
+  const strokeWidthLiteral = {
+    xs: 4,
+    sm: 4,
+    md: 4,
+    lg: 3,
+    xl: 3,
+    xxl: 3,
+  };
 
   const refInput = useRef<TextInput>(null);
 
@@ -94,7 +102,7 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
           <Slot
             style={getCombinedStyle("icon")}
             icon={iconName}
-            strokeWidth={strokeWidth}
+            strokeWidth={strokeWidthLiteral[size]}
           >
             {IconSlot && <IconSlot />}
           </Slot>
@@ -111,7 +119,7 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
         }}
         selectionColor={"transparent"}
         onBlur={() => {
-          onBlur?.(null, value);
+          onBlur?.(null, Boolean(value));
           setIsFocus(false);
         }}
         ref={refInput}

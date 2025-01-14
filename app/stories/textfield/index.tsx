@@ -125,7 +125,7 @@ const TextfieldStory = () => {
         style={{ paddingVertical: 8 }}
       >
         <Row style={{ gap: 16 }}>
-          <Datepicker leftIcon="CalendarDays" rightIcon="" />
+          <Datepicker leftIcon="CalendarDays" rightIcon={undefined} />
           <Datepicker rightIcon="Calendar" />
         </Row>
       </StorySection>

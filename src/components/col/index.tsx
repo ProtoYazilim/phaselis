@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { View } from "react-native";
 import { PhaselisHOC } from "src/components/provider";
-import { ColProps } from "./types";
+import { ColProps, GridSize } from "./types";
 import stylesheet from "./assets/styles";
 import { useCombinedStyle } from "src/hooks";
 
@@ -35,3 +35,4 @@ const Col: FC<ColProps> = ({
 Col.displayName = "Column";
 
 export default PhaselisHOC<ColProps, ColExtraProps>(Col);
+export { GridSize };

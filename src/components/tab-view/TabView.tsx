@@ -42,8 +42,6 @@ const TabView = ({
     },
   );
 
-  console.log("tabView", scrollable);
-
   return (
     <View style={getCombinedStyle("container")}>
       <TabHeader

@@ -15,9 +15,9 @@ function LabelStory() {
       </Row>
       <Row style={{ columnGap: 32, alignItems: "center" }}>
         <Col style={{ rowGap: 16, alignItems: "center" }}>
-          <Label text="Paragraph" variation="p" regular />
-          <Label text="Quot" variation="quot" regular />
-          <Label text="Small" variation="small" regular />
+          <Label text="Paragraph" variation="p" />
+          <Label text="Quot" variation="quot" />
+          <Label text="Small" variation="small" />
         </Col>
         <Col style={{ rowGap: 16, alignItems: "center" }}>
           <Label text="Button" bold />
@@ -128,7 +128,7 @@ function LabelStory() {
         <Label
           text="Quot “Nulla enim eros, placerat nec lobortis eget, consectetur nec diam. Nunc condimentum ut arcu ut finibus. Integer porta nisi nec molestie tempus. Curabitur neque ante, sagittis a volutpat quis, hendrerit nec ipsum.”"
           numberOfLines={6}
-          variation="q"
+          variation="quot"
         />
         <Text></Text>
         <Text style={{ fontSize: 16, fontWeight: "300" }}>

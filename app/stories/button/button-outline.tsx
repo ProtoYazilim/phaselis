@@ -9,22 +9,19 @@ const ButtonExample = () => {
           leftIcon="Apple"
           rightIcon="ChevronRight"
           text="Start End"
-          primary
-          outline
+          variation="primary_outline"
         />
         <Button
           leftIcon="Apple"
           rightIcon="ChevronRight"
           text="Start End"
-          secondary
-          outline
+          variation="secondary_outline"
         />
         <Button
           leftIcon="Apple"
           rightIcon="ChevronRight"
           text="Start End"
-          tertiary
-          outline
+          variation="tertiary_outline"
         />
       </Block>
     </ScrollView>

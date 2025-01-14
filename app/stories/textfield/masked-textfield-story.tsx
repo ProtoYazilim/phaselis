@@ -34,7 +34,7 @@ const MaskedTextfieldStory = () => {
           >
             <Textfield
               name="phone"
-              LeftSlot={({ themeStyle }: { themeStyle: any }) => (
+              LeftSlot={({ themeStyle }) => (
                 <LucideIcon style={{ ...themeStyle }} name={"Phone"} />
               )}
               validations={[required("required")]}
@@ -45,7 +45,7 @@ const MaskedTextfieldStory = () => {
           <InputGroup label="Iban Number" message="Enter your turkish IBAN">
             <Textfield
               name="iban"
-              LeftSlot={({ themeStyle }: { themeStyle: any }) => {
+              LeftSlot={({ themeStyle }) => {
                 return <Text style={[themeStyle, { fontSize: 16 }]}>TR</Text>;
               }}
               maxLength={30}

@@ -17,8 +17,13 @@ interface BadgeExtraProps {
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
 }
 
+interface BlockExtraProps {
+  variation?: "default";
+}
+
 interface ButtonExtraProps {
   variation?: "default" | "primary" | "primary_outline" | "secondary" | "secondary_outline" | "tertiary" | "tertiary_outline" | "danger" | "success";
+  full?: boolean;
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
   pressed?: boolean;
   disabled?: boolean;
@@ -30,6 +35,10 @@ interface CheckboxExtraProps {
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
   pressed?: boolean;
   disabled?: boolean;
+}
+
+interface ColExtraProps {
+  variation?: "default";
 }
 
 interface DatepickerExtraProps {
@@ -57,6 +66,10 @@ interface LinkExtraProps {
   variation?: "default" | "primary" | "secondary" | "tertiary";
 }
 
+interface ListExtraProps {
+  variation?: "default";
+}
+
 interface PopupExtraProps {
   variation?: "default" | "info" | "success" | "warning" | "error";
 }
@@ -70,6 +83,10 @@ interface RadioExtraProps {
 interface RadioGroupExtraProps {
   variation?: "default";
   disabled?: boolean;
+}
+
+interface RowExtraProps {
+  variation?: "default";
 }
 
 interface SelectExtraProps {

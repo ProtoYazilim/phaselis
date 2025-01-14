@@ -1,14 +1,14 @@
 import React, { FC } from "react";
 import { ScrollView, Text } from "react-native";
-import { Row, Block, Col, Colors } from "phaselis";
+import { Row, Block, Col, Colors, GridSize } from "phaselis";
 
 const RowColBlockStory = () => {
   const SpecialBlock: FC<{
     text: string;
     backgroundColor: string;
     textColor?: string;
-    size?: number;
-    offset?: number;
+    size?: GridSize;
+    offset?: GridSize;
   }> = ({
     text,
     backgroundColor,

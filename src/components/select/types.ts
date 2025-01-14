@@ -7,7 +7,9 @@ import {
   SlotChildComponent,
   SlotIconName,
 } from "src/types";
-export interface SelectProps extends InputControlProps<string, any, any, any> {
+export interface SelectProps
+  extends Omit<InputControlProps<string, any, any, any>, "error">,
+    SelectExtraProps {
   disabled?: boolean;
   options: any[];
   placeholder?: string;
@@ -103,7 +105,7 @@ export interface CloseIconSlotProps {
 
 export interface InputSlotProps
   extends Omit<InputControlProps<any, any, any>, "error">,
-    SelectExtraProps {
+    Omit<SelectExtraProps, "error"> {
   placeholder?: string;
   selectedItem?: any;
   rightIcon?: SlotIconName;

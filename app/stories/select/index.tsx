@@ -13,12 +13,8 @@ const SelectStory = () => {
   ];
 
   return (
-    <StoryView>
-      <StorySection
-        leftText="Default"
-        rightText="MD"
-        style={{ marginBottom: -30, paddingTop: 8 }}
-      >
+    <StoryView style={{ gap: 32 }}>
+      <StorySection leftText="Default" rightText="MD" style={{ paddingTop: 8 }}>
         <Select
           name="1"
           size="md"
@@ -29,7 +25,7 @@ const SelectStory = () => {
       <StorySection
         leftText="Left Slot"
         rightText="MD"
-        style={{ marginBottom: -30, paddingTop: 8 }}
+        style={{ paddingTop: 8 }}
       >
         <Select
           name="2"
@@ -42,7 +38,7 @@ const SelectStory = () => {
       <StorySection
         leftText="Sizes"
         rightText="Default"
-        style={{ marginBottom: -30, paddingTop: 8 }}
+        style={{ paddingTop: 8 }}
       >
         <Row style={{ alignItems: "center", gap: 16, marginBottom: 16 }}>
           <Select
@@ -83,7 +79,7 @@ const SelectStory = () => {
             options={options}
           />
         </Row>
-        <Row style={{ alignItems: "center", gap: 16 }}>
+        <Row style={{ alignItems: "center" }}>
           <Select
             name="8"
             size="xxl"
@@ -93,11 +89,7 @@ const SelectStory = () => {
           />
         </Row>
       </StorySection>
-      <StorySection
-        leftText="Focus"
-        rightText="MD"
-        style={{ marginBottom: -30, paddingTop: 8 }}
-      >
+      <StorySection leftText="Focus" rightText="MD" style={{ paddingTop: 8 }}>
         <Select
           name="9"
           size="md"
@@ -109,7 +101,7 @@ const SelectStory = () => {
       <StorySection
         leftText="Disabled"
         rightText="MD"
-        style={{ marginBottom: -30, paddingTop: 8 }}
+        style={{ paddingTop: 8 }}
       >
         <Select
           name="10"
@@ -119,7 +111,7 @@ const SelectStory = () => {
           options={options}
         />
       </StorySection>
-      <StorySection leftText="Error" rightText="MD" style={{ paddingTop: 8 }}>
+      <StorySection leftText="Error" rightText="MD">
         <Select
           name="11"
           size="md"

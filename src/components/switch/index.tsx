@@ -107,7 +107,7 @@ const Switch = ({
       <Pressable
         onPressIn={handlePress}
         focusable={true}
-        style={getCombinedStyle("element")}
+        // style={getCombinedStyle("element")}
         disabled={disabled}
       >
         <Animated.View

@@ -10,8 +10,6 @@ const ButtonExample = () => {
           rightIcon="ChevronRight"
           text="Custom"
           size="sm"
-          primary
-          half
           disabled
           style={{
             container: {

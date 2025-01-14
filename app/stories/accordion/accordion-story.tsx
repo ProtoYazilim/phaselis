@@ -1,10 +1,11 @@
+import StoryView from "appSrc/StoryView";
 import { Accordion, AccordionItem } from "phaselis";
 import React from "react";
-import { View, Text } from "react-native";
+import { Text } from "react-native";
 
 const AccordionStory = () => {
   return (
-    <View style={{ padding: 24 }}>
+    <StoryView style={{ gap: 0 }}>
       <Accordion expandMode="multiple">
         <AccordionItem headerText="1. Basics">
           <Text style={{ color: "#112940" }}>
@@ -49,7 +50,7 @@ const AccordionStory = () => {
           </Text>
         </AccordionItem>
       </Accordion>
-    </View>
+    </StoryView>
   );
 };
 

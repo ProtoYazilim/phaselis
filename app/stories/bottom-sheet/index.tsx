@@ -1,13 +1,14 @@
+import StoryView from "appSrc/StoryView";
 import { Button, BottomSheet, Block } from "phaselis";
 import React, { useState } from "react";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 
 function BottomSheetStory() {
   const [isOpen1, setIsOpen1] = useState(false);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Block style={{ margin: 24 }}>
+    <StoryView>
+      <Block>
         <Button
           text="Open Bottom Sheet"
           variation="primary_outline"
@@ -34,14 +35,8 @@ function BottomSheetStory() {
           </Text>
         </View>
       </BottomSheet>
-    </SafeAreaView>
+    </StoryView>
   );
 }
 
 export default BottomSheetStory;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});

@@ -53,7 +53,7 @@ interface AccordionListProps {
 interface AccordionProps {
   onChange?: (index: number) => void;
   expandMode?: "single" | "multiple";
-  children?: ReactElement;
+  children?: ReactElement | ReactElement[];
 }
 
 export {

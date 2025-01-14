@@ -131,16 +131,12 @@ const ButtonExample = () => {
           gap: 16,
         }}
       >
-        <Button
-          leftIcon="ChevronLeft"
-          text="Primary"
-          style={{ container: { flex: 1 } }}
-        />
+        <Button leftIcon="ChevronLeft" text="Primary" full />
         <Button
           leftIcon="ChevronLeft"
           text="Outline"
           variation="primary_outline"
-          style={{ container: { flex: 1 } }}
+          full
         />
       </StorySection>
       <StorySection
@@ -151,32 +147,18 @@ const ButtonExample = () => {
         }}
       >
         <Row style={{ gap: 16 }}>
-          <Button
-            leftIcon="ChevronLeft"
-            text="Primary"
-            style={{ container: { flex: 1 } }}
-          />
+          <Button leftIcon="ChevronLeft" text="Primary" full />
           <Button
             leftIcon="ChevronLeft"
             text="Disabled"
             variation="primary_outline"
             disabled
-            style={{ container: { flex: 1 } }}
+            full
           />
         </Row>
         <Row style={{ gap: 16 }}>
-          <Button
-            leftIcon="ChevronLeft"
-            text="Pressed"
-            pressed
-            style={{ container: { flex: 1 } }}
-          />
-          <Button
-            leftIcon="ChevronLeft"
-            variation="primary"
-            loading
-            style={{ container: { flex: 1 } }}
-          />
+          <Button leftIcon="ChevronLeft" text="Pressed" pressed full />
+          <Button leftIcon="ChevronLeft" variation="primary" loading full />
         </Row>
       </StorySection>
     </StoryView>

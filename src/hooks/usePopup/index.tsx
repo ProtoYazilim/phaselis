@@ -98,7 +98,7 @@ const PopupProvider = ({ children }: PopupProviderProps) => {
           onClose={() => updatePopupShow(popup.id, "hide")}
           title={PopupTitleIcon[popup.type].title}
           leftIcon={PopupTitleIcon[popup.type].leftIcon}
-          type={popup.type}
+          variation={popup.type}
           {...popup.extraProps}
         >
           {popup.content}

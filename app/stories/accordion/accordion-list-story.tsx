@@ -1,10 +1,11 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { Text } from "react-native";
 import { AccordionList } from "phaselis";
+import StoryView from "appSrc/StoryView";
 
 const AccordionListStory = () => {
   return (
-    <View style={{ padding: 10, backgroundColor: "white" }}>
+    <StoryView>
       <AccordionList
         defaultExpandedIndex={[2]}
         data={[
@@ -26,7 +27,7 @@ const AccordionListStory = () => {
           },
         ]}
       />
-    </View>
+    </StoryView>
   );
 };
 

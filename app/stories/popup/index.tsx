@@ -1,3 +1,4 @@
+import StoryView from "appSrc/StoryView";
 import { Block, Button, Popup } from "phaselis";
 import React, { useState } from "react";
 import { SafeAreaView, StyleSheet, Text } from "react-native";
@@ -10,7 +11,7 @@ function PopupStory() {
   const [show4, setShow4] = useState(false);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <StoryView>
       <Block style={{ gap: 16 }}>
         <Button
           text="Default Popup"
@@ -132,7 +133,7 @@ function PopupStory() {
           eaque facilis dolorum!
         </Text>
       </Popup>
-    </SafeAreaView>
+    </StoryView>
   );
 }
 

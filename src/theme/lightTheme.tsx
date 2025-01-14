@@ -17,6 +17,10 @@ import datepickerStory from "./light/datepicker-theme";
 import stepperTheme from "./light/stepper-theme";
 import sliderTheme from "./light/slider-theme";
 import tabViewTheme from "./light/tabView-theme";
+import blockTheme from "./light/block-theme";
+import colTheme from "./light/col-theme";
+import rowTheme from "./light/row-theme";
+import listTheme from "./light/list-theme";
 import { Spacings } from "./spacings";
 
 export const layeredComponents = ["tab"];
@@ -44,8 +48,8 @@ export const lightTheme = {
   ...stepperTheme,
   ...sliderTheme,
   ...tabViewTheme,
-  block: {},
-  col: {},
-  row: {},
-  list: {},
+  ...blockTheme,
+  ...colTheme,
+  ...rowTheme,
+  ...listTheme,
 };

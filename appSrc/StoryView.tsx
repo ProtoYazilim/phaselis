@@ -10,7 +10,8 @@ const StoryView: FC<{
     <ScrollView
       contentContainerStyle={{
         gap: Spacings.XL,
-        padding: 24,
+        paddingVertical: 24,
+        paddingHorizontal: 16,
         backgroundColor: "white",
         ...style,
       }}

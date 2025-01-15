@@ -2,53 +2,49 @@ import StoryView from "appSrc/StoryView";
 import { Checkbox, Col, Row } from "phaselis";
 import React from "react";
 import StorySection from "appSrc/StorySection";
+import ColoredRightSlot from "appSrc/ColoredRightSlot";
 
 const CheckboxExample = () => {
   return (
     <StoryView>
       <StorySection
         leftText="Default"
-        rightText="MD"
+        rightSlot={<ColoredRightSlot text="MD " />}
         style={{
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
         }}
       >
-        <Checkbox text="Primary" variation="primary" value={true} />
-        <Checkbox text="Secondary" variation="secondary" value={true} />
-        <Checkbox text="Tertiary" variation="tertiary" value={true} />
+        <Checkbox text="Label" variation="primary" value={true} />
+        <Checkbox text="Label" variation="secondary" value={true} />
+        <Checkbox text="Label" variation="tertiary" value={true} />
       </StorySection>
       <StorySection
         leftText="Disabled"
-        rightText="MD"
+        rightSlot={<ColoredRightSlot text="MD " />}
         style={{
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
         }}
       >
-        <Checkbox text="Primary" variation="primary" disabled value={true} />
-        <Checkbox
-          text="Secondary"
-          variation="secondary"
-          disabled
-          value={true}
-        />
-        <Checkbox text="Tertiary" variation="tertiary" disabled value={true} />
+        <Checkbox text="Label" variation="primary" disabled value={true} />
+        <Checkbox text="Label" variation="secondary" disabled value={true} />
+        <Checkbox text="Label" variation="tertiary" disabled value={true} />
       </StorySection>
       <StorySection
         leftText="Pressed"
-        rightText="MD"
+        rightSlot={<ColoredRightSlot text="MD " />}
         style={{
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
         }}
       >
-        <Checkbox text="Primary" value={true} variation="primary" pressed />
-        <Checkbox text="Secondary" value={true} variation="secondary" pressed />
-        <Checkbox text="Tertiary" value={true} variation="tertiary" pressed />
+        <Checkbox text="Label" value={true} variation="primary" pressed />
+        <Checkbox text="Label" value={true} variation="secondary" pressed />
+        <Checkbox text="Label" value={true} variation="tertiary" pressed />
       </StorySection>
       <StorySection leftText="Sizes" rightText="Primary" style={{ gap: 16 }}>
         <Row style={{ alignItems: "center" }}>

@@ -3,11 +3,15 @@ import { View } from "react-native";
 import { Col, Radio, RadioGroup, Row } from "phaselis";
 import StoryView from "appSrc/StoryView";
 import StorySection from "appSrc/StorySection";
+import ColoredRightSlot from "appSrc/ColoredRightSlot";
 
 const RadioStory = () => {
   return (
     <StoryView>
-      <StorySection leftText="Default" rightText="MD">
+      <StorySection
+        leftText="Default"
+        rightSlot={<ColoredRightSlot text="MD " />}
+      >
         <RadioGroup name="rg-story-1">
           <View
             style={{
@@ -16,13 +20,16 @@ const RadioStory = () => {
               alignItems: "center",
             }}
           >
-            <Radio text="Primary" variation="primary" value={"1"} checked />
-            <Radio text="Secondary" variation="secondary" value={"2"} checked />
-            <Radio text="Tertiary" variation="tertiary" value={"3"} checked />
+            <Radio text="Label" variation="primary" value={"1"} checked />
+            <Radio text="Label" variation="secondary" value={"2"} checked />
+            <Radio text="Label" variation="tertiary" value={"3"} checked />
           </View>
         </RadioGroup>
       </StorySection>
-      <StorySection leftText="Disabled" rightText="MD">
+      <StorySection
+        leftText="Disabled"
+        rightSlot={<ColoredRightSlot text="MD " />}
+      >
         <RadioGroup name="rg-story-2">
           <View
             style={{
@@ -32,21 +39,21 @@ const RadioStory = () => {
             }}
           >
             <Radio
-              text="Primary"
+              text="Label"
               variation="primary"
               disabled
               value={"4"}
               checked
             />
             <Radio
-              text="Secondary"
+              text="Label"
               variation="secondary"
               disabled
               value={"5"}
               checked
             />
             <Radio
-              text="Tertiary"
+              text="Label"
               variation="tertiary"
               disabled
               value={"6"}
@@ -55,7 +62,10 @@ const RadioStory = () => {
           </View>
         </RadioGroup>
       </StorySection>
-      <StorySection leftText="Pressed" rightText="MD">
+      <StorySection
+        leftText="Pressed"
+        rightSlot={<ColoredRightSlot text="MD " />}
+      >
         <RadioGroup name="rg-story-1">
           <View
             style={{
@@ -64,9 +74,9 @@ const RadioStory = () => {
               alignItems: "center",
             }}
           >
-            <Radio text="Primary" variation="primary" value={"1"} checked />
-            <Radio text="Secondary" variation="secondary" value={"2"} checked />
-            <Radio text="Tertiary" variation="tertiary" value={"3"} checked />
+            <Radio text="Label" variation="primary" value={"1"} checked />
+            <Radio text="Label" variation="secondary" value={"2"} checked />
+            <Radio text="Label" variation="tertiary" value={"3"} checked />
           </View>
         </RadioGroup>
       </StorySection>

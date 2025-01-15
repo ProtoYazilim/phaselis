@@ -1,41 +1,16 @@
 import StorySection from "appSrc/StorySection";
 import StoryView from "appSrc/StoryView";
-import { Colors, Switch } from "phaselis";
-import { Text, View } from "react-native";
+import { Switch } from "phaselis";
+import { Text } from "react-native";
 import React from "react";
+import ColoredRightSlot from "appSrc/ColoredRightSlot";
 
 function SwitchStory() {
-  const rightSlot = (
-    <View style={{ flexDirection: "row" }}>
-      <Text
-        style={{
-          color: Colors.Primary[300],
-        }}
-      >
-        Primary{" "}
-      </Text>
-      <Text
-        style={{
-          color: Colors.Secondary[300],
-        }}
-      >
-        Secondary{" "}
-      </Text>
-      <Text
-        style={{
-          color: Colors.Tertiary[300],
-        }}
-      >
-        Tertiary
-      </Text>
-    </View>
-  );
-
   return (
     <StoryView>
       <StorySection
         leftText="On"
-        rightSlot={rightSlot}
+        rightSlot={<ColoredRightSlot />}
         style={{
           flexDirection: "row",
           justifyContent: "space-between",
@@ -48,7 +23,7 @@ function SwitchStory() {
       </StorySection>
       <StorySection
         leftText="Off"
-        rightSlot={rightSlot}
+        rightSlot={<ColoredRightSlot />}
         style={{
           flexDirection: "row",
           justifyContent: "space-between",
@@ -104,7 +79,7 @@ function SwitchStory() {
       </StorySection>
       <StorySection
         leftText="Disabled On"
-        rightSlot={rightSlot}
+        rightSlot={<ColoredRightSlot />}
         style={{
           flexDirection: "row",
           justifyContent: "space-between",
@@ -117,7 +92,7 @@ function SwitchStory() {
       </StorySection>
       <StorySection
         leftText="Disabled Off"
-        rightSlot={rightSlot}
+        rightSlot={<ColoredRightSlot />}
         style={{
           flexDirection: "row",
           justifyContent: "space-between",

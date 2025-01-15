@@ -42,7 +42,7 @@ const ButtonExample = () => {
       </StorySection>
       <StorySection
         leftText="Sizes"
-        rightText="Primary Solid"
+        rightText="Primary Outline"
         style={{
           flexDirection: "row",
           justifyContent: "space-between",
@@ -57,6 +57,7 @@ const ButtonExample = () => {
           onClick={() => {
             setScreenProps({ ...screenProps, size: "xs" });
           }}
+          variation="primary_outline"
         />
         <Button
           text="SM"
@@ -65,6 +66,7 @@ const ButtonExample = () => {
           onClick={() => {
             setScreenProps({ ...screenProps, size: "sm" });
           }}
+          variation="primary_outline"
         />
         <Button
           text="MD"
@@ -73,6 +75,7 @@ const ButtonExample = () => {
           onClick={() => {
             setScreenProps({ ...screenProps, size: "md" });
           }}
+          variation="primary_outline"
         />
         <Button
           text="LG"
@@ -81,6 +84,7 @@ const ButtonExample = () => {
           onClick={() => {
             setScreenProps({ ...screenProps, size: "lg" });
           }}
+          variation="primary_outline"
         />
         <Button
           text="XL"
@@ -89,6 +93,7 @@ const ButtonExample = () => {
           onClick={() => {
             setScreenProps({ ...screenProps, size: "xl" });
           }}
+          variation="primary_outline"
         />
         <Button
           text="XXL"
@@ -97,6 +102,7 @@ const ButtonExample = () => {
           onClick={() => {
             setScreenProps({ ...screenProps, size: "xxl" });
           }}
+          variation="primary_outline"
         />
       </StorySection>
 
@@ -111,14 +117,13 @@ const ButtonExample = () => {
         }}
       >
         <Button leftIcon="ChevronLeft" {...screenProps} />
-        <Button text="Start" {...screenProps} />
         <Button
           leftIcon="ChevronLeft"
           rightIcon="ChevronRight"
           text="Start End"
           {...screenProps}
         />
-        <Button text="End" rightIcon="ChevronRight" {...screenProps} />
+        <Button leftIcon="ChevronRight" {...screenProps} />
       </StorySection>
       <StorySection
         leftText="Solid & Outline"
@@ -147,7 +152,7 @@ const ButtonExample = () => {
         }}
       >
         <Row style={{ gap: 16 }}>
-          <Button leftIcon="ChevronLeft" text="Primary" full />
+          <Button leftIcon="ChevronLeft" text="Default" full />
           <Button
             leftIcon="ChevronLeft"
             text="Disabled"

@@ -2,7 +2,6 @@ import React from "react";
 import { Badge, Button, Col, Colors, Label, Row } from "phaselis";
 import StoryView from "appSrc/StoryView";
 import StorySection from "appSrc/StorySection";
-import { Text } from "react-native";
 
 const BadgeStory = () => {
   return (
@@ -29,7 +28,7 @@ const BadgeStory = () => {
               text="43"
               variation="secondary"
               top={-6}
-              left={-14}
+              right={-14}
               size="sm"
             >
               <Button
@@ -41,7 +40,13 @@ const BadgeStory = () => {
             </Badge>
           </Col>
           <Col size={4}>
-            <Badge text="43" variation="tertiary" top={-6} left={-14} size="xs">
+            <Badge
+              text="43"
+              variation="tertiary"
+              top={-6}
+              right={-14}
+              size="xs"
+            >
               <Button
                 text="Tertiary"
                 variation="tertiary"
@@ -178,64 +183,55 @@ const BadgeStory = () => {
           </Col>
         </Row>
       </StorySection>
-      <StorySection leftText="Solid & Outline" rightText="MD">
-        <Row>
+      <StorySection
+        leftText="Solid & Outline"
+        rightText="MD"
+        style={{ marginBottom: "20%", gap: 36 }}
+      >
+        <Row style={{ gap: "13%" }}>
           <Col size={3}>
-            <Badge text="Default" variation="default">
+            <Badge text="Label" variation="default">
               <></>
             </Badge>
           </Col>
           <Col size={3}>
-            <Badge text="Default" variation="default_outline" left={16}>
+            <Badge text="Label" variation="default_outline">
               <></>
             </Badge>
           </Col>
           <Col size={3}>
-            <Badge text="Primary" variation="primary" left={16}>
+            <Badge text="Label" variation="primary">
               <></>
             </Badge>
           </Col>
           <Col size={3}>
-            <Badge text="Primary" variation="primary_outline" left={16}>
-              <></>
-            </Badge>
-          </Col>
-        </Row>
-        <Row>
-          <Col size={3}>
-            <Badge text="Secondary" variation="secondary" top={36}>
-              <></>
-            </Badge>
-          </Col>
-          <Col size={3}>
-            <Badge
-              text="Secondary"
-              variation="secondary_outline"
-              top={36}
-              left={8}
-            >
-              <></>
-            </Badge>
-          </Col>
-          <Col size={3}>
-            <Badge text="Tertiary" variation="tertiary" top={36} left={16}>
-              <></>
-            </Badge>
-          </Col>
-          <Col size={3}>
-            <Badge
-              text="Tertiary"
-              variation="tertiary_outline"
-              top={36}
-              left={16}
-            >
+            <Badge text="Label" variation="primary_outline">
               <></>
             </Badge>
           </Col>
         </Row>
-        <Text></Text>
-        <Text></Text>
-        <Text></Text>
+        <Row style={{ gap: "13%" }}>
+          <Col size={3}>
+            <Badge text="Label" variation="secondary">
+              <></>
+            </Badge>
+          </Col>
+          <Col size={3}>
+            <Badge text="Label" variation="secondary_outline">
+              <></>
+            </Badge>
+          </Col>
+          <Col size={3}>
+            <Badge text="Label" variation="tertiary">
+              <></>
+            </Badge>
+          </Col>
+          <Col size={3}>
+            <Badge text="Label" variation="tertiary_outline">
+              <></>
+            </Badge>
+          </Col>
+        </Row>
       </StorySection>
     </StoryView>
   );

@@ -1,4 +1,4 @@
-import { FC, useCallback } from "react";
+import { FC } from "react";
 import { AvatarProps } from "./types";
 import stylesheet from "./assets/styles";
 import { View, Text, Image } from "react-native";
@@ -21,41 +21,19 @@ const Avatar: FC<AvatarProps> = ({
   style,
   iconName,
   size = "md",
-  circle,
-  rounded,
-  square,
+  variation = "default",
   contextValue,
   img,
   text,
   ...extraProps
 }) => {
-  const getVariant = useCallback(
-    (variant: string) => {
-      if (variant === "square" && square) {
-        return size;
-      } else if (variant === "rounded" && rounded) {
-        return size;
-      } else if (variant === "circle" && circle) {
-        return size;
-      } else if (variant === "circle" && !circle && !rounded && !square) {
-        return size;
-      } else {
-        return undefined;
-      }
-    },
-    [size, circle, rounded, square],
-  );
-
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
     style,
     contextValue?.theme?.avatar,
-    "circle",
+    variation,
     {
       size,
-      circle: getVariant("circle"),
-      rounded: getVariant("rounded"),
-      square: getVariant("square"),
       ...extraProps,
     } as any,
   );

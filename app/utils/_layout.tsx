@@ -1,10 +1,15 @@
 import { Drawer } from "expo-router/drawer";
 import { PopupProvider } from "../../src/hooks/usePopup";
+import { Colors } from "../../src/theme";
 
 export default function Layout() {
   return (
     <PopupProvider>
-      <Drawer>
+      <Drawer
+        screenOptions={{
+          headerTintColor: Colors.Primary[600],
+        }}
+      >
         <Drawer.Screen
           name="index"
           options={{

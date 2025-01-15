@@ -30,7 +30,6 @@ export default {
       },
       icon: {
         variants: {
-          // buradan beslenmiyor, index içindeki iconSizeLiteral'dan besleniyor
           size: {
             xs: {
               height: 16,
@@ -55,6 +54,12 @@ export default {
             xxl: {
               height: 96,
               width: 96,
+            },
+          },
+          pressed: {
+            true: {
+              height: 16,
+              width: 16,
             },
           },
         },
@@ -126,6 +131,11 @@ export default {
               color: Colors.Primary[200],
             },
           },
+          pressed: {
+            true: {
+              color: Colors.Primary[800],
+            },
+          },
         },
       },
       element: {
@@ -158,6 +168,11 @@ export default {
               color: Colors.Secondary[200],
             },
           },
+          pressed: {
+            true: {
+              color: Colors.Secondary[800],
+            },
+          },
         },
       },
       element: {
@@ -188,6 +203,11 @@ export default {
           disabled: {
             true: {
               color: Colors.Tertiary[200],
+            },
+          },
+          pressed: {
+            true: {
+              color: Colors.Tertiary[800],
             },
           },
         },

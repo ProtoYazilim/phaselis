@@ -29,6 +29,7 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
   contextValue,
   style,
   setIsFocus,
+  variation = "default",
   ..._extraProps
 }) => {
   const memorizedOptions = useMemo(() => {
@@ -47,6 +48,14 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
     stylesheet_picker_options_slot,
     style,
     contextValue?.theme?.select?._picker?._optionsSlot,
+    variation,
+  );
+
+  const { getFlattenStyle } = useCombinedStyle(
+    stylesheet_picker_options_slot,
+    style,
+    contextValue?.theme?.select?._picker?._optionsSlot,
+    variation,
   );
 
   const handleOnFocus = () => {
@@ -72,6 +81,7 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
       }}
       maxHeightModal={maxHeightModal}
       fullScreenModal={fullScreenModal}
+      backgroundColor={getFlattenStyle("container").backgroundColor}
     >
       <View style={getCombinedStyle("container")}>
         {cloneSlot(HeaderSlot, {

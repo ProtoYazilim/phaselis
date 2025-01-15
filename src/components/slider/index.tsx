@@ -21,6 +21,7 @@ const Slider: FC<SliderProps> = ({
   tapToSeek = true,
   inverted = false,
   renderStepNumber = false,
+  variation = "default",
   ...extraProps
 }) => {
   const [progress, setProgress] = useState(Number(value || 0));
@@ -29,6 +30,7 @@ const Slider: FC<SliderProps> = ({
     stylesheet,
     style,
     contextValue?.theme?.slider,
+    variation,
     {
       error,
       disabled,

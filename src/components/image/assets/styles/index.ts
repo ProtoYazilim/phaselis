@@ -4,14 +4,6 @@ const stylesheet = createStyleSheet({
   container: {
     variants: {
       background: {
-        true: {
-          flex: 1,
-        },
-      },
-      disabled: {
-        true: {},
-      },
-      loading: {
         true: {},
       },
     },
@@ -19,11 +11,6 @@ const stylesheet = createStyleSheet({
   element: {
     variants: {
       background: {
-        true: {
-          flex: 1,
-        },
-      },
-      disabled: {
         true: {},
       },
     },

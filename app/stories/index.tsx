@@ -1,8 +1,9 @@
-import { Button, Colors } from "phaselis";
+import { Button, Colors, Image } from "phaselis";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect, useNavigation } from "expo-router";
 import React from "react";
 import { View, StyleSheet, Text } from "react-native";
+import { phaselis_logo_image } from "./assets";
 
 export default function Index() {
   const navigation = useNavigation();
@@ -27,20 +28,23 @@ export default function Index() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>
-        Welcome to the Component Story Navigation!
-      </Text>
+      <Image
+        source={{ uri: phaselis_logo_image.uri }}
+        width={(phaselis_logo_image.width ?? 0) * 0.8}
+        height={(phaselis_logo_image.height ?? 0) * 0.8}
+      />
+      <Text style={styles.title}>Welcome to Phaselis Usages</Text>
       <Text style={styles.description}>
-        This is the Story page where you can find the navigation to various
-        component stories.
+        You can find various component stories on theese pages!
       </Text>
       <Text style={styles.instructions}>
-        Use the Drawer navigation to explore different component stories and
+        Use the Drawer Navigation to explore different component stories and
         examples.
       </Text>
       {lastStoryRouteName && (
         <Button
           text="Go to last story"
+          style={{ container: { width: 243 } }}
           onClick={() => {
             if (lastStoryRouteBase === null) {
               navigation.navigate(lastStoryRouteName as never);
@@ -51,7 +55,7 @@ export default function Index() {
               });
             }
           }}
-          variation="secondary"
+          variation="primary"
         />
       )}
     </View>
@@ -60,31 +64,33 @@ export default function Index() {
 
 const styles = StyleSheet.create({
   container: {
+    display: "flex",
     flex: 1,
-    justifyContent: "center",
+    margin: 24,
     alignItems: "center",
-    padding: 20,
-    backgroundColor: Colors.Gray[100],
-    gap: 20,
+    justifyContent: "center",
+    gap: 32,
+    backgroundColor: "white",
   },
   title: {
-    fontSize: 24,
-    fontWeight: "bold",
+    fontSize: 38,
+    fontWeight: 300,
     textAlign: "center",
-    marginBottom: 10,
-    color: Colors.Primary[600],
+    lineHeight: 38,
+    color: Colors.Primary[500],
   },
   description: {
-    fontSize: 16,
+    fontSize: 22,
+    fontWeight: 300,
     textAlign: "center",
-    marginBottom: 20,
-    color: Colors.Primary[500],
+    lineHeight: 25,
+    color: Colors.Primary[400],
   },
   instructions: {
     fontSize: 14,
+    fontWeight: 400,
     textAlign: "center",
-    marginBottom: 20,
-    fontStyle: "italic",
-    color: Colors.Gray[600],
+    lineHeight: 16,
+    color: Colors.Primary[600],
   },
 });

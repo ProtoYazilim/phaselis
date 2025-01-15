@@ -22,7 +22,6 @@
     "esModuleInterop": true
   },
   "exclude": [
-    "app/**/*",
     "node_modules",
     "dist",
     "ios",
@@ -30,6 +29,7 @@
     "documentation",
   ],
   "include": [
+    "app/**/*",
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",

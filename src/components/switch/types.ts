@@ -2,7 +2,7 @@ import { FC, ReactNode } from "react";
 import { ViewStyle } from "react-native";
 import { IconStyle, SlotChildComponent } from "src/types";
 
-interface SwitchProps {
+interface SwitchProps extends SwitchExtraProps {
   disabled?: boolean;
   contextValue?: any;
   value?: boolean;

@@ -9,45 +9,42 @@ const ButtonExample = () => {
           leftIcon="Apple"
           rightIcon="ChevronRight"
           text="Start End"
-          primary
-          disabled
-          outline
-        />
-        <Button
-          leftIcon="Apple"
-          rightIcon="ChevronRight"
-          text="Start End"
-          secondary
-          disabled
-          outline
-        />
-        <Button
-          leftIcon="Apple"
-          rightIcon="ChevronRight"
-          text="Start End"
-          tertiary
-          disabled
-          outline
-        />
-        <Button
-          leftIcon="Apple"
-          rightIcon="ChevronRight"
-          text="Start End"
-          primary
+          variation="primary_outline"
           disabled
         />
         <Button
           leftIcon="Apple"
           rightIcon="ChevronRight"
           text="Start End"
-          secondary
+          variation="secondary_outline"
           disabled
         />
         <Button
           leftIcon="Apple"
           rightIcon="ChevronRight"
           text="Start End"
-          tertiary
+          variation="tertiary_outline"
+          disabled
+        />
+        <Button
+          leftIcon="Apple"
+          rightIcon="ChevronRight"
+          text="Start End"
+          variation="primary"
+          disabled
+        />
+        <Button
+          leftIcon="Apple"
+          rightIcon="ChevronRight"
+          text="Start End"
+          variation="secondary"
+          disabled
+        />
+        <Button
+          leftIcon="Apple"
+          rightIcon="ChevronRight"
+          text="Start End"
+          variation="tertiary"
           disabled
         />
       </Block>

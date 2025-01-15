@@ -6,6 +6,13 @@ export default {
     default: {
       container: {
         borderRadius: Radius.MD,
+        variants: {
+          full: {
+            true: {
+              flex: 1,
+            },
+          },
+        },
       },
       element: {
         gap: Spacings.SM,
@@ -42,10 +49,10 @@ export default {
         variants: {
           size: {
             xs: {
-              fontSize: FontSizes.SM,
+              fontSize: FontSizes.XS,
             },
             sm: {
-              fontSize: FontSizes.MD,
+              fontSize: FontSizes.SM,
             },
             md: {
               fontSize: FontSizes.MD,
@@ -57,7 +64,7 @@ export default {
               fontSize: FontSizes.XL,
             },
             xxl: {
-              fontSize: FontSizes.XL,
+              fontSize: FontSizes.XXL,
             },
           },
         },
@@ -65,13 +72,13 @@ export default {
     },
     primary: {
       container: {
-        backgroundColor: Colors.Primary[700],
+        backgroundColor: Colors.Primary[600],
         borderColor: Colors.Primary[600],
         variants: {
           pressed: {
             true: {
               backgroundColor: Colors.Primary[800],
-              borderColor: Colors.Primary[600],
+              borderColor: Colors.Primary[800],
             },
           },
           disabled: {
@@ -193,13 +200,13 @@ export default {
     },
     secondary: {
       container: {
-        backgroundColor: Colors.Secondary[700],
+        backgroundColor: Colors.Secondary[600],
         borderColor: Colors.Secondary[600],
         variants: {
           pressed: {
             true: {
               backgroundColor: Colors.Secondary[800],
-              borderColor: Colors.Secondary[600],
+              borderColor: Colors.Secondary[800],
             },
           },
           disabled: {
@@ -317,13 +324,13 @@ export default {
     },
     tertiary: {
       container: {
-        backgroundColor: Colors.Tertiary[700],
+        backgroundColor: Colors.Tertiary[600],
         borderColor: Colors.Tertiary[600],
         variants: {
           pressed: {
             true: {
               backgroundColor: Colors.Tertiary[800],
-              borderColor: Colors.Tertiary[600],
+              borderColor: Colors.Tertiary[800],
             },
           },
           disabled: {

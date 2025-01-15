@@ -2,7 +2,7 @@ import { TextStyle, ViewStyle } from "react-native";
 import { ReactElement, ReactNode } from "react";
 import { ComponentSize, IconStyle, SlotIconName } from "src/types";
 
-interface AccordionHeaderProps {
+interface AccordionHeaderProps extends AccordionExtraProps {
   style?: {
     container?: ViewStyle;
     text?: TextStyle;
@@ -10,7 +10,6 @@ interface AccordionHeaderProps {
     drop?: IconStyle;
   };
   disabled?: boolean;
-  size?: ComponentSize;
   contextValue?: any;
   onPress?: () => void;
   onClick?: () => void;
@@ -19,7 +18,7 @@ interface AccordionHeaderProps {
   icon?: SlotIconName;
 }
 
-interface AccordionItemProps {
+interface AccordionItemProps extends AccordionExtraProps {
   style?: {
     container?: ViewStyle;
     element?: ViewStyle;
@@ -54,7 +53,7 @@ interface AccordionListProps {
 interface AccordionProps {
   onChange?: (index: number) => void;
   expandMode?: "single" | "multiple";
-  children?: ReactElement;
+  children?: ReactElement | ReactElement[];
 }
 
 export {

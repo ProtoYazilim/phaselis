@@ -6,7 +6,7 @@ const PresetDemo = () => {
   return (
     <ScrollView style={styles.container}>
       <Block style={{ gap: 10, marginBottom: 30 }}>
-        <Label text="BKT Demo" preset="bkt_demo" />
+        <Label text="BKT Demo" />
       </Block>
     </ScrollView>
   );

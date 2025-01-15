@@ -28,15 +28,6 @@ function TabViewStory() {
           <Text>Tab Content 6</Text>
         </TabItem>
       </TabView>
-      <Text style={{ fontSize: 20, marginLeft: 10 }}>Tab View</Text>
-      <TabView activeTab={0}>
-        <TabItem title="Item 1">
-          <Text>Tab Content 1</Text>
-        </TabItem>
-        <TabItem title="Item 2">
-          <Text>Tab Content 2</Text>
-        </TabItem>
-      </TabView>
     </SafeAreaView>
   );
 }

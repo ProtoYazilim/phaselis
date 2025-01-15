@@ -1,5 +1,4 @@
 import React, { useMemo } from "react";
-import { StyleSheet } from "react-native";
 import ReactNativePickerSelect from "react-native-picker-select";
 import { PhaselisHOC } from "src/components/provider";
 import stylesheet from "./assets/styles";
@@ -21,6 +20,7 @@ const NativePicker: React.FC<NativePickerProps> = ({
   showError,
   isFocus,
   size,
+  variation = "default",
   ...extraProps
 }) => {
   const handleOnFocus = () => {
@@ -31,10 +31,11 @@ const NativePicker: React.FC<NativePickerProps> = ({
     setIsFocus(false);
   };
 
-  const { themeStyles, defaultStyles, propStyle } = useCombinedStyle(
+  const { getFlattenStyle } = useCombinedStyle(
     stylesheet,
     style,
     contextValue?.theme?.select,
+    variation,
     {
       error: showError,
       disabled,
@@ -43,12 +44,6 @@ const NativePicker: React.FC<NativePickerProps> = ({
       ...extraProps,
     },
   );
-
-  const elementStyles = StyleSheet.flatten([
-    defaultStyles?.element,
-    themeStyles?.element,
-    propStyle?.element,
-  ]);
 
   const memorizedOptions = useMemo(() => {
     return options?.map((option) => {
@@ -91,8 +86,8 @@ const NativePicker: React.FC<NativePickerProps> = ({
         inputAndroidContainer: {
           width: "100%",
         },
-        inputAndroid: elementStyles,
-        inputIOS: elementStyles,
+        inputAndroid: getFlattenStyle("element"),
+        inputIOS: getFlattenStyle("element"),
       }}
       useNativeAndroidPickerStyle={false}
       fixAndroidTouchableBug={true}

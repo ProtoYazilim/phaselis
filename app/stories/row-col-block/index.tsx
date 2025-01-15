@@ -1,94 +1,110 @@
-import React from "react";
-import { ScrollView, View, Text } from "react-native";
-import { Row, Block, Col } from "phaselis";
+import React, { FC } from "react";
+import { ScrollView, Text } from "react-native";
+import { Row, Block, Col, Colors, GridSize } from "phaselis";
 
 const RowColBlockStory = () => {
+  const SpecialBlock: FC<{
+    text: string;
+    backgroundColor: string;
+    textColor?: string;
+    size?: GridSize;
+    offset?: GridSize;
+  }> = ({
+    text,
+    backgroundColor,
+    size,
+    offset,
+    textColor = Colors.Primary[600],
+  }) => {
+    return (
+      <Col size={size} offset={offset}>
+        <Block
+          style={{
+            backgroundColor: backgroundColor,
+            width: "100%",
+            height: 106,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Text style={{ color: textColor }}>{text}</Text>
+        </Block>
+      </Col>
+    );
+  };
+
   return (
-    <ScrollView>
+    <ScrollView style={{ padding: 24 }}>
       <Row>
-        <Col size={12} offset={0}>
-          <Block
-            style={{ height: 20, width: "100%", backgroundColor: "#c8bff3" }}
-          >
-            <Text>Col 12</Text>
-          </Block>
-        </Col>
+        <SpecialBlock text="Col-12" backgroundColor={Colors.Primary[300]} />
       </Row>
-      <Row>
-        <Col size={6} offset={0}>
-          <Block
-            style={{ height: 20, width: "100%", backgroundColor: "#c8bff3" }}
-          >
-            <Text>Col 6</Text>
-          </Block>
-        </Col>
-        <Col size={6} offset={0}>
-          <View
-            style={{ height: 20, width: "100%", backgroundColor: "#F57779" }}
-          >
-            <Text>Col 6</Text>
-          </View>
-        </Col>
+      <Row style={{ marginTop: 8 }}>
+        <SpecialBlock text="Col-6" backgroundColor={Colors.Primary[200]} />
+        <SpecialBlock text="Col-6" backgroundColor={Colors.Primary[100]} />
       </Row>
-      <Row>
-        <Col size={3} offset={3}>
-          <Block
-            style={{ height: 20, width: "100%", backgroundColor: "#c8bff3" }}
-          >
-            <Text>Col 3 offset 3</Text>
-          </Block>
-        </Col>
-        <Col size={3} offset={3}>
-          <View
-            style={{ height: 20, width: "100%", backgroundColor: "#F57779" }}
-          >
-            <Text>Col 3 offset 3</Text>
-          </View>
-        </Col>
+      <Row style={{ marginTop: 8 }}>
+        <SpecialBlock text="Col-4" backgroundColor={Colors.Primary[100]} />
+        <SpecialBlock text="Col-4" backgroundColor={Colors.Primary[300]} />
+        <SpecialBlock text="Col-4" backgroundColor={Colors.Primary[200]} />
       </Row>
-      <Row>
-        <Col size={2}>
-          <Block
-            style={{ height: 20, width: "100%", backgroundColor: "#c8bff3" }}
-          >
-            <Text>Col 2</Text>
-          </Block>
-        </Col>
-        <Col size={2}>
-          <View
-            style={{ height: 20, width: "100%", backgroundColor: "#F57779" }}
-          >
-            <Text>Col 2</Text>
-          </View>
-        </Col>
-        <Col size={2}>
-          <Block
-            style={{ height: 20, width: "100%", backgroundColor: "#c8bff3" }}
-          >
-            <Text>Col 2</Text>
-          </Block>
-        </Col>
-        <Col size={2}>
-          <View
-            style={{ height: 20, width: "100%", backgroundColor: "#F57779" }}
-          >
-            <Text>Col 2</Text>
-          </View>
-        </Col>
-        <Col size={2}>
-          <Block
-            style={{ height: 20, width: "100%", backgroundColor: "#c8bff3" }}
-          >
-            <Text>Col 2</Text>
-          </Block>
-        </Col>
-        <Col size={2}>
-          <Block
-            style={{ height: 20, width: "100%", backgroundColor: "#F57779" }}
-          >
-            <Text>Col 2</Text>
-          </Block>
-        </Col>
+      <Row style={{ marginTop: 8 }}>
+        <SpecialBlock text="Col-3" backgroundColor={Colors.Primary[200]} />
+        <SpecialBlock
+          text="Col-3"
+          backgroundColor={Colors.Primary[400]}
+          textColor={Colors.Primary[100]}
+        />
+        <SpecialBlock text="Col-3" backgroundColor={Colors.Primary[100]} />
+        <SpecialBlock text="Col-3" backgroundColor={Colors.Primary[300]} />
+      </Row>
+      <Row style={{ marginTop: 8 }}>
+        <SpecialBlock text="Col-2" backgroundColor={Colors.Primary[100]} />
+        <SpecialBlock text="Col-2" backgroundColor={Colors.Primary[300]} />
+        <SpecialBlock text="Col-2" backgroundColor={Colors.Primary[200]} />
+        <SpecialBlock
+          text="Col-2"
+          backgroundColor={Colors.Primary[400]}
+          textColor={Colors.Primary[100]}
+        />
+        <SpecialBlock
+          text="Col-2"
+          backgroundColor={Colors.Primary[500]}
+          textColor={Colors.Primary[200]}
+        />
+        <SpecialBlock
+          text="Col-2"
+          backgroundColor={Colors.Primary[600]}
+          textColor={Colors.Primary[100]}
+        />
+      </Row>
+      <Row style={{ marginTop: 8 }}>
+        <SpecialBlock
+          text="Col-3 Offset-3"
+          backgroundColor={Colors.Primary[200]}
+          size={3}
+          offset={3}
+        />
+        <SpecialBlock
+          text="Col-2 Offset-4"
+          backgroundColor={Colors.Primary[100]}
+          size={2}
+          offset={4}
+        />
+      </Row>
+      <Row style={{ marginTop: 8 }}>
+        <SpecialBlock text="Col" backgroundColor={Colors.Primary[100]} />
+        <SpecialBlock text="Col" backgroundColor={Colors.Primary[300]} />
+        <SpecialBlock text="Col" backgroundColor={Colors.Primary[200]} />
+        <SpecialBlock
+          text="Col"
+          backgroundColor={Colors.Primary[400]}
+          textColor={Colors.Primary[100]}
+        />
+        <SpecialBlock
+          text="Col"
+          backgroundColor={Colors.Primary[500]}
+          textColor={Colors.Primary[200]}
+        />
       </Row>
     </ScrollView>
   );

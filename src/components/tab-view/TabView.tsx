@@ -13,6 +13,7 @@ const TabView = ({
   scrollable,
   contextValue,
   style,
+  variation = "default",
   ...extraProps
 }: TabViewProps) => {
   const [activeTabIndex, setActiveTabIndex] = useState(activeTab);
@@ -34,7 +35,8 @@ const TabView = ({
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
     style,
-    contextValue?.theme?.tab?.view,
+    contextValue?.theme?.tab[variation]?.view,
+    variation,
     {
       ...extraProps,
     },

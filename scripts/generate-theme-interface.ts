@@ -48,7 +48,9 @@ const analyzeVariants = (
 
     if (value && typeof value === "object") {
       Object.keys(value).forEach((key) => {
-        variations.add(key);
+        if (!key.startsWith("_")) {
+          variations.add(key);
+        }
       });
       if (value.variants) {
         Object.keys(value.variants).forEach((variantKey) => {

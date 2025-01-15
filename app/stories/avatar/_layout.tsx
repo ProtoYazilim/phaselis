@@ -21,7 +21,7 @@ export default function Layout() {
           title: "Avatar Story",
         },
         {
-          name: "avatar-123123",
+          name: "avatar-test",
           drawerLabel: "Avatar Test",
           title: "Avatar Test",
         },

@@ -1,3 +1,4 @@
+import StoryView from "appSrc/StoryView";
 import { Block, Button, Popup } from "phaselis";
 import React, { useState } from "react";
 import { SafeAreaView, StyleSheet, Text } from "react-native";
@@ -10,34 +11,46 @@ function PopupStory() {
   const [show4, setShow4] = useState(false);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Block style={{ marginLeft: 10, marginRight: 10, gap: 10 }}>
+    <StoryView>
+      <Block style={{ gap: 16 }}>
         <Button
-          text="Show Popup"
+          text="Default Popup"
           onClick={() => {
             setShow(true);
           }}
         />
         <Button
-          text="Show Info"
+          text="Info Popup"
+          style={{
+            container: { backgroundColor: "#048DB6", borderColor: "#048DB6" },
+          }}
           onClick={() => {
             setShow1(true);
           }}
         />
         <Button
-          text="Show Warning"
+          text="Warning Popup"
+          style={{
+            container: { backgroundColor: "#E29400", borderColor: "#E29400" },
+          }}
           onClick={() => {
             setShow2(true);
           }}
         />
         <Button
-          text="Show Error"
+          text="Error Popup"
+          style={{
+            container: { backgroundColor: "#DC3545", borderColor: "#DC3545" },
+          }}
           onClick={() => {
             setShow3(true);
           }}
         />
         <Button
-          text="Show Success"
+          text="Success Popup"
+          style={{
+            container: { backgroundColor: "#009F77", borderColor: "#009F77" },
+          }}
           onClick={() => {
             setShow4(true);
           }}
@@ -62,11 +75,7 @@ function PopupStory() {
           setShow1(false);
         }}
         title="Info"
-        style={{
-          container: {
-            backgroundColor: "#D8EEFF",
-          },
-        }}
+        variation="info"
         leftIcon="Info"
       >
         <Text>
@@ -82,11 +91,7 @@ function PopupStory() {
           setShow2(false);
         }}
         title="Warning"
-        style={{
-          container: {
-            backgroundColor: "#FFFBC5",
-          },
-        }}
+        variation="warning"
         leftIcon="MessageSquareWarning"
       >
         <Text>
@@ -102,11 +107,7 @@ function PopupStory() {
           setShow3(false);
         }}
         title="Error"
-        style={{
-          container: {
-            backgroundColor: "#FEE6E5",
-          },
-        }}
+        variation="error"
         leftIcon="Bomb"
       >
         <Text>
@@ -122,11 +123,7 @@ function PopupStory() {
           setShow4(false);
         }}
         title="Success"
-        style={{
-          container: {
-            backgroundColor: "#CEFDE8",
-          },
-        }}
+        variation="success"
         leftIcon="CheckCheck"
       >
         <Text>
@@ -136,7 +133,7 @@ function PopupStory() {
           eaque facilis dolorum!
         </Text>
       </Popup>
-    </SafeAreaView>
+    </StoryView>
   );
 }
 
@@ -145,5 +142,6 @@ export default PopupStory;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    margin: 24,
   },
 });

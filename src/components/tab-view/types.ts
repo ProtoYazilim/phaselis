@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { TextStyle, ViewStyle } from "react-native";
 import { IconStyle, SlotableLeftRightProps } from "src/types";
 
-interface TabViewHeaderProps extends SlotableLeftRightProps {
+interface TabViewHeaderProps extends SlotableLeftRightProps, TabViewExtraProps {
   value?: boolean;
   onChange?: (event: any, value: boolean) => void;
   onPress?: () => void;
@@ -19,7 +19,7 @@ interface TabViewHeaderProps extends SlotableLeftRightProps {
   handleOnPress?: (index: number) => void;
 }
 
-interface TabHeaderItemProps extends SlotableLeftRightProps {
+interface TabHeaderItemProps extends SlotableLeftRightProps, TabViewExtraProps {
   activeTabIndex: number;
   index: number;
   item: any;
@@ -36,7 +36,7 @@ interface TabHeaderItemProps extends SlotableLeftRightProps {
   contextValue?: any;
 }
 
-interface TabViewProps {
+interface TabViewProps extends TabViewExtraProps {
   children: any | any[];
   headerProps?: TabViewHeaderProps;
   activeTab?: number;
@@ -48,7 +48,7 @@ interface TabViewProps {
   };
 }
 
-interface TabItemProps {
+interface TabItemProps extends TabViewExtraProps {
   children: ReactNode;
   contextValue?: any;
   style?: {

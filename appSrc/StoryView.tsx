@@ -4,13 +4,16 @@ import { ScrollView } from "react-native";
 
 const StoryView: FC<{
   children: React.ReactNode;
-}> = ({ children }) => {
+  style?: any;
+}> = ({ children, style }) => {
   return (
     <ScrollView
       contentContainerStyle={{
         gap: Spacings.XL,
-        padding: 24,
+        paddingVertical: 24,
+        paddingHorizontal: 16,
         backgroundColor: "white",
+        ...style,
       }}
     >
       {children}

@@ -2,7 +2,9 @@ import { FC, ReactNode } from "react";
 import { ViewStyle } from "react-native";
 import { ComponentSize, InputControlProps } from "src/types";
 
-interface SliderProps extends InputControlProps<number, any, any> {
+interface SliderProps
+  extends Omit<InputControlProps<number, any, any>, "error">,
+    SliderExtraProps {
   contextValue?: any;
   disabled?: boolean;
   style?: {

@@ -34,7 +34,7 @@ const TextAreaStory = () => {
           >
             <Textfield
               name="address"
-              LeftSlot={({ themeStyle }: { themeStyle: any }) => (
+              LeftSlot={({ themeStyle }) => (
                 <LucideIcon name={"Home"} style={{ ...themeStyle }} />
               )}
               placeholder="Enter your address information here!"

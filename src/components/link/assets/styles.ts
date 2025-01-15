@@ -5,7 +5,6 @@ export default createStyleSheet({
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
-    width: "100%",
     variants: {
       primary: {
         true: {},

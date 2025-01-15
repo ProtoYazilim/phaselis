@@ -12,6 +12,8 @@ const ShadowExample = () => {
             style={{
               container: {
                 backgroundColor: "white",
+                //@ts-ignore
+                //TODO: fix shadows
                 shadows: [{}, {}],
                 variants: {
                   error: {

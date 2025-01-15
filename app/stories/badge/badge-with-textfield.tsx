@@ -6,7 +6,7 @@ import { Textfield, Badge } from "phaselis";
 const BadgeStory = () => {
   return (
     <View style={styles.container}>
-      <Badge text="1" primary left={-15} top={-4}>
+      <Badge text="1" variation="primary" left={-15} top={-4}>
         <Textfield />
       </Badge>
     </View>

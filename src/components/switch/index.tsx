@@ -17,6 +17,7 @@ const Switch = ({
   showIcons,
   LeftSlot,
   RightSlot,
+  variation = "default",
   ...extraProps
 }: SwitchProps) => {
   const [innerValue, setInnerValue] = useState(value);
@@ -25,11 +26,27 @@ const Switch = ({
     setInnerValue(value);
   }, [value]);
 
-  const { getCombinedStyle, defaultStyles, themeStyles, propStyle } =
-    useCombinedStyle(stylesheet, style, contextValue.theme.switch, {
+  const { getCombinedStyle } = useCombinedStyle(
+    stylesheet,
+    style,
+    contextValue.theme.switch,
+    variation,
+    {
       disabled,
       ...extraProps,
-    });
+    },
+  );
+
+  const { getFlattenStyle } = useCombinedStyle(
+    stylesheet,
+    style,
+    contextValue.theme.switch,
+    variation,
+    {
+      disabled,
+      ...extraProps,
+    },
+  );
 
   const height = useRef(new Animated.Value(0)).current;
   const width = useRef(new Animated.Value(0)).current;
@@ -48,12 +65,8 @@ const Switch = ({
     backgroundColor: animatedValue.interpolate({
       inputRange: [0, 1],
       outputRange: [
-        propStyle?.track?.offColor ||
-          themeStyles?.track?.offColor ||
-          defaultStyles?.track?.offColor,
-        propStyle?.track?.onColor ||
-          themeStyles?.track?.onColor ||
-          defaultStyles?.track?.onColor,
+        getFlattenStyle("track")?.offColor,
+        getFlattenStyle("track")?.onColor,
       ],
     }),
     borderRadius: Animated.divide(height, 2),
@@ -65,20 +78,19 @@ const Switch = ({
         {
           translateX: animatedValue.interpolate({
             inputRange: [0, 1],
-            outputRange: [3, 50],
+            outputRange: [6, 56],
           }),
+        },
+        {
+          translateY: -1,
         },
       ],
       borderRadius: Animated.divide(height, 2),
       backgroundColor: animatedValue.interpolate({
         inputRange: [0, 1],
         outputRange: [
-          propStyle?.thumb?.offColor ||
-            themeStyles?.thumb?.offColor ||
-            defaultStyles?.thumb?.offColor,
-          propStyle?.thumb?.onColor ||
-            themeStyles?.thumb?.onColor ||
-            defaultStyles?.thumb?.onColor,
+          getFlattenStyle("thumb")?.offColor,
+          getFlattenStyle("thumb")?.onColor,
         ],
       }),
     };
@@ -95,7 +107,7 @@ const Switch = ({
       <Pressable
         onPressIn={handlePress}
         focusable={true}
-        style={getCombinedStyle("element")}
+        // style={getCombinedStyle("element")}
         disabled={disabled}
       >
         <Animated.View

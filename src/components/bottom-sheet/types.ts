@@ -7,4 +7,5 @@ export interface BottomSheetProps {
   onClose: () => void;
   fullScreenModal?: boolean;
   maxHeightModal?: number | "auto" | `${number}%`;
+  backgroundColor?: string;
 }

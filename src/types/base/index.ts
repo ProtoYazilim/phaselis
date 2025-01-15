@@ -16,8 +16,8 @@ export interface InputControlProps<
   validations?: Function[];
   resetValue?: any;
   name?: string;
-  onChange?: (e?: ChangeEventType, value?: ValueType, data?: DataType) => void;
-  onBlur?: (e?: BlurEventType, value?: ValueType, data?: DataType) => void;
+  onChange?: (e: ChangeEventType, value: ValueType, data?: DataType) => void;
+  onBlur?: (e: BlurEventType, value: ValueType, data?: DataType) => void;
   // autoFocus?: boolean;
 }
 
@@ -52,8 +52,8 @@ export type SlotIconName = keyof typeof icons;
 export interface SlotableLeftRightProps {
   LeftSlot?: SlotChildComponent;
   RightSlot?: SlotChildComponent;
-  leftIcon?: SlotIconName;
-  rightIcon?: SlotIconName;
+  leftIcon?: SlotIconName | undefined;
+  rightIcon?: SlotIconName | undefined;
 }
 
 export type SlotChildComponent = ({

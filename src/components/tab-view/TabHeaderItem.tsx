@@ -19,6 +19,7 @@ const TabHeaderItem = ({
   scrollable,
   style,
   contextValue,
+  variation = "default",
   ...extraProps
 }: TabHeaderItemProps) => {
   const active = useMemo(
@@ -29,7 +30,8 @@ const TabHeaderItem = ({
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
     style,
-    contextValue?.theme?.tab?.headerItem,
+    contextValue?.theme?.tab[variation]?.headerItem,
+    variation,
     {
       scrollable,
       active,

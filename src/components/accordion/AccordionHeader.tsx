@@ -1,40 +1,32 @@
 import React, { useEffect, useRef } from "react";
-import { Pressable, Text, StyleSheet, View, Animated } from "react-native";
+import { Pressable, Text, View, Animated } from "react-native";
 import { AccordionHeaderProps } from "./types";
-import { useStyles } from "react-native-unistyles";
 import { stylesheet_header as stylesheet } from "./assets/styles";
 import { LucideChevronDown } from "lucide-react-native";
 import LucideIcon from "src/components/lucide-icon";
 import { PhaselisHOC } from "src/components/provider";
+import { useCombinedStyle } from "src/hooks";
 
 const AccordionHeader = ({
   style,
   disabled,
-  size = "md",
   contextValue,
   onPress,
   onClick,
   expanded,
   text,
   icon,
+  variation = "default",
 }: AccordionHeaderProps) => {
-  const { styles: defaultStyles } = useStyles(stylesheet, {
-    disabled,
-    size,
-  });
-
-  const { styles: themeStyles } = useStyles(
-    contextValue?.theme?.accordion_header as typeof stylesheet,
+  const { getCombinedStyle } = useCombinedStyle(
+    stylesheet,
+    style,
+    contextValue?.theme?.accordion_header,
+    variation,
     {
-      disabled,
-      size,
+      disabled: disabled,
     },
   );
-
-  const { styles: propStyle } = useStyles(style as typeof stylesheet, {
-    disabled,
-    size,
-  });
 
   const rotation = useRef(new Animated.Value(0)).current;
 
@@ -62,34 +54,17 @@ const AccordionHeader = ({
   return (
     <Pressable
       onPress={onPress || onClick}
-      style={[
-        defaultStyles.container,
-        themeStyles.container,
-        propStyle?.container,
-      ]}
+      style={getCombinedStyle("container")}
     >
       <View style={{ flexDirection: "row", gap: 10 }}>
-        {icon && (
-          <LucideIcon
-            name={icon}
-            style={[defaultStyles.icon, themeStyles.icon, propStyle?.icon]}
-          />
-        )}
-        <Text style={[defaultStyles.text, themeStyles.text, propStyle?.text]}>
-          {text}
-        </Text>
+        {icon && <LucideIcon name={icon} style={getCombinedStyle("icon")} />}
+        <Text style={getCombinedStyle("text")}>{text}</Text>
       </View>
       <Animated.View style={animatedStyle}>
         <LucideChevronDown
           // @ts-ignore
-          style={[defaultStyles.drop, themeStyles.drop, propStyle?.drop]}
-          color={
-            StyleSheet.flatten([
-              defaultStyles.drop,
-              themeStyles.drop,
-              themeStyles.drop,
-            ])?.color
-          }
+          style={getCombinedStyle("drop")}
+          color={getCombinedStyle("drop").color}
           size={16}
         />
       </Animated.View>

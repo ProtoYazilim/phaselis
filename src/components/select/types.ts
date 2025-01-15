@@ -7,7 +7,9 @@ import {
   SlotChildComponent,
   SlotIconName,
 } from "src/types";
-export interface SelectProps extends InputControlProps<string, any, any, any> {
+export interface SelectProps
+  extends Omit<InputControlProps<string, any, any, any>, "error">,
+    SelectExtraProps {
   disabled?: boolean;
   options: any[];
   placeholder?: string;
@@ -101,7 +103,9 @@ export interface CloseIconSlotProps {
   };
 }
 
-export interface InputSlotProps extends InputControlProps<any, any, any> {
+export interface InputSlotProps
+  extends Omit<InputControlProps<any, any, any>, "error">,
+    Omit<SelectExtraProps, "error"> {
   placeholder?: string;
   selectedItem?: any;
   rightIcon?: SlotIconName;
@@ -129,7 +133,7 @@ export interface InputSlotProps extends InputControlProps<any, any, any> {
   className?: string; //not used but maybe in the future
 }
 
-export interface CustomPickerProps extends PickerProps {
+export interface CustomPickerProps extends PickerProps, SelectExtraProps {
   showPicker: boolean;
   setShowPicker: React.Dispatch<React.SetStateAction<boolean>>;
   maxHeightModal?: number | "auto" | `${number}%`;
@@ -143,7 +147,7 @@ export interface CustomPickerProps extends PickerProps {
   closeOnSelect?: boolean;
 }
 
-export interface NativePickerProps extends PickerProps {
+export interface NativePickerProps extends PickerProps, SelectExtraProps {
   refIOSPicker: RefObject<ReactNativePickerSelect>;
   refAndroidPicker: RefObject<ReactNativePickerSelect>;
   value: any;

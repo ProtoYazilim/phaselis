@@ -53,13 +53,10 @@ export default [
     ],
   },
   {
-    input: [
-      // Tüm .d.ts dosyalarını tek bir dosya olarak birleştireceğiz
-      "dist/src/index.d.ts",
-    ],
+    input: ["dist/src/index.d.ts"],
     output: [
       {
-        file: "dist/index.d.ts", // Dizinizi belirtiyoruz
+        file: "dist/index.d.ts",
         format: "esm",
       },
     ],

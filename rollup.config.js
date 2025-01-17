@@ -55,17 +55,12 @@ export default [
   {
     input: [
       // Tüm .d.ts dosyalarını tek bir dosya olarak birleştireceğiz
-      "dist/src/components/index.d.ts",
-      "dist/src/hooks/index.d.ts",
-      "dist/src/utils/index.d.ts",
-      "dist/src/types/index.d.ts",
-      "dist/src/theme/index.d.ts",
+      "dist/src/index.d.ts",
     ],
     output: [
       {
-        dir: "dist", // Dizinizi belirtiyoruz
+        file: "dist/index.d.ts", // Dizinizi belirtiyoruz
         format: "esm",
-        entryFileNames: "index.d.ts", // Çıkışı 'index.d.ts' olarak ayarlıyoruz
       },
     ],
     plugins: [dts()],

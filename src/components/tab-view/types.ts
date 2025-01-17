@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { TextStyle, ViewStyle } from "react-native";
-import { IconStyle, SlotableLeftRightProps } from "src/types";
+import { IconStyle, SlotableLeftRightProps } from "../../types";
 
 interface TabViewHeaderProps extends SlotableLeftRightProps, TabViewExtraProps {
   value?: boolean;

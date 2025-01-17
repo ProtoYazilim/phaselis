@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
 import { ViewStyle } from "react-native";
-import { IconStyle, SlotChildComponent } from "src/types";
+import { IconStyle, SlotChildComponent } from "../../types";
 
 interface SwitchProps extends SwitchExtraProps {
   disabled?: boolean;

@@ -1,6 +1,6 @@
 import { TextStyle, ViewStyle } from "react-native";
 import { ReactElement, ReactNode } from "react";
-import { ComponentSize, IconStyle, SlotIconName } from "src/types";
+import { ComponentSize, IconStyle, SlotIconName } from "../../types";
 
 interface AccordionHeaderProps extends AccordionExtraProps {
   style?: {

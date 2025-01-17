@@ -8,7 +8,7 @@ import {
   useId,
 } from "react";
 import Popup from "src/components/popup";
-import { SlotChildComponent, SlotIconName } from "src/types";
+import { SlotChildComponent, SlotIconName } from "../../types";
 
 const PopupTitleIcon: Record<
   PopupType,
@@ -61,24 +61,22 @@ const PopupProvider = ({ children }: PopupProviderProps) => {
     (id: string | undefined, value: "show" | "hide") => {
       setPopups((popups) =>
         popups.map((popup) =>
-          popup.id === id ? { ...popup, show: value } : popup,
-        ),
+          popup.id === id ? { ...popup, show: value } : popup
+        )
       );
     },
-    [],
+    []
   );
 
   const upgradePopup = useCallback(
     (id: string, updatedFields: Partial<PopupProps>) => {
       setPopups((popups) =>
         popups.map((popup) =>
-          popup.id === id
-            ? { ...popup, ...updatedFields, id: popup.id }
-            : popup,
-        ),
+          popup.id === id ? { ...popup, ...updatedFields, id: popup.id } : popup
+        )
       );
     },
-    [setPopups],
+    [setPopups]
   );
 
   return (
@@ -111,7 +109,7 @@ const PopupProvider = ({ children }: PopupProviderProps) => {
 const usePopup = (
   type: PopupType,
   initialContent: ReactNode,
-  extraProps?: PopupExtraProps,
+  extraProps?: PopupExtraProps
 ) => {
   const context = useContext(PopupContext);
   const tempId = useId();

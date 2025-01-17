@@ -4,7 +4,7 @@ import {
   ComponentSize,
   InputControlProps,
   SlotableLeftRightProps,
-} from "src/types";
+} from "../../types";
 
 interface DatepickerProps
   extends SlotableLeftRightProps,

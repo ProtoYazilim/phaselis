@@ -1,6 +1,6 @@
 import { PressableProps, ViewStyle } from "react-native";
 import { StyleProp, TextStyle } from "react-native";
-import { IconStyle, SlotableLeftRightProps } from "src/types";
+import { IconStyle, SlotableLeftRightProps } from "../../types";
 
 interface LinkProps
   extends SlotableLeftRightProps,

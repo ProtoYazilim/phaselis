@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { ComponentSize, SlotIconName } from "src/types";
+import { ComponentSize, SlotIconName } from "../../types";
 
 interface SlotProps {
   children?: ReactElement;

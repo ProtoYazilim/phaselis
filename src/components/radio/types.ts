@@ -1,6 +1,6 @@
 import { TextStyle, ViewStyle } from "react-native";
 import { FC, ReactNode } from "react";
-import { InputControlProps } from "src/types";
+import { InputControlProps } from "../../types";
 
 interface RadioGroupProps
   extends InputControlProps<string, any, any>,

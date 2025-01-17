@@ -44,7 +44,6 @@ export default [
       /^@react-native-.*/,
       "lodash",
       "hoist-non-react-statics",
-      // Expo ile ilgili bağımlılıkları harici olarak işaretleyin
       "expo",
       "expo-router",
       /^@expo-.*/,
@@ -54,8 +53,13 @@ export default [
     ],
   },
   {
-    input: "src/index.ts",
-    output: [{ file: "dist/index.d.ts", format: "es" }],
+    input: ["dist/src/index.d.ts"],
+    output: [
+      {
+        file: "dist/index.d.ts",
+        format: "esm",
+      },
+    ],
     plugins: [dts()],
     external: [/\.css$/, /\.png$/, /\.jpg$/, /\.gif$/],
   },

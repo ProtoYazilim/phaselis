@@ -12,7 +12,7 @@ import {
   IconStyle,
   InputControlProps,
   SlotableLeftRightProps,
-} from "src/types";
+} from "../../types";
 
 export interface TextfieldProps
   extends SlotableLeftRightProps,

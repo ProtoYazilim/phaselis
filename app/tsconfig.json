@@ -6,11 +6,20 @@
     "noEmitOnError": true,
     "skipLibCheck": true,
     "paths": {
-      "src/*": [
-        "./src/*"
+      "phaselis": [
+        "../src"
       ],
+      "src/*": [
+        "../src/*"
+      ],
+      "appSrc/*": [
+        "../appSrc/*"
+      ],
+      "appSrc": [
+        "../appSrc"
+      ]
     },
-    "outDir": "./dist",
+    "outDir": "./dist/@types",
     "esModuleInterop": true
   },
   "exclude": [
@@ -19,12 +28,12 @@
     "ios",
     "android",
     "documentation",
-    "./app/**/*",
-    "./appSrc/**/*",
   ],
   "include": [
     "**/*.ts",
     "**/*.tsx",
-    "global.d.ts",
+    "../global.d.ts",
+    // ".expo/types/**/*.ts",
+    "expo-env.d.ts"
   ]
 }

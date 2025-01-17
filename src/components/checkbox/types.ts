@@ -5,7 +5,7 @@ import {
   InputControlProps,
   SlotChildComponent,
   SlotIconName,
-} from "src/types";
+} from "../../types";
 
 export interface CheckboxProps
   extends InputControlProps<boolean, any, any>,

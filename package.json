@@ -1,6 +1,6 @@
 {
   "name": "phaselis",
-  "version": "0.0.10",
+  "version": "0.0.10-theta",
   "main": "expo-router/entry",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,10 +11,10 @@
   ],
   "exports": {
     ".": {
-      "main": "dist/index.js",
-      "import": "dist/index.js",
-      "require": "dist/index.js",
-      "types": "dist/index.d.ts"
+      "main": "./dist/index.js",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     }
   },
   "scripts": {

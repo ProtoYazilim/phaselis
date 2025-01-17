@@ -5,7 +5,7 @@ import {
   ViewStyle,
 } from "react-native";
 import { ReactNode } from "react";
-import { SlotableLeftRightProps } from "src/types";
+import { SlotableLeftRightProps } from "../../types";
 
 export interface ButtonPropTypes
   extends SlotableLeftRightProps,

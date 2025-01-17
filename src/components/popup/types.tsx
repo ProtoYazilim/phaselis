@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { TextStyle, ViewStyle } from "react-native";
-import { IconStyle, SlotChildComponent, SlotIconName } from "src/types";
+import { IconStyle, SlotChildComponent, SlotIconName } from "../../types";
 
 interface PopupProps extends PopupExtraProps {
   show?: boolean;

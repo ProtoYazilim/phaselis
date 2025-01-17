@@ -5,7 +5,7 @@ const path = require("path");
 const packageJsonPath = path.join(__dirname, "../package.json");
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf-8"));
 
-packageJson.main = "package/index.js";
+packageJson.main = "dist/index.js";
 
 // Belirtilen bağımlılıkları dependencies'den kaldırıp peerDependencies'e taşıyalım
 const depsToMove = [

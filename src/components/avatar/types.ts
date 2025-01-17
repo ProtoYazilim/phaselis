@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { TextStyle, ViewStyle } from "react-native";
-import { IconStyle, SlotIconName } from "src/types";
+import { IconStyle, SlotIconName } from "../../types";
 
 export interface AvatarProps extends AvatarExtraProps {
   id?: string;

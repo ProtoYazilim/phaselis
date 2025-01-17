@@ -6,7 +6,7 @@ import {
   InputControlProps,
   SlotChildComponent,
   SlotIconName,
-} from "src/types";
+} from "../../types";
 export interface SelectProps
   extends Omit<InputControlProps<string, any, any, any>, "error">,
     SelectExtraProps {

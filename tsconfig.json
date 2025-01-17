@@ -6,14 +6,11 @@
     "noEmitOnError": true,
     "skipLibCheck": true,
     "paths": {
-      "phaselis": [
-        "./src"
-      ],
       "src/*": [
         "./src/*"
       ],
     },
-    "outDir": "./dist/@types",
+    "outDir": "./dist",
     "esModuleInterop": true
   },
   "exclude": [
@@ -28,7 +25,7 @@
   "include": [
     "**/*.ts",
     "**/*.tsx",
-    "./global.d.ts",
+    "global.d.ts",
     // ".expo/types/**/*.ts",
     // "expo-env.d.ts"
   ]

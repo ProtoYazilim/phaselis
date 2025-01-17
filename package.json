@@ -1,9 +1,10 @@
 {
   "name": "phaselis",
+  "description": "React Native TypeScript Library",
   "version": "0.0.10-beta",
   "main": "expo-router/entry",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "module": "dist/index.esm.js",
+  "types": "dist/types/index.d.ts",
   "type": "commonjs",
   "files": [
     "dist",

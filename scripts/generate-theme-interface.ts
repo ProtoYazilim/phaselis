@@ -1,13 +1,13 @@
-import * as fs from "fs";
-import * as path from "path";
-import * as chokidar from "chokidar";
+const fs = require("fs");
+const path = require("path");
+const chokidar = require("chokidar");
 
 const themeFolderPath = path.join(__dirname, "../src/theme");
 const outputFilePath = path.join(__dirname, "../global.d.ts");
 
 const collectComponents = (
   // themeType: "light" | "dark",
-  themeType: "light",
+  themeType: "light"
 ): { [key: string]: any } => {
   const themeTypeFolderPath = path.join(themeFolderPath, themeType);
   const components: { [key: string]: any } = {};
@@ -19,7 +19,7 @@ const collectComponents = (
 
   const files = fs.readdirSync(themeTypeFolderPath);
 
-  files.forEach((file) => {
+  files.forEach((file: string) => {
     const filePath = path.join(themeTypeFolderPath, file);
 
     if (fs.statSync(filePath).isFile() && file.endsWith("-theme.tsx")) {
@@ -41,7 +41,7 @@ const collectComponents = (
 const analyzeVariants = (
   obj: any,
   aggregatedVariants: { [key: string]: Set<string> },
-  variations: Set<string> = new Set(),
+  variations: Set<string> = new Set()
 ) => {
   Object.keys(obj).forEach((key) => {
     const value = obj[key];
@@ -134,19 +134,19 @@ const watchThemeFolder = () => {
     ignoreInitial: true,
   });
 
-  watcher.on("change", (filePath) => {
+  watcher.on("change", (filePath: string) => {
     console.log(`Detected change in ${filePath}. Regenerating global.d.ts...`);
     generateInterfaceFile();
   });
 
-  watcher.on("add", (filePath) => {
+  watcher.on("add", (filePath: string) => {
     console.log(`Detected new file ${filePath}. Regenerating global.d.ts...`);
     generateInterfaceFile();
   });
 
-  watcher.on("unlink", (filePath) => {
+  watcher.on("unlink", (filePath: string) => {
     console.log(
-      `Detected file removal ${filePath}. Regenerating global.d.ts...`,
+      `Detected file removal ${filePath}. Regenerating global.d.ts...`
     );
     generateInterfaceFile();
   });

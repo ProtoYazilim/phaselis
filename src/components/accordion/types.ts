@@ -16,6 +16,7 @@ interface AccordionHeaderProps extends AccordionExtraProps {
   expanded?: boolean;
   text: string;
   icon?: SlotIconName;
+  variation?: "default";
 }
 
 interface AccordionItemProps extends AccordionExtraProps {

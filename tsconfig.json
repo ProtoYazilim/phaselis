@@ -1,20 +1,41 @@
 {
-  "extends": "expo/tsconfig.base",
   "compilerOptions": {
+    "target": "es2018",
+    "module": "esnext",
+    "lib": [
+      "dom",
+      "esnext"
+    ],
+    "importHelpers": true,
     "declaration": true,
+    "sourceMap": true,
+    "rootDir": "./src",
+    "outDir": "./dist",
     "strict": true,
-    "noEmitOnError": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "moduleResolution": "node",
+    "jsx": "react-native",
+    "esModuleInterop": true,
     "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "noEmit": false,
+    "declarationDir": "./dist/types",
+    "resolveJsonModule": true,
     "paths": {
-      "phaselis": [
-        "./src"
-      ],
       "src/*": [
         "./src/*"
       ],
     },
-    "outDir": "./dist/@types",
-    "esModuleInterop": true
+    "types": [
+      "react",
+      "react-native",
+      "jest",
+      "node"
+    ]
   },
   "exclude": [
     "node_modules",
@@ -26,8 +47,8 @@
     "./appSrc/**/*",
   ],
   "include": [
-    "**/*.ts",
-    "**/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
     "./global.d.ts",
     // ".expo/types/**/*.ts",
     // "expo-env.d.ts"

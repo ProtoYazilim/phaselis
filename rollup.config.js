@@ -1,31 +1,41 @@
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
-import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import { dts } from "rollup-plugin-dts";
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import babel from "@rollup/plugin-babel";
 
-export default [
+const packageJson = require("./package.json");
+
+const config = [
   {
     input: "src/index.ts",
     output: [
       {
-        file: "dist/index.js",
-        format: "es",
+        file: packageJson.module,
+        format: "cjs",
         sourcemap: true,
+        exports: "named",
+      },
+      {
+        file: packageJson.module,
+        format: "esm",
+        sourcemap: true,
+        exports: "named",
       },
     ],
     plugins: [
       peerDepsExternal(),
-      resolve({
-        extensions: [".js", ".jsx", ".ts", ".tsx"],
+      resolve(),
+      commonjs(),
+      typescript({
+        tsconfig: "./tsconfig.json",
+        declaration: true,
+        declarationDir: "dist",
       }),
-      commonjs({
-        include: /node_modules/,
-        requireReturnsDefault: "auto",
-      }),
-      typescript({ tsconfig: "./tsconfig.json" }),
       babel({
+        exclude: "node_modules/**",
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
         babelHelpers: "runtime",
         presets: [
           ["@babel/preset-env", { loose: true }],
@@ -33,8 +43,6 @@ export default [
           ["@babel/preset-typescript", { loose: true }],
         ],
         plugins: ["@babel/plugin-transform-runtime"],
-        extensions: [".js", ".jsx", ".ts", ".tsx"],
-        exclude: "node_modules/**",
       }),
     ],
     external: [
@@ -54,9 +62,17 @@ export default [
     ],
   },
   {
-    input: "src/index.ts",
-    output: [{ file: "dist/index.d.ts", format: "es" }],
+    input: [
+      "dist/components/index.d.ts",
+      "dist/hooks/index.d.ts",
+      "dist/utils/index.d.ts",
+      "dist/types/index.d.ts",
+      "dist/theme/index.d.ts",
+    ],
+    output: [{ file: "dist/index.d.ts", format: "esm" }],
     plugins: [dts()],
     external: [/\.css$/, /\.png$/, /\.jpg$/, /\.gif$/],
   },
 ];
+
+export default config;

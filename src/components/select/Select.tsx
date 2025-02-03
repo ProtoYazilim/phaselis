@@ -1,13 +1,13 @@
-import React, { FC, useEffect, useMemo, useRef, useState } from "react";
+import type { FC } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { View } from "react-native";
-import { PhaselisHOC } from "src/components/provider";
+import PhaselisHOC from "../provider/lib/hoc";
 import ReactNativePickerSelect from "react-native-picker-select";
-import { SelectProps } from "./types";
+import type { SelectProps } from "./types";
 import CustomPicker from "./CustomPicker";
 import NativePicker from "./NativePicker";
 import InputSlotDefault from "./lib/InputSlotDefault";
-import { cloneSlot } from "src/utils";
-import { InputHOC } from "src/utils/lib/hocs";
+import { cloneSlot, InputHOC } from "../../utils";
 
 const Select: FC<SelectProps> = ({
   style,
@@ -44,9 +44,9 @@ const Select: FC<SelectProps> = ({
   const refIOSPicker = useRef<ReactNativePickerSelect>(null);
   const [innerValue, setInnerValue] = useState(value);
 
-  const handleOnChange = (e: any, value: string) => {
-    setInnerValue(value);
-    onChange?.(e, value);
+  const handleOnChange = (e: any, newValue: string) => {
+    setInnerValue(newValue);
+    onChange?.(e, newValue);
   };
 
   const showError = useMemo(() => {

@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 export interface PhaselisProviderProps<T> {
   children: ReactNode; // children prop'u, ReactNode tipindedir
   breakpoints?: Breakpoints; // breakpoints opsiyonel, varsayılan bir değer atanabilir

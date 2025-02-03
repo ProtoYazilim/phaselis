@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Pressable, Text, View, Animated } from "react-native";
-import { AccordionHeaderProps } from "./types";
+import type { AccordionHeaderProps } from "./types";
 import { stylesheet_header as stylesheet } from "./assets/styles";
 import { LucideChevronDown } from "lucide-react-native";
-import LucideIcon from "src/components/lucide-icon";
-import { PhaselisHOC } from "src/components/provider";
-import { useCombinedStyle } from "src/hooks";
+import { LucideIcon } from "../index";
+import PhaselisHOC from "../provider/lib/hoc";
+import { useCombinedStyle } from "../../hooks";
 
 const AccordionHeader = ({
   style,
@@ -32,6 +32,7 @@ const AccordionHeader = ({
 
   useEffect(() => {
     rotateAnimation();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [expanded]);
 
   const rotateAnimation = () => {

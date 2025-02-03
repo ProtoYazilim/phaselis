@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import type { DatepickerProps } from "./types";
+import { useEffect, useState } from "react";
 import { Pressable, Text } from "react-native";
 import stylesheet from "./assets/styles";
-import { DatepickerProps } from "./types";
 import CoreDatePicker from "react-native-date-picker";
-import { PhaselisHOC } from "src/components/provider";
+import PhaselisHOC from "../provider/lib/hoc";
+import { Slot } from "../index";
 import { format as formatFns } from "date-fns";
-import { InputHOC } from "src/utils/lib/hocs";
-import { useCombinedStyle } from "src/hooks";
-import Slot from "src/components/slot";
+import { InputHOC } from "../../utils";
+import { useCombinedStyle } from "../../hooks";
 
 const Datepicker: React.FC<DatepickerProps> = (props) => {
   const {
@@ -55,11 +55,7 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
         onPress={toggle}
         disabled={disabled}
       >
-        <Slot
-          style={getCombinedStyle("leftSlot")}
-          icon={leftIcon as any}
-          size={size}
-        >
+        <Slot style={getCombinedStyle("leftSlot")} icon={leftIcon} size={size}>
           {LeftSlot && <LeftSlot />}
         </Slot>
         <Text style={getCombinedStyle("element")}>
@@ -67,7 +63,7 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
         </Text>
         <Slot
           style={getCombinedStyle("rightSlot")}
-          icon={rightIcon as any}
+          icon={rightIcon}
           size={size}
         >
           {RightSlot && <RightSlot />}
@@ -86,9 +82,9 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
         onCancel={() => {
           setShow(false);
         }}
-        onConfirm={(date) => {
-          setDate(date);
-          props.onChange?.(null, date);
+        onConfirm={(newDate) => {
+          setDate(newDate);
+          props.onChange?.(null, newDate);
           setShow(false);
         }}
         maximumDate={maxDate}

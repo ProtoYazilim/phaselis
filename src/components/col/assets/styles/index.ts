@@ -15,43 +15,43 @@ const stylesheet = createStyleSheet({
       },
       size: {
         "0": {
-          maxWidth: "0%",
+          display: "none",
         },
         "1": {
-          maxWidth: "8.333333%",
+          flex: 1 / 12,
         },
         "2": {
-          maxWidth: "16.666667%",
+          flex: 2 / 12,
         },
         "3": {
-          maxWidth: "25%",
+          flex: 3 / 12,
         },
         "4": {
-          maxWidth: "33.333333%",
+          flex: 4 / 12,
         },
         "5": {
-          maxWidth: "41.666667%",
+          flex: 5 / 12,
         },
         "6": {
-          maxWidth: "50%",
+          flex: 6 / 12,
         },
         "7": {
-          maxWidth: "58.333333%",
+          flex: 7 / 12,
         },
         "8": {
-          maxWidth: "66.666667%",
+          flex: 8 / 12,
         },
         "9": {
-          maxWidth: "75%",
+          flex: 9 / 12,
         },
         "10": {
-          maxWidth: "83.333333%",
+          flex: 10 / 12,
         },
         "11": {
-          maxWidth: "91.666667%",
+          flex: 11 / 12,
         },
         "12": {
-          maxWidth: "100%",
+          flex: 1,
         },
       },
     },
@@ -70,43 +70,43 @@ const stylesheet = createStyleSheet({
       },
       offset: {
         "0": {
-          maxWidth: "0%",
+          display: "none",
         },
         "1": {
-          maxWidth: "8.333333%",
+          flex: 1 / 12,
         },
         "2": {
-          maxWidth: "16.666667%",
+          flex: 2 / 12,
         },
         "3": {
-          maxWidth: "25%",
+          flex: 3 / 12,
         },
         "4": {
-          maxWidth: "33.333333%",
+          flex: 4 / 12,
         },
         "5": {
-          maxWidth: "41.666667%",
+          flex: 5 / 12,
         },
         "6": {
-          maxWidth: "50%",
+          flex: 6 / 12,
         },
         "7": {
-          maxWidth: "58.333333%",
+          flex: 7 / 12,
         },
         "8": {
-          maxWidth: "66.666667%",
+          flex: 8 / 12,
         },
         "9": {
-          maxWidth: "75%",
+          flex: 9 / 12,
         },
         "10": {
-          maxWidth: "83.333333%",
+          flex: 10 / 12,
         },
         "11": {
-          maxWidth: "91.666667%",
+          flex: 11 / 12,
         },
         "12": {
-          maxWidth: "100%",
+          flex: 1,
         },
       },
     },

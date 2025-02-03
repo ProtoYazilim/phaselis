@@ -1,9 +1,10 @@
-import React, { FC, useMemo } from "react";
+import type { FC } from "react";
+import type { BlockProps } from "./types";
 import { View } from "react-native";
-import { PhaselisHOC } from "src/components";
-import { BlockProps } from "./types";
+import PhaselisHOC from "../provider/lib/hoc";
+import { useMemo } from "react";
 //@ts-ignore
-import LinearGradient from "react-native-web-linear-gradient";
+// import LinearGradient from "react-native-web-linear-gradient";
 import { ShadowedView, shadowStyle } from "react-native-fast-shadow";
 
 const Block: FC<BlockProps> = ({ style, children, ...extraProps }) => {
@@ -39,7 +40,8 @@ const Block: FC<BlockProps> = ({ style, children, ...extraProps }) => {
 
   const isLinearGradient = !!style?.lineerGradient;
 
-  const WrapperComponent = isLinearGradient ? LinearGradient : View;
+  // const WrapperComponent = isLinearGradient ? LinearGradient : View;
+  const WrapperComponent = isLinearGradient ? View : View;
 
   const gradientProps = isLinearGradient
     ? {

@@ -1,6 +1,7 @@
-import React, { FC, useEffect, useRef } from "react";
+import type { FC } from "react";
+import type { BottomSheetProps } from "./types";
 import { StyleSheet, TouchableOpacity, Modal, Animated } from "react-native";
-import { BottomSheetProps } from "./types";
+import { useEffect, useRef, useState } from "react";
 
 const BottomSheet: FC<BottomSheetProps> = ({
   show = false,
@@ -13,7 +14,7 @@ const BottomSheet: FC<BottomSheetProps> = ({
 }) => {
   const HEIGHT = useRef(500);
   const translateY = useRef(new Animated.Value(0)).current;
-  const [isModalVisible, setIsModalVisible] = React.useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const backdropOpacity = translateY.interpolate({
     inputRange: [0, HEIGHT.current],
@@ -40,7 +41,7 @@ const BottomSheet: FC<BottomSheetProps> = ({
         onClose?.(); // Close modal after animation completes
       });
     }
-  }, [show, duration, onClose]);
+  }, [show, duration, onClose, translateY]);
 
   return (
     <Modal transparent={true} visible={isModalVisible} animationType="fade">

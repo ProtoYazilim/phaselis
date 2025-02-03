@@ -1,8 +1,8 @@
-import { FC, ReactNode } from "react";
-import { ViewStyle } from "react-native";
-import { IconStyle, SlotChildComponent } from "../../types";
+import type { FC, ReactNode } from "react";
+import type { ViewStyle } from "react-native";
+import type { IconStyle, SlotChildComponent, SlotIconName } from "../../types";
 
-interface SwitchProps extends SwitchExtraProps {
+export interface SwitchProps extends SwitchExtraProps {
   disabled?: boolean;
   contextValue?: any;
   value?: boolean;
@@ -20,6 +20,8 @@ interface SwitchProps extends SwitchExtraProps {
   showIcons?: boolean;
   LeftSlot?: SlotChildComponent;
   RightSlot?: SlotChildComponent;
+  onIcon?: SlotIconName;
+  offIcon?: SlotIconName;
   id?: string; //not used but maybe in future
   children?: ReactNode | FC | any | Element; //not used but maybe in future
   className?: string; //not used but maybe in future
@@ -31,5 +33,3 @@ interface SwitchProps extends SwitchExtraProps {
   onBlur?: (event: any, value: any, ...args: any[]) => void; //not used but maybe in future
   resetValue?: any; //not used but maybe in future
 }
-
-export { SwitchProps };

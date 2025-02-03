@@ -179,7 +179,7 @@ export default {
         },
         element: {
           paddingTop: Spacings.MD,
-          paddingBottom: Spacings.MD,
+          paddingBottom: Spacings.LG,
           paddingRight: Spacings.LG,
           paddingLeft: Spacings.LG,
         },

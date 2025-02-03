@@ -11,4 +11,4 @@ interface FormReference {
   hideErrors: () => void;
 }
 
-export default FormReference;
+export type { FormReference };

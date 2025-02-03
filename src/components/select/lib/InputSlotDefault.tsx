@@ -1,9 +1,9 @@
-import Slot from "src/components/slot";
-import { PhaselisHOC } from "src/components/provider";
-import { Text, View, Pressable } from "react-native";
+import type { InputSlotProps } from "../types";
+import { Text, View, Pressable, Platform } from "react-native";
 import stylesheet from "../assets/styles";
-import { InputSlotProps } from "../types";
-import { useCombinedStyle } from "src/hooks";
+import PhaselisHOC from "../../provider/lib/hoc";
+import { Slot } from "../../index";
+import { useCombinedStyle } from "../../../hooks";
 
 const InputSlotDefault = ({
   selectedItem,
@@ -45,8 +45,11 @@ const InputSlotDefault = ({
       style={{ flex: 1 }}
       disabled={disabled}
       onPress={() => {
-        refAndroidPicker.current?.focus(true);
-        refIOSPicker.current?.togglePicker(true);
+        const nativeFocusFunction = Platform.select({
+          ios: () => refIOSPicker.current?.togglePicker(true),
+          android: () => refAndroidPicker.current?.focus(true),
+        });
+        nativeFocusFunction?.();
         setShowPicker?.(true);
       }}
     >

@@ -21,6 +21,7 @@ import blockTheme from "./light/block-theme";
 import colTheme from "./light/col-theme";
 import rowTheme from "./light/row-theme";
 import listTheme from "./light/list-theme";
+import inputGroupTheme from "./light/inputGroup-theme";
 import { Spacings } from "./spacings";
 
 export const layeredComponents = ["tab"];
@@ -52,4 +53,5 @@ export const lightTheme = {
   ...colTheme,
   ...rowTheme,
   ...listTheme,
+  ...inputGroupTheme,
 };

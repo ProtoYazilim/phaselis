@@ -1,16 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
-import {
-  View,
-  ScrollView,
-  NativeScrollEvent,
-  NativeSyntheticEvent,
-} from "react-native";
-import { PhaselisHOC } from "src/components/provider";
-import { TabViewHeaderProps } from "./types";
+import type { TabViewHeaderProps } from "./types";
+import type { NativeScrollEvent, NativeSyntheticEvent } from "react-native";
+import { useEffect, useRef, useState } from "react";
+import { View, ScrollView } from "react-native";
+import PhaselisHOC from "../provider/lib/hoc";
+import { LucideIcon } from "../index";
 import TabHeaderItem from "./TabHeaderItem";
 import { tab_header_styles as stylesheet } from "./assets/styles";
-import { useCombinedStyle } from "src/hooks";
-import LucideIcon from "src/components/lucide-icon";
+import { useCombinedStyle } from "../../hooks";
 
 const elementComponents = {
   view: View,
@@ -76,7 +72,10 @@ const TabViewHeader = ({
       return newWidths;
     });
     if (data?.length === index + 1 && scrollable) {
-      const totalWidth = itemWidths.reduce((acc, width) => acc + width, 0);
+      const totalWidth = itemWidths.reduce(
+        (acc, itemWidth) => acc + itemWidth,
+        0,
+      );
       if (totalWidth > refScrollViewWidth.current) {
         setScrollEnabled(true);
       } else {

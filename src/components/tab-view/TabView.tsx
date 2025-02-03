@@ -1,15 +1,15 @@
-import React, { Children, useMemo, useState } from "react";
+import type { TabViewProps } from "./types";
+import { Children, useMemo, useState } from "react";
 import { View } from "react-native";
-import { PhaselisHOC } from "src/components/provider";
-import { TabViewProps } from "./types";
+import PhaselisHOC from "../provider/lib/hoc";
 import TabHeader from "./TabHeader";
 import { tab_view_styles as stylesheet } from "./assets/styles";
-import { useCombinedStyle } from "src/hooks";
+import { useCombinedStyle } from "../../hooks";
 
 const TabView = ({
   children,
   headerProps,
-  activeTab,
+  activeTab = 0,
   scrollable,
   contextValue,
   style,
@@ -23,6 +23,8 @@ const TabView = ({
       if (item && item.type && item.type.displayName === "TABITEM") {
         return {
           text: item.props.title,
+          leftIcon: item.props.leftIcon,
+          rightIcon: item.props.rightIcon,
         };
       }
     });

@@ -1,11 +1,11 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Text, View, TextInput, Pressable } from "react-native";
 import stylesheet from "./assets/styles";
-import { CheckboxProps } from "./types";
-import { PhaselisHOC } from "src/components/provider";
-import Slot from "src/components/slot";
-import { useCombinedStyle } from "src/hooks";
-import { InputHOC } from "src/utils/lib/hocs";
+import type { CheckboxProps } from "./types";
+import PhaselisHOC from "../provider/lib/hoc";
+import { Slot } from "../index";
+import { useCombinedStyle } from "../../hooks";
+import { InputHOC } from "../../utils";
 
 const Checkbox: React.FC<CheckboxProps> = (props) => {
   const {

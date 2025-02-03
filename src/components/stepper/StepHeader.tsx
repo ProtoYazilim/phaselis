@@ -1,10 +1,9 @@
-import React from "react";
+import type { StepHeaderProps } from "./types";
 import { View, Text } from "react-native";
-import { StepHeaderProps } from "./types";
 import { step_header_styles as stylesheet } from "./assets/styles";
-import LucideIcon from "src/components/lucide-icon";
-import { PhaselisHOC } from "src/components/provider";
-import { useCombinedStyle } from "src/hooks";
+import PhaselisHOC from "../provider/lib/hoc";
+import { LucideIcon } from "../index";
+import { useCombinedStyle } from "../../hooks";
 
 const StepHeader: React.FC<StepHeaderProps> = ({
   stepNum,

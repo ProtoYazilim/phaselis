@@ -1,9 +1,9 @@
-import React, { FC } from "react";
+import type { FC } from "react";
+import type { ColProps, GridSize } from "./types";
 import { View } from "react-native";
-import { PhaselisHOC } from "src/components/provider";
-import { ColProps, GridSize } from "./types";
+import PhaselisHOC from "../provider/lib/hoc";
 import stylesheet from "./assets/styles";
-import { useCombinedStyle } from "src/hooks";
+import { useCombinedStyle } from "../../hooks";
 
 const Col: FC<ColProps> = ({
   contextValue,
@@ -17,6 +17,7 @@ const Col: FC<ColProps> = ({
     stylesheet,
     { self: style },
     contextValue?.theme?.col,
+    "default",
     {
       size: String(size) as any,
       offset: String(offset) as any,
@@ -26,8 +27,8 @@ const Col: FC<ColProps> = ({
 
   return (
     <>
-      <View style={getCombinedStyle("self")}>{children}</View>
       {offset ? <View style={getCombinedStyle("offset")} /> : null}
+      <View style={getCombinedStyle("self")}>{children}</View>
     </>
   );
 };
@@ -35,4 +36,4 @@ const Col: FC<ColProps> = ({
 Col.displayName = "Column";
 
 export default PhaselisHOC<ColProps, ColExtraProps>(Col);
-export { GridSize };
+export type { GridSize };

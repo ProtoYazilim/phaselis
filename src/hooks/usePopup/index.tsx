@@ -1,14 +1,14 @@
 import {
   useState,
   createContext,
-  ReactNode,
+  type ReactNode,
   useContext,
   useCallback,
   useEffect,
   useId,
 } from "react";
-import Popup from "src/components/popup";
-import { SlotChildComponent, SlotIconName } from "../../types";
+import { Popup } from "../../components";
+import type { SlotChildComponent, SlotIconName } from "../../types";
 
 const PopupTitleIcon: Record<
   PopupType,
@@ -59,24 +59,26 @@ const PopupProvider = ({ children }: PopupProviderProps) => {
   const [popups, setPopups] = useState<PopupProps[]>([]);
   const updatePopupShow = useCallback(
     (id: string | undefined, value: "show" | "hide") => {
-      setPopups((popups) =>
-        popups.map((popup) =>
-          popup.id === id ? { ...popup, show: value } : popup
-        )
+      setPopups((prevPopups) =>
+        prevPopups.map((popup) =>
+          popup.id === id ? { ...popup, show: value } : popup,
+        ),
       );
     },
-    []
+    [],
   );
 
   const upgradePopup = useCallback(
     (id: string, updatedFields: Partial<PopupProps>) => {
-      setPopups((popups) =>
-        popups.map((popup) =>
-          popup.id === id ? { ...popup, ...updatedFields, id: popup.id } : popup
-        )
+      setPopups((prevPopups) =>
+        prevPopups.map((popup) =>
+          popup.id === id
+            ? { ...popup, ...updatedFields, id: popup.id }
+            : popup,
+        ),
       );
     },
-    [setPopups]
+    [setPopups],
   );
 
   return (
@@ -109,7 +111,7 @@ const PopupProvider = ({ children }: PopupProviderProps) => {
 const usePopup = (
   type: PopupType,
   initialContent: ReactNode,
-  extraProps?: PopupExtraProps
+  extraProps?: PopupExtraProps,
 ) => {
   const context = useContext(PopupContext);
   const tempId = useId();
@@ -135,7 +137,7 @@ const usePopup = (
         extraProps,
       });
     }
-  }, []);
+  }, [context, extraProps, initialContent, tempId, type]);
 
   const setShow = (value: "show" | "hide") => {
     context?.updatePopupShow(tempId, value);

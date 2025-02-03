@@ -1,10 +1,10 @@
 import React, { useMemo } from "react";
 import { View, Text } from "react-native";
 import stylesheet from "./assets/styles";
-import { BadgeProps } from "./types";
-import { useCombinedStyle } from "src/hooks";
-import Slot from "src/components/slot";
-import { PhaselisHOC } from "src/components/provider";
+import type { BadgeProps } from "./types";
+import { useCombinedStyle } from "../../hooks";
+import { Slot } from "../index";
+import PhaselisHOC from "../provider/lib/hoc";
 
 const Badge: React.FC<BadgeProps> = ({
   text,

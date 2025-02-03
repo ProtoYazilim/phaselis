@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
-import { TextStyle, ViewStyle } from "react-native";
-import { IconStyle, SlotIconName } from "../../types";
+import type { ReactNode } from "react";
+import type { TextStyle, ViewStyle } from "react-native";
+import type { IconStyle, SlotIconName } from "../../types";
 
 interface StepHeaderProps extends StepperExtraProps {
   stepCount: number;
@@ -99,4 +99,4 @@ interface ProgressStepsProps {
   }) => any;
 }
 
-export { StepHeaderProps, ProgressStepProps, ProgressStepsProps };
+export type { StepHeaderProps, ProgressStepProps, ProgressStepsProps };

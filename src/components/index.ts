@@ -6,13 +6,13 @@ export {
 } from "./accordion";
 export { default as Avatar } from "./avatar";
 export { default as Badge } from "./badge";
-export { default as Block } from "./block";
+export { default as Block, type ExtendedViewStyle } from "./block";
 export { default as BottomSheet } from "./bottom-sheet";
 export { default as Button } from "./button";
 export { default as Checkbox } from "./checkbox";
-export { default as Col, GridSize } from "./col";
+export { default as Col, type GridSize } from "./col";
 export { default as Datepicker } from "./datepicker";
-export { default as Form, FormContext, FormReference } from "./form";
+export { default as Form, FormContext, type FormReference } from "./form";
 export { default as Image } from "./image";
 export { default as InputGroup } from "./input-group";
 export { default as Label } from "./label";

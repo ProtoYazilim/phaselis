@@ -6,7 +6,7 @@ const stylesheet = createStyleSheet({
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
-    width: "100%",
+    flex: 1,
     variants: {
       disabled: {
         true: {},
@@ -35,7 +35,7 @@ const stylesheet = createStyleSheet({
   },
   // ELEMENT
   element: {
-    width: "100%",
+    flex: 1,
     minimumTrackTintColor: "blue",
     maximumTrackTintColor: "grey",
     thumbTintColor: "blue",

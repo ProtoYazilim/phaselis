@@ -1,6 +1,10 @@
-import { ReactNode } from "react";
-import { TextStyle, ViewStyle } from "react-native";
-import { IconStyle, SlotableLeftRightProps } from "../../types";
+import type { ReactNode } from "react";
+import type { TextStyle, ViewStyle } from "react-native";
+import type {
+  IconStyle,
+  SlotableLeftRightProps,
+  SlotIconName,
+} from "../../types";
 
 interface TabViewHeaderProps extends SlotableLeftRightProps, TabViewExtraProps {
   value?: boolean;
@@ -55,6 +59,13 @@ interface TabItemProps extends TabViewExtraProps {
     container?: ViewStyle;
   };
   title: string;
+  leftIcon?: SlotIconName;
+  rightIcon?: SlotIconName;
 }
 
-export { TabViewHeaderProps, TabHeaderItemProps, TabViewProps, TabItemProps };
+export type {
+  TabViewHeaderProps,
+  TabHeaderItemProps,
+  TabViewProps,
+  TabItemProps,
+};

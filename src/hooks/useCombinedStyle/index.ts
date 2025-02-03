@@ -79,7 +79,7 @@ const useCombinedStyle = <ST extends StyleSheetWithSuperPowers>(
           { ...pStyles },
         ];
       },
-    [defaultStyles, variantsMap, themeStyles, style],
+    [defaultStyles, variantsMap, themeStyles, propStyle],
   );
 
   const getFlattenStyle = useMemo(
@@ -97,7 +97,7 @@ const useCombinedStyle = <ST extends StyleSheetWithSuperPowers>(
           { ...pStyles },
         ]);
       },
-    [defaultStyles, variantsMap, themeStyles, style],
+    [defaultStyles, variantsMap, themeStyles, propStyle],
   );
 
   return {

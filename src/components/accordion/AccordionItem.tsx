@@ -1,12 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { View } from "react-native";
 import AccordionHeader from "./AccordionHeader";
 import AccordionContent from "./AccordionContent";
 import { stylesheet_item as stylesheet } from "./assets/styles";
-import { AccordionItemProps } from "./types";
+import type { AccordionItemProps } from "./types";
 import { AccordionContext } from "./Accordion";
-import { PhaselisHOC } from "src/components/provider";
-import { useCombinedStyle } from "src/hooks";
+import PhaselisHOC from "../provider/lib/hoc";
+import { useCombinedStyle } from "../../hooks";
 
 function AccordionItem({
   style,
@@ -43,7 +43,7 @@ function AccordionItem({
     if (inContext && expand && accordionContext?.expandMode === "single") {
       accordionContext?.addToExapandedIndex?.(index);
     }
-  }, []);
+  }, [accordionContext, expand, inContext, index]);
 
   useEffect(() => {
     if (
@@ -54,7 +54,7 @@ function AccordionItem({
       return;
     }
     setExpanded(accordionContext?.expandedIndex?.includes(index) || false);
-  }, [accordionContext?.expandedIndex, index]);
+  }, [accordionContext, accordionContext?.expandedIndex, inContext, index]);
 
   return (
     <View style={getCombinedStyle("container")}>

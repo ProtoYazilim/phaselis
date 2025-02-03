@@ -1,8 +1,8 @@
+import type { NoOptionSlotProps } from "../types";
 import { View, Text } from "react-native";
 import { stylesheet_picker_no_option } from "../assets/styles";
-import { PhaselisHOC } from "src/components/provider";
-import { NoOptionSlotProps } from "../types";
-import { useCombinedStyle } from "src/hooks";
+import PhaselisHOC from "../../provider/lib/hoc";
+import { useCombinedStyle } from "../../../hooks";
 
 const NoOptionSlotDefault = ({
   text = "No option avaliable.",

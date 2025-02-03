@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import type { SwitchProps } from "./types";
+import { useEffect, useRef, useState } from "react";
 import { Pressable, View, Animated, Easing } from "react-native";
-import { SwitchProps } from "./types";
-import { PhaselisHOC } from "src/components/provider";
+import PhaselisHOC from "../provider/lib/hoc";
+import { LucideIcon } from "../index";
 import stylesheet from "./assets/styles";
-import { useCombinedStyle } from "src/hooks";
-import { InputHOC } from "src/utils/lib/hocs";
-import LucideIcon from "src/components/lucide-icon";
+import { useCombinedStyle } from "../../hooks";
+import { InputHOC } from "../../utils";
 
 const Switch = ({
   value = false,
@@ -17,7 +17,9 @@ const Switch = ({
   showIcons,
   LeftSlot,
   RightSlot,
-  variation = "default",
+  onIcon = "Check",
+  offIcon = "X",
+  variation = "primary",
   ...extraProps
 }: SwitchProps) => {
   const [innerValue, setInnerValue] = useState(value);
@@ -59,7 +61,7 @@ const Switch = ({
       easing: Easing.quad,
       useNativeDriver: false, // Make sure to useNativeDriver for performance in animations
     }).start();
-  }, [innerValue, animatedValue]);
+  }, [innerValue, animatedValue, duration]);
 
   const trackAnimatedStyle = {
     backgroundColor: animatedValue.interpolate({
@@ -78,7 +80,7 @@ const Switch = ({
         {
           translateX: animatedValue.interpolate({
             inputRange: [0, 1],
-            outputRange: [6, 56],
+            outputRange: [0, 44],
           }),
         },
         {
@@ -120,12 +122,12 @@ const Switch = ({
           {showIcons && (
             <>
               <LucideIcon
-                name="Check"
+                name={onIcon}
                 size="lg"
                 style={getCombinedStyle("leftIcon")}
               />
               <LucideIcon
-                name="X"
+                name={offIcon}
                 size="lg"
                 style={getCombinedStyle("rightIcon")}
               />

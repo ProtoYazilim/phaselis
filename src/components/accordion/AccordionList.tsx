@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { View, FlatList } from "react-native";
-import { AccordionListProps } from "./types";
+import type { AccordionListProps } from "./types";
 import { useStyles } from "react-native-unistyles";
 import { stylesheet_list as stylesheet } from "./assets/styles";
 import AccordionItem from "./AccordionItem";
-import { PhaselisHOC } from "src/components/provider";
+import PhaselisHOC from "../provider/lib/hoc";
 
 const AccordionList = ({
   onChange,

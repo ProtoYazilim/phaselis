@@ -1,4 +1,6 @@
-import React, { FC, useEffect } from "react";
+import type { FC } from "react";
+import type { PopupProps } from "./types";
+import { useEffect } from "react";
 import {
   Pressable,
   View,
@@ -8,10 +10,9 @@ import {
   StyleSheet,
 } from "react-native";
 import stylesheet from "./assets/styles";
-import { PhaselisHOC } from "src/components/provider";
-import Slot from "src/components/slot";
-import { PopupProps } from "./types";
-import useCombinedStyle from "src/hooks/useCombinedStyle";
+import PhaselisHOC from "../provider/lib/hoc";
+import { Slot } from "../index";
+import { useCombinedStyle } from "../../hooks";
 
 const Popup: FC<PopupProps> = ({
   show,
@@ -47,6 +48,7 @@ const Popup: FC<PopupProps> = ({
         onClose?.(); // Close modal after animation completes
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [show, duration]);
 
   const backdropStyle = {

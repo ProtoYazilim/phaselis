@@ -47,9 +47,9 @@ const analyzeVariants = (
     const value = obj[key];
 
     if (value && typeof value === "object") {
-      Object.keys(value).forEach((key) => {
-        if (!key.startsWith("_")) {
-          variations.add(key);
+      Object.keys(value).forEach((k) => {
+        if (!k.startsWith("_")) {
+          variations.add(k);
         }
       });
       if (value.variants) {
@@ -62,8 +62,10 @@ const analyzeVariants = (
           if (variant.hasOwnProperty("true")) {
             aggregatedVariants[variantKey].add("boolean");
           } else if (typeof variant === "object") {
-            Object.keys(variant).forEach((key) => {
-              aggregatedVariants[variantKey].add(`"${key}"`);
+            Object.keys(variant).forEach((k) => {
+              if (aggregatedVariants[variantKey]) {
+                aggregatedVariants[variantKey].add(`"${k}"`);
+              }
             });
           }
         });
@@ -101,7 +103,9 @@ const generateInterfacesContent = (components: { [key: string]: any }) => {
 
     // Varyantları dosyaya ekle
     Object.keys(aggregatedVariants).forEach((variantKey) => {
-      const types = Array.from(aggregatedVariants[variantKey]).join(" | ");
+      const types = aggregatedVariants[variantKey]
+        ? Array.from(aggregatedVariants[variantKey]).join(" | ")
+        : "";
       content += `  ${variantKey}?: ${types};\n`;
     });
 
@@ -132,19 +136,19 @@ const watchThemeFolder = () => {
   const watcher = chokidar.watch(themeFolderPath, {
     persistent: true,
     ignoreInitial: true,
-  });
+  }) as unknown as chokidar.FSWatcher & { on: Function };
 
-  watcher.on("change", (filePath) => {
+  watcher.on("change", (filePath: any) => {
     console.log(`Detected change in ${filePath}. Regenerating global.d.ts...`);
     generateInterfaceFile();
   });
 
-  watcher.on("add", (filePath) => {
+  watcher.on("add", (filePath: any) => {
     console.log(`Detected new file ${filePath}. Regenerating global.d.ts...`);
     generateInterfaceFile();
   });
 
-  watcher.on("unlink", (filePath) => {
+  watcher.on("unlink", (filePath: any) => {
     console.log(
       `Detected file removal ${filePath}. Regenerating global.d.ts...`,
     );

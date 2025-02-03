@@ -1,4 +1,4 @@
-import { ComponentSize, SlotIconName } from "../../types";
+import type { ComponentSize, SlotIconName } from "../../types";
 
 export interface LucideIconProps {
   name?: SlotIconName;

@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import { Text } from "react-native";
 
 export const hasValue = (value: any) => {

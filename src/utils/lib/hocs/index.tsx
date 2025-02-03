@@ -1,16 +1,15 @@
-/* eslint-disable react/display-name */
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef, forwardRef, useContext } from "react";
 import hoistNonReactStatics from "hoist-non-react-statics";
-import FormContext from "src/components/form/context";
+import { FormContext } from "../../../components/index";
 
 export const InputHOC = <P extends React.PropsWithRef<any>>(
   WrappedComponent: React.ComponentType<P>,
 ): React.ForwardRefExoticComponent<P & React.RefAttributes<any>> => {
-  const ConsumedComponent = React.forwardRef<
+  const ConsumedComponent = forwardRef<
     any,
     P & { name?: string; partofform?: boolean; onChange: any; onBlur: any }
   >((props, ref) => {
-    const formContext = React.useContext(FormContext);
+    const formContext = useContext(FormContext);
 
     const prevProps = useRef(props);
 
@@ -24,6 +23,7 @@ export const InputHOC = <P extends React.PropsWithRef<any>>(
           formContext?.unRegisterComponent?.(props.name || "");
         }
       };
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
@@ -46,6 +46,7 @@ export const InputHOC = <P extends React.PropsWithRef<any>>(
       });
       // Update previous props with current props for next comparison
       prevProps.current = props;
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props]);
 
     const onChangeInput = (event: any, value: any, ...args: any[]): any => {

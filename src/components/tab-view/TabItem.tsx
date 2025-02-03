@@ -1,8 +1,8 @@
-import { PhaselisHOC } from "src/components/provider";
+import type { TabItemProps } from "./types";
+import PhaselisHOC from "../provider/lib/hoc";
 import { View } from "react-native";
-import { TabItemProps } from "./types";
 import { tab_item_styles as stylesheet } from "./assets/styles";
-import { useCombinedStyle } from "src/hooks";
+import { useCombinedStyle } from "../../hooks";
 
 const TabItem = ({
   children,

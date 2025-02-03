@@ -1,9 +1,8 @@
-import React from "react";
+import type { ListProps } from "./types";
 import { FlatList as NativeFlatList } from "react-native";
-import { PhaselisHOC } from "src/components/provider";
+import PhaselisHOC from "../provider/lib/hoc";
 import stylesheet from "./assets/styles";
-import { ListProps } from "./types";
-import { useCombinedStyle } from "src/hooks";
+import { useCombinedStyle } from "../../hooks";
 
 const List = ({
   data,

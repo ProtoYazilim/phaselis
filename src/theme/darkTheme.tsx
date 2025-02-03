@@ -338,7 +338,7 @@ export const darkTheme = {
     extraStyleContainer: (
       disabled: boolean,
       outline: boolean,
-      primary: boolean,
+      _primary: boolean,
       secondary: boolean,
       tertiary: boolean,
     ) => {

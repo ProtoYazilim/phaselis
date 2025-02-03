@@ -1,7 +1,8 @@
-import React, { FC, useMemo } from "react";
+import type { FC } from "react";
+import type { BlockProps } from "./types";
+import { useMemo } from "react";
 import { View } from "react-native";
-import { PhaselisHOC } from "src/components/provider";
-import { BlockProps } from "./types";
+import PhaselisHOC from "../provider/lib/hoc";
 import LinearGradient from "react-native-linear-gradient";
 import { ShadowedView, shadowStyle } from "react-native-fast-shadow";
 

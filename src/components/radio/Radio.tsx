@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import type { RadioProps } from "./types";
+import { useState, useEffect, useContext, useRef } from "react";
 import { Text, Pressable, Animated, StyleSheet } from "react-native";
 import RadioContext from "./context";
-import { RadioProps } from "./types";
 import stylesheet from "./assets/styles";
-import Block from "src/components/block";
-import { PhaselisHOC } from "src/components/provider";
-import { useCombinedStyle } from "src/hooks";
+import PhaselisHOC from "../provider/lib/hoc";
+import { Block } from "../index";
+import { useCombinedStyle } from "../../hooks";
 
 const Radio = ({
   text,

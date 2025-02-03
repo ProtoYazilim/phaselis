@@ -1,7 +1,7 @@
-import { ViewStyle } from "react-native";
-import { FC, ReactNode } from "react";
+import type { ViewStyle } from "react-native";
+import type { FC, ReactNode } from "react";
 
-interface RowProps {
+export interface RowProps {
   id?: string;
   children?: ReactNode | FC | any | Element;
   disabled?: boolean;
@@ -10,5 +10,3 @@ interface RowProps {
   contextValue?: any;
   style?: ViewStyle;
 }
-
-export { RowProps };

@@ -1,11 +1,11 @@
-import {
+import type {
   GestureResponderEvent,
   PressableProps,
   TextStyle,
   ViewStyle,
 } from "react-native";
-import { ReactNode } from "react";
-import { SlotableLeftRightProps } from "../../types";
+import type { ReactNode } from "react";
+import type { SlotableLeftRightProps } from "../../types";
 
 export interface ButtonPropTypes
   extends SlotableLeftRightProps,

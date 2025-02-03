@@ -9,7 +9,7 @@ const tab_view_styles = createStyleSheet({
     variants: {},
   },
   element: {
-    minHeight: 200,
+    minHeight: 100,
     variants: {},
   },
 });

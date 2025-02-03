@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
-import { ViewStyle } from "react-native";
+import type { ReactNode } from "react";
+import type { ViewStyle } from "react-native";
 
-interface InputGroupProps {
+export interface InputGroupProps {
   children: ReactNode;
   label: string;
   required?: boolean;
@@ -10,5 +10,3 @@ interface InputGroupProps {
     container?: ViewStyle;
   };
 }
-
-export default InputGroupProps;

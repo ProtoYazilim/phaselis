@@ -1,7 +1,7 @@
-import { ReactElement } from "react";
-import { ComponentSize, SlotIconName } from "../../types";
+import type { ReactElement } from "react";
+import type { ComponentSize, SlotIconName } from "../../types";
 
-interface SlotProps {
+export interface SlotProps {
   children?: ReactElement;
   icon?: SlotIconName;
   style?: any;
@@ -13,5 +13,3 @@ interface SlotProps {
   height?: number;
   loading?: boolean;
 }
-
-export default SlotProps;

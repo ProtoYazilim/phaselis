@@ -1,4 +1,4 @@
-import { UnistylesValues } from "react-native-unistyles";
+import type { UnistylesValues } from "react-native-unistyles";
 import { lightTheme } from "./lightTheme";
 import { Colors } from "./colors";
 import { Spacings } from "./spacings";

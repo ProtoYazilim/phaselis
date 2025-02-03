@@ -1,6 +1,6 @@
-import { FC, ReactNode } from "react";
-import { TextStyle, ViewStyle } from "react-native";
-import {
+import type { FC, ReactNode } from "react";
+import type { TextStyle, ViewStyle } from "react-native";
+import type {
   IconStyle,
   InputControlProps,
   SlotChildComponent,

@@ -1,6 +1,6 @@
-import { TextStyle, ViewStyle } from "react-native";
-import { ReactElement, ReactNode } from "react";
-import { ComponentSize, IconStyle, SlotIconName } from "../../types";
+import type { TextStyle, ViewStyle } from "react-native";
+import type { ReactElement, ReactNode } from "react";
+import type { ComponentSize, IconStyle, SlotIconName } from "../../types";
 
 interface AccordionHeaderProps extends AccordionExtraProps {
   style?: {
@@ -56,7 +56,7 @@ interface AccordionProps {
   children?: ReactElement | ReactElement[];
 }
 
-export {
+export type {
   AccordionHeaderProps,
   AccordionProps,
   AccordionItemProps,

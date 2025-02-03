@@ -6,8 +6,6 @@ export default {
     default: {
       container: {},
       track: {
-        width: 104,
-        height: 40,
         onColor: Colors.Primary[500],
         offColor: Colors.Gray[300],
         variants: {

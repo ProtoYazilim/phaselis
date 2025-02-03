@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
-import { TextStyle, ViewStyle } from "react-native";
-import { SlotIconName } from "../../types";
+import type { ReactNode } from "react";
+import type { TextStyle, ViewStyle } from "react-native";
+import type { SlotIconName } from "../../types";
 
 export interface BadgeProps extends BadgeExtraProps {
   text?: string;

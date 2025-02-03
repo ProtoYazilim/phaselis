@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
-import { TextStyle, ViewStyle } from "react-native";
-import { IconStyle, SlotIconName } from "../../types";
+import type { ReactNode } from "react";
+import type { TextStyle, ViewStyle } from "react-native";
+import type { IconStyle, SlotIconName } from "../../types";
 
 export interface AvatarProps extends AvatarExtraProps {
   id?: string;

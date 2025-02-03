@@ -1,10 +1,10 @@
+import type { HeaderSlotProps, CloseIconSlotProps } from "../types";
 import { View, Text, Pressable } from "react-native";
 import { stylesheet_picker_header } from "../assets/styles";
-import { HeaderSlotProps, CloseIconSlotProps } from "../types";
-import Slot from "src/components/slot";
-import { PhaselisHOC } from "src/components/provider";
-import { useCombinedStyle } from "src/hooks";
-import { cloneSlot } from "src/utils";
+import PhaselisHOC from "../../provider/lib/hoc";
+import { Slot } from "../../index";
+import { useCombinedStyle } from "../../../hooks";
+import { cloneSlot } from "../../../utils";
 
 const CloseIconSlotDefault = ({
   setShowPicker,
@@ -30,7 +30,7 @@ const CloseIconSlotDefault = ({
           icon={closeIcon as any}
           size={closeIconSize}
           strokeWidth={3}
-        ></Slot>
+        />
       </View>
     </Pressable>
   );

@@ -1,7 +1,7 @@
-import { ComponentType, FC, ReactNode, RefObject } from "react";
-import { StyleProp, TextStyle, ViewStyle } from "react-native";
-import ReactNativePickerSelect from "react-native-picker-select";
-import {
+import type { ComponentType, FC, ReactNode, RefObject } from "react";
+import type { StyleProp, TextStyle, ViewStyle } from "react-native";
+import type ReactNativePickerSelect from "react-native-picker-select";
+import type {
   ComponentSize,
   InputControlProps,
   SlotChildComponent,

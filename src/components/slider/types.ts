@@ -1,8 +1,8 @@
-import { FC, ReactNode } from "react";
-import { ViewStyle } from "react-native";
-import { ComponentSize, InputControlProps } from "../../types";
+import type { FC, ReactNode } from "react";
+import type { ViewStyle } from "react-native";
+import type { ComponentSize, InputControlProps } from "../../types";
 
-interface SliderProps
+export interface SliderProps
   extends Omit<InputControlProps<number, any, any>, "error">,
     SliderExtraProps {
   contextValue?: any;
@@ -22,5 +22,3 @@ interface SliderProps
   children?: ReactNode | FC | any | Element; //not used but maybe in the future
   className?: string; //not used but maybe in the future
 }
-
-export { SliderProps };

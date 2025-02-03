@@ -26,6 +26,8 @@ package/
 
 # dependencies
 node_modules/
+.yarn/
+.pnp.*
 
 # Expo
 .expo/

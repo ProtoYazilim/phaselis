@@ -10,6 +10,7 @@ const stylesheet = createStyleSheet({
   track: {
     // STYLES
     alignItems: "flex-start",
+    width: 86,
     height: 40,
     padding: 5,
     onColor: "green",
@@ -23,7 +24,6 @@ const stylesheet = createStyleSheet({
   },
   thumb: {
     // STYLES
-    height: "100%",
     padding: 10,
     aspectRatio: 1,
     alignItems: "center",

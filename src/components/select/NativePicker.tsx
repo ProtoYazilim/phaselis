@@ -1,9 +1,9 @@
-import React, { useMemo } from "react";
+import type { NativePickerProps } from "./types";
+import { useMemo } from "react";
 import ReactNativePickerSelect from "react-native-picker-select";
-import { PhaselisHOC } from "src/components/provider";
+import PhaselisHOC from "../provider/lib/hoc";
 import stylesheet from "./assets/styles";
-import { NativePickerProps } from "./types";
-import { useCombinedStyle } from "src/hooks";
+import { useCombinedStyle } from "../../hooks";
 
 const NativePicker: React.FC<NativePickerProps> = ({
   refIOSPicker,

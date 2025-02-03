@@ -1,5 +1,5 @@
-import { TextStyle, ViewStyle } from "react-native";
-import { ReactNode, FC } from "react";
+import type { TextStyle, ViewStyle } from "react-native";
+import type { ReactNode, FC } from "react";
 import { icons } from "lucide-react-native";
 
 export interface InputControlProps<
@@ -52,8 +52,8 @@ export type SlotIconName = keyof typeof icons;
 export interface SlotableLeftRightProps {
   LeftSlot?: SlotChildComponent;
   RightSlot?: SlotChildComponent;
-  leftIcon?: SlotIconName | undefined;
-  rightIcon?: SlotIconName | undefined;
+  leftIcon?: SlotIconName;
+  rightIcon?: SlotIconName;
 }
 
 export type SlotChildComponent = ({

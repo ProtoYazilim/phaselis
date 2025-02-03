@@ -1,10 +1,8 @@
-import React from "react";
 import { View, Image as NativeImage, ImageBackground } from "react-native";
-
-import { ImageProps } from "./types";
-import { PhaselisHOC } from "src/components/provider";
+import type { ImageProps } from "./types";
+import PhaselisHOC from "../provider/lib/hoc";
 import stylesheet from "./assets/styles";
-import { useCombinedStyle } from "src/hooks";
+import { useCombinedStyle } from "../../hooks";
 
 const Image = ({
   style,

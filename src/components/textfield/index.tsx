@@ -1,21 +1,18 @@
-import React, { useState, useRef, useMemo } from "react";
-import {
+import type { TextfieldProps } from "./types";
+import type {
   NativeSyntheticEvent,
-  Platform,
-  TextInput,
   TextInputChangeEventData,
   TextInputFocusEventData,
   TextInputKeyPressEventData,
 } from "react-native";
+import { useState, useRef, useMemo } from "react";
+import { Platform, TextInput } from "react-native";
 import stylesheet from "./assets/styles";
-import Block from "src/components/block";
-import Slot from "src/components/slot";
-import { PhaselisHOC } from "src/components/provider";
-import { TextfieldProps } from "./types";
+import PhaselisHOC from "../provider/lib/hoc";
+import { Block, Slot } from "../index";
 import { useMaskedInputProps } from "react-native-mask-input";
-import { validateText } from "src/utils";
-import { useCombinedStyle } from "src/hooks";
-import { InputHOC } from "src/utils/lib/hocs";
+import { validateText, InputHOC } from "../../utils";
+import { useCombinedStyle } from "../../hooks";
 
 const Textfield: React.FC<TextfieldProps> = ({
   error,

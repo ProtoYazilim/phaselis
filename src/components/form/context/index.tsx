@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
-const FormContext = createContext<{
+export const FormContext = createContext<{
   registerComponent: any;
   unRegisterComponent: (name: string) => void;
   formId: string;
@@ -21,5 +21,3 @@ const FormContext = createContext<{
   handleComponentBlur: () => {},
   updateComponentProps: null,
 });
-
-export default FormContext;

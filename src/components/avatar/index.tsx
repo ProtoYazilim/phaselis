@@ -1,10 +1,10 @@
-import { FC } from "react";
-import { AvatarProps } from "./types";
+import type { FC } from "react";
+import type { AvatarProps } from "./types";
 import stylesheet from "./assets/styles";
 import { View, Text, Image } from "react-native";
 import LucideIcon from "../lucide-icon";
-import { PhaselisHOC } from "src/components/provider";
-import useCombinedStyle from "src/hooks/useCombinedStyle";
+import PhaselisHOC from "../provider/lib/hoc";
+import { useCombinedStyle } from "../../hooks";
 
 const sizeIconSizeLiteral = {
   xxs: 16,

@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
-import { ImagePropsBase, ViewStyle } from "react-native";
+import type { ReactNode } from "react";
+import type { ImagePropsBase, ViewStyle } from "react-native";
 
-interface ImageProps extends ImagePropsBase, ImageExtraProps {
+export interface ImageProps extends ImagePropsBase, ImageExtraProps {
   style?: {
     container?: ViewStyle;
     element?: ViewStyle;
@@ -10,5 +10,3 @@ interface ImageProps extends ImagePropsBase, ImageExtraProps {
   background?: boolean;
   children?: ReactNode;
 }
-
-export { ImageProps };

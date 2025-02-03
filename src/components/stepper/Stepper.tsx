@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useMemo } from "react";
+import type { ProgressStepsProps } from "./types";
+import type { FC } from "react";
+import { useState, useEffect, useMemo, Children, cloneElement } from "react";
 import { View } from "react-native";
 import { times } from "lodash";
 import StepHeader from "./StepHeader";
-import { ProgressStepsProps } from "./types";
 
-const ProgressSteps: React.FC<ProgressStepsProps> = ({
+const ProgressSteps: FC<ProgressStepsProps> = ({
   isComplete = false,
   activeStep = 0,
   children,
@@ -22,10 +23,10 @@ const ProgressSteps: React.FC<ProgressStepsProps> = ({
     { x: number; y: number }[]
   >([]);
 
-  const childrenArray = React.Children.toArray(children);
+  const childrenArray = Children.toArray(children);
 
   useEffect(() => {
-    setStepCount(React.Children.count(children));
+    setStepCount(Children.count(children));
   }, [children]);
 
   useEffect(() => {
@@ -79,7 +80,7 @@ const ProgressSteps: React.FC<ProgressStepsProps> = ({
   };
 
   const disabledStepsIndexes = useMemo(() => {
-    return React.Children.map(children, (child, index) => {
+    return Children.map(children, (child, index) => {
       if ((child as React.ReactElement<{ disabled: boolean }>).props.disabled) {
         return index;
       }
@@ -122,7 +123,7 @@ const ProgressSteps: React.FC<ProgressStepsProps> = ({
         {renderHeader()}
       </View>
       <View>
-        {React.cloneElement(childrenArray[currentStep] as React.ReactElement, {
+        {cloneElement(childrenArray[currentStep] as React.ReactElement, {
           setActiveStep: setCurrentStep,
           activeStep: currentStep,
           stepCount,

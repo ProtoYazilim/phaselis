@@ -1,10 +1,9 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, Children } from "react";
 import { View, Text } from "react-native";
 import stylesheet from "./assets/styles";
-import InputGroupProps from "./types";
-import FormContext from "src/components/form/context";
-import { useCombinedStyle } from "src/hooks";
+import type { InputGroupProps } from "./types";
+import { FormContext } from "../index";
+import { useCombinedStyle } from "../../hooks";
 
 const InputGroup: React.FC<InputGroupProps> = ({
   label,
@@ -17,7 +16,7 @@ const InputGroup: React.FC<InputGroupProps> = ({
 
   const formContext = useContext(FormContext);
 
-  const { name } = (React.Children.only(children) as React.ReactElement).props;
+  const { name } = (Children.only(children) as React.ReactElement).props;
 
   useEffect(() => {
     if (
@@ -29,11 +28,7 @@ const InputGroup: React.FC<InputGroupProps> = ({
     } else {
       setError("");
     }
-  }, [
-    formContext?.meta?.[name]?.isChanged,
-    formContext?.meta?.[name]?.isUsed,
-    formContext?.meta?.[name]?.error,
-  ]);
+  }, [formContext?.meta, name]);
 
   useEffect(() => {
     if (formContext?.meta?.[name]?.disabled) {
@@ -41,7 +36,7 @@ const InputGroup: React.FC<InputGroupProps> = ({
     } else {
       setDisabled(false);
     }
-  }, [formContext?.meta?.[name]?.disabled]);
+  }, [formContext?.meta, name]);
 
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,

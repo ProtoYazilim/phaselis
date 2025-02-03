@@ -1,9 +1,10 @@
-import React, { FC } from "react";
+import type { FC } from "react";
+import type { LabelProps } from "./types";
+import { Children } from "react";
 import { View, Text } from "react-native";
 import stylesheet from "./assets/styles";
-import { PhaselisHOC } from "src/components/provider";
-import { LabelProps } from "./types";
-import { useCombinedStyle } from "src/hooks";
+import PhaselisHOC from "../provider/lib/hoc";
+import { useCombinedStyle } from "../../hooks";
 
 const Label: FC<LabelProps> = (props) => {
   const {
@@ -34,7 +35,7 @@ const Label: FC<LabelProps> = (props) => {
         minimumFontScale={minimumFontScale}
       >
         {children ? (
-          React.Children.map(children, (child, index) => {
+          Children.map(children, (child, index) => {
             if (typeof child === "string") {
               return (
                 <Text key={index} style={getCombinedStyle("text")}>

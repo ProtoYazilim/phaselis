@@ -1,6 +1,5 @@
-import React from "react";
+import type { ProgressStepProps } from "./types";
 import { View, ScrollView } from "react-native";
-import { ProgressStepProps } from "./types";
 
 const ProgressStep: React.FC<ProgressStepProps> = ({
   onNext,

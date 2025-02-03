@@ -1,9 +1,9 @@
-import React, { FC } from "react";
+import type { FC } from "react";
+import type { RowProps } from "./types";
 import { View } from "react-native";
-import { PhaselisHOC } from "src/components/provider";
-import { RowProps } from "./types";
+import PhaselisHOC from "../provider/lib/hoc";
 import stylesheet from "./assets/styles";
-import { useCombinedStyle } from "src/hooks";
+import { useCombinedStyle } from "../../hooks";
 
 const Row: FC<RowProps> = ({
   contextValue,
@@ -15,6 +15,7 @@ const Row: FC<RowProps> = ({
     stylesheet,
     { self: style },
     contextValue?.theme?.row,
+    "default",
     {
       ...extraProps,
     },

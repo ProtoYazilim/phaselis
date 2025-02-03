@@ -1,8 +1,8 @@
-import { PressableProps, ViewStyle } from "react-native";
-import { StyleProp, TextStyle } from "react-native";
-import { IconStyle, SlotableLeftRightProps } from "../../types";
+import type { PressableProps, ViewStyle } from "react-native";
+import type { StyleProp, TextStyle } from "react-native";
+import type { IconStyle, SlotableLeftRightProps } from "../../types";
 
-interface LinkProps
+export interface LinkProps
   extends SlotableLeftRightProps,
     LinkExtraProps,
     Omit<PressableProps, "style"> {
@@ -22,5 +22,3 @@ interface LinkProps
   href?: string;
   canOpenURL?: boolean;
 }
-
-export { LinkProps };

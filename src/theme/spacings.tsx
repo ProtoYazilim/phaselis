@@ -1,4 +1,4 @@
-import { ComponentSize } from "../types";
+import type { ComponentSize } from "../types";
 
 type SpacingsType = {
   [key in Uppercase<ComponentSize>]: number;

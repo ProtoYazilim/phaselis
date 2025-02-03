@@ -1,5 +1,5 @@
-import { FC, ReactNode } from "react";
-import { InputControlProps } from "../../types";
+import type { FC, ReactNode } from "react";
+import type { InputControlProps } from "../../types";
 
 interface FormInputComponentGenericProps
   extends InputControlProps<any, any, any> {
@@ -25,4 +25,4 @@ interface FormProps {
   [key: string]: any;
 }
 
-export { FormInputComponentGenericProps, FormProps };
+export type { FormInputComponentGenericProps, FormProps };

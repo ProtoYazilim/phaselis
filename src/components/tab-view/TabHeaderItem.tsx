@@ -1,10 +1,10 @@
-import React, { useMemo } from "react";
+import type { TabHeaderItemProps } from "./types";
+import { useMemo } from "react";
 import { Pressable, Text } from "react-native";
-import { PhaselisHOC } from "src/components/provider";
-import { TabHeaderItemProps } from "./types";
+import PhaselisHOC from "../provider/lib/hoc";
+import { Slot } from "../index";
 import { tab_header_item_styles as stylesheet } from "./assets/styles";
-import { useCombinedStyle } from "src/hooks";
-import Slot from "src/components/slot";
+import { useCombinedStyle } from "../../hooks";
 
 const TabHeaderItem = ({
   activeTabIndex,
@@ -48,11 +48,17 @@ const TabHeaderItem = ({
         handleOnPress?.(index);
       }}
     >
-      <Slot style={getCombinedStyle("leftSlot")} icon={leftIcon}>
+      <Slot
+        style={getCombinedStyle("leftSlot")}
+        icon={item?.leftIcon || leftIcon}
+      >
         {LeftSlot && <LeftSlot />}
       </Slot>
       <Text style={getCombinedStyle("text")}>{item.text}</Text>
-      <Slot style={getCombinedStyle("rightSlot")} icon={rightIcon}>
+      <Slot
+        style={getCombinedStyle("rightSlot")}
+        icon={item?.rightIcon || rightIcon}
+      >
         {RightSlot && <RightSlot />}
       </Slot>
     </Pressable>

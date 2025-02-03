@@ -1,7 +1,8 @@
+import type { LucideIconProps } from "./types";
+import type { FC } from "react";
 import { icons } from "lucide-react-native";
-import React, { FC, useMemo } from "react";
+import { useMemo } from "react";
 import { StyleSheet } from "react-native";
-import { LucideIconProps } from "./types";
 
 export const LucideIcon: FC<LucideIconProps> = ({
   name,
@@ -14,7 +15,6 @@ export const LucideIcon: FC<LucideIconProps> = ({
   onPress,
 }) => {
   // @ts-ignore
-  // eslint-disable-next-line import/namespace
   const GenericIcon = icons[name];
 
   const combinedStyles = StyleSheet.flatten(style);

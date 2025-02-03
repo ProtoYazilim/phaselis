@@ -1,7 +1,7 @@
-import React, { Children, cloneElement, useState } from "react";
-import { AccordionProps } from "./types";
+import type { AccordionProps } from "./types";
+import { useState, Children, cloneElement } from "react";
 import { createContext } from "react";
-import { PhaselisHOC } from "src/components/provider";
+import PhaselisHOC from "../provider/lib/hoc";
 
 const AccordionContext = createContext<{
   onChange: (value: any, index: number) => void;

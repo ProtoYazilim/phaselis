@@ -1,18 +1,18 @@
-import {
+import type {
+  ComponentSize,
+  IconStyle,
+  InputControlProps,
+  SlotableLeftRightProps,
+} from "../../types";
+import type {
   NativeSyntheticEvent,
   TextInputChangeEventData,
   TextInputFocusEventData,
   TextInputProps,
   ViewStyle,
 } from "react-native";
-import { FC, ReactNode } from "react";
-import { Mask } from "react-native-mask-input";
-import {
-  ComponentSize,
-  IconStyle,
-  InputControlProps,
-  SlotableLeftRightProps,
-} from "../../types";
+import type { FC, ReactNode } from "react";
+import type { Mask } from "react-native-mask-input";
 
 export interface TextfieldProps
   extends SlotableLeftRightProps,

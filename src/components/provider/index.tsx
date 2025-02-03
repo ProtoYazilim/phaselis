@@ -1,7 +1,6 @@
-import React from "react";
+import type { PhaselisProviderProps, Breakpoints } from "./types";
 import Context from "./lib/context";
 import PhaselisHOC from "./lib/hoc";
-import { PhaselisProviderProps, Breakpoints } from "./types";
 import { useTheme, useColors, useSpacings } from "./lib/hooks";
 
 const defaultBreakpoints: Breakpoints = {

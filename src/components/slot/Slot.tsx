@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import SlotProps from "./types";
+import type { SlotProps } from "./types";
 import { Animated, Easing } from "react-native";
-import LucideIcon from "src/components/lucide-icon";
+import { LucideIcon } from "../index";
 
 const Slot: React.FC<SlotProps> = ({
   children,

@@ -1,6 +1,6 @@
-import { FlatListProps, ViewStyle } from "react-native";
+import type { FlatListProps, ViewStyle } from "react-native";
 
-interface ListProps
+export interface ListProps
   extends Omit<
     FlatListProps<any>,
     | "style"
@@ -18,5 +18,3 @@ interface ListProps
     header?: ViewStyle;
   };
 }
-
-export { ListProps };

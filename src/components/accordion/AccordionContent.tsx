@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { View, Animated, UIManager, Platform } from "react-native";
 
 if (
@@ -27,7 +27,7 @@ function AccordionContent({
       duration,
       useNativeDriver: false, // height cannot use native driver
     }).start();
-  }, [isExpanded, duration]);
+  }, [isExpanded, duration, heightAnimation]);
 
   return (
     <Animated.View

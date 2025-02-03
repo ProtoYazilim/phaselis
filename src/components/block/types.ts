@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
-import { ViewProps, ViewStyle } from "react-native";
-import { LinearGradientAttributes, ShadowAttributes } from "../../types";
+import type { ReactNode } from "react";
+import type { ViewProps, ViewStyle } from "react-native";
+import type { LinearGradientAttributes, ShadowAttributes } from "../../types";
 
 interface ExtendedViewStyle extends ViewStyle {
   background?: string[] | string;
@@ -14,4 +14,4 @@ interface BlockProps extends ViewProps {
   style?: ExtendedViewStyle;
 }
 
-export { BlockProps };
+export type { BlockProps, ExtendedViewStyle };

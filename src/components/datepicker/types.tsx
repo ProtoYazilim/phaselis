@@ -1,12 +1,12 @@
-import { TextStyle, ViewStyle } from "react-native";
-import { FC, ReactNode } from "react";
-import {
+import type { TextStyle, ViewStyle } from "react-native";
+import type { FC, ReactNode } from "react";
+import type {
   ComponentSize,
   InputControlProps,
   SlotableLeftRightProps,
 } from "../../types";
 
-interface DatepickerProps
+export interface DatepickerProps
   extends SlotableLeftRightProps,
     Omit<DatepickerExtraProps, "error">,
     InputControlProps<Date, any, any> {
@@ -27,5 +27,3 @@ interface DatepickerProps
   children?: ReactNode | FC | any | Element; //not used but maybe used in future
   className?: string; //not used but maybe used in future
 }
-
-export { DatepickerProps };

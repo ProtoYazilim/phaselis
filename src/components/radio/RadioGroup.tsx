@@ -1,11 +1,11 @@
+import type { RadioGroupProps } from "./types";
 import { View } from "react-native";
-import { PhaselisHOC } from "src/components/provider";
+import PhaselisHOC from "../provider/lib/hoc";
 import RadioContext from "./context";
-import { RadioGroupProps } from "./types";
 import { stylesheet_group as stylesheet } from "./assets/styles";
 import { useEffect, useState } from "react";
-import { useCombinedStyle } from "src/hooks";
-import { InputHOC } from "src/utils/lib/hocs";
+import { useCombinedStyle } from "../../hooks";
+import { InputHOC } from "../../utils";
 
 const RadioGroup = ({
   children,

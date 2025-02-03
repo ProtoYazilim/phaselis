@@ -1,6 +1,6 @@
 import type { FormReference } from "phaselis";
 import { useRef, useState } from "react";
-import { View, Text, Dimensions, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { Button, Slider, Form, Colors } from "phaselis";
 import StoryView from "../../../src/StoryView";
 import StorySection from "../../../src/StorySection";
@@ -27,7 +27,6 @@ const SliderStory = () => {
                 flexDirection: "row",
                 alignItems: "center",
                 gap: 8,
-                width: Dimensions.get("screen").width - 100,
               }}
             >
               <Text style={styles.text}>0</Text>
@@ -39,9 +38,7 @@ const SliderStory = () => {
               />
               <Text style={styles.text}>100</Text>
             </View>
-            <Text style={[styles.text, { textAlign: "center" }]}>
-              {sliderValue}
-            </Text>
+            <Text style={[{ textAlign: "center" }]}>{sliderValue}</Text>
           </View>
           <View
             style={{
@@ -54,14 +51,14 @@ const SliderStory = () => {
               text="Reset"
               leftIcon="RefreshCw"
               onClick={() => {
-                refForm.current?.setValues({ slider: "0" });
+                refForm.current?.setValues({ slider: 0 });
                 setSliderValue(0);
               }}
             />
             <Button
               text="Set Value (50)"
               onClick={() => {
-                refForm.current?.setValues({ slider: "50" });
+                refForm.current?.setValues({ slider: 50 });
                 setSliderValue(50);
               }}
             />
@@ -69,35 +66,32 @@ const SliderStory = () => {
         </Form>
       </StorySection>
       <StorySection leftText="Usage" rightText="Default">
-        <Form ref={refForm}>
+        <View
+          style={{
+            paddingVertical: 32,
+          }}
+        >
           <View
             style={{
-              paddingVertical: 32,
+              flexDirection: "row",
+              alignItems: "center",
+              gap: 8,
             }}
           >
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                gap: 8,
-                width: Dimensions.get("screen").width - 100,
-              }}
-            >
-              <Text style={styles.disabledText}>0</Text>
-              <Slider
-                name="slider2"
-                disabled
-                value={45}
-                step={5}
-                onChange={handleSliderChange}
-              />
-              <Text style={styles.disabledText}>100</Text>
-            </View>
-            <Text style={[styles.disabledText, { textAlign: "center" }]}>
-              {sliderValue}
-            </Text>
+            <Text style={styles.disabledText}>0</Text>
+            <Slider
+              name="slider2"
+              disabled
+              value={sliderValue}
+              partofform={false}
+              onChange={handleSliderChange}
+            />
+            <Text style={styles.disabledText}>100</Text>
           </View>
-        </Form>
+          <Text style={[styles.disabledText, { textAlign: "center" }]}>
+            {sliderValue}
+          </Text>
+        </View>
       </StorySection>
     </StoryView>
   );
@@ -111,6 +105,8 @@ const styles = StyleSheet.create({
     fontWeight: 500,
     lineHeight: 16,
     color: Colors.Primary[950],
+    width: 30,
+    textAlign: "center",
   },
   disabledText: {
     fontSize: 16,

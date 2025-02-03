@@ -50,8 +50,8 @@ const FormStoryView = ({
     <View style={{ flex: 1, padding: 10, backgroundColor: "white" }}>
       <Form
         ref={refForm}
-        onSubmit={(e, values) => {
-          Alert.alert("Form Values", JSON.stringify(values));
+        onSubmit={(_e, newValues) => {
+          Alert.alert("Form Values", JSON.stringify(newValues));
         }}
       >
         <ContainerComponent

@@ -9,7 +9,7 @@ import { useCombinedStyle } from "../../hooks";
 const TabView = ({
   children,
   headerProps,
-  activeTab,
+  activeTab = 0,
   scrollable,
   contextValue,
   style,

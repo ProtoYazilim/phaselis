@@ -21,6 +21,7 @@ const Link: FC<LinkProps> = ({
   secondary,
   canOpenURL,
   variation = "default",
+  onPress,
   ...extraProps
 }) => {
   const { getCombinedStyle } = useCombinedStyle(
@@ -39,7 +40,7 @@ const Link: FC<LinkProps> = ({
   return (
     <Pressable
       style={getCombinedStyle("container")}
-      onPress={() => {
+      onPress={(e) => {
         if (disabled) return;
         if (canOpenURL && href)
           Linking.canOpenURL(href)
@@ -54,6 +55,7 @@ const Link: FC<LinkProps> = ({
         else {
           href && Linking.openURL(href);
         }
+        onPress && onPress(e);
       }}
     >
       <Slot style={getCombinedStyle("leftSlot")} icon={leftIcon} size="md">

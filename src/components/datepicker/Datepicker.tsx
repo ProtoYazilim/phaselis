@@ -82,9 +82,9 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
         onCancel={() => {
           setShow(false);
         }}
-        onConfirm={(date) => {
-          setDate(date);
-          props.onChange?.(null, date);
+        onConfirm={(newDate) => {
+          setDate(newDate);
+          props.onChange?.(null, newDate);
           setShow(false);
         }}
         maximumDate={maxDate}

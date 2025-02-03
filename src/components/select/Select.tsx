@@ -44,9 +44,9 @@ const Select: FC<SelectProps> = ({
   const refIOSPicker = useRef<ReactNativePickerSelect>(null);
   const [innerValue, setInnerValue] = useState(value);
 
-  const handleOnChange = (e: any, value: string) => {
-    setInnerValue(value);
-    onChange?.(e, value);
+  const handleOnChange = (e: any, newValue: string) => {
+    setInnerValue(newValue);
+    onChange?.(e, newValue);
   };
 
   const showError = useMemo(() => {

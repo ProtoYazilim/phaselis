@@ -1,6 +1,6 @@
-import type { FC } from "react";
+import { useState, type FC } from "react";
 import type { GridSize } from "phaselis";
-import { Dimensions, Text } from "react-native";
+import { Dimensions, Text, View } from "react-native";
 import { Row, Block, Col, Colors } from "phaselis";
 import StoryView from "../../../src/StoryView";
 
@@ -37,20 +37,30 @@ const RowColBlockStory = () => {
   };
 
   return (
-    <StoryView style={{ gap: 8 }}>
-      <Row>
+    <View
+      style={{ gap: 8, paddingVertical: 24, paddingHorizontal: 16, flex: 1 }}
+    >
+      <Row style={{ flex: 1 / 7 }}>
         <SpecialBlock text="Col-12" backgroundColor={Colors.Primary[300]} />
       </Row>
-      <Row>
-        <SpecialBlock text="Col-6" backgroundColor={Colors.Primary[200]} />
-        <SpecialBlock text="Col-6" backgroundColor={Colors.Primary[100]} />
+      <Row style={{ flex: 1 / 7 }}>
+        <SpecialBlock
+          text="Col-6"
+          size={6}
+          backgroundColor={Colors.Primary[200]}
+        />
+        <SpecialBlock
+          text="Col-6"
+          size={6}
+          backgroundColor={Colors.Primary[100]}
+        />
       </Row>
-      <Row>
+      <Row style={{ flex: 1 / 7 }}>
         <SpecialBlock text="Col-4" backgroundColor={Colors.Primary[100]} />
         <SpecialBlock text="Col-4" backgroundColor={Colors.Primary[300]} />
         <SpecialBlock text="Col-4" backgroundColor={Colors.Primary[200]} />
       </Row>
-      <Row>
+      <Row style={{ flex: 1 / 7 }}>
         <SpecialBlock text="Col-3" backgroundColor={Colors.Primary[200]} />
         <SpecialBlock
           text="Col-3"
@@ -60,27 +70,42 @@ const RowColBlockStory = () => {
         <SpecialBlock text="Col-3" backgroundColor={Colors.Primary[100]} />
         <SpecialBlock text="Col-3" backgroundColor={Colors.Primary[300]} />
       </Row>
-      <Row>
-        <SpecialBlock text="Col-2" backgroundColor={Colors.Primary[100]} />
-        <SpecialBlock text="Col-2" backgroundColor={Colors.Primary[300]} />
-        <SpecialBlock text="Col-2" backgroundColor={Colors.Primary[200]} />
+      <Row style={{ flex: 1 / 7 }}>
         <SpecialBlock
           text="Col-2"
+          size={2}
+          backgroundColor={Colors.Primary[100]}
+        />
+        <SpecialBlock
+          text="Col-2"
+          size={2}
+          backgroundColor={Colors.Primary[300]}
+        />
+        <SpecialBlock
+          text="Col-2"
+          size={2}
+          backgroundColor={Colors.Primary[200]}
+        />
+        <SpecialBlock
+          text="Col-2"
+          size={2}
           backgroundColor={Colors.Primary[400]}
           textColor={Colors.Primary[100]}
         />
         <SpecialBlock
           text="Col-2"
+          size={2}
           backgroundColor={Colors.Primary[500]}
           textColor={Colors.Primary[200]}
         />
         <SpecialBlock
           text="Col-2"
+          size={2}
           backgroundColor={Colors.Primary[600]}
           textColor={Colors.Primary[100]}
         />
       </Row>
-      <Row>
+      <Row style={{ flex: 1 / 7 }}>
         <SpecialBlock
           text="Col-3 Offset-3"
           backgroundColor={Colors.Primary[200]}
@@ -91,9 +116,10 @@ const RowColBlockStory = () => {
           text="Col-4 Offset-2"
           backgroundColor={Colors.Primary[100]}
           size={4}
+          offset={2}
         />
       </Row>
-      <Row>
+      <Row style={{ flex: 1 / 7 }}>
         <SpecialBlock text="Col" backgroundColor={Colors.Primary[100]} />
         <SpecialBlock text="Col" backgroundColor={Colors.Primary[300]} />
         <SpecialBlock text="Col" backgroundColor={Colors.Primary[200]} />
@@ -108,7 +134,7 @@ const RowColBlockStory = () => {
           textColor={Colors.Primary[200]}
         />
       </Row>
-    </StoryView>
+    </View>
   );
 };
 

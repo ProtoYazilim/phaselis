@@ -19,7 +19,7 @@ const Switch = ({
   RightSlot,
   onIcon = "Check",
   offIcon = "X",
-  variation = "default",
+  variation = "primary",
   ...extraProps
 }: SwitchProps) => {
   const [innerValue, setInnerValue] = useState(value);

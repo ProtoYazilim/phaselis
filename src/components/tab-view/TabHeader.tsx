@@ -72,7 +72,10 @@ const TabViewHeader = ({
       return newWidths;
     });
     if (data?.length === index + 1 && scrollable) {
-      const totalWidth = itemWidths.reduce((acc, width) => acc + width, 0);
+      const totalWidth = itemWidths.reduce(
+        (acc, itemWidth) => acc + itemWidth,
+        0,
+      );
       if (totalWidth > refScrollViewWidth.current) {
         setScrollEnabled(true);
       } else {

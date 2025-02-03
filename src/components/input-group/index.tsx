@@ -3,6 +3,7 @@ import { View, Text } from "react-native";
 import stylesheet from "./assets/styles";
 import type { InputGroupProps } from "./types";
 import { FormContext } from "../index";
+import PhaselisHOC from "../provider/lib/hoc";
 import { useCombinedStyle } from "../../hooks";
 
 const InputGroup: React.FC<InputGroupProps> = ({
@@ -10,6 +11,7 @@ const InputGroup: React.FC<InputGroupProps> = ({
   children,
   message,
   style,
+  contextValue,
 }) => {
   const [disabled, setDisabled] = useState(false);
   const [error, setError] = useState("");
@@ -41,7 +43,8 @@ const InputGroup: React.FC<InputGroupProps> = ({
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
     style,
-    {},
+    contextValue?.theme?.inputGroup,
+    "default",
     { disabled, error: Boolean(error) },
   );
 
@@ -54,4 +57,4 @@ const InputGroup: React.FC<InputGroupProps> = ({
   );
 };
 
-export default InputGroup;
+export default PhaselisHOC(InputGroup);

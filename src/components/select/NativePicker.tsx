@@ -62,15 +62,15 @@ const NativePicker: React.FC<NativePickerProps> = ({
         onFocus: handleOnFocus,
         onBlur: handleOnBlur,
       }}
-      onValueChange={(value) => {
+      onValueChange={(newValue) => {
         onChange &&
           onChange(
             {
               target: {
-                value: value,
+                value: newValue,
               },
             },
-            value,
+            newValue,
             selectedItem,
           );
       }}

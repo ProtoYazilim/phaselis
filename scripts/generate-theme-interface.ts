@@ -47,9 +47,9 @@ const analyzeVariants = (
     const value = obj[key];
 
     if (value && typeof value === "object") {
-      Object.keys(value).forEach((key) => {
-        if (!key.startsWith("_")) {
-          variations.add(key);
+      Object.keys(value).forEach((k) => {
+        if (!k.startsWith("_")) {
+          variations.add(k);
         }
       });
       if (value.variants) {
@@ -62,9 +62,9 @@ const analyzeVariants = (
           if (variant.hasOwnProperty("true")) {
             aggregatedVariants[variantKey].add("boolean");
           } else if (typeof variant === "object") {
-            Object.keys(variant).forEach((key) => {
+            Object.keys(variant).forEach((k) => {
               if (aggregatedVariants[variantKey]) {
-                aggregatedVariants[variantKey].add(`"${key}"`);
+                aggregatedVariants[variantKey].add(`"${k}"`);
               }
             });
           }

@@ -27,8 +27,8 @@ const Col: FC<ColProps> = ({
 
   return (
     <>
-      <View style={getCombinedStyle("self")}>{children}</View>
       {offset ? <View style={getCombinedStyle("offset")} /> : null}
+      <View style={getCombinedStyle("self")}>{children}</View>
     </>
   );
 };

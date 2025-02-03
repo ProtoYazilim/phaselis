@@ -3,7 +3,7 @@ import type { CustomPickerProps } from "./types";
 import { useEffect, useMemo } from "react";
 import { View, FlatList } from "react-native";
 import PhaselisHOC from "../provider/lib/hoc";
-import { Block, BottomSheet } from "../index";
+import { BottomSheet } from "../index";
 import HeaderSlotDefault from "./lib/HeaderSlotDefault";
 import OptionSlotDefault from "./lib/OptionSlotDefault";
 import NoOptionSlotDefault from "./lib/NoOptionSlotDefault";
@@ -41,7 +41,7 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
   }, [options?.length]);
 
   const noOptionLayout = useMemo(() => {
-    return memorizedOptions.length > 0;
+    return memorizedOptions.length <= 0;
   }, [memorizedOptions]);
 
   const { getCombinedStyle } = useCombinedStyle(
@@ -94,24 +94,23 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
         })}
       </View>
       {noOptionLayout ? (
-        <Block style={getCombinedStyle("element")}>
-          <FlatList
-            data={memorizedOptions}
-            renderItem={({ item }) =>
-              cloneSlot(OptionSlot, {
-                item,
-                selectedItem,
-                onChange,
-                setShowPicker,
-                closeOnSelect,
-                contextValue,
-              })
-            }
-            keyExtractor={(item) => item.value.toString()}
-          />
-        </Block>
-      ) : (
         cloneSlot(NoOptionSlot, {})
+      ) : (
+        <FlatList
+          contentContainerStyle={[getCombinedStyle("element")]}
+          data={memorizedOptions}
+          renderItem={({ item }) =>
+            cloneSlot(OptionSlot, {
+              item,
+              selectedItem,
+              onChange,
+              setShowPicker,
+              closeOnSelect,
+              contextValue,
+            })
+          }
+          keyExtractor={(item) => item.value.toString()}
+        />
       )}
     </BottomSheet>
   );

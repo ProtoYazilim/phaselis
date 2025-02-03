@@ -9,4 +9,5 @@ export interface InputGroupProps {
   style?: {
     container?: ViewStyle;
   };
+  contextValue?: any;
 }

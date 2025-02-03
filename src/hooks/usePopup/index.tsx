@@ -59,8 +59,8 @@ const PopupProvider = ({ children }: PopupProviderProps) => {
   const [popups, setPopups] = useState<PopupProps[]>([]);
   const updatePopupShow = useCallback(
     (id: string | undefined, value: "show" | "hide") => {
-      setPopups((popups) =>
-        popups.map((popup) =>
+      setPopups((prevPopups) =>
+        prevPopups.map((popup) =>
           popup.id === id ? { ...popup, show: value } : popup,
         ),
       );
@@ -70,8 +70,8 @@ const PopupProvider = ({ children }: PopupProviderProps) => {
 
   const upgradePopup = useCallback(
     (id: string, updatedFields: Partial<PopupProps>) => {
-      setPopups((popups) =>
-        popups.map((popup) =>
+      setPopups((prevPopups) =>
+        prevPopups.map((popup) =>
           popup.id === id
             ? { ...popup, ...updatedFields, id: popup.id }
             : popup,

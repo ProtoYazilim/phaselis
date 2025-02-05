@@ -19,7 +19,6 @@ const StepperStory = () => {
 
   const SpecialBlock: FC<{
     text: string;
-    // eslint-disable-next-line react/no-unstable-nested-components
   }> = ({ text }) => {
     return (
       <Block

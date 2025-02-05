@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import stylesheet from "./assets/styles";
 import PhaselisHOC from "../provider/lib/hoc";
-import { Slot } from "../index";
+import { BlurBlock, Slot } from "../index";
 import { useCombinedStyle } from "../../hooks";
 
 const Popup: FC<PopupProps> = ({
@@ -26,6 +26,7 @@ const Popup: FC<PopupProps> = ({
   LeftSlot,
   title,
   variation = "default",
+  backgroundBlur = false,
   ...extraProps
 }: any) => {
   const translateY = new Animated.Value(300);
@@ -78,6 +79,13 @@ const Popup: FC<PopupProps> = ({
 
   return (
     <Modal transparent={true} visible={show} animationType="fade">
+      {backgroundBlur && (
+        <BlurBlock
+          style={sheetStyles.absolute}
+          blurType="dark"
+          blurAmount={1}
+        />
+      )}
       <Animated.View style={[...getCombinedStyle("backDrop"), backdropStyle]}>
         <Pressable style={{ flex: 1 }} onPress={handleClose} />
       </Animated.View>
@@ -136,6 +144,13 @@ const sheetStyles = StyleSheet.create({
   backdrop: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: "rgba(0, 0, 0, 0.3)",
+  },
+  absolute: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
   },
 });
 

@@ -2,6 +2,7 @@ import type { FC } from "react";
 import type { BottomSheetProps } from "./types";
 import { StyleSheet, TouchableOpacity, Modal, Animated } from "react-native";
 import { useEffect, useRef, useState } from "react";
+import BlurBlock from "../blur-block";
 
 const BottomSheet: FC<BottomSheetProps> = ({
   show = false,
@@ -15,11 +16,6 @@ const BottomSheet: FC<BottomSheetProps> = ({
   const HEIGHT = useRef(500);
   const translateY = useRef(new Animated.Value(0)).current;
   const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const backdropOpacity = translateY.interpolate({
-    inputRange: [0, HEIGHT.current],
-    outputRange: [1, 0],
-  });
 
   useEffect(() => {
     if (show) {
@@ -45,11 +41,8 @@ const BottomSheet: FC<BottomSheetProps> = ({
 
   return (
     <Modal transparent={true} visible={isModalVisible} animationType="fade">
-      <Animated.View
-        style={[sheetStyles.backdrop, { opacity: backdropOpacity }]}
-      >
-        <TouchableOpacity style={{ flex: 1 }} onPress={onClose} />
-      </Animated.View>
+      <BlurBlock style={sheetStyles.absolute} blurType="dark" blurAmount={1} />
+      <TouchableOpacity style={{ flex: 1 }} onPress={onClose} />
       <Animated.View
         style={[
           [sheetStyles.sheet, { backgroundColor }],
@@ -75,9 +68,12 @@ const sheetStyles = StyleSheet.create({
     zIndex: 2,
     paddingVertical: 16,
   },
-  backdrop: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: "rgba(0, 0, 0, 0.3)",
+  absolute: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
   },
 });
 

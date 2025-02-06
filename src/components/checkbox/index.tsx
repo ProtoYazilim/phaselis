@@ -1,5 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Text, View, TextInput, Pressable } from "react-native";
+import {
+  Text,
+  TextInput,
+  Pressable,
+  Animated,
+  View,
+  Easing,
+} from "react-native";
 import stylesheet from "./assets/styles";
 import type { CheckboxProps } from "./types";
 import PhaselisHOC from "../provider/lib/hoc";
@@ -25,12 +32,13 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
     iconName = "Check",
     IconSlot,
     variation = "primary",
+    pressed,
     ...extraProps
   } = props;
 
   const [checked, setChecked] = useState<boolean>(Boolean(value));
   const [isFocus, setIsFocus] = useState(false);
-  const [isPressed, setIsPressed] = useState(false);
+  const scaleAnim = useRef(new Animated.Value(1)).current;
 
   const strokeWidthLiteral = {
     xs: 4,
@@ -51,23 +59,50 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
     setChecked(Boolean(value));
   }, [value]);
 
+  useEffect(() => {
+    if (pressed !== undefined) {
+      Animated.timing(scaleAnim, {
+        toValue: pressed ? 0.5 : 1,
+        duration: 100,
+        useNativeDriver: false,
+      }).start();
+    }
+  }, [pressed, scaleAnim]);
+
   const handleChange = () => {
-    // console.log("handleChange");
-    setIsPressed(false);
-    const newValue = !checked;
-    setChecked(newValue);
+    setChecked((prev) => !prev);
     refInput.current?.focus();
     setIsFocus(true);
     if (onChange) {
       onChange(
         {
           nativeEvent: {
-            text: newValue,
-            checked: newValue,
+            text: !checked,
+            checked: !checked,
           },
         },
-        newValue,
+        !checked,
       );
+    }
+  };
+
+  const handlePressIn = () => {
+    if (pressed === undefined) {
+      Animated.timing(scaleAnim, {
+        toValue: 0.5,
+        duration: 150,
+        useNativeDriver: false,
+      }).start();
+    }
+  };
+
+  const handlePressOut = () => {
+    if (pressed === undefined) {
+      Animated.timing(scaleAnim, {
+        toValue: 1,
+        duration: 150,
+        useNativeDriver: false,
+      }).start();
     }
   };
 
@@ -81,7 +116,6 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
       disabled,
       focus: isFocus,
       size,
-      pressed: isPressed,
       ...extraProps,
     },
   );
@@ -90,22 +124,27 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
     <Pressable
       style={getCombinedStyle("container")}
       onPress={handleChange}
-      onPressIn={() => {
-        setIsPressed(true);
-      }}
+      onPressIn={handlePressIn}
+      onPressOut={handlePressOut}
       disabled={disabled}
       key={`checkbox-${id}`}
       id={id}
     >
-      <View style={getCombinedStyle("element")}>
+      <View style={[getCombinedStyle("element")]}>
         {checked ? (
-          <Slot
-            style={getCombinedStyle("icon")}
-            icon={iconName}
-            strokeWidth={strokeWidthLiteral[size]}
+          <Animated.View
+            style={{
+              transform: [{ scale: scaleAnim }],
+            }}
           >
-            {IconSlot && <IconSlot />}
-          </Slot>
+            <Slot
+              style={getCombinedStyle("icon")}
+              icon={iconName}
+              strokeWidth={strokeWidthLiteral[size]}
+            >
+              {IconSlot && <IconSlot />}
+            </Slot>
+          </Animated.View>
         ) : null}
       </View>
       {children || <Text style={getCombinedStyle("text")}>{text}</Text>}

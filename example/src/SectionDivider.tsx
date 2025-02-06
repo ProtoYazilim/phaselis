@@ -21,7 +21,7 @@ const SectionDivider: FC<{
         flexDirection: "row",
         justifyContent: "space-between",
         paddingVertical: Spacings.SM,
-        marginBottom: Spacings.SM,
+        marginBottom: Spacings.MD,
       }}
     >
       <Text

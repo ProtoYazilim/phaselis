@@ -8,12 +8,14 @@ export default function Layout() {
         screenOptions={{
           headerTintColor: Colors.Primary[600],
         }}
+        initialRouteName="popup-hook"
       >
         <Drawer.Screen
           name="index"
           options={{
             drawerLabel: "Utils",
             title: "Utils",
+            drawerItemStyle: { display: "none" },
           }}
         />
         <Drawer.Screen

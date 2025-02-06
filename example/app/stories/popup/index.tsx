@@ -9,6 +9,7 @@ function PopupStory() {
   const [show2, setShow2] = useState(false);
   const [show3, setShow3] = useState(false);
   const [show4, setShow4] = useState(false);
+  const [show5, setShow5] = useState(false);
 
   return (
     <StoryView>
@@ -17,6 +18,12 @@ function PopupStory() {
           text="Default Popup"
           onClick={() => {
             setShow(true);
+          }}
+        />
+        <Button
+          text="Default Popup with Blur"
+          onClick={() => {
+            setShow5(true);
           }}
         />
         <Button
@@ -125,6 +132,20 @@ function PopupStory() {
         title="Success"
         variation="success"
         leftIcon="CheckCheck"
+      >
+        <Text>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
+          dolores quos iure tenetur eius accusantium blanditiis, officia labore
+          molestias corporis enim consequatur cum deserunt quae error cumque,
+          eaque facilis dolorum!
+        </Text>
+      </Popup>
+      <Popup
+        show={show5}
+        onClose={() => {
+          setShow5(false);
+        }}
+        backgroundBlur
       >
         <Text>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit

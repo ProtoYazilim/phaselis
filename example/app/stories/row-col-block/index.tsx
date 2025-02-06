@@ -1,8 +1,7 @@
-import { useState, type FC } from "react";
+import { type FC } from "react";
 import type { GridSize } from "phaselis";
 import { Dimensions, Text, View } from "react-native";
 import { Row, Block, Col, Colors } from "phaselis";
-import StoryView from "../../../src/StoryView";
 
 const RowColBlockStory = () => {
   const SpecialBlock: FC<{
@@ -11,7 +10,6 @@ const RowColBlockStory = () => {
     textColor?: string;
     size?: GridSize;
     offset?: GridSize;
-    // eslint-disable-next-line react/no-unstable-nested-components
   }> = ({
     text,
     backgroundColor,

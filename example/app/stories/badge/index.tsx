@@ -12,7 +12,13 @@ const BadgeStory = () => {
           gap: 32,
         }}
       >
-        <Row style={{ alignItems: "center", gap: 32 }}>
+        <Row
+          style={{
+            alignItems: "center",
+            gap: 32,
+            paddingRight: "2%",
+          }}
+        >
           <Col size={4}>
             <Badge text="43" variation="primary" top={-6} right={-14}>
               <Button
@@ -55,7 +61,13 @@ const BadgeStory = () => {
             </Badge>
           </Col>
         </Row>
-        <Row style={{ alignItems: "center", gap: 32 }}>
+        <Row
+          style={{
+            alignItems: "center",
+            gap: 32,
+            paddingRight: "2%",
+          }}
+        >
           <Col size={4}>
             <Badge text="43" variation="primary_outline">
               <Label

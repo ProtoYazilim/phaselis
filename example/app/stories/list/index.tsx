@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unstable-nested-components */
 import { Colors, List, Row, Col, Block } from "phaselis";
 import { StyleSheet, Text } from "react-native";
 import StoryView from "../../../src/StoryView";

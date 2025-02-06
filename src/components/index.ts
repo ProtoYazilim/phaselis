@@ -7,6 +7,7 @@ export {
 export { default as Avatar } from "./avatar";
 export { default as Badge } from "./badge";
 export { default as Block, type ExtendedViewStyle } from "./block";
+export { default as BlurBlock } from "./blur-block";
 export { default as BottomSheet } from "./bottom-sheet";
 export { default as Button } from "./button";
 export { default as Checkbox } from "./checkbox";

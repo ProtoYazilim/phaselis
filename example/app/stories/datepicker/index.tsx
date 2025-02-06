@@ -10,14 +10,14 @@ const DatepickerStory = () => {
     <View style={styles.container}>
       <Form
         ref={refForm}
-        onSubmit={(e, values) => {
+        onSubmit={(_e, values) => {
           console.log(values);
         }}
       >
         <Block style={{ gap: 20, width: "100%" }}>
           <Datepicker
             name="datepicker"
-            onChange={(e, date) => {
+            onChange={(_e, date) => {
               console.log("Formatted date selected:", typeof date);
               console.log("Date object selected:", date);
             }}

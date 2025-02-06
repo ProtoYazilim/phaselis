@@ -22,4 +22,5 @@ export interface PopupProps extends PopupExtraProps {
   LeftSlot?: SlotChildComponent;
   title?: string;
   children?: ReactNode;
+  backgroundBlur?: boolean;
 }

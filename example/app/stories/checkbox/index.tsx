@@ -40,6 +40,9 @@ const CheckboxExample = () => {
           justifyContent: "space-between",
           alignItems: "center",
         }}
+        containerProps={{
+          pointerEvents: "none",
+        }}
       >
         <Checkbox text="Label" value={true} variation="primary" pressed />
         <Checkbox text="Label" value={true} variation="secondary" pressed />

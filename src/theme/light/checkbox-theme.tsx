@@ -56,12 +56,6 @@ export default {
               width: 96,
             },
           },
-          pressed: {
-            true: {
-              height: 16,
-              width: 16,
-            },
-          },
         },
       },
       element: {

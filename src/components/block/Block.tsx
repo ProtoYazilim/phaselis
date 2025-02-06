@@ -1,22 +1,26 @@
 import type { FC } from "react";
 import type { BlockProps } from "./types";
 import { useMemo } from "react";
-import { View } from "react-native";
+import { View, Animated } from "react-native";
 import PhaselisHOC from "../provider/lib/hoc";
 import LinearGradient from "react-native-linear-gradient";
 import { ShadowedView, shadowStyle } from "react-native-fast-shadow";
 
-const Block: FC<BlockProps> = ({ style, children, ...extraProps }) => {
+const Block: FC<BlockProps> = ({
+  style,
+  children,
+  animated = false,
+  ...extraProps
+}) => {
   const shadows = useMemo(() => {
     if (Array.isArray(style)) {
       return style
         .map((s) => s.shadows)
         .flat()
-        .filter(Boolean); // undefined/null shadow'ları filtrele
-    } else return style?.shadows || []; // shadow'lar undefined ise boş bir dizi döndür
+        .filter(Boolean);
+    } else return style?.shadows || [];
   }, [style]);
 
-  // Helper function to render nested ShadowedViews
   const renderShadows = (child: React.ReactNode) => {
     if (!shadows || shadows.length === 0) return child;
 
@@ -41,16 +45,19 @@ const Block: FC<BlockProps> = ({ style, children, ...extraProps }) => {
 
   const isLinearGradient = !!style?.lineerGradient;
 
-  const WrapperComponent = isLinearGradient ? LinearGradient : View;
+  const WrapperComponent = useMemo(() => {
+    if (isLinearGradient) return LinearGradient;
+    return animated ? Animated.View : View;
+  }, [animated, isLinearGradient]) as React.ElementType;
 
-  const gradientProps = isLinearGradient
-    ? {
-        ...style.lineerGradient,
-      }
-    : {};
+  const gradientProps = isLinearGradient ? { ...style.lineerGradient } : {};
 
   return renderShadows(
-    <WrapperComponent style={style} {...(gradientProps as any)} {...extraProps}>
+    <WrapperComponent
+      style={style}
+      {...(gradientProps as any)}
+      {...(extraProps as any)}
+    >
       {children}
     </WrapperComponent>,
   );

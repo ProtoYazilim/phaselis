@@ -1,12 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import {
-  Text,
-  TextInput,
-  Pressable,
-  Animated,
-  View,
-  Easing,
-} from "react-native";
+import { Text, TextInput, Pressable, Animated, View } from "react-native";
 import stylesheet from "./assets/styles";
 import type { CheckboxProps } from "./types";
 import PhaselisHOC from "../provider/lib/hoc";

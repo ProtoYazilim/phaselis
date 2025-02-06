@@ -12,6 +12,7 @@ interface BlockProps extends ViewProps {
   children?: ReactNode;
   contextValue?: any;
   style?: ExtendedViewStyle;
+  animated?: boolean;
 }
 
 export type { BlockProps, ExtendedViewStyle };

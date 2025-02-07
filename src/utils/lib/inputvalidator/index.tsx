@@ -25,6 +25,15 @@ export const required = (message?: string) => {
   };
 };
 
+export const requiredToOther = (name: string, message?: string) => {
+  return (formValues: any) => {
+    const REQUIRED_MESSAGE = "Bu alanın girilmesi zorunludur";
+    if (!hasValue(formValues?.[name]?.value)) {
+      return <Text>{message || REQUIRED_MESSAGE}</Text>;
+    }
+  };
+};
+
 export const minLength = (length: number, message?: string) => {
   return (value: any) => {
     if (hasValue(value) && value.length < length) {

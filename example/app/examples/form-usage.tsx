@@ -1,6 +1,6 @@
 import type { FormReference } from "phaselis";
 import { useRef } from "react";
-import { Text, Alert, Dimensions } from "react-native";
+import { Text, Alert, Dimensions, View } from "react-native";
 import {
   Block,
   Button,
@@ -14,11 +14,13 @@ import {
   Datepicker,
   Provider,
   lightTheme,
+  requiredToOther,
 } from "phaselis";
 import StoryView from "../../src/StoryView";
 import SectionDivider from "../../src/SectionDivider";
 import Checkbox from "../../../src/components/checkbox";
 import Switch from "../../../src/components/switch";
+import Col from "../../../src/components/col";
 
 const MaskedTextfieldStory = () => {
   const refForm = useRef<FormReference>(null);
@@ -29,7 +31,7 @@ const MaskedTextfieldStory = () => {
 
   return (
     <Provider theme={lightTheme}>
-      <StoryView style={{ gap: 0 }}>
+      <StoryView style={{ gap: 32 }}>
         <Form ref={refForm} onSubmit={onSubmit}>
           <Row style={{ gap: 16 }}>
             <InputGroup label="Firstname" style={{ container: { flex: 1 } }}>
@@ -50,23 +52,33 @@ const MaskedTextfieldStory = () => {
               mask={MAIL_MASK}
             />
           </InputGroup>
-          <InputGroup label="Phone Number" style={{ container: { flex: 1 } }}>
+          <InputGroup
+            for="phone"
+            label="Phone Number"
+            style={{ container: { flex: 1 } }}
+          >
             <Row style={{ gap: 8 }}>
-              <Select
-                options={[
-                  { value: "1", label: "Türkiye +90" },
-                  { value: "2", label: "Arjantin +54" },
-                  { value: "3", label: "Azerbaycan +994" },
-                  { value: "4", label: "Bahreyn +973" },
-                ]}
-                value="1"
-              />
-              <Textfield
-                name="phone"
-                validations={[required("required")]}
-                leftIcon="Smartphone"
-                mask={PHONE_MASK}
-              />
+              <Col size={5}>
+                <Select
+                  options={[
+                    { value: "1", label: "Türkiye +90" },
+                    { value: "2", label: "Arjantin +54" },
+                    { value: "3", label: "Azerbaycan +994" },
+                    { value: "4", label: "Bahreyn +973" },
+                  ]}
+                  value="1"
+                  name="phone-code"
+                  validations={[requiredToOther("phone", "required")]}
+                />
+              </Col>
+              <Col size={7}>
+                <Textfield
+                  name="phone"
+                  validations={[required("required")]}
+                  leftIcon="Smartphone"
+                  mask={PHONE_MASK}
+                />
+              </Col>
             </Row>
           </InputGroup>
           <InputGroup label="Address" style={{ container: { flex: 1 } }}>
@@ -108,23 +120,24 @@ const MaskedTextfieldStory = () => {
             </InputGroup>
           </Row>
           <SectionDivider leftText="" rightText="" />
-          <Checkbox
-            name="terms"
-            text="I accept the terms of use"
-            size="xs"
-            value={true}
-          />
-          <Checkbox
-            name="news"
-            text="I want to be informed about news"
-            size="xs"
-            value={true}
-          />
+          <View>
+            <Checkbox
+              name="terms"
+              text="I accept the terms of use"
+              size="xs"
+              value={true}
+            />
+            <Checkbox
+              name="news"
+              text="I want to be informed about news"
+              size="xs"
+              value={true}
+            />
+          </View>
           <Row
             style={{
               alignItems: "center",
               justifyContent: "space-between",
-              marginTop: 24,
             }}
           >
             <Block
@@ -142,13 +155,8 @@ const MaskedTextfieldStory = () => {
               onIcon="Crown"
             />
           </Row>
-          <Row style={{ marginTop: 32 }}>
-            <Button text="Register" full />
-          </Row>
-
-          <Row style={{ marginTop: 16 }}>
-            <Button text="Reset" full type="reset" />
-          </Row>
+          <Button text="Register" full />
+          <Button text="Reset" full type="reset" />
         </Form>
       </StoryView>
     </Provider>

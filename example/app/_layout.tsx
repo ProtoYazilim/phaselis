@@ -25,17 +25,17 @@ export const unstable_settings = {
   initialRouteName: "/stories",
 };
 export default function RootLayout() {
-  const [loaded] = useFonts({
+  const [fontsLoaded] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
   });
 
   useEffect(() => {
-    if (loaded) {
+    if (fontsLoaded) {
       SplashScreen.hideAsync();
     }
-  }, [loaded]);
+  }, [fontsLoaded]);
 
-  if (!loaded) {
+  if (!fontsLoaded) {
     return null;
   }
 
@@ -44,9 +44,9 @@ export default function RootLayout() {
   DefaultTheme.colors.background = "white";
 
   return (
-    <FrameWorkProvider theme={lightTheme}>
-      <ThemeProvider value={DefaultTheme}>
-        <GestureHandlerRootView style={{ flex: 1 }}>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <FrameWorkProvider theme={lightTheme}>
+        <ThemeProvider value={DefaultTheme}>
           <Tabs
             screenOptions={{
               tabBarHideOnKeyboard: true,
@@ -58,7 +58,6 @@ export default function RootLayout() {
                 display: "flex",
               },
               tabBarLabelStyle: {
-                // fontSize: 16,
                 fontWeight: 700,
               },
             }}
@@ -118,8 +117,8 @@ export default function RootLayout() {
             />
             <Tabs.Screen name="index" redirect={true} />
           </Tabs>
-        </GestureHandlerRootView>
-      </ThemeProvider>
-    </FrameWorkProvider>
+        </ThemeProvider>
+      </FrameWorkProvider>
+    </GestureHandlerRootView>
   );
 }

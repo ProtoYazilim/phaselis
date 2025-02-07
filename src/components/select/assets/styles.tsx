@@ -49,6 +49,22 @@ const stylesheet_picker_option_slot = createStyleSheet({
 const stylesheet_picker_options_slot = createStyleSheet({
   container: {},
   element: {},
+  topLinearGradient: {
+    height: 32,
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 1,
+  },
+  bottomLinearGradient: {
+    position: "absolute",
+    height: 48,
+    bottom: 32,
+    left: 0,
+    right: 0,
+    zIndex: 1,
+  },
 });
 
 //InputSlot
@@ -61,7 +77,6 @@ const stylesheet = createStyleSheet({
     borderWidth: 1,
     borderColor: "#979797",
     borderRadius: 6,
-    width: "100%",
     variants: {
       disabled: {
         true: {

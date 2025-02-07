@@ -21,7 +21,6 @@ export const darkTheme = {
         error: {
           true: {
             borderColor: Colors.Danger[400],
-            backgroundColor: Colors.Danger[50],
           },
         },
         disabled: {
@@ -122,7 +121,6 @@ export const darkTheme = {
         error: {
           true: {
             borderColor: Colors.Danger[400],
-            backgroundColor: Colors.Danger[50],
           },
         },
         disabled: {
@@ -287,7 +285,6 @@ export const darkTheme = {
         error: {
           true: {
             borderColor: Colors.Danger[400],
-            backgroundColor: Colors.Danger[50],
           },
         },
         disabled: {

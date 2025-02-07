@@ -19,7 +19,6 @@ export default {
           error: {
             true: {
               borderColor: Colors.Danger[500],
-              backgroundColor: Colors.Danger[50],
             },
           },
           disabled: {

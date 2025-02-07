@@ -64,15 +64,15 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
+    "@react-native-community/blur": "^4.4.1",
+    "@react-native-community/slider": "^4.5.5",
+    "@react-native-picker/picker": "^2.11.0",
     "date-fns": "^4.1.0",
     "hoist-non-react-statics": "^3.3.2",
     "lodash": "^4.17.21",
     "lucide-react-native": "^0.473.0",
     "react": "*",
     "react-native": "*",
-    "@react-native-community/blur": "^4.4.1",
-    "@react-native-community/slider": "^4.5.5",
-    "@react-native-picker/picker": "^2.11.0",
     "react-native-date-picker": "^5.0.8",
     "react-native-fast-shadow": "^0.1.1",
     "react-native-gesture-handler": "^2.22.0",

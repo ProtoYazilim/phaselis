@@ -21,7 +21,6 @@ export default {
           error: {
             true: {
               borderColor: Colors.Danger[500],
-              backgroundColor: Colors.Danger[50],
             },
           },
           disabled: {
@@ -138,6 +137,7 @@ export default {
       _header: {
         container: {
           paddingHorizontal: Spacings.LG,
+          paddingBottom: Spacings.MD,
         },
         text: {
           color: Colors.Gray[950],
@@ -179,7 +179,7 @@ export default {
         },
         element: {
           paddingTop: Spacings.MD,
-          paddingBottom: Spacings.LG,
+          paddingBottom: Spacings.XL,
           paddingRight: Spacings.LG,
           paddingLeft: Spacings.LG,
         },

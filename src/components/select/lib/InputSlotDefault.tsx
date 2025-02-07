@@ -42,8 +42,8 @@ const InputSlotDefault = ({
 
   return (
     <Pressable
-      style={{ flex: 1 }}
       disabled={disabled}
+      style={getCombinedStyle("container")}
       onPress={() => {
         const nativeFocusFunction = Platform.select({
           ios: () => refIOSPicker.current?.togglePicker(true),
@@ -53,26 +53,24 @@ const InputSlotDefault = ({
         setShowPicker?.(true);
       }}
     >
-      <View style={getCombinedStyle("container")}>
+      <Slot
+        style={getCombinedStyle("leftSlot")}
+        icon={leftIcon as any}
+        size={leftIconSize}
+      >
+        {LeftIconSlot && <LeftIconSlot />}
+      </Slot>
+      <Text style={getCombinedStyle("element")}>
+        {selectedItem?.label ? selectedItem?.label : placeholder}
+      </Text>
+      <View>
         <Slot
-          style={getCombinedStyle("leftSlot")}
-          icon={leftIcon as any}
-          size={leftIconSize}
+          style={getCombinedStyle("rightSlot")}
+          icon={rightIcon as any}
+          size={rightIconSize}
         >
-          {LeftIconSlot && <LeftIconSlot />}
+          {RightIconSlot && <RightIconSlot />}
         </Slot>
-        <Text style={getCombinedStyle("element")}>
-          {selectedItem?.label ? selectedItem?.label : placeholder}
-        </Text>
-        <View>
-          <Slot
-            style={getCombinedStyle("rightSlot")}
-            icon={rightIcon as any}
-            size={rightIconSize}
-          >
-            {RightIconSlot && <RightIconSlot />}
-          </Slot>
-        </View>
       </View>
     </Pressable>
   );

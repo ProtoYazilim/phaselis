@@ -8,7 +8,6 @@ const stylesheet = createStyleSheet({
     borderWidth: 1,
     borderColor: "#979797",
     borderRadius: 6,
-    width: "100%",
     variants: {
       disabled: {
         true: {

@@ -5,7 +5,6 @@ export default {
   textfield: {
     default: {
       container: {
-        flex: 1,
         borderColor: Colors.Primary[950],
         borderWidth: 0.5,
         borderRadius: Radius.MD,
@@ -27,7 +26,6 @@ export default {
           error: {
             true: {
               borderColor: Colors.Danger[500],
-              backgroundColor: Colors.Danger[50],
             },
           },
           size: {

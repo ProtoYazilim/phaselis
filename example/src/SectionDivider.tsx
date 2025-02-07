@@ -7,6 +7,7 @@ const SectionDivider: FC<{
   leftTextColor?: string;
   rightText: string;
   rightSlot?: ReactNode;
+  noHeight?: boolean;
 }> = ({
   leftText,
   rightText,
@@ -20,32 +21,34 @@ const SectionDivider: FC<{
         borderBottomColor: leftTextColor,
         flexDirection: "row",
         justifyContent: "space-between",
-        paddingVertical: Spacings.SM,
-        marginBottom: Spacings.MD,
+        paddingVertical: leftText || rightSlot ? Spacings.SM : 0,
+        marginBottom: leftText || rightSlot ? Spacings.MD : 0,
       }}
     >
-      <Text
-        style={{
-          fontSize: 18,
-          lineHeight: 18,
-          color: leftTextColor,
-        }}
-      >
-        {leftText}
-      </Text>
-      {rightSlot ? (
-        rightSlot
-      ) : (
+      {leftText && (
         <Text
           style={{
-            fontSize: 14,
-            color: leftTextColor,
+            fontSize: 18,
             lineHeight: 18,
+            color: leftTextColor,
           }}
         >
-          {rightText}
+          {leftText}
         </Text>
       )}
+      {rightSlot
+        ? rightSlot
+        : rightText && (
+            <Text
+              style={{
+                fontSize: 14,
+                color: leftTextColor,
+                lineHeight: 18,
+              }}
+            >
+              {rightText}
+            </Text>
+          )}
     </Block>
   );
 };

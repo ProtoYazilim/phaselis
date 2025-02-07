@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext, Children } from "react";
+import { useEffect, useState, useContext, Children, useMemo } from "react";
 import { View, Text } from "react-native";
 import stylesheet from "./assets/styles";
 import type { InputGroupProps } from "./types";
@@ -12,33 +12,40 @@ const InputGroup: React.FC<InputGroupProps> = ({
   message,
   style,
   contextValue,
+  for: _for,
 }) => {
   const [disabled, setDisabled] = useState(false);
   const [error, setError] = useState("");
 
   const formContext = useContext(FormContext);
 
-  const { name } = (Children.only(children) as React.ReactElement).props;
+  const inputComponentName = useMemo(() => {
+    if (_for) {
+      return _for;
+    } else {
+      return (Children.only(children) as React.ReactElement).props?.name || "";
+    }
+  }, [_for, children]);
 
   useEffect(() => {
     if (
-      formContext?.meta?.[name]?.isChanged &&
-      formContext?.meta?.[name]?.isUsed &&
-      formContext?.meta?.[name]?.error
+      formContext?.meta?.[inputComponentName]?.isChanged &&
+      formContext?.meta?.[inputComponentName]?.isUsed &&
+      formContext?.meta?.[inputComponentName]?.error
     ) {
-      setError(formContext?.meta?.[name]?.error);
+      setError(formContext?.meta?.[inputComponentName]?.error);
     } else {
       setError("");
     }
-  }, [formContext?.meta, name]);
+  }, [formContext?.meta, inputComponentName]);
 
   useEffect(() => {
-    if (formContext?.meta?.[name]?.disabled) {
+    if (formContext?.meta?.[inputComponentName]?.disabled) {
       setDisabled(true);
     } else {
       setDisabled(false);
     }
-  }, [formContext?.meta, name]);
+  }, [formContext?.meta, inputComponentName]);
 
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
@@ -49,11 +56,17 @@ const InputGroup: React.FC<InputGroupProps> = ({
   );
 
   return (
-    <View style={getCombinedStyle("container")}>
-      <Text style={getCombinedStyle("label")}>{label}</Text>
-      {children}
-      <Text style={getCombinedStyle("message")}>{error ? error : message}</Text>
-    </View>
+    <>
+      <View style={getCombinedStyle("container")}>
+        <Text style={getCombinedStyle("label")}>{label}</Text>
+        {children}
+        {(error || message) && (
+          <Text style={getCombinedStyle("message")}>
+            {error ? error : message}
+          </Text>
+        )}
+      </View>
+    </>
   );
 };
 

@@ -10,6 +10,7 @@ import NoOptionSlotDefault from "./lib/NoOptionSlotDefault";
 import { stylesheet_picker_options_slot } from "./assets/styles";
 import { useCombinedStyle } from "../../hooks";
 import { cloneSlot } from "../../utils";
+import LinearGradient from "react-native-linear-gradient";
 
 const CustomPicker: React.FC<CustomPickerProps> = ({
   showPicker,
@@ -30,7 +31,16 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
   style,
   setIsFocus,
   variation = "default",
-  // ..._extraProps
+  topLinearGradientProps = {
+    locations: [0, 0.5, 1],
+    colors: ["#F2F8FD", "rgba(255,255,255,0)"],
+  },
+  bottomLinearGradientProps = {
+    locations: [0, 0.5, 1],
+    colors: ["rgba(255,255,255,0)", "#F2F8FD", "#F2F8FD"],
+  },
+  showTopBlur = true,
+  showBottomBlur = true,
 }) => {
   const memorizedOptions = useMemo(() => {
     return options.map((option) => {
@@ -96,21 +106,35 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
       {noOptionLayout ? (
         cloneSlot(NoOptionSlot, {})
       ) : (
-        <FlatList
-          contentContainerStyle={[getCombinedStyle("element")]}
-          data={memorizedOptions}
-          renderItem={({ item }) =>
-            cloneSlot(OptionSlot, {
-              item,
-              selectedItem,
-              onChange,
-              setShowPicker,
-              closeOnSelect,
-              contextValue,
-            })
-          }
-          keyExtractor={(item) => item.value.toString()}
-        />
+        <View>
+          {showTopBlur && (
+            <LinearGradient
+              style={getCombinedStyle("topLinearGradient")}
+              {...topLinearGradientProps}
+            />
+          )}
+          <FlatList
+            contentContainerStyle={[getCombinedStyle("element")]}
+            data={memorizedOptions}
+            renderItem={({ item }) =>
+              cloneSlot(OptionSlot, {
+                item,
+                selectedItem,
+                onChange,
+                setShowPicker,
+                closeOnSelect,
+                contextValue,
+              })
+            }
+            keyExtractor={(item) => item.value.toString()}
+          />
+          {showBottomBlur && (
+            <LinearGradient
+              style={getCombinedStyle("bottomLinearGradient")}
+              {...bottomLinearGradientProps}
+            />
+          )}
+        </View>
       )}
     </BottomSheet>
   );

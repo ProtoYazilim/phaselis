@@ -6,6 +6,8 @@ export default {
     default: {
       container: {
         alignItems: "flex-start",
+        gap: Spacings.SM,
+        marginBottom: Spacings.SM,
         variants: {
           error: {
             true: {},
@@ -30,10 +32,12 @@ export default {
         },
       },
       label: {
-        lineHeight: 24,
-        marginBottom: 4,
         paddingHorizontal: Spacings.MD,
+        color: Colors.Primary[950],
         variants: {
+          fontSize: 16,
+          lineHeight: 16,
+          fontWeight: "400",
           disabled: {
             true: {},
           },
@@ -49,8 +53,9 @@ export default {
         },
       },
       message: {
-        lineHeight: 21,
-        marginTop: 4,
+        paddingHorizontal: Spacings.MD,
+        lineHeight: 14,
+        fontSize: 14,
         variants: {
           disabled: {
             true: {},

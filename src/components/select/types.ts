@@ -7,6 +7,7 @@ import type {
   SlotChildComponent,
   SlotIconName,
 } from "../../types";
+import type { LinearGradientProps } from "react-native-linear-gradient";
 export interface SelectProps
   extends Omit<InputControlProps<string, any, any, any>, "error">,
     SelectExtraProps {
@@ -145,6 +146,10 @@ export interface CustomPickerProps extends PickerProps, SelectExtraProps {
   OptionSlot?: React.ComponentType<OptionSlotProps>;
   NoOptionSlot?: React.ComponentType;
   closeOnSelect?: boolean;
+  topLinearGradientProps?: LinearGradientProps;
+  bottomLinearGradientProps?: LinearGradientProps;
+  showTopBlur?: boolean;
+  showBottomBlur?: boolean;
 }
 
 export interface NativePickerProps extends PickerProps, SelectExtraProps {

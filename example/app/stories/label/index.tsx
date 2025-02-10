@@ -1,10 +1,33 @@
 import StoryView from "../../../src/StoryView";
-import { Col, Colors, Label, Row } from "phaselis";
+import { Block, Col, Colors, Label, Row } from "phaselis";
 import { Text, View } from "react-native";
 
 function LabelStory() {
   return (
-    <StoryView>
+    <StoryView style={{ gap: 32 }}>
+      <Block style={{ flexDirection: "row" }}>
+        <Text
+          style={{
+            fontSize: 20,
+            fontWeight: 400,
+            lineHeight: 22,
+            color: Colors.Primary[600],
+          }}
+        >
+          Font Family
+        </Text>
+        <Text
+          style={{
+            fontSize: 24,
+            fontWeight: 600,
+            lineHeight: 22,
+            color: Colors.Primary[600],
+            paddingLeft: 8,
+          }}
+        >
+          Roboto
+        </Text>
+      </Block>
       <Row style={{ justifyContent: "space-between" }}>
         <Label text="H1" variation="h1" />
         <Label text="H2" variation="h2" />

@@ -1,6 +1,6 @@
 import type { FormReference } from "phaselis";
 import { useRef } from "react";
-import { Text, Alert, Dimensions, View } from "react-native";
+import { Text, Alert, Dimensions } from "react-native";
 import {
   Block,
   Button,

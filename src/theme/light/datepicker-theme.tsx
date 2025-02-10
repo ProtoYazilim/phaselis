@@ -5,7 +5,7 @@ export default {
   datepicker: {
     default: {
       container: {
-        flex: 1,
+        // flex: 1,
         borderColor: Colors.Gray[950],
         borderRadius: Radius.MD,
         paddingLeft: Spacings.MD,
@@ -18,33 +18,39 @@ export default {
           },
           error: {
             true: {
-              borderColor: Colors.Danger[500],
+              borderColor: Colors.Danger[400],
             },
           },
           disabled: {
             true: {
-              borderColor: Colors.Gray[500],
-              backgroundColor: Colors.Gray[100],
+              borderColor: Colors.Primary[200],
+              backgroundColor: Colors.Primary[100],
             },
           },
           size: {
             xs: {
               height: Heights.XSminHeight,
+              width: "42%",
             },
             sm: {
               height: Heights.SMminHeight,
+              width: "47%",
             },
             md: {
               height: Heights.MDminHeight,
+              width: "48%",
             },
             lg: {
               height: Heights.LGminHeight,
+              width: "53%",
             },
             xl: {
               height: Heights.XLminHeight,
+              width: "62%",
             },
             xxl: {
               height: Heights.XXLminHeight,
+              width: "72%",
             },
           },
           textarea: {
@@ -56,7 +62,7 @@ export default {
         },
       },
       element: {
-        fontFamily: "Poppins",
+        flex: 1,
         color: Colors.Gray[950],
         justifyContent: "center",
         alignItems: "center",
@@ -70,12 +76,12 @@ export default {
           },
           error: {
             true: {
-              color: Colors.Danger[700],
+              color: Colors.Danger[600],
             },
           },
           disabled: {
             true: {
-              color: Colors.Gray[400],
+              color: Colors.Primary[300],
             },
           },
           size: {
@@ -116,12 +122,12 @@ export default {
           },
           error: {
             true: {
-              color: Colors.Danger[700],
+              color: Colors.Danger[600],
             },
           },
           disabled: {
             true: {
-              color: Colors.Gray[500],
+              color: Colors.Primary[300],
             },
           },
           textarea: {
@@ -141,12 +147,12 @@ export default {
           },
           error: {
             true: {
-              color: Colors.Danger[500],
+              color: Colors.Danger[600],
             },
           },
           disabled: {
             true: {
-              color: Colors.Gray[400],
+              color: Colors.Primary[300],
             },
           },
           textarea: {

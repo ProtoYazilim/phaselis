@@ -21,6 +21,7 @@ import SectionDivider from "../../src/SectionDivider";
 import Checkbox from "../../../src/components/checkbox";
 import Switch from "../../../src/components/switch";
 import Col from "../../../src/components/col";
+import Link from "../../../src/components/link";
 
 const MaskedTextfieldStory = () => {
   const refForm = useRef<FormReference>(null);
@@ -38,10 +39,15 @@ const MaskedTextfieldStory = () => {
               <Textfield
                 name="firstname"
                 validations={[required("required")]}
+                placeholder="İsim"
               />
             </InputGroup>
             <InputGroup label="Lastname" style={{ container: { flex: 1 } }}>
-              <Textfield name="lastname" validations={[required("required")]} />
+              <Textfield
+                name="lastname"
+                validations={[required("required")]}
+                placeholder="Soyisim"
+              />
             </InputGroup>
           </Row>
           <InputGroup label="e-Mail Address" style={{ container: { flex: 1 } }}>
@@ -89,7 +95,8 @@ const MaskedTextfieldStory = () => {
               style={{
                 container: { height: Dimensions.get("screen").height * 0.12 },
               }}
-              multiline
+              textarea
+              placeholder="Type Here..."
             />
           </InputGroup>
           <Row style={{ gap: 8, alignItems: "center" }}>
@@ -120,20 +127,26 @@ const MaskedTextfieldStory = () => {
             </InputGroup>
           </Row>
           <SectionDivider leftText="" rightText="" />
-          <View>
-            <Checkbox
-              name="terms"
-              text="I accept the terms of use"
-              size="xs"
-              value={true}
-            />
+          <Block>
+            <Block style={{ flexDirection: "row" }}>
+              <Checkbox
+                name="terms"
+                text="I accept the terms of use"
+                size="xs"
+                value={true}
+              />
+              <Link
+                leftIcon="ExternalLink"
+                href="https://www.protoyazilim.com"
+              />
+            </Block>
             <Checkbox
               name="news"
               text="I want to be informed about news"
               size="xs"
               value={true}
             />
-          </View>
+          </Block>
           <Row
             style={{
               alignItems: "center",

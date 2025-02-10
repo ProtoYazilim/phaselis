@@ -11,8 +11,9 @@ import {
 } from "react-native";
 import stylesheet from "./assets/styles";
 import PhaselisHOC from "../provider/lib/hoc";
-import { BlurBlock, Slot } from "../index";
+import { Slot } from "../index";
 import { useCombinedStyle } from "../../hooks";
+import { BlurView } from "@react-native-community/blur";
 
 const Popup: FC<PopupProps> = ({
   show,
@@ -80,11 +81,7 @@ const Popup: FC<PopupProps> = ({
   return (
     <Modal transparent={true} visible={show} animationType="fade">
       {backgroundBlur && (
-        <BlurBlock
-          style={sheetStyles.absolute}
-          blurType="dark"
-          blurAmount={1}
-        />
+        <BlurView style={sheetStyles.absolute} blurType="dark" blurAmount={1} />
       )}
       <Animated.View style={[...getCombinedStyle("backDrop"), backdropStyle]}>
         <Pressable style={{ flex: 1 }} onPress={handleClose} />

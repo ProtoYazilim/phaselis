@@ -2,7 +2,7 @@ import type { FC } from "react";
 import type { BottomSheetProps } from "./types";
 import { StyleSheet, TouchableOpacity, Modal, Animated } from "react-native";
 import { useEffect, useRef, useState } from "react";
-import BlurBlock from "../blur-block";
+import { BlurView } from "@react-native-community/blur";
 
 const BottomSheet: FC<BottomSheetProps> = ({
   show = false,
@@ -41,7 +41,7 @@ const BottomSheet: FC<BottomSheetProps> = ({
 
   return (
     <Modal transparent={true} visible={isModalVisible} animationType="fade">
-      <BlurBlock style={sheetStyles.absolute} blurType="dark" blurAmount={1} />
+      <BlurView style={sheetStyles.absolute} blurType="dark" blurAmount={1} />
       <TouchableOpacity style={{ flex: 1 }} onPress={onClose} />
       <Animated.View
         style={[

@@ -1,6 +1,6 @@
 import type { FormReference } from "phaselis";
 import { useRef } from "react";
-import { Form, Col, Row, Textfield, Datepicker } from "phaselis";
+import { Form, Col, Row, Textfield } from "phaselis";
 import StoryView from "../../../src/StoryView";
 import StorySection from "../../../src/StorySection";
 
@@ -119,17 +119,6 @@ const TextfieldStory = () => {
           rightIcon="Moon"
           textarea
         />
-      </StorySection>
-      <StorySection
-        leftText="Datepicker"
-        rightText="MD"
-        style={{ paddingVertical: 8 }}
-      >
-        <Row style={{ gap: 16 }}>
-          {/*  @ts-ignore */}
-          <Datepicker leftIcon="CalendarDays" rightIcon={null} />
-          <Datepicker rightIcon="Calendar" />
-        </Row>
       </StorySection>
     </StoryView>
   );

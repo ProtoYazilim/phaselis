@@ -6,6 +6,7 @@ export default {
     default: {
       //InputSlot
       container: {
+        flex: 1,
         borderColor: Colors.Primary[950],
         borderRadius: Radius.MD,
         paddingLeft: Spacings.MD,

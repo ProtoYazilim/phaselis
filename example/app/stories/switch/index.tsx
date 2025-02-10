@@ -39,7 +39,7 @@ function SwitchStory() {
         style={{
           flexDirection: "row",
           justifyContent: "center",
-          marginTop: 16,
+          paddingTop: 16,
         }}
       >
         <Switch

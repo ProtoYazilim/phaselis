@@ -50,7 +50,7 @@ const MaskedTextfieldStory = () => {
               />
             </InputGroup>
           </Row>
-          <InputGroup label="e-Mail Address" style={{ container: { flex: 1 } }}>
+          <InputGroup label="E-Mail Address" style={{ container: { flex: 1 } }}>
             <Textfield
               name="email"
               validations={[required("required")]}
@@ -64,7 +64,7 @@ const MaskedTextfieldStory = () => {
             style={{ container: { flex: 1 } }}
           >
             <Row style={{ gap: 8 }}>
-              <Col size={5}>
+              <Col size={6}>
                 <Select
                   options={[
                     { value: "1", label: "Türkiye +90" },
@@ -77,7 +77,7 @@ const MaskedTextfieldStory = () => {
                   validations={[requiredToOther("phone", "required")]}
                 />
               </Col>
-              <Col size={7}>
+              <Col size={6}>
                 <Textfield
                   name="phone"
                   validations={[required("required")]}
@@ -99,8 +99,14 @@ const MaskedTextfieldStory = () => {
               placeholder="Type Here..."
             />
           </InputGroup>
-          <Row style={{ gap: 8, alignItems: "center" }}>
-            <Block style={{ paddingLeft: 16, paddingRight: 16 }}>
+          <Row
+            style={{
+              gap: 8,
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <Block style={{ paddingLeft: 8, paddingRight: 8 }}>
               <Text>Date of Birth</Text>
             </Block>
             <Datepicker

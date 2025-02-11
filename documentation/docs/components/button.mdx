@@ -31,7 +31,7 @@ Put in some content in the `Button` to get a basic button.
 import { Button } from "phaselis";
 
 const Example = () => {
-  return <Button text="Phaselis" primary />;
+  return <Button text="Phaselis" variation="primary" />;
 };
 
 export default Example;
@@ -114,6 +114,15 @@ If `true`, the button will show a loading spinner.
 <Button loading />  
 ```
 
+### full  
+`boolean`  
+
+If `true`, the button will take up the full width of its container.  
+
+```jsx
+<Button full />
+```
+
 ### size 
 [`ComponentSize`](../theming-and-styling/component-size.mdx)
 
@@ -123,40 +132,22 @@ The size of the button.
 <Button size="xl" />  
 ```
 
-### primary
-`boolean`
+### variation  
+`default | primary | primary_outline | secondary | secondary_outline | tertiary | tertiary_outline | danger | success`  
 
-If `true`, the button will have a primary color.
-
-```jsx
-<Button primary />  
-```
-
-### secondary
-`boolean`
-
-If `true`, the button will have a secondary color.
-
-```jsx
-<Button secondary />  
-```
-
-### tertiary
-`boolean`
-
-If `true`, the button will have a tertiary color.
+Determines the style of the button.  
+- `default`: Applies the default button style.  
+- `primary`: Applies the primary button style.  
+- `primary_outline`: Applies the primary button style with an outline.  
+- `secondary`: Applies the secondary button style.  
+- `secondary_outline`: Applies the secondary button style with an outline.  
+- `tertiary`: Applies the tertiary button style.  
+- `tertiary_outline`: Applies the tertiary button style with an outline.  
+- `danger`: Applies the danger button style.  
+- `success`: Applies the success button style.
 
 ```jsx
-<Button tertiary />  
-```
-
-### outline
-`boolean`
-
-If `true`, the button will have an outline.
-
-```jsx
-<Button outline />  
+<Button variation="secondary" />
 ```
 
 {/* ### variants

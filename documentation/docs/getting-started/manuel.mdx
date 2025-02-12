@@ -37,50 +37,94 @@ import TabItem from '@theme/TabItem';
 
 <Tabs>
   <TabItem value="npm" label="npm" default>
+    ```bash 
+    npm install phaselis @react-native-community/blur@^4.4.1 @react-native-community/slider@^4.5.5 @react-native-picker/picker@^2.11.0 date-fns@^4.1.0 hoist-non-react-statics@^3.3.2 lodash@^4.17.21 lucide-react-native@^0.473.0 react@^18.3.1 react-native@^0.76.7 react-native-date-picker@^5.0.10 react-native-fast-shadow@^0.1.1 react-native-gesture-handler@^2.23.1 react-native-linear-gradient@^2.8.3 react-native-mask-input@^1.2.3 react-native-picker-select@^9.3.1 react-native-reanimated@^3.16.7 react-native-safe-area-context@^5.2.0 react-native-screens@^4.6.0 react-native-svg@^15.11.1 react-native-unistyles@^2.20.0
+    ```
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+    ```bash 
+    yarn add phaselis @react-native-community/blur@^4.4.1 @react-native-community/slider@^4.5.5 @react-native-picker/picker@^2.11.0 date-fns@^4.1.0 hoist-non-react-statics@^3.3.2 lodash@^4.17.21 lucide-react-native@^0.473.0 react@^18.3.1 react-native@^0.76.7 react-native-date-picker@^5.0.10 react-native-fast-shadow@^0.1.1 react-native-gesture-handler@^2.23.1 react-native-linear-gradient@^2.8.3 react-native-mask-input@^1.2.3 react-native-picker-select@^9.3.1 react-native-reanimated@^3.16.7 react-native-safe-area-context@^5.2.0 react-native-screens@^4.6.0 react-native-svg@^15.11.1 react-native-unistyles@^2.20.0
+    ```
+  </TabItem>
+</Tabs>
+
+* You need to install the following development dependencies:
+
+<Tabs>
+  <TabItem value="npm" label="npm" default>
   ```bash
-  npm install @react-native-community/blur@^4.4.1 @react-native-community/slider@^4.5.5 @react-native-picker/picker@^2.11.0 lucide-react-native@^0.473.0 react-native-date-picker@^5.0.10 react-native-fast-shadow@^0.1.1 react-native-gesture-handler@^2.23.0 react-native-linear-gradient@^2.8.3 react-native-mask-input@^1.2.3 react-native-picker-select@^9.3.1 react-native-reanimated@^3.16.7 react-native-safe-area-context@^5.2.0 react-native-screens@^4.6.0 react-native-svg@^15.11.1 react-native-unistyles@^2.20.0 hoist-non-react-statics@^3.3.2 lodash@^4.17.21
+  npm install --save-dev babel-plugin-module-resolver@^5.0.2 chokidar@^4.0.3
   ```
   </TabItem>
   <TabItem value="yarn" label="yarn">
   ```bash
-  yarn add @react-native-community/blur@^4.4.1 @react-native-community/slider@^4.5.5 @react-native-picker/picker@^2.11.0 lucide-react-native@^0.473.0 react-native-date-picker@^5.0.10 react-native-fast-shadow@^0.1.1 react-native-gesture-handler@^2.23.0 react-native-linear-gradient@^2.8.3 react-native-mask-input@^1.2.3 react-native-picker-select@^9.3.1 react-native-reanimated@^3.16.7 react-native-safe-area-context@^5.2.0 react-native-screens@^4.6.0 react-native-svg@^15.11.1 react-native-unistyles@^2.20.0 hoist-non-react-statics@^3.3.2 lodash@^4.17.21
+  yarn add --dev babel-plugin-module-resolver@^5.0.2 chokidar@^4.0.3
   ```
   </TabItem>
 </Tabs>
 
+
 * For ios run the following command
 
 ```bash
-cd ios && pod install
+cd ios && pod install && cd ..
 ```
 
 * After the Installation is done, we need to wrap our app with the `PhaselisProvider` component. lets import the `PhaselisProvider` and the `lightTheme` or `darkTheme` from the phaselis package.
 
 ```jsx
-import { Provider as PhaselisProvider, lightTheme ,darkTheme} from 'phaselis';
+import { Provider as PhaselisProvider, lightTheme } from 'phaselis';
 ```
+{/* ```jsx
+import { Provider as PhaselisProvider, lightTheme ,darkTheme} from 'phaselis';
+``` */}
 
 * Then wrap your app with the `PhaselisProvider` component and pass the `lightTheme` or `darkTheme` as a prop.
 
 ```jsx
-<PhaselisProvider theme={isDarkMode ? darkTheme : lightTheme}>
+<PhaselisProvider theme={ lightTheme }>
     <App/>
 </PhaselisProvider>
 ```
 
+{/* ```jsx
+<PhaselisProvider theme={isDarkMode ? darkTheme : lightTheme}>
+    <App/>
+</PhaselisProvider>
+``` */}
+
 * Last but not least we need to configure unistyles to work with phaselis, lets create unistyles config and import it.
 
 ```jsx
-import { lightTheme,darkTheme } from 'phaselis';
-import { UnistylesRegistry } from 'react-native-unistyles';
+import { UnistylesRegistry } from "react-native-unistyles";
+import { lightTheme } from "../theme/lightTheme";
 
+type AppThemes = {
+  light: typeof lightTheme;
+};
+
+declare module "react-native-unistyles" {
+  export interface UnistylesThemes extends AppThemes { }
+}
+
+UnistylesRegistry.addThemes({
+  light: lightTheme,
+}).addConfig({
+  adaptiveThemes: true,
+  initialTheme: "light",
+});
+```
+{/* ```jsx
+import { UnistylesRegistry } from "react-native-unistyles";
+import { darkTheme } from "../theme/darkTheme";
+import { lightTheme } from "../theme/lightTheme";
 
 type AppThemes = {
   light: typeof lightTheme;
   dark: typeof darkTheme;
 };
 
-declare module 'react-native-unistyles' {
+declare module "react-native-unistyles" {
   export interface UnistylesThemes extends AppThemes { }
 }
 
@@ -89,15 +133,64 @@ UnistylesRegistry.addThemes({
   dark: darkTheme,
 }).addConfig({
   adaptiveThemes: true,
-  initialTheme: 'light',
+  initialTheme: "light",
 });
-
-```
+``` */}
 
 * Import the unistyles config file in your app entry file.
 
 ```jsx
 import './config/unistyle';
 ```
+
+## TypeScript Configuration
+
+* If you are using TypeScript in your project, make sure your `tsconfig.json` includes the following configuration for proper module resolution:
+
+```json
+{
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+  }
+}
+```
+
+- **`module`:** This should be set to `"NodeNext"` for compatibility with the latest Node.js module system.
+- **`moduleResolution`:** Set this to `"nodenext"` to enable Node's native module resolution strategy.
+
+## Copy Theme Files
+
+* To complete the installation, you need to download the required theme files and place them in the `theme` folder.
+
+1. **Download the theme files** from the following link:  
+   [Download Theme Files](https://github.com/ProtoYazilim/phaselis/tree/main/documentation/src/manuel-installation-files/theme)
+
+2. **Copy the files** into the `theme` folder in your project directory. Make sure that the folder structure remains intact.
+
+## Add and Run Script
+
+* After downloading the theme files, you also need to add the `generate-theme-interface` script for TypeScript type generation.
+
+1. **Download the `generate-theme-interface` script** from the following link:  
+   [Download generate-theme-interface](https://github.com/ProtoYazilim/phaselis/tree/main/documentation/src/manuel-installation-files/scripts)
+
+2. **Copy the script** into the `scripts` folder in your project directory.
+
+3. After adding the script, open your `package.json` file and add the following command under the `scripts` section:
+
+```json
+"scripts": {
+  "generate-theme-interface": "npx ts-node ./scripts/generate-theme-interface.ts"
+}
+```
+
+4. **Run the script** using the following command:
+
+```bash
+npm run generate-theme-interface
+```
+
+This command will generate the TypeScript interfaces for the theme, ensuring everything is set up properly.
 
 That's it, you are ready to start building your app with phaselis.

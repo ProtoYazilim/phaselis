@@ -21,6 +21,7 @@ export interface DatepickerProps
     leftSlot?: ViewStyle;
     element?: TextStyle;
   };
+  rightIconVisible?: boolean;
   locale?: string; //locale type example > TR_tr
   disabled?: boolean;
   id?: string; //not used but maybe used in future

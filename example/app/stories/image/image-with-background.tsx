@@ -1,6 +1,7 @@
-import { BlurBlock, Image } from "phaselis";
+import { Image } from "phaselis";
 import { Text, View } from "react-native";
 import { phaselis_wood_image } from "../assets";
+import { BlurView } from "@react-native-community/blur";
 
 function ImageBackgroundStory() {
   return (
@@ -13,7 +14,7 @@ function ImageBackgroundStory() {
           margin: 24,
         }}
       >
-        <BlurBlock
+        <BlurView
           blurType="dark"
           blurAmount={5}
           style={{

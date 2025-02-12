@@ -28,7 +28,7 @@ import { Badge, Avatar } from "phaselis";
 
 const Example = () => {
   return (
-    <Badge text="999+" secondary left={-20} top={-4}>
+    <Badge text="999+" variation="secondary" left={-20} top={-4}>
       <Avatar text="NA" />
     </Badge>
   );
@@ -44,7 +44,7 @@ import { Badge, Textfield } from "phaselis";
 
 const Example = () => {
   return (
-    <Badge text="1" primary left={-15} top={-4}>
+    <Badge text="1" variation="primary" left={-15} top={-4}>
       <Textfield />
     </Badge>
   );
@@ -85,61 +85,27 @@ import { Avatar } from "phaselis";
 </Badge>
 ```
 
-### primary
-`boolean`
+### variation  
+`default | default_outline | primary | primary_outline | secondary | secondary_outline | tertiary | tertiary_outline`  
 
-If `true`, applies the primary badge style.
+Determines the style of the badge.  
+- `default`: Applies the default badge style.  
+- `default_outline`: Applies the default badge style with an outline.  
+- `primary`: Applies the primary badge style.  
+- `primary_outline`: Applies the primary badge style with an outline.  
+- `secondary`: Applies the secondary badge style.  
+- `secondary_outline`: Applies the secondary badge style with an outline.  
+- `tertiary`: Applies the tertiary badge style.  
+- `tertiary_outline`: Applies the tertiary badge style with an outline.
+
+
 
 ```jsx
-import { Avatar } from "phaselis";
-```
-```jsx
-<Badge text="99+" primary >
+<Badge text="99+" variation="secondary_outline">
   <Avatar text="NA" />
-</Badge> 
-```
-
-### secondary
-`boolean`
-
-If `true`, applies the secondary badge style.
-
-```jsx
-import { Avatar } from "phaselis";
-```
-```jsx
-<Badge text="99+" secondary >
-  <Avatar text="NA" />
-</Badge> 
-```
-
-### tertiary
-`boolean`
-
-If `true`, applies the tertiary badge style.
-
-```jsx
-import { Textfield } from "phaselis";
-```
-```jsx
-<Badge text="99+" tertiary>
-  <Textfield />
 </Badge>
 ```
 
-### outline
-`boolean`
-
-If `true`, applies an outline around the badge for emphasis.
-
-```jsx
-import { Avatar } from "phaselis";
-```
-```jsx
-<Badge text="99+" outline >
-  <Avatar text="NA" />
-</Badge> 
-```
 
 ### style
 | Name | Type | Description |

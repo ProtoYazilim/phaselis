@@ -6,7 +6,6 @@ export default {
     default: {
       //InputSlot
       container: {
-        flex: 1,
         borderColor: Colors.Primary[950],
         borderRadius: Radius.MD,
         paddingLeft: Spacings.MD,
@@ -22,6 +21,7 @@ export default {
           error: {
             true: {
               borderColor: Colors.Danger[500],
+              backgroundColor: Colors.Danger[50],
             },
           },
           disabled: {
@@ -138,7 +138,6 @@ export default {
       _header: {
         container: {
           paddingHorizontal: Spacings.LG,
-          paddingBottom: Spacings.MD,
         },
         text: {
           color: Colors.Gray[950],
@@ -180,7 +179,7 @@ export default {
         },
         element: {
           paddingTop: Spacings.MD,
-          paddingBottom: Spacings.XL,
+          paddingBottom: Spacings.MD,
           paddingRight: Spacings.LG,
           paddingLeft: Spacings.LG,
         },

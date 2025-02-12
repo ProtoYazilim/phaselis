@@ -2,31 +2,30 @@ import { Colors } from "../colors";
 import { FontSizes, Heights, Radius, Spacings } from "../spacings";
 
 export default {
-  textfield: {
+  datepicker: {
     default: {
       container: {
         flex: 1,
-        borderColor: Colors.Primary[950],
-        borderWidth: 0.5,
+        borderColor: Colors.Gray[950],
         borderRadius: Radius.MD,
         paddingLeft: Spacings.MD,
         paddingRight: Spacings.MD,
         variants: {
           focus: {
             true: {
-              borderColor: Colors.Primary[600],
-              backgroundColor: Colors.Primary[50],
-            },
-          },
-          disabled: {
-            true: {
-              borderColor: Colors.Primary[200],
-              backgroundColor: Colors.Primary[100],
+              borderColor: Colors.Primary[500],
             },
           },
           error: {
             true: {
               borderColor: Colors.Danger[500],
+              backgroundColor: Colors.Danger[50],
+            },
+          },
+          disabled: {
+            true: {
+              borderColor: Colors.Gray[500],
+              backgroundColor: Colors.Gray[100],
             },
           },
           size: {
@@ -58,8 +57,8 @@ export default {
         },
       },
       element: {
-        fontFamily: "Roboto",
-        color: Colors.Primary[950],
+        fontFamily: "Poppins",
+        color: Colors.Gray[950],
         justifyContent: "center",
         alignItems: "center",
         verticalAlign: "middle",
@@ -72,12 +71,12 @@ export default {
           },
           error: {
             true: {
-              color: Colors.Danger[600],
+              color: Colors.Danger[700],
             },
           },
           disabled: {
             true: {
-              color: Colors.Primary[300],
+              color: Colors.Gray[400],
             },
           },
           size: {
@@ -108,8 +107,8 @@ export default {
         },
       },
       leftSlot: {
-        color: Colors.Primary[950],
-        marginRight: Spacings.SM,
+        color: Colors.Gray[950],
+        marginRight: 10,
         variants: {
           focus: {
             true: {
@@ -118,12 +117,12 @@ export default {
           },
           error: {
             true: {
-              color: Colors.Danger[600],
+              color: Colors.Danger[700],
             },
           },
           disabled: {
             true: {
-              color: Colors.Primary[300],
+              color: Colors.Gray[500],
             },
           },
           textarea: {
@@ -134,8 +133,7 @@ export default {
         },
       },
       rightSlot: {
-        color: Colors.Primary[900],
-        marginLeft: Spacings.SM,
+        color: Colors.Gray[900],
         variants: {
           focus: {
             true: {
@@ -144,12 +142,12 @@ export default {
           },
           error: {
             true: {
-              color: Colors.Danger[600],
+              color: Colors.Danger[500],
             },
           },
           disabled: {
             true: {
-              color: Colors.Primary[300],
+              color: Colors.Gray[400],
             },
           },
           textarea: {

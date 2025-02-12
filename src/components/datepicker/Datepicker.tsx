@@ -16,7 +16,8 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
     size = "md",
     leftIcon,
     LeftSlot,
-    rightIcon = "CalendarDays",
+    rightIcon,
+    rightIconVisible = true,
     RightSlot,
     mode = "date",
     minDate,
@@ -26,9 +27,14 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
     value,
     disabled = false,
     variation = "default",
+    error,
     ...extraProps
   } = props;
   const [show, setShow] = useState(false);
+
+  const rightIconName = rightIconVisible
+    ? rightIcon || "CalendarDays"
+    : undefined;
 
   const toggle = () => {
     setShow(!show);
@@ -45,7 +51,7 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
     style,
     contextValue?.theme?.datepicker,
     variation,
-    { size, focus: show, disabled, ...extraProps },
+    { size, focus: show, disabled, error, ...extraProps },
   );
 
   const renderInput = () => {
@@ -63,7 +69,7 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
         </Text>
         <Slot
           style={getCombinedStyle("rightSlot")}
-          icon={rightIcon}
+          icon={rightIconName}
           size={size}
         >
           {RightSlot && <RightSlot />}

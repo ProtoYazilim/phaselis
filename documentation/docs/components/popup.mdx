@@ -270,10 +270,15 @@ const [visible, setVisible] = useState(false);
 </Popup>
 ```
 
-### type  
-`"default" | "info" | "warning" | "error" | "success"`  
+### variation  
+`default | info | success | warning | error`  
 
-Sets the style type of the popup. Defaults to `"default"`.
+Determines the style of the popup.  
+- `default`: Applies the default popup style.  
+- `info`: Applies an informational popup style.  
+- `success`: Applies a success message popup style.  
+- `warning`: Applies a warning message popup style.  
+- `error`: Applies an error message popup style.
 
 ```jsx
 import { Button } from "phaselis";
@@ -285,8 +290,7 @@ const [visible, setVisible] = useState(false);
 ```
 ```jsx
 <Button onClick={() => setVisible(true)} text="Open Popup" />
-<Popup type="error" show={visible} onClose={() => setVisible(false)}>
-<Text>Phaselis</Text>
+<Popup show={visible} onClose={() => setVisible(false)} title="Popup Title" variation="success">
+  <Text>This is the success popup content</Text>
 </Popup>
 ```
-

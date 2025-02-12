@@ -29,7 +29,7 @@ import { Label } from "phaselis";
 
 const Example = () => {
   return (
-    <Label text="Header 1" preset="h1" style={{ text: { color: "#0c5ae9" } }} />
+    <Label text="Header 1" variation="h1" style={{ text: { color: "#0c5ae9" } }} />
   );
 };
 
@@ -87,4 +87,63 @@ Optional string to specify the content displayed within the children prop.
 
 ```jsx
 <Label>Phaselis Label</Label>
+```
+
+### variation  
+`default | h1 | h2 | h3 | h4 | h5 | h6 | p | quot | small`  
+
+Determines the style of the label.  
+- `default`: Applies the default label style.  
+- `h1`: Applies the style of a header 1.  
+- `h2`: Applies the style of a header 2.  
+- `h3`: Applies the style of a header 3.  
+- `h4`: Applies the style of a header 4.  
+- `h5`: Applies the style of a header 5.  
+- `h6`: Applies the style of a header 6.  
+- `p`: Applies the style of a paragraph.  
+- `quot`: Applies the style of a quote.  
+- `small`: Applies the style of small text.
+
+```jsx
+<Label text="Header 1" variation="h1" style={{ text: { color: "#0c5ae9" } }} />
+```
+
+### bold  
+`boolean`  
+
+If `true`, applies bold text style to the label.  
+
+```jsx
+<Label text="Bold Text" bold />
+```
+
+### italic  
+`boolean`  
+
+If `true`, applies italic text style to the label.  
+
+```jsx
+<Label text="Italic Text" italic />
+```
+
+### weight  
+`light | regular | medium | semiBold | bold`  
+
+Defines the weight of the label text.  
+- `light`: Applies light font weight.  
+- `regular`: Applies regular font weight.  
+- `medium`: Applies medium font weight.  
+- `semiBold`: Applies semi-bold font weight.  
+- `bold`: Applies bold font weight.
+
+```jsx
+<Label text="Light Text" weight="light" />
+```
+
+```jsx
+<Label text="Medium Text" weight="medium" />
+```
+
+```jsx
+<Label text="Bold Text" weight="bold" />
 ```

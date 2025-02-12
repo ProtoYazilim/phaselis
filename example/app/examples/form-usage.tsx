@@ -1,6 +1,6 @@
 import type { FormReference } from "phaselis";
 import { useRef } from "react";
-import { Text, Alert, Dimensions, View } from "react-native";
+import { Text, Alert, Dimensions } from "react-native";
 import {
   Block,
   Button,
@@ -21,6 +21,7 @@ import SectionDivider from "../../src/SectionDivider";
 import Checkbox from "../../../src/components/checkbox";
 import Switch from "../../../src/components/switch";
 import Col from "../../../src/components/col";
+import Link from "../../../src/components/link";
 
 const MaskedTextfieldStory = () => {
   const refForm = useRef<FormReference>(null);
@@ -38,13 +39,18 @@ const MaskedTextfieldStory = () => {
               <Textfield
                 name="firstname"
                 validations={[required("required")]}
+                placeholder="İsim"
               />
             </InputGroup>
             <InputGroup label="Lastname" style={{ container: { flex: 1 } }}>
-              <Textfield name="lastname" validations={[required("required")]} />
+              <Textfield
+                name="lastname"
+                validations={[required("required")]}
+                placeholder="Soyisim"
+              />
             </InputGroup>
           </Row>
-          <InputGroup label="e-Mail Address" style={{ container: { flex: 1 } }}>
+          <InputGroup label="E-Mail Address" style={{ container: { flex: 1 } }}>
             <Textfield
               name="email"
               validations={[required("required")]}
@@ -58,7 +64,7 @@ const MaskedTextfieldStory = () => {
             style={{ container: { flex: 1 } }}
           >
             <Row style={{ gap: 8 }}>
-              <Col size={5}>
+              <Col size={6}>
                 <Select
                   options={[
                     { value: "1", label: "Türkiye +90" },
@@ -71,7 +77,7 @@ const MaskedTextfieldStory = () => {
                   validations={[requiredToOther("phone", "required")]}
                 />
               </Col>
-              <Col size={7}>
+              <Col size={6}>
                 <Textfield
                   name="phone"
                   validations={[required("required")]}
@@ -89,11 +95,18 @@ const MaskedTextfieldStory = () => {
               style={{
                 container: { height: Dimensions.get("screen").height * 0.12 },
               }}
-              multiline
+              textarea
+              placeholder="Type Here..."
             />
           </InputGroup>
-          <Row style={{ gap: 8, alignItems: "center" }}>
-            <Block style={{ paddingLeft: 16, paddingRight: 16 }}>
+          <Row
+            style={{
+              gap: 8,
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <Block style={{ paddingLeft: 8, paddingRight: 8 }}>
               <Text>Date of Birth</Text>
             </Block>
             <Datepicker
@@ -120,20 +133,26 @@ const MaskedTextfieldStory = () => {
             </InputGroup>
           </Row>
           <SectionDivider leftText="" rightText="" />
-          <View>
-            <Checkbox
-              name="terms"
-              text="I accept the terms of use"
-              size="xs"
-              value={true}
-            />
+          <Block>
+            <Block style={{ flexDirection: "row" }}>
+              <Checkbox
+                name="terms"
+                text="I accept the terms of use"
+                size="xs"
+                value={true}
+              />
+              <Link
+                leftIcon="ExternalLink"
+                href="https://www.protoyazilim.com"
+              />
+            </Block>
             <Checkbox
               name="news"
               text="I want to be informed about news"
               size="xs"
               value={true}
             />
-          </View>
+          </Block>
           <Row
             style={{
               alignItems: "center",

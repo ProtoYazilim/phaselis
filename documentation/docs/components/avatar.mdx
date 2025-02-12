@@ -27,7 +27,7 @@ import { Avatar } from "phaselis";
 import { Avatar } from "phaselis";
 
 const Example = () => {
-  return <Avatar size="md" circle text="AB" />;
+  return <Avatar size="md" text="AB" />;
 };
 
 export default Example;
@@ -95,7 +95,6 @@ Custom styles for the avatar container, text, and icon.
 ```jsx
 <Avatar
   size="md"
-  circle
   text="AB"
   style={{
     container: { backgroundColor: "#007bff" },
@@ -119,7 +118,7 @@ The name of the Lucide icon to display inside the avatar.
 Text or initials to display inside the avatar.  
 
 ```jsx
-<Avatar text="JD" size="lg" circle />
+<Avatar text="JD" size="lg" variation="rounded" />
 ```
 
 ### size  
@@ -131,35 +130,17 @@ Sets the size of the avatar. Default value is `md`.
 <Avatar size="lg" iconName="Umbrella" />
 ```
 
+### variation  
+`default | rounded | square`  
 
-### circle 
-`boolean`  
-
-Displays the avatar as a circle. Default is `true`.
-
-```jsx
-<Avatar circle text="AB" />
-```
-
-### rounded 
-`boolean`  
-
-Displays the avatar with rounded corners.  
+Determines the appearance of the avatar.  
+- `default`: Displays the avatar as a circle (default value).  
+- `rounded`: Displays the avatar with rounded corners.  
+- `square`: Displays the avatar as a square.
 
 ```jsx
-<Avatar rounded text="CD" />
+<Avatar variation="rounded" text="CD" />
 ```
-
-
-### square  
-`boolean`  
-
-Displays the avatar as a square.  
-
-```jsx
-<Avatar square text="EF" />
-```
-
 
 ### img  
 `string`  

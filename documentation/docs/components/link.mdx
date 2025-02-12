@@ -51,7 +51,8 @@ Other than listed props below, you can pass any prop that a `Pressable` componen
 The properties available for this component include options for styling, navigation settings, as well as optional icons and slot configurations.
 
 
-### href *`required`*
+{/* ### href *`required`* */}
+### href
 `string`
 
 The target route or URL for navigation.
@@ -69,23 +70,27 @@ The text to display within the link.
 <Link text="Proto" href={"https://www.protoyazilim.com/"} />
 ```
 
-### primary | secondary
-`boolean`
+### variation  
+`default | primary | secondary | tertiary`  
 
-Optional boolean to apply primary or secondary styling to the link.
+Determines the style of the link.  
+- `default`: Applies the default link style.  
+- `primary`: Applies the primary link style.  
+- `secondary`: Applies the secondary link style.  
+- `tertiary`: Applies the tertiary link style.
 
 ```jsx
-<Link text="Proto" href={"https://www.protoyazilim.com/"} secondary />
+<Link text="Proto" href="https://www.protoyazilim.com/" variation="primary" />
 ```
 
-### disabled
+{/* ### disabled
 `boolean`
 
 Optional boolean to disable the link and prevent user interaction.
 
 ```jsx
 <Link text="Proto" href={"https://www.protoyazilim.com/"} disabled />
-```
+``` */}
 
 ### canOpenURL  
 `boolean`  

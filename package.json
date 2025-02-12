@@ -1,6 +1,6 @@
 {
   "name": "phaselis",
-  "version": "0.0.10-eta",
+  "version": "0.0.11-alpha",
   "description": "A powerful, customizable, and beautiful UI component library for React Native applications. Phaselis provides a comprehensive set of pre-built components that help you build stunning mobile applications faster.",
   "source": "./src/index.ts",
   "main": "./dist/commonjs/index.js",
@@ -29,7 +29,8 @@
     "clean": "del-cli dist",
     "prepare": "bob build",
     "release": "release-it",
-    "generate-theme-interface": "ts-node ./scripts/generate-theme-interface.ts"
+    "generate-theme-interface": "ts-node ./scripts/generate-theme-interface.ts",
+    "postinstall": "cd ios && pod install"
   },
   "files": [
     "src",

@@ -44,6 +44,7 @@ const stylesheet_picker_option_slot = createStyleSheet({
   },
   selected: {},
   text: {},
+  selectedText: {},
 });
 
 const stylesheet_picker_options_slot = createStyleSheet({

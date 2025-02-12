@@ -170,9 +170,17 @@ export default {
         },
         selected: {
           backgroundColor: Colors.Primary[600],
-          borderColor: Colors.Primary[400],
+          borderColor: Colors.Primary[950],
         },
-        text: {},
+        text: {
+          fontSize: FontSizes.MD,
+          fontWeight: "400",
+          lineHeight: 22,
+          color: Colors.Primary[950],
+        },
+        selectedText: {
+          color: Colors.Primary[50],
+        },
       },
       _optionsSlot: {
         container: {

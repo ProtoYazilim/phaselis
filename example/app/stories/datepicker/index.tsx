@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { StyleSheet, Text } from "react-native";
 import type { FormReference } from "phaselis";
-import { Block, Form, Datepicker, Colors } from "phaselis";
+import { Block, Form, Datepicker, Colors, Row, Col } from "phaselis";
 import StoryView from "../../../src/StoryView";
 import StorySection from "../../../src/StorySection";
 
@@ -29,31 +29,84 @@ const DatepickerStory = () => {
           </Block>
         </StorySection>
         <StorySection leftText="Date Format" rightText="MD">
-          <Block
+          <Row
             style={{
-              flexDirection: "row",
-              justifyContent: "space-around",
-              paddingBottom: 4,
+              justifyContent: "space-between",
+              paddingBottom: 32,
             }}
           >
-            <Text style={styles.upperText}>DD/MM/YYYY</Text>
-            <Text style={styles.upperText}>YYYY/MM/DD</Text>
-          </Block>
-          <Block style={{ flexDirection: "row", gap: 16 }}>
-            <Datepicker
-              name="datepicker3"
-              format={"dd / MM / yyyy"}
-              value={new Date(2026, 6, 4)}
-              rightIconVisible={false}
-            />
-
-            <Datepicker
-              name="datepicker4"
-              format={"yyyy / MM / dd"}
-              value={new Date(2026, 6, 4)}
-              rightIconVisible={false}
-            />
-          </Block>
+            <Col style={{ flex: 0.157, alignItems: "center" }}>
+              <Text style={styles.upperText}>DD</Text>
+              <Datepicker
+                name="datepicker16"
+                format={"dd"}
+                value={new Date(2026, 6, 4)}
+                rightIconVisible={false}
+              />
+            </Col>
+            <Col style={{ flex: 0.157, alignItems: "center" }}>
+              <Text style={styles.upperText}>MM</Text>
+              <Datepicker
+                name="datepicker17"
+                format={"MM"}
+                value={new Date(2026, 6, 4)}
+                rightIconVisible={false}
+              />
+            </Col>
+            <Col style={{ flex: 0.22, alignItems: "center" }}>
+              <Text style={styles.upperText}>YYYY</Text>
+              <Datepicker
+                name="datepicker18"
+                format={"yyyy"}
+                value={new Date(2026, 6, 4)}
+                rightIconVisible={false}
+              />
+            </Col>
+            <Col style={{ flex: 0.157, alignItems: "center" }}>
+              <Text style={styles.upperText}>YY</Text>
+              <Datepicker
+                name="datepicker19"
+                format={"yy"}
+                value={new Date(2026, 6, 4)}
+                rightIconVisible={false}
+              />
+            </Col>
+            <Col style={{ flex: 0.25, alignItems: "center" }}>
+              <Text style={styles.upperText}>MM/YY</Text>
+              <Datepicker
+                name="datepicker20"
+                format={"MM / yy"}
+                value={new Date(2026, 6, 4)}
+                rightIconVisible={false}
+              />
+            </Col>
+          </Row>
+          <Row style={{ marginBottom: 4 }}>
+            <Col style={{ alignItems: "center" }}>
+              <Text style={styles.upperText}>DD/MM/YYYY</Text>
+            </Col>
+            <Col style={{ alignItems: "center" }}>
+              <Text style={styles.upperText}>YYYY/MM/DD</Text>
+            </Col>
+          </Row>
+          <Row>
+            <Col style={{ alignItems: "flex-start" }}>
+              <Datepicker
+                name="datepicker3"
+                format={"dd / MM / yyyy"}
+                value={new Date(2026, 6, 4)}
+                rightIconVisible={false}
+              />
+            </Col>
+            <Col style={{ alignItems: "flex-end" }}>
+              <Datepicker
+                name="datepicker4"
+                format={"yyyy / MM / dd"}
+                value={new Date(2026, 6, 4)}
+                rightIconVisible={false}
+              />
+            </Col>
+          </Row>
         </StorySection>
         <StorySection leftText="Left Right Slot" rightText="MD">
           <Block style={{ flexDirection: "row", gap: 16 }}>

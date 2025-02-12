@@ -1,11 +1,14 @@
+import { Dimensions } from "react-native";
 import { Colors } from "../colors";
 import { FontSizes, Heights, Radius, Spacings } from "../spacings";
 
+console.log(Dimensions.get("screen").width);
 export default {
   datepicker: {
     default: {
       container: {
-        // flex: 1,
+        flex: 1,
+        backgroundColor: "white",
         borderColor: Colors.Gray[950],
         borderRadius: Radius.MD,
         paddingLeft: Spacings.MD,
@@ -30,27 +33,27 @@ export default {
           size: {
             xs: {
               height: Heights.XSminHeight,
-              width: "42%",
+              maxWidth: Dimensions.get("screen").width * 0.37,
             },
             sm: {
               height: Heights.SMminHeight,
-              width: "47%",
+              maxWidth: Dimensions.get("screen").width * 0.41,
             },
             md: {
               height: Heights.MDminHeight,
-              width: "48%",
+              maxWidth: Dimensions.get("screen").width * 0.428,
             },
             lg: {
               height: Heights.LGminHeight,
-              width: "53%",
+              maxWidth: Dimensions.get("screen").width * 0.479,
             },
             xl: {
               height: Heights.XLminHeight,
-              width: "62%",
+              maxWidth: Dimensions.get("screen").width * 0.565,
             },
             xxl: {
               height: Heights.XXLminHeight,
-              width: "72%",
+              maxWidth: Dimensions.get("screen").width * 0.65,
             },
           },
           textarea: {
@@ -62,8 +65,8 @@ export default {
         },
       },
       element: {
-        flex: 1,
-        color: Colors.Gray[950],
+        color: Colors.Primary[950],
+        // flex: 1,
         justifyContent: "center",
         alignItems: "center",
         verticalAlign: "middle",
@@ -86,10 +89,10 @@ export default {
           },
           size: {
             xs: {
-              fontSize: FontSizes.SM,
+              fontSize: FontSizes.XS,
             },
             sm: {
-              fontSize: FontSizes.MD,
+              fontSize: FontSizes.SM,
             },
             md: {
               fontSize: FontSizes.MD,
@@ -113,7 +116,7 @@ export default {
       },
       leftSlot: {
         color: Colors.Gray[950],
-        marginRight: 10,
+        marginRight: Spacings.SM,
         variants: {
           focus: {
             true: {
@@ -139,6 +142,7 @@ export default {
       },
       rightSlot: {
         color: Colors.Gray[900],
+        paddingLeft: Spacings.SM,
         variants: {
           focus: {
             true: {

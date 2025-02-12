@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "phaselis",
-    "slug": "phaselis",
+    "slug": "phaselis-example",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -39,7 +39,14 @@
       "typedRoutes": true
     },
     "extra": {
-      "stories": "internal"
-    }
+      "stories": "internal",
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "58f85575-017b-4a93-9de4-dab126ae5129"
+      }
+    },
+    "owner": "proto-software"
   }
 }

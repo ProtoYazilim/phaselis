@@ -1,6 +1,6 @@
 {
   "name": "phaselis",
-  "version": "0.0.11-alpha",
+  "version": "0.0.11-theta",
   "description": "A powerful, customizable, and beautiful UI component library for React Native applications. Phaselis provides a comprehensive set of pre-built components that help you build stunning mobile applications faster.",
   "source": "./src/index.ts",
   "main": "./dist/commonjs/index.js",
@@ -29,8 +29,7 @@
     "clean": "del-cli dist",
     "prepare": "bob build",
     "release": "release-it",
-    "generate-theme-interface": "ts-node ./scripts/generate-theme-interface.ts",
-    "postinstall": "cd ios && pod install"
+    "generate-theme-interface": "ts-node ./scripts/generate-theme-interface.ts"
   },
   "files": [
     "src",
@@ -41,6 +40,7 @@
     "cpp",
     "*.podspec",
     "react-native.config.js",
+    "scripts",
     "!ios/build",
     "!android/build",
     "!android/gradle",
@@ -57,6 +57,7 @@
     "ios",
     "android"
   ],
+  "private": false,
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ProtoYazilim/phaselis/issues"
@@ -80,11 +81,8 @@
     "@react-native-picker/picker": "^2.11.0",
     "react-native-date-picker": "^5.0.8",
     "react-native-fast-shadow": "^0.1.1",
-    "react-native-gesture-handler": "^2.22.0",
     "react-native-linear-gradient": ">=2.8.0",
     "react-native-reanimated": "^3.16.7",
-    "react-native-safe-area-context": ">=4.0.0",
-    "react-native-screens": ">=4.0.0",
     "react-native-svg": ">=15.0.0",
     "react-native-unistyles": "^2.20.0"
   },

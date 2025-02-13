@@ -5,12 +5,9 @@ const tab_view_styles = createStyleSheet({
     // STYLES
     width: "100%",
     flex: 1,
-    // VARIANTS
-    variants: {},
   },
   element: {
     minHeight: 100,
-    variants: {},
   },
 });
 

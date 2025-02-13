@@ -7,12 +7,11 @@ export default {
   datepicker: {
     default: {
       container: {
-        flex: 1,
-        backgroundColor: "white",
         borderColor: Colors.Gray[950],
         borderRadius: Radius.MD,
         paddingLeft: Spacings.MD,
         paddingRight: Spacings.MD,
+        borderWidth: 0.5,
         variants: {
           focus: {
             true: {
@@ -33,44 +32,33 @@ export default {
           size: {
             xs: {
               height: Heights.XSminHeight,
-              maxWidth: Dimensions.get("screen").width * 0.37,
             },
             sm: {
               height: Heights.SMminHeight,
-              maxWidth: Dimensions.get("screen").width * 0.41,
             },
             md: {
               height: Heights.MDminHeight,
-              maxWidth: Dimensions.get("screen").width * 0.428,
             },
             lg: {
               height: Heights.LGminHeight,
-              maxWidth: Dimensions.get("screen").width * 0.479,
             },
             xl: {
               height: Heights.XLminHeight,
-              maxWidth: Dimensions.get("screen").width * 0.565,
             },
             xxl: {
               height: Heights.XXLminHeight,
-              maxWidth: Dimensions.get("screen").width * 0.65,
             },
           },
-          textarea: {
+          full: {
             true: {
-              justifyContent: "flex-start",
-              height: Heights.XLminHeight,
+              width: "100%",
             },
           },
         },
       },
       element: {
         color: Colors.Primary[950],
-        // flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        verticalAlign: "middle",
-        textAlignVertical: "center",
+
         variants: {
           focus: {
             true: {
@@ -107,11 +95,6 @@ export default {
               fontSize: FontSizes.XL,
             },
           },
-          textarea: {
-            true: {
-              marginTop: Spacings.XS,
-            },
-          },
         },
       },
       leftSlot: {
@@ -134,15 +117,13 @@ export default {
             },
           },
           textarea: {
-            true: {
-              marginTop: Spacings.SM,
-            },
+            true: {},
           },
         },
       },
       rightSlot: {
         color: Colors.Gray[900],
-        paddingLeft: Spacings.SM,
+        marginLeft: Spacings.SM,
         variants: {
           focus: {
             true: {
@@ -160,10 +141,7 @@ export default {
             },
           },
           textarea: {
-            true: {
-              alignSelf: "flex-start",
-              marginTop: Spacings.SM,
-            },
+            true: {},
           },
         },
       },

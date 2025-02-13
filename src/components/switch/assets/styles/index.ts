@@ -5,7 +5,6 @@ const stylesheet = createStyleSheet({
     // STYLES
     flexDirection: "row",
     alignItems: "center",
-    gap: 10,
   },
   track: {
     // STYLES

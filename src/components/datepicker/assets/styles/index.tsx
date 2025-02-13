@@ -5,51 +5,34 @@ const stylesheet = createStyleSheet({
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
-    borderWidth: 1,
-    borderColor: "#979797",
-    borderRadius: 6,
-    width: "100%",
     variants: {
       disabled: {
-        true: {
-          borderColor: "gray",
-          backgroundColor: "gray",
-        },
+        true: {},
       },
       focus: {
-        true: {
-          borderColor: "blue",
-        },
+        true: {},
       },
       error: {
-        true: {
-          borderColor: "red",
-        },
+        true: {},
       },
       size: {
-        xs: {
-          height: 24,
-        },
-        sm: {
-          height: 36,
-        },
-        md: {
-          height: 48,
-        },
-        lg: {
-          height: 56,
-        },
-        xl: {
-          height: 64,
-        },
-        xxl: {
-          height: 72,
-        },
+        xs: {},
+        sm: {},
+        md: {},
+        lg: {},
+        xl: {},
+        xxl: {},
+      },
+      full: {
+        true: {},
       },
     },
   },
   element: {
-    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    verticalAlign: "middle",
+    textAlignVertical: "center",
     variants: {
       error: {},
       disabled: {},
@@ -70,7 +53,6 @@ const stylesheet = createStyleSheet({
     },
   },
   leftSlot: {
-    flex: 1,
     variants: {
       error: {},
       disabled: {},
@@ -83,7 +65,6 @@ const stylesheet = createStyleSheet({
     },
   },
   rightSlot: {
-    flex: 1,
     variants: {
       error: {},
       disabled: {},

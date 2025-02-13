@@ -1,6 +1,6 @@
 import type { FC, ReactNode } from "react";
 import type { ViewStyle } from "react-native";
-import type { ComponentSize, InputControlProps } from "../../types";
+import type { InputControlProps } from "../../types";
 
 export interface SliderProps
   extends Omit<InputControlProps<number, any, any>, "error">,
@@ -11,7 +11,6 @@ export interface SliderProps
     container?: ViewStyle;
     element?: ViewStyle;
   };
-  size?: ComponentSize;
   minValue?: number;
   maxValue?: number;
   step?: number;

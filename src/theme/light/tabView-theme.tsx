@@ -5,8 +5,12 @@ export default {
   tab: {
     default: {
       header: {
-        container: {
-          variants: {},
+        container: {},
+        element: {
+          variants: {
+            true: {},
+            false: {},
+          },
         },
       },
       view: {
@@ -29,6 +33,11 @@ export default {
               true: {
                 borderBottomColor: Colors.Primary[500],
               },
+              false: {},
+            },
+            scrollable: {
+              true: {},
+              false: {},
             },
           },
         },
@@ -36,6 +45,8 @@ export default {
           fontSize: FontSizes.MD,
           color: Colors.Gray[950],
         },
+        leftSlot: {},
+        rightSlot: {},
       },
       tabItem: {
         container: {},

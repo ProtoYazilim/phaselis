@@ -3,10 +3,10 @@ import { createStyleSheet } from "react-native-unistyles";
 const stylesheet = createStyleSheet({
   // CONTAINER
   container: {
+    flex: 1,
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
-    flex: 1,
     variants: {
       disabled: {
         true: {},
@@ -17,28 +17,12 @@ const stylesheet = createStyleSheet({
       error: {
         true: {},
       },
-      size: {
-        xs: {},
-        sm: {
-          height: 36,
-        },
-        md: {
-          height: 48,
-        },
-        lg: {
-          height: 56,
-        },
-        xl: {},
-        xxl: {},
-      },
     },
   },
   // ELEMENT
   element: {
     flex: 1,
-    minimumTrackTintColor: "blue",
-    maximumTrackTintColor: "grey",
-    thumbTintColor: "blue",
+    width: "100%",
     variants: {
       error: {},
       disabled: {},

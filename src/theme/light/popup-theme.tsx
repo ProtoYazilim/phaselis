@@ -27,29 +27,30 @@ export default {
       },
       title: {
         fontSize: FontSizes.MD,
+        color: Colors.Gray[950],
         fontWeight: 700,
         lineHeight: 20,
-        color: Colors.Gray[950],
       },
+      backDrop: {},
     },
     info: {
       container: {
-        backgroundColor: "#D8EEFF",
+        backgroundColor: Colors.Info[100],
       },
     },
     success: {
       container: {
-        backgroundColor: "#CEFDE8",
+        backgroundColor: Colors.Success[100],
       },
     },
     warning: {
       container: {
-        backgroundColor: "#FFFBC5",
+        backgroundColor: Colors.Warning[100],
       },
     },
     error: {
       container: {
-        backgroundColor: "#FEE6E5",
+        backgroundColor: Colors.Danger[100],
       },
     },
   },

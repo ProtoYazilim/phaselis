@@ -12,11 +12,9 @@ export default {
       },
       leftSlot: {
         color: Colors.Primary[950],
-        marginRight: 2,
       },
       rightSlot: {
         color: Colors.Primary[950],
-        marginLeft: 2,
       },
     },
     primary: {

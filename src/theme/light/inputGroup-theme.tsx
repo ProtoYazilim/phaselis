@@ -32,7 +32,7 @@ export default {
         },
       },
       label: {
-        paddingHorizontal: Spacings.MD,
+        paddingHorizontal: Spacings.SM,
         color: Colors.Primary[950],
         variants: {
           fontSize: 16,
@@ -53,7 +53,7 @@ export default {
         },
       },
       message: {
-        paddingHorizontal: Spacings.MD,
+        paddingHorizontal: Spacings.SM,
         lineHeight: 14,
         fontSize: 14,
         variants: {

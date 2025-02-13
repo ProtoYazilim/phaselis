@@ -1,16 +1,11 @@
 import { createStyleSheet } from "react-native-unistyles";
 
 const stylesheet = createStyleSheet({
-  innerElement: {
-    backgroundColor: "blue",
-  },
+  innerElement: {},
   outerElement: {
-    borderColor: "black",
     backgroundColor: "transparent",
-    borderWidth: 2,
     alignItems: "center",
     justifyContent: "center",
-    height: 36,
     variants: {
       size: {
         xs: {},
@@ -23,7 +18,6 @@ const stylesheet = createStyleSheet({
     },
   },
   container: {
-    gap: 10,
     flexDirection: "row",
     alignItems: "center",
   },
@@ -39,7 +33,6 @@ const stylesheet = createStyleSheet({
 const stylesheet_group = createStyleSheet({
   group: {
     flexDirection: "column",
-    gap: 10,
     variants: {
       disabled: {
         true: {},

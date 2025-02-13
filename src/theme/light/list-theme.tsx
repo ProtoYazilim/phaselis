@@ -1,5 +1,11 @@
 export default {
   list: {
-    default: {},
+    default: {
+      container: {},
+      element: {},
+      columnWrapper: {},
+      header: {},
+      footer: {},
+    },
   },
 };

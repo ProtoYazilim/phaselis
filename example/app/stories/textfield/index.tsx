@@ -40,16 +40,28 @@ const TextfieldStory = () => {
         style={{ paddingVertical: 8 }}
       >
         <Row style={{ gap: 16, alignItems: "center", marginBottom: 16 }}>
-          <Textfield placeholder="XS" size="xs" />
-          <Textfield placeholder="SM" size="sm" />
-          <Textfield placeholder="MD" size="md" />
+          <Col>
+            <Textfield placeholder="XS" size="xs" />
+          </Col>
+          <Col>
+            <Textfield placeholder="SM" size="sm" />
+          </Col>
+          <Col>
+            <Textfield placeholder="MD" size="md" />
+          </Col>
         </Row>
         <Row style={{ gap: 16, alignItems: "center", marginBottom: 16 }}>
-          <Textfield placeholder="LG" size="lg" />
-          <Textfield placeholder="XL" size="xl" />
+          <Col>
+            <Textfield placeholder="LG" size="lg" />
+          </Col>
+          <Col>
+            <Textfield placeholder="XL" size="xl" />
+          </Col>
         </Row>
         <Row style={{ gap: 16, alignItems: "center" }}>
-          <Textfield placeholder="XXL" size="xxl" />
+          <Col>
+            <Textfield placeholder="XXL" size="xxl" />
+          </Col>
         </Row>
       </StorySection>
       <StorySection
@@ -80,7 +92,7 @@ const TextfieldStory = () => {
       >
         <Form ref={refForm}>
           <Row style={{ gap: 10, alignItems: "center", marginBottom: 16 }}>
-            <Col>
+            <Col size={5}>
               <Textfield
                 name="phone"
                 leftIcon="Smartphone"
@@ -88,16 +100,20 @@ const TextfieldStory = () => {
                 mask={PHONE_MASK}
               />
             </Col>
-            <Textfield name="mail" leftIcon="Mail" mask={MAIL_MASK} />
+            <Col size={7}>
+              <Textfield name="mail" leftIcon="Mail" mask={MAIL_MASK} />
+            </Col>
           </Row>
           <Row style={{ gap: 10, alignItems: "center" }}>
-            <Textfield
-              name="iban"
-              leftIcon="Wallet"
-              maxLength={32}
-              mask={IBAN_MASK}
-            />
-            <Col>
+            <Col size={7}>
+              <Textfield
+                name="iban"
+                leftIcon="Wallet"
+                maxLength={32}
+                mask={IBAN_MASK}
+              />
+            </Col>
+            <Col size={5}>
               <Textfield
                 name="creditCard"
                 leftIcon="CreditCard"

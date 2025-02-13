@@ -8,7 +8,6 @@ const tab_header_styles = createStyleSheet({
     width: "100%",
     justifyContent: "flex-start",
     // VARIANTS
-    variants: {},
   },
   element: {
     flexWrap: "wrap",

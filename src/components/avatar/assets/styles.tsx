@@ -4,9 +4,38 @@ const stylesheet = createStyleSheet({
   container: {
     justifyContent: "center",
     alignItems: "center",
+    variants: {
+      size: {
+        xs: {},
+        sm: {},
+        md: {},
+        lg: {},
+        xl: {},
+      },
+    },
   },
-  image: {},
-  text: {},
+  image: {
+    variants: {
+      size: {
+        xs: {},
+        sm: {},
+        md: {},
+        lg: {},
+        xl: {},
+      },
+    },
+  },
+  text: {
+    variants: {
+      size: {
+        xs: {},
+        sm: {},
+        md: {},
+        lg: {},
+        xl: {},
+      },
+    },
+  },
   icon: {},
 });
 

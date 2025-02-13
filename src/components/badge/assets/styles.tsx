@@ -1,7 +1,6 @@
 import { createStyleSheet } from "react-native-unistyles";
 
 const stylesheet = createStyleSheet({
-  //@ts-ignore
   container: {
     flexDirection: "row",
   },
@@ -46,16 +45,23 @@ const stylesheet = createStyleSheet({
       size: {
         xs: {},
         sm: {},
+        md: {},
+        lg: {},
+        xl: {},
+        xxl: {},
       },
     },
   },
   rightIcon: {
     color: "white",
-
     variants: {
       size: {
         xs: {},
         sm: {},
+        md: {},
+        lg: {},
+        xl: {},
+        xxl: {},
       },
     },
   },

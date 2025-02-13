@@ -5,7 +5,6 @@ export default {
   textfield: {
     default: {
       container: {
-        flex: 1,
         borderColor: Colors.Primary[950],
         borderWidth: 0.5,
         borderRadius: Radius.MD,
@@ -51,7 +50,6 @@ export default {
           },
           textarea: {
             true: {
-              justifyContent: "flex-start",
               height: Heights.XLminHeight,
             },
           },
@@ -60,10 +58,6 @@ export default {
       element: {
         fontFamily: "Roboto",
         color: Colors.Primary[950],
-        justifyContent: "center",
-        alignItems: "center",
-        verticalAlign: "middle",
-        textAlignVertical: "center",
         variants: {
           focus: {
             true: {
@@ -154,7 +148,6 @@ export default {
           },
           textarea: {
             true: {
-              alignSelf: "flex-start",
               marginTop: Spacings.SM,
             },
           },

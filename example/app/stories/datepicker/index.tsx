@@ -12,21 +12,26 @@ const DatepickerStory = () => {
     <StoryView>
       <Form ref={refForm}>
         <StorySection leftText="Default" rightText="MD">
-          <Block style={{ flexDirection: "row", gap: 16 }}>
-            <Datepicker
-              name="datepicker1"
-              format={"dd / MM / yyyy"}
-              value={new Date(2026, 6, 4)}
-              rightIconVisible={false}
-            />
-
-            <Datepicker
-              name="datepicker2"
-              format={"dd / MM / yyyy"}
-              value={new Date(2028, 5, 14)}
-              rightIconVisible={false}
-            />
-          </Block>
+          <Row style={{ gap: 16 }}>
+            <Col>
+              <Datepicker
+                name="datepicker1"
+                format={"dd / MM / yyyy"}
+                value={new Date(2026, 6, 4)}
+                rightIconVisible={false}
+                full
+              />
+            </Col>
+            <Col>
+              <Datepicker
+                name="datepicker2"
+                format={"dd / MM / yyyy"}
+                value={new Date(2028, 5, 14)}
+                rightIconVisible={false}
+                full
+              />
+            </Col>
+          </Row>
         </StorySection>
         <StorySection leftText="Date Format" rightText="MD">
           <Row
@@ -35,7 +40,7 @@ const DatepickerStory = () => {
               paddingBottom: 32,
             }}
           >
-            <Col style={{ flex: 0.157, alignItems: "center" }}>
+            <Block style={{ alignItems: "center" }}>
               <Text style={styles.upperText}>DD</Text>
               <Datepicker
                 name="datepicker16"
@@ -43,8 +48,8 @@ const DatepickerStory = () => {
                 value={new Date(2026, 6, 4)}
                 rightIconVisible={false}
               />
-            </Col>
-            <Col style={{ flex: 0.157, alignItems: "center" }}>
+            </Block>
+            <Block style={{ alignItems: "center" }}>
               <Text style={styles.upperText}>MM</Text>
               <Datepicker
                 name="datepicker17"
@@ -52,8 +57,8 @@ const DatepickerStory = () => {
                 value={new Date(2026, 6, 4)}
                 rightIconVisible={false}
               />
-            </Col>
-            <Col style={{ flex: 0.22, alignItems: "center" }}>
+            </Block>
+            <Block style={{ alignItems: "center" }}>
               <Text style={styles.upperText}>YYYY</Text>
               <Datepicker
                 name="datepicker18"
@@ -61,8 +66,8 @@ const DatepickerStory = () => {
                 value={new Date(2026, 6, 4)}
                 rightIconVisible={false}
               />
-            </Col>
-            <Col style={{ flex: 0.157, alignItems: "center" }}>
+            </Block>
+            <Block style={{ alignItems: "center" }}>
               <Text style={styles.upperText}>YY</Text>
               <Datepicker
                 name="datepicker19"
@@ -70,8 +75,8 @@ const DatepickerStory = () => {
                 value={new Date(2026, 6, 4)}
                 rightIconVisible={false}
               />
-            </Col>
-            <Col style={{ flex: 0.25, alignItems: "center" }}>
+            </Block>
+            <Block style={{ alignItems: "center" }}>
               <Text style={styles.upperText}>MM/YY</Text>
               <Datepicker
                 name="datepicker20"
@@ -79,37 +84,33 @@ const DatepickerStory = () => {
                 value={new Date(2026, 6, 4)}
                 rightIconVisible={false}
               />
-            </Col>
+            </Block>
           </Row>
-          <Row style={{ marginBottom: 4 }}>
-            <Col style={{ alignItems: "center" }}>
+          <Row style={{ marginBottom: 4, justifyContent: "space-between" }}>
+            <Block style={{ alignItems: "center" }}>
               <Text style={styles.upperText}>DD/MM/YYYY</Text>
-            </Col>
-            <Col style={{ alignItems: "center" }}>
-              <Text style={styles.upperText}>YYYY/MM/DD</Text>
-            </Col>
-          </Row>
-          <Row>
-            <Col style={{ alignItems: "flex-start" }}>
               <Datepicker
                 name="datepicker3"
                 format={"dd / MM / yyyy"}
                 value={new Date(2026, 6, 4)}
                 rightIconVisible={false}
               />
-            </Col>
-            <Col style={{ alignItems: "flex-end" }}>
+            </Block>
+            <Block style={{ alignItems: "center" }}>
+              <Text style={styles.upperText}>YYYY/MM/DD</Text>
               <Datepicker
                 name="datepicker4"
                 format={"yyyy / MM / dd"}
                 value={new Date(2026, 6, 4)}
                 rightIconVisible={false}
               />
-            </Col>
+            </Block>
           </Row>
         </StorySection>
         <StorySection leftText="Left Right Slot" rightText="MD">
-          <Block style={{ flexDirection: "row", gap: 16 }}>
+          <Block
+            style={{ flexDirection: "row", justifyContent: "space-between" }}
+          >
             <Datepicker
               name="datepicker5"
               format={"dd / MM / yyyy"}

@@ -46,6 +46,7 @@ interface DatepickerExtraProps {
   focus?: boolean;
   error?: boolean;
   disabled?: boolean;
+  full?: boolean;
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
   textarea?: boolean;
 }

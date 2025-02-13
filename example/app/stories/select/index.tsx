@@ -1,4 +1,4 @@
-import { Select, required, Row } from "phaselis";
+import { Select, required, Row, Col } from "phaselis";
 import StoryView from "../../../src/StoryView";
 import StorySection from "../../../src/StorySection";
 
@@ -40,43 +40,53 @@ const SelectStory = () => {
         style={{ paddingTop: 8 }}
       >
         <Row style={{ alignItems: "center", gap: 16, marginBottom: 16 }}>
-          <Select
-            name="3"
-            size="xs"
-            placeholder="XS"
-            validations={[required("required")]}
-            options={options}
-          />
-          <Select
-            name="4"
-            size="sm"
-            placeholder="SM"
-            validations={[required("required")]}
-            options={options}
-          />
-          <Select
-            name="5"
-            size="md"
-            placeholder="MD"
-            validations={[required("required")]}
-            options={options}
-          />
+          <Col>
+            <Select
+              name="3"
+              size="xs"
+              placeholder="XS"
+              validations={[required("required")]}
+              options={options}
+            />
+          </Col>
+          <Col>
+            <Select
+              name="4"
+              size="sm"
+              placeholder="SM"
+              validations={[required("required")]}
+              options={options}
+            />
+          </Col>
+          <Col>
+            <Select
+              name="5"
+              size="md"
+              placeholder="MD"
+              validations={[required("required")]}
+              options={options}
+            />
+          </Col>
         </Row>
         <Row style={{ alignItems: "center", gap: 16, marginBottom: 16 }}>
-          <Select
-            name="6"
-            size="lg"
-            placeholder="LG"
-            validations={[required("required")]}
-            options={options}
-          />
-          <Select
-            name="7"
-            size="xl"
-            placeholder="XL"
-            validations={[required("required")]}
-            options={options}
-          />
+          <Col>
+            <Select
+              name="6"
+              size="lg"
+              placeholder="LG"
+              validations={[required("required")]}
+              options={options}
+            />
+          </Col>
+          <Col>
+            <Select
+              name="7"
+              size="xl"
+              placeholder="XL"
+              validations={[required("required")]}
+              options={options}
+            />
+          </Col>
         </Row>
         <Row style={{ alignItems: "center" }}>
           <Select

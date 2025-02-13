@@ -4,7 +4,9 @@ import { Spacings } from "../spacings";
 export default {
   switch: {
     default: {
-      container: {},
+      container: {
+        gap: Spacings.SM,
+      },
       track: {
         onColor: Colors.Primary[500],
         offColor: Colors.Gray[300],

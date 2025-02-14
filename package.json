@@ -57,7 +57,7 @@
     "ios",
     "android"
   ],
-  "private": false,
+  "private": true,
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ProtoYazilim/phaselis/issues"
@@ -227,5 +227,9 @@
     "languages": "js",
     "type": "library",
     "version": "0.45.5"
-  }
+  },
+  "workspaces": [
+    "example",
+    "packages/*"
+  ]
 }

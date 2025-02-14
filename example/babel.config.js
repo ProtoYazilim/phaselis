@@ -10,6 +10,7 @@ module.exports = function (api) {
   return getConfig(
     {
       presets: ["babel-preset-expo"],
+      plugins: ["@babel/plugin-transform-runtime"],
     },
     { root, pkg },
   );

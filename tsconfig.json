@@ -4,13 +4,17 @@
     "noEmitOnError": true,
     "rootDir": ".",
     "paths": {
-      "phaselis": ["./src/index"],
+      "phaselis": [
+        "./src/index"
+      ],
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
-    "lib": ["ESNext"],
+    "lib": [
+      "ESNext"
+    ],
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "noEmit": true,

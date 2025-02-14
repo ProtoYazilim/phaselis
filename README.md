@@ -23,6 +23,33 @@ npx create-phaselis-app
 
 Please visit [Manual Installation Guide](https://www.protoyazilim.com/phaselis/docs/getting-started/manuel).
 
+### NPM Installation
+
+To install the library, follow these steps:
+
+1. Add the library to your project:
+
+   ```sh
+   npm install phaselis
+   ```
+
+2. Navigate to the iOS directory and install the CocoaPods dependencies:
+
+   ```sh
+   cd ios
+   pod install
+   ```
+
+3. Clean the build folder and rebuild the project:
+
+   ```sh
+   xcodebuild clean
+   ```
+
+4. Open the `.xcworkspace` file in Xcode and run your project.
+
+For more information, refer to the [CocoaPods documentation](https://guides.cocoapods.org/using/using-cocoapods.html).
+
 ## 📚 Documentation
 
 For detailed documentation and examples, visit our [documentation site](https://www.protoyazilim.com/phaselis).
@@ -32,7 +59,7 @@ For detailed documentation and examples, visit our [documentation site](https://
 1. Import and configure the PhaselisProvider:
 
 ```jsx
-import { Provider as PhaselisProvider, lightTheme, darkTheme } from 'phaselis';
+import { Provider as PhaselisProvider, lightTheme, darkTheme } from "phaselis";
 
 function App() {
   return (
@@ -46,15 +73,15 @@ function App() {
 2. Configure Unistyles:
 
 ```typescript
-import { lightTheme, darkTheme } from 'phaselis';
-import { UnistylesRegistry } from 'react-native-unistyles';
+import { lightTheme, darkTheme } from "phaselis";
+import { UnistylesRegistry } from "react-native-unistyles";
 
 type AppThemes = {
   light: typeof lightTheme;
   dark: typeof darkTheme;
 };
 
-declare module 'react-native-unistyles' {
+declare module "react-native-unistyles" {
   export interface UnistylesThemes extends AppThemes {}
 }
 
@@ -63,7 +90,7 @@ UnistylesRegistry.addThemes({
   dark: darkTheme,
 }).addConfig({
   adaptiveThemes: true,
-  initialTheme: 'light',
+  initialTheme: "light",
 });
 ```
 
@@ -84,22 +111,25 @@ Phaselis components are highly customizable through:
 - Linear gradient support
 
 Example:
+
 ```jsx
 <Button
   primary
   style={{
     container: {
-      backgroundColor: 'yellow',
-      shadows: [{
-        color: '#FCF596',
-        opacity: 0.8,
-        radius: 12,
-        offset: [-5, -3],
-      }]
+      backgroundColor: "yellow",
+      shadows: [
+        {
+          color: "#FCF596",
+          opacity: 0.8,
+          radius: 12,
+          offset: [-5, -3],
+        },
+      ],
     },
     text: {
-      color: 'white'
-    }
+      color: "white",
+    },
   }}
 >
   Custom Button

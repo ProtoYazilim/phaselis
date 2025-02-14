@@ -93,7 +93,9 @@ const MaskedTextfieldStory = () => {
               validations={[required("required")]}
               rightIcon="MapPin"
               style={{
-                container: { height: Dimensions.get("screen").height * 0.12 },
+                container: {
+                  height: Dimensions.get("screen").height * 0.12,
+                },
               }}
               textarea
               placeholder="Type Here..."

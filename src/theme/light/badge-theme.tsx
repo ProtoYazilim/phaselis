@@ -77,6 +77,22 @@ export default {
               width: 10,
               height: 10,
             },
+            md: {
+              width: 12,
+              height: 12,
+            },
+            lg: {
+              width: 14,
+              height: 14,
+            },
+            xl: {
+              width: 16,
+              height: 16,
+            },
+            xxl: {
+              width: 18,
+              height: 18,
+            },
           },
         },
       },
@@ -94,6 +110,22 @@ export default {
             sm: {
               width: 10,
               height: 10,
+            },
+            md: {
+              width: 12,
+              height: 12,
+            },
+            lg: {
+              width: 14,
+              height: 14,
+            },
+            xl: {
+              width: 16,
+              height: 16,
+            },
+            xxl: {
+              width: 18,
+              height: 18,
             },
           },
         },

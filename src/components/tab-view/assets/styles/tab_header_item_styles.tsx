@@ -7,7 +7,6 @@ const tab_header_item_styles = createStyleSheet({
     alignItems: "center",
     justifyContent: "center",
     borderBottomWidth: 2,
-    // height: 32,
     flexDirection: "row",
     gap: 8,
     // VARIANTS
@@ -21,27 +20,13 @@ const tab_header_item_styles = createStyleSheet({
         },
       },
       active: {
-        true: {
-          borderBottomColor: "#2A91FF",
-        },
-        false: {
-          borderBottomColor: "transparent",
-        },
+        true: {},
+        false: {},
       },
     },
   },
   text: {},
-  leftSlot: {
-    variants: {
-      scrollable: {},
-      active: {},
-    },
-  },
-  rightSlot: {
-    variants: {
-      scrollable: {},
-      active: {},
-    },
-  },
+  leftSlot: {},
+  rightSlot: {},
 });
 export default tab_header_item_styles;

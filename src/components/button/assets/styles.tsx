@@ -1,12 +1,14 @@
 import { createStyleSheet } from "react-native-unistyles";
 
 const stylesheet = createStyleSheet({
-  //@ts-ignore
   container: {
     borderWidth: 1,
     justifyContent: "center",
     variants: {
       loading: {
+        true: {},
+      },
+      full: {
         true: {},
       },
     },
@@ -49,12 +51,28 @@ const stylesheet = createStyleSheet({
       disabled: {
         true: {},
       },
+      size: {
+        xs: {},
+        sm: {},
+        md: {},
+        lg: {},
+        xl: {},
+        xxl: {},
+      },
     },
   },
   rightSlot: {
     variants: {
       disabled: {
         true: {},
+      },
+      size: {
+        xs: {},
+        sm: {},
+        md: {},
+        lg: {},
+        xl: {},
+        xxl: {},
       },
     },
   },

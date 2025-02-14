@@ -2,35 +2,22 @@ import { Colors } from "../colors";
 export default {
   label: {
     default: {
-      color: Colors.Shades.black,
+      container: {},
       text: {
+        color: Colors.Shades.black,
         variants: {
           bold: {
-            true: {
-              fontWeight: "bold",
-            },
+            true: {},
           },
           italic: {
-            true: {
-              fontStyle: "italic",
-            },
+            true: {},
           },
           weight: {
-            light: {
-              fontWeight: "300",
-            },
-            regular: {
-              fontWeight: "400",
-            },
-            medium: {
-              fontWeight: "500",
-            },
-            semiBold: {
-              fontWeight: "600",
-            },
-            bold: {
-              fontWeight: "700",
-            },
+            light: {},
+            regular: {},
+            medium: {},
+            semiBold: {},
+            bold: {},
           },
         },
       },

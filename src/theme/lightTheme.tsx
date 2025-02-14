@@ -1,4 +1,5 @@
 import { Colors } from "./colors";
+import { Spacings } from "./spacings";
 import buttonTheme from "./light/button-theme";
 import labelTheme from "./light/label-theme";
 import checkboxTheme from "./light/checkbox-theme";
@@ -22,9 +23,6 @@ import colTheme from "./light/col-theme";
 import rowTheme from "./light/row-theme";
 import listTheme from "./light/list-theme";
 import inputGroupTheme from "./light/inputGroup-theme";
-import { Spacings } from "./spacings";
-
-export const layeredComponents = ["tab"];
 
 export const lightTheme = {
   root: {

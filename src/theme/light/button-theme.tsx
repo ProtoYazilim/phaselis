@@ -1,5 +1,5 @@
 import { Colors } from "../colors";
-import { FontSizes, Heights, Radius, Spacings } from "../spacings";
+import { FontSizes, Heights, Radius, Spacings, IconSizes } from "../spacings";
 
 export default {
   button: {
@@ -65,6 +65,66 @@ export default {
             },
             xxl: {
               fontSize: FontSizes.XXL,
+            },
+          },
+        },
+      },
+      leftSlot: {
+        variants: {
+          size: {
+            xs: {
+              width: IconSizes.XS,
+              height: IconSizes.XS,
+            },
+            sm: {
+              width: IconSizes.SM,
+              height: IconSizes.SM,
+            },
+            md: {
+              width: IconSizes.MD,
+              height: IconSizes.MD,
+            },
+            lg: {
+              width: IconSizes.LG,
+              height: IconSizes.LG,
+            },
+            xl: {
+              width: IconSizes.XL,
+              height: IconSizes.XL,
+            },
+            xxl: {
+              width: IconSizes.XXL,
+              height: IconSizes.XXL,
+            },
+          },
+        },
+      },
+      rightSlot: {
+        variants: {
+          size: {
+            xs: {
+              width: IconSizes.XS,
+              height: IconSizes.XS,
+            },
+            sm: {
+              width: IconSizes.SM,
+              height: IconSizes.SM,
+            },
+            md: {
+              width: IconSizes.MD,
+              height: IconSizes.MD,
+            },
+            lg: {
+              width: IconSizes.LG,
+              height: IconSizes.LG,
+            },
+            xl: {
+              width: IconSizes.XL,
+              height: IconSizes.XL,
+            },
+            xxl: {
+              width: IconSizes.XXL,
+              height: IconSizes.XXL,
             },
           },
         },

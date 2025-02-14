@@ -10,10 +10,7 @@ const tab_header_styles = createStyleSheet({
     variants: {},
   },
   element: {
-    width: 32,
-    height: 32,
     backgroundColor: "lightgrey",
-    borderRadius: 16,
     justifyContent: "center",
     alignItems: "center",
     zIndex: 3,
@@ -21,19 +18,13 @@ const tab_header_styles = createStyleSheet({
     // VARIANTS
     variants: {
       isDisabled: {
-        true: {
-          backgroundColor: "grey",
-        },
+        true: {},
       },
       isActive: {
-        true: {
-          backgroundColor: "lightblue",
-        },
+        true: {},
       },
       isCompleted: {
-        true: {
-          backgroundColor: "blue",
-        },
+        true: {},
       },
     },
   },
@@ -42,14 +33,10 @@ const tab_header_styles = createStyleSheet({
     // VARIANTS
     variants: {
       isCompleted: {
-        true: {
-          color: "blue",
-        },
+        true: {},
       },
       isActive: {
-        true: {
-          color: "black",
-        },
+        true: {},
       },
     },
   },
@@ -58,46 +45,38 @@ const tab_header_styles = createStyleSheet({
     // VARIANTS
     variants: {
       isCompleted: {
-        true: {
-          color: "blue",
-        },
+        true: {},
       },
       isActive: {
-        true: {
-          color: "black",
-        },
+        true: {},
       },
     },
   },
   leftText: {
     textAlign: "center",
+    alignItems: "center",
+    justifyContent: "center",
     // VARIANTS
     variants: {
       isCompleted: {
-        true: {
-          color: "blue",
-        },
+        true: {},
       },
       isActive: {
-        true: {
-          color: "black",
-        },
+        true: {},
       },
     },
   },
   rightText: {
     textAlign: "center",
+    alignItems: "center",
+    justifyContent: "center",
     // VARIANTS
     variants: {
       isCompleted: {
-        true: {
-          color: "blue",
-        },
+        true: {},
       },
       isActive: {
-        true: {
-          color: "black",
-        },
+        true: {},
       },
     },
   },
@@ -106,24 +85,17 @@ const tab_header_styles = createStyleSheet({
     // VARIANTS
     variants: {
       isCompleted: {
-        true: {
-          color: "blue",
-        },
+        true: {},
       },
       isActive: {
-        true: {
-          color: "black",
-        },
+        true: {},
       },
     },
   },
   number: {
-    color: "white",
     variants: {
       isActive: {
-        true: {
-          color: "black",
-        },
+        true: {},
       },
     },
   },
@@ -135,19 +107,13 @@ const tab_header_styles = createStyleSheet({
     // VARIANTS
     variants: {
       isCompleted: {
-        true: {
-          backgroundColor: "blue",
-        },
+        true: {},
       },
       isActive: {
-        true: {
-          backgroundColor: "blue",
-        },
+        true: {},
       },
       isFirst: {
-        true: {
-          backgroundColor: "transparent",
-        },
+        true: {},
       },
     },
   },
@@ -155,23 +121,17 @@ const tab_header_styles = createStyleSheet({
     height: 1,
     flex: 1,
     zIndex: -1,
-    backgroundColor: "grey",
+
     variants: {
       isCompleted: {
-        true: {
-          backgroundColor: "blue",
-        },
+        true: {},
       },
       isLast: {
-        true: {
-          backgroundColor: "transparent",
-        },
+        true: {},
       },
     },
   },
-  completeIcon: {
-    color: "white",
-  },
+  completeIcon: {},
 });
 
 export default tab_header_styles;

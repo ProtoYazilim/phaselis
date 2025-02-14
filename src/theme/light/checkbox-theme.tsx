@@ -1,5 +1,5 @@
 import { Colors } from "../colors";
-import { FontSizes, Heights, Radius } from "../spacings";
+import { FontSizes, Heights, Radius, Spacings } from "../spacings";
 
 export default {
   checkbox: {
@@ -59,6 +59,7 @@ export default {
         },
       },
       element: {
+        marginRight: Spacings.SM,
         borderRadius: Radius.MD,
         borderWidth: 0.5,
         variants: {
@@ -91,7 +92,7 @@ export default {
         },
       },
       text: {
-        fontFamily: "Poppins",
+        fontFamily: "Roboto",
         variants: {
           size: {
             xs: {

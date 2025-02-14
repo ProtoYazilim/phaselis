@@ -37,7 +37,14 @@ const OptionSlotDefault = ({
             }
           }}
         >
-          <Text>{item.label}</Text>
+          <Text
+            style={[
+              getCombinedStyle("text"),
+              isSelected && getCombinedStyle("selectedText"),
+            ]}
+          >
+            {item.label}
+          </Text>
         </Pressable>
       ) : null}
     </View>

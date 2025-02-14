@@ -5,8 +5,6 @@ const stylesheet = createStyleSheet({
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
-    marginVertical: 5,
-    marginRight: 10,
     variants: {
       size: {
         xs: {},
@@ -42,12 +40,7 @@ const stylesheet = createStyleSheet({
   element: {
     alignItems: "center",
     justifyContent: "center",
-    marginRight: 8,
-    borderWidth: 2,
     borderColor: "black",
-    borderRadius: 8,
-    width: 32,
-    height: 32,
     variants: {
       size: {
         xs: {},
@@ -60,7 +53,6 @@ const stylesheet = createStyleSheet({
     },
   },
   text: {
-    fontFamily: "Poppins",
     variants: {
       size: {
         xs: {},

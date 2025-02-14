@@ -1,4 +1,5 @@
 import { Colors } from "../colors";
+import { Spacings } from "../spacings";
 
 export default {
   stepper: {
@@ -6,6 +7,9 @@ export default {
       header: {
         container: {},
         element: {
+          width: Spacings.LG,
+          height: Spacings.LG,
+          borderRadius: Spacings.LG,
           backgroundColor: Colors.Primary[200],
           borderColor: Colors.Primary[200],
           borderWidth: 2,
@@ -130,10 +134,8 @@ export default {
         },
         leftText: {
           color: Colors.Primary[500],
-          paddingRight: 8,
-          paddingLeft: 8,
-          alignItems: "center",
-          justifyContent: "center",
+          paddingRight: Spacings.SM,
+          paddingLeft: Spacings.SM,
           variants: {
             isActive: {
               true: {
@@ -154,10 +156,8 @@ export default {
         },
         rightText: {
           color: Colors.Primary[500],
-          paddingRight: 8,
-          paddingLeft: 8,
-          alignItems: "center",
-          justifyContent: "center",
+          paddingRight: Spacings.SM,
+          paddingLeft: Spacings.SM,
           variants: {
             isActive: {
               true: {
@@ -178,9 +178,8 @@ export default {
         },
         topText: {
           color: Colors.Primary[500],
-          marginBottom: 4,
-          textAlign: "center",
-          marginRight: 8,
+          marginBottom: Spacings.XS,
+          marginRight: Spacings.SM,
           variants: {
             isActive: {
               true: {
@@ -201,8 +200,8 @@ export default {
         },
         bottomText: {
           color: Colors.Primary[500],
-          marginTop: 4,
-          marginRight: 8,
+          marginBottom: Spacings.XS,
+          marginRight: Spacings.SM,
           variants: {
             isActive: {
               true: {

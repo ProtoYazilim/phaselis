@@ -14,20 +14,6 @@ export default {
           disabled: {
             true: {},
           },
-          size: {
-            xs: {},
-            sm: {
-              height: 36,
-            },
-            md: {
-              height: 48,
-            },
-            lg: {
-              height: 56,
-            },
-            xl: {},
-            xxl: {},
-          },
         },
       },
       element: {

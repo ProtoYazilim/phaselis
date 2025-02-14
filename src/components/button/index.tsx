@@ -68,14 +68,6 @@ const Button: FC<ButtonPropTypes> = ({
     onPressOut?.(event);
     setPressed(false);
   };
-  const sizeIconSizeLiteral = {
-    xs: "sm",
-    sm: "md",
-    md: "md",
-    lg: "lg",
-    xl: "lg",
-    xxl: "lg",
-  };
 
   return (
     <Block style={getCombinedStyle("container") as any}>
@@ -93,7 +85,8 @@ const Button: FC<ButtonPropTypes> = ({
         <Slot
           style={getCombinedStyle("leftSlot")}
           icon={leftIcon}
-          size={sizeIconSizeLiteral[size] as any}
+          width={getCombinedStyle("leftSlot").width}
+          height={getCombinedStyle("leftSlot").height}
           loading={loading}
         >
           {LeftSlot && <LeftSlot />}
@@ -114,7 +107,8 @@ const Button: FC<ButtonPropTypes> = ({
         <Slot
           style={getCombinedStyle("rightSlot")}
           icon={rightIcon}
-          size={sizeIconSizeLiteral[size] as any}
+          width={getCombinedStyle("leftSlot").width}
+          height={getCombinedStyle("leftSlot").height}
         >
           {RightSlot && <RightSlot />}
         </Slot>

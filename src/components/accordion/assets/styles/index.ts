@@ -5,58 +5,23 @@ const stylesheet_header = createStyleSheet({
     justifyContent: "space-between",
     alignItems: "center",
     variants: {
-      outline: {
-        true: {},
-      },
       disabled: {
         true: {},
-      },
-      loading: {
-        true: {},
-      },
-      size: {
-        xs: {},
-        sm: {},
-        md: {},
-        lg: {},
-        xl: {},
-        xxl: {},
       },
     },
   },
   text: {
     fontSize: 16,
-    // VARIANTS
     variants: {
-      outline: {
-        true: {},
-      },
       disabled: {
         true: {},
-      },
-      loading: {
-        true: {},
-      },
-      size: {
-        xs: {},
-        sm: {},
-        md: {},
-        lg: {},
-        xl: {},
-        xxl: {},
       },
     },
   },
   icon: {
     color: "black",
     variants: {
-      outline: {
-        true: {},
-      },
       disabled: {
-        true: {},
-      },
-      loading: {
         true: {},
       },
     },
@@ -64,13 +29,7 @@ const stylesheet_header = createStyleSheet({
   drop: {
     color: "black",
     variants: {
-      outline: {
-        true: {},
-      },
       disabled: {
-        true: {},
-      },
-      loading: {
         true: {},
       },
     },
@@ -83,59 +42,14 @@ const stylesheet_item = createStyleSheet({
     borderWidth: 1,
     padding: 10,
     variants: {
-      outline: {
-        true: {},
-      },
       disabled: {
         true: {},
-      },
-      loading: {
-        true: {},
-      },
-      size: {
-        xs: {},
-        sm: {},
-        md: {},
-        lg: {},
-        xl: {},
-        xxl: {},
       },
     },
   },
   element: {
-    // VARIANTS
     variants: {
-      outline: {
-        true: {},
-      },
       disabled: {
-        true: {},
-      },
-      loading: {
-        true: {},
-      },
-      size: {
-        xs: {},
-        sm: {},
-        md: {},
-        lg: {},
-        xl: {},
-        xxl: {},
-      },
-    },
-  },
-  header: {
-    // STYLE
-    padding: 5,
-    // VARIANTS
-    variants: {
-      outline: {
-        true: {},
-      },
-      disabled: {
-        true: {},
-      },
-      loading: {
         true: {},
       },
     },
@@ -144,126 +58,15 @@ const stylesheet_item = createStyleSheet({
 
 const stylesheet_list = createStyleSheet({
   container: {
-    // STYLES
-    // VARIANTS
     variants: {
-      outline: {
-        true: {},
-      },
       disabled: {
         true: {},
-      },
-      loading: {
-        true: {},
-      },
-      size: {
-        xs: {},
-        sm: {},
-        md: {},
-        lg: {},
-        xl: {},
-        xxl: {},
       },
     },
   },
   element: {
-    // VARIANTS
     variants: {
-      outline: {
-        true: {},
-      },
       disabled: {
-        true: {},
-      },
-      loading: {
-        true: {},
-      },
-      size: {
-        xs: {},
-        sm: {},
-        md: {},
-        lg: {},
-        xl: {},
-        xxl: {},
-      },
-    },
-  },
-  header: {
-    // STYLE
-    padding: 5,
-    // VARIANTS
-    variants: {
-      outline: {
-        true: {},
-      },
-      disabled: {
-        true: {},
-      },
-      loading: {
-        true: {},
-      },
-    },
-  },
-});
-
-const stylesheet = createStyleSheet({
-  container: {
-    // STYLES
-    // VARIANTS
-    variants: {
-      outline: {
-        true: {},
-      },
-      disabled: {
-        true: {},
-      },
-      loading: {
-        true: {},
-      },
-      size: {
-        xs: {},
-        sm: {},
-        md: {},
-        lg: {},
-        xl: {},
-        xxl: {},
-      },
-    },
-  },
-  element: {
-    // VARIANTS
-    variants: {
-      outline: {
-        true: {},
-      },
-      disabled: {
-        true: {},
-      },
-      loading: {
-        true: {},
-      },
-      size: {
-        xs: {},
-        sm: {},
-        md: {},
-        lg: {},
-        xl: {},
-        xxl: {},
-      },
-    },
-  },
-  header: {
-    // STYLE
-    padding: 5,
-    // VARIANTS
-    variants: {
-      outline: {
-        true: {},
-      },
-      disabled: {
-        true: {},
-      },
-      loading: {
         true: {},
       },
     },
@@ -271,4 +74,3 @@ const stylesheet = createStyleSheet({
 });
 
 export { stylesheet_header, stylesheet_item, stylesheet_list };
-export default stylesheet;

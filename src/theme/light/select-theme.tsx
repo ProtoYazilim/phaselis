@@ -1,12 +1,11 @@
 import { Colors } from "../colors";
-import { FontSizes, Heights, Radius, Spacings } from "../spacings";
+import { FontSizes, Heights, Radius, Spacings, IconSizes } from "../spacings";
 
 export default {
   select: {
     default: {
       //InputSlot
       container: {
-        flex: 1,
         borderColor: Colors.Primary[950],
         borderRadius: Radius.MD,
         paddingLeft: Spacings.MD,
@@ -71,10 +70,37 @@ export default {
               color: Colors.Primary[300],
             },
           },
+          size: {
+            xs: {
+              width: IconSizes.XS,
+              height: IconSizes.XS,
+            },
+            sm: {
+              width: IconSizes.SM,
+              height: IconSizes.SM,
+            },
+            md: {
+              width: IconSizes.MD,
+              height: IconSizes.MD,
+            },
+            lg: {
+              width: IconSizes.LG,
+              height: IconSizes.LG,
+            },
+            xl: {
+              width: IconSizes.XL,
+              height: IconSizes.XL,
+            },
+            xxl: {
+              width: IconSizes.XXL,
+              height: IconSizes.XXL,
+            },
+          },
         },
       },
       rightSlot: {
         color: Colors.Primary[950],
+        marginLeft: Spacings.SM,
         variants: {
           focus: {
             true: {
@@ -89,6 +115,32 @@ export default {
           disabled: {
             true: {
               color: Colors.Primary[300],
+            },
+          },
+          size: {
+            xs: {
+              width: IconSizes.XS,
+              height: IconSizes.XS,
+            },
+            sm: {
+              width: IconSizes.SM,
+              height: IconSizes.SM,
+            },
+            md: {
+              width: IconSizes.MD,
+              height: IconSizes.MD,
+            },
+            lg: {
+              width: IconSizes.LG,
+              height: IconSizes.LG,
+            },
+            xl: {
+              width: IconSizes.XL,
+              height: IconSizes.XL,
+            },
+            xxl: {
+              width: IconSizes.XXL,
+              height: IconSizes.XXL,
             },
           },
         },
@@ -138,10 +190,11 @@ export default {
       _header: {
         container: {
           paddingHorizontal: Spacings.LG,
-          paddingBottom: Spacings.MD,
+          paddingVertical: Spacings.MD,
         },
         text: {
           color: Colors.Gray[950],
+          fontSize: FontSizes.XL,
         },
         closeIconSlot: {
           width: Heights.SMminHeight,
@@ -150,29 +203,49 @@ export default {
           paddingLeft: Spacings.SM,
           backgroundColor: Colors.Primary[600],
           borderColor: Colors.Primary[50],
+          borderRadius: 28,
+          borderWidth: 1,
         },
         closeIcon: {
           color: Colors.Primary[50],
         },
       },
       _noOptionSlot: {
-        container: {},
-        text: {},
+        container: {
+          flex: 1,
+          height: Heights.XXLminHeight,
+          marginHorizontal: Spacings.SM,
+        },
+        text: {
+          marginTop: Spacings.SM,
+          fontSize: FontSizes.MD,
+          fontWeight: "bold",
+          color: Colors.Primary[950],
+        },
       },
       _optionSlot: {
         container: {
-          paddingTop: Spacings.SM,
-          paddingRight: Spacings.MD,
-          paddingBottom: Spacings.SM,
+          backgroundColor: "white",
+          paddingVertical: Spacings.SM,
           paddingLeft: Spacings.MD,
-          marginTop: Spacings.XS,
-          borderColor: Colors.Gray[400],
+          paddingRight: Spacings.MD,
+          marginTop: Spacings.SM,
+          borderColor: Colors.Primary[950],
+          borderRadius: 19,
+          borderWidth: 0.5,
         },
         selected: {
           backgroundColor: Colors.Primary[600],
-          borderColor: Colors.Primary[400],
+          borderColor: Colors.Primary[950],
         },
-        text: {},
+        text: {
+          fontSize: FontSizes.MD,
+          lineHeight: 22,
+          color: Colors.Primary[950],
+        },
+        selectedText: {
+          color: Colors.Primary[50],
+        },
       },
       _optionsSlot: {
         container: {

@@ -1,15 +1,17 @@
+import { Dimensions } from "react-native";
 import { Colors } from "../colors";
 import { FontSizes, Heights, Radius, Spacings } from "../spacings";
 
+console.log(Dimensions.get("screen").width);
 export default {
   datepicker: {
     default: {
       container: {
-        // flex: 1,
         borderColor: Colors.Gray[950],
         borderRadius: Radius.MD,
         paddingLeft: Spacings.MD,
         paddingRight: Spacings.MD,
+        borderWidth: 0.5,
         variants: {
           focus: {
             true: {
@@ -30,44 +32,33 @@ export default {
           size: {
             xs: {
               height: Heights.XSminHeight,
-              width: "42%",
             },
             sm: {
               height: Heights.SMminHeight,
-              width: "47%",
             },
             md: {
               height: Heights.MDminHeight,
-              width: "48%",
             },
             lg: {
               height: Heights.LGminHeight,
-              width: "53%",
             },
             xl: {
               height: Heights.XLminHeight,
-              width: "62%",
             },
             xxl: {
               height: Heights.XXLminHeight,
-              width: "72%",
             },
           },
-          textarea: {
+          full: {
             true: {
-              justifyContent: "flex-start",
-              height: Heights.XLminHeight,
+              width: "100%",
             },
           },
         },
       },
       element: {
-        flex: 1,
-        color: Colors.Gray[950],
-        justifyContent: "center",
-        alignItems: "center",
-        verticalAlign: "middle",
-        textAlignVertical: "center",
+        color: Colors.Primary[950],
+
         variants: {
           focus: {
             true: {
@@ -86,10 +77,10 @@ export default {
           },
           size: {
             xs: {
-              fontSize: FontSizes.SM,
+              fontSize: FontSizes.XS,
             },
             sm: {
-              fontSize: FontSizes.MD,
+              fontSize: FontSizes.SM,
             },
             md: {
               fontSize: FontSizes.MD,
@@ -104,16 +95,11 @@ export default {
               fontSize: FontSizes.XL,
             },
           },
-          textarea: {
-            true: {
-              marginTop: Spacings.XS,
-            },
-          },
         },
       },
       leftSlot: {
         color: Colors.Gray[950],
-        marginRight: 10,
+        marginRight: Spacings.SM,
         variants: {
           focus: {
             true: {
@@ -131,14 +117,13 @@ export default {
             },
           },
           textarea: {
-            true: {
-              marginTop: Spacings.SM,
-            },
+            true: {},
           },
         },
       },
       rightSlot: {
         color: Colors.Gray[900],
+        marginLeft: Spacings.SM,
         variants: {
           focus: {
             true: {
@@ -156,10 +141,7 @@ export default {
             },
           },
           textarea: {
-            true: {
-              alignSelf: "flex-start",
-              marginTop: Spacings.SM,
-            },
+            true: {},
           },
         },
       },

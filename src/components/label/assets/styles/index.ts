@@ -7,20 +7,33 @@ export default createStyleSheet({
     alignItems: "center",
   },
   text: {
-    color: "#373d3f",
     variants: {
       bold: {
-        true: {},
+        true: {
+          fontWeight: "bold",
+        },
       },
       italic: {
-        true: {},
+        true: {
+          fontStyle: "italic",
+        },
       },
       weight: {
-        light: {},
-        regular: {},
-        medium: {},
-        semiBold: {},
-        bold: {},
+        light: {
+          fontWeight: "300",
+        },
+        regular: {
+          fontWeight: "400",
+        },
+        medium: {
+          fontWeight: "500",
+        },
+        semiBold: {
+          fontWeight: "600",
+        },
+        bold: {
+          fontWeight: "700",
+        },
       },
     },
   },

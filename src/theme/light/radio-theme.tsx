@@ -1,41 +1,45 @@
 import { Colors } from "../colors";
-import { Spacings } from "../spacings";
+import { Heights, Spacings } from "../spacings";
 
 export default {
   radio: {
     default: {
       innerElement: {},
       outerElement: {
+        borderColor: Colors.Primary[950],
+        borderWidth: 0.5,
         variants: {
           size: {
             xs: {
-              height: 24,
-              width: 24,
+              height: Heights.XSminHeight,
+              width: Heights.XSminHeight,
             },
             sm: {
-              height: 32,
-              width: 32,
+              height: Heights.SMminHeight,
+              width: Heights.SMminHeight,
             },
             md: {
-              height: 40,
-              width: 40,
+              height: Heights.MDminHeight,
+              width: Heights.MDminHeight,
             },
             lg: {
-              height: 56,
-              width: 56,
+              height: Heights.LGminHeight,
+              width: Heights.LGminHeight,
             },
             xl: {
-              height: 64,
-              width: 64,
+              height: Heights.XLminHeight,
+              width: Heights.XLminHeight,
             },
             xxl: {
-              height: 96,
-              width: 96,
+              height: Heights.XXLminHeight,
+              width: Heights.XXLminHeight,
             },
           },
         },
       },
-      container: {},
+      container: {
+        gap: Spacings.SM,
+      },
       text: {
         fontSize: Spacings.MD,
       },

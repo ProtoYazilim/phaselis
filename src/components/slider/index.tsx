@@ -14,7 +14,6 @@ const Slider: FC<SliderProps> = ({
   value,
   onChange,
   error,
-  size = "md",
   disabled,
   minValue = 0,
   maxValue = 100,
@@ -35,7 +34,6 @@ const Slider: FC<SliderProps> = ({
     {
       error,
       disabled,
-      size,
       ...extraProps,
     },
   );

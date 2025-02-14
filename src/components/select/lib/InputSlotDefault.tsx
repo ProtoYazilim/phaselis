@@ -9,10 +9,8 @@ const InputSlotDefault = ({
   selectedItem,
   placeholder,
   rightIcon = "ChevronDown",
-  rightIconSize,
   RightIconSlot,
   leftIcon,
-  leftIconSize,
   LeftIconSlot,
   disabled,
   refAndroidPicker,
@@ -26,7 +24,7 @@ const InputSlotDefault = ({
   variation = "default",
   ...extraProps
 }: InputSlotProps) => {
-  const { getCombinedStyle } = useCombinedStyle(
+  const { getCombinedStyle, getFlattenStyle } = useCombinedStyle(
     stylesheet,
     style,
     contextValue?.theme?.select,
@@ -56,18 +54,23 @@ const InputSlotDefault = ({
       <Slot
         style={getCombinedStyle("leftSlot")}
         icon={leftIcon as any}
-        size={leftIconSize}
+        width={getCombinedStyle("leftSlot").width}
+        height={getCombinedStyle("leftSlot").height}
       >
         {LeftIconSlot && <LeftIconSlot />}
       </Slot>
-      <Text style={getCombinedStyle("element")}>
+      <Text
+        style={getCombinedStyle("element")}
+        numberOfLines={getFlattenStyle("element").numberOfLines}
+      >
         {selectedItem?.label ? selectedItem?.label : placeholder}
       </Text>
       <View>
         <Slot
           style={getCombinedStyle("rightSlot")}
           icon={rightIcon as any}
-          size={rightIconSize}
+          width={getCombinedStyle("rightSlot").width}
+          height={getCombinedStyle("rightSlot").height}
         >
           {RightIconSlot && <RightIconSlot />}
         </Slot>

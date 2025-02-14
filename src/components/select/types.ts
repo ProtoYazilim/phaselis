@@ -110,10 +110,8 @@ export interface InputSlotProps
   placeholder?: string;
   selectedItem?: any;
   rightIcon?: SlotIconName;
-  rightIconSize?: ComponentSize;
   RightIconSlot?: React.ComponentType;
   leftIcon?: SlotIconName;
-  leftIconSize?: ComponentSize;
   LeftIconSlot?: React.ComponentType;
   disabled?: boolean;
   refAndroidPicker?: any;

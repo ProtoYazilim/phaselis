@@ -10,7 +10,6 @@ const AccordionList = ({
   onChange,
   style,
   disabled,
-  size = "md",
   contextValue,
   expandMode = "single",
   defaultExpandedIndex = [],
@@ -18,20 +17,17 @@ const AccordionList = ({
 }: AccordionListProps) => {
   const { styles: defaultStyles } = useStyles(stylesheet, {
     disabled,
-    size,
   });
 
   const { styles: themeStyles } = useStyles(
     contextValue?.theme?.accordionList as typeof stylesheet,
     {
       disabled,
-      size,
     },
   );
 
   const { styles: propStyle } = useStyles(style as typeof stylesheet, {
     disabled,
-    size,
   });
 
   const [expandedIndex, setExpandedIndex] =

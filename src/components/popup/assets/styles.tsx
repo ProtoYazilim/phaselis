@@ -4,13 +4,12 @@ const stylesheet = createStyleSheet({
   //@ts-ignore
   container: {
     width: "100%",
+    height: "100%",
     position: "absolute",
     bottom: 0,
-    height: "100%",
     zIndex: 2,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "white",
   },
   leftSlot: {},
   closeIcon: {},

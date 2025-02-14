@@ -6,6 +6,7 @@ import {
   useCallback,
   useEffect,
   useId,
+  useMemo,
 } from "react";
 import { Popup } from "../../components";
 import type { SlotChildComponent, SlotIconName } from "../../types";
@@ -78,18 +79,21 @@ const PopupProvider = ({ children }: PopupProviderProps) => {
         ),
       );
     },
-    [setPopups],
+    [],
+  );
+
+  const contextValue = useMemo(
+    () => ({
+      popups,
+      setPopups,
+      updatePopupShow,
+      upgradePopup,
+    }),
+    [popups, updatePopupShow, upgradePopup],
   );
 
   return (
-    <PopupContext.Provider
-      value={{
-        popups,
-        setPopups,
-        updatePopupShow,
-        upgradePopup,
-      }}
-    >
+    <PopupContext.Provider value={contextValue}>
       {children}
       {popups.map((popup) => (
         <Popup
@@ -129,21 +133,20 @@ const usePopup = (
           extraProps,
         } as PopupProps,
       ]);
-    } else {
-      context?.upgradePopup(tempId, {
-        show: "hide",
-        content: initialContent,
-        type,
-        extraProps,
-      });
     }
   }, [context, extraProps, initialContent, tempId, type]);
 
-  const setShow = (value: "show" | "hide") => {
-    context?.updatePopupShow(tempId, value);
-  };
+  const setShow = useCallback(
+    (value: "show" | "hide") => {
+      context?.updatePopupShow(tempId, value);
+    },
+    [context, tempId],
+  );
 
-  const show = context?.popups.find((popup) => popup.id === tempId)?.show;
+  const show = useMemo(
+    () => context?.popups.find((popup) => popup.id === tempId)?.show,
+    [context, tempId],
+  );
 
   return [show, setShow] as const;
 };

@@ -10,7 +10,15 @@ function PopupStory() {
       style: { backgroundColor: "red" },
     },
   );
-  const [_showInfo, setShowInfo] = usePopup("info", <Text>info usePopup</Text>);
+  const [_showInfo, setShowInfo] = usePopup(
+    "info",
+    <Text>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore,
+      laudantium eligendi saepe natus deleniti, ipsam dolorum nihil ducimus
+      explicabo enim sunt vitae repellat quaerat culpa id tempore laborum iure.
+      Aperiam ad iure id deleniti recusandae assumenda nisi quas quae.
+    </Text>,
+  );
   const [_showWarning, setShowWarning] = usePopup(
     "warning",
     <Text>warning usePopup</Text>,

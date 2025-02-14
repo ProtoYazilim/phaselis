@@ -12,12 +12,9 @@ import {
   LucideIcon,
 } from "phaselis";
 import { Tabs } from "expo-router";
-import { LogBox } from "react-native";
 import { getEnvironmentType } from "../src";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
-
-LogBox.ignoreLogs(["Require cycles are allowed"]);
 
 SplashScreen.preventAutoHideAsync();
 

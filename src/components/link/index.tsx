@@ -17,24 +17,15 @@ const Link: FC<LinkProps> = ({
   LeftSlot,
   rightIcon,
   RightSlot,
-  primary,
-  secondary,
   canOpenURL,
   variation = "default",
   onPress,
-  ...extraProps
 }) => {
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
     style,
     contextValue?.theme?.link,
     variation,
-    {
-      disabled,
-      primary,
-      secondary,
-      ...extraProps,
-    },
   );
 
   return (

@@ -14,7 +14,6 @@ const TabView = ({
   contextValue,
   style,
   variation = "default",
-  ...extraProps
 }: TabViewProps) => {
   const [activeTabIndex, setActiveTabIndex] = useState(activeTab);
 
@@ -39,9 +38,6 @@ const TabView = ({
     style,
     contextValue?.theme?.tab[variation]?.view,
     variation,
-    {
-      ...extraProps,
-    },
   );
 
   return (

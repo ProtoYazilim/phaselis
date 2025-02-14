@@ -74,11 +74,11 @@
     "react-native-picker-select": "^9.3.1"
   },
   "peerDependencies": {
-    "react": "*",
-    "react-native": "*",
     "@react-native-community/blur": "^4.4.1",
     "@react-native-community/slider": "^4.5.5",
     "@react-native-picker/picker": "^2.11.0",
+    "react": "*",
+    "react-native": "*",
     "react-native-date-picker": "^5.0.8",
     "react-native-fast-shadow": "^0.1.1",
     "react-native-linear-gradient": ">=2.8.0",
@@ -231,5 +231,6 @@
   "workspaces": [
     "example",
     "packages/*"
-  ]
+  ],
+  "packageManager": "yarn@1.22.22"
 }

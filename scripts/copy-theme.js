@@ -16,12 +16,16 @@ const rl = readline.createInterface({
 rl.question(
   "Do you want to copy the theme files to your project root directory? (Y/N): ",
   (answer) => {
-    if (answer.toLowerCase() === "y") {
+    answer = answer.trim().toLowerCase();
+
+    if (answer === "y" || answer === "") {
       if (fs.existsSync(themeDestination)) {
         rl.question(
           'The "theme" folder already exists. Do you want to overwrite it? (Y/N): ',
           (overwriteAnswer) => {
-            if (overwriteAnswer.toLowerCase() === "y") {
+            overwriteAnswer = overwriteAnswer.trim().toLowerCase();
+
+            if (overwriteAnswer === "y" || overwriteAnswer === "") {
               copyThemeFiles();
             } else {
               console.log("The copy operation was cancelled.");

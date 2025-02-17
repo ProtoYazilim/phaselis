@@ -1,6 +1,5 @@
-import { useEffect, useState, useRef } from "react";
-import type { FormReference } from "phaselis";
-import { Select, required, Form } from "phaselis";
+import { useEffect, useState } from "react";
+import { Select, required } from "phaselis";
 import StoryView from "../../../src/StoryView";
 import StorySection from "../../../src/StorySection";
 
@@ -25,7 +24,6 @@ async function testAPI() {
 }
 
 const SelectStory = () => {
-  const refForm = useRef<FormReference>(null);
   const [starOptions, setStarOptions] = useState<
     { value: string; label: string }[]
   >([]);
@@ -61,52 +59,46 @@ const SelectStory = () => {
         rightText="Custom Options"
         style={{ marginBottom: -30, paddingTop: 8 }}
       >
-        <Form refForm={refForm}>
-          <Select
-            name="1"
-            leftIcon="Star"
-            size="md"
-            validations={[required("required")]}
-            closeOnSelect={false}
-            options={options}
-            pickerType="custom"
-            maxHeightModal={"50%"}
-          />
-        </Form>
+        <Select
+          name="1"
+          leftIcon="Star"
+          size="md"
+          validations={[required("required")]}
+          closeOnSelect={false}
+          options={options}
+          pickerType="custom"
+          maxHeightModal={"50%"}
+        />
       </StorySection>
       <StorySection
         leftText="Select Native"
         rightText="Native Options"
         style={{ marginBottom: -30, paddingTop: 8 }}
       >
-        <Form refForm={refForm}>
-          <Select
-            name="2"
-            leftIcon="Star"
-            size="md"
-            validations={[required("required")]}
-            options={options}
-            pickerType="native"
-          />
-        </Form>
+        <Select
+          name="2"
+          leftIcon="Star"
+          size="md"
+          validations={[required("required")]}
+          options={options}
+          pickerType="native"
+        />
       </StorySection>
       <StorySection
         leftText="Select (Custom) API"
         rightText="Custom Options after 5secs"
         style={{ marginBottom: -30, paddingTop: 8 }}
       >
-        <Form refForm={refForm}>
-          <Select
-            name="3"
-            leftIcon="Star"
-            size="md"
-            validations={[required("required")]}
-            closeOnSelect={false}
-            options={starOptions}
-            pickerType="custom"
-            maxHeightModal={"50%"}
-          />
-        </Form>
+        <Select
+          name="3"
+          leftIcon="Star"
+          size="md"
+          validations={[required("required")]}
+          closeOnSelect={false}
+          options={starOptions}
+          pickerType="custom"
+          maxHeightModal={"50%"}
+        />
       </StorySection>
     </StoryView>
   );

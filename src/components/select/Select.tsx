@@ -58,7 +58,7 @@ const Select: FC<SelectProps> = ({
   }, [options, innerValue]);
 
   useEffect(() => {
-    if (value !== innerValue) {
+    if (value !== undefined && value !== innerValue) {
       setInnerValue(value);
     }
   }, [innerValue, value]);

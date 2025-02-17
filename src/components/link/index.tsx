@@ -20,12 +20,14 @@ const Link: FC<LinkProps> = ({
   canOpenURL,
   variation = "default",
   onPress,
+  ...extraProps
 }) => {
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
     style,
     contextValue?.theme?.link,
     variation,
+    { ...extraProps },
   );
 
   return (

@@ -5,8 +5,11 @@ export default createStyleSheet({
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
+    variants: {},
   },
-  text: {},
+  text: {
+    variants: {},
+  },
   leftSlot: {
     marginRight: 2,
   },

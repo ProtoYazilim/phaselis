@@ -142,6 +142,32 @@ const [visible, setVisible] = useState(false);
 </Popup>
 ```
 
+Tabii, işte **`backgroundBlur`** prop'unun açıklaması:
+
+### backgroundBlur  
+`boolean`  
+
+If `true`, it applies a blur effect to the background when the popup is displayed. Defaults to `false`.
+
+```jsx
+import { Button } from "phaselis";
+import { useState } from "react";
+import { Text } from "react-native";
+```
+```jsx
+const [visible, setVisible] = useState(false);
+```
+```jsx
+<Button onClick={() => setVisible(true)} text="Open Popup" />
+<Popup 
+  show={visible} 
+  onClose={() => setVisible(false)} 
+  backgroundBlur
+>
+  <Text>This is the popup content with background blur effect</Text>
+</Popup>
+```
+
 ### style  
 `object`  
 

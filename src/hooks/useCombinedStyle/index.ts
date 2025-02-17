@@ -7,7 +7,9 @@ import {
   StyleSheetWithSuperPowers,
 } from "react-native-unistyles/lib/typescript/src/types";
 import { StyleSheet } from "react-native";
-import { merge, mergeWith, isObject } from "lodash";
+import merge from "lodash/merge";
+import mergeWith from "lodash/mergeWith";
+import isObject from "lodash/isObject";
 
 function mergeStyles(obj1, obj2) {
   const merged = mergeWith({}, obj1, obj2, (objValue, srcValue) => {

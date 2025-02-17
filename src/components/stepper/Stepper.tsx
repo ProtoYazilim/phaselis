@@ -2,8 +2,8 @@ import type { ProgressStepsProps } from "./types";
 import type { FC } from "react";
 import { useState, useEffect, useMemo, Children, cloneElement } from "react";
 import { View } from "react-native";
-import { times } from "lodash";
 import StepHeader from "./StepHeader";
+import times from "lodash/times";
 
 const ProgressSteps: FC<ProgressStepsProps> = ({
   isComplete = false,

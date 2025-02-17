@@ -1,6 +1,6 @@
 import type { FormReference } from "phaselis";
 import { useRef } from "react";
-import { Text, Alert, Dimensions } from "react-native";
+import { Text, Alert } from "react-native";
 import {
   Block,
   Button,
@@ -94,7 +94,7 @@ const MaskedTextfieldStory = () => {
               rightIcon="MapPin"
               style={{
                 container: {
-                  height: Dimensions.get("screen").height * 0.12,
+                  height: 96,
                 },
               }}
               textarea

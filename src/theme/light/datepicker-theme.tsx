@@ -1,8 +1,6 @@
-import { Dimensions } from "react-native";
 import { Colors } from "../colors";
 import { FontSizes, Heights, Radius, Spacings } from "../spacings";
 
-console.log(Dimensions.get("screen").width);
 export default {
   datepicker: {
     default: {

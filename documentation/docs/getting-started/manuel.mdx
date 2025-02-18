@@ -163,12 +163,19 @@ import './config/unistyle';
 
 ## Copy Theme Files
 
-* To complete the installation, you need to download the required theme files and place them in the `theme` folder.
+To copy the theme files, follow these steps:
 
-1. **Download the theme files** from the following link:  
-   [Download Theme Files](https://github.com/ProtoYazilim/phaselis/tree/main/documentation/src/manuel-installation-files/theme)
+1. **Navigate to the Directory Where the `phaselis` Package is Installed**  
+   The **`phaselis`** package is located inside the **`node_modules`** directory, which is created when you install project dependencies. This directory can be found in the root of your project.
 
-2. **Copy the files** into the `theme` folder in your project directory. Make sure that the folder structure remains intact.
+2. **Run the Command to Copy the Theme Files**  
+   To copy the theme files, open your terminal or command prompt and run the following command:
+   
+   ```bash
+   node node_modules/phaselis/scripts/copy-theme.js
+   ```
+
+This command will automatically copy the necessary theme files to the correct location.
 
 ## Add and Run Script
 

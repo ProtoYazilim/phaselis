@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Appearance } from "react-native";
 
 export const getEvent = function (event: any) {
   let eventToSend;
@@ -31,4 +32,19 @@ export const cloneSlot = (slot: any, props: any) => {
   } else if (React.isValidElement(slot)) {
     return React.cloneElement(slot, props);
   }
+};
+
+export const useColorScheme = () => {
+  const [isDarkMode, setIsDarkMode] = useState(
+    Appearance.getColorScheme() === "dark",
+  );
+
+  useEffect(() => {
+    const subscription = Appearance.addChangeListener(({ colorScheme }) => {
+      setIsDarkMode(colorScheme === "dark");
+    });
+    return () => subscription.remove();
+  }, []);
+
+  return isDarkMode;
 };

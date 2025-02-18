@@ -4,6 +4,7 @@ import ReactNativePickerSelect from "react-native-picker-select";
 import PhaselisHOC from "../provider/lib/hoc";
 import stylesheet from "./assets/styles";
 import { useCombinedStyle } from "../../hooks";
+import { useColorScheme } from "../../utils";
 
 const NativePicker: React.FC<NativePickerProps> = ({
   refIOSPicker,
@@ -31,6 +32,8 @@ const NativePicker: React.FC<NativePickerProps> = ({
     setIsFocus(false);
   };
 
+  const isDarkMode = useColorScheme();
+
   const { getFlattenStyle } = useCombinedStyle(
     stylesheet,
     style,
@@ -56,6 +59,7 @@ const NativePicker: React.FC<NativePickerProps> = ({
   return (
     <ReactNativePickerSelect
       ref={refIOSPicker}
+      darkTheme={isDarkMode}
       pickerProps={{
         // @ts-ignore
         ref: refAndroidPicker,

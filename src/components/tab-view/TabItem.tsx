@@ -9,12 +9,16 @@ const TabItem = ({
   contextValue,
   style,
   variation = "default",
+  ...extraProps
 }: TabItemProps) => {
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
     style,
     contextValue?.theme?.tab[variation]?.tabItem,
     variation,
+    {
+      ...extraProps,
+    },
   );
 
   return <View style={getCombinedStyle("container")}>{children}</View>;

@@ -1,10 +1,9 @@
 import type { FormReference } from "phaselis";
 import { useRef } from "react";
-import { Text, Alert, Dimensions } from "react-native";
+import { Text, Alert } from "react-native";
 import {
   Block,
   Button,
-  LucideIcon,
   Textfield,
   InputGroup,
   Form,
@@ -56,6 +55,7 @@ const MaskedTextfieldStory = () => {
               validations={[required("required")]}
               leftIcon="Mail"
               mask={MAIL_MASK}
+              keyboardType="email-address"
             />
           </InputGroup>
           <InputGroup
@@ -83,6 +83,7 @@ const MaskedTextfieldStory = () => {
                   validations={[required("required")]}
                   leftIcon="Smartphone"
                   mask={PHONE_MASK}
+                  keyboardType="phone-pad"
                 />
               </Col>
             </Row>
@@ -94,7 +95,7 @@ const MaskedTextfieldStory = () => {
               rightIcon="MapPin"
               style={{
                 container: {
-                  height: Dimensions.get("screen").height * 0.12,
+                  height: 96,
                 },
               }}
               textarea
@@ -165,7 +166,7 @@ const MaskedTextfieldStory = () => {
               style={{ flexDirection: "row", alignItems: "center", gap: 8 }}
             >
               <Text>Membership</Text>
-              <LucideIcon name="Info" />
+              {/* <LucideIcon name="Info" /> */}
             </Block>
             <Switch
               name="membership"

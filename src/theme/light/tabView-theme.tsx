@@ -24,6 +24,7 @@ export default {
       },
       headerItem: {
         container: {
+          borderBottomColor: Colors.Shades.white,
           paddingTop: Spacings.SM,
           paddingBottom: Spacings.SM,
           paddingLeft: Spacings.MD,

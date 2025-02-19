@@ -10,6 +10,7 @@ const SectionDivider: FC<{
   noHeight?: boolean;
 }> = ({
   leftText,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   rightText,
   rightSlot,
   leftTextColor = Colors.Primary[300],
@@ -36,7 +37,7 @@ const SectionDivider: FC<{
           {leftText}
         </Text>
       )}
-      {rightSlot
+      {/* {rightSlot
         ? rightSlot
         : rightText && (
             <Text
@@ -48,7 +49,7 @@ const SectionDivider: FC<{
             >
               {rightText}
             </Text>
-          )}
+          )} */}
     </Block>
   );
 };

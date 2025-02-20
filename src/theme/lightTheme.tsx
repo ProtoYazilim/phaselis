@@ -25,6 +25,9 @@ import listTheme from "./light/list-theme";
 import inputGroupTheme from "./light/inputGroup-theme";
 
 export const lightTheme = {
+  config: {
+    name: "light",
+  },
   root: {
     colors: Colors,
     spacings: Spacings,

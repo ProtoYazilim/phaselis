@@ -12,7 +12,6 @@ const StoryView: FC<{
         gap: Spacings.XL,
         paddingVertical: 24,
         paddingHorizontal: 16,
-        backgroundColor: "white",
         ...style,
       }}
     >

@@ -1,8 +1,8 @@
-import { Button, Colors, Image } from "phaselis";
+import { Block, Button, Colors, Image, Switch, useTheme } from "phaselis";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect, useNavigation } from "expo-router";
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, useColorScheme } from "react-native";
 import { phaselis_logo_image } from "./assets";
 import StoryView from "../../src/StoryView";
 
@@ -26,13 +26,26 @@ export default function Index() {
       setLastStoryRouteBase(routeBase);
     });
   });
+  const { setTheme } = useTheme();
+  const colorScheme = useColorScheme();
 
   return (
     <StoryView style={{ gap: 0 }}>
+      <Block style={{ alignItems: "flex-end" }}>
+        <Switch
+          showIcons
+          offIcon="Sun"
+          onIcon="Moon"
+          value={colorScheme === "dark"}
+          onChange={(_e, value) => {
+            setTheme(value ? "dark" : "light");
+          }}
+        />
+      </Block>
       <Image
         source={{ uri: phaselis_logo_image.uri }}
-        width={(phaselis_logo_image.width ?? 0) * 0.74}
-        height={(phaselis_logo_image.height ?? 0) * 0.74}
+        width={(phaselis_logo_image.width ?? 0) * 0.5}
+        height={(phaselis_logo_image.height ?? 0) * 0.5}
         style={{ container: { alignItems: "center" } }}
       />
       <View style={styles.container}>

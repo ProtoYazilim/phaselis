@@ -1,7 +1,7 @@
 import type { PhaselisProviderProps, Breakpoints } from "./types";
 import Context from "./lib/context";
 import PhaselisHOC from "./lib/hoc";
-import { useTheme, useColors, useSpacings } from "./lib/hooks";
+import { useTheme, useColors, useSpacings, useThemeStyles } from "./lib/hooks";
 
 const defaultBreakpoints: Breakpoints = {
   xl: 1440,
@@ -33,5 +33,6 @@ export {
   useColors,
   useSpacings,
   useTheme,
+  useThemeStyles,
 };
 export default PhaselisProvider;

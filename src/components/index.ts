@@ -42,4 +42,5 @@ export {
   useColors,
   useSpacings,
   useTheme,
+  useThemeStyles,
 } from "./provider";

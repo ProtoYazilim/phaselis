@@ -3,6 +3,8 @@ import type { BottomSheetProps } from "./types";
 import { StyleSheet, TouchableOpacity, Modal, Animated } from "react-native";
 import { useEffect, useRef, useState } from "react";
 import { BlurView } from "@react-native-community/blur";
+import { useColors } from "../provider";
+import type { PhaselisColors } from "../../theme";
 
 const BottomSheet: FC<BottomSheetProps> = ({
   show = false,
@@ -11,11 +13,12 @@ const BottomSheet: FC<BottomSheetProps> = ({
   onClose,
   fullScreenModal = false,
   maxHeightModal = "40%",
-  backgroundColor = "#F6F7F8",
+  backgroundColor,
 }) => {
   const HEIGHT = useRef(500);
   const translateY = useRef(new Animated.Value(0)).current;
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const Colors = useColors<PhaselisColors>();
 
   useEffect(() => {
     if (show) {
@@ -45,7 +48,10 @@ const BottomSheet: FC<BottomSheetProps> = ({
       <TouchableOpacity style={{ flex: 1 }} onPress={onClose} />
       <Animated.View
         style={[
-          [sheetStyles.sheet, { backgroundColor }],
+          [
+            sheetStyles.sheet,
+            { backgroundColor: backgroundColor || Colors.Primary[50] },
+          ],
           {
             transform: [{ translateY }],
             maxHeight: fullScreenModal ? "100%" : maxHeightModal,

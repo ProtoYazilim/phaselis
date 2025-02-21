@@ -1,5 +1,5 @@
 import type { FC, ReactNode } from "react";
-import { Colors, Spacings, Block } from "phaselis";
+import { Spacings, Block, useColors, type PhaselisColors } from "phaselis";
 import { Text } from "react-native";
 
 const SectionDivider: FC<{
@@ -13,13 +13,16 @@ const SectionDivider: FC<{
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   rightText,
   rightSlot,
-  leftTextColor = Colors.Primary[300],
+  leftTextColor,
 }) => {
+  const Colors = useColors<PhaselisColors>();
+  const insideLeftTextColor = leftTextColor || Colors.Primary[300];
+
   return (
     <Block
       style={{
         borderBottomWidth: 1,
-        borderBottomColor: leftTextColor,
+        borderBottomColor: insideLeftTextColor,
         flexDirection: "row",
         justifyContent: "space-between",
         paddingVertical: leftText || rightSlot ? Spacings.SM : 0,
@@ -31,7 +34,7 @@ const SectionDivider: FC<{
           style={{
             fontSize: 18,
             lineHeight: 18,
-            color: leftTextColor,
+            color: insideLeftTextColor,
           }}
         >
           {leftText}

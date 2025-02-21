@@ -1,11 +1,11 @@
-import { Colors } from "../colors";
+import { DarkColors } from "../DarkColors";
 import { Spacings } from "../spacings";
 
 export default {
   avatar: {
     default: {
       container: {
-        backgroundColor: Colors.Primary[100],
+        backgroundColor: DarkColors.Primary[100],
         variants: {
           size: {
             xs: {
@@ -68,7 +68,7 @@ export default {
         },
       },
       text: {
-        color: Colors.Primary[600],
+        color: DarkColors.Primary[600],
         variants: {
           size: {
             xs: {
@@ -90,7 +90,7 @@ export default {
         },
       },
       icon: {
-        color: Colors.Primary[600],
+        color: DarkColors.Primary[600],
       },
     },
     rounded: {

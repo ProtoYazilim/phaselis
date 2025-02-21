@@ -1,13 +1,14 @@
-import { Block, Button, Colors, Image, Switch, useTheme } from "phaselis";
+import { Button, Image, useColors, type PhaselisColors } from "phaselis";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect, useNavigation } from "expo-router";
 import React from "react";
-import { View, StyleSheet, Text, useColorScheme } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import { phaselis_logo_image } from "./assets";
 import StoryView from "../../src/StoryView";
 
 export default function Index() {
   const navigation = useNavigation();
+  const Colors = useColors<PhaselisColors>();
 
   const [lastStoryRouteName, setLastStoryRouteName] = React.useState<
     string | null
@@ -26,22 +27,9 @@ export default function Index() {
       setLastStoryRouteBase(routeBase);
     });
   });
-  const { setTheme } = useTheme();
-  const colorScheme = useColorScheme();
 
   return (
     <StoryView style={{ gap: 0 }}>
-      <Block style={{ alignItems: "flex-end" }}>
-        <Switch
-          showIcons
-          offIcon="Sun"
-          onIcon="Moon"
-          value={colorScheme === "dark"}
-          onChange={(_e, value) => {
-            setTheme(value ? "dark" : "light");
-          }}
-        />
-      </Block>
       <Image
         source={{ uri: phaselis_logo_image.uri }}
         width={(phaselis_logo_image.width ?? 0) * 0.5}
@@ -49,11 +37,13 @@ export default function Index() {
         style={{ container: { alignItems: "center" } }}
       />
       <View style={styles.container}>
-        <Text style={styles.title}>Welcome to Phaselis Usages</Text>
-        <Text style={styles.description}>
+        <Text style={[styles.title, { color: Colors.Primary[500] }]}>
+          Welcome to Phaselis Usages
+        </Text>
+        <Text style={[styles.description, { color: Colors.Primary[400] }]}>
           You can find various component stories on theese pages!
         </Text>
-        <Text style={styles.instructions}>
+        <Text style={[styles.instructions, { color: Colors.Primary[500] }]}>
           Use the Drawer Navigation to explore different component stories and
           examples.
         </Text>
@@ -91,20 +81,17 @@ const styles = StyleSheet.create({
     fontWeight: 300,
     textAlign: "center",
     lineHeight: 48,
-    color: Colors.Primary[500],
   },
   description: {
     fontSize: 28,
     fontWeight: 300,
     textAlign: "center",
     lineHeight: 32,
-    color: Colors.Primary[400],
   },
   instructions: {
     fontSize: 18,
     fontWeight: 400,
     textAlign: "center",
     lineHeight: 20,
-    color: Colors.Primary[500],
   },
 });

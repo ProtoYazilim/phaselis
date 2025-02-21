@@ -1,4 +1,4 @@
-import { Colors } from "../colors";
+import { DarkColors } from "../DarkColors";
 
 export default {
   slider: {
@@ -17,10 +17,10 @@ export default {
         },
       },
       element: {
-        color: Colors.Primary[950],
-        minimumTrackTintColor: Colors.Primary[500],
-        maximumTrackTintColor: Colors.Primary[200],
-        thumbTintColor: Colors.Primary[500],
+        color: DarkColors.Primary[950],
+        minimumTrackTintColor: DarkColors.Primary[500],
+        maximumTrackTintColor: DarkColors.Primary[200],
+        thumbTintColor: DarkColors.Primary[500],
         variants: {
           focus: {
             true: {},
@@ -30,10 +30,10 @@ export default {
           },
           disabled: {
             true: {
-              color: Colors.Primary[300],
-              minimumTrackTintColor: Colors.Primary[200],
-              maximumTrackTintColor: Colors.Primary[100],
-              thumbTintColor: Colors.Primary[500],
+              color: DarkColors.Primary[300],
+              minimumTrackTintColor: DarkColors.Primary[200],
+              maximumTrackTintColor: DarkColors.Primary[100],
+              thumbTintColor: DarkColors.Primary[500],
             },
           },
         },

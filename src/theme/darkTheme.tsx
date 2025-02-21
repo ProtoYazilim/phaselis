@@ -1,4 +1,4 @@
-import { Colors } from "./colors";
+import { DarkColors } from "./DarkColors";
 import { Spacings } from "./spacings";
 import buttonTheme from "./dark/button-theme";
 import labelTheme from "./dark/label-theme";
@@ -29,7 +29,7 @@ export const darkTheme = {
     name: "dark",
   },
   root: {
-    colors: Colors,
+    colors: DarkColors,
     spacings: Spacings,
   },
   ...buttonTheme,

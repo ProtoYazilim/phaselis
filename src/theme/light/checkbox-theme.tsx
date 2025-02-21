@@ -1,4 +1,4 @@
-import { Colors } from "../colors";
+import { LightColors } from "../LightColors";
 import { FontSizes, Heights, Radius, Spacings } from "../spacings";
 
 export default {
@@ -119,27 +119,27 @@ export default {
     },
     primary: {
       icon: {
-        color: Colors.Primary[600],
+        color: LightColors.Primary[600],
         variants: {
           disabled: {
             true: {
-              color: Colors.Primary[200],
+              color: LightColors.Primary[200],
             },
           },
           pressed: {
             true: {
-              color: Colors.Primary[800],
+              color: LightColors.Primary[800],
             },
           },
         },
       },
       element: {
-        borderColor: Colors.Primary[950],
+        borderColor: LightColors.Primary[950],
         variants: {
           disabled: {
             true: {
-              borderColor: Colors.Primary[100],
-              backgroundColor: Colors.Primary[50],
+              borderColor: LightColors.Primary[100],
+              backgroundColor: LightColors.Primary[50],
             },
           },
         },
@@ -148,7 +148,7 @@ export default {
         variants: {
           disabled: {
             true: {
-              color: Colors.Primary[200],
+              color: LightColors.Primary[200],
             },
           },
         },
@@ -156,27 +156,27 @@ export default {
     },
     secondary: {
       icon: {
-        color: Colors.Secondary[600],
+        color: LightColors.Secondary[600],
         variants: {
           disabled: {
             true: {
-              color: Colors.Secondary[200],
+              color: LightColors.Secondary[200],
             },
           },
           pressed: {
             true: {
-              color: Colors.Secondary[800],
+              color: LightColors.Secondary[800],
             },
           },
         },
       },
       element: {
-        borderColor: Colors.Secondary[950],
+        borderColor: LightColors.Secondary[950],
         variants: {
           disabled: {
             true: {
-              borderColor: Colors.Secondary[100],
-              backgroundColor: Colors.Secondary[50],
+              borderColor: LightColors.Secondary[100],
+              backgroundColor: LightColors.Secondary[50],
             },
           },
         },
@@ -185,7 +185,7 @@ export default {
         variants: {
           disabled: {
             true: {
-              color: Colors.Secondary[200],
+              color: LightColors.Secondary[200],
             },
           },
         },
@@ -193,27 +193,27 @@ export default {
     },
     tertiary: {
       icon: {
-        color: Colors.Tertiary[600],
+        color: LightColors.Tertiary[600],
         variants: {
           disabled: {
             true: {
-              color: Colors.Tertiary[200],
+              color: LightColors.Tertiary[200],
             },
           },
           pressed: {
             true: {
-              color: Colors.Tertiary[800],
+              color: LightColors.Tertiary[800],
             },
           },
         },
       },
       element: {
-        borderColor: Colors.Tertiary[950],
+        borderColor: LightColors.Tertiary[950],
         variants: {
           disabled: {
             true: {
-              borderColor: Colors.Tertiary[100],
-              backgroundColor: Colors.Tertiary[50],
+              borderColor: LightColors.Tertiary[100],
+              backgroundColor: LightColors.Tertiary[50],
             },
           },
         },
@@ -222,7 +222,7 @@ export default {
         variants: {
           disabled: {
             true: {
-              color: Colors.Tertiary[200],
+              color: LightColors.Tertiary[200],
             },
           },
         },

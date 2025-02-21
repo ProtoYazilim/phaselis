@@ -1,4 +1,4 @@
-import { Colors } from "../colors";
+import { DarkColors } from "../DarkColors";
 import { FontSizes, Spacings } from "../spacings";
 
 export default {
@@ -9,31 +9,31 @@ export default {
         fontSize: FontSizes.MD,
         fontWeight: 700,
         lineHeight: 20,
-        color: Colors.Primary[800],
+        color: DarkColors.Primary[800],
         variants: {
           disabled: {
             true: {
-              color: Colors.Primary[200],
+              color: DarkColors.Primary[200],
             },
           },
         },
       },
       icon: {
-        color: Colors.Gray[950],
+        color: DarkColors.Gray[950],
         variants: {
           disabled: {
             true: {
-              color: Colors.Gray[300],
+              color: DarkColors.Gray[300],
             },
           },
         },
       },
       drop: {
-        color: Colors.Primary[800],
+        color: DarkColors.Primary[800],
         variants: {
           disabled: {
             true: {
-              color: Colors.Primary[200],
+              color: DarkColors.Primary[200],
             },
           },
         },
@@ -44,11 +44,11 @@ export default {
     default: {
       container: {
         padding: Spacings.MD,
-        borderColor: Colors.Primary[200],
+        borderColor: DarkColors.Primary[200],
         variants: {
           disabled: {
             true: {
-              backgroundColor: Colors.Primary[100],
+              backgroundColor: DarkColors.Primary[100],
             },
           },
         },

@@ -1,4 +1,4 @@
-import type { FormReference } from "phaselis";
+import type { FormReference, PhaselisColors } from "phaselis";
 import { useRef } from "react";
 import { ScrollView } from "react-native";
 import {
@@ -9,6 +9,7 @@ import {
   LucideIcon,
   Form,
   required,
+  useColors,
 } from "phaselis";
 
 const TextAreaStory = () => {
@@ -16,6 +17,7 @@ const TextAreaStory = () => {
   const handleLogin = () => {
     refForm.current?.validateAll();
   };
+  const Colors = useColors<PhaselisColors>();
 
   return (
     <ScrollView>
@@ -24,7 +26,7 @@ const TextAreaStory = () => {
           gap: 10,
           width: "100%",
           padding: 10,
-          backgroundColor: "white",
+          backgroundColor: Colors.Shades.white,
         }}
       >
         <Form ref={refForm}>

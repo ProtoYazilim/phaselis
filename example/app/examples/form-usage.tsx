@@ -1,4 +1,4 @@
-import type { FormReference } from "phaselis";
+import type { FormReference, PhaselisColors } from "phaselis";
 import { useRef } from "react";
 import { Text, Alert } from "react-native";
 import {
@@ -11,9 +11,8 @@ import {
   Select,
   required,
   Datepicker,
-  Provider,
-  lightTheme,
   requiredToOther,
+  useColors,
 } from "phaselis";
 import StoryView from "../../src/StoryView";
 import SectionDivider from "../../src/SectionDivider";
@@ -29,159 +28,158 @@ const MaskedTextfieldStory = () => {
     Alert.alert(JSON.stringify(values));
   };
 
+  const Colors = useColors<PhaselisColors>();
+
   return (
-    <Provider theme={lightTheme}>
-      <StoryView style={{ gap: 32 }}>
-        <Form ref={refForm} onSubmit={onSubmit}>
-          <Row style={{ gap: 16 }}>
-            <InputGroup label="Firstname" style={{ container: { flex: 1 } }}>
-              <Textfield
-                name="firstname"
-                validations={[required("required")]}
-                placeholder="İsim"
+    <StoryView style={{ gap: 32 }}>
+      <Form ref={refForm} onSubmit={onSubmit}>
+        <Row style={{ gap: 16 }}>
+          <InputGroup label="Firstname" style={{ container: { flex: 1 } }}>
+            <Textfield
+              name="firstname"
+              validations={[required("required")]}
+              placeholder="İsim"
+            />
+          </InputGroup>
+          <InputGroup label="Lastname" style={{ container: { flex: 1 } }}>
+            <Textfield
+              name="lastname"
+              validations={[required("required")]}
+              placeholder="Soyisim"
+            />
+          </InputGroup>
+        </Row>
+        <InputGroup label="E-Mail Address" style={{ container: { flex: 1 } }}>
+          <Textfield
+            name="email"
+            validations={[required("required")]}
+            leftIcon="Mail"
+            mask={MAIL_MASK}
+            keyboardType="email-address"
+          />
+        </InputGroup>
+        <InputGroup
+          for="phone"
+          label="Phone Number"
+          style={{ container: { flex: 1 } }}
+        >
+          <Row style={{ gap: 8 }}>
+            <Col size={6}>
+              <Select
+                options={[
+                  { value: "1", label: "Türkiye +90" },
+                  { value: "2", label: "Arjantin +54" },
+                  { value: "3", label: "Azerbaycan +994" },
+                  { value: "4", label: "Bahreyn +973" },
+                ]}
+                value="1"
+                name="phone-code"
+                validations={[requiredToOther("phone", "required")]}
               />
-            </InputGroup>
-            <InputGroup label="Lastname" style={{ container: { flex: 1 } }}>
+            </Col>
+            <Col size={6}>
               <Textfield
-                name="lastname"
+                name="phone"
                 validations={[required("required")]}
-                placeholder="Soyisim"
+                leftIcon="Smartphone"
+                mask={PHONE_MASK}
+                keyboardType="phone-pad"
               />
-            </InputGroup>
+            </Col>
           </Row>
-          <InputGroup label="E-Mail Address" style={{ container: { flex: 1 } }}>
-            <Textfield
-              name="email"
-              validations={[required("required")]}
-              leftIcon="Mail"
-              mask={MAIL_MASK}
-              keyboardType="email-address"
-            />
-          </InputGroup>
-          <InputGroup
-            for="phone"
-            label="Phone Number"
-            style={{ container: { flex: 1 } }}
-          >
-            <Row style={{ gap: 8 }}>
-              <Col size={6}>
-                <Select
-                  options={[
-                    { value: "1", label: "Türkiye +90" },
-                    { value: "2", label: "Arjantin +54" },
-                    { value: "3", label: "Azerbaycan +994" },
-                    { value: "4", label: "Bahreyn +973" },
-                  ]}
-                  value="1"
-                  name="phone-code"
-                  validations={[requiredToOther("phone", "required")]}
-                />
-              </Col>
-              <Col size={6}>
-                <Textfield
-                  name="phone"
-                  validations={[required("required")]}
-                  leftIcon="Smartphone"
-                  mask={PHONE_MASK}
-                  keyboardType="phone-pad"
-                />
-              </Col>
-            </Row>
-          </InputGroup>
-          <InputGroup label="Address" style={{ container: { flex: 1 } }}>
-            <Textfield
-              name="address"
-              validations={[required("required")]}
-              rightIcon="MapPin"
-              style={{
-                container: {
-                  height: 96,
-                },
-              }}
-              textarea
-              placeholder="Type Here..."
-            />
-          </InputGroup>
-          <Row
+        </InputGroup>
+        <InputGroup label="Address" style={{ container: { flex: 1 } }}>
+          <Textfield
+            name="address"
+            validations={[required("required")]}
+            rightIcon="MapPin"
             style={{
-              gap: 8,
-              alignItems: "center",
-              justifyContent: "space-between",
+              container: {
+                height: 96,
+              },
             }}
-          >
-            <Block style={{ paddingLeft: 8, paddingRight: 8 }}>
-              <Text>Date of Birth</Text>
-            </Block>
-            <Datepicker
-              name="birthdate"
-              format="dd / MM / yyyy"
-              rightIcon="Calendar"
+            textarea
+            placeholder="Type Here..."
+          />
+        </InputGroup>
+        <Row
+          style={{
+            gap: 8,
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <Block style={{ paddingLeft: 8, paddingRight: 8 }}>
+            <Text style={{ color: Colors.Primary[950] }}>Date of Birth</Text>
+          </Block>
+          <Datepicker
+            name="birthdate"
+            format="dd / MM / yyyy"
+            rightIcon="Calendar"
+          />
+        </Row>
+        <SectionDivider leftText="" rightText="" />
+        <Row style={{ gap: 16 }}>
+          <InputGroup label="Password" style={{ container: { flex: 1 } }}>
+            <Textfield
+              name="password"
+              validations={[required("required")]}
+              leftIcon="KeyRound"
             />
-          </Row>
-          <SectionDivider leftText="" rightText="" />
-          <Row style={{ gap: 16 }}>
-            <InputGroup label="Password" style={{ container: { flex: 1 } }}>
-              <Textfield
-                name="password"
-                validations={[required("required")]}
-                leftIcon="KeyRound"
-              />
-            </InputGroup>
-            <InputGroup label="Repeat" style={{ container: { flex: 1 } }}>
-              <Textfield
-                name="password-repeat"
-                validations={[required("required")]}
-                leftIcon="KeyRound"
-              />
-            </InputGroup>
-          </Row>
-          <SectionDivider leftText="" rightText="" />
-          <Block>
-            <Block style={{ flexDirection: "row" }}>
-              <Checkbox
-                name="terms"
-                text="I accept the terms of use"
-                size="xs"
-                value={true}
-              />
-              <Link
-                leftIcon="ExternalLink"
-                href="https://www.protoyazilim.com"
-              />
-            </Block>
+          </InputGroup>
+          <InputGroup label="Repeat" style={{ container: { flex: 1 } }}>
+            <Textfield
+              name="password-repeat"
+              validations={[required("required")]}
+              leftIcon="KeyRound"
+            />
+          </InputGroup>
+        </Row>
+        <SectionDivider leftText="" rightText="" />
+        <Block>
+          <Block style={{ flexDirection: "row" }}>
             <Checkbox
-              name="news"
-              text="I want to be informed about news"
+              name="terms"
+              text="I accept the terms of use"
               size="xs"
               value={true}
             />
+            <Link leftIcon="ExternalLink" href="https://www.protoyazilim.com" />
           </Block>
-          <Row
-            style={{
-              alignItems: "center",
-              justifyContent: "space-between",
-            }}
-          >
-            <Block
-              style={{ flexDirection: "row", alignItems: "center", gap: 8 }}
-            >
-              <Text>Membership</Text>
-              {/* <LucideIcon name="Info" /> */}
-            </Block>
-            <Switch
-              name="membership"
-              showIcons
-              LeftSlot={() => <Text>Normal</Text>}
-              RightSlot={() => <Text>Prime</Text>}
-              offIcon="UsersRound"
-              onIcon="Crown"
-            />
-          </Row>
-          <Button text="Register" full />
-          <Button text="Reset" full type="reset" />
-        </Form>
-      </StoryView>
-    </Provider>
+          <Checkbox
+            name="news"
+            text="I want to be informed about news"
+            size="xs"
+            value={true}
+          />
+        </Block>
+        <Row
+          style={{
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <Block style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
+            <Text style={{ color: Colors.Primary[950] }}>Membership</Text>
+            {/* <LucideIcon name="Info" /> */}
+          </Block>
+          <Switch
+            name="membership"
+            showIcons
+            LeftSlot={() => (
+              <Text style={{ color: Colors.Primary[950] }}>Normal</Text>
+            )}
+            RightSlot={() => (
+              <Text style={{ color: Colors.Primary[950] }}>Prime</Text>
+            )}
+            offIcon="UsersRound"
+            onIcon="Crown"
+          />
+        </Row>
+        <Button text="Register" full />
+        <Button text="Reset" full type="reset" />
+      </Form>
+    </StoryView>
   );
 };
 

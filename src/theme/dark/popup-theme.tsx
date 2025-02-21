@@ -1,23 +1,23 @@
-import { Colors } from "../colors";
+import { DarkColors } from "../DarkColors";
 import { Spacings, FontSizes } from "../spacings";
 
 export default {
   popup: {
     default: {
       container: {
-        backgroundColor: Colors.Gray[50],
+        backgroundColor: DarkColors.Gray[50],
         padding: Spacings.MD,
         borderRadius: Spacings.MD,
       },
       leftSlot: {
-        color: Colors.Gray[950],
+        color: DarkColors.Gray[950],
         marginRight: Spacings.SM,
       },
       closeIcon: {
         marginBottom: Spacings.MD,
         marginRight: Spacings.MD,
         marginTop: Spacings.MD,
-        color: Colors.Gray[950],
+        color: DarkColors.Gray[950],
       },
       element: {
         padding: Spacings.MD,
@@ -27,7 +27,7 @@ export default {
       },
       title: {
         fontSize: FontSizes.MD,
-        color: Colors.Gray[950],
+        color: DarkColors.Gray[950],
         fontWeight: 700,
         lineHeight: 20,
       },
@@ -35,22 +35,22 @@ export default {
     },
     info: {
       container: {
-        backgroundColor: Colors.Info[100],
+        backgroundColor: DarkColors.Info[100],
       },
     },
     success: {
       container: {
-        backgroundColor: Colors.Success[100],
+        backgroundColor: DarkColors.Success[100],
       },
     },
     warning: {
       container: {
-        backgroundColor: Colors.Warning[100],
+        backgroundColor: DarkColors.Warning[100],
       },
     },
     error: {
       container: {
-        backgroundColor: Colors.Danger[100],
+        backgroundColor: DarkColors.Danger[100],
       },
     },
   },

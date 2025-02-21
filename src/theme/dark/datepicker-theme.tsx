@@ -1,11 +1,11 @@
-import { Colors } from "../colors";
+import { DarkColors } from "../DarkColors";
 import { FontSizes, Heights, Radius, Spacings } from "../spacings";
 
 export default {
   datepicker: {
     default: {
       container: {
-        borderColor: Colors.Gray[950],
+        borderColor: DarkColors.Gray[950],
         borderRadius: Radius.MD,
         paddingLeft: Spacings.MD,
         paddingRight: Spacings.MD,
@@ -13,18 +13,18 @@ export default {
         variants: {
           focus: {
             true: {
-              borderColor: Colors.Primary[500],
+              borderColor: DarkColors.Primary[500],
             },
           },
           error: {
             true: {
-              borderColor: Colors.Danger[400],
+              borderColor: DarkColors.Danger[400],
             },
           },
           disabled: {
             true: {
-              borderColor: Colors.Primary[200],
-              backgroundColor: Colors.Primary[100],
+              borderColor: DarkColors.Primary[200],
+              backgroundColor: DarkColors.Primary[100],
             },
           },
           size: {
@@ -55,22 +55,22 @@ export default {
         },
       },
       element: {
-        color: Colors.Primary[950],
+        color: DarkColors.Primary[950],
 
         variants: {
           focus: {
             true: {
-              color: Colors.Primary[600],
+              color: DarkColors.Primary[600],
             },
           },
           error: {
             true: {
-              color: Colors.Danger[600],
+              color: DarkColors.Danger[600],
             },
           },
           disabled: {
             true: {
-              color: Colors.Primary[300],
+              color: DarkColors.Primary[300],
             },
           },
           size: {
@@ -96,22 +96,22 @@ export default {
         },
       },
       leftSlot: {
-        color: Colors.Gray[950],
+        color: DarkColors.Gray[950],
         marginRight: Spacings.SM,
         variants: {
           focus: {
             true: {
-              color: Colors.Primary[600],
+              color: DarkColors.Primary[600],
             },
           },
           error: {
             true: {
-              color: Colors.Danger[600],
+              color: DarkColors.Danger[600],
             },
           },
           disabled: {
             true: {
-              color: Colors.Primary[300],
+              color: DarkColors.Primary[300],
             },
           },
           textarea: {
@@ -120,22 +120,22 @@ export default {
         },
       },
       rightSlot: {
-        color: Colors.Gray[900],
+        color: DarkColors.Gray[900],
         marginLeft: Spacings.SM,
         variants: {
           focus: {
             true: {
-              color: Colors.Primary[600],
+              color: DarkColors.Primary[600],
             },
           },
           error: {
             true: {
-              color: Colors.Danger[600],
+              color: DarkColors.Danger[600],
             },
           },
           disabled: {
             true: {
-              color: Colors.Primary[300],
+              color: DarkColors.Primary[300],
             },
           },
           textarea: {

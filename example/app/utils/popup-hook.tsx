@@ -1,7 +1,14 @@
-import { Block, Button, usePopup } from "phaselis";
+import {
+  Block,
+  Button,
+  useColors,
+  usePopup,
+  type PhaselisColors,
+} from "phaselis";
 import { SafeAreaView, StyleSheet, Text } from "react-native";
 
 function PopupStory() {
+  const Colors = useColors<PhaselisColors>();
   const [_showDefault, setShowDefault] = usePopup(
     "default",
     <Text>Default usePopup</Text>,
@@ -40,11 +47,23 @@ function PopupStory() {
           onClick={() => {
             setShowDefault?.("show");
           }}
+          style={{
+            container: {
+              backgroundColor: Colors.Primary[600],
+              borderColor: Colors.Primary[600],
+            },
+          }}
         />
         <Button
           text="Show Info Popup"
           onClick={() => {
             setShowInfo?.("show");
+          }}
+          style={{
+            container: {
+              backgroundColor: Colors.Info[600],
+              borderColor: Colors.Info[600],
+            },
           }}
         />
         <Button
@@ -52,17 +71,35 @@ function PopupStory() {
           onClick={() => {
             setShowWarning?.("show");
           }}
+          style={{
+            container: {
+              backgroundColor: Colors.Warning[600],
+              borderColor: Colors.Warning[600],
+            },
+          }}
         />
         <Button
           text="Show Error Popup"
           onClick={() => {
             setShowError?.("show");
           }}
+          style={{
+            container: {
+              backgroundColor: Colors.Danger[600],
+              borderColor: Colors.Danger[600],
+            },
+          }}
         />
         <Button
           text="Show Success Popup"
           onClick={() => {
             setShowSuccess?.("show");
+          }}
+          style={{
+            container: {
+              backgroundColor: Colors.Success[600],
+              borderColor: Colors.Success[600],
+            },
           }}
         />
       </Block>

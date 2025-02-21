@@ -1,13 +1,15 @@
 import type { FC } from "react";
 import { View, Text, FlatList, Dimensions } from "react-native";
-import { Colors } from "phaselis";
-type ColorKeys = keyof typeof Colors;
+import { useColors, type PhaselisColors } from "phaselis";
 
 import StorySection from "./StorySection";
 
 const ColorView: FC<{
   name: string;
 }> = ({ name }) => {
+  const Colors = useColors<PhaselisColors>();
+  type ColorKeys = keyof typeof Colors;
+
   const renderColorItem = ({ item }: { item: [string, string] }) => {
     return (
       <View>

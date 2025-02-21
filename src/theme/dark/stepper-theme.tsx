@@ -1,4 +1,4 @@
-import { Colors } from "../colors";
+import { DarkColors } from "../DarkColors";
 import { Spacings } from "../spacings";
 
 export default {
@@ -10,212 +10,212 @@ export default {
           width: Spacings.LG,
           height: Spacings.LG,
           borderRadius: Spacings.LG,
-          backgroundColor: Colors.Primary[200],
-          borderColor: Colors.Primary[200],
+          backgroundColor: DarkColors.Primary[200],
+          borderColor: DarkColors.Primary[200],
           borderWidth: 2,
           variants: {
             isActive: {
               true: {
-                backgroundColor: Colors.Primary[400],
-                borderColor: Colors.Primary[600],
+                backgroundColor: DarkColors.Primary[400],
+                borderColor: DarkColors.Primary[600],
               },
             },
             isCompleted: {
               true: {
-                backgroundColor: Colors.Primary[600],
-                borderColor: Colors.Primary[600],
+                backgroundColor: DarkColors.Primary[600],
+                borderColor: DarkColors.Primary[600],
               },
             },
             isDisabled: {
               true: {
-                backgroundColor: Colors.Primary[100],
-                borderColor: Colors.Primary[100],
+                backgroundColor: DarkColors.Primary[100],
+                borderColor: DarkColors.Primary[100],
               },
             },
           },
         },
         text: {
-          color: Colors.Primary[500],
+          color: DarkColors.Primary[500],
           marginTop: 4,
           variants: {
             isActive: {
               true: {
-                color: Colors.Primary[800],
+                color: DarkColors.Primary[800],
               },
             },
             isCompleted: {
               true: {
-                color: Colors.Primary[600],
+                color: DarkColors.Primary[600],
               },
             },
             isDisabled: {
               true: {
-                color: Colors.Primary[200],
+                color: DarkColors.Primary[200],
               },
             },
           },
         },
         number: {
-          color: Colors.Primary[500],
+          color: DarkColors.Primary[500],
           variants: {
             isActive: {
               true: {
-                color: Colors.Primary[50],
+                color: DarkColors.Primary[50],
               },
             },
             isCompleted: {
               true: {
-                color: Colors.Primary[50],
+                color: DarkColors.Primary[50],
               },
             },
             isDisabled: {
               true: {
-                color: Colors.Primary[200],
+                color: DarkColors.Primary[200],
               },
             },
           },
         },
         leftTrail: {
-          backgroundColor: Colors.Primary[200],
+          backgroundColor: DarkColors.Primary[200],
           height: 3,
           variants: {
             isCompleted: {
               true: {
-                backgroundColor: Colors.Primary[600],
+                backgroundColor: DarkColors.Primary[600],
               },
             },
             isActive: {
               true: {
-                backgroundColor: Colors.Primary[600],
+                backgroundColor: DarkColors.Primary[600],
               },
             },
             isFirst: {
               true: {
-                backgroundColor: Colors.Transparent,
+                backgroundColor: DarkColors.Transparent,
               },
             },
           },
         },
         rightTrail: {
-          backgroundColor: Colors.Primary[200],
+          backgroundColor: DarkColors.Primary[200],
           height: 3,
           variants: {
             isCompleted: {
               true: {
-                backgroundColor: Colors.Primary[600],
+                backgroundColor: DarkColors.Primary[600],
               },
             },
             isLast: {
               true: {
-                backgroundColor: Colors.Transparent,
+                backgroundColor: DarkColors.Transparent,
               },
             },
           },
         },
         completeIcon: {
-          color: Colors.Primary[500],
+          color: DarkColors.Primary[500],
           variants: {
             isActive: {
               true: {
-                color: Colors.Primary[50],
+                color: DarkColors.Primary[50],
               },
             },
             isCompleted: {
               true: {
-                color: Colors.Primary[50],
+                color: DarkColors.Primary[50],
               },
             },
             isDisabled: {
               true: {
-                color: Colors.Primary[200],
+                color: DarkColors.Primary[200],
               },
             },
           },
         },
         leftText: {
-          color: Colors.Primary[500],
+          color: DarkColors.Primary[500],
           paddingRight: Spacings.SM,
           paddingLeft: Spacings.SM,
           variants: {
             isActive: {
               true: {
-                color: Colors.Primary[800],
+                color: DarkColors.Primary[800],
               },
             },
             isCompleted: {
               true: {
-                color: Colors.Primary[600],
+                color: DarkColors.Primary[600],
               },
             },
             isDisabled: {
               true: {
-                color: Colors.Primary[200],
+                color: DarkColors.Primary[200],
               },
             },
           },
         },
         rightText: {
-          color: Colors.Primary[500],
+          color: DarkColors.Primary[500],
           paddingRight: Spacings.SM,
           paddingLeft: Spacings.SM,
           variants: {
             isActive: {
               true: {
-                color: Colors.Primary[800],
+                color: DarkColors.Primary[800],
               },
             },
             isCompleted: {
               true: {
-                color: Colors.Primary[600],
+                color: DarkColors.Primary[600],
               },
             },
             isDisabled: {
               true: {
-                color: Colors.Primary[200],
+                color: DarkColors.Primary[200],
               },
             },
           },
         },
         topText: {
-          color: Colors.Primary[500],
+          color: DarkColors.Primary[500],
           marginBottom: Spacings.XS,
           marginRight: Spacings.SM,
           variants: {
             isActive: {
               true: {
-                color: Colors.Primary[800],
+                color: DarkColors.Primary[800],
               },
             },
             isCompleted: {
               true: {
-                color: Colors.Primary[600],
+                color: DarkColors.Primary[600],
               },
             },
             isDisabled: {
               true: {
-                color: Colors.Primary[200],
+                color: DarkColors.Primary[200],
               },
             },
           },
         },
         bottomText: {
-          color: Colors.Primary[500],
+          color: DarkColors.Primary[500],
           marginBottom: Spacings.XS,
           marginRight: Spacings.SM,
           variants: {
             isActive: {
               true: {
-                color: Colors.Primary[800],
+                color: DarkColors.Primary[800],
               },
             },
             isCompleted: {
               true: {
-                color: Colors.Primary[600],
+                color: DarkColors.Primary[600],
               },
             },
             isDisabled: {
               true: {
-                color: Colors.Primary[200],
+                color: DarkColors.Primary[200],
               },
             },
           },

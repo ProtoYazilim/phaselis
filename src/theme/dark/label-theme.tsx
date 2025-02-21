@@ -1,10 +1,10 @@
-import { Colors } from "../colors";
+import { DarkColors } from "../DarkColors";
 export default {
   label: {
     default: {
       container: {},
       text: {
-        color: Colors.Shades.black,
+        color: DarkColors.Shades.black,
         variants: {
           bold: {
             true: {},

@@ -1,11 +1,11 @@
-import { Colors } from "../colors";
+import { LightColors } from "../LightColors";
 import { FontSizes, Heights, Radius, Spacings } from "../spacings";
 
 export default {
   textfield: {
     default: {
       container: {
-        borderColor: Colors.Primary[950],
+        borderColor: LightColors.Primary[950],
         borderWidth: 0.5,
         borderRadius: Radius.MD,
         paddingLeft: Spacings.MD,
@@ -13,19 +13,19 @@ export default {
         variants: {
           focus: {
             true: {
-              borderColor: Colors.Primary[600],
-              backgroundColor: Colors.Primary[50],
+              borderColor: LightColors.Primary[600],
+              backgroundColor: LightColors.Primary[50],
             },
           },
           disabled: {
             true: {
-              borderColor: Colors.Primary[200],
-              backgroundColor: Colors.Primary[100],
+              borderColor: LightColors.Primary[200],
+              backgroundColor: LightColors.Primary[100],
             },
           },
           error: {
             true: {
-              borderColor: Colors.Danger[500],
+              borderColor: LightColors.Danger[500],
             },
           },
           size: {
@@ -57,21 +57,21 @@ export default {
       },
       element: {
         fontFamily: "Roboto",
-        color: Colors.Primary[950],
+        color: LightColors.Primary[950],
         variants: {
           focus: {
             true: {
-              color: Colors.Primary[600],
+              color: LightColors.Primary[600],
             },
           },
           error: {
             true: {
-              color: Colors.Danger[600],
+              color: LightColors.Danger[600],
             },
           },
           disabled: {
             true: {
-              color: Colors.Primary[300],
+              color: LightColors.Primary[300],
             },
           },
           size: {
@@ -102,22 +102,22 @@ export default {
         },
       },
       leftSlot: {
-        color: Colors.Primary[950],
+        color: LightColors.Primary[950],
         marginRight: Spacings.SM,
         variants: {
           focus: {
             true: {
-              color: Colors.Primary[600],
+              color: LightColors.Primary[600],
             },
           },
           error: {
             true: {
-              color: Colors.Danger[600],
+              color: LightColors.Danger[600],
             },
           },
           disabled: {
             true: {
-              color: Colors.Primary[300],
+              color: LightColors.Primary[300],
             },
           },
           textarea: {
@@ -128,22 +128,22 @@ export default {
         },
       },
       rightSlot: {
-        color: Colors.Primary[900],
+        color: LightColors.Primary[900],
         marginLeft: Spacings.SM,
         variants: {
           focus: {
             true: {
-              color: Colors.Primary[600],
+              color: LightColors.Primary[600],
             },
           },
           error: {
             true: {
-              color: Colors.Danger[600],
+              color: LightColors.Danger[600],
             },
           },
           disabled: {
             true: {
-              color: Colors.Primary[300],
+              color: LightColors.Primary[300],
             },
           },
           textarea: {

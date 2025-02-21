@@ -1,4 +1,4 @@
-import { Colors } from "../colors";
+import { LightColors } from "../LightColors";
 import { Radius, Spacings, FontSizes } from "../spacings";
 
 export default {
@@ -15,7 +15,7 @@ export default {
       },
       view: {
         container: {
-          backgroundColor: Colors.Shades.white,
+          backgroundColor: LightColors.Shades.white,
           borderRadius: Radius.SM,
         },
         element: {
@@ -24,7 +24,7 @@ export default {
       },
       headerItem: {
         container: {
-          borderBottomColor: Colors.Shades.white,
+          borderBottomColor: LightColors.Shades.white,
           paddingTop: Spacings.SM,
           paddingBottom: Spacings.SM,
           paddingLeft: Spacings.MD,
@@ -32,7 +32,7 @@ export default {
           variants: {
             active: {
               true: {
-                borderBottomColor: Colors.Primary[500],
+                borderBottomColor: LightColors.Primary[500],
               },
               false: {},
             },
@@ -44,7 +44,7 @@ export default {
         },
         text: {
           fontSize: FontSizes.MD,
-          color: Colors.Gray[950],
+          color: LightColors.Gray[950],
         },
         leftSlot: {},
         rightSlot: {},

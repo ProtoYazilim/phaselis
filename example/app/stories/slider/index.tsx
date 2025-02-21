@@ -1,13 +1,14 @@
-import type { FormReference } from "phaselis";
+import type { FormReference, PhaselisColors } from "phaselis";
 import { useRef, useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { Button, Slider, Form, Colors } from "phaselis";
+import { Button, Slider, Form, useColors } from "phaselis";
 import StoryView from "../../../src/StoryView";
 import StorySection from "../../../src/StorySection";
 
 const SliderStory = () => {
   const refForm = useRef<FormReference>(null);
   const [sliderValue, setSliderValue] = useState(45);
+  const Colors = useColors<PhaselisColors>();
 
   const handleSliderChange = (_e: any, value: number) => {
     setSliderValue(value);
@@ -29,14 +30,18 @@ const SliderStory = () => {
                 gap: 8,
               }}
             >
-              <Text style={styles.text}>0</Text>
+              <Text style={[styles.text, { color: Colors.Primary[950] }]}>
+                0
+              </Text>
               <Slider
                 name="slider"
                 value={45}
                 step={5}
                 onChange={handleSliderChange}
               />
-              <Text style={styles.text}>100</Text>
+              <Text style={[styles.text, { color: Colors.Primary[950] }]}>
+                100
+              </Text>
             </View>
             <Text style={[{ textAlign: "center" }]}>{sliderValue}</Text>
           </View>
@@ -78,7 +83,9 @@ const SliderStory = () => {
               gap: 8,
             }}
           >
-            <Text style={styles.disabledText}>0</Text>
+            <Text style={[styles.disabledText, { color: Colors.Primary[300] }]}>
+              0
+            </Text>
             <Slider
               name="slider2"
               disabled
@@ -86,9 +93,16 @@ const SliderStory = () => {
               partofform={false}
               onChange={handleSliderChange}
             />
-            <Text style={styles.disabledText}>100</Text>
+            <Text style={[styles.disabledText, { color: Colors.Primary[300] }]}>
+              100
+            </Text>
           </View>
-          <Text style={[styles.disabledText, { textAlign: "center" }]}>
+          <Text
+            style={[
+              styles.disabledText,
+              { color: Colors.Primary[300], textAlign: "center" },
+            ]}
+          >
             {sliderValue}
           </Text>
         </View>
@@ -104,7 +118,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 500,
     lineHeight: 16,
-    color: Colors.Primary[950],
     width: 30,
     textAlign: "center",
   },
@@ -112,6 +125,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 500,
     lineHeight: 16,
-    color: Colors.Primary[300],
   },
 });

@@ -1,4 +1,4 @@
-import { Colors } from "../colors";
+import { DarkColors } from "../DarkColors";
 import { FontSizes, Heights, Radius, Spacings, IconSizes } from "../spacings";
 
 export default {
@@ -46,6 +46,7 @@ export default {
         },
       },
       text: {
+        color: DarkColors.Shades.white,
         variants: {
           size: {
             xs: {
@@ -100,6 +101,7 @@ export default {
         },
       },
       rightSlot: {
+        color: DarkColors.Shades.white,
         variants: {
           size: {
             xs: {
@@ -132,60 +134,57 @@ export default {
     },
     primary: {
       container: {
-        backgroundColor: Colors.Primary[600],
-        borderColor: Colors.Primary[600],
+        backgroundColor: DarkColors.Primary[600],
+        borderColor: DarkColors.Primary[600],
         variants: {
           pressed: {
             true: {
-              backgroundColor: Colors.Primary[800],
-              borderColor: Colors.Primary[800],
+              backgroundColor: DarkColors.Primary[800],
+              borderColor: DarkColors.Primary[800],
             },
           },
           disabled: {
             true: {
-              backgroundColor: Colors.Primary[100],
-              borderColor: Colors.Primary[200],
+              backgroundColor: DarkColors.Primary[100],
+              borderColor: DarkColors.Primary[200],
             },
           },
           loading: {
             true: {
-              backgroundColor: Colors.Primary[300],
-              borderColor: Colors.Primary[600],
+              backgroundColor: DarkColors.Primary[300],
+              borderColor: DarkColors.Primary[600],
             },
           },
         },
       },
       text: {
-        color: Colors.Shades.white,
         variants: {
           disabled: {
             true: {
-              color: Colors.Primary[300],
+              color: DarkColors.Primary[300],
             },
           },
           loading: {
             true: {
-              color: Colors.Primary[400],
+              color: DarkColors.Primary[400],
             },
           },
         },
       },
       leftSlot: {
-        color: Colors.Shades.white,
         variants: {
           disabled: {
             true: {
-              color: Colors.Primary[300],
+              color: DarkColors.Primary[300],
             },
           },
         },
       },
       rightSlot: {
-        color: Colors.Shades.white,
         variants: {
           disabled: {
             true: {
-              color: Colors.Primary[300],
+              color: DarkColors.Primary[300],
             },
           },
         },
@@ -193,66 +192,66 @@ export default {
     },
     primary_outline: {
       container: {
-        backgroundColor: Colors.Transparent,
-        borderColor: Colors.Primary[700],
+        backgroundColor: DarkColors.Transparent,
+        borderColor: DarkColors.Primary[700],
         variants: {
           pressed: {
             true: {
-              backgroundColor: Colors.Primary[50],
-              borderColor: Colors.Primary[700],
+              backgroundColor: DarkColors.Primary[50],
+              borderColor: DarkColors.Primary[700],
             },
           },
           disabled: {
             true: {
-              backgroundColor: Colors.Transparent,
-              borderColor: Colors.Primary[300],
+              backgroundColor: DarkColors.Transparent,
+              borderColor: DarkColors.Primary[300],
             },
           },
           loading: {
             true: {
-              backgroundColor: Colors.Transparent,
-              borderColor: Colors.Primary[300],
+              backgroundColor: DarkColors.Transparent,
+              borderColor: DarkColors.Primary[300],
             },
           },
         },
       },
       text: {
         fontSize: FontSizes.MD,
-        color: Colors.Primary[700],
+        color: DarkColors.Primary[700],
         variants: {
           disabled: {
             true: {
-              color: Colors.Primary[300],
+              color: DarkColors.Primary[300],
             },
           },
           loading: {
             true: {
-              color: Colors.Primary[400],
+              color: DarkColors.Primary[400],
             },
           },
         },
       },
       leftSlot: {
-        color: Colors.Primary[700],
+        color: DarkColors.Primary[700],
         variants: {
           disabled: {
             true: {
-              color: Colors.Primary[300],
+              color: DarkColors.Primary[300],
             },
           },
           loading: {
             true: {
-              color: Colors.Primary[400],
+              color: DarkColors.Primary[400],
             },
           },
         },
       },
       rightSlot: {
-        color: Colors.Primary[700],
+        color: DarkColors.Primary[700],
         variants: {
           disabled: {
             true: {
-              color: Colors.Primary[300],
+              color: DarkColors.Primary[300],
             },
           },
         },
@@ -260,56 +259,53 @@ export default {
     },
     secondary: {
       container: {
-        backgroundColor: Colors.Secondary[600],
-        borderColor: Colors.Secondary[600],
+        backgroundColor: DarkColors.Secondary[600],
+        borderColor: DarkColors.Secondary[600],
         variants: {
           pressed: {
             true: {
-              backgroundColor: Colors.Secondary[800],
-              borderColor: Colors.Secondary[800],
+              backgroundColor: DarkColors.Secondary[800],
+              borderColor: DarkColors.Secondary[800],
             },
           },
           disabled: {
             true: {
-              backgroundColor: Colors.Secondary[100],
-              borderColor: Colors.Secondary[200],
+              backgroundColor: DarkColors.Secondary[100],
+              borderColor: DarkColors.Secondary[200],
             },
           },
           loading: {
             true: {
-              backgroundColor: Colors.Secondary[300],
-              borderColor: Colors.Secondary[600],
+              backgroundColor: DarkColors.Secondary[300],
+              borderColor: DarkColors.Secondary[600],
             },
           },
         },
       },
       text: {
         fontSize: FontSizes.MD,
-        color: Colors.Shades.white,
         variants: {
           disabled: {
             true: {
-              color: Colors.Secondary[300],
+              color: DarkColors.Secondary[300],
             },
           },
         },
       },
       leftSlot: {
-        color: Colors.Shades.white,
         variants: {
           disabled: {
             true: {
-              color: Colors.Secondary[300],
+              color: DarkColors.Secondary[300],
             },
           },
         },
       },
       rightSlot: {
-        color: Colors.Shades.white,
         variants: {
           disabled: {
             true: {
-              color: Colors.Secondary[300],
+              color: DarkColors.Secondary[300],
             },
           },
         },
@@ -317,66 +313,66 @@ export default {
     },
     secondary_outline: {
       container: {
-        backgroundColor: Colors.Transparent,
-        borderColor: Colors.Secondary[700],
+        backgroundColor: DarkColors.Transparent,
+        borderColor: DarkColors.Secondary[700],
         variants: {
           pressed: {
             true: {
-              backgroundColor: Colors.Secondary[50],
-              borderColor: Colors.Secondary[700],
+              backgroundColor: DarkColors.Secondary[50],
+              borderColor: DarkColors.Secondary[700],
             },
           },
           disabled: {
             true: {
-              backgroundColor: Colors.Transparent,
-              borderColor: Colors.Secondary[300],
+              backgroundColor: DarkColors.Transparent,
+              borderColor: DarkColors.Secondary[300],
             },
           },
           loading: {
             true: {
-              backgroundColor: Colors.Transparent,
-              borderColor: Colors.Secondary[300],
+              backgroundColor: DarkColors.Transparent,
+              borderColor: DarkColors.Secondary[300],
             },
           },
         },
       },
       text: {
         fontSize: FontSizes.MD,
-        color: Colors.Secondary[700],
+        color: DarkColors.Secondary[700],
         variants: {
           disabled: {
             true: {
-              color: Colors.Secondary[300],
+              color: DarkColors.Secondary[300],
             },
           },
           loading: {
             true: {
-              color: Colors.Secondary[400],
+              color: DarkColors.Secondary[400],
             },
           },
         },
       },
       leftSlot: {
-        color: Colors.Secondary[700],
+        color: DarkColors.Secondary[700],
         variants: {
           disabled: {
             true: {
-              color: Colors.Secondary[300],
+              color: DarkColors.Secondary[300],
             },
           },
           loading: {
             true: {
-              color: Colors.Secondary[400],
+              color: DarkColors.Secondary[400],
             },
           },
         },
       },
       rightSlot: {
-        color: Colors.Secondary[700],
+        color: DarkColors.Secondary[700],
         variants: {
           disabled: {
             true: {
-              color: Colors.Secondary[300],
+              color: DarkColors.Secondary[300],
             },
           },
         },
@@ -384,25 +380,25 @@ export default {
     },
     tertiary: {
       container: {
-        backgroundColor: Colors.Tertiary[600],
-        borderColor: Colors.Tertiary[600],
+        backgroundColor: DarkColors.Tertiary[600],
+        borderColor: DarkColors.Tertiary[600],
         variants: {
           pressed: {
             true: {
-              backgroundColor: Colors.Tertiary[800],
-              borderColor: Colors.Tertiary[800],
+              backgroundColor: DarkColors.Tertiary[800],
+              borderColor: DarkColors.Tertiary[800],
             },
           },
           disabled: {
             true: {
-              backgroundColor: Colors.Tertiary[100],
-              borderColor: Colors.Tertiary[200],
+              backgroundColor: DarkColors.Tertiary[100],
+              borderColor: DarkColors.Tertiary[200],
             },
           },
           loading: {
             true: {
-              backgroundColor: Colors.Tertiary[300],
-              borderColor: Colors.Tertiary[600],
+              backgroundColor: DarkColors.Tertiary[300],
+              borderColor: DarkColors.Tertiary[600],
             },
           },
         },
@@ -410,32 +406,29 @@ export default {
       element: {},
       text: {
         fontSize: FontSizes.MD,
-        color: Colors.Shades.white,
         variants: {
           disabled: {
             true: {
-              color: Colors.Tertiary[300],
+              color: DarkColors.Tertiary[300],
             },
           },
           size: {},
         },
       },
       leftSlot: {
-        color: Colors.Shades.white,
         variants: {
           disabled: {
             true: {
-              color: Colors.Tertiary[300],
+              color: DarkColors.Tertiary[300],
             },
           },
         },
       },
       rightSlot: {
-        color: Colors.Shades.white,
         variants: {
           disabled: {
             true: {
-              color: Colors.Tertiary[300],
+              color: DarkColors.Tertiary[300],
             },
           },
         },
@@ -443,66 +436,66 @@ export default {
     },
     tertiary_outline: {
       container: {
-        backgroundColor: Colors.Transparent,
-        borderColor: Colors.Tertiary[700],
+        backgroundColor: DarkColors.Transparent,
+        borderColor: DarkColors.Tertiary[700],
         variants: {
           pressed: {
             true: {
-              backgroundColor: Colors.Tertiary[50],
-              borderColor: Colors.Tertiary[700],
+              backgroundColor: DarkColors.Tertiary[50],
+              borderColor: DarkColors.Tertiary[700],
             },
           },
           disabled: {
             true: {
-              backgroundColor: Colors.Transparent,
-              borderColor: Colors.Tertiary[300],
+              backgroundColor: DarkColors.Transparent,
+              borderColor: DarkColors.Tertiary[300],
             },
           },
           loading: {
             true: {
-              backgroundColor: Colors.Transparent,
-              borderColor: Colors.Tertiary[300],
+              backgroundColor: DarkColors.Transparent,
+              borderColor: DarkColors.Tertiary[300],
             },
           },
         },
       },
       text: {
         fontSize: FontSizes.MD,
-        color: Colors.Tertiary[700],
+        color: DarkColors.Tertiary[700],
         variants: {
           disabled: {
             true: {
-              color: Colors.Tertiary[300],
+              color: DarkColors.Tertiary[300],
             },
           },
           loading: {
             true: {
-              color: Colors.Tertiary[400],
+              color: DarkColors.Tertiary[400],
             },
           },
         },
       },
       leftSlot: {
-        color: Colors.Tertiary[700],
+        color: DarkColors.Tertiary[700],
         variants: {
           disabled: {
             true: {
-              color: Colors.Tertiary[300],
+              color: DarkColors.Tertiary[300],
             },
           },
           loading: {
             true: {
-              color: Colors.Tertiary[400],
+              color: DarkColors.Tertiary[400],
             },
           },
         },
       },
       rightSlot: {
-        color: Colors.Tertiary[700],
+        color: DarkColors.Tertiary[700],
         variants: {
           disabled: {
             true: {
-              color: Colors.Tertiary[300],
+              color: DarkColors.Tertiary[300],
             },
           },
         },
@@ -510,61 +503,58 @@ export default {
     },
     danger: {
       container: {
-        backgroundColor: Colors.Danger[700],
-        borderColor: Colors.Danger[600],
+        backgroundColor: DarkColors.Danger[700],
+        borderColor: DarkColors.Danger[600],
         variants: {
           pressed: {
             true: {
-              backgroundColor: Colors.Danger[800],
-              borderColor: Colors.Danger[600],
+              backgroundColor: DarkColors.Danger[800],
+              borderColor: DarkColors.Danger[600],
             },
           },
           disabled: {
             true: {
-              backgroundColor: Colors.Danger[100],
-              borderColor: Colors.Danger[200],
+              backgroundColor: DarkColors.Danger[100],
+              borderColor: DarkColors.Danger[200],
             },
           },
           loading: {
             true: {
-              backgroundColor: Colors.Danger[300],
-              borderColor: Colors.Danger[600],
+              backgroundColor: DarkColors.Danger[300],
+              borderColor: DarkColors.Danger[600],
             },
           },
         },
       },
       text: {
         fontSize: FontSizes.MD,
-        color: Colors.Shades.white,
         variants: {
           disabled: {
             true: {
-              color: Colors.Danger[300],
+              color: DarkColors.Danger[300],
             },
           },
           loading: {
             true: {
-              color: Colors.Danger[400],
+              color: DarkColors.Danger[400],
             },
           },
         },
       },
       leftSlot: {
-        color: Colors.Shades.white,
         variants: {
           disabled: {
             true: {
-              color: Colors.Danger[300],
+              color: DarkColors.Danger[300],
             },
           },
         },
       },
       rightSlot: {
-        color: Colors.Shades.white,
         variants: {
           disabled: {
             true: {
-              color: Colors.Danger[300],
+              color: DarkColors.Danger[300],
             },
           },
         },
@@ -572,61 +562,58 @@ export default {
     },
     success: {
       container: {
-        backgroundColor: Colors.Success[700],
-        borderColor: Colors.Success[600],
+        backgroundColor: DarkColors.Success[700],
+        borderColor: DarkColors.Success[600],
         variants: {
           pressed: {
             true: {
-              backgroundColor: Colors.Success[800],
-              borderColor: Colors.Success[600],
+              backgroundColor: DarkColors.Success[800],
+              borderColor: DarkColors.Success[600],
             },
           },
           disabled: {
             true: {
-              backgroundColor: Colors.Success[100],
-              borderColor: Colors.Success[200],
+              backgroundColor: DarkColors.Success[100],
+              borderColor: DarkColors.Success[200],
             },
           },
           loading: {
             true: {
-              backgroundColor: Colors.Success[300],
-              borderColor: Colors.Success[600],
+              backgroundColor: DarkColors.Success[300],
+              borderColor: DarkColors.Success[600],
             },
           },
         },
       },
       text: {
         fontSize: FontSizes.MD,
-        color: Colors.Shades.white,
         variants: {
           disabled: {
             true: {
-              color: Colors.Success[300],
+              color: DarkColors.Success[300],
             },
           },
           loading: {
             true: {
-              color: Colors.Success[400],
+              color: DarkColors.Success[400],
             },
           },
         },
       },
       leftSlot: {
-        color: Colors.Shades.white,
         variants: {
           disabled: {
             true: {
-              color: Colors.Success[300],
+              color: DarkColors.Success[300],
             },
           },
         },
       },
       rightSlot: {
-        color: Colors.Shades.white,
         variants: {
           disabled: {
             true: {
-              color: Colors.Success[300],
+              color: DarkColors.Success[300],
             },
           },
         },

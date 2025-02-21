@@ -1,4 +1,4 @@
-import { Colors } from "../colors";
+import { DarkColors } from "../DarkColors";
 import { FontSizes, Heights, Radius, Spacings } from "../spacings";
 
 export default {
@@ -93,6 +93,7 @@ export default {
       },
       text: {
         fontFamily: "Roboto",
+        color: DarkColors.Shades.black,
         variants: {
           size: {
             xs: {
@@ -119,27 +120,27 @@ export default {
     },
     primary: {
       icon: {
-        color: Colors.Primary[600],
+        color: DarkColors.Primary[600],
         variants: {
           disabled: {
             true: {
-              color: Colors.Primary[200],
+              color: DarkColors.Primary[200],
             },
           },
           pressed: {
             true: {
-              color: Colors.Primary[800],
+              color: DarkColors.Primary[800],
             },
           },
         },
       },
       element: {
-        borderColor: Colors.Primary[950],
+        borderColor: DarkColors.Primary[950],
         variants: {
           disabled: {
             true: {
-              borderColor: Colors.Primary[100],
-              backgroundColor: Colors.Primary[50],
+              borderColor: DarkColors.Primary[100],
+              backgroundColor: DarkColors.Primary[50],
             },
           },
         },
@@ -148,7 +149,7 @@ export default {
         variants: {
           disabled: {
             true: {
-              color: Colors.Primary[200],
+              color: DarkColors.Primary[200],
             },
           },
         },
@@ -156,27 +157,27 @@ export default {
     },
     secondary: {
       icon: {
-        color: Colors.Secondary[600],
+        color: DarkColors.Secondary[600],
         variants: {
           disabled: {
             true: {
-              color: Colors.Secondary[200],
+              color: DarkColors.Secondary[200],
             },
           },
           pressed: {
             true: {
-              color: Colors.Secondary[800],
+              color: DarkColors.Secondary[800],
             },
           },
         },
       },
       element: {
-        borderColor: Colors.Secondary[950],
+        borderColor: DarkColors.Secondary[950],
         variants: {
           disabled: {
             true: {
-              borderColor: Colors.Secondary[100],
-              backgroundColor: Colors.Secondary[50],
+              borderColor: DarkColors.Secondary[100],
+              backgroundColor: DarkColors.Secondary[50],
             },
           },
         },
@@ -185,7 +186,7 @@ export default {
         variants: {
           disabled: {
             true: {
-              color: Colors.Secondary[200],
+              color: DarkColors.Secondary[200],
             },
           },
         },
@@ -193,27 +194,27 @@ export default {
     },
     tertiary: {
       icon: {
-        color: Colors.Tertiary[600],
+        color: DarkColors.Tertiary[600],
         variants: {
           disabled: {
             true: {
-              color: Colors.Tertiary[200],
+              color: DarkColors.Tertiary[200],
             },
           },
           pressed: {
             true: {
-              color: Colors.Tertiary[800],
+              color: DarkColors.Tertiary[800],
             },
           },
         },
       },
       element: {
-        borderColor: Colors.Tertiary[950],
+        borderColor: DarkColors.Tertiary[950],
         variants: {
           disabled: {
             true: {
-              borderColor: Colors.Tertiary[100],
-              backgroundColor: Colors.Tertiary[50],
+              borderColor: DarkColors.Tertiary[100],
+              backgroundColor: DarkColors.Tertiary[50],
             },
           },
         },
@@ -222,7 +223,7 @@ export default {
         variants: {
           disabled: {
             true: {
-              color: Colors.Tertiary[200],
+              color: DarkColors.Tertiary[200],
             },
           },
         },

@@ -1,10 +1,12 @@
 import StorySection from "../../../src/StorySection";
 import StoryView from "../../../src/StoryView";
-import { Switch } from "phaselis";
+import { Switch, useColors, type PhaselisColors } from "phaselis";
 import { Text } from "react-native";
 import ColoredRightSlot from "../../../src/ColoredRightSlot";
 
 function SwitchStory() {
+  const Colors = useColors<PhaselisColors>();
+
   return (
     <StoryView>
       <StorySection
@@ -46,8 +48,12 @@ function SwitchStory() {
           name="7"
           value={true}
           variation="primary"
-          LeftSlot={() => <Text>Left</Text>}
-          RightSlot={() => <Text>Right</Text>}
+          LeftSlot={() => (
+            <Text style={{ color: Colors.Primary[950] }}>Left</Text>
+          )}
+          RightSlot={() => (
+            <Text style={{ color: Colors.Primary[950] }}>Right</Text>
+          )}
         />
       </StorySection>
       <StorySection
@@ -64,16 +70,24 @@ function SwitchStory() {
           value={false}
           variation="primary"
           showIcons
-          LeftSlot={() => <Text>Off</Text>}
-          RightSlot={() => <Text>On</Text>}
+          LeftSlot={() => (
+            <Text style={{ color: Colors.Primary[950] }}>Off</Text>
+          )}
+          RightSlot={() => (
+            <Text style={{ color: Colors.Primary[950] }}>On</Text>
+          )}
         />
         <Switch
           name="9"
           value={true}
           variation="primary"
           showIcons
-          LeftSlot={() => <Text>Off</Text>}
-          RightSlot={() => <Text>On</Text>}
+          LeftSlot={() => (
+            <Text style={{ color: Colors.Primary[950] }}>Off</Text>
+          )}
+          RightSlot={() => (
+            <Text style={{ color: Colors.Primary[950] }}>On</Text>
+          )}
         />
       </StorySection>
       <StorySection

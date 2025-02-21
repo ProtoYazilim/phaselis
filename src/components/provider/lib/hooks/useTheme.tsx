@@ -20,22 +20,22 @@ export function useTheme<T = typeof lightTheme>() {
 
   const themeName = (context.theme as any)?.config?.name as ThemeType;
 
-  const setInitialTheme = (newDarkTheme, newLightTheme) => {
-    themeList.light = newLightTheme;
-    themeList.dark = newDarkTheme;
-  };
-
   const setTheme = (type: ThemeType) => {
     if (themeList[type]) {
       context.setTheme(themeList[type] as T);
     }
   };
 
+  const toggleTheme = () => {
+    const newType = themeName === "dark" ? "light" : "dark";
+    setTheme(newType);
+  };
+
   return {
     themeName,
-    setInitialTheme,
     setTheme,
     theme: context.theme,
+    toggleTheme,
   };
 }
 

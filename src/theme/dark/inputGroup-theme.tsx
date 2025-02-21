@@ -1,4 +1,4 @@
-import { Colors } from "../colors";
+import { DarkColors } from "../DarkColors";
 import { Spacings } from "../spacings";
 
 export default {
@@ -33,7 +33,7 @@ export default {
       },
       label: {
         paddingHorizontal: Spacings.SM,
-        color: Colors.Primary[950],
+        color: DarkColors.Primary[950],
         variants: {
           fontSize: 16,
           lineHeight: 16,
@@ -62,7 +62,7 @@ export default {
           },
           error: {
             true: {
-              color: Colors.Danger[600],
+              color: DarkColors.Danger[600],
             },
           },
           required: { true: {} },

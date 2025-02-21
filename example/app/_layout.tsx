@@ -1,16 +1,16 @@
 import { DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import "react-native-reanimated";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import "../config/unistyle";
 import {
   Provider as FrameWorkProvider,
-  Colors,
   LucideIcon,
-  useTheme,
   useColorScheme,
+  useColors,
+  type PhaselisColors,
 } from "phaselis";
 import { Tabs } from "expo-router";
 import { getEnvironmentType } from "../src";
@@ -26,27 +26,12 @@ export const unstable_settings = {
 
 const TabsNavigator = () => {
   const environment = getEnvironmentType();
-  const { theme, setInitialTheme } = useTheme();
+  const Colors = useColors<PhaselisColors>();
 
-  setInitialTheme(appDarkTheme, appLightTheme);
-
-  // Create memoized navigation theme
-  const navigationTheme = useMemo(
-    () => ({
-      ...DefaultTheme,
-      colors: {
-        ...DefaultTheme.colors,
-        background:
-          theme.layout?.backgroundColor || DefaultTheme.colors.background,
-      },
-    }),
-    [theme.layout?.backgroundColor],
-  );
-
-  DefaultTheme.colors.background = theme.layout.backgroundColor;
+  DefaultTheme.colors.background = Colors.Shades.white;
 
   return (
-    <ThemeProvider value={navigationTheme}>
+    <ThemeProvider value={DefaultTheme}>
       <Tabs
         screenOptions={{
           tabBarHideOnKeyboard: true,
@@ -54,7 +39,7 @@ const TabsNavigator = () => {
           tabBarInactiveTintColor: Colors.Primary[300],
           headerShown: false,
           tabBarStyle: {
-            backgroundColor: Colors.Primary[50],
+            backgroundColor: Colors.Shades.white,
             display: "flex",
           },
           tabBarLabelStyle: {

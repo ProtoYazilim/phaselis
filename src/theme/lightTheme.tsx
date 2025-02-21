@@ -1,4 +1,4 @@
-import { Colors } from "./colors";
+import { LightColors } from "./LightColors";
 import { Spacings } from "./spacings";
 import buttonTheme from "./light/button-theme";
 import labelTheme from "./light/label-theme";
@@ -29,7 +29,7 @@ export const lightTheme = {
     name: "light",
   },
   root: {
-    colors: Colors,
+    colors: LightColors,
     spacings: Spacings,
   },
   ...buttonTheme,

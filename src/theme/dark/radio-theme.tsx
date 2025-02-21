@@ -1,4 +1,4 @@
-import { Colors } from "../colors";
+import { DarkColors } from "../DarkColors";
 import { Heights, Spacings } from "../spacings";
 
 export default {
@@ -6,7 +6,7 @@ export default {
     default: {
       innerElement: {},
       outerElement: {
-        borderColor: Colors.Primary[950],
+        borderColor: DarkColors.Primary[950],
         borderWidth: 0.5,
         variants: {
           size: {
@@ -46,32 +46,32 @@ export default {
     },
     primary: {
       innerElement: {
-        backgroundColor: Colors.Primary[600],
+        backgroundColor: DarkColors.Primary[600],
         variants: {
           disabled: {
             true: {
-              backgroundColor: Colors.Primary[200],
+              backgroundColor: DarkColors.Primary[200],
             },
           },
         },
       },
       outerElement: {
-        borderColor: Colors.Primary[950],
+        borderColor: DarkColors.Primary[950],
         variants: {
           disabled: {
             true: {
-              borderColor: Colors.Primary[100],
-              backgroundColor: Colors.Primary[50],
+              borderColor: DarkColors.Primary[100],
+              backgroundColor: DarkColors.Primary[50],
             },
           },
         },
       },
       text: {
-        color: Colors.Primary[950],
+        color: DarkColors.Primary[950],
         variants: {
           disabled: {
             true: {
-              color: Colors.Primary[200],
+              color: DarkColors.Primary[200],
             },
           },
         },
@@ -79,32 +79,32 @@ export default {
     },
     secondary: {
       innerElement: {
-        backgroundColor: Colors.Secondary[600],
+        backgroundColor: DarkColors.Secondary[600],
         variants: {
           disabled: {
             true: {
-              backgroundColor: Colors.Secondary[200],
+              backgroundColor: DarkColors.Secondary[200],
             },
           },
         },
       },
       outerElement: {
-        borderColor: Colors.Secondary[950],
+        borderColor: DarkColors.Secondary[950],
         variants: {
           disabled: {
             true: {
-              borderColor: Colors.Secondary[100],
-              backgroundColor: Colors.Secondary[50],
+              borderColor: DarkColors.Secondary[100],
+              backgroundColor: DarkColors.Secondary[50],
             },
           },
         },
       },
       text: {
-        color: Colors.Secondary[950],
+        color: DarkColors.Secondary[950],
         variants: {
           disabled: {
             true: {
-              color: Colors.Secondary[200],
+              color: DarkColors.Secondary[200],
             },
           },
         },
@@ -112,32 +112,32 @@ export default {
     },
     tertiary: {
       innerElement: {
-        backgroundColor: Colors.Tertiary[600],
+        backgroundColor: DarkColors.Tertiary[600],
         variants: {
           disabled: {
             true: {
-              backgroundColor: Colors.Tertiary[200],
+              backgroundColor: DarkColors.Tertiary[200],
             },
           },
         },
       },
       outerElement: {
-        borderColor: Colors.Tertiary[950],
+        borderColor: DarkColors.Tertiary[950],
         variants: {
           disabled: {
             true: {
-              borderColor: Colors.Tertiary[100],
-              backgroundColor: Colors.Tertiary[50],
+              borderColor: DarkColors.Tertiary[100],
+              backgroundColor: DarkColors.Tertiary[50],
             },
           },
         },
       },
       text: {
-        color: Colors.Tertiary[950],
+        color: DarkColors.Tertiary[950],
         variants: {
           disabled: {
             true: {
-              color: Colors.Tertiary[200],
+              color: DarkColors.Tertiary[200],
             },
           },
         },

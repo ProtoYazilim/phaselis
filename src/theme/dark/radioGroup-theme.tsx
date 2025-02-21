@@ -1,4 +1,4 @@
-import { Colors } from "../colors";
+import { DarkColors } from "../DarkColors";
 import { Spacings } from "../spacings";
 
 export default {
@@ -9,7 +9,7 @@ export default {
         variants: {
           disabled: {
             true: {
-              backgroundColor: Colors.Gray[100],
+              backgroundColor: DarkColors.Gray[100],
             },
           },
         },

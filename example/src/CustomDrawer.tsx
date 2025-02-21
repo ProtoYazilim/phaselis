@@ -1,8 +1,8 @@
-import type { SlotIconName } from "phaselis";
-import type { FC } from "react";
+import type { PhaselisColors, SlotIconName } from "phaselis";
+import { type FC } from "react";
 import { Drawer } from "expo-router/drawer";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { LucideIcon, Colors } from "phaselis";
+import { LucideIcon, useColors, useTheme } from "phaselis";
 import { DrawerActions } from "@react-navigation/native";
 import { Pressable } from "react-native";
 
@@ -29,17 +29,32 @@ const CustomDrawer: FC<{
   componentName,
   leftIcon = "AlignLeft",
   rightIcon = "SquareChevronLeft",
-  headerTintColor = Colors.Primary[600],
+  headerTintColor,
   showRightIcon = true,
   sceneContainerStyle,
 }) => {
+  const Colors = useColors<PhaselisColors>();
+  const { themeName, toggleTheme } = useTheme();
+
+  const headerTintColorHandler = headerTintColor || Colors.Primary[600];
+  const darkModeIcon = themeName === "dark" ? "Sun" : "Moon";
+
   return (
     <Drawer
       screenOptions={{
-        headerTintColor: headerTintColor,
+        headerTintColor: headerTintColorHandler,
         drawerPosition: "right",
         swipeEnabled: showRightIcon ? true : false,
         sceneStyle: sceneContainerStyle,
+        headerStyle: {
+          backgroundColor: Colors.Shades.white,
+        },
+        drawerStyle: {
+          backgroundColor: Colors.Shades.white,
+        },
+        drawerActiveBackgroundColor: Colors.Primary[200],
+        drawerActiveTintColor: Colors.Primary[800],
+        drawerInactiveTintColor: Colors.Primary[400],
         headerLeft: () => (
           <Pressable
             onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
@@ -49,28 +64,44 @@ const CustomDrawer: FC<{
           >
             <LucideIcon
               name={leftIcon}
-              style={{ color: headerTintColor }}
+              style={{ color: headerTintColorHandler }}
               width={24}
               height={24}
             />
           </Pressable>
         ),
-        headerRight: () =>
-          drawerScreens.length > 1 && showRightIcon ? (
+        headerRight: () => (
+          <>
             <Pressable
-              onPress={() => rootNav.dispatch(DrawerActions.toggleDrawer())}
+              onPress={toggleTheme}
               style={{
                 marginHorizontal: 11,
               }}
             >
               <LucideIcon
-                name={rightIcon}
-                style={{ color: headerTintColor }}
+                name={darkModeIcon} // You can change this to any icon you want
+                style={{ color: headerTintColorHandler }}
                 width={24}
                 height={24}
               />
             </Pressable>
-          ) : null,
+            {drawerScreens.length > 1 && showRightIcon ? (
+              <Pressable
+                onPress={() => rootNav.dispatch(DrawerActions.toggleDrawer())}
+                style={{
+                  marginHorizontal: 11,
+                }}
+              >
+                <LucideIcon
+                  name={rightIcon}
+                  style={{ color: headerTintColorHandler }}
+                  width={24}
+                  height={24}
+                />
+              </Pressable>
+            ) : null}
+          </>
+        ),
       }}
       screenListeners={{
         focus: () => {

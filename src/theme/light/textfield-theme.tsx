@@ -1,9 +1,19 @@
 import { LightColors } from "../LightColors";
 import { FontSizes, Heights, Radius, Spacings } from "../spacings";
+import type { PhaselisComponentTheme } from "../types";
 
 export default {
   textfield: {
     default: {
+      extraStyles: {
+        container: ({ focus, error }: { focus: boolean; error: boolean }) => {
+          if (focus && error) {
+            return {
+              backgroundColor: LightColors.Danger[50],
+            };
+          }
+        },
+      },
       container: {
         borderColor: LightColors.Primary[950],
         borderWidth: 0.5,
@@ -155,4 +165,4 @@ export default {
       },
     },
   },
-};
+} as PhaselisComponentTheme;

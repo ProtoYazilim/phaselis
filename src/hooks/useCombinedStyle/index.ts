@@ -73,7 +73,12 @@ const useCombinedStyle = <ST extends StyleSheetWithSuperPowers>(
         const dExtraStyles =
           defaultStyles?.extraStyles?.[section]?.(variantsMap);
         const tStyles = themeStyles[section];
-        const tExtraStyles = themeStyles?.extraStyles?.[section]?.(variantsMap);
+        // debugger;
+        const tExtraStyles =
+          contextThemeStyles?.[variation]?.extraStyles?.[section]?.(
+            variantsMap,
+          );
+
         let pStyles = propStyle?.[section];
         return [
           { ...dStyles, ...dExtraStyles },
@@ -81,7 +86,14 @@ const useCombinedStyle = <ST extends StyleSheetWithSuperPowers>(
           { ...pStyles },
         ];
       },
-    [defaultStyles, variantsMap, themeStyles, propStyle],
+    [
+      defaultStyles,
+      variantsMap,
+      themeStyles,
+      contextThemeStyles,
+      variation,
+      propStyle,
+    ],
   );
 
   const getFlattenStyle = useMemo(

@@ -3,7 +3,7 @@ import type { NativeScrollEvent, NativeSyntheticEvent } from "react-native";
 import { useEffect, useRef, useState } from "react";
 import { View, ScrollView } from "react-native";
 import PhaselisHOC from "../provider/lib/hoc";
-import { LucideIcon } from "../index";
+import { Slot } from "../index";
 import TabHeaderItem from "./TabHeaderItem";
 import { tab_header_styles as stylesheet } from "./assets/styles";
 import { useCombinedStyle } from "../../hooks";
@@ -22,6 +22,10 @@ const TabViewHeader = ({
   handleOnPress,
   scrollable = false,
   variation = "default",
+  leftIcon = "ChevronLeft",
+  rightIcon = "ChevronRight",
+  LeftSlot,
+  RightSlot,
   ...extraProps
 }: TabViewHeaderProps) => {
   const { getCombinedStyle } = useCombinedStyle(
@@ -91,35 +95,41 @@ const TabViewHeader = ({
   const renderLeftScrollIcon = () => {
     if (showLeftArrow) {
       return (
-        <LucideIcon
-          name="ChevronLeft"
+        <Slot
+          icon={leftIcon}
+          style={getCombinedStyle("leftSlot")}
           onClick={() => {
             refScrollView.current?.scrollTo?.({
               x: refLastScrollPosition.current - 100,
               animated: true,
             });
           }}
-        />
+        >
+          {LeftSlot && <LeftSlot />}
+        </Slot>
       );
     }
-    return <View style={{ width: 16 }} />;
+    return <View style={{ width: 24 }} />;
   };
 
   const renderRightScrollIcon = () => {
     if (showRightArrow) {
       return (
-        <LucideIcon
-          name="ChevronRight"
+        <Slot
+          icon={rightIcon}
+          style={getCombinedStyle("rightSlot")}
           onClick={() => {
             refScrollView.current?.scrollTo?.({
               x: refLastScrollPosition.current + 100,
               animated: true,
             });
           }}
-        />
+        >
+          {RightSlot && <RightSlot />}
+        </Slot>
       );
     }
-    return <View style={{ width: 16 }} />;
+    return <View style={{ width: 24 }} />;
   };
 
   return (

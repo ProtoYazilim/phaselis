@@ -1,3 +1,5 @@
+import type { PhaselisComponentTheme } from "../types";
+
 export default {
   list: {
     default: {
@@ -8,4 +10,4 @@ export default {
       footer: {},
     },
   },
-};
+} as PhaselisComponentTheme;

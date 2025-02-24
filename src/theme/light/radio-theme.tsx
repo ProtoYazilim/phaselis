@@ -1,5 +1,6 @@
 import { LightColors } from "../LightColors";
 import { Heights, Spacings } from "../spacings";
+import type { PhaselisComponentTheme } from "../types";
 
 export default {
   radio: {
@@ -144,4 +145,4 @@ export default {
       },
     },
   },
-};
+} as PhaselisComponentTheme;

@@ -1,110 +1,139 @@
-import { Block, Button, Textfield, Form, required } from "phaselis";
-import { StyleSheet, ScrollView, Text } from "react-native";
+import {
+  Block,
+  Row,
+  useColors,
+  Col,
+  useShadows,
+  type PhaselisShadows,
+  type PhaselisColors,
+  useTheme,
+} from "phaselis";
+import { Text } from "react-native";
+import StorySection from "../../../src/StorySection";
+import StoryView from "../../../src/StoryView";
 
 const ShadowExample = () => {
-  return (
-    <ScrollView style={styles.container}>
-      <Block style={{ gap: 30, marginBottom: 30 }}>
-        <Form>
-          <Textfield
-            name="123"
-            validations={[required("wtf")]}
-            style={{
-              container: {
-                backgroundColor: "white",
-                //@ts-ignore
-                //TODO: fix shadows
-                shadows: [{}, {}],
-                variants: {
-                  error: {
-                    true: {
-                      backgroundColor: "white",
-                      shadows: [
-                        {
-                          color: "#FCF596",
-                          opacity: 0.8,
-                          radius: 12,
-                          offset: [-5, -3],
-                        },
-                        {
-                          color: "#FF4545",
-                          opacity: 0.8,
-                          radius: 12,
-                          offset: [5, 3],
-                        },
-                      ],
-                    },
-                  },
-                },
-              },
-            }}
-          />
-          <Button type="submit" />
-        </Form>
-        <Button
-          leftIcon="Apple"
-          rightIcon="ChevronRight"
-          text="Custom"
-          size="sm"
-          disabled
-          style={{
-            container: {
-              backgroundColor: "yellow",
-            },
-            text: {
-              color: "white",
-            },
-            leftSlot: {
-              color: "white",
-            },
-            rightSlot: {
-              color: "white",
-            },
-          }}
-        >
-          Custom
-        </Button>
+  const Colors = useColors<PhaselisColors>();
+  const Shadows = useShadows<PhaselisShadows>();
+  const { themeName } = useTheme();
+  const EffectBox = ({
+    frontText,
+    backText,
+    shadow,
+  }: {
+    frontText: string;
+    backText: string;
+    shadow?: any;
+  }) => {
+    return (
+      <>
         <Block
           style={{
-            width: 60,
-            height: 60,
-            borderRadius: 10,
+            position: "absolute",
+            top: 30,
+            left: 30,
+            width: "100%",
+            aspectRatio: 1,
+            borderRadius: 8,
+            borderWidth: 1,
+            borderColor: Colors.Primary[600],
+            backgroundColor: themeName === "light" ? "white" : "black",
             justifyContent: "center",
             alignItems: "center",
-            shadows: [
-              {
-                color: "#FCF596",
-                opacity: 0.4,
-                radius: 12,
-                offset: [-5, -3],
-              },
-              {
-                color: "#FF4545",
-                opacity: 0.4,
-                radius: 12,
-                offset: [5, 3],
-              },
-            ],
-            lineerGradient: {
-              colors: ["#FCF596", "#FF4545"], // background array ise, renkleri al
-              angle: 170,
-              useAngle: true,
-              angleCenter: { x: 0.5, y: 0.5 },
-            },
+            shadows: shadow ? [shadow] : [],
           }}
         >
-          <Text style={{ color: "white" }}>Fancy</Text>
+          <Text style={{ color: Colors.Primary[600], fontSize: 14 }}>
+            {backText}
+          </Text>
         </Block>
-      </Block>
-    </ScrollView>
+        <Block
+          style={{
+            width: "100%",
+            zIndex: 2,
+            aspectRatio: 1,
+            borderRadius: 8,
+            borderWidth: 1,
+            borderColor: Colors.Primary[600],
+            backgroundColor: themeName === "light" ? "white" : "black",
+            justifyContent: "center",
+            alignItems: "center",
+            //box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.12);
+            shadows: shadow ? [shadow] : [],
+          }}
+        >
+          <Text style={{ color: Colors.Primary[600], fontSize: 14 }}>
+            {frontText}
+          </Text>
+        </Block>
+      </>
+    );
+  };
+
+  return (
+    <StoryView>
+      <StorySection
+        leftText="Shadow"
+        rightText="Solid MD"
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+          flexWrap: "wrap",
+          gap: 60,
+        }}
+      >
+        <Row style={{ gap: 60, paddingRight: 30 }}>
+          <Col>
+            <EffectBox
+              frontText={"Shadow XS"}
+              backText={""}
+              shadow={Shadows.XS}
+            />
+          </Col>
+          <Col>
+            <EffectBox
+              frontText={"Shadow SM"}
+              backText={""}
+              shadow={Shadows.SM}
+            />
+          </Col>
+        </Row>
+        <Row style={{ gap: 60, paddingRight: 30 }}>
+          <Col>
+            <EffectBox
+              frontText={"Shadow XS"}
+              backText={""}
+              shadow={Shadows.MD}
+            />
+          </Col>
+          <Col>
+            <EffectBox
+              frontText={"Shadow SM"}
+              backText={""}
+              shadow={Shadows.LG}
+            />
+          </Col>
+        </Row>
+        <Row style={{ gap: 60, paddingRight: 30 }}>
+          <Col>
+            <EffectBox
+              frontText={"Shadow XS"}
+              backText={""}
+              shadow={Shadows.XL}
+            />
+          </Col>
+          <Col>
+            <EffectBox
+              frontText={"Shadow SM"}
+              backText={""}
+              shadow={Shadows.XXL}
+            />
+          </Col>
+        </Row>
+      </StorySection>
+    </StoryView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 16,
-    backgroundColor: "white",
-  },
-});
 
 export default ShadowExample;

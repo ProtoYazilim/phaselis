@@ -1,5 +1,6 @@
 import { LightColors } from "../LightColors";
 import { Spacings } from "../spacings";
+import type { PhaselisComponentTheme } from "../types";
 
 export default {
   inputGroup: {
@@ -70,4 +71,4 @@ export default {
       },
     },
   },
-};
+} as PhaselisComponentTheme;

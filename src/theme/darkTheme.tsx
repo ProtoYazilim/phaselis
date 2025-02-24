@@ -23,6 +23,7 @@ import colTheme from "./dark/col-theme";
 import rowTheme from "./dark/row-theme";
 import listTheme from "./dark/list-theme";
 import inputGroupTheme from "./dark/inputGroup-theme";
+import { Shadows } from "./effects";
 
 export const darkTheme = {
   config: {
@@ -31,6 +32,7 @@ export const darkTheme = {
   root: {
     colors: DarkColors,
     spacings: Spacings,
+    shadows: Shadows,
   },
   ...buttonTheme,
   ...labelTheme,

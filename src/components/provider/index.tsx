@@ -1,9 +1,14 @@
 import type { PhaselisProviderProps, Breakpoints } from "./types";
 import Context from "./lib/context";
 import PhaselisHOC from "./lib/hoc";
-import { useTheme, useColors, useSpacings, useThemeStyles } from "./lib/hooks";
-import { useState } from "react";
-import { lightTheme } from "../../theme";
+import {
+  useTheme,
+  useColors,
+  useSpacings,
+  useThemeStyles,
+  useShadows,
+} from "./lib/hooks";
+import { useEffect, useState } from "react";
 
 const defaultBreakpoints: Breakpoints = {
   xl: 1440,
@@ -12,18 +17,23 @@ const defaultBreakpoints: Breakpoints = {
   xs: 0,
 };
 
-const PhaselisProvider = <T = typeof lightTheme,>({
+const PhaselisProvider = ({
   children,
   breakpoints = defaultBreakpoints,
-  initialTheme = lightTheme as T,
-}: PhaselisProviderProps<T>) => {
-  const [theme, setTheme] = useState<T>(initialTheme);
+  themes,
+  initialThemeName,
+}: PhaselisProviderProps) => {
+  const [theme, setTheme] = useState(themes?.[initialThemeName]);
 
   const contextValue = {
     theme,
     setTheme,
     breakpoints,
   };
+
+  useEffect(() => {
+    setTheme(themes?.[initialThemeName]);
+  }, [themes, initialThemeName]);
 
   return <Context.Provider value={contextValue}>{children}</Context.Provider>;
 };
@@ -35,6 +45,7 @@ export {
   useSpacings,
   useTheme,
   useThemeStyles,
+  useShadows,
 };
 
 export default PhaselisProvider;

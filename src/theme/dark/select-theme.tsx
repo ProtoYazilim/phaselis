@@ -1,10 +1,19 @@
 import { DarkColors } from "../DarkColors";
 import { FontSizes, Heights, Radius, Spacings, IconSizes } from "../spacings";
+import type { PhaselisComponentTheme } from "../types";
 
 export default {
   select: {
     default: {
-      //InputSlot
+      extraStyles: {
+        container: ({ focus, error }: { focus: boolean; error: boolean }) => {
+          if (focus && error) {
+            return {
+              backgroundColor: DarkColors.Danger[50],
+            };
+          }
+        },
+      },
       container: {
         borderColor: DarkColors.Primary[950],
         borderRadius: Radius.MD,
@@ -260,4 +269,4 @@ export default {
       },
     },
   },
-};
+} as PhaselisComponentTheme;

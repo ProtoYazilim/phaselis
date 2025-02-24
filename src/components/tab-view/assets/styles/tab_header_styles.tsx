@@ -25,6 +25,14 @@ const tab_header_styles = createStyleSheet({
       },
     },
   },
+  leftSlot: {
+    width: 24,
+    height: 24,
+  },
+  rightSlot: {
+    width: 24,
+    height: 24,
+  },
 });
 
 export default tab_header_styles;

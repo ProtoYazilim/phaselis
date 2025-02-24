@@ -106,8 +106,6 @@ export default function RootLayout() {
   });
   const colorScheme = useColorScheme();
 
-  const initialTheme = colorScheme ? appDarkTheme : appLightTheme;
-
   useEffect(() => {
     if (fontsLoaded) {
       SplashScreen.hideAsync();
@@ -120,7 +118,10 @@ export default function RootLayout() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <FrameWorkProvider initialTheme={initialTheme}>
+      <FrameWorkProvider
+        initialThemeName="light"
+        themes={{ light: appLightTheme, dark: appDarkTheme }}
+      >
         <TabsNavigator />
       </FrameWorkProvider>
     </GestureHandlerRootView>

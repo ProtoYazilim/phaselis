@@ -1,5 +1,6 @@
 import { DarkColors } from "../DarkColors";
 import { FontSizes } from "../spacings";
+import type { PhaselisComponentTheme } from "../types";
 
 export default {
   link: {
@@ -51,4 +52,4 @@ export default {
       },
     },
   },
-};
+} as PhaselisComponentTheme;

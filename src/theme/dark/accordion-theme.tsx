@@ -1,5 +1,6 @@
 import { DarkColors } from "../DarkColors";
 import { FontSizes, Spacings } from "../spacings";
+import type { PhaselisComponentTheme } from "../types";
 
 export default {
   accordion_header: {
@@ -58,4 +59,4 @@ export default {
       },
     },
   },
-};
+} as PhaselisComponentTheme;

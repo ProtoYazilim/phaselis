@@ -13,8 +13,9 @@ export interface Breakpoints {
   xs: number;
 }
 
-export interface PhaselisProviderProps<T> {
+export interface PhaselisProviderProps {
   children: ReactNode;
   breakpoints?: Breakpoints;
-  initialTheme?: T;
+  initialThemeName: string;
+  themes: Record<string, any>;
 }

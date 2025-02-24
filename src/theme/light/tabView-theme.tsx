@@ -1,5 +1,6 @@
 import { LightColors } from "../LightColors";
 import { Radius, Spacings, FontSizes } from "../spacings";
+import type { PhaselisComponentTheme } from "../types";
 
 export default {
   tab: {
@@ -11,6 +12,12 @@ export default {
             true: {},
             false: {},
           },
+        },
+        leftSlot: {
+          color: LightColors.Primary[950],
+        },
+        rightSlot: {
+          color: LightColors.Primary[950],
         },
       },
       view: {
@@ -24,7 +31,7 @@ export default {
       },
       headerItem: {
         container: {
-          borderBottomColor: LightColors.Shades.white,
+          borderBottomColor: "transparent",
           paddingTop: Spacings.SM,
           paddingBottom: Spacings.SM,
           paddingLeft: Spacings.MD,
@@ -54,4 +61,4 @@ export default {
       },
     },
   },
-};
+} as PhaselisComponentTheme;

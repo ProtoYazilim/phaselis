@@ -1,5 +1,6 @@
 import { DarkColors } from "../DarkColors";
 import { Radius, Spacings, FontSizes } from "../spacings";
+import type { PhaselisComponentTheme } from "../types";
 
 export default {
   tab: {
@@ -11,6 +12,12 @@ export default {
             true: {},
             false: {},
           },
+        },
+        leftSlot: {
+          color: DarkColors.Primary[950],
+        },
+        rightSlot: {
+          color: DarkColors.Primary[950],
         },
       },
       view: {
@@ -54,4 +61,4 @@ export default {
       },
     },
   },
-};
+} as PhaselisComponentTheme;

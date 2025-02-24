@@ -1,5 +1,6 @@
 import { LightColors } from "../LightColors";
 import { Spacings, FontSizes } from "../spacings";
+import type { PhaselisComponentTheme } from "../types";
 
 export default {
   popup: {
@@ -54,4 +55,4 @@ export default {
       },
     },
   },
-};
+} as PhaselisComponentTheme;

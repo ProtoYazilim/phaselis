@@ -1,4 +1,5 @@
 import { LightColors } from "../LightColors";
+import type { PhaselisComponentTheme } from "../types";
 export default {
   label: {
     default: {
@@ -78,4 +79,4 @@ export default {
       },
     },
   },
-};
+} as PhaselisComponentTheme;

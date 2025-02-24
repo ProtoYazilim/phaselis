@@ -33,6 +33,16 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 200
         }
+      ],
+      [
+        "expo-asset",
+        {
+          "assets": [
+            "./assets/images",
+            "./assets/fonts",
+            "./assets/logos"
+          ]
+        }
       ]
     ],
     "experiments": {

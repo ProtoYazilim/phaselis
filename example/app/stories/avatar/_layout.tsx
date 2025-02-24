@@ -24,6 +24,7 @@ export default function Layout() {
           name: "avatar-test",
           drawerLabel: "Avatar Test",
           title: "Avatar Test",
+          development: true,
         },
       ]}
     />

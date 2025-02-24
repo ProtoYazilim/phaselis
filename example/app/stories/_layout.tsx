@@ -233,6 +233,9 @@ export default function Layout() {
           drawerLabel: "Textarea",
           title: "Textarea Story",
           headerShown: false,
+          drawerItemStyle: {
+            display: process.env.NODE_ENV === "development" ? "flex" : "none",
+          },
         }}
       />
       <Drawer.Screen

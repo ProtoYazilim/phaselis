@@ -24,6 +24,7 @@ export default function Layout() {
           name: "checkbox-size",
           drawerLabel: "Checkbox Sizes",
           title: "Checkbox Sizes",
+          development: true,
         },
       ]}
     />

@@ -23,11 +23,13 @@ export default function Layout() {
           name: "badge-with-textfield",
           drawerLabel: "Badge with Textfield",
           title: "Badge with Textfield",
+          development: true,
         },
         {
           name: "badge-with-avatar",
           drawerLabel: "Badge With Avatar",
           title: "Badge With Avatar",
+          development: true,
         },
       ]}
     />

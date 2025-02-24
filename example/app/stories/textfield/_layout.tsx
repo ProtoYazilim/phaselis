@@ -24,6 +24,7 @@ export default function Layout() {
           name: "masked-textfield-story",
           drawerLabel: "Masked Textfield",
           title: "Masked Textfield Story",
+          development: true,
         },
       ]}
     />

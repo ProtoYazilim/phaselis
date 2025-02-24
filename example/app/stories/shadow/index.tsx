@@ -102,14 +102,14 @@ const ShadowExample = () => {
         <Row style={{ gap: 60, paddingRight: 30 }}>
           <Col>
             <EffectBox
-              frontText={"Shadow XS"}
+              frontText={"Shadow MD"}
               backText={""}
               shadow={Shadows.MD}
             />
           </Col>
           <Col>
             <EffectBox
-              frontText={"Shadow SM"}
+              frontText={"Shadow LG"}
               backText={""}
               shadow={Shadows.LG}
             />
@@ -118,14 +118,14 @@ const ShadowExample = () => {
         <Row style={{ gap: 60, paddingRight: 30 }}>
           <Col>
             <EffectBox
-              frontText={"Shadow XS"}
+              frontText={"Shadow XL"}
               backText={""}
               shadow={Shadows.XL}
             />
           </Col>
           <Col>
             <EffectBox
-              frontText={"Shadow SM"}
+              frontText={"Shadow XXL"}
               backText={""}
               shadow={Shadows.XXL}
             />

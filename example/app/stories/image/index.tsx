@@ -1,18 +1,10 @@
-import { Image, useColors, type PhaselisColors } from "phaselis";
-import { SafeAreaView } from "react-native";
+import { Image } from "phaselis";
 import { phaselis_avatar_image } from "../../../assets/logos";
+import StoryView from "../../../src/StoryView";
 
 function ImageStory() {
-  const Colors = useColors<PhaselisColors>();
-
   return (
-    <SafeAreaView
-      style={{
-        backgroundColor: Colors.Shades.white,
-        flex: 1,
-        margin: 24,
-      }}
-    >
+    <StoryView>
       <Image
         source={{ uri: phaselis_avatar_image.uri }}
         width={(phaselis_avatar_image.width ?? 0) * 0.9}
@@ -24,7 +16,7 @@ function ImageStory() {
           },
         }}
       />
-    </SafeAreaView>
+    </StoryView>
   );
 }
 

@@ -65,9 +65,6 @@ export default function Index() {
             variation="primary"
           />
         )}
-        <Text style={[{ color: Colors.Primary[500] }]}>
-          {process.env.NODE_ENV}
-        </Text>
       </View>
     </StoryView>
   );

@@ -5,7 +5,8 @@ import {
   usePopup,
   type PhaselisColors,
 } from "phaselis";
-import { SafeAreaView, StyleSheet, Text } from "react-native";
+import { Text } from "react-native";
+import StoryView from "../../src/StoryView";
 
 function PopupStory() {
   const Colors = useColors<PhaselisColors>();
@@ -40,7 +41,7 @@ function PopupStory() {
   );
 
   return (
-    <SafeAreaView style={styles.container}>
+    <StoryView>
       <Block style={{ marginLeft: 10, marginRight: 10, gap: 10 }}>
         <Button
           text="Show Default Popup"
@@ -103,14 +104,8 @@ function PopupStory() {
           }}
         />
       </Block>
-    </SafeAreaView>
+    </StoryView>
   );
 }
 
 export default PopupStory;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});

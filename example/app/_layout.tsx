@@ -8,13 +8,13 @@ import "../config/unistyle";
 import {
   Provider as FrameWorkProvider,
   LucideIcon,
-  useColorScheme,
   useColors,
   type PhaselisColors,
 } from "phaselis";
 import { Tabs } from "expo-router";
 import { getEnvironmentType } from "../src";
 import { appLightTheme, appDarkTheme } from "../src/extendedTheme";
+import { KeyboardProvider } from "react-native-keyboard-controller";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 
@@ -39,7 +39,7 @@ const TabsNavigator = () => {
           tabBarInactiveTintColor: Colors.Primary[300],
           headerShown: false,
           tabBarStyle: {
-            backgroundColor: Colors.Shades.white,
+            backgroundColor: Colors.Primary[50],
             display: "flex",
           },
           tabBarLabelStyle: {
@@ -104,7 +104,6 @@ export default function RootLayout() {
   const [fontsLoaded] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
   });
-  const colorScheme = useColorScheme();
 
   useEffect(() => {
     if (fontsLoaded) {
@@ -117,13 +116,15 @@ export default function RootLayout() {
   }
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <FrameWorkProvider
-        initialThemeName="light"
-        themes={{ light: appLightTheme, dark: appDarkTheme }}
-      >
-        <TabsNavigator />
-      </FrameWorkProvider>
-    </GestureHandlerRootView>
+    <KeyboardProvider>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <FrameWorkProvider
+          initialThemeName="light"
+          themes={{ light: appLightTheme, dark: appDarkTheme }}
+        >
+          <TabsNavigator />
+        </FrameWorkProvider>
+      </GestureHandlerRootView>
+    </KeyboardProvider>
   );
 }

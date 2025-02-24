@@ -213,6 +213,7 @@ const Textfield: React.FC<TextfieldProps> = ({
         style={getCombinedStyle("element")}
         underlineColorAndroid="rgba(0,0,0,0)"
         autoCorrect={false}
+        spellCheck={false}
         secureTextEntry={type === "password" ? true : false}
         placeholderTextColor={getFlattenStyle("element").color}
         multiline={textarea}

@@ -1,6 +1,6 @@
 import { Image, useColors, type PhaselisColors } from "phaselis";
 import { SafeAreaView } from "react-native";
-import { phaselis_avatar_image } from "../assets";
+import { phaselis_avatar_image } from "../../../assets/logos";
 
 function ImageStory() {
   const Colors = useColors<PhaselisColors>();

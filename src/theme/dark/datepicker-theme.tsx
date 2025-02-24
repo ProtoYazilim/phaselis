@@ -1,9 +1,19 @@
 import { DarkColors } from "../DarkColors";
 import { FontSizes, Heights, Radius, Spacings } from "../spacings";
+import type { PhaselisComponentTheme } from "../types";
 
 export default {
   datepicker: {
     default: {
+      extraStyles: {
+        container: ({ focus, error }: { focus: boolean; error: boolean }) => {
+          if (focus && error) {
+            return {
+              backgroundColor: DarkColors.Danger[50],
+            };
+          }
+        },
+      },
       container: {
         borderColor: DarkColors.Gray[950],
         borderRadius: Radius.MD,
@@ -13,6 +23,7 @@ export default {
         variants: {
           focus: {
             true: {
+              backgroundColor: DarkColors.Primary[50],
               borderColor: DarkColors.Primary[500],
             },
           },
@@ -145,4 +156,4 @@ export default {
       },
     },
   },
-};
+} as PhaselisComponentTheme;

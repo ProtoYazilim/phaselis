@@ -47,6 +47,7 @@ export default function Index() {
           Use the Drawer Navigation to explore different component stories and
           examples.
         </Text>
+
         {lastStoryRouteName && (
           <Button
             text="Go to last story"
@@ -64,6 +65,9 @@ export default function Index() {
             variation="primary"
           />
         )}
+        <Text style={[{ color: Colors.Primary[500] }]}>
+          {process.env.NODE_ENV}
+        </Text>
       </View>
     </StoryView>
   );

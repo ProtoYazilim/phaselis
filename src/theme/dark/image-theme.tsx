@@ -1,3 +1,5 @@
+import type { PhaselisComponentTheme } from "../types";
+
 export default {
   image: {
     default: {
@@ -22,4 +24,4 @@ export default {
       },
     },
   },
-};
+} as PhaselisComponentTheme;

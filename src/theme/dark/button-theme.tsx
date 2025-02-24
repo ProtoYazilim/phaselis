@@ -1,5 +1,6 @@
 import { DarkColors } from "../DarkColors";
 import { FontSizes, Heights, Radius, Spacings, IconSizes } from "../spacings";
+import type { PhaselisComponentTheme } from "../types";
 
 export default {
   button: {
@@ -620,4 +621,4 @@ export default {
       },
     },
   },
-};
+} as PhaselisComponentTheme;

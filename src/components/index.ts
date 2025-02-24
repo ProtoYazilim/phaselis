@@ -43,4 +43,5 @@ export {
   useSpacings,
   useTheme,
   useThemeStyles,
+  useShadows,
 } from "./provider";

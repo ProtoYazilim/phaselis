@@ -22,6 +22,7 @@ export default function Layout() {
         {
           name: "label-story",
           title: "Label Story",
+          development: true,
         },
       ]}
     />

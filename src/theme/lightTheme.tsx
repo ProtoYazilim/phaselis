@@ -23,6 +23,7 @@ import colTheme from "./light/col-theme";
 import rowTheme from "./light/row-theme";
 import listTheme from "./light/list-theme";
 import inputGroupTheme from "./light/inputGroup-theme";
+import { Shadows } from "./effects";
 
 export const lightTheme = {
   config: {
@@ -31,6 +32,7 @@ export const lightTheme = {
   root: {
     colors: LightColors,
     spacings: Spacings,
+    shadows: Shadows,
   },
   ...buttonTheme,
   ...labelTheme,

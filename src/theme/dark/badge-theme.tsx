@@ -1,5 +1,6 @@
 import { DarkColors } from "../DarkColors";
 import { Radius, Spacings } from "../spacings";
+import type { PhaselisComponentTheme } from "../types";
 
 export default {
   badge: {
@@ -201,4 +202,4 @@ export default {
       },
     },
   },
-};
+} as PhaselisComponentTheme;

@@ -1,4 +1,5 @@
 import { DarkColors } from "../DarkColors";
+import type { PhaselisComponentTheme } from "../types";
 
 export default {
   slider: {
@@ -40,4 +41,4 @@ export default {
       },
     },
   },
-};
+} as PhaselisComponentTheme;

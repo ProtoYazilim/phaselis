@@ -1,5 +1,5 @@
 import type { PhaselisColors, SlotIconName } from "phaselis";
-import { type FC } from "react";
+import { useMemo, type FC } from "react";
 import { Drawer } from "expo-router/drawer";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { LucideIcon, useColors, useTheme } from "phaselis";
@@ -10,6 +10,7 @@ type DrawerScreen = {
   name: string;
   drawerLabel?: string;
   title: string;
+  development?: boolean;
 };
 
 const CustomDrawer: FC<{
@@ -38,6 +39,16 @@ const CustomDrawer: FC<{
 
   const headerTintColorHandler = headerTintColor || Colors.Primary[600];
   const darkModeIcon = themeName === "dark" ? "Sun" : "Moon";
+
+  const draverAvailableScreens = useMemo(() => {
+    return drawerScreens.filter((item) => {
+      if (process.env.NODE_ENV === "development") {
+        return true;
+      } else if (process.env.NODE_ENV === "production") {
+        return !item.development;
+      }
+    });
+  }, [drawerScreens]);
 
   return (
     <Drawer
@@ -85,7 +96,7 @@ const CustomDrawer: FC<{
                 height={24}
               />
             </Pressable>
-            {drawerScreens.length > 1 && showRightIcon ? (
+            {draverAvailableScreens?.length > 1 && showRightIcon ? (
               <Pressable
                 onPress={() => rootNav.dispatch(DrawerActions.toggleDrawer())}
                 style={{
@@ -127,8 +138,14 @@ const CustomDrawer: FC<{
           key={`screen.name-${index}`}
           name={screen.name}
           options={{
+            swipeEnabled: draverAvailableScreens.length > 1,
             drawerLabel: screen.title || screen.drawerLabel,
             title: screen.title,
+            drawerItemStyle: {
+              display: draverAvailableScreens.includes(screen)
+                ? "flex"
+                : "none",
+            },
           }}
         />
       ))}

@@ -2,14 +2,12 @@ import { createStyleSheet } from "react-native-unistyles";
 
 const tab_header_item_styles = createStyleSheet({
   container: {
-    // STYLES
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
     borderBottomWidth: 2,
     flexDirection: "row",
     gap: 8,
-    // VARIANTS
     variants: {
       scrollable: {
         true: {

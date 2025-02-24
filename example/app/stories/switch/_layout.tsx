@@ -23,6 +23,7 @@ export default function Layout() {
         {
           name: "form-usage",
           title: "Form Usage",
+          development: true,
         },
       ]}
     />

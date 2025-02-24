@@ -8,7 +8,6 @@ import "../config/unistyle";
 import {
   Provider as FrameWorkProvider,
   LucideIcon,
-  useColorScheme,
   useColors,
   type PhaselisColors,
 } from "phaselis";
@@ -20,6 +19,11 @@ import { KeyboardProvider } from "react-native-keyboard-controller";
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 
 SplashScreen.preventAutoHideAsync();
+
+SplashScreen.setOptions({
+  duration: 1000,
+  fade: true,
+});
 
 export const unstable_settings = {
   initialRouteName: "/stories",
@@ -105,9 +109,6 @@ export default function RootLayout() {
   const [fontsLoaded] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
   });
-  const colorScheme = useColorScheme();
-
-  const initialTheme = colorScheme ? appDarkTheme : appLightTheme;
 
   useEffect(() => {
     if (fontsLoaded) {
@@ -122,7 +123,10 @@ export default function RootLayout() {
   return (
     <KeyboardProvider>
       <GestureHandlerRootView style={{ flex: 1 }}>
-        <FrameWorkProvider initialTheme={initialTheme}>
+        <FrameWorkProvider
+          initialThemeName="light"
+          themes={{ light: appLightTheme, dark: appDarkTheme }}
+        >
           <TabsNavigator />
         </FrameWorkProvider>
       </GestureHandlerRootView>

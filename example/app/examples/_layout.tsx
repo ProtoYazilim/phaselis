@@ -47,13 +47,7 @@ export default function Layout() {
           drawerItemStyle: { display: "none" },
         }}
       />
-      <Drawer.Screen
-        name="calculator"
-        options={{
-          drawerLabel: "Calculator",
-          title: "Calculator",
-        }}
-      />
+
       <Drawer.Screen
         name="form-usage"
         options={{
@@ -62,35 +56,13 @@ export default function Layout() {
         }}
       />
       <Drawer.Screen
-        name="full-custom-styling"
+        name="calculator"
         options={{
-          drawerLabel: "Full Custom Styling",
-          title: "Full Custom Styling",
-          // drawerItemStyle: { display: "none" },
-        }}
-      />
-      <Drawer.Screen
-        name="generated-style-prop"
-        options={{
-          drawerLabel: "Generated Style Prop",
-          title: "Generated Style Prop",
-          // drawerItemStyle: { display: "none" },
-        }}
-      />
-      <Drawer.Screen
-        name="preset-demo"
-        options={{
-          drawerLabel: "Preset Demo",
-          title: "Preset Demo",
-          // drawerItemStyle: { display: "none" },
-        }}
-      />
-      <Drawer.Screen
-        name="psudo-style-change"
-        options={{
-          drawerLabel: "Psudo Style Change",
-          title: "Psudo Style Change",
-          // drawerItemStyle: { display: "none" },
+          drawerLabel: "Calculator",
+          title: "Calculator",
+          drawerItemStyle: {
+            display: process.env.NODE_ENV === "development" ? "flex" : "none",
+          },
         }}
       />
     </Drawer>

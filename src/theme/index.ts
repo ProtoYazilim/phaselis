@@ -5,3 +5,4 @@ export * from "./lightTheme";
 export * from "./darkTheme";
 export * from "./spacings";
 export * from "./types";
+export * from "./effects";

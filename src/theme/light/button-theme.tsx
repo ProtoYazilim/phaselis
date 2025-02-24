@@ -1,5 +1,6 @@
 import { LightColors } from "../LightColors";
 import { FontSizes, Heights, Radius, Spacings, IconSizes } from "../spacings";
+import type { PhaselisComponentTheme } from "../types";
 
 export default {
   button: {
@@ -71,6 +72,7 @@ export default {
         },
       },
       leftSlot: {
+        color: LightColors.Shades.white,
         variants: {
           size: {
             xs: {
@@ -620,4 +622,4 @@ export default {
       },
     },
   },
-};
+} as PhaselisComponentTheme;

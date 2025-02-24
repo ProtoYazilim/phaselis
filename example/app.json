@@ -37,6 +37,24 @@
           },
           "imageWidth": 300
         }
+      ],
+      [
+        "expo-asset",
+        {
+          "assets": [
+            "./assets/images",
+            "./assets/fonts",
+            "./assets/logos"
+          ]
+        }
+      ],
+      [
+        "@sentry/react-native/expo",
+        {
+          "organization": "sentry org slug, or use the `SENTRY_ORG` environment variable",
+          "project": "sentry project name, or use the `SENTRY_PROJECT` environment variable",
+          "url": "https://sentry.io/"
+        }
       ]
     ],
     "experiments": {

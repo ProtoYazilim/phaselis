@@ -1,5 +1,6 @@
 import { DarkColors } from "../DarkColors";
 import { FontSizes, Heights, Radius, Spacings } from "../spacings";
+import type { PhaselisComponentTheme } from "../types";
 
 export default {
   checkbox: {
@@ -230,4 +231,4 @@ export default {
       },
     },
   },
-};
+} as PhaselisComponentTheme;

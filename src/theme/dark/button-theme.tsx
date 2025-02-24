@@ -72,6 +72,7 @@ export default {
         },
       },
       leftSlot: {
+        color: DarkColors.Shades.white,
         variants: {
           size: {
             xs: {

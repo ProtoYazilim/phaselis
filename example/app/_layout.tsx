@@ -16,6 +16,7 @@ import { getEnvironmentType } from "../src";
 import { appLightTheme, appDarkTheme } from "../src/extendedTheme";
 import { KeyboardProvider } from "react-native-keyboard-controller";
 import * as Sentry from "@sentry/react-native";
+import { Appearance } from "react-native";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 
@@ -137,7 +138,7 @@ export default function RootLayout() {
     <KeyboardProvider>
       <GestureHandlerRootView style={{ flex: 1 }}>
         <FrameWorkProvider
-          initialThemeName="light"
+          initialThemeName={Appearance.getColorScheme() || "light"}
           themes={{ light: appLightTheme, dark: appDarkTheme }}
         >
           <TabsNavigator />

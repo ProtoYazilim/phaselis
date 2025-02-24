@@ -53,8 +53,12 @@ export default {
           fontSize: FontSizes.MD,
           color: LightColors.Gray[950],
         },
-        leftSlot: {},
-        rightSlot: {},
+        leftSlot: {
+          color: LightColors.Shades.black,
+        },
+        rightSlot: {
+          color: LightColors.Shades.black,
+        },
       },
       tabItem: {
         container: {},

@@ -1,9 +1,9 @@
-import type { ReactNode, Dispatch, SetStateAction } from "react";
+import type { ReactNode } from "react";
 
 export type ThemeContextType<T = any> = {
   theme: T;
   breakpoints: Breakpoints;
-  setTheme: Dispatch<SetStateAction<T>>;
+  setTheme: (theme: T) => void;
 };
 
 export interface Breakpoints {

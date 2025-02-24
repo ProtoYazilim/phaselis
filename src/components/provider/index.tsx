@@ -19,17 +19,13 @@ const PhaselisProvider = <T = typeof lightTheme,>({
 }: PhaselisProviderProps<T>) => {
   const [theme, setTheme] = useState<T>(initialTheme);
 
-  return (
-    <Context.Provider
-      value={{
-        theme,
-        setTheme,
-        breakpoints,
-      }}
-    >
-      {children}
-    </Context.Provider>
-  );
+  const contextValue = {
+    theme,
+    setTheme,
+    breakpoints,
+  };
+
+  return <Context.Provider value={contextValue}>{children}</Context.Provider>;
 };
 
 export {
@@ -40,4 +36,5 @@ export {
   useTheme,
   useThemeStyles,
 };
+
 export default PhaselisProvider;

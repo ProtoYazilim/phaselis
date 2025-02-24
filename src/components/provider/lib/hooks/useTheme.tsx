@@ -9,10 +9,10 @@ type ThemeType = "light" | "dark";
 const themeList = {
   light: lightTheme,
   dark: darkTheme,
-};
+} as const;
 
 export function useTheme<T = typeof lightTheme>() {
-  const context = useContext<ThemeContextType<T>>(Context);
+  const context = useContext(Context) as ThemeContextType<T>;
 
   if (!context) {
     throw new Error("useTheme must be used within a Context Provider");

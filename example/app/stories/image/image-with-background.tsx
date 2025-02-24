@@ -1,6 +1,6 @@
 import { Image } from "phaselis";
 import { Text, View } from "react-native";
-import { phaselis_wood_image } from "../assets";
+import { phaselis_wood_image } from "../../../assets/logos";
 import { BlurView } from "@react-native-community/blur";
 
 function ImageBackgroundStory() {

@@ -1,7 +1,7 @@
 import StorySection from "../../../src/StorySection";
 import StoryView from "../../../src/StoryView";
 import { Avatar } from "phaselis";
-import { avatar_image } from "../assets";
+import { avatar_image } from "../../../assets/logos";
 
 const AvatarStory = () => {
   return (

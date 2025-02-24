@@ -3,7 +3,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect, useNavigation } from "expo-router";
 import React from "react";
 import { View, StyleSheet, Text } from "react-native";
-import { phaselis_logo_image } from "./assets";
+import { phaselis_logo_image } from "../../assets/logos";
 import StoryView from "../../src/StoryView";
 
 export default function Index() {

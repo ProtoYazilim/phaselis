@@ -11,7 +11,7 @@ function PopupStory() {
   const Colors = useColors<PhaselisColors>();
   const [_showDefault, setShowDefault] = usePopup(
     "default",
-    <Text>Default usePopup</Text>,
+    <Text style={{ color: Colors.Primary[950] }}>Default usePopup</Text>,
     {
       title: "Default Popup",
       style: { backgroundColor: "red" },
@@ -19,7 +19,7 @@ function PopupStory() {
   );
   const [_showInfo, setShowInfo] = usePopup(
     "info",
-    <Text>
+    <Text style={{ color: Colors.Primary[950] }}>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolore,
       laudantium eligendi saepe natus deleniti, ipsam dolorum nihil ducimus
       explicabo enim sunt vitae repellat quaerat culpa id tempore laborum iure.
@@ -28,15 +28,15 @@ function PopupStory() {
   );
   const [_showWarning, setShowWarning] = usePopup(
     "warning",
-    <Text>warning usePopup</Text>,
+    <Text style={{ color: Colors.Primary[950] }}>warning usePopup</Text>,
   );
   const [_showError, setShowError] = usePopup(
     "error",
-    <Text>error usePopup</Text>,
+    <Text style={{ color: Colors.Primary[950] }}>error usePopup</Text>,
   );
   const [_showSuccess, setShowSuccess] = usePopup(
     "success",
-    <Text>success usePopup</Text>,
+    <Text style={{ color: Colors.Primary[950] }}>success usePopup</Text>,
   );
 
   return (

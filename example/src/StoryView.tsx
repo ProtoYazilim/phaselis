@@ -1,13 +1,15 @@
 import type { FC, ReactNode } from "react";
 import { Spacings } from "phaselis";
-import { ScrollView } from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-controller";
 
 const StoryView: FC<{
   children: ReactNode;
   style?: any;
 }> = ({ children, style }) => {
   return (
-    <ScrollView
+    <KeyboardAwareScrollView
+      extraKeyboardSpace={10}
+      bottomOffset={20}
       contentContainerStyle={{
         gap: Spacings.XL,
         paddingVertical: 24,
@@ -16,7 +18,7 @@ const StoryView: FC<{
       }}
     >
       {children}
-    </ScrollView>
+    </KeyboardAwareScrollView>
   );
 };
 

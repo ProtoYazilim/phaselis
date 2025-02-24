@@ -136,7 +136,7 @@ const MaskedTextfieldStory = () => {
           </InputGroup>
         </Row>
         <SectionDivider leftText="" rightText="" />
-        <Block>
+        <Block style={{ gap: 8 }}>
           <Block style={{ flexDirection: "row" }}>
             <Checkbox
               name="terms"

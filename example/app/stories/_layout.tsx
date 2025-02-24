@@ -21,9 +21,9 @@ export default function Layout() {
         drawerStyle: {
           backgroundColor: Colors.Shades.white,
         },
-        drawerActiveBackgroundColor: Colors.Primary[200],
-        drawerActiveTintColor: Colors.Primary[800],
-        drawerInactiveTintColor: Colors.Primary[400],
+        drawerActiveBackgroundColor: Colors.Primary[400],
+        drawerActiveTintColor: Colors.Primary[50],
+        drawerInactiveTintColor: Colors.Primary[500],
         headerRight: () => (
           <Pressable
             onPress={toggleTheme}

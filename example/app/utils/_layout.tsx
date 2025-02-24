@@ -44,6 +44,7 @@ export default function Layout() {
             </Pressable>
           ),
         }}
+        initialRouteName="popup-hook"
       >
         <Drawer.Screen
           name="index"
@@ -58,9 +59,6 @@ export default function Layout() {
           options={{
             drawerLabel: "usePopup Hook",
             title: "usePopup Hook",
-            drawerItemStyle: {
-              display: process.env.NODE_ENV === "development" ? "flex" : "none",
-            },
           }}
         />
       </Drawer>

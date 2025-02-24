@@ -1,8 +1,17 @@
 import StoryView from "../../../src/StoryView";
-import { Block, Col, Colors, Label, Row } from "phaselis";
+import {
+  Block,
+  Col,
+  Label,
+  Row,
+  type PhaselisColors,
+  useColors,
+} from "phaselis";
 import { Text, View } from "react-native";
 
 function LabelStory() {
+  const Colors = useColors<PhaselisColors>();
+
   return (
     <StoryView style={{ gap: 32 }}>
       <Block style={{ flexDirection: "row" }}>
@@ -59,7 +68,13 @@ function LabelStory() {
           }}
         />
         <Text />
-        <Text style={{ fontSize: 16, fontWeight: "300" }}>
+        <Text
+          style={{
+            fontSize: 16,
+            fontWeight: "300",
+            color: Colors.Primary[950],
+          }}
+        >
           Consectetur adipiscing elit. Nunc quis interdum est. Suspendisse
           dapibus quam vitae justo vulputate, non facilisis felis egestas. Nulla
           purus diam, rutrum sed elit nec, pulvinar convallis risus.
@@ -74,7 +89,13 @@ function LabelStory() {
           }}
         />
         <Text />
-        <Text style={{ fontSize: 16, fontWeight: "300" }}>
+        <Text
+          style={{
+            fontSize: 16,
+            fontWeight: "300",
+            color: Colors.Primary[950],
+          }}
+        >
           Donec lobortis nunc vel suscipit porta. Fusce viverra sapien est, vel
           pretium quam lobortis vel. Aliquam euismod, dolor quis vestibulum
           aliquet, lorem sapien tempor sem, mollis ultrices justo orci id dui.
@@ -98,7 +119,13 @@ function LabelStory() {
           }}
         />
         <Text />
-        <Text style={{ fontSize: 16, fontWeight: "300" }}>
+        <Text
+          style={{
+            fontSize: 16,
+            fontWeight: "300",
+            color: Colors.Primary[950],
+          }}
+        >
           Aliquam tempus malesuada justo, ut aliquam tortor elementum non. Morbi
           dignissim, orci nec pulvinar molestie, urna quam eleifend orci,
           accumsan hendrerit eros nibh vel nibh. Maecenas fermentum libero nec
@@ -114,7 +141,13 @@ function LabelStory() {
           }}
         />
         <Text />
-        <Text style={{ fontSize: 16, fontWeight: "300" }}>
+        <Text
+          style={{
+            fontSize: 16,
+            fontWeight: "300",
+            color: Colors.Primary[950],
+          }}
+        >
           Donec non elit facilisis, sodales justo a, blandit arcu. Mauris
           laoreet risus a purus fringilla, ut tincidunt diam ullamcorper. In
           ipsum ligula, placerat et volutpat vitae, tincidunt in lectus. Sed
@@ -140,7 +173,13 @@ function LabelStory() {
           }}
         />
         <Text />
-        <Text style={{ fontSize: 16, fontWeight: "300" }}>
+        <Text
+          style={{
+            fontSize: 16,
+            fontWeight: "300",
+            color: Colors.Primary[950],
+          }}
+        >
           Etiam mattis ut sem id cursus. Morbi faucibus dapibus condimentum.
           Etiam vitae suscipit arcu. Cras facilisis, ligula eu scelerisque
           hendrerit, erat augue interdum lectus, non maximus purus ante blandit
@@ -153,7 +192,13 @@ function LabelStory() {
           variation="quot"
         />
         <Text />
-        <Text style={{ fontSize: 16, fontWeight: "300" }}>
+        <Text
+          style={{
+            fontSize: 16,
+            fontWeight: "300",
+            color: Colors.Primary[950],
+          }}
+        >
           Vestibulum sodales risus fringilla purus sodales malesuada. In dictum
           dignissim erat, euismod ultricies nunc posuere at. Fusce id metus vel
           sapien condimentum varius ac vitae lacus. Nullam vestibulum cursus
@@ -166,7 +211,13 @@ function LabelStory() {
           variation="small"
         />
         <Text />
-        <Text style={{ fontSize: 16, fontWeight: "300" }}>
+        <Text
+          style={{
+            fontSize: 16,
+            fontWeight: "300",
+            color: Colors.Primary[950],
+          }}
+        >
           Suspendisse aliquam venenatis lacus feugiat condimentum. In in
           tristique risus, quis pretium nunc. Cras viverra augue ac urna luctus
           feugiat. Pellentesque dapibus scelerisque elit, et semper erat. Nunc

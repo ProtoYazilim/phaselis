@@ -1,4 +1,4 @@
-import { Colors } from "../colors";
+import { LightColors } from "../LightColors";
 import { FontSizes } from "../spacings";
 
 export default {
@@ -8,46 +8,46 @@ export default {
       text: {
         fontSize: FontSizes.MD,
         lineHeight: 22,
-        color: Colors.Primary[950],
+        color: LightColors.Primary[950],
       },
       leftSlot: {
-        color: Colors.Primary[950],
+        color: LightColors.Primary[950],
       },
       rightSlot: {
-        color: Colors.Primary[950],
+        color: LightColors.Primary[950],
       },
     },
     primary: {
       text: {
-        color: Colors.Primary[600],
+        color: LightColors.Primary[600],
       },
       leftSlot: {
-        color: Colors.Primary[600],
+        color: LightColors.Primary[600],
       },
       rightSlot: {
-        color: Colors.Primary[600],
+        color: LightColors.Primary[600],
       },
     },
     secondary: {
       text: {
-        color: Colors.Secondary[600],
+        color: LightColors.Secondary[600],
       },
       leftSlot: {
-        color: Colors.Secondary[600],
+        color: LightColors.Secondary[600],
       },
       rightSlot: {
-        color: Colors.Secondary[600],
+        color: LightColors.Secondary[600],
       },
     },
     tertiary: {
       text: {
-        color: Colors.Tertiary[600],
+        color: LightColors.Tertiary[600],
       },
       leftSlot: {
-        color: Colors.Tertiary[600],
+        color: LightColors.Tertiary[600],
       },
       rightSlot: {
-        color: Colors.Tertiary[600],
+        color: LightColors.Tertiary[600],
       },
     },
   },

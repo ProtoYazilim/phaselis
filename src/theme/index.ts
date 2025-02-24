@@ -1,5 +1,6 @@
 export * from "./breakpoints";
-export * from "./colors";
+export * from "./LightColors";
+export * from "./DarkColors";
 export * from "./lightTheme";
 export * from "./darkTheme";
 export * from "./spacings";

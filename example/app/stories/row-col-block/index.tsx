@@ -1,9 +1,11 @@
 import { type FC } from "react";
-import type { GridSize } from "phaselis";
+import type { GridSize, PhaselisColors } from "phaselis";
 import { Dimensions, Text, View } from "react-native";
-import { Row, Block, Col, Colors } from "phaselis";
+import { Row, Block, Col, useColors } from "phaselis";
 
 const RowColBlockStory = () => {
+  const Colors = useColors<PhaselisColors>();
+
   const SpecialBlock: FC<{
     text: string;
     backgroundColor: string;

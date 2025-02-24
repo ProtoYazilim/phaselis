@@ -1,4 +1,4 @@
-const Colors = {
+const LightColors = {
   Primary: {
     "50": "#F2F8FD",
     "100": "#E4EFFA",
@@ -110,4 +110,4 @@ const Colors = {
   Transparent: "transparent",
 };
 
-export { Colors };
+export { LightColors };

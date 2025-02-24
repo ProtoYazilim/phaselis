@@ -1,5 +1,5 @@
 import StoryView from "../../../src/StoryView";
-import { Block, Button, Popup } from "phaselis";
+import { Block, Button, Popup, useColors, type PhaselisColors } from "phaselis";
 import { useState } from "react";
 import { Text } from "react-native";
 
@@ -11,6 +11,8 @@ function PopupStory() {
   const [show4, setShow4] = useState(false);
   const [show5, setShow5] = useState(false);
 
+  const Colors = useColors<PhaselisColors>();
+
   return (
     <StoryView>
       <Block style={{ gap: 16 }}>
@@ -19,17 +21,32 @@ function PopupStory() {
           onClick={() => {
             setShow(true);
           }}
+          style={{
+            container: {
+              backgroundColor: Colors.Primary[600],
+              borderColor: Colors.Primary[600],
+            },
+          }}
         />
         <Button
           text="Default Popup with Blur"
           onClick={() => {
             setShow5(true);
           }}
+          style={{
+            container: {
+              backgroundColor: Colors.Primary[600],
+              borderColor: Colors.Primary[600],
+            },
+          }}
         />
         <Button
           text="Info Popup"
           style={{
-            container: { backgroundColor: "#048DB6", borderColor: "#048DB6" },
+            container: {
+              backgroundColor: Colors.Info[600],
+              borderColor: Colors.Info[600],
+            },
           }}
           onClick={() => {
             setShow1(true);
@@ -38,7 +55,10 @@ function PopupStory() {
         <Button
           text="Warning Popup"
           style={{
-            container: { backgroundColor: "#E29400", borderColor: "#E29400" },
+            container: {
+              backgroundColor: Colors.Warning[600],
+              borderColor: Colors.Warning[600],
+            },
           }}
           onClick={() => {
             setShow2(true);
@@ -47,7 +67,10 @@ function PopupStory() {
         <Button
           text="Error Popup"
           style={{
-            container: { backgroundColor: "#DC3545", borderColor: "#DC3545" },
+            container: {
+              backgroundColor: Colors.Danger[600],
+              borderColor: Colors.Danger[600],
+            },
           }}
           onClick={() => {
             setShow3(true);
@@ -56,7 +79,10 @@ function PopupStory() {
         <Button
           text="Success Popup"
           style={{
-            container: { backgroundColor: "#009F77", borderColor: "#009F77" },
+            container: {
+              backgroundColor: Colors.Success[600],
+              borderColor: Colors.Success[600],
+            },
           }}
           onClick={() => {
             setShow4(true);
@@ -69,7 +95,7 @@ function PopupStory() {
           setShow(false);
         }}
       >
-        <Text>
+        <Text style={{ color: Colors.Primary[950] }}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
           dolores quos iure tenetur eius accusantium blanditiis, officia labore
           molestias corporis enim consequatur cum deserunt quae error cumque,
@@ -85,7 +111,7 @@ function PopupStory() {
         variation="info"
         leftIcon="Info"
       >
-        <Text>
+        <Text style={{ color: Colors.Primary[950] }}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
           dolores quos iure tenetur eius accusantium blanditiis, officia labore
           molestias corporis enim consequatur cum deserunt quae error cumque,
@@ -101,7 +127,7 @@ function PopupStory() {
         variation="warning"
         leftIcon="MessageSquareWarning"
       >
-        <Text>
+        <Text style={{ color: Colors.Warning[950] }}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
           dolores quos iure tenetur eius accusantium blanditiis, officia labore
           molestias corporis enim consequatur cum deserunt quae error cumque,
@@ -117,7 +143,7 @@ function PopupStory() {
         variation="error"
         leftIcon="Bomb"
       >
-        <Text>
+        <Text style={{ color: Colors.Danger[950] }}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
           dolores quos iure tenetur eius accusantium blanditiis, officia labore
           molestias corporis enim consequatur cum deserunt quae error cumque,
@@ -133,7 +159,7 @@ function PopupStory() {
         variation="success"
         leftIcon="CheckCheck"
       >
-        <Text>
+        <Text style={{ color: Colors.Success[950] }}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
           dolores quos iure tenetur eius accusantium blanditiis, officia labore
           molestias corporis enim consequatur cum deserunt quae error cumque,
@@ -147,7 +173,7 @@ function PopupStory() {
         }}
         backgroundBlur
       >
-        <Text>
+        <Text style={{ color: Colors.Primary[950] }}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
           dolores quos iure tenetur eius accusantium blanditiis, officia labore
           molestias corporis enim consequatur cum deserunt quae error cumque,

@@ -1,4 +1,4 @@
-import { Colors } from "../colors";
+import { LightColors } from "../LightColors";
 import { Spacings } from "../spacings";
 
 export default {
@@ -8,13 +8,13 @@ export default {
         gap: Spacings.SM,
       },
       track: {
-        onColor: Colors.Primary[500],
-        offColor: Colors.Gray[300],
+        onColor: LightColors.Primary[500],
+        offColor: LightColors.Gray[300],
         variants: {
           disabled: {
             true: {
-              onColor: Colors.Primary[100],
-              offColor: Colors.Gray[100],
+              onColor: LightColors.Primary[100],
+              offColor: LightColors.Gray[100],
             },
           },
         },
@@ -22,33 +22,33 @@ export default {
       thumb: {
         width: Spacings.LG,
         height: Spacings.LG,
-        onColor: Colors.Gray[50],
-        offColor: Colors.Gray[50],
+        onColor: LightColors.Gray[50],
+        offColor: LightColors.Gray[50],
         variants: {
           disabled: {
             true: {
-              onColor: Colors.Primary[50],
-              offColor: Colors.Gray[50],
+              onColor: LightColors.Primary[50],
+              offColor: LightColors.Gray[50],
             },
           },
         },
       },
       leftIcon: {
-        color: Colors.Gray[100],
+        color: LightColors.Gray[100],
         variants: {
           disabled: {
             true: {
-              color: Colors.Gray[50],
+              color: LightColors.Gray[50],
             },
           },
         },
       },
       rightIcon: {
-        color: Colors.Gray[100],
+        color: LightColors.Gray[100],
         variants: {
           disabled: {
             true: {
-              color: Colors.Gray[50],
+              color: LightColors.Gray[50],
             },
           },
         },
@@ -56,74 +56,74 @@ export default {
     },
     primary: {
       track: {
-        onColor: Colors.Primary[600],
-        offColor: Colors.Primary[300],
+        onColor: LightColors.Primary[600],
+        offColor: LightColors.Primary[300],
         variants: {
           disabled: {
             true: {
-              onColor: Colors.Primary[200],
-              offColor: Colors.Primary[100],
+              onColor: LightColors.Primary[200],
+              offColor: LightColors.Primary[100],
             },
           },
         },
       },
       thumb: {
-        onColor: Colors.Primary[50],
-        offColor: Colors.Primary[50],
+        onColor: LightColors.Primary[50],
+        offColor: LightColors.Primary[50],
       },
       rightIcon: {
-        color: Colors.Primary[50],
+        color: LightColors.Primary[50],
       },
       leftIcon: {
-        color: Colors.Primary[50],
+        color: LightColors.Primary[50],
       },
     },
     secondary: {
       track: {
-        onColor: Colors.Secondary[600],
-        offColor: Colors.Secondary[300],
+        onColor: LightColors.Secondary[600],
+        offColor: LightColors.Secondary[300],
         variants: {
           disabled: {
             true: {
-              onColor: Colors.Secondary[200],
-              offColor: Colors.Secondary[100],
+              onColor: LightColors.Secondary[200],
+              offColor: LightColors.Secondary[100],
             },
           },
         },
       },
       thumb: {
-        onColor: Colors.Secondary[50],
-        offColor: Colors.Secondary[50],
+        onColor: LightColors.Secondary[50],
+        offColor: LightColors.Secondary[50],
       },
       rightIcon: {
-        color: Colors.Secondary[50],
+        color: LightColors.Secondary[50],
       },
       leftIcon: {
-        color: Colors.Secondary[50],
+        color: LightColors.Secondary[50],
       },
     },
     tertiary: {
       track: {
-        onColor: Colors.Tertiary[600],
-        offColor: Colors.Tertiary[300],
+        onColor: LightColors.Tertiary[600],
+        offColor: LightColors.Tertiary[300],
         variants: {
           disabled: {
             true: {
-              onColor: Colors.Tertiary[200],
-              offColor: Colors.Tertiary[100],
+              onColor: LightColors.Tertiary[200],
+              offColor: LightColors.Tertiary[100],
             },
           },
         },
       },
       thumb: {
-        onColor: Colors.Tertiary[50],
-        offColor: Colors.Tertiary[50],
+        onColor: LightColors.Tertiary[50],
+        offColor: LightColors.Tertiary[50],
       },
       rightIcon: {
-        color: Colors.Tertiary[50],
+        color: LightColors.Tertiary[50],
       },
       leftIcon: {
-        color: Colors.Tertiary[50],
+        color: LightColors.Tertiary[50],
       },
     },
   },

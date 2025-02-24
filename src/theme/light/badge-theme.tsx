@@ -1,4 +1,4 @@
-import { Colors } from "../colors";
+import { LightColors } from "../LightColors";
 import { Radius, Spacings } from "../spacings";
 
 export default {
@@ -9,8 +9,8 @@ export default {
         borderRadius: Radius.XL,
         paddingLeft: Spacings.SM,
         paddingRight: Spacings.SM,
-        backgroundColor: Colors.Primary[900],
-        borderColor: Colors.Primary[950],
+        backgroundColor: LightColors.Primary[900],
+        borderColor: LightColors.Primary[950],
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
@@ -134,70 +134,70 @@ export default {
     default_outline: {
       element: {
         backgroundColor: "transparent",
-        borderColor: Colors.Primary[950],
+        borderColor: LightColors.Primary[950],
       },
       text: {
-        color: Colors.Primary[950],
+        color: LightColors.Primary[950],
       },
     },
     primary: {
       element: {
-        backgroundColor: Colors.Primary[500],
-        borderColor: Colors.Primary[600],
+        backgroundColor: LightColors.Primary[500],
+        borderColor: LightColors.Primary[600],
       },
       color: {
-        color: Colors.Primary[50],
+        color: LightColors.Primary[50],
       },
       leftIcon: {
-        color: Colors.Primary[50],
+        color: LightColors.Primary[50],
       },
       rightIcon: {
-        color: Colors.Primary[50],
+        color: LightColors.Primary[50],
       },
     },
     primary_outline: {
       element: {
         backgroundColor: "transparent",
-        borderColor: Colors.Primary[600],
+        borderColor: LightColors.Primary[600],
       },
       text: {
-        color: Colors.Primary[600],
+        color: LightColors.Primary[600],
       },
     },
     secondary: {
       element: {
-        backgroundColor: Colors.Secondary[500],
-        borderColor: Colors.Secondary[600],
+        backgroundColor: LightColors.Secondary[500],
+        borderColor: LightColors.Secondary[600],
       },
       color: {
-        color: Colors.Secondary[50],
+        color: LightColors.Secondary[50],
       },
     },
     secondary_outline: {
       element: {
         backgroundColor: "transparent",
-        borderColor: Colors.Secondary[600],
+        borderColor: LightColors.Secondary[600],
       },
       text: {
-        color: Colors.Secondary[600],
+        color: LightColors.Secondary[600],
       },
     },
     tertiary: {
       element: {
-        backgroundColor: Colors.Tertiary[500],
-        borderColor: Colors.Tertiary[600],
+        backgroundColor: LightColors.Tertiary[500],
+        borderColor: LightColors.Tertiary[600],
       },
       color: {
-        color: Colors.Tertiary[50],
+        color: LightColors.Tertiary[50],
       },
     },
     tertiary_outline: {
       element: {
         backgroundColor: "transparent",
-        borderColor: Colors.Tertiary[600],
+        borderColor: LightColors.Tertiary[600],
       },
       text: {
-        color: Colors.Tertiary[600],
+        color: LightColors.Tertiary[600],
       },
     },
   },

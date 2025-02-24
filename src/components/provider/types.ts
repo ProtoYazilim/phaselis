@@ -1,33 +1,20 @@
 import type { ReactNode } from "react";
-export interface PhaselisProviderProps<T> {
-  children: ReactNode; // children prop'u, ReactNode tipindedir
-  breakpoints?: Breakpoints; // breakpoints opsiyonel, varsayılan bir değer atanabilir
-  theme?: T; // theme, generic tipinde olabilir
-}
+
+export type ThemeContextType<T = any> = {
+  theme: T;
+  breakpoints: Breakpoints;
+  setTheme: (theme: T) => void;
+};
 
 export interface Breakpoints {
-  xs: number;
-  md: number;
-  lg: number;
   xl: number;
+  lg: number;
+  md: number;
+  xs: number;
 }
 
-export enum PlatformEnum {
-  Desktop = "Desktop",
-  Tablet = "Tablet",
-  Mobile = "Mobile",
-  TV = "TV",
-  default = "",
-}
-
-export enum OrientationEnum {
-  landscape = "landscape",
-  portrait = "portrait",
-}
-
-export enum SizeEnum {
-  xs = "xs",
-  md = "md",
-  lg = "lg",
-  xl = "xl",
+export interface PhaselisProviderProps<T> {
+  children: ReactNode;
+  breakpoints?: Breakpoints;
+  initialTheme?: T;
 }

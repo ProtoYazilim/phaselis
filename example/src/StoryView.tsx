@@ -1,9 +1,9 @@
-import type { FC } from "react";
+import type { FC, ReactNode } from "react";
 import { Spacings } from "phaselis";
 import { ScrollView } from "react-native";
 
 const StoryView: FC<{
-  children: React.ReactNode;
+  children: ReactNode;
   style?: any;
 }> = ({ children, style }) => {
   return (
@@ -12,7 +12,6 @@ const StoryView: FC<{
         gap: Spacings.XL,
         paddingVertical: 24,
         paddingHorizontal: 16,
-        backgroundColor: "white",
         ...style,
       }}
     >

@@ -1,8 +1,18 @@
-import { Badge, Button, Col, Colors, Label, Row } from "phaselis";
+import {
+  Badge,
+  Button,
+  Col,
+  Label,
+  Row,
+  type PhaselisColors,
+  useColors,
+} from "phaselis";
 import StoryView from "../../../src/StoryView";
 import StorySection from "../../../src/StorySection";
 
 const BadgeStory = () => {
+  const Colors = useColors<PhaselisColors>();
+
   return (
     <StoryView>
       <StorySection

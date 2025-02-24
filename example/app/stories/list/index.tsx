@@ -1,8 +1,17 @@
-import { Colors, List, Row, Col, Block } from "phaselis";
+import {
+  List,
+  Row,
+  Col,
+  Block,
+  useColors,
+  type PhaselisColors,
+} from "phaselis";
 import { StyleSheet, Text } from "react-native";
 import StoryView from "../../../src/StoryView";
 
 const ListStory = () => {
+  const Colors = useColors<PhaselisColors>();
+
   return (
     <StoryView>
       <List
@@ -11,8 +20,16 @@ const ListStory = () => {
             date: "01/02/25",
             description: (
               <>
-                <Text style={styles.boldListText}>Previous Balance</Text>
-                <Text style={styles.boldListText}>BANK ACCOUNT DETAIL</Text>
+                <Text
+                  style={[styles.boldListText, { color: Colors.Primary[950] }]}
+                >
+                  Previous Balance
+                </Text>
+                <Text
+                  style={[styles.boldListText, { color: Colors.Primary[950] }]}
+                >
+                  BANK ACCOUNT DETAIL
+                </Text>
               </>
             ),
             amount: "25,000.00",
@@ -21,10 +38,12 @@ const ListStory = () => {
             date: "01/02/25",
             description: (
               <>
-                <Text style={styles.boldListText}>
+                <Text
+                  style={[styles.boldListText, { color: Colors.Primary[950] }]}
+                >
                   BERGL M. SCUBO - 1000 0000 0000 1000 0001
                 </Text>
-                <Text style={styles.listText}>
+                <Text style={[styles.listText, { color: Colors.Primary[950] }]}>
                   INSTL 1/12 SMART PHONE TECH CENTER
                 </Text>
               </>
@@ -33,25 +52,39 @@ const ListStory = () => {
           },
           {
             date: "01/08/25",
-            description: <Text style={styles.listText}>Egypt</Text>,
+            description: (
+              <Text style={[styles.listText, { color: Colors.Primary[950] }]}>
+                Egypt
+              </Text>
+            ),
             amount: "600.00",
           },
           {
             date: "01/09/25",
-            description: <Text style={styles.listText}>CLUB MEMBERSHIP</Text>,
+            description: (
+              <Text style={[styles.listText, { color: Colors.Primary[950] }]}>
+                CLUB MEMBERSHIP
+              </Text>
+            ),
             amount: "150.00",
           },
           {
             date: "01/17/25",
             description: (
-              <Text style={styles.listText}>HYPERMARKET MARIKI</Text>
+              <Text style={[styles.listText, { color: Colors.Primary[950] }]}>
+                HYPERMARKET MARIKI
+              </Text>
             ),
             amount: "900.00",
           },
           {
             date: "01/18/25",
             description: (
-              <Text style={styles.boldListText}>PAYMENT - Thank You</Text>
+              <Text
+                style={[styles.boldListText, { color: Colors.Primary[950] }]}
+              >
+                PAYMENT - Thank You
+              </Text>
             ),
             amount: "-25,000.00",
             bold: true,
@@ -59,7 +92,7 @@ const ListStory = () => {
           {
             date: "01/19/25",
             description: (
-              <Text style={styles.listText}>
+              <Text style={[styles.listText, { color: Colors.Primary[950] }]}>
                 INSTL 1/3 FASHION MALL DESIGN & SHOW
               </Text>
             ),
@@ -68,7 +101,7 @@ const ListStory = () => {
           {
             date: "01/19/25",
             description: (
-              <Text style={styles.listText}>
+              <Text style={[styles.listText, { color: Colors.Primary[950] }]}>
                 INSTL 1/12 SMART PHONE TECH CENTER
               </Text>
             ),
@@ -76,20 +109,26 @@ const ListStory = () => {
           },
           {
             date: "01/22/25",
-            description: <Text style={styles.listText}>CLUB MEMBERSHIP</Text>,
+            description: (
+              <Text style={[styles.listText, { color: Colors.Primary[950] }]}>
+                CLUB MEMBERSHIP
+              </Text>
+            ),
             amount: "200.00",
           },
           {
             date: "01/23/25",
             description: (
-              <Text style={styles.listText}>HYPERMARKET MARIKI</Text>
+              <Text style={[styles.listText, { color: Colors.Primary[950] }]}>
+                HYPERMARKET MARIKI
+              </Text>
             ),
             amount: "300.00",
           },
           {
             date: "01/23/25",
             description: (
-              <Text style={styles.listText}>
+              <Text style={[styles.listText, { color: Colors.Primary[950] }]}>
                 INSTL 1/3 FASHION MALL DESIGN & SHOW
               </Text>
             ),
@@ -98,7 +137,11 @@ const ListStory = () => {
           {
             date: "",
             description: (
-              <Text style={styles.boldListText}>TOTAL AMOUNT DUE</Text>
+              <Text
+                style={[styles.boldListText, { color: Colors.Primary[950] }]}
+              >
+                TOTAL AMOUNT DUE
+              </Text>
             ),
             amount: "7,230.00",
             bold: true,
@@ -119,13 +162,22 @@ const ListStory = () => {
         ListHeaderComponent={() => (
           <Row style={{ paddingVertical: 4, paddingHorizontal: 8 }}>
             <Col size={3}>
-              <Text style={styles.headerText}>Date</Text>
+              <Text style={[styles.headerText, { color: Colors.Primary[950] }]}>
+                Date
+              </Text>
             </Col>
             <Col size={6}>
-              <Text style={styles.headerText}>Description</Text>
+              <Text style={[styles.headerText, { color: Colors.Primary[950] }]}>
+                Description
+              </Text>
             </Col>
             <Col size={3}>
-              <Text style={[styles.headerText, { textAlign: "right" }]}>
+              <Text
+                style={[
+                  [styles.headerText, { color: Colors.Primary[950] }],
+                  { textAlign: "right" },
+                ]}
+              >
                 Amount
               </Text>
             </Col>
@@ -134,8 +186,12 @@ const ListStory = () => {
         ListFooterComponent={() => (
           <Block style={{ paddingTop: "10%" }}>
             <Block style={{ padding: 8 }}>
-              <Text style={styles.listText}>PROTO BANK CARD CO.</Text>
-              <Text style={styles.listText}>ISTANBUL, TURKEY</Text>
+              <Text style={[styles.listText, { color: Colors.Primary[950] }]}>
+                PROTO BANK CARD CO.
+              </Text>
+              <Text style={[styles.listText, { color: Colors.Primary[950] }]}>
+                ISTANBUL, TURKEY
+              </Text>
             </Block>
           </Block>
         )}
@@ -152,14 +208,27 @@ const ListStory = () => {
           return (
             <Row style={{ paddingVertical: 4, paddingHorizontal: 8 }}>
               <Col size={3}>
-                <Text style={styles.listText}>{item.date}</Text>
+                <Text style={[styles.listText, { color: Colors.Primary[950] }]}>
+                  {item.date}
+                </Text>
               </Col>
               <Col size={6}>{item.description}</Col>
               <Col size={3}>
                 {item.bold ? (
-                  <Text style={styles.boldListText}>{item.amount}</Text>
+                  <Text
+                    style={[
+                      styles.boldListText,
+                      { color: Colors.Primary[950] },
+                    ]}
+                  >
+                    {item.amount}
+                  </Text>
                 ) : (
-                  <Text style={styles.listText}>{item.amount}</Text>
+                  <Text
+                    style={[styles.listText, { color: Colors.Primary[950] }]}
+                  >
+                    {item.amount}
+                  </Text>
                 )}
               </Col>
             </Row>

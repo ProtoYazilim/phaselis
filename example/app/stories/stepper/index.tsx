@@ -1,10 +1,20 @@
 import type { FC } from "react";
 import { Text } from "react-native";
-import { Block, Button, Row, Stepper, ProgressStep, Colors } from "phaselis";
+import {
+  Block,
+  Button,
+  Row,
+  Stepper,
+  ProgressStep,
+  useColors,
+  type PhaselisColors,
+} from "phaselis";
 import StoryView from "../../../src/StoryView";
 import StorySection from "../../../src/StorySection";
 
 const StepperStory = () => {
+  const Colors = useColors<PhaselisColors>();
+
   const onNextStep = () => {
     console.log("called next step");
   };

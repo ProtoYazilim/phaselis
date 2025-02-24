@@ -1,4 +1,4 @@
-import { Colors } from "../colors";
+import { LightColors } from "../LightColors";
 import { FontSizes, Heights, Radius, Spacings, IconSizes } from "../spacings";
 
 export default {
@@ -6,7 +6,7 @@ export default {
     default: {
       //InputSlot
       container: {
-        borderColor: Colors.Primary[950],
+        borderColor: LightColors.Primary[950],
         borderRadius: Radius.MD,
         paddingLeft: Spacings.MD,
         paddingRight: Spacings.MD,
@@ -14,19 +14,19 @@ export default {
         variants: {
           focus: {
             true: {
-              backgroundColor: Colors.Primary[50],
-              borderColor: Colors.Primary[600],
+              backgroundColor: LightColors.Primary[50],
+              borderColor: LightColors.Primary[600],
             },
           },
           error: {
             true: {
-              borderColor: Colors.Danger[500],
+              borderColor: LightColors.Danger[500],
             },
           },
           disabled: {
             true: {
-              borderColor: Colors.Primary[200],
-              backgroundColor: Colors.Primary[100],
+              borderColor: LightColors.Primary[200],
+              backgroundColor: LightColors.Primary[100],
             },
           },
           size: {
@@ -53,21 +53,21 @@ export default {
       },
       leftSlot: {
         marginRight: Spacings.SM,
-        color: Colors.Gray[950],
+        color: LightColors.Gray[950],
         variants: {
           focus: {
             true: {
-              color: Colors.Primary[600],
+              color: LightColors.Primary[600],
             },
           },
           error: {
             true: {
-              color: Colors.Danger[600],
+              color: LightColors.Danger[600],
             },
           },
           disabled: {
             true: {
-              color: Colors.Primary[300],
+              color: LightColors.Primary[300],
             },
           },
           size: {
@@ -99,22 +99,22 @@ export default {
         },
       },
       rightSlot: {
-        color: Colors.Primary[950],
+        color: LightColors.Primary[950],
         marginLeft: Spacings.SM,
         variants: {
           focus: {
             true: {
-              color: Colors.Primary[600],
+              color: LightColors.Primary[600],
             },
           },
           error: {
             true: {
-              color: Colors.Danger[600],
+              color: LightColors.Danger[600],
             },
           },
           disabled: {
             true: {
-              color: Colors.Primary[300],
+              color: LightColors.Primary[300],
             },
           },
           size: {
@@ -146,21 +146,21 @@ export default {
         },
       },
       element: {
-        color: Colors.Primary[950],
+        color: LightColors.Primary[950],
         variants: {
           focus: {
             true: {
-              color: Colors.Primary[600],
+              color: LightColors.Primary[600],
             },
           },
           error: {
             true: {
-              color: Colors.Danger[600],
+              color: LightColors.Danger[600],
             },
           },
           disabled: {
             true: {
-              color: Colors.Primary[300],
+              color: LightColors.Primary[300],
             },
           },
           size: {
@@ -193,7 +193,7 @@ export default {
           paddingVertical: Spacings.MD,
         },
         text: {
-          color: Colors.Gray[950],
+          color: LightColors.Gray[950],
           fontSize: FontSizes.XL,
         },
         closeIconSlot: {
@@ -201,13 +201,13 @@ export default {
           height: Heights.SMminHeight,
           paddingRight: Spacings.SM,
           paddingLeft: Spacings.SM,
-          backgroundColor: Colors.Primary[600],
-          borderColor: Colors.Primary[50],
+          backgroundColor: LightColors.Primary[600],
+          borderColor: LightColors.Primary[50],
           borderRadius: 28,
           borderWidth: 1,
         },
         closeIcon: {
-          color: Colors.Primary[50],
+          color: LightColors.Primary[50],
         },
       },
       _noOptionSlot: {
@@ -220,7 +220,7 @@ export default {
           marginTop: Spacings.SM,
           fontSize: FontSizes.MD,
           fontWeight: "bold",
-          color: Colors.Primary[950],
+          color: LightColors.Primary[950],
         },
       },
       _optionSlot: {
@@ -230,26 +230,26 @@ export default {
           paddingLeft: Spacings.MD,
           paddingRight: Spacings.MD,
           marginTop: Spacings.SM,
-          borderColor: Colors.Primary[950],
+          borderColor: LightColors.Primary[950],
           borderRadius: 19,
           borderWidth: 0.5,
         },
         selected: {
-          backgroundColor: Colors.Primary[600],
-          borderColor: Colors.Primary[950],
+          backgroundColor: LightColors.Primary[600],
+          borderColor: LightColors.Primary[950],
         },
         text: {
           fontSize: FontSizes.MD,
           lineHeight: 22,
-          color: Colors.Primary[950],
+          color: LightColors.Primary[950],
         },
         selectedText: {
-          color: Colors.Primary[50],
+          color: LightColors.Primary[50],
         },
       },
       _optionsSlot: {
         container: {
-          backgroundColor: Colors.Primary[50],
+          backgroundColor: LightColors.Primary[50],
         },
         element: {
           paddingTop: Spacings.MD,

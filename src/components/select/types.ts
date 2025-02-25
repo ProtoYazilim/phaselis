@@ -156,6 +156,7 @@ export interface NativePickerProps extends PickerProps, SelectExtraProps {
   value: any;
   placeholder?: string;
   doneText?: string;
+  darkMode?: boolean;
 }
 
 export interface PickerProps {

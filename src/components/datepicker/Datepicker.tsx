@@ -4,7 +4,7 @@ import { Pressable, Text } from "react-native";
 import stylesheet from "./assets/styles";
 import CoreDatePicker from "react-native-date-picker";
 import PhaselisHOC from "../provider/lib/hoc";
-import { Slot } from "../index";
+import { Slot, useTheme } from "../index";
 import { format as formatFns } from "date-fns";
 import { InputHOC } from "../../utils";
 import { useCombinedStyle } from "../../hooks";
@@ -27,10 +27,14 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
     value,
     disabled = false,
     variation = "default",
+    theme,
     error,
     ...extraProps
   } = props;
   const [show, setShow] = useState(false);
+
+  const { themeName } = useTheme();
+  const activeTheme = theme || themeName;
 
   const rightIconName = rightIconVisible
     ? rightIcon || "CalendarDays"
@@ -97,7 +101,7 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
         minimumDate={minDate}
         locale={locale}
         mode={mode}
-        theme="auto"
+        theme={activeTheme}
         title="Select a Date"
         confirmText="Confirm"
         cancelText="Cancel"

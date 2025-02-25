@@ -35,18 +35,53 @@ const LinkStory = () => {
       </StorySection>
       <StorySection leftText="Usages" style={{}}>
         <Row style={{ justifyContent: "space-between", paddingBottom: 64 }}>
-          <Link text="Twitter" variation="primary" leftIcon="Twitter" />
-          <Link text="Facebook" leftIcon="Facebook" />
+          <Link
+            text="Twitter"
+            variation="primary"
+            leftIcon="Twitter"
+            href="https://x.com/"
+          />
+          <Link
+            text="Facebook"
+            leftIcon="Facebook"
+            href="https://www.facebook.com/"
+          />
           <Link text="Attached" variation="secondary" leftIcon="Link" />
         </Row>
-        <Row style={{ justifyContent: "space-between" }}>
+        <Row style={{ justifyContent: "space-between", paddingBottom: 64 }}>
           <Link
             text="Open Link"
             variation="tertiary"
             rightIcon="ExternalLink"
+            href="https://www.protoyazilim.com/phaselis/"
           />
-          <Link text="SMS" variation="primary" leftIcon="MessageCircle" />
+          <Link
+            text="SMS"
+            variation="primary"
+            leftIcon="MessageCircle"
+            href="sms:+123456789"
+          />
           <Link text="" variation="tertiary" leftIcon="Link" />
+        </Row>
+        <Row style={{ justifyContent: "space-between" }}>
+          <Link
+            text="Proto Software"
+            variation="secondary"
+            rightIcon="ExternalLink"
+            href="https://www.protoyazilim.com/"
+          />
+          <Link
+            text="Mail"
+            variation="tertiary"
+            leftIcon="Mail"
+            href="mailto: info@protoyazilim.com"
+          />
+          <Link
+            text="Tel"
+            variation="primary"
+            leftIcon="Phone"
+            href="tel:+123456789"
+          />
         </Row>
       </StorySection>
     </StoryView>

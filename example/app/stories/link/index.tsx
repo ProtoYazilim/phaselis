@@ -46,7 +46,12 @@ const LinkStory = () => {
             leftIcon="Facebook"
             href="https://www.facebook.com/"
           />
-          <Link text="Attached" variation="secondary" leftIcon="Link" />
+          <Link
+            text="Attached"
+            variation="secondary"
+            leftIcon="Link"
+            href="https://www.protoyazilim.com/phaselis/"
+          />
         </Row>
         <Row style={{ justifyContent: "space-between", paddingBottom: 64 }}>
           <Link

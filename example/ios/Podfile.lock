@@ -1327,7 +1327,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - react-native-keyboard-controller (1.16.4):
+  - react-native-keyboard-controller (1.16.5):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1808,7 +1808,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNReanimated (3.16.7):
+  - RNReanimated (3.17.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1820,7 +1820,9 @@ PODS:
     - React-Fabric
     - React-featureflags
     - React-graphics
+    - React-hermes
     - React-ImageManager
+    - React-jsi
     - React-NativeModulesApple
     - React-RCTFabric
     - React-rendererdebug
@@ -1828,10 +1830,10 @@ PODS:
     - ReactCodegen
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
-    - RNReanimated/reanimated (= 3.16.7)
-    - RNReanimated/worklets (= 3.16.7)
+    - RNReanimated/reanimated (= 3.17.0)
+    - RNReanimated/worklets (= 3.17.0)
     - Yoga
-  - RNReanimated/reanimated (3.16.7):
+  - RNReanimated/reanimated (3.17.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1843,7 +1845,9 @@ PODS:
     - React-Fabric
     - React-featureflags
     - React-graphics
+    - React-hermes
     - React-ImageManager
+    - React-jsi
     - React-NativeModulesApple
     - React-RCTFabric
     - React-rendererdebug
@@ -1851,9 +1855,9 @@ PODS:
     - ReactCodegen
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
-    - RNReanimated/reanimated/apple (= 3.16.7)
+    - RNReanimated/reanimated/apple (= 3.17.0)
     - Yoga
-  - RNReanimated/reanimated/apple (3.16.7):
+  - RNReanimated/reanimated/apple (3.17.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1865,7 +1869,9 @@ PODS:
     - React-Fabric
     - React-featureflags
     - React-graphics
+    - React-hermes
     - React-ImageManager
+    - React-jsi
     - React-NativeModulesApple
     - React-RCTFabric
     - React-rendererdebug
@@ -1874,7 +1880,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNReanimated/worklets (3.16.7):
+  - RNReanimated/worklets (3.17.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1886,7 +1892,33 @@ PODS:
     - React-Fabric
     - React-featureflags
     - React-graphics
+    - React-hermes
     - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - RNReanimated/worklets/apple (= 3.17.0)
+    - Yoga
+  - RNReanimated/worklets/apple (3.17.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-hermes
+    - React-ImageManager
+    - React-jsi
     - React-NativeModulesApple
     - React-RCTFabric
     - React-rendererdebug
@@ -2332,7 +2364,7 @@ SPEC CHECKSUMS:
   React-microtasksnativemodule: 36341e09dcd1df535503e6ed2ddf88f10da56d52
   react-native-blur: d480b382e8ddb4d0c29cd5c4ebacd9f3eb997cc3
   react-native-date-picker: 26cdb1a94ec72dbc9210c3379e57ff6ba8bc73f2
-  react-native-keyboard-controller: 8cd64ec40fc7c67fd2c0b024302bcec4a46f6106
+  react-native-keyboard-controller: 397ae97a41dd18fe7b4473991cdd8ea078fb4564
   react-native-safe-area-context: 0f16e24dc808e9f0ced17f2bdcec692b2376fb68
   react-native-slider: 8ac9b674825295690947a5ccab537dd3800b1a5f
   react-native-unistyles: 6ae0c18d3d4520b45b234d7a5160ec44437f7087
@@ -2366,7 +2398,7 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: d40800ad5002f992f4ebe404055b744b3274b364
   RNCPicker: c657bd58a82b164a957812f82a0b4bab4245de2e
   RNGestureHandler: 6aedf747478f64fbeddb3ad5d5d0dfdf2361d136
-  RNReanimated: 7f0c1c8dcfe7ae574880b7989bbf512387372cd1
+  RNReanimated: adbaf0d05ac8f0b647d3ddb8e1b91272b619019d
   RNScreens: 351f431ef2a042a1887d4d90e1c1024b8ae9d123
   RNSentry: 0e9e691363952362d648ca0ea1ae42d9c41c436c
   RNSVG: bbbdd17e8730c0f2a9cb416e5f37be87e29ebc90

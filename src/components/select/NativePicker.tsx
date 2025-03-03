@@ -37,8 +37,6 @@ const NativePicker: React.FC<NativePickerProps> = ({
 
   const darkModeHandler = darkMode || themeName === "dark";
 
-  console.log(darkModeHandler);
-
   const { getFlattenStyle } = useCombinedStyle(
     stylesheet,
     style,

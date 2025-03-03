@@ -3,7 +3,7 @@ import type { ViewStyle } from "react-native";
 
 export interface InputGroupProps {
   children: ReactNode;
-  label: string;
+  label?: string;
   required?: boolean;
   message?: string;
   style?: {

@@ -58,7 +58,9 @@ const InputGroup: React.FC<InputGroupProps> = ({
   return (
     <>
       <View style={getCombinedStyle("container")}>
-        <Text style={getCombinedStyle("label")}>{label}</Text>
+        {typeof label === "string" && (
+          <Text style={getCombinedStyle("label")}>{label}</Text>
+        )}
         {children}
         {(error || message) && (
           <Text style={getCombinedStyle("message")}>

@@ -56,7 +56,7 @@ const Slider: FC<SliderProps> = ({
         minimumTrackTintColor={elementStyles?.minimumTrackTintColor}
         maximumTrackTintColor={elementStyles?.maximumTrackTintColor}
         thumbTintColor={elementStyles?.thumbTintColor}
-        onValueChange={(newValue) => {
+        onSlidingComplete={(newValue) => {
           onChange?.(null, newValue);
         }}
         step={step}

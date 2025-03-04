@@ -1,5 +1,5 @@
 import { Image } from "phaselis";
-import { Text, View } from "react-native";
+import { Platform, Text, View } from "react-native";
 import { phaselis_wood_image } from "../../../assets/logos";
 import { BlurView } from "@react-native-community/blur";
 
@@ -12,6 +12,7 @@ function ImageBackgroundStory() {
           alignItems: "center",
           borderRadius: 16,
           margin: 24,
+          overflow: Platform.OS === "android" ? "hidden" : "visible",
         }}
       >
         <BlurView

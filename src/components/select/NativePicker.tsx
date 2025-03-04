@@ -35,9 +35,12 @@ const NativePicker: React.FC<NativePickerProps> = ({
 
   const { themeName } = useTheme();
 
-  const darkModeHandler = darkMode || themeName === "dark";
-
-  console.log(darkModeHandler);
+  const darkModeHandler = useMemo(() => {
+    if (typeof darkMode !== "undefined") {
+      return darkMode;
+    }
+    return themeName === "dark";
+  }, [darkMode, themeName]);
 
   const { getFlattenStyle } = useCombinedStyle(
     stylesheet,
@@ -63,6 +66,7 @@ const NativePicker: React.FC<NativePickerProps> = ({
 
   return (
     <ReactNativePickerSelect
+      key={`picker-${themeName}`}
       ref={refIOSPicker}
       darkTheme={darkModeHandler}
       pickerProps={{

@@ -1,6 +1,6 @@
 import type { FormReference } from "phaselis";
 import { useRef } from "react";
-import { Form, Col, Row, Textfield } from "phaselis";
+import { Form, Col, Row, Textfield, email, InputGroup } from "phaselis";
 import StoryView from "../../../src/StoryView";
 import StorySection from "../../../src/StorySection";
 
@@ -85,23 +85,30 @@ const TextfieldStory = () => {
       >
         <Textfield placeholder="Type here..." error isChanged isUsed />
       </StorySection>
-      <StorySection
-        leftText="Masks"
-        rightText="MD"
-        style={{ paddingVertical: 8 }}
-      >
+      <StorySection leftText="Masks" rightText="MD">
         <Form ref={refForm}>
           <Row style={{ gap: 10, alignItems: "center", marginBottom: 16 }}>
             <Col size={5}>
-              <Textfield
-                name="phone"
-                leftIcon="Smartphone"
-                maxLength={17}
-                mask={PHONE_MASK}
-              />
+              <InputGroup>
+                <Textfield
+                  name="phone"
+                  leftIcon="Smartphone"
+                  maxLength={17}
+                  mask={PHONE_MASK}
+                  value={"+90 "}
+                  keyboardType="phone-pad"
+                />
+              </InputGroup>
             </Col>
             <Col size={7}>
-              <Textfield name="mail" leftIcon="Mail" mask={MAIL_MASK} />
+              <InputGroup>
+                <Textfield
+                  name="mail"
+                  leftIcon="Mail"
+                  validations={[email("required")]}
+                  keyboardType="email-address"
+                />
+              </InputGroup>
             </Col>
           </Row>
           <Row style={{ gap: 10, alignItems: "center" }}>
@@ -111,6 +118,7 @@ const TextfieldStory = () => {
                 leftIcon="Wallet"
                 maxLength={32}
                 mask={IBAN_MASK}
+                keyboardType="decimal-pad"
               />
             </Col>
             <Col size={5}>
@@ -119,6 +127,7 @@ const TextfieldStory = () => {
                 leftIcon="CreditCard"
                 maxLength={11}
                 mask={CREDIT_MASK}
+                keyboardType="number-pad"
               />
             </Col>
           </Row>
@@ -162,31 +171,6 @@ const PHONE_MASK = [
   /\d/,
 ];
 
-const MAIL_MASK = [
-  /\w/,
-  /\w/,
-  /\w/,
-  /\w/,
-  /\w/,
-  /\w/,
-  /\w/,
-  " ",
-  "@",
-  " ",
-  /\w/,
-  /\w/,
-  /\w/,
-  /\w/,
-  /\w/,
-  /\w/,
-  " ",
-  ".",
-  " ",
-  /\w/,
-  /\w/,
-  /\w/,
-];
-
 const IBAN_MASK = [
   "T",
   "R",
@@ -223,16 +207,4 @@ const IBAN_MASK = [
   /\d/,
 ];
 
-const CREDIT_MASK = [
-  /\d/,
-  /\d/,
-  /\d/,
-  /\d/,
-  " ",
-  "/",
-  " ",
-  /\d/,
-  /\d/,
-  /\d/,
-  /\d/,
-];
+const CREDIT_MASK = [/\d/, /\d/, " ", "/", " ", /\d/, /\d/];

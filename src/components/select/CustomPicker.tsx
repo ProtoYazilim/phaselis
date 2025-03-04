@@ -3,7 +3,7 @@ import type { CustomPickerProps } from "./types";
 import { useEffect, useMemo } from "react";
 import { View, FlatList } from "react-native";
 import PhaselisHOC from "../provider/lib/hoc";
-import { BottomSheet } from "../index";
+import { BottomSheet, useColors, useTheme } from "../index";
 import HeaderSlotDefault from "./lib/HeaderSlotDefault";
 import OptionSlotDefault from "./lib/OptionSlotDefault";
 import NoOptionSlotDefault from "./lib/NoOptionSlotDefault";
@@ -11,6 +11,7 @@ import { stylesheet_picker_options_slot } from "./assets/styles";
 import { useCombinedStyle } from "../../hooks";
 import { cloneSlot } from "../../utils";
 import LinearGradient from "react-native-linear-gradient";
+import type { PhaselisColors } from "../../theme";
 
 const CustomPicker: React.FC<CustomPickerProps> = ({
   showPicker,
@@ -31,17 +32,37 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
   style,
   setIsFocus,
   variation = "default",
-  topLinearGradientProps = {
-    locations: [0, 0.5, 1],
-    colors: ["#F2F8FD", "rgba(255,255,255,0)"],
-  },
-  bottomLinearGradientProps = {
-    locations: [0, 0.5, 1],
-    colors: ["rgba(255,255,255,0)", "#F2F8FD", "#F2F8FD"],
-  },
+  topLinearGradientProps,
+  bottomLinearGradientProps,
   showTopBlur = true,
   showBottomBlur = true,
 }) => {
+  const Colors = useColors<PhaselisColors>();
+  const { themeName } = useTheme();
+  const isDarkMode = themeName === "dark";
+
+  const defaultTopGradientProps = {
+    locations: [0, 0.5, 1],
+    colors: [
+      Colors.Primary[50],
+      isDarkMode ? "rgba(17, 41, 64, 0)" : "rgba(255,255,255,0)",
+    ],
+  };
+
+  const defaultBottomGradientProps = {
+    locations: [0, 0.5, 1],
+    colors: [
+      isDarkMode ? "rgba(17, 41, 64, 0)" : "rgba(255,255,255,0)",
+      Colors.Primary[50],
+      Colors.Primary[50],
+    ],
+  };
+
+  const finalTopGradientProps =
+    topLinearGradientProps || defaultTopGradientProps;
+  const finalBottomGradientProps =
+    bottomLinearGradientProps || defaultBottomGradientProps;
+
   const memorizedOptions = useMemo(() => {
     return options.map((option) => {
       return {
@@ -110,7 +131,7 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
           {showTopBlur && (
             <LinearGradient
               style={getCombinedStyle("topLinearGradient")}
-              {...topLinearGradientProps}
+              {...finalTopGradientProps}
             />
           )}
           <FlatList
@@ -131,7 +152,7 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
           {showBottomBlur && (
             <LinearGradient
               style={getCombinedStyle("bottomLinearGradient")}
-              {...bottomLinearGradientProps}
+              {...finalBottomGradientProps}
             />
           )}
         </View>

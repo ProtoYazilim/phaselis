@@ -47,12 +47,18 @@ export default function Layout() {
           drawerItemStyle: { display: "none" },
         }}
       />
-
       <Drawer.Screen
         name="form-usage"
         options={{
           drawerLabel: "Form",
           title: "Form",
+        }}
+      />
+      <Drawer.Screen
+        name="shopping-form"
+        options={{
+          drawerLabel: "Shopping Form",
+          title: "Shopping Form",
         }}
       />
       <Drawer.Screen

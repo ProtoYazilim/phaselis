@@ -13,7 +13,8 @@
     "eas-local-ios-preview": "eas build --platform ios --local --profile preview",
     "eas-cloud-ios": "eas build --platform ios",
     "eas-cloud-android": "eas build --platform android",
-    "eas-cloud-ios-preview": "eas build --platform ios --profile preview"
+    "eas-cloud-ios-preview": "eas build --platform ios --profile preview",
+    "eas-cloud-android-preview": "eas build --platform android --profile preview"
   },
   "dependencies": {
     "@expo/metro-runtime": "~4.0.1",

@@ -16,8 +16,6 @@ import { appLightTheme, appDarkTheme } from "../src/extendedTheme";
 import { KeyboardProvider } from "react-native-keyboard-controller";
 import { Appearance } from "react-native";
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-
 SplashScreen.preventAutoHideAsync();
 
 SplashScreen.setOptions({

@@ -149,15 +149,19 @@ const config: Config = {
             },
           };
         },
-        // Added middleware for production server
-        configureServer(server) {
-          server.use((req, res, next) => {
-            if (req.path === "/phaselis") {
-              res.sendFile(path.resolve(__dirname, "static/landing.html"));
-            } else {
-              next();
-            }
-          });
+        // Removed production middleware; added postBuild hook to copy landing.html into the build folder.
+        postBuild({ outDir }) {
+          const fs = require("fs-extra");
+          const destDir = path.join(outDir, "/");
+          fs.ensureDirSync(destDir);
+          fs.copySync(
+            path.resolve(__dirname, "static/landing.html"),
+            path.join(destDir, "index.html"),
+          );
+          console.log(
+            "Copied landing.html to",
+            path.join(destDir, "index.html"),
+          );
         },
       };
     },

@@ -149,6 +149,16 @@ const config: Config = {
             },
           };
         },
+        // Added middleware for production server
+        configureServer(server) {
+          server.use((req, res, next) => {
+            if (req.path === "/phaselis") {
+              res.sendFile(path.resolve(__dirname, "static/landing.html"));
+            } else {
+              next();
+            }
+          });
+        },
       };
     },
   ],

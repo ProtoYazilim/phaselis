@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- Page Title -->
+    <title>Phaselis - Flexible & Powerful React Native UI Framework</title>
+
+    <!-- Meta Tags -->
+    <meta
+      name="description"
+      content="Discover Phaselis, the ultimate open-source UI framework for React Native & Expo. Build stunning, responsive designs effortlessly!"
+    />
+    <meta
+      name="keywords"
+      content="phaselis, react native, expo, ui framework, open source, components, design system, responsive design, mobile development"
+    />
+    <meta name="author" content="proto" />
+
+    <!-- Viewport Meta-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <!-- Template Favicon & Icons Start -->
+    <link rel="icon" href="img/favicon/favicon.ico" sizes="any" />
+    <link rel="icon" href="img/favicon/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="img/favicon/manifest.webmanifest" />
+    <!-- Template Favicon & Icons End -->
+
+    <!-- Facebook Metadata Start -->
+    <meta property="og:image:height" content="444" />
+    <meta property="og:image:width" content="900" />
+    <meta
+      property="og:title"
+      content="Phaselis - Flexible & Powerful React Native UI Framework"
+    />
+    <meta
+      property="og:description"
+      content="Discover Phaselis, the ultimate open-source UI framework for React Native & Expo. Build stunning, responsive designs effortlessly!"
+    />
+    <meta property="og:url" content="https://demoproto.com/phaselislanding/" />
+    <meta
+      property="og:image"
+      content="https://demoproto.com/phaselislanding/img/og.jpg"
+    />
+    <!-- Facebook Metadata End -->
+
+    <!-- Template Styles Start -->
+    <link rel="stylesheet" href="css/loaders/loader.css" />
+    <link rel="stylesheet" type="text/css" href="css/plugins.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <!-- Template Styles End -->
+
+    <!-- Custom Browser Color Start -->
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#dcdce7"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#111111"
+    />
+    <meta name="msapplication-navbutton-color" content="#111111" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <!-- Custom Browser Color End -->
+  </head>
+
+  <body>
+    <!-- Loader Start -->
+    <div id="loader" class="loader">
+      <div id="loaderContent" class="loader__content">
+        <div class="loader__shadow"></div>
+        <div class="loader__box"></div>
+      </div>
+    </div>
+    <!-- Loader End -->
+
+    <!-- Header Start -->
+    <header id="header" class="header d-flex justify-content-between">
+      <!-- Navigation Menu Start -->
+      <div class="header__navigation">
+        <nav id="menu" class="menu">
+          <ul class="menu__list d-flex justify-content-start">
+            <li class="menu__item">
+              <a class="menu__link btn" href="#home">
+                <span class="menu__caption">Home</span>
+                <i class="ph-bold ph-house-simple"></i>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link btn" href="#framework">
+                <span class="menu__caption">Framework</span>
+                <i class="ph-bold ph-squares-four"></i>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link btn" href="#components">
+                <span class="menu__caption">Components</span>
+                <i class="ph-bold ph-user"></i>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link btn" href="#download">
+                <span class="menu__caption">Download</span>
+                <i class="ph-bold ph-article"></i>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link btn" href="#docs">
+                <span class="menu__caption">Docs</span>
+                <i class="ph-bold ph-envelope"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- Navigation Menu End -->
+
+      <!-- Header Controls Start -->
+      <div class="header__controls d-flex justify-content-end">
+        <button
+          id="color-switcher"
+          class="color-switcher header__switcher btn"
+          type="button"
+          role="switch"
+          aria-label="light/dark mode"
+          aria-checked="true"
+        ></button>
+      </div>
+      <!-- Header Controls End -->
+    </header>
+    <!-- Header End -->
+
+    <!-- Image Background Layer Start -->
+    <div id="imageBackground" class="image-background" data-speed="0.4"></div>
+    <!-- Image Background Layer End -->
+
+    <!-- Avatar Side Block Start -->
+    <div id="avatar" class="avatar">
+      <div
+        class="avatar__container d-flex flex-column justify-content-lg-between"
+      >
+        <!-- image and logo -->
+        <div class="avatar__block">
+          <div class="avatar__logo d-flex align-items-center">
+            <div class="logo__image">
+              <img
+                src="img/logo-hc.svg"
+                alt="Phaselis - Flexible & Powerful React Native UI Framework Logo"
+              />
+            </div>
+          </div>
+          <div class="avatar__image">
+            <img
+              src="img/avatars/3d.png"
+              alt="Phaselis - Flexible & Powerful React Native UI Framework Avatar"
+            />
+          </div>
+        </div>
+        <!-- data caption #1 -->
+        <div class="avatar__block">
+          <h6>
+            <small class="top">Frontend Framework:</small>
+            React / Expo UI/UX framework for any1
+          </h6>
+        </div>
+        <!-- data caption #2 -->
+        <div class="avatar__block">
+          <h6>
+            <small class="top">Packaged in:</small>
+            CLI, NPM, NPX etc...
+          </h6>
+        </div>
+        <!-- socials and CTA button -->
+        <div class="avatar__block">
+          <div class="avatar__socials">
+            <ul class="socials-square d-flex justify-content-between">
+              <li class="socials-square__item">
+                <a class="socials-square__link btn" href="#" target="_blank"
+                  ><i class="ph-bold ph-github-logo"></i
+                ></a>
+              </li>
+              <li class="socials-square__item">
+                <a class="socials-square__link btn" href="#" target="_blank"
+                  ><i class="ph-bold ph-package"></i
+                ></a>
+              </li>
+              <li class="socials-square__item">
+                <a class="socials-square__link btn" href="#" target="_blank"
+                  ><i class="ph-bold ph-discord-logo"></i
+                ></a>
+              </li>
+              <li class="socials-square__item">
+                <a class="socials-square__link btn" href="#" target="_blank"
+                  ><i class="ph-bold ph-twitch-logo"></i
+                ></a>
+              </li>
+              <li class="socials-square__item">
+                <a class="socials-square__link btn" href="#" target="_blank"
+                  ><i class="ph-bold ph-pinterest-logo"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <div class="avatar__btnholder">
+            <a
+              class="btn btn-default btn-fullwidth btn-hover btn-hover-accent mt-3"
+              href="/phaselis/docs/intro"
+            >
+              <span class="btn-caption">Let's Get Started!</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Avatar Side Block End -->
+
+    <!-- Page Content Start -->
+    <div id="content" class="content">
+      <div class="content__wrapper">
+        <!-- Intro Section Start -->
+        <section id="home" class="main intro">
+          <!-- Headline Start -->
+          <div
+            id="headline"
+            class="headline d-flex align-items-start flex-column"
+            data-speed="1"
+          >
+            <p class="headline__subtitle animate-headline">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="13px"
+                height="13px"
+                viewBox="0 0 13 13"
+                fill="currentColor"
+              >
+                <path
+                  fill="currentColor"
+                  d="M5.6,12.6c-0.5-0.8-0.7-2.4-1.7-3.5c-1-1-2.7-1.2-3.5-1.7C-0.1,7-0.1,6,0.4,5.6c0.8-0.5,2.3-0.6,3.5-1.8
+                  C5,2.8,5.1,1.2,5.6,0.4C6-0.1,7-0.1,7.4,0.4c0.5,0.8,0.7,2.4,1.8,3.5c1.2,1.2,2.6,1.2,3.5,1.7c0.6,0.4,0.6,1.4,0,1.7
+                  C11.8,7.9,10.2,8,9.1,9.1c-1,1-1.2,2.7-1.7,3.5C7,13.1,6,13.1,5.6,12.6z"
+                />
+              </svg>
+              <span>Let's meet!</span>
+            </p>
+            <h1 class="headline__title animate-headline">
+              Most Flexible & Powerful Open Source UI for React Native & Expo.
+            </h1>
+            <div class="headline__btnholder d-flex flex-column flex-sm-row">
+              <a
+                class="btn mobile-vertical btn-default btn-hover btn-hover-accent-mobile animate-headline"
+                href="docs/components/accordion"
+              >
+                <span class="btn-caption">Components</span>
+                <i class="ph-bold ph-squares-four"></i>
+              </a>
+              <a
+                class="btn mobile-vertical btn-default btn-hover btn-hover-outline-mobile animate-headline"
+                href="#download"
+              >
+                <span class="btn-caption">Download</span>
+                <i class="ph-bold ph-download-simple"></i>
+              </a>
+            </div>
+          </div>
+          <!-- Headline End -->
+
+          <!-- Scroll Button Start -->
+          <div class="rotating-btn">
+            <a href="#portfolio" class="rotating-btn__link slide-down">
+              <!-- SVG rotating text -->
+              <svg
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                viewBox="0 0 120 120"
+                style="enable-background: new 0 0 120 120"
+                xml:space="preserve"
+                class="animate-rotation"
+                data-value="360"
+              >
+                <defs>
+                  <path
+                    id="textPath"
+                    d="M110,59.5c0,27.6-22.4,50-50,50s-50-22.4-50-50s22.4-50,50-50S110,31.9,110,59.5z"
+                  />
+                </defs>
+                <g>
+                  <use xlink:href="#textPath" fill="none"></use>
+                  <text>
+                    <!-- button text here!!! -->
+                    <textPath xlink:href="#textPath">
+                      Scroll for More * Scroll for More *
+                    </textPath>
+                  </text>
+                </g>
+              </svg>
+              <!-- arrow icon -->
+              <i class="ph-bold ph-arrow-down"></i>
+            </a>
+          </div>
+          <!-- Scroll Button End -->
+        </section>
+        <!-- Intro Section End -->
+
+        <!-- framework Section Start -->
+        <section id="framework" class="inner inner-first portfolio">
+          <!-- Content Block - H2 Section Title Start -->
+          <div class="content__block section-grid-title">
+            <p class="h2__subtitle animate-in-up">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="13px"
+                height="13px"
+                viewBox="0 0 13 13"
+                fill="currentColor"
+              >
+                <path
+                  fill="currentColor"
+                  d="M5.6,12.6c-0.5-0.8-0.7-2.4-1.7-3.5c-1-1-2.7-1.2-3.5-1.7C-0.1,7-0.1,6,0.4,5.6c0.8-0.5,2.3-0.6,3.5-1.8
+                  C5,2.8,5.1,1.2,5.6,0.4C6-0.1,7-0.1,7.4,0.4c0.5,0.8,0.7,2.4,1.8,3.5c1.2,1.2,2.6,1.2,3.5,1.7c0.6,0.4,0.6,1.4,0,1.7
+                  C11.8,7.9,10.2,8,9.1,9.1c-1,1-1.2,2.7-1.7,3.5C7,13.1,6,13.1,5.6,12.6z"
+                />
+              </svg>
+              <span>Framework</span>
+            </p>
+            <h2 class="h2__title animate-in-up">
+              designed in the most basic structure
+            </h2>
+          </div>
+          <!-- Content Block - H2 Section Title End -->
+
+          <!-- Content Block - Works Gallery Start -->
+          <div class="content__block grid-block">
+            <div class="container-fluid px-0 inner__gallery">
+              <div
+                class="row gx-0 my-gallery"
+                itemscope
+                itemtype="http://schema.org/ImageGallery"
+              >
+                <!-- Works Gallery Single Item Start -->
+                <figure
+                  class="col-12 col-md-6 gallery__item grid-item animate-card-2"
+                  itemprop="associatedMedia"
+                  itemscope
+                  itemtype="http://schema.org/ImageObject"
+                >
+                  <a
+                    href="img/avatars/800x800-1.jpg"
+                    data-image="img/avatars/800x800-1.jpg"
+                    class="gallery__link"
+                    itemprop="contentUrl"
+                    data-size="1400x1400"
+                  >
+                    <img
+                      src="img/avatars/800x800-1.jpg"
+                      class="gallery__image"
+                      itemprop="thumbnail"
+                      alt="Phaselis"
+                    />
+                  </a>
+                  <figcaption
+                    class="gallery__descr opposite"
+                    itemprop="caption description"
+                  >
+                    <h5 class="opposite">Basic Components</h5>
+                    <div class="card__tags d-flex flex-wrap">
+                      <span class="rounded-tag">Input</span>
+                      <span class="rounded-tag">Button</span>
+                      <span class="rounded-tag">Select</span>
+                      <span class="rounded-tag">Stepper</span>
+                      <span class="rounded-tag">Date</span>
+                    </div>
+                    <p class="small">
+                      Mauris porttitor lobortis ligula, quis molestie lorem
+                      scelerisque eu. Morbi aliquam enim odio, a mollis ipsum
+                      tristique eu.
+                    </p>
+                  </figcaption>
+                </figure>
+                <!-- Works Gallery Single Item End -->
+
+                <!-- Works Gallery Single Item Start -->
+                <figure
+                  class="col-12 col-md-6 gallery__item grid-item animate-card-2"
+                  itemprop="associatedMedia"
+                  itemscope
+                  itemtype="http://schema.org/ImageObject"
+                >
+                  <a
+                    href="img/avatars/800x800-2.jpg"
+                    data-image="img/avatars/800x800-2.jpg"
+                    class="gallery__link"
+                    itemprop="contentUrl"
+                    data-size="1400x1400"
+                  >
+                    <img
+                      src="img/avatars/800x800-2.jpg"
+                      class="gallery__image"
+                      itemprop="thumbnail"
+                      alt="Phaselis"
+                    />
+                  </a>
+                  <figcaption
+                    class="gallery__descr opposite"
+                    itemprop="caption description"
+                  >
+                    <h5 class="opposite">Light & Dark Mode</h5>
+                    <div class="card__tags d-flex flex-wrap">
+                      <span class="rounded-tag">Light</span>
+                      <span class="rounded-tag">Dark</span>
+                    </div>
+                    <p class="small">
+                      Mauris porttitor lobortis ligula, quis molestie lorem
+                      scelerisque eu. Morbi aliquam enim odio, a mollis ipsum
+                      tristique eu.
+                    </p>
+                  </figcaption>
+                </figure>
+                <!-- Works Gallery Single Item End -->
+
+                <!-- Works Gallery Single Item Start -->
+                <figure
+                  class="col-12 col-md-6 gallery__item grid-item animate-card-2"
+                  itemprop="associatedMedia"
+                  itemscope
+                  itemtype="http://schema.org/ImageObject"
+                >
+                  <a
+                    href="img/avatars/800x800-3.jpg"
+                    data-image="img/avatars/800x800-3.jpg"
+                    class="gallery__link"
+                    itemprop="contentUrl"
+                    data-size="1400x1400"
+                  >
+                    <img
+                      src="img/avatars/800x800-3.jpg"
+                      class="gallery__image"
+                      itemprop="thumbnail"
+                      alt="Phaselis"
+                    />
+                  </a>
+                  <figcaption
+                    class="gallery__descr opposite"
+                    itemprop="caption description"
+                  >
+                    <h5 class="opposite">Welcome to Phaselis</h5>
+                    <div class="card__tags d-flex flex-wrap">
+                      <span class="rounded-tag">Usages</span>
+                      <span class="rounded-tag">Stories</span>
+                      <span class="rounded-tag">Examples</span>
+                    </div>
+                    <p class="small">
+                      Mauris porttitor lobortis ligula, quis molestie lorem
+                      scelerisque eu. Morbi aliquam enim odio, a mollis ipsum
+                      tristique eu.
+                    </p>
+                  </figcaption>
+                </figure>
+                <!-- Works Gallery Single Item End -->
+
+                <!-- Works Gallery Single Item Start -->
+                <figure
+                  class="col-12 col-md-6 gallery__item grid-item animate-card-2"
+                  itemprop="associatedMedia"
+                  itemscope
+                  itemtype="http://schema.org/ImageObject"
+                >
+                  <a
+                    href="img/avatars/800x800-4.jpg"
+                    data-image="img/avatars/800x800-4.jpg"
+                    class="gallery__link"
+                    itemprop="contentUrl"
+                    data-size="1400x1400"
+                  >
+                    <img
+                      src="img/avatars/800x800-4.jpg"
+                      class="gallery__image"
+                      itemprop="thumbnail"
+                      alt="Phaselis"
+                    />
+                  </a>
+                  <figcaption
+                    class="gallery__descr opposite"
+                    itemprop="caption description"
+                  >
+                    <h5 class="opposite">Open Source</h5>
+                    <div class="card__tags d-flex flex-wrap">
+                      <span class="rounded-tag">Open</span>
+                      <span class="rounded-tag">Source</span>
+                    </div>
+                    <p class="small">
+                      Mauris porttitor lobortis ligula, quis molestie lorem
+                      scelerisque eu. Morbi aliquam enim odio, a mollis ipsum
+                      tristique eu.
+                    </p>
+                  </figcaption>
+                </figure>
+                <!-- Works Gallery Single Item End -->
+              </div>
+            </div>
+          </div>
+          <!-- Content Block - Works Gallery End -->
+        </section>
+        <!-- framework Section End -->
+
+        <!-- components Section Start -->
+        <section id="components" class="inner about">
+          <!-- Content Block - H2 Section Title Start -->
+          <div class="content__block section-grid-title">
+            <p class="h2__subtitle animate-in-up">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="13px"
+                height="13px"
+                viewBox="0 0 13 13"
+                fill="currentColor"
+              >
+                <path
+                  fill="currentColor"
+                  d="M5.6,12.6c-0.5-0.8-0.7-2.4-1.7-3.5c-1-1-2.7-1.2-3.5-1.7C-0.1,7-0.1,6,0.4,5.6c0.8-0.5,2.3-0.6,3.5-1.8
+                  C5,2.8,5.1,1.2,5.6,0.4C6-0.1,7-0.1,7.4,0.4c0.5,0.8,0.7,2.4,1.8,3.5c1.2,1.2,2.6,1.2,3.5,1.7c0.6,0.4,0.6,1.4,0,1.7
+                  C11.8,7.9,10.2,8,9.1,9.1c-1,1-1.2,2.7-1.7,3.5C7,13.1,6,13.1,5.6,12.6z"
+                />
+              </svg>
+              <span>Components</span>
+            </p>
+            <h2 class="h2__title animate-in-up">
+              Turning complex elements into simple design
+            </h2>
+          </div>
+          <!-- Content Block - H2 Section Title End -->
+
+          <!-- Content Block - Achievements Start -->
+          <div class="content__block grid-block">
+            <div
+              class="achievements d-flex flex-column flex-md-row align-items-md-stretch"
+            >
+              <!-- achievements single item -->
+              <div
+                class="achievements__item d-flex flex-column grid-item animate-card-3"
+              >
+                <div class="achievements__card">
+                  <p class="achievements__number">40+</p>
+                  <p class="achievements__descr">Components</p>
+                </div>
+              </div>
+              <!-- achievements single item -->
+              <div
+                class="achievements__item d-flex flex-column grid-item animate-card-3"
+              >
+                <div class="achievements__card">
+                  <p class="achievements__number">9+</p>
+                  <p class="achievements__descr">Form Validation</p>
+                </div>
+              </div>
+              <!-- achievements single item -->
+              <div
+                class="achievements__item d-flex flex-column grid-item animate-card-3"
+              >
+                <div class="achievements__card">
+                  <p class="achievements__number">50+</p>
+                  <p class="achievements__descr">NPM Packages</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Content Block - Achievements End -->
+
+          <!-- Content Block - About Me Data Start -->
+          <div class="content__block grid-block block-large">
+            <div class="container-fluid p-0">
+              <div class="row g-0 justify-content-between">
+                <!-- About Me Description Start -->
+                <div class="col-12 col-xl-8 grid-item about-descr">
+                  <p class="about-descr__text animate-in-up">
+                    Phaselis Framework is a modern, open-source UI framework
+                    designed for React Native and Expo. It simplifies the
+                    development process by providing pre-built components,
+                    seamless integration, and responsive design capabilities.
+                    <a href="#docs" class="text-link">Learn more</a>
+                    about how Phaselis can transform your mobile development
+                    experience.
+                  </p>
+                </div>
+                <!-- About Me Description End -->
+
+                <!-- About Me Information Start -->
+                <div class="col-12 col-xl-4 grid-item about-info">
+                  <div class="about-info__item animate-in-up">
+                    <h6>
+                      <small class="top">Init</small>
+                      npx -expo -install -phaselis
+                    </h6>
+                  </div>
+
+                  <div class="about-info__item animate-in-up">
+                    <h6>
+                      <small class="top">Git</small>
+                      <a class="text-link-bold" href="#"
+                        >-git -pull -phaselis-framework</a
+                      >
+                    </h6>
+                  </div>
+                  <div class="about-info__item animate-in-up">
+                    <h6>
+                      <small class="top">Documentation</small>
+                      <a class="text-link-bold" href="#">Get Started</a>
+                    </h6>
+                  </div>
+                </div>
+                <!-- About Me Information End -->
+              </div>
+            </div>
+          </div>
+          <!-- Content Block - About Me Data End -->
+        </section>
+        <!-- components Section End -->
+
+        <!-- Resume Section Start -->
+        <section id="download" class="inner resume">
+          <!-- Content Block - H2 Section Title Start -->
+          <div class="content__block block-large">
+            <p class="h2__subtitle animate-in-up">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="13px"
+                height="13px"
+                viewBox="0 0 13 13"
+                fill="currentColor"
+              >
+                <path
+                  fill="currentColor"
+                  d="M5.6,12.6c-0.5-0.8-0.7-2.4-1.7-3.5c-1-1-2.7-1.2-3.5-1.7C-0.1,7-0.1,6,0.4,5.6c0.8-0.5,2.3-0.6,3.5-1.8
+                  C5,2.8,5.1,1.2,5.6,0.4C6-0.1,7-0.1,7.4,0.4c0.5,0.8,0.7,2.4,1.8,3.5c1.2,1.2,2.6,1.2,3.5,1.7c0.6,0.4,0.6,1.4,0,1.7
+                  C11.8,7.9,10.2,8,9.1,9.1c-1,1-1.2,2.7-1.7,3.5C7,13.1,6,13.1,5.6,12.6z"
+                />
+              </svg>
+              <span>Get Phaselis</span>
+            </p>
+            <h2 class="h2__title animate-in-up">
+              Use the Phaselis the way you are used to using it
+            </h2>
+            <p class="h2__text animate-in-up">
+              You can obtain Phaselis framework from the links below and use it
+              as you wish. Phaselis framework is an open source platform.
+            </p>
+          </div>
+          <!-- Content Block - H2 Section Title End -->
+
+          <!-- Content Block - Tools List Start -->
+          <div class="content__block grid-block block-large">
+            <!-- Tools List Start -->
+            <div class="tools-cards d-flex justify-content-start flex-wrap">
+              <!-- tools simgle item -->
+              <div class="tools-cards__item d-flex grid-item-s animate-card-5">
+                <div class="tools-cards__card">
+                  <a href="#">
+                    <img
+                      class="tools-cards__icon animate-in-up"
+                      src="img/icons/Github-Logo-PNG.png"
+                      alt="download"
+                    />
+                    <h6 class="tools-cards__caption animate-in-up">Github</h6>
+                  </a>
+                </div>
+              </div>
+              <!-- tools simgle item -->
+              <div class="tools-cards__item d-flex grid-item-s animate-card-5">
+                <div class="tools-cards__card">
+                  <a href="#">
+                    <img
+                      class="tools-cards__icon animate-in-up"
+                      src="img/icons/npm-seeklogo.svg"
+                      alt="download"
+                    />
+                    <h6 class="tools-cards__caption animate-in-up">NPM</h6>
+                  </a>
+                </div>
+              </div>
+              <!-- tools simgle item -->
+              <div class="tools-cards__item d-flex grid-item-s animate-card-5">
+                <div class="tools-cards__card">
+                  <img
+                    class="tools-cards__icon animate-in-up"
+                    src="img/icons/icon-figma.svg"
+                    alt="download"
+                  />
+                  <h6 class="tools-cards__caption animate-in-up">Figma</h6>
+                </div>
+              </div>
+              <!-- Tools List End -->
+            </div>
+          </div>
+          <!-- Content Block - Tools List End -->
+        </section>
+        <!-- Resume Section End -->
+
+        <!-- Contact Section Start -->
+        <section id="docs" class="inner contact">
+          <!-- Content Block - Socials Cards Start -->
+          <div class="content__block grid-block">
+            <div class="socials-cards d-flex justify-content-start flex-wrap">
+              <!-- socials item -->
+              <div
+                class="socials-cards__item d-flex grid-item-s animate-card-5"
+              >
+                <div class="socials-cards__card">
+                  <i class="ph-bold ph-trend-up"></i> Get Starded
+                  <a
+                    class="socials-cards__link"
+                    href="https://dribbble.com/"
+                    target="_blank"
+                  ></a>
+                </div>
+              </div>
+              <!-- socials item -->
+              <div
+                class="socials-cards__item d-flex grid-item-s animate-card-5"
+              >
+                <div class="socials-cards__card">
+                  <i class="ph-bold ph-wrench"></i> Installation
+                  <a class="socials-cards__link" href="#" target="_blank"></a>
+                </div>
+              </div>
+              <!-- socials item -->
+              <div
+                class="socials-cards__item d-flex grid-item-s animate-card-5"
+              >
+                <div class="socials-cards__card">
+                  <i class="ph-bold ph-cube"></i> Components
+                  <a class="socials-cards__link" href="#" target="_blank"></a>
+                </div>
+              </div>
+              <!-- socials item -->
+              <div
+                class="socials-cards__item d-flex grid-item-s animate-card-5"
+              >
+                <div class="socials-cards__card">
+                  <i class="ph-bold ph-cube-transparent"></i> Advanced
+                  <a class="socials-cards__link" href="#" target="_blank"></a>
+                </div>
+              </div>
+              <!-- socials item -->
+              <div
+                class="socials-cards__item d-flex grid-item-s animate-card-5"
+              >
+                <div class="socials-cards__card">
+                  <i class="ph-bold ph-table"></i> Forms
+                  <a class="socials-cards__link" href="#" target="_blank"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Content Block - Socials Cards End -->
+
+          <!-- Content Block - Teaser Start -->
+          <div class="content__block">
+            <div class="teaser">
+              <p class="teaser__text animate-in-up">
+                Visit our documentation pages for a quick start.
+              </p>
+            </div>
+          </div>
+          <!-- Content Block - Teaser End -->
+
+          <!-- Content Block - Contact Data Start -->
+          <div class="content__block">
+            <div class="container-fluid p-0 contact-lines animate-in-up">
+              <div class="row g-0 contact-lines__item">
+                <!-- data item -->
+                <div class="col-12 col-md-4 contact-lines__data">
+                  <p class="contact-lines__title animate-in-up">Made by</p>
+                  <p class="contact-lines__text animate-in-up">
+                    <a
+                      class="text-link-bold"
+                      href="https://www.protoyazilim.com"
+                      target="_blank"
+                      >;proto</a
+                    >
+                  </p>
+                </div>
+                <!-- data item -->
+                <div class="col-12 col-md-4 contact-lines__data">
+                  <p class="contact-lines__title animate-in-up">Phone</p>
+                  <p class="contact-lines__text animate-in-up">
+                    <a class="text-link-bold" href="tel:+902162551600"
+                      >+90 216-255-1600</a
+                    >
+                  </p>
+                </div>
+                <!-- data item -->
+                <div class="col-12 col-md-4 contact-lines__data">
+                  <p class="contact-lines__title animate-in-up">Email</p>
+                  <p class="contact-lines__text animate-in-up">
+                    <a class="text-link-bold" href="mailto:info@phaselis.io"
+                      >info@phaselis.io</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Content Block - Contact Data End -->
+        </section>
+        <!-- Contact Section End -->
+      </div>
+    </div>
+    <!-- Page Content End -->
+
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+      <!-- Background of PhotoSwipe.
+      It's a separate element, as animating opacity is faster than rgba(). -->
+      <div class="pswp__bg"></div>
+
+      <!-- Slides wrapper with overflow:hidden. -->
+      <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+          <div class="pswp__top-bar">
+            <!--  Controls are self-explanatory. Order can be changed. -->
+
+            <div class="pswp__counter"></div>
+
+            <button
+              class="pswp__button pswp__button--close link-s"
+              title="Close (Esc)"
+            ></button>
+
+            <button
+              class="pswp__button pswp__button--share link-s"
+              title="Share"
+            ></button>
+
+            <button
+              class="pswp__button pswp__button--fs link-s"
+              title="Toggle fullscreen"
+            ></button>
+
+            <button
+              class="pswp__button pswp__button--zoom link-s"
+              title="Zoom in/out"
+            ></button>
+
+            <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+            <!-- element will get class pswp__preloader-active when preloader is running -->
+            <div class="pswp__preloader">
+              <div class="pswp__preloader__icn">
+                <div class="pswp__preloader__cut">
+                  <div class="pswp__preloader__donut"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"
+          >
+            <div class="pswp__share-tooltip"></div>
+          </div>
+
+          <button
+            class="pswp__button pswp__button--arrow--left link-s"
+            title="Previous (arrow left)"
+          ></button>
+
+          <button
+            class="pswp__button pswp__button--arrow--right link-s"
+            title="Next (arrow right)"
+          ></button>
+
+          <div class="pswp__caption">
+            <div class="pswp__caption__center"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Load Scripts Start -->
+    <script src="js/libs.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/gallery-init.js"></script>
+    <!-- Load Scripts End -->
+  </body>
+</html>

@@ -141,7 +141,7 @@
 }
 
 /* defaults */
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     --base: var(--base--light);
     --base-tint: var(--base-tint--light);
@@ -194,7 +194,7 @@
     --gradient-two: var(--gradient-two--dark);
     --gradient-three: var(--gradient-three--dark);
   }
-}
+} */
 [color-scheme="light"] {
   --base: var(--base--light);
   --base-tint: var(--base-tint--light);
@@ -491,14 +491,22 @@ img {
   -webkit-transform: translate3d(50px, -50px, 0);
   -moz-transform: translate3d(50px, -50px, 0);
   transform: translate3d(50px, -50px, 0);
-  -webkit-transition: opacity 0.8s var(--_animbezier),
+  -webkit-transition:
+    opacity 0.8s var(--_animbezier),
     -webkit-transform 0.8s var(--_animbezier);
-  transition: opacity 0.8s var(--_animbezier),
+  transition:
+    opacity 0.8s var(--_animbezier),
     -webkit-transform 0.8s var(--_animbezier);
-  -moz-transition: transform 0.8s var(--_animbezier),
-    opacity 0.8s var(--_animbezier), -moz-transform 0.8s var(--_animbezier);
-  transition: transform 0.8s var(--_animbezier), opacity 0.8s var(--_animbezier);
-  transition: transform 0.8s var(--_animbezier), opacity 0.8s var(--_animbezier),
+  -moz-transition:
+    transform 0.8s var(--_animbezier),
+    opacity 0.8s var(--_animbezier),
+    -moz-transform 0.8s var(--_animbezier);
+  transition:
+    transform 0.8s var(--_animbezier),
+    opacity 0.8s var(--_animbezier);
+  transition:
+    transform 0.8s var(--_animbezier),
+    opacity 0.8s var(--_animbezier),
     -webkit-transform 0.8s var(--_animbezier),
     -moz-transform 0.8s var(--_animbezier);
 }
@@ -555,14 +563,22 @@ img {
   -webkit-transform: translate3d(-50px, 50px, 0);
   -moz-transform: translate3d(-50px, 50px, 0);
   transform: translate3d(-50px, 50px, 0);
-  -webkit-transition: opacity 0.8s var(--_animbezier),
+  -webkit-transition:
+    opacity 0.8s var(--_animbezier),
     -webkit-transform 0.8s var(--_animbezier);
-  transition: opacity 0.8s var(--_animbezier),
+  transition:
+    opacity 0.8s var(--_animbezier),
     -webkit-transform 0.8s var(--_animbezier);
-  -moz-transition: transform 0.8s var(--_animbezier),
-    opacity 0.8s var(--_animbezier), -moz-transform 0.8s var(--_animbezier);
-  transition: transform 0.8s var(--_animbezier), opacity 0.8s var(--_animbezier);
-  transition: transform 0.8s var(--_animbezier), opacity 0.8s var(--_animbezier),
+  -moz-transition:
+    transform 0.8s var(--_animbezier),
+    opacity 0.8s var(--_animbezier),
+    -moz-transform 0.8s var(--_animbezier);
+  transition:
+    transform 0.8s var(--_animbezier),
+    opacity 0.8s var(--_animbezier);
+  transition:
+    transform 0.8s var(--_animbezier),
+    opacity 0.8s var(--_animbezier),
     -webkit-transform 0.8s var(--_animbezier),
     -moz-transform 0.8s var(--_animbezier);
 }
@@ -1060,72 +1076,120 @@ p.additional-text a {
   color: inherit;
   color: var(--t-medium);
   text-decoration: none;
-  background: -webkit-gradient(
+  background:
+    -webkit-gradient(
       linear,
       left top,
       right top,
       from(var(--stroke-controls)),
       to(var(--stroke-controls))
     ),
-    -webkit-gradient(linear, left top, right top, from(var(--accent)), to(var(--secondary)));
-  background: -moz-linear-gradient(
-      left,
-      var(--stroke-controls),
-      var(--stroke-controls)
-    ),
+    -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        from(var(--accent)),
+        to(var(--secondary))
+      );
+  background:
+    -moz-linear-gradient(left, var(--stroke-controls), var(--stroke-controls)),
     -moz-linear-gradient(left, var(--accent), var(--secondary));
-  background: linear-gradient(
-      to right,
-      var(--stroke-controls),
-      var(--stroke-controls)
-    ),
+  background:
+    linear-gradient(to right, var(--stroke-controls), var(--stroke-controls)),
     linear-gradient(to right, var(--accent), var(--secondary));
-  -moz-background-size: 100% 1px, 0 1px;
-  background-size: 100% 1px, 0 1px;
-  background-position: 100% 100%, 0 100%;
+  -moz-background-size:
+    100% 1px,
+    0 1px;
+  background-size:
+    100% 1px,
+    0 1px;
+  background-position:
+    100% 100%,
+    0 100%;
   background-repeat: no-repeat;
-  -webkit-transition: background-size 400ms, color 300ms;
-  -moz-transition: background-size 400ms, color 300ms,
+  -webkit-transition:
+    background-size 400ms,
+    color 300ms;
+  -moz-transition:
+    background-size 400ms,
+    color 300ms,
     -moz-background-size 400ms;
-  transition: background-size 400ms, color 300ms;
-  transition: background-size 400ms, color 300ms, -moz-background-size 400ms;
+  transition:
+    background-size 400ms,
+    color 300ms;
+  transition:
+    background-size 400ms,
+    color 300ms,
+    -moz-background-size 400ms;
 }
 .no-touch .text-link:hover {
   color: var(--t-bright);
-  -moz-background-size: 0 1px, 100% 1px;
-  background-size: 0 1px, 100% 1px;
+  -moz-background-size:
+    0 1px,
+    100% 1px;
+  background-size:
+    0 1px,
+    100% 1px;
 }
 
 .text-link-bold {
   color: inherit;
   color: var(--t-bright);
   text-decoration: none;
-  background: -webkit-gradient(
+  background:
+    -webkit-gradient(
       linear,
       left top,
       right top,
       from(rgba(0, 0, 0, 0)),
       to(rgba(0, 0, 0, 0))
     ),
-    -webkit-gradient(linear, left top, right top, from(var(--accent)), to(var(--secondary)));
-  background: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        from(var(--accent)),
+        to(var(--secondary))
+      );
+  background:
+    -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
     -moz-linear-gradient(left, var(--accent), var(--secondary));
-  background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+  background:
+    linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
     linear-gradient(to right, var(--accent), var(--secondary));
-  -moz-background-size: 100% 1px, 0 1px;
-  background-size: 100% 1px, 0 1px;
-  background-position: 100% 100%, 0 100%;
+  -moz-background-size:
+    100% 1px,
+    0 1px;
+  background-size:
+    100% 1px,
+    0 1px;
+  background-position:
+    100% 100%,
+    0 100%;
   background-repeat: no-repeat;
-  -webkit-transition: background-size 400ms, color 300ms;
-  -moz-transition: background-size 400ms, color 300ms,
+  -webkit-transition:
+    background-size 400ms,
+    color 300ms;
+  -moz-transition:
+    background-size 400ms,
+    color 300ms,
     -moz-background-size 400ms;
-  transition: background-size 400ms, color 300ms;
-  transition: background-size 400ms, color 300ms, -moz-background-size 400ms;
+  transition:
+    background-size 400ms,
+    color 300ms;
+  transition:
+    background-size 400ms,
+    color 300ms,
+    -moz-background-size 400ms;
 }
 .no-touch .text-link-bold:hover {
   color: var(--t-bright);
-  -moz-background-size: 0 1px, 100% 1px;
-  background-size: 0 1px, 100% 1px;
+  -moz-background-size:
+    0 1px,
+    100% 1px;
+  background-size:
+    0 1px,
+    100% 1px;
 }
 
 /* ------------------------------------------------*/
@@ -1248,10 +1312,12 @@ p.additional-text a {
   will-change: transform;
   -webkit-transition: -webkit-transform 0.3s var(--_animbezier);
   transition: -webkit-transform 0.3s var(--_animbezier);
-  -moz-transition: transform 0.3s var(--_animbezier),
+  -moz-transition:
+    transform 0.3s var(--_animbezier),
     -moz-transform 0.3s var(--_animbezier);
   transition: transform 0.3s var(--_animbezier);
-  transition: transform 0.3s var(--_animbezier),
+  transition:
+    transform 0.3s var(--_animbezier),
     -webkit-transform 0.3s var(--_animbezier),
     -moz-transform 0.3s var(--_animbezier);
 }
@@ -1298,22 +1364,30 @@ p.additional-text a {
 }
 .btn-hover-accent i,
 .btn-hover-accent span {
-  text-shadow: 0 0 var(--t-opp-bright), 0 5rem var(--t-opp-bright);
+  text-shadow:
+    0 0 var(--t-opp-bright),
+    0 5rem var(--t-opp-bright);
 }
 @media only screen and (min-width: 1200px) {
   .no-touch .btn-hover-accent:hover i,
   .no-touch .btn-hover-accent:hover span {
-    text-shadow: 0 -5rem var(--t-opp-bright), 0 0 var(--t-opp-bright);
+    text-shadow:
+      0 -5rem var(--t-opp-bright),
+      0 0 var(--t-opp-bright);
   }
 }
 @media only screen and (min-width: 1600px) {
   .btn-hover-accent i,
   .btn-hover-accent span {
-    text-shadow: 0 0 var(--t-opp-bright), 0 6rem var(--t-opp-bright);
+    text-shadow:
+      0 0 var(--t-opp-bright),
+      0 6rem var(--t-opp-bright);
   }
   .no-touch .btn-hover-accent:hover i,
   .no-touch .btn-hover-accent:hover span {
-    text-shadow: 0 -6rem var(--t-opp-bright), 0 0 var(--t-opp-bright);
+    text-shadow:
+      0 -6rem var(--t-opp-bright),
+      0 0 var(--t-opp-bright);
   }
 }
 
@@ -1355,21 +1429,29 @@ p.additional-text a {
   .btn-hover-accent-mobile i,
   .btn-hover-accent-mobile span {
     color: rgba(0, 0, 0, 0);
-    text-shadow: 0 0 var(--t-bright), 0 5rem var(--t-bright);
+    text-shadow:
+      0 0 var(--t-bright),
+      0 5rem var(--t-bright);
   }
   .no-touch .btn-hover-accent-mobile:hover i,
   .no-touch .btn-hover-accent-mobile:hover span {
-    text-shadow: 0 -5rem var(--t-bright), 0 0 var(--t-bright);
+    text-shadow:
+      0 -5rem var(--t-bright),
+      0 0 var(--t-bright);
   }
 }
 @media only screen and (min-width: 1600px) {
   .btn-hover-accent-mobile i,
   .btn-hover-accent-mobile span {
-    text-shadow: 0 0 var(--t-bright), 0 6rem var(--t-bright);
+    text-shadow:
+      0 0 var(--t-bright),
+      0 6rem var(--t-bright);
   }
   .no-touch .btn-hover-accent-mobile:hover i,
   .no-touch .btn-hover-accent-mobile:hover span {
-    text-shadow: 0 -6rem var(--t-bright), 0 0 var(--t-bright);
+    text-shadow:
+      0 -6rem var(--t-bright),
+      0 0 var(--t-bright);
   }
 }
 
@@ -1397,22 +1479,30 @@ p.additional-text a {
 }
 .btn-hover-outline i,
 .btn-hover-outline span {
-  text-shadow: 0 0 var(--t-bright), 0 5rem var(--t-bright);
+  text-shadow:
+    0 0 var(--t-bright),
+    0 5rem var(--t-bright);
 }
 @media only screen and (min-width: 1200px) {
   .no-touch .btn-hover-outline:hover i,
   .no-touch .btn-hover-outline:hover span {
-    text-shadow: 0 -5rem var(--t-bright), 0 0 var(--t-bright);
+    text-shadow:
+      0 -5rem var(--t-bright),
+      0 0 var(--t-bright);
   }
 }
 @media only screen and (min-width: 1600px) {
   .btn-hover-outline i,
   .btn-hover-outline span {
-    text-shadow: 0 0 var(--t-bright), 0 6rem var(--t-bright);
+    text-shadow:
+      0 0 var(--t-bright),
+      0 6rem var(--t-bright);
   }
   .no-touch .btn-hover-outline:hover i,
   .no-touch .btn-hover-outline:hover span {
-    text-shadow: 0 -6rem var(--t-bright), 0 0 var(--t-bright);
+    text-shadow:
+      0 -6rem var(--t-bright),
+      0 0 var(--t-bright);
   }
 }
 
@@ -1444,21 +1534,29 @@ p.additional-text a {
   .btn-hover-outline-mobile i,
   .btn-hover-outline-mobile span {
     color: rgba(0, 0, 0, 0);
-    text-shadow: 0 0 var(--t-disabled), 0 5rem var(--t-disabled);
+    text-shadow:
+      0 0 var(--t-disabled),
+      0 5rem var(--t-disabled);
   }
   .no-touch .btn-hover-outline-mobile:hover i,
   .no-touch .btn-hover-outline-mobile:hover span {
-    text-shadow: 0 -5rem var(--t-bright), 0 0 var(--t-bright);
+    text-shadow:
+      0 -5rem var(--t-bright),
+      0 0 var(--t-bright);
   }
 }
 @media only screen and (min-width: 1600px) {
   .btn-hover-outline-mobile i,
   .btn-hover-outline-mobile span {
-    text-shadow: 0 0 var(--t-disabled), 0 6rem var(--t-disabled);
+    text-shadow:
+      0 0 var(--t-disabled),
+      0 6rem var(--t-disabled);
   }
   .no-touch .btn-hover-outline-mobile:hover i,
   .no-touch .btn-hover-outline-mobile:hover span {
-    text-shadow: 0 -6rem var(--t-bright), 0 0 var(--t-bright);
+    text-shadow:
+      0 -6rem var(--t-bright),
+      0 0 var(--t-bright);
   }
 }
 
@@ -1480,22 +1578,30 @@ p.additional-text a {
 }
 .btn-hover-transparent i,
 .btn-hover-transparent span {
-  text-shadow: 0 0 var(--t-disabled), 0 5rem var(--t-disabled);
+  text-shadow:
+    0 0 var(--t-disabled),
+    0 5rem var(--t-disabled);
 }
 @media only screen and (min-width: 1200px) {
   .no-touch .btn-hover-transparent:hover i,
   .no-touch .btn-hover-transparent:hover span {
-    text-shadow: 0 -5rem var(--t-disabled), 0 0 var(--t-disabled);
+    text-shadow:
+      0 -5rem var(--t-disabled),
+      0 0 var(--t-disabled);
   }
 }
 @media only screen and (min-width: 1600px) {
   .btn-hover-transparent i,
   .btn-hover-transparent span {
-    text-shadow: 0 0 var(--t-disabled), 0 6rem var(--t-disabled);
+    text-shadow:
+      0 0 var(--t-disabled),
+      0 6rem var(--t-disabled);
   }
   .no-touch .btn-hover-transparent:hover i,
   .no-touch .btn-hover-transparent:hover span {
-    text-shadow: 0 -6rem var(--t-bright), 0 0 var(--t-bright);
+    text-shadow:
+      0 -6rem var(--t-bright),
+      0 0 var(--t-bright);
   }
 }
 
@@ -2911,10 +3017,12 @@ form textarea:required:valid {
   will-change: transform;
   -webkit-transition: -webkit-transform 0.3s var(--_animbezier);
   transition: -webkit-transform 0.3s var(--_animbezier);
-  -moz-transition: transform 0.3s var(--_animbezier),
+  -moz-transition:
+    transform 0.3s var(--_animbezier),
     -moz-transform 0.3s var(--_animbezier);
   transition: transform 0.3s var(--_animbezier);
-  transition: transform 0.3s var(--_animbezier),
+  transition:
+    transform 0.3s var(--_animbezier),
     -webkit-transform 0.3s var(--_animbezier),
     -moz-transform 0.3s var(--_animbezier);
 }
@@ -2950,7 +3058,9 @@ form textarea:required:valid {
   .header__trigger span {
     line-height: 5rem;
     color: rgba(0, 0, 0, 0);
-    text-shadow: 0 0 var(--t-opp-bright), 0 5rem var(--t-opp-bright);
+    text-shadow:
+      0 0 var(--t-opp-bright),
+      0 5rem var(--t-opp-bright);
   }
   .header__trigger span {
     display: block;
@@ -2967,7 +3077,9 @@ form textarea:required:valid {
   }
   .no-touch .header__trigger:hover i,
   .no-touch .header__trigger:hover span {
-    text-shadow: 0 -5rem var(--t-opp-bright), 0 0 var(--t-opp-bright);
+    text-shadow:
+      0 -5rem var(--t-opp-bright),
+      0 0 var(--t-opp-bright);
   }
 }
 @media only screen and (min-width: 1600px) {
@@ -2980,14 +3092,18 @@ form textarea:required:valid {
   .header__trigger i,
   .header__trigger span {
     line-height: 6rem;
-    text-shadow: 0 0 var(--t-opp-bright), 0 6rem var(--t-opp-bright);
+    text-shadow:
+      0 0 var(--t-opp-bright),
+      0 6rem var(--t-opp-bright);
   }
   .header__trigger i {
     font-size: 2.2rem;
   }
   .no-touch .header__trigger:hover i,
   .no-touch .header__trigger:hover span {
-    text-shadow: 0 -6rem var(--t-opp-bright), 0 0 var(--t-opp-bright);
+    text-shadow:
+      0 -6rem var(--t-opp-bright),
+      0 0 var(--t-opp-bright);
   }
 }
 
@@ -3513,18 +3629,34 @@ form textarea:required:valid {
   -webkit-transition: background-position 0.5s;
   -moz-transition: background-position 0.5s;
   transition: background-position 0.5s;
-  -webkit-transition: opacity 0.5s ease-in-out, width 0.3s var(--_animbezier),
-    height 0.3s var(--_animbezier), -webkit-transform 0.7s ease-in-out;
-  transition: opacity 0.5s ease-in-out, width 0.3s var(--_animbezier),
-    height 0.3s var(--_animbezier), -webkit-transform 0.7s ease-in-out;
-  -moz-transition: transform 0.7s ease-in-out, opacity 0.5s ease-in-out,
-    width 0.3s var(--_animbezier), height 0.3s var(--_animbezier),
+  -webkit-transition:
+    opacity 0.5s ease-in-out,
+    width 0.3s var(--_animbezier),
+    height 0.3s var(--_animbezier),
+    -webkit-transform 0.7s ease-in-out;
+  transition:
+    opacity 0.5s ease-in-out,
+    width 0.3s var(--_animbezier),
+    height 0.3s var(--_animbezier),
+    -webkit-transform 0.7s ease-in-out;
+  -moz-transition:
+    transform 0.7s ease-in-out,
+    opacity 0.5s ease-in-out,
+    width 0.3s var(--_animbezier),
+    height 0.3s var(--_animbezier),
     -moz-transform 0.7s ease-in-out;
-  transition: transform 0.7s ease-in-out, opacity 0.5s ease-in-out,
-    width 0.3s var(--_animbezier), height 0.3s var(--_animbezier);
-  transition: transform 0.7s ease-in-out, opacity 0.5s ease-in-out,
-    width 0.3s var(--_animbezier), height 0.3s var(--_animbezier),
-    -webkit-transform 0.7s ease-in-out, -moz-transform 0.7s ease-in-out;
+  transition:
+    transform 0.7s ease-in-out,
+    opacity 0.5s ease-in-out,
+    width 0.3s var(--_animbezier),
+    height 0.3s var(--_animbezier);
+  transition:
+    transform 0.7s ease-in-out,
+    opacity 0.5s ease-in-out,
+    width 0.3s var(--_animbezier),
+    height 0.3s var(--_animbezier),
+    -webkit-transform 0.7s ease-in-out,
+    -moz-transform 0.7s ease-in-out;
 }
 @media only screen and (min-width: 1200px) {
   .gallery__link {
@@ -3533,10 +3665,12 @@ form textarea:required:valid {
     transform: scale3d(1, 1, 1);
     -webkit-transition: -webkit-transform 0.3s var(--_animbezier);
     transition: -webkit-transform 0.3s var(--_animbezier);
-    -moz-transition: transform 0.3s var(--_animbezier),
+    -moz-transition:
+      transform 0.3s var(--_animbezier),
       -moz-transform 0.3s var(--_animbezier);
     transition: transform 0.3s var(--_animbezier);
-    transition: transform 0.3s var(--_animbezier),
+    transition:
+      transform 0.3s var(--_animbezier),
       -webkit-transform 0.3s var(--_animbezier),
       -moz-transform 0.3s var(--_animbezier);
   }
@@ -4309,16 +4443,28 @@ form textarea:required:valid {
   -moz-transform: scale3d(1, 1, 1);
   transform: scale3d(1, 1, 1);
   will-change: transform;
-  -webkit-transition: border 0.3s ease-in-out, background-color 0.3s ease-in-out,
+  -webkit-transition:
+    border 0.3s ease-in-out,
+    background-color 0.3s ease-in-out,
     -webkit-transform 0.3s var(--_animbezier);
-  transition: border 0.3s ease-in-out, background-color 0.3s ease-in-out,
+  transition:
+    border 0.3s ease-in-out,
+    background-color 0.3s ease-in-out,
     -webkit-transform 0.3s var(--_animbezier);
-  -moz-transition: transform 0.3s var(--_animbezier), border 0.3s ease-in-out,
-    background-color 0.3s ease-in-out, -moz-transform 0.3s var(--_animbezier);
-  transition: transform 0.3s var(--_animbezier), border 0.3s ease-in-out,
+  -moz-transition:
+    transform 0.3s var(--_animbezier),
+    border 0.3s ease-in-out,
+    background-color 0.3s ease-in-out,
+    -moz-transform 0.3s var(--_animbezier);
+  transition:
+    transform 0.3s var(--_animbezier),
+    border 0.3s ease-in-out,
     background-color 0.3s ease-in-out;
-  transition: transform 0.3s var(--_animbezier), border 0.3s ease-in-out,
-    background-color 0.3s ease-in-out, -webkit-transform 0.3s var(--_animbezier),
+  transition:
+    transform 0.3s var(--_animbezier),
+    border 0.3s ease-in-out,
+    background-color 0.3s ease-in-out,
+    -webkit-transform 0.3s var(--_animbezier),
     -moz-transform 0.3s var(--_animbezier);
 }
 .socials-cards__card i {
@@ -4377,10 +4523,12 @@ form textarea:required:valid {
   will-change: transform;
   -webkit-transition: -webkit-transform 0.3s var(--_animbezier);
   transition: -webkit-transform 0.3s var(--_animbezier);
-  -moz-transition: transform 0.3s var(--_animbezier),
+  -moz-transition:
+    transform 0.3s var(--_animbezier),
     -moz-transform 0.3s var(--_animbezier);
   transition: transform 0.3s var(--_animbezier);
-  transition: transform 0.3s var(--_animbezier),
+  transition:
+    transform 0.3s var(--_animbezier),
     -webkit-transform 0.3s var(--_animbezier),
     -moz-transform 0.3s var(--_animbezier);
 }
@@ -4398,7 +4546,9 @@ form textarea:required:valid {
 @media only screen and (min-width: 1200px) {
   .socials-square__link i {
     color: rgba(0, 0, 0, 0);
-    text-shadow: 0 0 var(--t-bright), 0 4.4rem var(--t-bright);
+    text-shadow:
+      0 0 var(--t-bright),
+      0 4.4rem var(--t-bright);
   }
   .no-touch .socials-square__link:hover::before {
     -webkit-transform: scale3d(1.08, 1.08, 1.08);
@@ -4406,7 +4556,9 @@ form textarea:required:valid {
     transform: scale3d(1.08, 1.08, 1.08);
   }
   .no-touch .socials-square__link:hover i {
-    text-shadow: 0 -4.4rem var(--t-bright), 0 0 var(--t-bright);
+    text-shadow:
+      0 -4.4rem var(--t-bright),
+      0 0 var(--t-bright);
   }
 }
 @media only screen and (min-width: 1400px) {
@@ -4421,10 +4573,14 @@ form textarea:required:valid {
   .socials-square__link i {
     line-height: 5rem;
     font-size: 1.8rem;
-    text-shadow: 0 0 var(--t-bright), 0 5rem var(--t-bright);
+    text-shadow:
+      0 0 var(--t-bright),
+      0 5rem var(--t-bright);
   }
   .no-touch .socials-square__link:hover i {
-    text-shadow: 0 -5rem var(--t-bright), 0 0 var(--t-bright);
+    text-shadow:
+      0 -5rem var(--t-bright),
+      0 0 var(--t-bright);
   }
 }
 

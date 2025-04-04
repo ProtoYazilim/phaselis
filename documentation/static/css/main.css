@@ -3947,12 +3947,12 @@ form textarea:required:valid {
 }
 @media only screen and (min-width: 1200px) {
   .achievements__number {
-    font-size: 7rem;
+    font-size: 3rem;
   }
 }
 @media only screen and (min-width: 1600px) {
   .achievements__number {
-    font-size: 8rem;
+    font-size: 3rem;
   }
 }
 

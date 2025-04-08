@@ -14,28 +14,13 @@ import { Tabs } from "expo-router";
 import { getEnvironmentType } from "../src";
 import { appLightTheme, appDarkTheme } from "../src/extendedTheme";
 import { KeyboardProvider } from "react-native-keyboard-controller";
-import * as Sentry from "@sentry/react-native";
 import { Appearance } from "react-native";
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
 
 SplashScreen.preventAutoHideAsync();
 
 SplashScreen.setOptions({
   duration: 1000,
   fade: true,
-});
-
-const navigationIntegration = Sentry.reactNavigationIntegration({
-  enableTimeToInitialDisplay: true,
-});
-
-Sentry.init({
-  dsn: "https://d4ae84ce50a536e6d21dbfc0c51b5311@o4508874801807360.ingest.de.sentry.io/4508874810327120",
-  debug: true,
-  tracesSampleRate: 1.0,
-  integrations: [navigationIntegration],
-  enableNativeFramesTracking: true,
 });
 
 export const unstable_settings = {

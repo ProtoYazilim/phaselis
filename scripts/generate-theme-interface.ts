@@ -3,11 +3,10 @@ import * as path from "path";
 import * as chokidar from "chokidar";
 
 const themeFolderPath = path.join(__dirname, "../src/theme");
-const outputFilePath = path.join(__dirname, "../global.d.ts");
+const outputFilePath = path.join(__dirname, "../src/global.d.ts");
 
 const collectComponents = (
-  // themeType: "light" | "dark",
-  themeType: "light",
+  themeType: "light" | "dark",
 ): { [key: string]: any } => {
   const themeTypeFolderPath = path.join(themeFolderPath, themeType);
   const components: { [key: string]: any } = {};
@@ -36,6 +35,64 @@ const collectComponents = (
   });
 
   return components;
+};
+
+// Helper function for deep merging objects
+const deepMerge = (target: any, source: any) => {
+  const result = { ...target };
+
+  for (const key in source) {
+    if (source.hasOwnProperty(key)) {
+      if (
+        source[key] &&
+        typeof source[key] === "object" &&
+        target[key] &&
+        typeof target[key] === "object"
+      ) {
+        // Recursively merge objects
+        result[key] = deepMerge(target[key], source[key]);
+      } else {
+        // For primitives or when target doesn't have the property, just use source value
+        result[key] = source[key];
+      }
+    }
+  }
+
+  return result;
+};
+
+// Helper function to merge theme data from light and dark themes
+const mergeThemeComponents = (
+  lightComponents: { [key: string]: any },
+  darkComponents: { [key: string]: any },
+): { [key: string]: any } => {
+  const mergedComponents: { [key: string]: any } = {};
+
+  // Get all unique component keys from both themes
+  const allComponentKeys = [
+    ...new Set([
+      ...Object.keys(lightComponents),
+      ...Object.keys(darkComponents),
+    ]),
+  ];
+
+  allComponentKeys.forEach((key) => {
+    if (lightComponents[key] && darkComponents[key]) {
+      // If component exists in both themes, deep merge them
+      mergedComponents[key] = deepMerge(
+        lightComponents[key],
+        darkComponents[key],
+      );
+    } else if (lightComponents[key]) {
+      // If only in light theme
+      mergedComponents[key] = lightComponents[key];
+    } else {
+      // If only in dark theme
+      mergedComponents[key] = darkComponents[key];
+    }
+  });
+
+  return mergedComponents;
 };
 
 const analyzeVariants = (
@@ -118,12 +175,15 @@ const generateInterfacesContent = (components: { [key: string]: any }) => {
 const generateInterfaceFile = async () => {
   try {
     const lightComponents = collectComponents("light");
-    // const darkComponents = collectComponents("dark");
+    const darkComponents = collectComponents("dark");
 
-    const content = generateInterfacesContent({
-      ...lightComponents,
-      // ...darkComponents,
-    });
+    // Use deep merge to ensure all variations and variants are preserved
+    const mergedComponents = mergeThemeComponents(
+      lightComponents,
+      darkComponents,
+    );
+
+    const content = generateInterfacesContent(mergedComponents);
 
     fs.writeFileSync(outputFilePath, content, { encoding: "utf8" });
     console.log(`Created ${outputFilePath}`);

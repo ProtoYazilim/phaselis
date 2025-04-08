@@ -43,7 +43,10 @@ export const useColorScheme = () => {
     const subscription = Appearance.addChangeListener(({ colorScheme }) => {
       setIsDarkMode(colorScheme === "dark");
     });
-    return () => subscription.remove();
+
+    return () => {
+      subscription.remove();
+    };
   }, []);
 
   return isDarkMode;

@@ -1,6 +1,6 @@
 {
   "name": "phaselis",
-  "version": "0.0.11-theta",
+  "version": "0.0.12",
   "description": "A powerful, customizable, and beautiful UI component library for React Native applications. Phaselis provides a comprehensive set of pre-built components that help you build stunning mobile applications faster.",
   "source": "./src/index.ts",
   "main": "./dist/commonjs/index.js",
@@ -10,6 +10,7 @@
     "type": "git",
     "url": "https://github.com/ProtoYazilim/phaselis.git"
   },
+  "private": true,
   "exports": {
     ".": {
       "import": {
@@ -29,10 +30,11 @@
     "clean": "del-cli dist",
     "prepare": "bob build",
     "release": "release-it",
-    "generate-theme-interface": "ts-node ./scripts/generate-theme-interface.ts"
+    "generate-theme-interface": "ts-node --project tsconfig.node.json ./scripts/generate-theme-interface.ts"
   },
   "files": [
     "src",
+    "tsconfig.node.json",
     "global.d.ts",
     "dist",
     "android",
@@ -57,7 +59,6 @@
     "ios",
     "android"
   ],
-  "private": true,
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ProtoYazilim/phaselis/issues"

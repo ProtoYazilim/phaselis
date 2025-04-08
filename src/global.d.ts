@@ -33,8 +33,8 @@ interface ButtonExtraProps {
 interface CheckboxExtraProps {
   variation?: "default" | "primary" | "secondary" | "tertiary";
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
-  pressed?: boolean;
   disabled?: boolean;
+  pressed?: boolean;
 }
 
 interface ColExtraProps {
@@ -46,14 +46,22 @@ interface DatepickerExtraProps {
   focus?: boolean;
   error?: boolean;
   disabled?: boolean;
-  full?: boolean;
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+  full?: boolean;
   textarea?: boolean;
 }
 
 interface ImageExtraProps {
   variation?: "default";
   background?: boolean;
+}
+
+interface InputGroupExtraProps {
+  variation?: "default";
+  error?: boolean;
+  disabled?: boolean;
+  size?: "sm" | "md" | "lg";
+  required?: boolean;
 }
 
 interface LabelExtraProps {
@@ -103,7 +111,6 @@ interface SliderExtraProps {
   focus?: boolean;
   error?: boolean;
   disabled?: boolean;
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
 }
 
 interface StepperExtraProps {
@@ -123,6 +130,7 @@ interface SwitchExtraProps {
 interface TabViewExtraProps {
   variation?: "default";
   active?: boolean;
+  scrollable?: boolean;
 }
 
 interface TextfieldExtraProps {

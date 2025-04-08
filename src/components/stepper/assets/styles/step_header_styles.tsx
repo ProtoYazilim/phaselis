@@ -103,7 +103,7 @@ const tab_header_styles = createStyleSheet({
     height: 1,
     flex: 1,
     zIndex: -1,
-    backgroundColor: "grey",
+    marginLeft: -1,
     // VARIANTS
     variants: {
       isCompleted: {
@@ -121,7 +121,7 @@ const tab_header_styles = createStyleSheet({
     height: 1,
     flex: 1,
     zIndex: -1,
-
+    marginRight: -1,
     variants: {
       isCompleted: {
         true: {},

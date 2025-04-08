@@ -14,6 +14,7 @@ export type PhaselisColors = typeof LightColors;
 export type PhaselisSpacings = typeof Spacings;
 export type PhaselisShadows = typeof Shadows;
 
+export type ThemeComponentSize = "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
 export interface PhaselisComponentTheme {
   [component: string]: ComponentTheme;
 }

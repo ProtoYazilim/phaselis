@@ -15,8 +15,9 @@ const BottomSheet: FC<BottomSheetProps> = ({
   maxHeightModal = "40%",
   backgroundColor,
 }) => {
-  const HEIGHT = useRef(500);
-  const translateY = useRef(new Animated.Value(0)).current;
+  // Use a larger value to ensure the sheet slides from off-screen
+  const INITIAL_OFFSET = 1000;
+  const translateY = useRef(new Animated.Value(INITIAL_OFFSET)).current;
   const [isModalVisible, setIsModalVisible] = useState(false);
   const Colors = useColors<PhaselisColors>();
 
@@ -32,7 +33,7 @@ const BottomSheet: FC<BottomSheetProps> = ({
     } else {
       // Animate to closed position and then close the modal
       Animated.timing(translateY, {
-        toValue: HEIGHT.current,
+        toValue: INITIAL_OFFSET,
         duration,
         useNativeDriver: true,
       }).start(() => {
@@ -48,12 +49,11 @@ const BottomSheet: FC<BottomSheetProps> = ({
       <TouchableOpacity style={{ flex: 1 }} onPress={onClose} />
       <Animated.View
         style={[
-          [
-            sheetStyles.sheet,
-            { backgroundColor: backgroundColor || Colors.Primary[50] },
-          ],
+          sheetStyles.sheet,
+          { backgroundColor: backgroundColor || Colors.Primary[50] },
           {
             transform: [{ translateY }],
+            height: fullScreenModal ? "100%" : undefined,
             maxHeight: fullScreenModal ? "100%" : maxHeightModal,
           },
         ]}

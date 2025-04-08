@@ -1,7 +1,7 @@
-import type { ComponentSize } from "../types";
+import type { ThemeComponentSize } from "./types";
 
 type ShadowsType = {
-  [key in Uppercase<ComponentSize>]: any;
+  [key in Uppercase<ThemeComponentSize>]: any;
 };
 
 const Shadows: ShadowsType = {

@@ -2674,7 +2674,7 @@ form textarea:required:valid {
 /* Sections Inner Start */
 /* ------------------------------------------------*/
 .inner {
-  padding: 6rem 0;
+  /* padding: 6rem 0; */
 }
 .inner.inner-grid-top {
   padding: 3rem 0 6rem 0;
@@ -2821,7 +2821,8 @@ form textarea:required:valid {
   margin-bottom: 1.4rem;
 }
 .content__block.block-large {
-  margin-bottom: 11rem;
+  /* margin-bottom: 11rem; */
+  margin-bottom: 5rem;
 }
 .content__block.block-grid-large {
   margin-bottom: 10rem;
@@ -3933,7 +3934,7 @@ form textarea:required:valid {
 }
 
 .achievements__number {
-  font: normal 700 6rem/1 var(--_font-accent);
+  font: normal 700 3rem/1 var(--_font-accent);
   letter-spacing: -0.2rem;
   font-variant-numeric: lining-nums;
   background: var(--t-accent);

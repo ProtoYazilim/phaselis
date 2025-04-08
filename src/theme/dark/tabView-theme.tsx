@@ -8,10 +8,7 @@ export default {
       header: {
         container: {},
         element: {
-          variants: {
-            true: {},
-            false: {},
-          },
+          variants: {},
         },
         leftSlot: {
           color: DarkColors.Primary[950],

@@ -35,10 +35,10 @@ export default {
       label: {
         paddingHorizontal: Spacings.SM,
         color: DarkColors.Primary[950],
+        fontSize: 16,
+        lineHeight: 16,
+        fontWeight: "400",
         variants: {
-          fontSize: 16,
-          lineHeight: 16,
-          fontWeight: "400",
           disabled: {
             true: {},
           },

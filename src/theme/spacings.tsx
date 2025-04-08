@@ -1,7 +1,7 @@
-import type { ComponentSize } from "../types";
+import type { ThemeComponentSize } from "./types";
 
 type SpacingsType = {
-  [key in Uppercase<ComponentSize>]: number;
+  [key in Uppercase<ThemeComponentSize>]: number;
 };
 
 const Spacings: SpacingsType = {

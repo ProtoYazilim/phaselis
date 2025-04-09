@@ -385,6 +385,10 @@ body {
   text-rendering: optimizeLegibility;
   background-color: var(--base);
   color: var(--t-medium);
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 section {
@@ -3376,7 +3380,7 @@ form textarea:required:valid {
   transition: all 0.3s ease-in-out;
 }
 .menu__link.active {
-  color: var(--t-opp-bright);
+  /* color: var(--t-opp-bright); */
   background-color: var(--base-opp);
 }
 @media only screen and (min-width: 992px) {

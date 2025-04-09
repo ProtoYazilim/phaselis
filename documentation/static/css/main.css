@@ -45,7 +45,17 @@
 /* Fonts Start */
 /* ------------------------------------------------*/
 /* Syne font */
+/*
 @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+
 /* ------------------------------------------------*/
 /* Fonts End */
 /* ------------------------------------------------*/
@@ -64,8 +74,32 @@
 /* ------------------------------------------------*/
 :root {
   --_size: 1.6rem;
+  
+  /*
   --_font-default: "Syne", sans-serif;
   --_font-accent: "Syne", sans-serif;
+  */
+
+  /*
+  --_font-default: "Noto Sans", sans-serif;
+  --_font-accent: "Noto Sans", sans-serif;
+  */
+
+  --_font-default: "Sora", sans-serif;
+  --_font-accent: "Sora", sans-serif;
+  
+/*
+  --_font-default: "Vazirmatn", sans-serif;
+  --_font-accent: "Vazirmatn", sans-serif;
+  */
+/*
+  --_font-default:"PT Sans", sans-serif;
+  --_font-accent: "PT Sans", sans-serif;
+  */
+/*
+  --_font-default:"Forum", serif;
+  --_font-accent: "Forum", serif;
+  */
   --_radius-s: 1.5rem;
   --_radius-m: 2.2rem;
   --_radius-l: 3rem;

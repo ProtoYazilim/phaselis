@@ -11,6 +11,7 @@
     "eas-local-ios": "eas build --platform ios --local",
     "eas-local-android": "eas build --platform android --local",
     "eas-local-ios-preview": "eas build --platform ios --local --profile preview",
+    "eas-local-android-preview": "eas build --platform android --local --profile preview",
     "eas-cloud-ios": "eas build --platform ios",
     "eas-cloud-android": "eas build --platform android",
     "eas-cloud-ios-preview": "eas build --platform ios --profile preview",

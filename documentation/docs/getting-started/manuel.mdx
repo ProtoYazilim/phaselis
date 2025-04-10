@@ -53,12 +53,12 @@ import TabItem from '@theme/TabItem';
 <Tabs>
   <TabItem value="npm" label="npm" default>
   ```bash
-  npm install --save-dev babel-plugin-module-resolver@^5.0.2 chokidar@^4.0.3
+  npm install --save-dev babel-plugin-module-resolver@^5.0.2 chokidar@^4.0.3 ts-node@^10.9.2
   ```
   </TabItem>
   <TabItem value="yarn" label="yarn">
   ```bash
-  yarn add --dev babel-plugin-module-resolver@^5.0.2 chokidar@^4.0.3
+  yarn add --dev babel-plugin-module-resolver@^5.0.2 chokidar@^4.0.3 ts-node@^10.9.2
   ```
   </TabItem>
 </Tabs>
@@ -70,57 +70,44 @@ import TabItem from '@theme/TabItem';
 cd ios && pod install && cd ..
 ```
 
-{/* * After the Installation is done, we need to wrap our app with the `PhaselisProvider` component. lets import the `PhaselisProvider` and the `lightTheme` or `darkTheme` from the phaselis package. */}
-* After the Installation is done, we need to wrap our app with the `PhaselisProvider` component. lets import the `PhaselisProvider` and the `lightTheme` from the phaselis package.
+* After the Installation is done, we need to wrap our app with the `PhaselisProvider` component. Choose one of the following import options depending on whether you're using the copy-theme script:
 
+**Option 1: If you're NOT using the copy-theme script (default):**
 ```jsx
-import { Provider as PhaselisProvider, lightTheme } from 'phaselis';
+import { Provider as PhaselisProvider, lightTheme, darkTheme } from 'phaselis';
 ```
-{/* ```jsx
-import { Provider as PhaselisProvider, lightTheme ,darkTheme} from 'phaselis';
-``` */}
 
-{/* * Then wrap your app with the `PhaselisProvider` component and pass the `lightTheme` or `darkTheme` as a prop. */}
-* Then wrap your app with the `PhaselisProvider` component and pass the `lightTheme` as a prop.
+**Option 2: If you ARE using the copy-theme script:**
+```jsx
+import { Provider as PhaselisProvider } from 'phaselis';
+import { lightTheme, darkTheme } from '../src/theme';
+```
+
+* Then wrap your app with the `PhaselisProvider` component and pass the themes as props.
 
 ```jsx
-<PhaselisProvider theme={ lightTheme }>
+<PhaselisProvider
+  initialThemeName={ isDarkMode ? "dark" : "light" }
+  themes={{ light: lightTheme, dark: darkTheme }}
+>
     <App/>
 </PhaselisProvider>
 ```
 
-{/* ```jsx
-<PhaselisProvider theme={isDarkMode ? darkTheme : lightTheme}>
-    <App/>
-</PhaselisProvider>
-``` */}
+* Last but not least we need to configure unistyles to work with phaselis, lets create unistyles config and import it. Choose one of the following import options depending on whether you're using the copy-theme script:
 
-* Last but not least we need to configure unistyles to work with phaselis, lets create unistyles config and import it.
-
+**Option 1: If you're NOT using the copy-theme script (default):**
 ```jsx
 import { UnistylesRegistry } from "react-native-unistyles";
-import { lightTheme } from "../theme/lightTheme";
-
-type AppThemes = {
-  light: typeof lightTheme;
-};
-
-declare module "react-native-unistyles" {
-  export interface UnistylesThemes extends AppThemes { }
-}
-
-UnistylesRegistry.addThemes({
-  light: lightTheme,
-}).addConfig({
-  adaptiveThemes: true,
-  initialTheme: "light",
-});
+import { darkTheme, lightTheme } from "phaselis";
 ```
-{/* ```jsx
-import { UnistylesRegistry } from "react-native-unistyles";
-import { darkTheme } from "../theme/darkTheme";
-import { lightTheme } from "../theme/lightTheme";
 
+**Option 2: If you ARE using the copy-theme script:**
+```jsx
+import { UnistylesRegistry } from "react-native-unistyles";
+import { darkTheme, lightTheme } from "../src/theme";
+```
+```jsx
 type AppThemes = {
   light: typeof lightTheme;
   dark: typeof darkTheme;
@@ -137,12 +124,12 @@ UnistylesRegistry.addThemes({
   adaptiveThemes: true,
   initialTheme: "light",
 });
-``` */}
+```
 
 * Import the unistyles config file in your app entry file.
 
 ```jsx
-import './config/unistyle';
+import '../config/unistyle';
 ```
 
 ## TypeScript Configuration
@@ -161,45 +148,43 @@ import './config/unistyle';
 - **`module`:** This should be set to `"NodeNext"` for compatibility with the latest Node.js module system.
 - **`moduleResolution`:** Set this to `"nodenext"` to enable Node's native module resolution strategy.
 
-## Copy Theme Files
+## Global TypeScript Types
 
-To copy the theme files, follow these steps:
-
-1. **Navigate to the Directory Where the `phaselis` Package is Installed**  
-   The **`phaselis`** package is located inside the **`node_modules`** directory, which is created when you install project dependencies. This directory can be found in the root of your project.
-
-2. **Run the Command to Copy the Theme Files**  
-   To copy the theme files, open your terminal or command prompt and run the following command:
-   
-   ```bash
-   node node_modules/phaselis/scripts/copy-theme.js
-   ```
-
-This command will automatically copy the necessary theme files to the correct location.
-
-## Add and Run Script
-
-* After downloading the theme files, you also need to add the `generate-theme-interface` script for TypeScript type generation.
-
-1. **Download the `generate-theme-interface` script** from the following link:  
-   [Download generate-theme-interface](https://github.com/ProtoYazilim/phaselis/tree/main/documentation/src/manuel-installation-files/scripts)
-
-2. **Copy the script** into the `scripts` folder in your project directory.
-
-3. After adding the script, open your `package.json` file and add the following command under the `scripts` section:
-
-```json
-"scripts": {
-  "generate-theme-interface": "npx ts-node ./scripts/generate-theme-interface.ts"
-}
-```
-
-4. **Run the script** using the following command:
+If you are **not** planning to customize the theme (using the steps in the next section), you should copy the global TypeScript types to your project for proper type checking:
 
 ```bash
-npm run generate-theme-interface
+node node_modules/phaselis/scripts/copy-global-types.js
 ```
 
-This command will generate the TypeScript interfaces for the theme, ensuring everything is set up properly.
+This command copies essential TypeScript declaration files to your project, ensuring proper type checking and autocompletion when using Phaselis components.
+
+## Theme Customization (Optional)
+
+If you want to customize the theme files locally, you can copy them from the package to your project and set up the necessary scripts for TypeScript interface generation.
+
+To set up theme customization, follow these simple steps:
+
+1. **Run the Copy Theme and Script Command**  
+   Execute the following command in your terminal to copy both the theme files and the required script:
+   
+   ```bash
+   node node_modules/phaselis/scripts/copy-theme-and-script.js
+   ```
+   
+   This command will:
+   - Copy the theme files to your project's source directory
+   - Add the necessary script for generating TypeScript interfaces
+   - Update your package.json with the required script entry
+
+2. **Generate the Theme Interfaces**  
+   After copying the files, run the following command to generate the TypeScript interfaces for your theme:
+   
+   ```bash
+   npm run generate-theme-interface
+   ```
+
+   This will create the proper TypeScript interfaces for your local theme files, ensuring full type safety when customizing themes.
+
+> **Note:** After customizing the theme files, remember to use the import path from Option 2 as mentioned in the installation section above.
 
 That's it, you are ready to start building your app with phaselis.

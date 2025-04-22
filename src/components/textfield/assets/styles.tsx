@@ -34,7 +34,7 @@ const stylesheet = createStyleSheet({
     justifyContent: "center",
     alignItems: "center",
     verticalAlign: "middle",
-    textAlignVertical: "center",
+
     flex: 1,
     variants: {
       error: {},
@@ -55,6 +55,7 @@ const stylesheet = createStyleSheet({
       },
     },
   },
+  text: { textAlignVertical: "center" },
   leftSlot: {
     variants: {
       error: {},

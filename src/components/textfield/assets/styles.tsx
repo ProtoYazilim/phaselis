@@ -2,6 +2,7 @@ import { createStyleSheet } from "react-native-unistyles";
 
 const stylesheet = createStyleSheet({
   container: {
+    width: "100%",
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
@@ -30,11 +31,10 @@ const stylesheet = createStyleSheet({
       },
     },
   },
-  element: {
+  text: {
     justifyContent: "center",
     alignItems: "center",
     verticalAlign: "middle",
-
     flex: 1,
     variants: {
       error: {},
@@ -55,7 +55,6 @@ const stylesheet = createStyleSheet({
       },
     },
   },
-  text: { textAlignVertical: "center" },
   leftSlot: {
     variants: {
       error: {},

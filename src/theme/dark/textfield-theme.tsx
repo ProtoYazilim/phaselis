@@ -65,7 +65,7 @@ export default {
           },
         },
       },
-      element: {
+      text: {
         fontFamily: "Roboto",
         color: DarkColors.Primary[950],
         variants: {
@@ -104,10 +104,10 @@ export default {
               fontSize: FontSizes.XL,
             },
           },
-          textarea: {
-            true: {
-              marginTop: Spacings.XS,
-            },
+        },
+        textarea: {
+          true: {
+            marginTop: Spacings.XS,
           },
         },
       },

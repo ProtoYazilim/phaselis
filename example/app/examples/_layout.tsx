@@ -29,7 +29,7 @@ export default function Layout() {
             }}
           >
             <LucideIcon
-              name={darkModeIcon} // You can change this to any icon you want
+              name={darkModeIcon}
               style={{ color: Colors.Primary[600] }}
               width={24}
               height={24}
@@ -48,6 +48,13 @@ export default function Layout() {
         }}
       />
       <Drawer.Screen
+        name="credit-card-payment"
+        options={{
+          drawerLabel: "Credit Card Payment",
+          title: "Credit Card Payment",
+        }}
+      />
+      <Drawer.Screen
         name="form-usage"
         options={{
           drawerLabel: "Form",
@@ -55,10 +62,65 @@ export default function Layout() {
         }}
       />
       <Drawer.Screen
+        name="healthcare"
+        options={{
+          drawerLabel: "Healthcare",
+          title: "Healthcare",
+        }}
+      />
+      <Drawer.Screen
+        name="pin-code"
+        options={{
+          drawerLabel: "Pin Code",
+          title: "Pin Code",
+        }}
+      />
+      <Drawer.Screen
+        name="pin-numbers"
+        options={{
+          drawerLabel: "Pin Numbers",
+          title: "Pin Numbers",
+        }}
+      />
+      <Drawer.Screen
+        name="shopping-cart"
+        options={{
+          drawerLabel: "Shopping Cart",
+          title: "Shopping Cart",
+        }}
+      />
+      <Drawer.Screen
         name="shopping-form"
         options={{
           drawerLabel: "Shopping Form",
           title: "Shopping Form",
+        }}
+      />
+      <Drawer.Screen
+        name="travel"
+        options={{
+          drawerLabel: "Travel",
+          title: "Travel",
+        }}
+      />
+      <Drawer.Screen
+        name="doctors-screen"
+        options={{
+          drawerLabel: "Healthcare",
+          title: "Healthcare",
+          drawerItemStyle: {
+            display: "none",
+          },
+        }}
+      />
+      <Drawer.Screen
+        name="appointment-screen"
+        options={{
+          drawerLabel: "Healthcare",
+          title: "Healthcare",
+          drawerItemStyle: {
+            display: "none",
+          },
         }}
       />
       <Drawer.Screen

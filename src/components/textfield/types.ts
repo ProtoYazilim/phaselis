@@ -9,6 +9,7 @@ import type {
   TextInputChangeEventData,
   TextInputFocusEventData,
   TextInputProps,
+  TextStyle,
   ViewStyle,
 } from "react-native";
 import type { FC, ReactNode } from "react";
@@ -37,6 +38,7 @@ export interface TextfieldProps
   style?: {
     container?: ViewStyle;
     element?: ViewStyle;
+    text?: TextStyle;
     leftSlot?: IconStyle;
     rightSlot?: IconStyle;
   };

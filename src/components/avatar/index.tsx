@@ -16,26 +16,24 @@ const sizeIconSizeLiteral = {
   xxl: 128,
 };
 
-const Avatar: FC<AvatarProps> = ({
-  children,
-  style,
-  iconName,
-  size = "md",
-  variation = "default",
-  contextValue,
-  img,
-  text,
-  ...extraProps
-}) => {
+const Avatar: FC<AvatarProps> = (props) => {
+  const {
+    children,
+    iconName,
+    size = "md",
+    variation = "default",
+    img,
+    text,
+  } = props;
+
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
-    style,
-    contextValue?.theme?.avatar,
+    "avatar",
     variation,
     {
-      size,
-      ...extraProps,
-    } as any,
+      ...props,
+      size: size,
+    },
   );
 
   const renderHelper = () => {
@@ -43,15 +41,17 @@ const Avatar: FC<AvatarProps> = ({
       return children;
     }
     if (text) {
-      return <Text style={getCombinedStyle("text")}>{text}</Text>;
+      return <Text style={getCombinedStyle("text", true)}>{text}</Text>;
     }
     if (img) {
-      return <Image style={getCombinedStyle("image")} source={{ uri: img }} />;
+      return (
+        <Image style={getCombinedStyle("image", true)} source={{ uri: img }} />
+      );
     }
     if (iconName) {
       return (
         <LucideIcon
-          style={getCombinedStyle("icon")}
+          style={getCombinedStyle("icon", true)}
           name={iconName}
           width={sizeIconSizeLiteral[size]}
           height={sizeIconSizeLiteral[size]}
@@ -65,4 +65,4 @@ const Avatar: FC<AvatarProps> = ({
 
 export default PhaselisHOC(Avatar);
 
-Avatar.displayName = "avatar";
+Avatar.displayName = "Avatar";

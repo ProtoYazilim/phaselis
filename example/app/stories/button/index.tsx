@@ -24,6 +24,7 @@ const ButtonExample = () => {
           onClick={() => {
             setScreenProps({ variation: "primary" });
           }}
+          test
         />
         <Button
           text="Secondary"

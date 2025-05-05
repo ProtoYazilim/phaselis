@@ -8,27 +8,27 @@ import PhaselisHOC from "../provider/lib/hoc";
 import { Block, Slot, FormContext } from "../index";
 import { useCombinedStyle } from "../../hooks";
 
-const Button: FC<ButtonPropTypes> = ({
-  type = "submit",
-  style,
-  id,
-  text,
-  children,
-  LeftSlot,
-  RightSlot,
-  onClick,
-  onPress,
-  contextValue,
-  size = "md",
-  disabled = false,
-  leftIcon,
-  rightIcon,
-  loading,
-  onPressIn,
-  onPressOut,
-  variation = "primary",
-  ...extraProps
-}) => {
+const Button: FC<ButtonPropTypes> = (props) => {
+  const {
+    type = "submit",
+    id,
+    text,
+    children,
+    LeftSlot,
+    RightSlot,
+    onClick,
+    onPress,
+    size = "md",
+    disabled = false,
+    leftIcon,
+    rightIcon,
+    loading,
+    onPressIn,
+    onPressOut,
+    variation = "primary",
+    ...extraProps
+  } = props;
+
   let formContext = useContext(FormContext);
   const [isPressed, setPressed] = useState(false);
 
@@ -47,15 +47,13 @@ const Button: FC<ButtonPropTypes> = ({
 
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
-    style,
-    contextValue?.theme?.button,
+    "button",
     variation,
     {
-      disabled: disabled,
-      pressed: isPressed,
+      ...props,
       size,
-      loading,
-      ...extraProps,
+      disabled,
+      pressed: isPressed,
     },
   );
 
@@ -72,15 +70,15 @@ const Button: FC<ButtonPropTypes> = ({
   return (
     <Block style={getCombinedStyle("container") as any}>
       <Pressable
+        {...extraProps}
         testID={Platform.OS === "ios" ? id : undefined}
         accessibilityLabel={Platform.OS === "android" ? id : undefined}
         onPress={handleClick}
         disabled={disabled}
-        style={getCombinedStyle("element")}
+        style={getCombinedStyle("element", true)}
         collapsable={true}
         onPressIn={handleOnPressIn}
         onPressOut={handleOnPressOut}
-        {...extraProps}
       >
         <Slot
           style={getCombinedStyle("leftSlot")}

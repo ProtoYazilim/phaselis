@@ -5,30 +5,19 @@ import PhaselisHOC from "../provider/lib/hoc";
 import stylesheet from "./assets/styles";
 import { useCombinedStyle } from "../../hooks";
 
-const Col: FC<ColProps> = ({
-  contextValue,
-  style,
-  size,
-  children,
-  offset,
-  ...extraProps
-}) => {
-  const { getCombinedStyle } = useCombinedStyle(
-    stylesheet,
-    { self: style },
-    contextValue?.theme?.col,
-    "default",
-    {
-      size: String(size) as any,
-      offset: String(offset) as any,
-      ...extraProps,
-    },
-  );
+const Col: FC<ColProps> = (props) => {
+  const { size, children, offset } = props;
+
+  const { getCombinedStyle } = useCombinedStyle(stylesheet, "col", "default", {
+    ...props,
+    size: size,
+    offset: offset,
+  });
 
   return (
     <>
       {offset ? <View style={getCombinedStyle("offset")} /> : null}
-      <View style={getCombinedStyle("self")}>{children}</View>
+      <View style={getCombinedStyle("self", true)}>{children}</View>
     </>
   );
 };

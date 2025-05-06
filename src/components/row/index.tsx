@@ -6,9 +6,9 @@ import stylesheet from "./assets/styles";
 import { useCombinedStyle } from "../../hooks";
 
 const Row: FC<RowProps> = (props) => {
-  const { children, ...extraProps } = props;
+  const { children } = props;
   const { getCombinedStyle } = useCombinedStyle(stylesheet, "row", "default", {
-    ...extraProps,
+    ...props,
   });
 
   return <View style={getCombinedStyle("self", true)}>{children}</View>;

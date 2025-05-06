@@ -9,28 +9,27 @@ import { useCombinedStyle } from "../../hooks";
 const Label: FC<LabelProps> = (props) => {
   const {
     text,
-    style,
     numberOfLines = 1,
     adjustsFontSizeToFit,
     minimumFontScale,
-    contextValue,
     children,
     variation,
   } = props;
 
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
-    style,
-    contextValue?.theme?.label,
+    "label",
     variation,
-    props as never,
+    {
+      ...props,
+    },
   );
 
   return (
     <View style={getCombinedStyle("container")}>
       <Text
         numberOfLines={numberOfLines}
-        style={getCombinedStyle("text")}
+        style={getCombinedStyle("text", true)}
         adjustsFontSizeToFit={adjustsFontSizeToFit}
         minimumFontScale={minimumFontScale}
       >
@@ -54,6 +53,6 @@ const Label: FC<LabelProps> = (props) => {
   );
 };
 
-Label.displayName = "label";
+Label.displayName = "Label";
 
 export default PhaselisHOC(Label);

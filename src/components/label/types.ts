@@ -7,6 +7,7 @@ export interface LabelProps extends LabelExtraProps {
     container?: ViewStyle;
     text?: TextStyle;
   };
+  containerStyle?: ViewStyle;
   forId?: string;
   adjustsFontSizeToFit?: boolean;
   numberOfLines?: number;

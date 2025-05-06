@@ -15,7 +15,7 @@ const AvatarStory = () => {
           paddingTop: 16,
         }}
       >
-        <Avatar size="md" img={avatar_image.uri} style={{ padding: 10 }} />
+        <Avatar size="md" img={avatar_image.uri} />
         <Avatar size="md" text="MD" />
       </StorySection>
       <StorySection
@@ -28,7 +28,7 @@ const AvatarStory = () => {
           paddingTop: 16,
         }}
       >
-        <Avatar size="xs" text="XS" style={{ backgroundColor: "red" }} />
+        <Avatar size="xs" text="XS" />
         <Avatar size="sm" text="SM" />
         <Avatar size="md" text="MD" />
         <Avatar size="lg" text="LG" />

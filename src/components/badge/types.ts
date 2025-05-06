@@ -5,13 +5,19 @@ import type { SlotIconName } from "../../types";
 export interface BadgeProps extends BadgeExtraProps {
   text?: string;
   children: ReactNode;
-  style?: {
-    container?: ViewStyle;
-    element?: ViewStyle;
-    text?: TextStyle;
-    leftIcon?: TextStyle;
-    rightIcon?: TextStyle;
-  };
+  style?:
+    | {
+        container?: ViewStyle;
+        element?: ViewStyle;
+        text?: TextStyle;
+        leftIcon?: TextStyle;
+        rightIcon?: TextStyle;
+      }
+    | ViewStyle;
+  containerStyle?: ViewStyle;
+  textStyle?: TextStyle;
+  leftIconStyle?: TextStyle;
+  rightIconStyle?: TextStyle;
   contextValue?: any;
   top?: number;
   bottom?: number;

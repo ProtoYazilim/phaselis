@@ -15,4 +15,11 @@ interface BlockProps extends ViewProps {
   animated?: boolean;
 }
 
+export interface Shadow {
+  color: string;
+  opacity: number;
+  offset: { width: number; height: number };
+  radius: number;
+}
+
 export type { BlockProps, ExtendedViewStyle };

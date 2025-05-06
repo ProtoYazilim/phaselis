@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import type { CustomPickerProps } from "./types";
 import { useEffect, useMemo } from "react";
 import { View, FlatList } from "react-native";
@@ -69,7 +68,7 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
         ...option,
       };
     });
-  }, [options?.length]);
+  }, [options]);
 
   const noOptionLayout = useMemo(() => {
     return memorizedOptions.length <= 0;
@@ -89,19 +88,15 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
     variation,
   );
 
-  const handleOnFocus = () => {
-    setIsFocus(true);
-  };
-
   const handleOnBlur = () => {
     setIsFocus(false);
   };
 
   useEffect(() => {
     if (showPicker) {
-      handleOnFocus();
+      setIsFocus(true);
     }
-  }, [showPicker]);
+  }, [showPicker, setIsFocus]);
 
   return (
     <BottomSheet

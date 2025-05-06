@@ -8,33 +8,31 @@ import stylesheet from "./assets/styles";
 import { useCombinedStyle } from "../../hooks";
 import { InputHOC } from "../../utils";
 
-const Slider: FC<SliderProps> = ({
-  contextValue,
-  style,
-  value,
-  onChange,
-  error,
-  disabled,
-  minValue = 0,
-  maxValue = 100,
-  step = 10,
-  tapToSeek = true,
-  inverted = false,
-  renderStepNumber = false,
-  variation = "default",
-  ...extraProps
-}) => {
+const Slider: FC<SliderProps> = (props) => {
+  const {
+    value,
+    onChange,
+    error,
+    disabled,
+    minValue = 0,
+    maxValue = 100,
+    step = 10,
+    tapToSeek = true,
+    inverted = false,
+    renderStepNumber = false,
+    variation = "default",
+  } = props;
+
   const [progress, setProgress] = useState(Number(value || 0));
 
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
-    style,
-    contextValue?.theme?.slider,
+    "slider",
     variation,
     {
+      ...props,
       error,
       disabled,
-      ...extraProps,
     },
   );
 
@@ -42,11 +40,11 @@ const Slider: FC<SliderProps> = ({
     setProgress(Number(value));
   }, [value]);
 
-  const elementStyles = StyleSheet.flatten(getCombinedStyle("element"));
+  const elementStyles = StyleSheet.flatten(getCombinedStyle("element", true));
   return (
     <View style={getCombinedStyle("container")}>
       <SliderCore
-        {...extraProps}
+        {...props}
         style={elementStyles}
         disabled={disabled}
         minimumValue={minValue}

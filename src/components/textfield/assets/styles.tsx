@@ -26,6 +26,7 @@ const stylesheet = createStyleSheet({
       },
       textarea: {
         true: {
+          alignItems: "flex-start",
           justifyContent: "flex-start",
         },
       },
@@ -75,6 +76,7 @@ const stylesheet = createStyleSheet({
       textarea: {
         true: {
           alignSelf: "flex-start",
+          justifyContent: "flex-end",
         },
       },
     },

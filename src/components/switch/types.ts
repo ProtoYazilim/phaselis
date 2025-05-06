@@ -8,14 +8,19 @@ export interface SwitchProps extends SwitchExtraProps {
   value?: boolean;
   onChange?: (event: any, value: boolean) => void;
   duration?: number;
-  style?: {
-    container?: ViewStyle;
-    element?: ViewStyle;
-    track?: ViewStyle;
-    leftIcon?: IconStyle;
-    rightIcon?: IconStyle;
-    thumb?: ViewStyle;
-  };
+  style?:
+    | {
+        container?: ViewStyle;
+        track?: ViewStyle;
+        leftIcon?: IconStyle;
+        rightIcon?: IconStyle;
+        thumb?: ViewStyle;
+      }
+    | ViewStyle;
+  containerStyle?: ViewStyle;
+  thumbStyle?: ViewStyle;
+  leftIconStyle?: IconStyle;
+  rightIconStyle?: IconStyle;
   name?: string;
   showIcons?: boolean;
   LeftSlot?: SlotChildComponent;

@@ -1,27 +1,30 @@
-import type { FC } from "react";
+import type { ElementType, FC } from "react";
 import type { BlockProps, Shadow } from "./types";
 import { useMemo } from "react";
 import { View, Animated } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import PhaselisHOC from "../provider/lib/hoc";
+import useCombinedStyle from "../../hooks/useCombinedStyle";
+import stylesheet from "./assets/styles";
 
-const Block: FC<BlockProps> = ({
-  style,
-  children,
-  animated = false,
-  ...extraProps
-}) => {
+const Block: FC<BlockProps> = (props) => {
+  const { children, animated = false } = props;
+
+  const { getCombinedStyle, getFlattenStyle } = useCombinedStyle(
+    stylesheet,
+    "block",
+    "default",
+    { ...(props as any) },
+  );
+
   // Flatten and extract shadow + gradient from style
-  const { flattenStyle, shadows, lineerGradient } = useMemo(() => {
-    const flatten = Array.isArray(style)
-      ? Object.assign({}, ...style)
-      : style || {};
+  const { shadows, lineerGradient } = useMemo(() => {
+    const flatten = getFlattenStyle("self") || {};
     return {
-      flattenStyle: style,
       shadows: flatten.shadows || [],
       lineerGradient: flatten.lineerGradient || null,
     };
-  }, [style]);
+  }, [getFlattenStyle]);
 
   // Build boxShadow value if shadows exist
   const boxShadowStyle = useMemo(() => {
@@ -43,18 +46,13 @@ const Block: FC<BlockProps> = ({
   const WrapperComponent = useMemo(() => {
     if (lineerGradient) return LinearGradient;
     return animated ? Animated.View : View;
-  }, [animated, lineerGradient]) as React.ElementType;
-
-  const combinedStyle = useMemo(() => {
-    const baseStyle = Array.isArray(style) ? [...style] : [style];
-    return [...baseStyle, boxShadowStyle];
-  }, [style, boxShadowStyle]);
+  }, [animated, lineerGradient]) as ElementType;
 
   return (
     <WrapperComponent
-      style={combinedStyle}
+      style={[getCombinedStyle("self"), boxShadowStyle]}
       {...(lineerGradient || {})}
-      {...extraProps}
+      {...props}
     >
       {children}
     </WrapperComponent>

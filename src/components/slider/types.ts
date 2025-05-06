@@ -7,10 +7,13 @@ export interface SliderProps
     SliderExtraProps {
   contextValue?: any;
   disabled?: boolean;
-  style?: {
-    container?: ViewStyle;
-    element?: ViewStyle;
-  };
+  style?:
+    | {
+        container?: ViewStyle;
+        element?: ViewStyle;
+      }
+    | ViewStyle;
+  containerStyle?: ViewStyle;
   minValue?: number;
   maxValue?: number;
   step?: number;

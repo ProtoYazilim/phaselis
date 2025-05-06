@@ -1,5 +1,5 @@
 import type { SwitchProps } from "./types";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type FC } from "react";
 import { Pressable, View, Animated, Easing } from "react-native";
 import PhaselisHOC from "../provider/lib/hoc";
 import { LucideIcon } from "../index";
@@ -7,46 +7,33 @@ import stylesheet from "./assets/styles";
 import { useCombinedStyle } from "../../hooks";
 import { InputHOC } from "../../utils";
 
-const Switch = ({
-  value = false,
-  onChange,
-  style,
-  duration = 300,
-  disabled,
-  contextValue,
-  showIcons,
-  LeftSlot,
-  RightSlot,
-  onIcon = "Check",
-  offIcon = "X",
-  variation = "primary",
-  ...extraProps
-}: SwitchProps) => {
+const Switch: FC<SwitchProps> = (props) => {
+  const {
+    value = false,
+    onChange,
+    duration = 300,
+    disabled,
+    showIcons,
+    LeftSlot,
+    RightSlot,
+    onIcon = "Check",
+    offIcon = "X",
+    variation = "primary",
+  } = props;
+
   const [innerValue, setInnerValue] = useState(value);
 
   useEffect(() => {
     setInnerValue(value);
   }, [value]);
 
-  const { getCombinedStyle } = useCombinedStyle(
+  const { getCombinedStyle, getFlattenStyle } = useCombinedStyle(
     stylesheet,
-    style,
-    contextValue.theme.switch,
+    "switch",
     variation,
     {
+      ...props,
       disabled,
-      ...extraProps,
-    },
-  );
-
-  const { getFlattenStyle } = useCombinedStyle(
-    stylesheet,
-    style,
-    contextValue.theme.switch,
-    variation,
-    {
-      disabled,
-      ...extraProps,
     },
   );
 
@@ -106,18 +93,13 @@ const Switch = ({
   return (
     <View style={getCombinedStyle("container")}>
       {LeftSlot && <LeftSlot />}
-      <Pressable
-        onPressIn={handlePress}
-        focusable={true}
-        // style={getCombinedStyle("element")}
-        disabled={disabled}
-      >
+      <Pressable onPressIn={handlePress} focusable={true} disabled={disabled}>
         <Animated.View
           onLayout={(e) => {
             height.setValue(e.nativeEvent.layout.height);
             width.setValue(e.nativeEvent.layout.width);
           }}
-          style={[...getCombinedStyle("track"), trackAnimatedStyle]}
+          style={[...getCombinedStyle("track", true), trackAnimatedStyle]}
         >
           {showIcons && (
             <>

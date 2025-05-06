@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, type FC } from "react";
 import { View } from "react-native";
 import AccordionHeader from "./AccordionHeader";
 import AccordionContent from "./AccordionContent";
@@ -8,27 +8,27 @@ import { AccordionContext } from "./Accordion";
 import PhaselisHOC from "../provider/lib/hoc";
 import { useCombinedStyle } from "../../hooks";
 
-function AccordionItem({
-  style,
-  disabled,
-  contextValue,
-  expand = false,
-  onChange,
-  children,
-  index = 0,
-  inContext = false,
-  headerText,
-  headerIcon,
-  variation = "default",
-}: AccordionItemProps) {
+const AccordionItem: FC<AccordionItemProps> = (props) => {
+  const {
+    disabled,
+    expand = false,
+    onChange,
+    children,
+    index = 0,
+    inContext = false,
+    headerText,
+    headerIcon,
+    variation = "default",
+  } = props;
+
   const [expanded, setExpanded] = useState(expand);
 
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
-    style,
-    contextValue?.theme?.accordion_item,
+    "accordion_item",
     variation,
     {
+      ...props,
       disabled: disabled,
     },
   );
@@ -73,10 +73,10 @@ function AccordionItem({
         icon={headerIcon}
       />
       <AccordionContent isExpanded={expanded}>
-        <View style={getCombinedStyle("element")}>{children}</View>
+        <View style={getCombinedStyle("element", true)}>{children}</View>
       </AccordionContent>
     </View>
   );
-}
+};
 
 export default PhaselisHOC(AccordionItem);

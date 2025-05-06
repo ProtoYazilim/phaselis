@@ -1,23 +1,26 @@
+import type { FC } from "react";
 import type { ProgressStepProps } from "./types";
 import { View, ScrollView } from "react-native";
 
-const ProgressStep: React.FC<ProgressStepProps> = ({
-  onNext,
-  onPrevious,
-  onSubmit,
-  setActiveStep,
-  nextButtonDisabled = false,
-  previousButtonDisabled = false,
-  finishButtonDisabled = false,
-  stepCount,
-  scrollViewProps,
-  viewProps,
-  errors = false,
-  scrollable = true,
-  children,
-  activeStep,
-  renderFooter,
-}: ProgressStepProps) => {
+const ProgressStep: FC<ProgressStepProps> = (props) => {
+  const {
+    onNext,
+    onPrevious,
+    onSubmit,
+    setActiveStep,
+    nextButtonDisabled = false,
+    previousButtonDisabled = false,
+    finishButtonDisabled = false,
+    stepCount,
+    scrollViewProps,
+    viewProps,
+    errors = false,
+    scrollable = true,
+    children,
+    activeStep,
+    renderFooter,
+  } = props;
+
   const onNextStep = async () => {
     onNext && (await onNext());
     if (errors) {

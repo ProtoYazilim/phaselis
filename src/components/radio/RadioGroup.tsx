@@ -3,19 +3,13 @@ import { View } from "react-native";
 import PhaselisHOC from "../provider/lib/hoc";
 import RadioContext from "./context";
 import { stylesheet_group as stylesheet } from "./assets/styles";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type FC } from "react";
 import { useCombinedStyle } from "../../hooks";
 import { InputHOC } from "../../utils";
 
-const RadioGroup = ({
-  children,
-  value,
-  onChange,
-  style,
-  disabled,
-  contextValue,
-  ...extraProps
-}: RadioGroupProps) => {
+const RadioGroup: FC<RadioGroupProps> = (props) => {
+  const { children, value, onChange, disabled, ...extraProps } = props;
+
   const [innerValue, setInnerValue] = useState(value);
 
   useEffect(() => {
@@ -29,9 +23,10 @@ const RadioGroup = ({
 
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
-    style,
-    contextValue?.theme?.radioGroup,
+    "radioGroup",
+    "default",
     {
+      ...props,
       disabled,
       ...extraProps,
     },
@@ -41,7 +36,7 @@ const RadioGroup = ({
     <RadioContext.Provider
       value={{ onChange: handleOnChange, groupValue: innerValue }}
     >
-      <View style={getCombinedStyle("group")}>{children}</View>
+      <View style={getCombinedStyle("group", true)}>{children}</View>
     </RadioContext.Provider>
   );
 };

@@ -7,28 +7,23 @@ import PhaselisHOC from "../provider/lib/hoc";
 import { Slot } from "../index";
 import { useCombinedStyle } from "../../hooks";
 
-const Link: FC<LinkProps> = ({
-  contextValue,
-  style,
-  disabled,
-  text,
-  href,
-  leftIcon,
-  LeftSlot,
-  rightIcon,
-  RightSlot,
-  canOpenURL,
-  variation = "default",
-  onPress,
-  ...extraProps
-}) => {
-  const { getCombinedStyle } = useCombinedStyle(
-    stylesheet,
-    style,
-    contextValue?.theme?.link,
-    variation,
-    { ...extraProps },
-  );
+const Link: FC<LinkProps> = (props) => {
+  const {
+    disabled,
+    text,
+    href,
+    leftIcon,
+    LeftSlot,
+    rightIcon,
+    RightSlot,
+    canOpenURL,
+    variation = "default",
+    onPress,
+  } = props;
+
+  const { getCombinedStyle } = useCombinedStyle(stylesheet, "link", variation, {
+    ...props,
+  });
 
   return (
     <Pressable
@@ -54,7 +49,7 @@ const Link: FC<LinkProps> = ({
       <Slot style={getCombinedStyle("leftSlot")} icon={leftIcon} size="md">
         {LeftSlot && <LeftSlot />}
       </Slot>
-      <Text style={getCombinedStyle("text")}>{text}</Text>
+      <Text style={getCombinedStyle("text", true)}>{text}</Text>
       <Slot style={getCombinedStyle("rightSlot")} icon={rightIcon} size="md">
         {RightSlot && <RightSlot />}
       </Slot>

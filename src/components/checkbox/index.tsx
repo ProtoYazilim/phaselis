@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type FC } from "react";
 import { Text, TextInput, Pressable, Animated, View } from "react-native";
 import stylesheet from "./assets/styles";
 import type { CheckboxProps } from "./types";
@@ -7,14 +7,12 @@ import { Slot } from "../index";
 import { useCombinedStyle } from "../../hooks";
 import { InputHOC } from "../../utils";
 
-const Checkbox: React.FC<CheckboxProps> = (props) => {
+const Checkbox: FC<CheckboxProps> = (props) => {
   const {
     id,
     disabled,
     text,
-    style,
     children,
-    contextValue,
     value,
     isChanged,
     isUsed,
@@ -26,7 +24,6 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
     IconSlot,
     variation = "primary",
     pressed,
-    ...extraProps
   } = props;
 
   const [checked, setChecked] = useState<boolean>(Boolean(value));
@@ -101,15 +98,14 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
 
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
-    style,
-    contextValue?.theme?.checkbox,
+    "checkbox",
     variation,
     {
+      ...props,
       error: showError,
       disabled,
       focus: isFocus,
       size,
-      ...extraProps,
     },
   );
 
@@ -123,7 +119,7 @@ const Checkbox: React.FC<CheckboxProps> = (props) => {
       key={`checkbox-${id}`}
       id={id}
     >
-      <View style={[getCombinedStyle("element")]}>
+      <View style={getCombinedStyle("element", true)}>
         {checked ? (
           <Animated.View
             style={{

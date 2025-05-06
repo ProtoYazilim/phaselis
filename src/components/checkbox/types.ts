@@ -13,16 +13,20 @@ export interface CheckboxProps
   children?: ReactNode | FC | any | Element;
   contextValue?: any;
   disabled?: boolean;
-  // size?: ComponentSize;
   id?: string;
   text?: string;
   iconName?: SlotIconName;
   IconSlot?: SlotChildComponent;
-  style?: {
-    container?: ViewStyle;
-    element?: ViewStyle;
-    icon?: IconStyle;
-    text?: TextStyle;
-  };
+  style?:
+    | {
+        container?: ViewStyle;
+        element?: ViewStyle;
+        icon?: IconStyle;
+        text?: TextStyle;
+      }
+    | ViewStyle;
+  containerStyle?: ViewStyle;
+  iconStyle?: IconStyle;
+  textStyle?: TextStyle;
   pressed?: boolean;
 }

@@ -1,4 +1,11 @@
-import { useEffect, useState, useContext, Children, useMemo } from "react";
+import {
+  useEffect,
+  useState,
+  useContext,
+  Children,
+  useMemo,
+  type FC,
+} from "react";
 import { View, Text } from "react-native";
 import stylesheet from "./assets/styles";
 import type { InputGroupProps } from "./types";
@@ -6,14 +13,9 @@ import { FormContext } from "../index";
 import PhaselisHOC from "../provider/lib/hoc";
 import { useCombinedStyle } from "../../hooks";
 
-const InputGroup: React.FC<InputGroupProps> = ({
-  label,
-  children,
-  message,
-  style,
-  contextValue,
-  for: _for,
-}) => {
+const InputGroup: FC<InputGroupProps> = (props) => {
+  const { label, children, message, for: _for } = props;
+
   const [disabled, setDisabled] = useState(false);
   const [error, setError] = useState("");
 
@@ -49,17 +51,16 @@ const InputGroup: React.FC<InputGroupProps> = ({
 
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
-    style,
-    contextValue?.theme?.inputGroup,
+    "inputGroup",
     "default",
-    { disabled, error: Boolean(error) },
+    { ...props, disabled, error: Boolean(error) },
   );
 
   return (
     <>
       <View style={getCombinedStyle("container")}>
         {typeof label === "string" && (
-          <Text style={getCombinedStyle("label")}>{label}</Text>
+          <Text style={getCombinedStyle("label", true)}>{label}</Text>
         )}
         {children}
         {(error || message) && (

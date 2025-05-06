@@ -1,43 +1,33 @@
 import { View, Image as NativeImage, ImageBackground } from "react-native";
+import type { FC } from "react";
 import type { ImageProps } from "./types";
 import PhaselisHOC from "../provider/lib/hoc";
 import stylesheet from "./assets/styles";
 import { useCombinedStyle } from "../../hooks";
 
-const Image = ({
-  style,
-  contextValue,
-  background,
-  children,
-  variation = "default",
-  ...imageNativeProps
-}: ImageProps) => {
+const Image: FC<ImageProps> = (props) => {
+  const { background, children, variation = "default" } = props;
+
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
-    style,
-    contextValue?.theme?.image,
+    "image",
     variation,
     {
+      ...props,
       background,
-      ...imageNativeProps,
     },
   );
 
   const renderImage = () => {
     if (background) {
       return (
-        <ImageBackground
-          {...imageNativeProps}
-          style={getCombinedStyle("element")}
-        >
+        <ImageBackground {...props} style={getCombinedStyle("element", true)}>
           {children}
         </ImageBackground>
       );
     }
 
-    return (
-      <NativeImage {...imageNativeProps} style={getCombinedStyle("element")} />
-    );
+    return <NativeImage {...props} style={getCombinedStyle("element", true)} />;
   };
 
   return <View style={getCombinedStyle("container")}>{renderImage()}</View>;

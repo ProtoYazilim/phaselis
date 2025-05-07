@@ -8,7 +8,12 @@ export default {
       header: {
         container: {},
         element: {
-          variants: {},
+          variants: {
+            scrollable: {
+              true: {},
+              false: {},
+            },
+          },
         },
         leftSlot: {
           color: DarkColors.Primary[950],

@@ -18,7 +18,7 @@ interface BadgeExtraProps {
 }
 
 interface BlockExtraProps {
-  variation?: "default";
+  variation?: "self";
 }
 
 interface ButtonExtraProps {
@@ -96,7 +96,6 @@ interface RadioGroupExtraProps {
 
 interface RowExtraProps {
   variation?: "default";
-  blue?: boolean;
 }
 
 interface SelectExtraProps {
@@ -130,10 +129,8 @@ interface SwitchExtraProps {
 
 interface TabViewExtraProps {
   variation?: "default";
-  true?: ;
-  false?: ;
-  active?: boolean;
   scrollable?: boolean;
+  active?: boolean;
 }
 
 interface TextfieldExtraProps {

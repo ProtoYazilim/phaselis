@@ -6,25 +6,23 @@ import stylesheet from "./assets/styles";
 import { useCombinedStyle } from "../../hooks";
 import { useTheme } from "../provider";
 
-const NativePicker: React.FC<NativePickerProps> = ({
-  refIOSPicker,
-  refAndroidPicker,
-  onChange,
-  options,
-  value,
-  contextValue,
-  disabled,
-  placeholder,
-  selectedItem,
-  setIsFocus,
-  style,
-  showError,
-  isFocus,
-  size,
-  variation = "default",
-  darkMode,
-  ...extraProps
-}) => {
+const NativePicker: React.FC<NativePickerProps> = (props) => {
+  const {
+    refIOSPicker,
+    refAndroidPicker,
+    onChange,
+    options,
+    value,
+    disabled,
+    placeholder,
+    selectedItem,
+    setIsFocus,
+    showError,
+    isFocus,
+    size,
+    variation = "default",
+    darkMode,
+  } = props;
   const handleOnFocus = () => {
     setIsFocus(true);
   };
@@ -44,15 +42,14 @@ const NativePicker: React.FC<NativePickerProps> = ({
 
   const { getFlattenStyle } = useCombinedStyle(
     stylesheet,
-    style,
-    contextValue?.theme?.select,
+    "select",
     variation,
     {
+      ...props,
       error: showError,
       disabled,
       focus: isFocus,
       size,
-      ...extraProps,
     },
   );
 
@@ -99,8 +96,8 @@ const NativePicker: React.FC<NativePickerProps> = ({
         inputAndroidContainer: {
           width: "100%",
         },
-        inputAndroid: getFlattenStyle("element"),
-        inputIOS: getFlattenStyle("element"),
+        inputAndroid: getFlattenStyle("element", true),
+        inputIOS: getFlattenStyle("element", true),
       }}
       useNativeAndroidPickerStyle={false}
       fixAndroidTouchableBug={true}

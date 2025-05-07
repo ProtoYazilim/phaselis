@@ -5,36 +5,34 @@ import PhaselisHOC from "../../provider/lib/hoc";
 import { Slot } from "../../index";
 import { useCombinedStyle } from "../../../hooks";
 
-const InputSlotDefault = ({
-  selectedItem,
-  placeholder,
-  rightIcon = "ChevronDown",
-  RightIconSlot,
-  leftIcon,
-  LeftIconSlot,
-  disabled,
-  refAndroidPicker,
-  refIOSPicker,
-  setShowPicker,
-  style,
-  contextValue,
-  showError,
-  isFocus,
-  size,
-  variation = "default",
-  ...extraProps
-}: InputSlotProps) => {
+const InputSlotDefault = (props: InputSlotProps) => {
+  const {
+    selectedItem,
+    placeholder,
+    rightIcon = "ChevronDown",
+    RightIconSlot,
+    leftIcon,
+    LeftIconSlot,
+    disabled,
+    refAndroidPicker,
+    refIOSPicker,
+    setShowPicker,
+    showError,
+    isFocus,
+    size,
+    variation = "default",
+  } = props;
+
   const { getCombinedStyle, getFlattenStyle } = useCombinedStyle(
     stylesheet,
-    style,
-    contextValue?.theme?.select,
+    "select",
     variation,
     {
+      ...props,
       error: showError,
       disabled,
       focus: isFocus,
       size,
-      ...extraProps,
     },
   );
 
@@ -60,7 +58,7 @@ const InputSlotDefault = ({
         {LeftIconSlot && <LeftIconSlot />}
       </Slot>
       <Text
-        style={getCombinedStyle("element")}
+        style={getCombinedStyle("element", true)}
         numberOfLines={getFlattenStyle("element").numberOfLines}
       >
         {selectedItem?.label ? selectedItem?.label : placeholder}

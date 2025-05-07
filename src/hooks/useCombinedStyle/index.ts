@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { useMemo } from "react";
+import { useMemo, useCallback } from "react";
 import { createStyleSheet, useStyles } from "react-native-unistyles";
 import {
   ExtractVariantNames,
@@ -11,6 +11,7 @@ import { StyleSheet } from "react-native";
 /**
  * Efficiently merges style objects with proper handling of nested objects
  */
+
 const mergeStyles = (obj1, obj2) => {
   if (!obj1) return obj2 || {};
   if (!obj2) return obj1 || {};
@@ -19,7 +20,7 @@ const mergeStyles = (obj1, obj2) => {
   const result = { ...obj1 };
 
   // Process all keys from obj2
-  Object.keys(obj2).forEach((key) => {
+  for (const key in obj2) {
     // If both values are objects, merge them recursively
     if (
       obj1[key] &&
@@ -33,7 +34,7 @@ const mergeStyles = (obj1, obj2) => {
     else if (obj2[key] !== undefined) {
       result[key] = obj2[key];
     }
-  });
+  }
 
   return sortValues(result);
 };
@@ -49,16 +50,52 @@ const sortValues = (obj) => {
   const primitives = {};
   const objects = {};
 
-  Object.entries(obj).forEach(([key, value]) => {
-    if (value && typeof value === "object") {
-      objects[key] = sortValues(value); // Recursively sort nested objects
+  for (const key in obj) {
+    if (obj[key] && typeof obj[key] === "object") {
+      objects[key] = sortValues(obj[key]); // Recursively sort nested objects
     } else {
-      primitives[key] = value;
+      primitives[key] = obj[key];
     }
-  });
+  }
 
   // Return combined object with primitives first
   return { ...primitives, ...objects };
+};
+
+/**
+ * Get nested value from an object using path
+ */
+const getNestedValue = (obj, path, variation) => {
+  if (!obj) return { default: {}, variation: {} };
+
+  const parts = path.split(".");
+
+  if (parts.length > 1) {
+    const mainComponentName = parts[0];
+    const restComponentName = parts.slice(1);
+
+    const defaultPath = [mainComponentName, "default", ...restComponentName];
+    const variationPath = [mainComponentName, variation, ...restComponentName];
+
+    const getValueByPath = (obj, pathArray) => {
+      let current = obj;
+      for (let i = 0; i < pathArray.length; i++) {
+        if (!current) return undefined;
+        current = current[pathArray[i]];
+      }
+      return current;
+    };
+
+    return {
+      default: getValueByPath(obj, defaultPath),
+      variation: getValueByPath(obj, variationPath),
+    };
+  } else {
+    return {
+      default: obj?.[path]?.default || obj?.[path] || {},
+      variation: obj?.[path]?.[variation],
+    };
+  }
 };
 
 type ParsedStylesheet<ST extends StyleSheetWithSuperPowers> = {
@@ -66,7 +103,7 @@ type ParsedStylesheet<ST extends StyleSheetWithSuperPowers> = {
   themeStyles: ReactNativeStyleSheet<ST>;
   propStyle: ReactNativeStyleSheet<ST>;
   getCombinedStyle: (section: keyof ST, isDefault?: boolean) => any[] | any;
-  getFlattenStyle: (section: keyof ST) => any[] | any;
+  getFlattenStyle: (section: keyof ST, isDefault?: boolean) => any[] | any;
 };
 
 /**
@@ -78,77 +115,75 @@ const useCombinedStyle = <ST extends StyleSheetWithSuperPowers>(
   variation?: string,
   variantsMap?: ExtractVariantNames<typeof stylesheet>,
 ): ParsedStylesheet<ST> => {
-  const { style, contextValue } = variantsMap || {
-    style: {},
-    contextValue: {},
-  };
+  const { style = {}, contextValue = {} } = variantsMap || {};
 
   // Get theme styles for component (default and variation-specific)
-  const contextThemeStyles = contextValue?.theme?.[componentName];
+  const contextThemeStyles = useMemo(
+    () => getNestedValue(contextValue?.theme, componentName, variation || ""),
+    [contextValue?.theme, componentName, variation],
+  );
 
   // Default component styles
   const { styles: defaultStyles } = useStyles(stylesheet, variantsMap);
 
   // Calculate merged theme styles once
   const mergedThemeStyles = useMemo(() => {
-    const baseTheme = contextThemeStyles?.default || contextThemeStyles || {};
-    const variationTheme = contextThemeStyles?.[variation] || {};
+    const baseTheme = contextThemeStyles?.default || {};
+    const variationTheme = contextThemeStyles?.variation || {};
     return mergeStyles(baseTheme, variationTheme);
-  }, [contextThemeStyles, variation]);
+  }, [contextThemeStyles]);
 
-  // Apply theme styles
+  // Apply theme styles - memoized to prevent unnecessary recalculations
   const { styles: themeStyles } = useStyles(mergedThemeStyles, variantsMap);
 
-  // Apply prop-based styles
-  const { styles: propStyle } = useStyles(
-    createStyleSheet(style || {}),
-    variantsMap,
-  );
+  // Apply prop-based styles - memoized creation of stylesheets
+  const propStyleSheet = useMemo(() => createStyleSheet(style || {}), [style]);
+  const { styles: propStyle } = useStyles(propStyleSheet, variantsMap);
 
   // This is only used by getCombinedStyle for the isDefault case
-  const { styles: sectionStyle } = useStyles(
-    createStyleSheet({ style: style || {} }),
-    variantsMap,
+  const sectionStyleSheet = useMemo(
+    () => createStyleSheet({ style: style || {} }),
+    [style],
   );
+  const { styles: sectionStyle } = useStyles(sectionStyleSheet, variantsMap);
 
   // Efficiently calculate combined styles
-  const getCombinedStyle = useMemo(
-    () =>
-      (section: keyof ST, isDefault = false): any[] => {
-        const dStyles = defaultStyles[section];
-        const tStyles = themeStyles[section];
-        const pStyles = variantsMap?.[`${section}Style`];
+  const getCombinedStyle = useCallback(
+    (section: keyof ST, isDefault = false): any[] => {
+      const dStyles = defaultStyles[section];
+      const tStyles = themeStyles[section];
+      const pStyles = variantsMap?.[`${section}Style`];
 
-        // Calculate section-specific styles based on isDefault flag
-        const sStyles = isDefault
-          ? { ...sectionStyle.style, ...propStyle?.[section] }
-          : { ...variantsMap?.[`${section}Style`], ...propStyle?.[section] };
+      const sStyles = isDefault
+        ? { ...sectionStyle.style, ...propStyle?.[section] }
+        : { ...variantsMap?.[`${section}Style`], ...propStyle?.[section] };
 
-        return [dStyles, tStyles, sStyles, pStyles];
-      },
+      return [dStyles, tStyles, sStyles, pStyles];
+    },
     [defaultStyles, themeStyles, propStyle, sectionStyle, variantsMap],
   );
 
   // Get flattened styles for direct application
-  const getFlattenStyle = useMemo(
-    () =>
-      (section: keyof ST): any => {
-        // Extract all applicable styles
-        const dStyles = defaultStyles[section];
-        const dExtraStyles =
-          defaultStyles?.extraStyles?.[section]?.(variantsMap);
-        const tStyles = themeStyles[section];
-        const tExtraStyles = themeStyles?.extraStyles?.[section]?.(variantsMap);
-        const pStyles = propStyle?.[section];
+  const getFlattenStyle = useCallback(
+    (section: keyof ST, isDefault = false): any => {
+      // Extract all applicable styles
+      const dStyles = defaultStyles[section];
+      const dExtraStyles = defaultStyles?.extraStyles?.[section]?.(variantsMap);
+      const tStyles = themeStyles[section];
+      const tExtraStyles = themeStyles?.extraStyles?.[section]?.(variantsMap);
+      const pStyles = propStyle?.[section];
+      const sStyles = isDefault
+        ? { ...sectionStyle.style, ...propStyle?.[section] }
+        : { ...variantsMap?.[`${section}Style`], ...propStyle?.[section] };
 
-        // Flatten into a single style object
-        return StyleSheet.flatten([
-          { ...dStyles, ...dExtraStyles },
-          { ...tStyles, ...tExtraStyles },
-          pStyles || {}, // Ensure we don't pass undefined
-        ]);
-      },
-    [defaultStyles, themeStyles, propStyle, variantsMap],
+      return StyleSheet.flatten([
+        { ...dStyles, ...dExtraStyles },
+        { ...tStyles, ...tExtraStyles },
+        pStyles || {}, // Ensure we don't pass undefined
+        sStyles,
+      ]);
+    },
+    [defaultStyles, themeStyles, propStyle, sectionStyle, variantsMap],
   );
 
   return {

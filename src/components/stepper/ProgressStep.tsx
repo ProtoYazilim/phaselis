@@ -2,7 +2,7 @@ import type { FC } from "react";
 import type { ProgressStepProps } from "./types";
 import { View, ScrollView } from "react-native";
 
-const ProgressStep: FC<ProgressStepProps> = (props) => {
+const ProgressStep: FC<ProgressStepProps> = (props: ProgressStepProps) => {
   const {
     onNext,
     onPrevious,
@@ -20,7 +20,6 @@ const ProgressStep: FC<ProgressStepProps> = (props) => {
     activeStep,
     renderFooter,
   } = props;
-
   const onNextStep = async () => {
     onNext && (await onNext());
     if (errors) {

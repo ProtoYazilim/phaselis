@@ -194,77 +194,77 @@ export default {
           },
         },
       },
-    },
-    _picker: {
-      _header: {
-        container: {
-          paddingHorizontal: Spacings.LG,
-          paddingVertical: Spacings.MD,
+      _picker: {
+        _header: {
+          container: {
+            paddingHorizontal: Spacings.LG,
+            paddingVertical: Spacings.MD,
+          },
+          text: {
+            color: LightColors.Gray[950],
+            fontSize: FontSizes.XL,
+          },
+          closeIconSlot: {
+            width: Heights.SMminHeight,
+            height: Heights.SMminHeight,
+            paddingRight: Spacings.SM,
+            paddingLeft: Spacings.SM,
+            backgroundColor: LightColors.Primary[600],
+            borderColor: LightColors.Primary[50],
+            borderRadius: 28,
+            borderWidth: 1,
+          },
+          closeIcon: {
+            color: LightColors.Primary[50],
+          },
         },
-        text: {
-          color: LightColors.Gray[950],
-          fontSize: FontSizes.XL,
+        _noOptionSlot: {
+          container: {
+            flex: 1,
+            height: Heights.XXLminHeight,
+            marginHorizontal: Spacings.SM,
+          },
+          text: {
+            marginTop: Spacings.SM,
+            fontSize: FontSizes.MD,
+            fontWeight: "bold",
+            color: LightColors.Primary[950],
+          },
         },
-        closeIconSlot: {
-          width: Heights.SMminHeight,
-          height: Heights.SMminHeight,
-          paddingRight: Spacings.SM,
-          paddingLeft: Spacings.SM,
-          backgroundColor: LightColors.Primary[600],
-          borderColor: LightColors.Primary[50],
-          borderRadius: 28,
-          borderWidth: 1,
+        _optionSlot: {
+          container: {
+            backgroundColor: "white",
+            paddingVertical: Spacings.SM,
+            paddingLeft: Spacings.MD,
+            paddingRight: Spacings.MD,
+            marginTop: Spacings.SM,
+            borderColor: LightColors.Primary[950],
+            borderRadius: 19,
+            borderWidth: 0.5,
+          },
+          selected: {
+            backgroundColor: LightColors.Primary[600],
+            borderColor: LightColors.Primary[950],
+          },
+          text: {
+            fontSize: FontSizes.MD,
+            lineHeight: 22,
+            color: LightColors.Primary[950],
+          },
+          selectedText: {
+            color: LightColors.Primary[50],
+          },
         },
-        closeIcon: {
-          color: LightColors.Primary[50],
-        },
-      },
-      _noOptionSlot: {
-        container: {
-          flex: 1,
-          height: Heights.XXLminHeight,
-          marginHorizontal: Spacings.SM,
-        },
-        text: {
-          marginTop: Spacings.SM,
-          fontSize: FontSizes.MD,
-          fontWeight: "bold",
-          color: LightColors.Primary[950],
-        },
-      },
-      _optionSlot: {
-        container: {
-          backgroundColor: "white",
-          paddingVertical: Spacings.SM,
-          paddingLeft: Spacings.MD,
-          paddingRight: Spacings.MD,
-          marginTop: Spacings.SM,
-          borderColor: LightColors.Primary[950],
-          borderRadius: 19,
-          borderWidth: 0.5,
-        },
-        selected: {
-          backgroundColor: LightColors.Primary[600],
-          borderColor: LightColors.Primary[950],
-        },
-        text: {
-          fontSize: FontSizes.MD,
-          lineHeight: 22,
-          color: LightColors.Primary[950],
-        },
-        selectedText: {
-          color: LightColors.Primary[50],
-        },
-      },
-      _optionsSlot: {
-        container: {
-          backgroundColor: LightColors.Primary[50],
-        },
-        element: {
-          paddingTop: Spacings.MD,
-          paddingBottom: Spacings.XL,
-          paddingRight: Spacings.LG,
-          paddingLeft: Spacings.LG,
+        _optionsSlot: {
+          container: {
+            backgroundColor: LightColors.Primary[50],
+          },
+          element: {
+            paddingTop: Spacings.MD,
+            paddingBottom: Spacings.XL,
+            paddingRight: Spacings.LG,
+            paddingLeft: Spacings.LG,
+          },
         },
       },
     },

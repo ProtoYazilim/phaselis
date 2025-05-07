@@ -51,8 +51,8 @@ const Button: FC<ButtonPropTypes> = (props) => {
     variation,
     {
       ...props,
-      size,
       disabled,
+      size,
       pressed: isPressed,
     },
   );

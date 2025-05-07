@@ -4,21 +4,15 @@ import { stylesheet_picker_option_slot } from "../assets/styles";
 import PhaselisHOC from "../../provider/lib/hoc";
 import { useCombinedStyle } from "../../../hooks";
 
-const OptionSlotDefault = ({
-  item,
-  selectedItem,
-  onChange,
-  setShowPicker,
-  closeOnSelect,
-  style,
-  contextValue,
-}: OptionSlotProps) => {
+const OptionSlotDefault = (props: OptionSlotProps) => {
+  const { item, selectedItem, onChange, setShowPicker, closeOnSelect } = props;
   const isSelected = selectedItem?.value === item?.value;
 
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet_picker_option_slot,
-    style,
-    contextValue?.theme?.select?._picker?._optionSlot,
+    "select._picker._optionSlot",
+    "default",
+    { ...(props as any) },
   );
 
   return (

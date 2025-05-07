@@ -12,30 +12,30 @@ import { cloneSlot } from "../../utils";
 import LinearGradient from "react-native-linear-gradient";
 import type { PhaselisColors } from "../../theme";
 
-const CustomPicker: React.FC<CustomPickerProps> = ({
-  showPicker,
-  setShowPicker,
-  maxHeightModal,
-  fullScreenModal,
-  options,
-  closeIcon,
-  closeIconSize,
-  onChange,
-  selectedItem,
-  closeOnSelect,
-  NoOptionSlot = <NoOptionSlotDefault />,
-  OptionSlot = <OptionSlotDefault />,
-  HeaderSlot = <HeaderSlotDefault />,
-  CloseIconSlot,
-  contextValue,
-  style,
-  setIsFocus,
-  variation = "default",
-  topLinearGradientProps,
-  bottomLinearGradientProps,
-  showTopBlur = true,
-  showBottomBlur = true,
-}) => {
+const CustomPicker: React.FC<CustomPickerProps> = (props) => {
+  const {
+    showPicker,
+    setShowPicker,
+    maxHeightModal,
+    fullScreenModal,
+    options,
+    closeIcon,
+    closeIconSize,
+    onChange,
+    selectedItem,
+    closeOnSelect,
+    NoOptionSlot = <NoOptionSlotDefault />,
+    OptionSlot = <OptionSlotDefault />,
+    HeaderSlot = <HeaderSlotDefault />,
+    CloseIconSlot,
+    contextValue,
+    setIsFocus,
+    variation = "default",
+    topLinearGradientProps,
+    bottomLinearGradientProps,
+    showTopBlur = true,
+    showBottomBlur = true,
+  } = props;
   const Colors = useColors<PhaselisColors>();
   const { themeName } = useTheme();
   const isDarkMode = themeName === "dark";
@@ -76,16 +76,16 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
 
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet_picker_options_slot,
-    style,
-    contextValue?.theme?.select?._picker?._optionsSlot,
+    "select._picker._optionsSlot",
     variation,
+    { ...(props as any) },
   );
 
   const { getFlattenStyle } = useCombinedStyle(
     stylesheet_picker_options_slot,
-    style,
-    contextValue?.theme?.select?._picker?._optionsSlot,
+    "select._picker._optionsSlot",
     variation,
+    { ...(props as any) },
   );
 
   const handleOnBlur = () => {

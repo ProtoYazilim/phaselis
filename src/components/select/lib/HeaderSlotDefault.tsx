@@ -6,17 +6,13 @@ import { Slot } from "../../index";
 import { useCombinedStyle } from "../../../hooks";
 import { cloneSlot } from "../../../utils";
 
-const CloseIconSlotDefault = ({
-  setShowPicker,
-  closeIcon = "Check",
-  closeIconSize = "md",
-  style,
-  contextValue,
-}: CloseIconSlotProps) => {
+const CloseIconSlotDefault = (props: CloseIconSlotProps) => {
+  const { setShowPicker, closeIcon = "Check", closeIconSize = "md" } = props;
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet_picker_header,
-    style,
-    contextValue?.theme?.select?._picker?._header,
+    "select._picker._header",
+    "default",
+    { ...(props as any) },
   );
   return (
     <Pressable
@@ -36,20 +32,22 @@ const CloseIconSlotDefault = ({
   );
 };
 
-const HeaderSlotDefault = ({
-  text = "Select Title",
-  setShowPicker,
-  closeIcon,
-  closeIconSize,
-  CloseIconSlot = <CloseIconSlotDefault />,
-  closeOnSelect,
-  contextValue,
-  style,
-}: HeaderSlotProps) => {
+const HeaderSlotDefault = (props: HeaderSlotProps) => {
+  const {
+    text = "Select Title",
+    setShowPicker,
+    closeIcon,
+    closeIconSize,
+    CloseIconSlot = <CloseIconSlotDefault />,
+    closeOnSelect,
+    contextValue,
+  } = props;
+
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet_picker_header,
-    style,
-    contextValue?.theme?.select?._picker?._header,
+    "select._picker._header",
+    "default",
+    { ...(props as any) },
   );
 
   return (

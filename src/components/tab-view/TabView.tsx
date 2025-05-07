@@ -6,16 +6,8 @@ import TabHeader from "./TabHeader";
 import { tab_view_styles as stylesheet } from "./assets/styles";
 import { useCombinedStyle } from "../../hooks";
 
-const TabView = ({
-  children,
-  headerProps,
-  activeTab = 0,
-  scrollable,
-  contextValue,
-  style,
-  variation = "default",
-  ...extraProps
-}: TabViewProps) => {
+const TabView = (props: TabViewProps) => {
+  const { children, headerProps, activeTab = 0, scrollable, variation } = props;
   const [activeTabIndex, setActiveTabIndex] = useState(activeTab);
 
   const data = useMemo(() => {
@@ -36,11 +28,10 @@ const TabView = ({
 
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
-    style,
-    contextValue?.theme?.tab[variation]?.view,
+    "tab.view",
     variation,
     {
-      ...extraProps,
+      ...props,
     },
   );
 

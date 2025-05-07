@@ -6,7 +6,7 @@ import {
   type ReactElement,
 } from "react";
 import type { SlotProps } from "./types";
-import { Animated, Easing } from "react-native";
+import { Animated, Easing, StyleSheet } from "react-native";
 import { LucideIcon } from "../index";
 
 const Slot: FC<SlotProps> = (props) => {
@@ -43,7 +43,6 @@ const Slot: FC<SlotProps> = (props) => {
     inputRange: [0, 1],
     outputRange: ["0deg", "360deg"], // Full rotation
   });
-
   if (children) {
     return (
       <>
@@ -52,6 +51,13 @@ const Slot: FC<SlotProps> = (props) => {
           defaultStyle: style?.[0],
           themeStyle: style?.[1],
           propStyle: style?.[2],
+          sectionStyle: style?.[3],
+          style: StyleSheet.flatten([
+            style?.[0],
+            style?.[1],
+            style?.[2],
+            style?.[3],
+          ]),
           ...children?.props,
         })}
       </>

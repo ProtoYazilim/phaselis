@@ -214,7 +214,6 @@ const Textfield = forwardRef<TextInput, TextfieldProps>((props, ref) => {
         ref={inputRef}
         testID={Platform.OS === platforms.ios ? id : undefined}
         accessibilityLabel={Platform.OS === platforms.android ? id : undefined}
-        style={getCombinedStyle("text", true)}
         underlineColorAndroid="rgba(0,0,0,0)"
         autoCorrect={false}
         spellCheck={false}
@@ -227,6 +226,7 @@ const Textfield = forwardRef<TextInput, TextfieldProps>((props, ref) => {
         {...props}
         {...inputProps}
         {...extraPropsMasked}
+        style={getCombinedStyle("text", true)}
       />
       <Slot
         style={getCombinedStyle("rightSlot")}

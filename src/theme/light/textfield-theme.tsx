@@ -104,10 +104,10 @@ export default {
               fontSize: FontSizes.XL,
             },
           },
-        },
-        textarea: {
-          true: {
-            marginTop: Spacings.XS,
+          textarea: {
+            true: {
+              marginTop: 2,
+            },
           },
         },
       },

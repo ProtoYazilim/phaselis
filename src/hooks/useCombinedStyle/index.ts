@@ -151,16 +151,37 @@ const useCombinedStyle = <ST extends StyleSheetWithSuperPowers>(
   const getCombinedStyle = useCallback(
     (section: keyof ST, isDefault = false): any[] => {
       const dStyles = defaultStyles[section];
+      const dExtraStyles = defaultStyles?.extraStyles?.[section]?.(variantsMap);
+
       const tStyles = themeStyles[section];
+
+      const tExtraStyles =
+        contextThemeStyles?.[variation]?.extraStyles?.[section]?.(variantsMap);
+
       const pStyles = variantsMap?.[`${section}Style`];
 
       const sStyles = isDefault
-        ? { ...sectionStyle.style, ...propStyle?.[section] }
+        ? propStyle?.[section]
+          ? propStyle?.[section]
+          : { ...sectionStyle.style }
         : { ...variantsMap?.[`${section}Style`], ...propStyle?.[section] };
 
-      return [dStyles, tStyles, sStyles, pStyles];
+      return [
+        { ...dStyles, ...dExtraStyles },
+        { ...tStyles, ...tExtraStyles },
+        sStyles,
+        pStyles,
+      ];
     },
-    [defaultStyles, themeStyles, propStyle, sectionStyle, variantsMap],
+    [
+      defaultStyles,
+      themeStyles,
+      contextThemeStyles,
+      variation,
+      variantsMap,
+      propStyle,
+      sectionStyle.style,
+    ],
   );
 
   // Get flattened styles for direct application

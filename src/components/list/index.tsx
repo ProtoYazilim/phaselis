@@ -13,7 +13,6 @@ const List: FC<ListProps> = (props) => {
 
   return (
     <NativeFlatList
-      style={getCombinedStyle("element", true)}
       contentContainerStyle={getCombinedStyle("container")}
       columnWrapperStyle={
         numColumns && numColumns > 0 ? getCombinedStyle("columnWrapper") : null
@@ -21,6 +20,7 @@ const List: FC<ListProps> = (props) => {
       ListHeaderComponentStyle={getCombinedStyle("header")}
       ListFooterComponentStyle={getCombinedStyle("footer")}
       {...props}
+      style={getCombinedStyle("element", true)}
     />
   );
 };

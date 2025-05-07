@@ -366,6 +366,7 @@ const CreditCardPayment = () => {
               renderItem={({ item }) => (
                 <InstallmentItem item={item} Colors={Colors} />
               )}
+              scrollEnabled={false}
             />
           </RadioGroup>
         </AccordionItem>

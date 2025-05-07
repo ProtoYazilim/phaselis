@@ -1,80 +1,68 @@
-import type { ElementType, FC } from "react";
-import type { BlockProps, Shadow } from "./types";
+import type { FC } from "react";
+import type { BlockProps } from "./types";
 import { useMemo } from "react";
 import { View, Animated } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
 import PhaselisHOC from "../provider/lib/hoc";
-import useCombinedStyle from "../../hooks/useCombinedStyle";
-import stylesheet from "./assets/styles";
+import LinearGradient from "react-native-linear-gradient";
+import { ShadowedView, shadowStyle } from "react-native-fast-shadow";
 
-const Block: FC<BlockProps> = (props) => {
-  const { children, animated = false } = props;
+const Block: FC<BlockProps> = ({
+  style,
+  children,
+  animated = false,
+  ...extraProps
+}) => {
+  const shadows = useMemo(() => {
+    if (Array.isArray(style)) {
+      return style
+        .map((s) => s?.shadows)
+        .flat()
+        .filter(Boolean);
+    } else return style?.shadows || [];
+  }, [style]);
 
-  const { getCombinedStyle, getFlattenStyle } = useCombinedStyle(
-    stylesheet,
-    "block",
-    "default",
-    { ...(props as any) },
-  );
+  const renderShadows = (child: React.ReactNode) => {
+    if (!shadows || shadows.length === 0) return child;
 
-  // Flatten and extract shadow + gradient from style
-  const { shadows, lineerGradient } = useMemo(() => {
-    const flatten = getFlattenStyle("self") || {};
-    return {
-      shadows: flatten.shadows || [],
-      lineerGradient: flatten.lineerGradient || null,
-    };
-  }, [getFlattenStyle]);
+    return shadows.reduceRight((acc, shadow) => {
+      return (
+        <ShadowedView
+          style={[
+            shadowStyle({
+              color: shadow.color,
+              opacity: shadow.opacity,
+              radius: shadow.radius,
+              offset: shadow.offset,
+            }),
+            { alignSelf: "flex-start" },
+          ]}
+        >
+          {acc}
+        </ShadowedView>
+      );
+    }, child);
+  };
 
-  // Build boxShadow value if shadows exist
-  const boxShadowStyle = useMemo(() => {
-    if (!shadows || shadows.length === 0) return {};
-    const boxShadowValue = shadows
-      .map((shadow: Shadow) => {
-        const { offset, radius, color, opacity } = shadow;
-        return `${offset?.width || 0}px ${offset?.height || 0}px ${radius || 0}px rgba(${hexToRgb(
-          color || "#000",
-        )}, ${opacity ?? 0.5})`;
-      })
-      .join(", ");
-
-    return {
-      boxShadow: boxShadowValue,
-    };
-  }, [shadows]);
+  const isLinearGradient = !!style?.lineerGradient;
 
   const WrapperComponent = useMemo(() => {
-    if (lineerGradient) return LinearGradient;
+    if (isLinearGradient) return LinearGradient;
     return animated ? Animated.View : View;
-  }, [animated, lineerGradient]) as ElementType;
+  }, [animated, isLinearGradient]) as React.ElementType;
 
-  return (
+  const gradientProps = isLinearGradient ? { ...style.lineerGradient } : {};
+
+  return renderShadows(
     <WrapperComponent
-      style={[getCombinedStyle("self"), boxShadowStyle]}
-      {...(lineerGradient || {})}
-      {...props}
+      style={style}
+      {...(gradientProps as any)}
+      {...(extraProps as any)}
     >
       {children}
-    </WrapperComponent>
+    </WrapperComponent>,
   );
 };
 
 Block.displayName = "Block";
 
 export default PhaselisHOC(Block);
-
-// HEX to RGB helper
-function hexToRgb(hex: string): string {
-  let value = hex.replace("#", "");
-  if (value.length === 3) {
-    value = value
-      .split("")
-      .map((c) => c + c)
-      .join("");
-  }
-  const bigint = parseInt(value, 16);
-  const r = (bigint >> 16) & 255;
-  const g = (bigint >> 8) & 255;
-  const b = bigint & 255;
-  return `${r}, ${g}, ${b}`;
-}

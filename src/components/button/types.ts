@@ -15,11 +15,15 @@ export interface ButtonPropTypes
   children?: ReactNode;
   disabled?: boolean;
   contextValue?: any;
-  style?: ButtonStyles;
+  style?: ButtonStyles | ViewStyle;
+  containerStyle?: ViewStyle;
+  textStyle?: TextStyle;
+  leftSlotStyle?: ViewStyle & TextStyle;
+  rightSlotStyle?: ViewStyle & TextStyle;
   text?: string;
   onClick?: ((event: GestureResponderEvent) => void) | null | undefined;
   onPress?: ((event: GestureResponderEvent) => void) | null | undefined;
-  type?: buttonType;
+  type?: ButtonType;
 }
 
 export interface ButtonStyles {
@@ -27,6 +31,9 @@ export interface ButtonStyles {
   text?: TextStyle;
   leftSlot?: ViewStyle & TextStyle;
   rightSlot?: ViewStyle & TextStyle;
+  element?: ViewStyle;
 }
 
-type buttonType = "submit" | "reset" | "button";
+type ButtonType = "submit" | "reset" | "button";
+
+export type { ButtonType };

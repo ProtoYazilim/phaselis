@@ -10,11 +10,17 @@ export interface ListProps
     | "ListFooterComponentStyle"
   > {
   contextValue?: any;
-  style?: {
-    columnWrapper?: ViewStyle;
-    container?: ViewStyle;
-    element?: ViewStyle;
-    footer?: ViewStyle;
-    header?: ViewStyle;
-  };
+  style?:
+    | {
+        columnWrapper?: ViewStyle;
+        container?: ViewStyle;
+        element?: ViewStyle;
+        footer?: ViewStyle;
+        header?: ViewStyle;
+      }
+    | ViewStyle;
+  columnWrapperStyle?: ViewStyle;
+  containerStyle?: ViewStyle;
+  headerStyle?: ViewStyle;
+  footerStyle?: ViewStyle;
 }

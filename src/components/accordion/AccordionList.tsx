@@ -1,34 +1,29 @@
-import { useState } from "react";
+import { useState, type FC } from "react";
 import { View, FlatList } from "react-native";
 import type { AccordionListProps } from "./types";
-import { useStyles } from "react-native-unistyles";
 import { stylesheet_list as stylesheet } from "./assets/styles";
 import AccordionItem from "./AccordionItem";
 import PhaselisHOC from "../provider/lib/hoc";
+import { useCombinedStyle } from "../../hooks";
 
-const AccordionList = ({
-  onChange,
-  style,
-  disabled,
-  contextValue,
-  expandMode = "single",
-  defaultExpandedIndex = [],
-  data,
-}: AccordionListProps) => {
-  const { styles: defaultStyles } = useStyles(stylesheet, {
+const AccordionList: FC<AccordionListProps> = (props) => {
+  const {
+    onChange,
     disabled,
-  });
+    expandMode = "single",
+    defaultExpandedIndex = [],
+    data,
+  } = props;
 
-  const { styles: themeStyles } = useStyles(
-    contextValue?.theme?.accordionList as typeof stylesheet,
+  const { getCombinedStyle } = useCombinedStyle(
+    stylesheet,
+    "accordionList",
+    "default",
     {
-      disabled,
+      ...props,
+      disabled: disabled,
     },
   );
-
-  const { styles: propStyle } = useStyles(style as typeof stylesheet, {
-    disabled,
-  });
 
   const [expandedIndex, setExpandedIndex] =
     useState<number[]>(defaultExpandedIndex);
@@ -48,15 +43,9 @@ const AccordionList = ({
   };
 
   return (
-    <View
-      style={[
-        defaultStyles.container,
-        themeStyles.container,
-        propStyle.container,
-      ]}
-    >
+    <View style={getCombinedStyle("container")}>
       <FlatList
-        style={[defaultStyles.element, themeStyles.element, propStyle.element]}
+        style={getCombinedStyle("element", true)}
         data={data}
         renderItem={({ item, index }) => {
           return (

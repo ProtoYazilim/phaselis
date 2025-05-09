@@ -13,7 +13,11 @@ export interface LinkProps
         leftSlot?: IconStyle;
         rightSlot?: IconStyle;
       })
-    | undefined;
+    | undefined
+    | TextStyle;
+  containerStyle?: ViewStyle;
+  leftSlotStyle?: ViewStyle | IconStyle;
+  rightSlotStyle?: ViewStyle | IconStyle;
   contextValue?: any;
   text?: string;
   primary?: boolean;

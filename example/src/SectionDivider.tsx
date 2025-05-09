@@ -10,8 +10,7 @@ const SectionDivider: FC<{
   noHeight?: boolean;
 }> = ({
   leftText,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  rightText,
+  // rightText,
   rightSlot,
   leftTextColor,
 }) => {

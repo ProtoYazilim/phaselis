@@ -1,5 +1,5 @@
 import type { RadioProps } from "./types";
-import { useState, useEffect, useContext, useRef } from "react";
+import { useState, useEffect, useContext, useRef, type FC } from "react";
 import { Text, Pressable, Animated, StyleSheet } from "react-native";
 import RadioContext from "./context";
 import stylesheet from "./assets/styles";
@@ -7,19 +7,18 @@ import PhaselisHOC from "../provider/lib/hoc";
 import { Block } from "../index";
 import { useCombinedStyle } from "../../hooks";
 
-const Radio = ({
-  text,
-  value,
-  onChange,
-  disabled,
-  size = "md",
-  contextValue,
-  style,
-  checked: checkedProp = false,
-  partOfGroup = true,
-  variation = "primary",
-  ...extraProps
-}: RadioProps) => {
+const Radio: FC<RadioProps> = (props) => {
+  const {
+    text,
+    value,
+    onChange,
+    disabled,
+    size = "md",
+    checked: checkedProp = false,
+    partOfGroup = true,
+    variation = "primary",
+  } = props;
+
   const [checked, setChecked] = useState(checkedProp);
   const animationScale = useRef(new Animated.Value(0)).current; // Replacing useSharedValue with useRef
   const radioContext = useContext(RadioContext);
@@ -30,10 +29,9 @@ const Radio = ({
 
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
-    style,
-    contextValue?.theme?.radio,
+    "radio",
     variation,
-    { disabled, size, ...extraProps },
+    { ...props, disabled, size },
   );
 
   const handlePress = () => {
@@ -95,7 +93,7 @@ const Radio = ({
           style={[animatedStyle, ...getCombinedStyle("innerElement")]}
         />
       </Block>
-      <Text style={getCombinedStyle("text")}>{text}</Text>
+      <Text style={getCombinedStyle("text", true)}>{text}</Text>
     </Pressable>
   );
 };

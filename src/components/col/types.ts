@@ -6,19 +6,9 @@ interface ColProps {
   id?: string;
   children?: ReactNode | FC | any | Element;
   disabled?: boolean;
-  // name?: string;
   contextValue?: any;
   size?: GridSize;
   offset?: GridSize;
-  xs?: GridSize;
-  md?: GridSize;
-  lg?: GridSize;
-  xl?: GridSize;
-  xsOffset?: GridSize;
-  mdOffset?: GridSize;
-  lgOffset?: GridSize;
-  xlOffset?: GridSize;
-  className?: string;
   style?: ViewStyle;
 }
 

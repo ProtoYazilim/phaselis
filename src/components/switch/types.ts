@@ -8,14 +8,11 @@ export interface SwitchProps extends SwitchExtraProps {
   value?: boolean;
   onChange?: (event: any, value: boolean) => void;
   duration?: number;
-  style?: {
-    container?: ViewStyle;
-    element?: ViewStyle;
-    track?: ViewStyle;
-    leftIcon?: IconStyle;
-    rightIcon?: IconStyle;
-    thumb?: ViewStyle;
-  };
+  style?: SwitchStyles | ViewStyle;
+  containerStyle?: ViewStyle;
+  thumbStyle?: ViewStyle;
+  leftIconStyle?: IconStyle;
+  rightIconStyle?: IconStyle;
   name?: string;
   showIcons?: boolean;
   LeftSlot?: SlotChildComponent;
@@ -32,4 +29,12 @@ export interface SwitchProps extends SwitchExtraProps {
   error?: any; //not
   onBlur?: (event: any, value: any, ...args: any[]) => void; //not used but maybe in future
   resetValue?: any; //not used but maybe in future
+}
+
+export interface SwitchStyles {
+  container?: ViewStyle;
+  track?: ViewStyle;
+  leftIcon?: IconStyle;
+  rightIcon?: IconStyle;
+  thumb?: ViewStyle;
 }

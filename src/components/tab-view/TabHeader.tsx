@@ -13,29 +13,26 @@ const elementComponents = {
   scrollView: ScrollView,
 };
 
-const TabViewHeader = ({
-  style,
-  contextValue,
-  activeTab = 0,
-  id = "",
-  data,
-  handleOnPress,
-  scrollable = false,
-  variation = "default",
-  leftIcon = "ChevronLeft",
-  rightIcon = "ChevronRight",
-  LeftSlot,
-  RightSlot,
-  ...extraProps
-}: TabViewHeaderProps) => {
+const TabViewHeader = (props: TabViewHeaderProps) => {
+  const {
+    activeTab = 0,
+    id = "",
+    data,
+    handleOnPress,
+    scrollable = false,
+    variation,
+    leftIcon = "ChevronLeft",
+    rightIcon = "ChevronRight",
+    LeftSlot,
+    RightSlot,
+  } = props;
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
-    style,
-    contextValue?.theme?.tab[variation]?.header,
+    "tab.header",
     variation,
     {
+      ...props,
       scrollable,
-      ...extraProps,
     },
   );
 

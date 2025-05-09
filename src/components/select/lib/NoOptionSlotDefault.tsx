@@ -4,15 +4,13 @@ import { stylesheet_picker_no_option } from "../assets/styles";
 import PhaselisHOC from "../../provider/lib/hoc";
 import { useCombinedStyle } from "../../../hooks";
 
-const NoOptionSlotDefault = ({
-  text = "No option avaliable.",
-  style,
-  contextValue,
-}: NoOptionSlotProps) => {
+const NoOptionSlotDefault = (props: NoOptionSlotProps) => {
+  const { text = "No option avaliable." } = props;
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet_picker_no_option,
-    style,
-    contextValue?.theme?.select?._picker?._noOptionSlot,
+    "select._picker._noOptionSlot",
+    "default",
+    { ...(props as any) },
   );
 
   return (

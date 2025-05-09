@@ -25,8 +25,22 @@ function LabelStory() {
           onPress={() => setIsBold(!isBold)}
         />
       </Block>
-      <Label text="H1 48px" variation="h1" italic={isItalic} bold={isBold} />
-      <Label text="H2 34px" variation="h2" italic={isItalic} bold={isBold} />
+      <Label
+        text="H1 48px"
+        variation="h1"
+        italic={isItalic}
+        bold={isBold}
+        style={{
+          text: {
+            color: "blue",
+          },
+          container: {
+            padding: 30,
+          },
+        }}
+        containerStyle={{ backgroundColor: "red" }}
+      />
+      {/* <Label text="H2 34px" variation="h2" italic={isItalic} bold={isBold} />
       <Label text="H3 28px" variation="h3" italic={isItalic} bold={isBold} />
       <Label text="H4 22px" variation="h4" italic={isItalic} bold={isBold} />
       <Label text="H5 18px" variation="h5" italic={isItalic} bold={isBold} />
@@ -43,7 +57,7 @@ function LabelStory() {
         variation="quot"
         italic={isItalic}
         bold={isBold}
-      />
+      /> */}
     </ScrollView>
   );
 }

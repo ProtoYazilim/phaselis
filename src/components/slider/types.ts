@@ -7,10 +7,8 @@ export interface SliderProps
     SliderExtraProps {
   contextValue?: any;
   disabled?: boolean;
-  style?: {
-    container?: ViewStyle;
-    element?: ViewStyle;
-  };
+  style?: SliderStyles | ViewStyle;
+  containerStyle?: ViewStyle;
   minValue?: number;
   maxValue?: number;
   step?: number;
@@ -20,4 +18,9 @@ export interface SliderProps
   id?: string; //not used but maybe in the future
   children?: ReactNode | FC | any | Element; //not used but maybe in the future
   className?: string; //not used but maybe in the future
+}
+
+export interface SliderStyles {
+  container?: ViewStyle;
+  element?: ViewStyle;
 }

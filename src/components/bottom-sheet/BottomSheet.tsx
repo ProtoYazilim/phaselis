@@ -6,15 +6,17 @@ import { BlurView } from "@react-native-community/blur";
 import { useColors } from "../provider";
 import type { PhaselisColors } from "../../theme";
 
-const BottomSheet: FC<BottomSheetProps> = ({
-  show = false,
-  duration = 500,
-  children,
-  onClose,
-  fullScreenModal = false,
-  maxHeightModal = "40%",
-  backgroundColor,
-}) => {
+const BottomSheet: FC<BottomSheetProps> = (props) => {
+  const {
+    show = false,
+    duration = 500,
+    children,
+    onClose,
+    fullScreenModal = false,
+    maxHeightModal = "40%",
+    backgroundColor,
+  } = props;
+
   // Use a larger value to ensure the sheet slides from off-screen
   const INITIAL_OFFSET = 1000;
   const translateY = useRef(new Animated.Value(INITIAL_OFFSET)).current;

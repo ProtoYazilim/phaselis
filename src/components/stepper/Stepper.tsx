@@ -5,17 +5,19 @@ import { View } from "react-native";
 import StepHeader from "./StepHeader";
 import times from "lodash/times";
 
-const ProgressSteps: FC<ProgressStepsProps> = ({
-  isComplete = false,
-  activeStep = 0,
-  children,
-  renderFooter,
-  completeIcon,
-  stepIcon,
-  activeIcon,
-  firstTrailShown = false,
-  lastTrailShown = false,
-}: ProgressStepsProps) => {
+const ProgressSteps: FC<ProgressStepsProps> = (props: ProgressStepsProps) => {
+  const {
+    isComplete = false,
+    activeStep = 0,
+    children,
+    renderFooter,
+    completeIcon,
+    stepIcon,
+    activeIcon,
+    firstTrailShown = false,
+    lastTrailShown = false,
+  } = props;
+
   const [stepCount, setStepCount] = useState<number>(0);
   const [currentStep, setCurrentStep] = useState<number>(activeStep);
 

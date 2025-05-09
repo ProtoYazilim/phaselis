@@ -1,6 +1,19 @@
 import AccordionList from "./AccordionList";
 import Accordion from "./Accordion";
 import AccordionItem from "./AccordionItem";
-export { AccordionList, AccordionItem, Accordion };
 
+import type {
+  AccordionHeaderProps,
+  AccordionItemProps,
+  AccordionListProps,
+  AccordionProps,
+} from "./types";
+
+export { AccordionList, AccordionItem, Accordion };
+export type {
+  AccordionHeaderProps,
+  AccordionItemProps,
+  AccordionListProps,
+  AccordionProps,
+};
 export default Accordion;

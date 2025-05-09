@@ -2,6 +2,6 @@ import type { PhaselisComponentTheme } from "../types";
 
 export default {
   block: {
-    default: {},
+    self: {},
   },
 } as PhaselisComponentTheme;

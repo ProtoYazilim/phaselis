@@ -3,12 +3,17 @@ import type { ReactElement, ReactNode } from "react";
 import type { ComponentSize, IconStyle, SlotIconName } from "../../types";
 
 interface AccordionHeaderProps extends AccordionExtraProps {
-  style?: {
-    container?: ViewStyle;
-    text?: TextStyle;
-    icon?: IconStyle;
-    drop?: IconStyle;
-  };
+  style?:
+    | {
+        container?: ViewStyle;
+        text?: TextStyle;
+        icon?: IconStyle;
+        drop?: IconStyle;
+      }
+    | TextStyle;
+  containerStyle?: ViewStyle;
+  iconStyle?: IconStyle;
+  dropStyle?: IconStyle;
   disabled?: boolean;
   contextValue?: any;
   onPress?: () => void;
@@ -19,11 +24,15 @@ interface AccordionHeaderProps extends AccordionExtraProps {
 }
 
 interface AccordionItemProps extends AccordionExtraProps {
-  style?: {
-    container?: ViewStyle;
-    element?: ViewStyle;
-    header?: ViewStyle;
-  };
+  style?:
+    | {
+        container?: ViewStyle;
+        element?: ViewStyle;
+        header?: ViewStyle;
+      }
+    | ViewStyle;
+  containerStyle?: ViewStyle;
+  headerStyle?: ViewStyle;
   disabled?: boolean;
   size?: ComponentSize;
   contextValue?: any;

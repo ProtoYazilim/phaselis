@@ -15,21 +15,20 @@ import { Slot } from "../index";
 import { useCombinedStyle } from "../../hooks";
 import { BlurView } from "@react-native-community/blur";
 
-const Popup: FC<PopupProps> = ({
-  show,
-  duration = 500,
-  children,
-  onClose,
-  fullScreen,
-  contextValue,
-  style,
-  leftIcon,
-  LeftSlot,
-  title,
-  variation = "default",
-  backgroundBlur = false,
-  ...extraProps
-}: any) => {
+const Popup: FC<PopupProps> = (props) => {
+  const {
+    show,
+    duration = 500,
+    children,
+    onClose,
+    fullScreen,
+    leftIcon,
+    LeftSlot,
+    title,
+    variation = "default",
+    backgroundBlur = false,
+  } = props;
+
   const translateY = new Animated.Value(300);
 
   useEffect(() => {
@@ -72,10 +71,9 @@ const Popup: FC<PopupProps> = ({
   };
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
-    style,
-    contextValue?.theme?.popup,
+    "popup",
     variation,
-    { ...extraProps },
+    { ...(props as any) },
   );
 
   return (
@@ -99,7 +97,7 @@ const Popup: FC<PopupProps> = ({
           },
         ]}
       >
-        <View style={getCombinedStyle("element")}>
+        <View style={getCombinedStyle("element", true)}>
           {title && (
             <View style={getCombinedStyle("header")}>
               <Slot

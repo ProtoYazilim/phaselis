@@ -41,7 +41,7 @@ const DatepickerStory = () => {
               paddingBottom: 32,
             }}
           >
-            <Block style={{ alignItems: "center" }}>
+            <Block style={{ alignItems: "center", gap: 4 }}>
               <Text style={(styles.upperText, { color: Colors.Primary[300] })}>
                 DD
               </Text>
@@ -52,7 +52,7 @@ const DatepickerStory = () => {
                 rightIconVisible={false}
               />
             </Block>
-            <Block style={{ alignItems: "center" }}>
+            <Block style={{ alignItems: "center", gap: 4 }}>
               <Text style={(styles.upperText, { color: Colors.Primary[300] })}>
                 MM
               </Text>
@@ -63,7 +63,7 @@ const DatepickerStory = () => {
                 rightIconVisible={false}
               />
             </Block>
-            <Block style={{ alignItems: "center" }}>
+            <Block style={{ alignItems: "center", gap: 4 }}>
               <Text style={(styles.upperText, { color: Colors.Primary[300] })}>
                 YYYY
               </Text>
@@ -74,7 +74,7 @@ const DatepickerStory = () => {
                 rightIconVisible={false}
               />
             </Block>
-            <Block style={{ alignItems: "center" }}>
+            <Block style={{ alignItems: "center", gap: 4 }}>
               <Text style={(styles.upperText, { color: Colors.Primary[300] })}>
                 YY
               </Text>
@@ -85,7 +85,7 @@ const DatepickerStory = () => {
                 rightIconVisible={false}
               />
             </Block>
-            <Block style={{ alignItems: "center" }}>
+            <Block style={{ alignItems: "center", gap: 4 }}>
               <Text style={(styles.upperText, { color: Colors.Primary[300] })}>
                 MM/YY
               </Text>
@@ -98,7 +98,7 @@ const DatepickerStory = () => {
             </Block>
           </Row>
           <Row style={{ marginBottom: 4, justifyContent: "space-between" }}>
-            <Block style={{ alignItems: "center" }}>
+            <Block style={{ alignItems: "center", gap: 4 }}>
               <Text style={(styles.upperText, { color: Colors.Primary[300] })}>
                 DD/MM/YYYY
               </Text>
@@ -109,7 +109,7 @@ const DatepickerStory = () => {
                 rightIconVisible={false}
               />
             </Block>
-            <Block style={{ alignItems: "center" }}>
+            <Block style={{ alignItems: "center", gap: 4 }}>
               <Text style={(styles.upperText, { color: Colors.Primary[300] })}>
                 YYYY/MM/DD
               </Text>

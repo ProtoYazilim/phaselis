@@ -35,13 +35,17 @@ export interface TextfieldProps
   placeholder?: string;
   readOnly?: boolean;
   validator?: any;
-  style?: {
-    container?: ViewStyle;
-    element?: ViewStyle;
-    text?: TextStyle;
-    leftSlot?: IconStyle;
-    rightSlot?: IconStyle;
-  };
+  style?:
+    | {
+        container?: ViewStyle;
+        text?: TextStyle;
+        leftSlot?: IconStyle;
+        rightSlot?: IconStyle;
+      }
+    | TextStyle;
+  containerStyle?: ViewStyle;
+  leftSlotStyle?: IconStyle;
+  rightSlotStyle?: IconStyle;
   loadingIcon?: ReactNode;
   loading?: boolean;
   uppercase?: boolean;

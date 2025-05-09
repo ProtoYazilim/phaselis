@@ -91,112 +91,12 @@ const Calculator = () => {
 
   return (
     <Form ref={numPad}>
-      <Block
+      <Button
         style={{
-          gap: 10,
-          width: "100%",
-          padding: 10,
+          borderWidth: 10,
+          borderColor: "red",
         }}
-      >
-        <View
-          style={{
-            height: 300,
-            borderColor: COLORS.Gray[500],
-            borderWidth: 1,
-            borderRadius: 8,
-            borderStyle: "solid",
-            padding: 4,
-            gap: 4,
-          }}
-        >
-          <Textfield name="lcd" size="md" />
-          <View
-            style={{
-              height: 240,
-              padding: 8,
-            }}
-          >
-            <List
-              data={data}
-              renderItem={({ item }) => {
-                return (
-                  <Text>
-                    {item.math}={item.result}
-                  </Text>
-                );
-              }}
-            />
-          </View>
-        </View>
-        <Row style={{ gap: 10 }}>
-          <Col size={3}>
-            <CalculatorButton text="AC" onClick={resetCalc} />
-          </Col>
-          <Col size={3}>
-            <CalculatorButton text="<" onClick={delCalc} />
-          </Col>
-          <Col size={3}>
-            <CalculatorButton text="CLS" onClick={clearCalc} />
-          </Col>
-          <Col size={3}>
-            <CalculatorButton text="/" onClick={updateCalc} />
-          </Col>
-        </Row>
-        <Row style={{ gap: 10 }}>
-          <Col size={3}>
-            <CalculatorButton text="7" onClick={updateCalc} />
-          </Col>
-          <Col size={3}>
-            <CalculatorButton text="8" onClick={updateCalc} />
-          </Col>
-          <Col size={3}>
-            <CalculatorButton text="9" onClick={updateCalc} />
-          </Col>
-          <Col size={3}>
-            <CalculatorButton text="*" onClick={updateCalc} />
-          </Col>
-        </Row>
-        <Row style={{ gap: 10 }}>
-          <Col size={3}>
-            <CalculatorButton text="4" onClick={updateCalc} />
-          </Col>
-          <Col size={3}>
-            <CalculatorButton text="5" onClick={updateCalc} />
-          </Col>
-          <Col size={3}>
-            <CalculatorButton text="6" onClick={updateCalc} />
-          </Col>
-          <Col size={3}>
-            <CalculatorButton text="-" onClick={updateCalc} />
-          </Col>
-        </Row>
-        <Row style={{ gap: 10 }}>
-          <Col size={3}>
-            <CalculatorButton text="1" onClick={updateCalc} />
-          </Col>
-          <Col size={3}>
-            <CalculatorButton text="2" onClick={updateCalc} />
-          </Col>
-          <Col size={3}>
-            <CalculatorButton text="3" onClick={updateCalc} />
-          </Col>
-          <Col size={3}>
-            <CalculatorButton text="+" onClick={updateCalc} />
-          </Col>
-        </Row>
-        <Row style={{ gap: 10 }}>
-          <Col size={6}>
-            <CalculatorButton text="0" onClick={updateCalc} />
-          </Col>
-
-          <Col size={3}>
-            <CalculatorButton text="." onClick={updateCalc} />
-          </Col>
-          <Col size={3}>
-            <CalculatorButton text="=" onClick={calcCalc} />
-          </Col>
-        </Row>
-      </Block>
+      />
     </Form>
   );
 };

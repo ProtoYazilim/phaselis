@@ -5,6 +5,10 @@ const stylesheet = createStyleSheet({
     borderWidth: 1,
     justifyContent: "center",
     variants: {
+      pressed: {
+        true: {},
+        false: {},
+      },
       loading: {
         true: {},
       },
@@ -18,6 +22,10 @@ const stylesheet = createStyleSheet({
     justifyContent: "center",
     alignItems: "center",
     variants: {
+      pressed: {
+        true: {},
+        false: {},
+      },
       size: {
         xs: {},
         sm: {},
@@ -32,6 +40,10 @@ const stylesheet = createStyleSheet({
     fontFamily: "Poppins",
     textAlign: "center",
     variants: {
+      pressed: {
+        true: {},
+        false: {},
+      },
       size: {
         xs: {},
         sm: {},
@@ -48,6 +60,10 @@ const stylesheet = createStyleSheet({
 
   leftSlot: {
     variants: {
+      pressed: {
+        true: {},
+        false: {},
+      },
       disabled: {
         true: {},
       },
@@ -63,6 +79,10 @@ const stylesheet = createStyleSheet({
   },
   rightSlot: {
     variants: {
+      pressed: {
+        true: {},
+        false: {},
+      },
       disabled: {
         true: {},
       },

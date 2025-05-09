@@ -15,7 +15,7 @@ const Block: FC<BlockProps> = ({
   const shadows = useMemo(() => {
     if (Array.isArray(style)) {
       return style
-        .map((s) => s.shadows)
+        .map((s) => s?.shadows)
         .flat()
         .filter(Boolean);
     } else return style?.shadows || [];

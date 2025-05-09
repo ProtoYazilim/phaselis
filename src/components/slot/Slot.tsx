@@ -1,20 +1,28 @@
-import React, { useEffect, useRef } from "react";
+import {
+  cloneElement,
+  useEffect,
+  useRef,
+  type FC,
+  type ReactElement,
+} from "react";
 import type { SlotProps } from "./types";
-import { Animated, Easing } from "react-native";
+import { Animated, Easing, StyleSheet } from "react-native";
 import { LucideIcon } from "../index";
 
-const Slot: React.FC<SlotProps> = ({
-  children,
-  icon,
-  style,
-  size,
-  strokeWidth,
-  onClick,
-  onPress,
-  height,
-  width,
-  loading,
-}) => {
+const Slot: FC<SlotProps> = (props) => {
+  const {
+    children,
+    icon,
+    style,
+    size,
+    strokeWidth,
+    onClick,
+    onPress,
+    height,
+    width,
+    loading,
+  } = props;
+
   const rotateValue = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
@@ -35,15 +43,21 @@ const Slot: React.FC<SlotProps> = ({
     inputRange: [0, 1],
     outputRange: ["0deg", "360deg"], // Full rotation
   });
-
   if (children) {
     return (
       <>
-        {React.cloneElement(children as React.ReactElement, {
+        {cloneElement(children as ReactElement, {
           size: size || "md",
           defaultStyle: style?.[0],
           themeStyle: style?.[1],
           propStyle: style?.[2],
+          sectionStyle: style?.[3],
+          style: StyleSheet.flatten([
+            style?.[0],
+            style?.[1],
+            style?.[2],
+            style?.[3],
+          ]),
           ...children?.props,
         })}
       </>

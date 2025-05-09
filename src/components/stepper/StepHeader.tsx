@@ -5,30 +5,30 @@ import PhaselisHOC from "../provider/lib/hoc";
 import { LucideIcon } from "../index";
 import { useCombinedStyle } from "../../hooks";
 
-const StepHeader: React.FC<StepHeaderProps> = ({
-  stepNum,
-  isActive,
-  isCompleted,
-  text,
-  leftText,
-  rightText,
-  topText,
-  isFirst,
-  isLast,
-  isDisabled,
-  style,
-  contextValue,
-  variation = "default",
-  completeIcon = "Check",
-  stepIcon,
-  activeIcon,
-}: StepHeaderProps) => {
+const StepHeader: React.FC<StepHeaderProps> = (props: StepHeaderProps) => {
+  const {
+    stepNum,
+    isActive,
+    isCompleted,
+    text,
+    leftText,
+    rightText,
+    topText,
+    isFirst,
+    isLast,
+    isDisabled,
+    variation,
+    completeIcon = "Check",
+    stepIcon,
+    activeIcon,
+  } = props;
+
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
-    style,
-    contextValue?.theme?.stepper[variation]?.header,
+    "stepper.header",
     variation,
     {
+      ...props,
       isActive,
       isCompleted,
       isFirst,

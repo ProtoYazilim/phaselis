@@ -1,5 +1,5 @@
 import type { AccordionProps } from "./types";
-import { useState, Children, cloneElement } from "react";
+import { useState, Children, cloneElement, type FC } from "react";
 import { createContext } from "react";
 import PhaselisHOC from "../provider/lib/hoc";
 
@@ -15,11 +15,9 @@ const AccordionContext = createContext<{
   expandMode: "single",
 });
 
-const Accordion = ({
-  expandMode = "single",
-  children,
-  onChange,
-}: AccordionProps) => {
+const Accordion: FC<AccordionProps> = (props) => {
+  const { expandMode = "single", children, onChange } = props;
+
   const handleOnChange = (expand: boolean, index: number) => {
     onChange?.(index);
     if (expandMode === "single") {

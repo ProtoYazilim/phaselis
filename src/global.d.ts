@@ -18,7 +18,7 @@ interface BadgeExtraProps {
 }
 
 interface BlockExtraProps {
-  variation?: "default";
+  variation?: "self";
 }
 
 interface ButtonExtraProps {
@@ -129,8 +129,8 @@ interface SwitchExtraProps {
 
 interface TabViewExtraProps {
   variation?: "default";
-  active?: boolean;
   scrollable?: boolean;
+  active?: boolean;
 }
 
 interface TextfieldExtraProps {

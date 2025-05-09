@@ -17,36 +17,40 @@ export interface SelectProps
   noOptionsMessage?: string;
   validator?: any[];
   doneText?: string;
-  style?: {
-    leftSlot?: StyleProp<ViewStyle>;
-    rightSlot?: StyleProp<ViewStyle>;
-    container?: ViewStyle;
-    element?: ViewStyle;
-  };
+  style?: SelectStyle | ViewStyle;
   displayField?: string; // Use the keys of Option
   valueField?: string; // Use the keys of Option
-  LeftSlot?: SlotChildComponent;
-  RightSlot?: SlotChildComponent;
   size?: ComponentSize;
   leftIcon?: SlotIconName;
   rightIcon?: SlotIconName;
-  HeaderSlot?: ComponentType<HeaderSlotProps>;
   closeIcon?: SlotIconName;
   closeIconSize?: ComponentSize;
-  CloseIconSlot?: ComponentType;
   pickerType?: "native" | "custom";
-  InputSlot?: ComponentType<InputSlotProps>;
-  OptionSlot?: ComponentType<OptionSlotProps>;
   maxHeightModal?: number | "auto" | `${number}%`;
   fullScreenModal?: boolean;
   closeOnSelect?: boolean;
-  NoOptionSlot?: ComponentType;
   id?: string;
   children?: ReactNode | FC | any | Element;
   className?: string;
   contextValue?: any;
+  LeftSlot?: SlotChildComponent;
+  RightSlot?: SlotChildComponent;
+  CloseIconSlot?: ComponentType;
+  HeaderSlot?: ComponentType<HeaderSlotProps>;
+  NoOptionSlot?: ComponentType;
+  InputSlot?: ComponentType<InputSlotProps>;
+  OptionSlot?: ComponentType<OptionSlotProps>;
+  containerStyle?: StyleProp<ViewStyle>;
+  elementStyle?: StyleProp<TextStyle>;
+  leftSlotStyle?: StyleProp<ViewStyle>;
+  rightSlotStyle?: StyleProp<ViewStyle>;
 }
-
+export interface SelectStyle {
+  container?: StyleProp<ViewStyle>;
+  element?: StyleProp<TextStyle>;
+  leftSlot?: StyleProp<ViewStyle>;
+  rightSlot?: StyleProp<ViewStyle>;
+}
 export interface OptionSlotProps {
   item?: {
     label: string;

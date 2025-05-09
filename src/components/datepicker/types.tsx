@@ -2,6 +2,7 @@ import type { TextStyle, ViewStyle } from "react-native";
 import type { FC, ReactNode } from "react";
 import type {
   ComponentSize,
+  IconStyle,
   InputControlProps,
   SlotableLeftRightProps,
 } from "../../types";
@@ -16,11 +17,10 @@ export interface DatepickerProps
   maxDate?: Date;
   format?: string;
   size?: ComponentSize;
-  style?: {
-    container?: ViewStyle;
-    leftSlot?: ViewStyle;
-    element?: TextStyle;
-  };
+  style?: DatepickerStyles | TextStyle;
+  containerStyle?: ViewStyle;
+  leftSlotStyle?: IconStyle | ViewStyle;
+  rightSlotStyle?: IconStyle | ViewStyle;
   rightIconVisible?: boolean;
   theme?: "light" | "dark" | "auto";
   locale?: string; //locale type example > TR_tr
@@ -28,4 +28,12 @@ export interface DatepickerProps
   id?: string; //not used but maybe used in future
   children?: ReactNode | FC | any | Element; //not used but maybe used in future
   className?: string; //not used but maybe used in future
+}
+
+export interface DatepickerStyles {
+  container?: ViewStyle;
+  text?: TextStyle;
+  leftSlot?: IconStyle | ViewStyle;
+  rightSlot?: IconStyle | ViewStyle;
+  element?: ViewStyle;
 }

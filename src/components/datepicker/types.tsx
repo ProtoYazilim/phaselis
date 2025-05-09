@@ -17,14 +17,7 @@ export interface DatepickerProps
   maxDate?: Date;
   format?: string;
   size?: ComponentSize;
-  style?:
-    | {
-        container?: ViewStyle;
-        leftSlot?: IconStyle | ViewStyle;
-        rightSlot?: IconStyle | ViewStyle;
-        element?: TextStyle;
-      }
-    | TextStyle;
+  style?: DatepickerStyles | TextStyle;
   containerStyle?: ViewStyle;
   leftSlotStyle?: IconStyle | ViewStyle;
   rightSlotStyle?: IconStyle | ViewStyle;
@@ -35,4 +28,12 @@ export interface DatepickerProps
   id?: string; //not used but maybe used in future
   children?: ReactNode | FC | any | Element; //not used but maybe used in future
   className?: string; //not used but maybe used in future
+}
+
+export interface DatepickerStyles {
+  container?: ViewStyle;
+  text?: TextStyle;
+  leftSlot?: IconStyle | ViewStyle;
+  rightSlot?: IconStyle | ViewStyle;
+  element?: ViewStyle;
 }

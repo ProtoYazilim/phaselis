@@ -23,7 +23,7 @@ export interface ButtonPropTypes
   text?: string;
   onClick?: ((event: GestureResponderEvent) => void) | null | undefined;
   onPress?: ((event: GestureResponderEvent) => void) | null | undefined;
-  type?: buttonType;
+  type?: ButtonType;
 }
 
 export interface ButtonStyles {
@@ -34,4 +34,6 @@ export interface ButtonStyles {
   element?: ViewStyle;
 }
 
-type buttonType = "submit" | "reset" | "button";
+type ButtonType = "submit" | "reset" | "button";
+
+export type { ButtonType };

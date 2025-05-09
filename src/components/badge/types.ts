@@ -5,15 +5,7 @@ import type { SlotIconName } from "../../types";
 export interface BadgeProps extends BadgeExtraProps {
   text?: string;
   children: ReactNode;
-  style?:
-    | {
-        container?: ViewStyle;
-        element?: ViewStyle;
-        text?: TextStyle;
-        leftIcon?: TextStyle;
-        rightIcon?: TextStyle;
-      }
-    | ViewStyle;
+  style?: BadgeStyles | ViewStyle;
   containerStyle?: ViewStyle;
   textStyle?: TextStyle;
   leftIconStyle?: TextStyle;
@@ -25,4 +17,12 @@ export interface BadgeProps extends BadgeExtraProps {
   left?: number;
   leftIcon?: SlotIconName;
   rightIcon?: SlotIconName;
+}
+
+export interface BadgeStyles {
+  container?: ViewStyle;
+  text?: TextStyle;
+  leftIcon?: TextStyle;
+  rightIcon?: TextStyle;
+  element?: ViewStyle;
 }

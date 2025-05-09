@@ -22,14 +22,7 @@ interface RadioProps extends RadioExtraProps {
   value: string;
   onChange?: (value: string) => void;
   contextValue?: any;
-  style?:
-    | {
-        container?: ViewStyle;
-        outerElement?: ViewStyle;
-        innerElement?: ViewStyle;
-        text?: TextStyle;
-      }
-    | TextStyle;
+  style?: RadioStyles | TextStyle;
   containerStyle?: ViewStyle;
   outerElementStyle?: ViewStyle;
   innerElementStyle?: ViewStyle;
@@ -37,4 +30,11 @@ interface RadioProps extends RadioExtraProps {
   checked?: boolean;
 }
 
-export type { RadioGroupProps, RadioProps };
+interface RadioStyles {
+  container?: ViewStyle;
+  outerElement?: ViewStyle;
+  innerElement?: ViewStyle;
+  text?: TextStyle;
+}
+
+export type { RadioGroupProps, RadioProps, RadioStyles };

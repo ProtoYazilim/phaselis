@@ -8,17 +8,7 @@ export interface PopupProps extends PopupExtraProps {
   onClose: () => void;
   fullScreen?: boolean;
   contextValue?: any;
-  style?:
-    | {
-        title?: TextStyle;
-        container?: ViewStyle;
-        header?: ViewStyle;
-        element?: ViewStyle;
-        leftSlot?: IconStyle;
-        closeIcon?: IconStyle;
-        backDrop?: ViewStyle;
-      }
-    | ViewStyle;
+  style?: PopupStyles | ViewStyle;
   containerStyle?: ViewStyle;
   titleStyle?: TextStyle;
   headerStyle?: ViewStyle;
@@ -31,4 +21,14 @@ export interface PopupProps extends PopupExtraProps {
   title?: string;
   children?: ReactNode;
   backgroundBlur?: boolean;
+}
+
+export interface PopupStyles {
+  container?: ViewStyle;
+  element?: ViewStyle;
+  title?: TextStyle;
+  header?: ViewStyle;
+  leftSlot?: ViewStyle | IconStyle;
+  closeIcon?: ViewStyle | IconStyle;
+  backDrop?: ViewStyle;
 }

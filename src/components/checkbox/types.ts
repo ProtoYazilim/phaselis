@@ -17,16 +17,16 @@ export interface CheckboxProps
   text?: string;
   iconName?: SlotIconName;
   IconSlot?: SlotChildComponent;
-  style?:
-    | {
-        container?: ViewStyle;
-        element?: ViewStyle;
-        icon?: IconStyle;
-        text?: TextStyle;
-      }
-    | ViewStyle;
+  style?: CheckboxStyles | ViewStyle;
   containerStyle?: ViewStyle;
   iconStyle?: IconStyle;
   textStyle?: TextStyle;
   pressed?: boolean;
+}
+
+export interface CheckboxStyles {
+  container?: ViewStyle;
+  icon?: IconStyle;
+  text?: TextStyle;
+  element?: ViewStyle;
 }

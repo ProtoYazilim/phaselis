@@ -1,4 +1,4 @@
-import Badge from "./Badge";
+import Badge from "./asdasd";
 
 import type { BadgeProps } from "./types";
 

@@ -13,7 +13,7 @@ const TabItem = (props: TabItemProps) => {
     { ...props },
   );
 
-  return <View style={getCombinedStyle("container")}>{children}</View>;
+  return <View style={getCombinedStyle("container", true)}>{children}</View>;
 };
 
 TabItem.displayName = "TABITEM";

@@ -26,6 +26,12 @@ interface StepHeaderProps extends StepperExtraProps {
     number?: ViewStyle;
     text?: TextStyle;
   };
+  containerStyle?: ViewStyle;
+  leftTrailStyle?: ViewStyle;
+  rightTrailStyle?: ViewStyle;
+  completeIconStyle?: IconStyle;
+  numberStyle?: ViewStyle;
+  textStyle?: TextStyle;
   contextValue?: any;
   stepIcon?: SlotIconName;
   completeIcon?: SlotIconName;

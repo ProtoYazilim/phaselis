@@ -43,7 +43,6 @@ const Example = () => {
 };
 
 export default Example;
-
 ```
 
 ### Avatar with an Icon  
@@ -60,14 +59,14 @@ export default Example;
 
 ## Props  
 
-{/* ### id  
+### id  
 `string`  
 
 Unique identifier for the avatar.  
 
 ```jsx
-<Avatar id="user-avatar" size="lg" circle img="assets/phaselis.png" />
-``` */}
+<Avatar id="user-avatar" size="lg" img="assets/phaselis.png" />
+```
 
 ### children  
 `ReactNode`  
@@ -93,6 +92,7 @@ import { Text } from "react-native";
 Custom styles for the avatar container, text, and icon.  
 
 ```jsx
+// Object with named styles
 <Avatar
   size="md"
   text="AB"
@@ -101,6 +101,21 @@ Custom styles for the avatar container, text, and icon.
     text: { color: "#fff", fontWeight: "bold" },
   }}
 />
+
+// Direct icon styling
+<Avatar
+  iconName="User"
+  style={{ color: "white", strokeWidth: 2.5 }}
+/>
+```
+
+### containerStyle
+`ViewStyle`
+
+Additional style applied directly to the container View.
+
+```jsx
+<Avatar text="JD" containerStyle={{ marginRight: 10 }} />
 ```
 
 ### iconName  

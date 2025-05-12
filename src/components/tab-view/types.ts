@@ -15,6 +15,7 @@ interface TabViewHeaderProps extends SlotableLeftRightProps, TabViewExtraProps {
     container?: ViewStyle;
     element?: ViewStyle;
   };
+  containerStyle?: ViewStyle;
   contextValue?: any;
   data?: any[];
   activeTab?: number;
@@ -30,13 +31,16 @@ interface TabHeaderItemProps extends SlotableLeftRightProps, TabViewExtraProps {
   handleOnLayout?: (event: any, index: number) => void;
   handleOnPress?: (index: number) => void;
   scrollable?: boolean;
-  style?: {
-    container?: ViewStyle;
-    text?: TextStyle;
-    element?: ViewStyle;
-    leftSlot?: IconStyle;
-    rightSlot?: IconStyle;
-  };
+  style?:
+    | {
+        container?: ViewStyle;
+        leftSlot?: IconStyle;
+        rightSlot?: IconStyle;
+      }
+    | TextStyle;
+  containerStyle?: ViewStyle;
+  leftSlotStyle?: IconStyle;
+  rightSlotStyle?: IconStyle;
   contextValue?: any;
 }
 
@@ -46,18 +50,23 @@ interface TabViewProps extends TabViewExtraProps {
   activeTab?: number;
   scrollable?: boolean;
   contextValue?: any;
-  style?: {
-    container?: ViewStyle;
-    element?: ViewStyle;
-  };
+  style?:
+    | {
+        container?: ViewStyle;
+        element?: ViewStyle;
+      }
+    | ViewStyle;
+  containerStyle?: ViewStyle;
 }
 
 interface TabItemProps extends TabViewExtraProps {
   children: ReactNode;
   contextValue?: any;
-  style?: {
-    container?: ViewStyle;
-  };
+  style?:
+    | {
+        container?: ViewStyle;
+      }
+    | ViewStyle;
   title: string;
   leftIcon?: SlotIconName;
   rightIcon?: SlotIconName;

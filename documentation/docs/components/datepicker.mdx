@@ -53,7 +53,7 @@ export default Example;
 ## Props
 
 ### mode
-` date | time | datetime `
+`date | time | datetime`
 
 Specifies the type of selection: date, time, or both. Defaults to `"date"`.
 
@@ -100,10 +100,37 @@ Controls the size of the date picker. Defaults to `"md"`.
 ### locale
 `string`
 
-Specifies the locale for the date formatting. Example: `"TR_tr"`.
+Specifies the locale for the date formatting. Defaults to `"TR_tr"`.
 
 ```jsx
 <Datepicker locale="en_US" />
+```
+
+### theme
+`light | dark | auto`
+
+Specify the theme for the date picker modal.
+
+```jsx
+<Datepicker theme="dark" />
+```
+
+### disabled
+`boolean`
+
+Disables the date picker, preventing user interaction.
+
+```jsx
+<Datepicker disabled />
+```
+
+### rightIconVisible
+`boolean`
+
+Controls whether the right icon is visible. Defaults to `true`.
+
+```jsx
+<Datepicker rightIconVisible={false} />
 ```
 
 ### style
@@ -111,11 +138,13 @@ Specifies the locale for the date formatting. Example: `"TR_tr"`.
 |------------|-----------|------------------------------------------------------|
 | `container` | ViewStyle | Style for the outer container of the date picker.    |
 | `leftSlot`  | ViewStyle | Style for the left slot element (e.g., icon).        |
+| `rightSlot` | ViewStyle | Style for the right slot element (e.g., icon).       |
 | `element`   | TextStyle | Style for the text element displaying the date.      |
 
 Custom styles for the `Datepicker` component.
 
 ```jsx
+// Object with named styles
 <Datepicker
   style={{
     container: {
@@ -127,6 +156,38 @@ Custom styles for the `Datepicker` component.
     element: { fontSize: 16, color: "#11295a" },
   }}
 />
+
+// Direct element styling (text display)
+<Datepicker
+  style={{ fontSize: 18, fontWeight: 'bold', color: '#0066cc' }}
+/>
+```
+
+### containerStyle
+`ViewStyle`
+
+Additional style applied directly to the container.
+
+```jsx
+<Datepicker containerStyle={{ marginBottom: 10 }} />
+```
+
+### leftSlotStyle
+`IconStyle | ViewStyle`
+
+Additional style applied directly to the left slot.
+
+```jsx
+<Datepicker leftIcon="Calendar" leftSlotStyle={{ color: 'blue' }} />
+```
+
+### rightSlotStyle
+`IconStyle | ViewStyle`
+
+Additional style applied directly to the right slot.
+
+```jsx
+<Datepicker rightSlotStyle={{ marginLeft: 8 }} />
 ```
 
 ### LeftSlot / RightSlot

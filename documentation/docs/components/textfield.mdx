@@ -85,53 +85,86 @@ Other than listed props below, you can pass any prop that a `TextInput` componen
 
 :::
 
-{/* ### validator
-`function | any[]`
+### value
+`string`
 
-Validation function or array for checking input validity. This ensures only valid characters or patterns are allowed.
+The current value of the input field.
 
 ```jsx
-<Textfield validator={/^\d+$/} placeholder="Enter numbers only" />
-``` */}
+<Textfield value="Initial text" />
+```
+
+### onChange
+`(event: any, value: string) => void`
+
+Callback function that triggers when the input value changes.
+
+```jsx
+<Textfield onChange={(e, value) => console.log("New value:", value)} />
+```
+
+### placeholder
+`string`
+
+Placeholder text displayed when the input field is empty.
+
+```jsx
+<Textfield placeholder="Enter your name" />
+```
 
 ### style
 | Name         | Type       | Description                                      |
 |--------------|------------|--------------------------------------------------|
 | `container`  | ViewStyle  | Style for the outer container of the input field.|
-| `element`    | ViewStyle  | Style for the main input field element.          |
+| `text`       | TextStyle  | Style for the input text.                        |
 | `leftSlot`   | ViewStyle  | Style for the component or icon on the left side.|
 | `rightSlot`  | ViewStyle  | Style for the component or icon on the right side.|
 
-Custom styles for the `Textfield` component.
+You can style the Textfield with the `style` prop using either an object with named styles or directly provide TextStyle properties that will be applied to the text input.
 
 ```jsx
+// Object with named styles
 <Textfield
   style={{
     container: { padding: 10, backgroundColor: "#eef8ff" },
-    element: { color: "#323439", fontSize: 16 },
+    text: { color: "#323439", fontSize: 16 },
     leftSlot: { marginRight: 10 },
     rightSlot: { marginLeft: 10 },
   }}
 />
+
+// Direct text styling
+<Textfield
+  style={{ color: "#0066cc", fontSize: 18, fontWeight: "bold" }}
+/>
 ```
 
-{/* ### loading
-`boolean`
+### containerStyle
+`ViewStyle`
 
-If `true`, displays the `loadingIcon` component to indicate loading.
+Additional style applied directly to the container View.
 
 ```jsx
-<Textfield loading />
+<Textfield containerStyle={{ borderRadius: 8, padding: 12 }} />
 ```
 
-### loadingIcon
-`ReactNode`
+### leftSlotStyle
+`IconStyle`
 
-An icon or component displayed when the `loading` prop is `true`.
+Additional style applied directly to the left slot or icon.
 
 ```jsx
-<Textfield loading loadingIcon={<ActivityIndicator />} />
-``` */}
+<Textfield leftIcon="User" leftSlotStyle={{ color: "#0066cc" }} />
+```
+
+### rightSlotStyle
+`IconStyle`
+
+Additional style applied directly to the right slot or icon.
+
+```jsx
+<Textfield rightIcon="Search" rightSlotStyle={{ color: "#0066cc" }} />
+```
 
 ### type
 ` default | text | number | email | phone | password `

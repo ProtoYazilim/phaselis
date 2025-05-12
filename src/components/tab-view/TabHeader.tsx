@@ -134,7 +134,7 @@ const TabViewHeader = (props: TabViewHeaderProps) => {
       {scrollEnabled && renderLeftScrollIcon()}
       <ElementComponent
         horizontal
-        style={getCombinedStyle("element")}
+        style={getCombinedStyle("element", true)}
         decelerationRate={"fast"}
         showsHorizontalScrollIndicator={false}
         ref={refScrollView}

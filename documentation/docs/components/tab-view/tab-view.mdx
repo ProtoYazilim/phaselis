@@ -166,12 +166,13 @@ import { Text } from "react-native";
 | `container` | ViewStyle | Style for the main container of the `TabView`.   |
 | `element`   | ViewStyle | Style for the content area of the active tab.    |
 
-Allows customization of the `TabView` component's appearance.
+You can style the TabView with the `style` prop using either an object with named styles or directly provide ViewStyle properties that will be applied to the element (content area).
 
 ```jsx
 import { Text } from "react-native";
 ```
 ```jsx
+// Object with named styles
 <TabView
   style={{
     container: { backgroundColor: "#f0f0f0", padding: 20 },
@@ -183,7 +184,31 @@ import { Text } from "react-native";
   </TabItem>
   <TabItem title="Item 2">
     <Text>Tab Content 2</Text>
+  </TabView>
+
+// Direct element styling
+<TabView
+  style={{ padding: 15, backgroundColor: "#f8f9fa", borderRadius: 8 }}
+>
+  <TabItem title="Item 1">
+    <Text>Tab Content 1</Text>
   </TabItem>
-  {/* Add more tabs here */}
-</TabView>
+  <TabItem title="Item 2">
+    <Text>Tab Content 2</Text>
+  </TabView>
+```
+
+### containerStyle
+`ViewStyle`
+
+Additional style applied directly to the container View.
+
+```jsx
+<TabView containerStyle={{ backgroundColor: "#f5f5f5", borderRadius: 8 }}>
+  <TabItem title="Item 1">
+    <Text>Tab Content 1</Text>
+  </TabItem>
+  <TabItem title="Item 2">
+    <Text>Tab Content 2</Text>
+  </TabView>
 ```

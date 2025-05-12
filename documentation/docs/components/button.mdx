@@ -74,23 +74,25 @@ Function to execute when the button is pressed.
 ### type 
 `submit | reset | button`
 
-If compenent is used in a form, you can set the type of the button.
+If component is used in a form, you can set the type of the button.
 
 ```jsx
 <Button type="submit" /> 
 ```
 
 ### style
-| Name | Type |
-| ---- | ---- |
-| `container` | ViewStyle |
-| `text` | TextStyle |
-| `leftSlot` | ViewStyle |
-| `rightSlot` | ViewStyle |
+| Name | Type | Description |
+| ---- | ---- | ---- |
+| `container` | ViewStyle | Style for the outer container |
+| `element` | ViewStyle | Style for the button element |
+| `text` | TextStyle | Style for the button text |
+| `leftSlot` | ViewStyle & TextStyle | Style for the left slot/icon |
+| `rightSlot` | ViewStyle & TextStyle | Style for the right slot/icon |
 
-You can style the button with the `style` prop using React.CSSProperties.
+You can style the button with the `style` prop.
 
 ```jsx  
+// Object with named styles
 <Button
   style={{
     container: {
@@ -103,30 +105,63 @@ You can style the button with the `style` prop using React.CSSProperties.
   }}
   text="Phaselis"
 />
+
+// Direct element styling
+<Button
+  text="Direct Style"
+  style={{ backgroundColor: "#007bff", padding: 15, borderRadius: 8 }}
+/>
+```
+
+### containerStyle
+`ViewStyle`
+
+Additional style applied directly to the container View.
+
+```jsx
+<Button text="Custom Container" containerStyle={{ marginTop: 10 }} />
+```
+
+### textStyle
+`TextStyle`
+
+Additional style applied directly to the button text.
+
+```jsx
+<Button text="Custom Text" textStyle={{ fontWeight: 'bold' }} />
+```
+
+### leftSlotStyle
+`ViewStyle & TextStyle`
+
+Additional style applied directly to the left icon or slot.
+
+```jsx
+<Button leftIcon="Check" leftSlotStyle={{ color: 'green' }} text="Approved" />
+```
+
+### rightSlotStyle
+`ViewStyle & TextStyle`
+
+Additional style applied directly to the right icon or slot.
+
+```jsx
+<Button rightIcon="ExternalLink" rightSlotStyle={{ color: 'blue' }} text="Visit" />
 ```
 
 ### loading
 `boolean`
 
-If `true`, the button will show a loading spinner.
+If `true`, the button will show a loading spinner in the left slot.
 
 ```jsx
-<Button loading />  
-```
-
-### full  
-`boolean`  
-
-If `true`, the button will take up the full width of its container.  
-
-```jsx
-<Button full />
+<Button text="Submitting" loading />  
 ```
 
 ### size 
 [`ComponentSize`](../theming-and-styling/component-size.mdx)
 
-The size of the button.
+The size of the button. Default is `md`.
 
 ```jsx
 <Button size="xl" />  

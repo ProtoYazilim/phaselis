@@ -142,8 +142,6 @@ const [visible, setVisible] = useState(false);
 </Popup>
 ```
 
-Tabii, işte **`backgroundBlur`** prop'unun açıklaması:
-
 ### backgroundBlur  
 `boolean`  
 
@@ -171,17 +169,17 @@ const [visible, setVisible] = useState(false);
 ### style  
 `object`  
 
-An object to customize various parts of the popup's style.
+An object to customize various parts of the popup's style. You can either provide an object with named styles or directly provide ViewStyle properties that will be applied to the element.
 
-| Name         | Type       |
-| ------------ | ---------- |
-| `title`      | TextStyle  |
-| `container`  | ViewStyle  |
-| `header`     | ViewStyle  |
-| `element`    | ViewStyle  |
-| `leftSlot`   | IconStyle  |
-| `closeIcon`  | IconStyle  |
-| `backDrop`   | ViewStyle  |
+| Name         | Type       | Description |
+| ------------ | ---------- | ----------- |
+| `title`      | TextStyle  | Style for the popup title text |
+| `container`  | ViewStyle  | Style for the popup container |
+| `header`     | ViewStyle  | Style for the header section |
+| `element`    | ViewStyle  | Style for the main content element |
+| `leftSlot`   | IconStyle  | Style for the left icon/slot |
+| `closeIcon`  | IconStyle  | Style for the close icon |
+| `backDrop`   | ViewStyle  | Style for the backdrop overlay |
 
 ```jsx
 import { Button } from "phaselis";
@@ -200,9 +198,114 @@ onClose={() => setVisible(false)}
 style={{
     container: { backgroundColor: "#fff" },
     title: { fontSize: 18, fontWeight: "bold" },
-}}
+    element: { padding: 20, borderRadius: 10 }
+  }}
 >
-<Text>Phaselis</Text>
+  <Text>Phaselis</Text>
+</Popup>
+
+// Direct element styling
+<Popup
+  title="Phaselis"
+  show={visible}
+  onClose={() => setVisible(false)}
+  style={{ padding: 24, backgroundColor: "#f8f9fa", borderRadius: 12 }}
+>
+  <Text>Popup with direct element styling</Text>
+</Popup>
+```
+
+### containerStyle
+`ViewStyle`
+
+Additional style applied directly to the popup container.
+
+```jsx
+<Popup
+  show={visible}
+  onClose={() => setVisible(false)}
+  containerStyle={{ borderRadius: 20, backgroundColor: "#ffffff" }}
+>
+  <Text>Custom container styling</Text>
+</Popup>
+```
+
+### titleStyle
+`TextStyle`
+
+Additional style applied directly to the title text.
+
+```jsx
+<Popup
+  title="Custom Title"
+  show={visible}
+  onClose={() => setVisible(false)}
+  titleStyle={{ fontSize: 20, color: "#0066cc", fontWeight: "bold" }}
+>
+  <Text>Popup with custom title style</Text>
+</Popup>
+```
+
+### headerStyle
+`ViewStyle`
+
+Additional style applied directly to the header section.
+
+```jsx
+<Popup
+  title="Header Styled"
+  show={visible}
+  onClose={() => setVisible(false)}
+  headerStyle={{ borderBottomWidth: 1, borderBottomColor: "#eeeeee", paddingBottom: 10 }}
+>
+  <Text>Popup with custom header style</Text>
+</Popup>
+```
+
+### leftSlotStyle
+`ViewStyle | IconStyle`
+
+Additional style applied directly to the left icon or slot.
+
+```jsx
+<Popup
+  title="With Icon"
+  leftIcon="Info"
+  show={visible}
+  onClose={() => setVisible(false)}
+  leftSlotStyle={{ color: "#0066cc" }}
+>
+  <Text>Popup with custom left icon style</Text>
+</Popup>
+```
+
+### closeIconStyle
+`ViewStyle | IconStyle`
+
+Additional style applied directly to the close icon.
+
+```jsx
+<Popup
+  show={visible}
+  onClose={() => setVisible(false)}
+  closeIconStyle={{ color: "red" }}
+>
+  <Text>Popup with custom close icon</Text>
+</Popup>
+```
+
+### backDropStyle
+`ViewStyle`
+
+Additional style applied directly to the backdrop.
+
+```jsx
+<Popup
+  show={visible}
+  onClose={() => setVisible(false)}
+  backDropStyle={{ backgroundColor: "rgba(0, 0, 0, 0.7)" }}
+>
+  <Text>Popup with custom backdrop</Text>
 </Popup>
 ```
 

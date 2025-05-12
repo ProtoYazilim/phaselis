@@ -53,15 +53,98 @@ Other than listed props below, you can pass any prop that a `FlatList` component
 These properties can be passed to the component, excluding certain default styles to allow for custom styling options.
 
 ### style
-| Name| Type | Description |
+| Name | Type | Description |
 | ---- | ---- | ---- |
-| `columnWrapper` | ViewStyle | Style for the column wrapper view (for multi-column lists). |
-| `container`| ViewStyle | Style for the outer container view of the list.|
-| `element`| ViewStyle | Style for the list elements.|
-| `footer`| ViewStyle | Style for the footer of the list.|
-| `header`| ViewStyle | Style for the header of the list.|
+| `element` | ViewStyle | Style for the list itself (FlatList). |
+| `container` | ViewStyle | Style for the content container. |
+| `columnWrapper` | ViewStyle | Style for the column wrapper when using `numColumns`. |
+| `header` | ViewStyle | Style for the list header component. |
+| `footer` | ViewStyle | Style for the list footer component. |
 
-Custom styles for the list component.
+You can style the list with the `style` prop either using an object with named styles or by directly providing ViewStyle properties that will be applied to the list element.
+
+```jsx
+// Object with named styles
+<List
+  data={data}
+  renderItem={renderItem}
+  keyExtractor={keyExtractor}
+  style={{
+    element: { backgroundColor: '#f9f9f9' },
+    container: { padding: 10 },
+    header: { marginBottom: 10 },
+    footer: { marginTop: 10 },
+  }}
+/>
+
+// Direct element styling
+<List
+  data={data}
+  renderItem={renderItem}
+  keyExtractor={keyExtractor}
+  style={{ backgroundColor: '#f9f9f9', flex: 1 }}
+/>
+```
+
+### containerStyle
+`ViewStyle`
+
+Additional style applied directly to the content container.
+
+```jsx
+<List
+  data={data}
+  renderItem={renderItem}
+  containerStyle={{ padding: 16, backgroundColor: '#f5f5f5' }}
+/>
+```
+
+### columnWrapperStyle
+`ViewStyle`
+
+Additional style applied to the column wrapper when using `numColumns`.
+
+```jsx
+<List
+  data={data}
+  renderItem={renderItem}
+  numColumns={2}
+  columnWrapperStyle={{ gap: 10, justifyContent: 'space-between' }}
+/>
+```
+
+### headerStyle
+`ViewStyle`
+
+Additional style applied to the list header component.
+
+```jsx
+<List
+  data={data}
+  renderItem={renderItem}
+  ListHeaderComponent={<Text>Header</Text>}
+  headerStyle={{ borderBottomWidth: 1, borderBottomColor: '#ccc' }}
+/>
+```
+
+### footerStyle
+`ViewStyle`
+
+Additional style applied to the list footer component.
+
+```jsx
+<List
+  data={data}
+  renderItem={renderItem}
+  ListFooterComponent={<Text>Footer</Text>}
+  footerStyle={{ borderTopWidth: 1, borderTopColor: '#ccc', marginTop: 10 }}
+/>
+```
+
+### contextValue
+`any`
+
+Additional context value that can be passed to the list component.
 
 ```jsx
 import { Text } from "react-native";

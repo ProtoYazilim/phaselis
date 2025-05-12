@@ -45,7 +45,7 @@ const StepHeader: React.FC<StepHeaderProps> = (props: StepHeaderProps) => {
         {leftText && (
           <Text style={getCombinedStyle("leftText")}>{leftText}</Text>
         )}
-        <View style={getCombinedStyle("element")}>
+        <View style={getCombinedStyle("element", true)}>
           {isCompleted ? (
             <LucideIcon
               name={completeIcon}

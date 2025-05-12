@@ -45,7 +45,7 @@ const TabView = (props: TabViewProps) => {
         scrollable={scrollable}
         {...headerProps}
       />
-      <View style={getCombinedStyle("element")}>
+      <View style={getCombinedStyle("element", true)}>
         {Children.map(children, (child, index) => {
           if (child && child.type && child.type.displayName === "TABITEM") {
             if (activeTabIndex === index) {

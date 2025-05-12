@@ -60,7 +60,7 @@ Optional string to specify the label's text content.
 | `container` | ViewStyle | Style for the outer container view. |
 | `text` | TextStyle | Style for the label text. |
 
-Custom styles for the label.
+You can either provide an object with container and text styles or directly provide TextStyle properties that will be applied to the text.
 
 ```jsx
 <Label
@@ -77,8 +77,30 @@ Custom styles for the label.
     },
   }}
 />
+
+// Direct text styling
+<Label
+  text="Direct Text Style"
+  style={{ color: "red", fontSize: 18 }}
+/>
 ```
 
+### containerStyle
+`ViewStyle`
+
+Additional style applied directly to the container View.
+
+```jsx
+<Label 
+  text="Custom Container" 
+  containerStyle={{ 
+    marginBottom: 10, 
+    paddingHorizontal: 15,
+    backgroundColor: "#f5f5f5",
+    borderRadius: 4 
+  }}
+/>
+```
 
 ### children
 `ReactNode`

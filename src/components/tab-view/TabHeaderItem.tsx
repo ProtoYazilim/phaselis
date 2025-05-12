@@ -51,7 +51,7 @@ const TabHeaderItem = (props: TabHeaderItemProps) => {
       >
         {LeftSlot && <LeftSlot />}
       </Slot>
-      <Text style={getCombinedStyle("text")}>{item.text}</Text>
+      <Text style={getCombinedStyle("text", true)}>{item.text}</Text>
       <Slot
         style={getCombinedStyle("rightSlot")}
         icon={item?.rightIcon || rightIcon}

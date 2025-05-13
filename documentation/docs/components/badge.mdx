@@ -110,16 +110,16 @@ Determines the style of the badge.
 ### style
 | Name | Type | Description |
 | ---- | ---- | ----  | 
-| `container` | ViewStyle | The style for the badge’s container element. |
+| `container` | ViewStyle | The style for the badge's container element. |
 | `element` | ViewStyle | The style applied to the badge itself. |
 | `text` | TextStyle | The style applied to the text inside the badge. |
+| `leftIcon` | TextStyle | The style applied to the left icon. |
+| `rightIcon` | TextStyle | The style applied to the right icon. |
 
-You can style the badge with the `style` prop using React.CSSProperties.
+You can style the badge with the `style` prop.
 
 ```jsx
-import { Avatar } from "phaselis";
-```
-```jsx  
+// Object with named styles
 <Badge
   text="999+"
   style={{
@@ -131,6 +131,58 @@ import { Avatar } from "phaselis";
     },
   }}
 >
+  <Avatar text="VA" />
+</Badge>
+
+// Direct element styling
+<Badge
+  text="New"
+  style={{ backgroundColor: "red", borderRadius: 4, padding: 5 }}
+>
+  <Avatar text="VA" />
+</Badge>
+```
+
+### containerStyle
+`ViewStyle`
+
+Additional style applied directly to the outer container.
+
+```jsx
+<Badge text="9+" containerStyle={{ margin: 10 }}>
+  <Avatar text="VA" />
+</Badge>
+```
+
+### textStyle
+`TextStyle`
+
+Additional style applied directly to the badge text.
+
+```jsx
+<Badge text="New" textStyle={{ fontWeight: 'bold' }}>
+  <Avatar text="VA" />
+</Badge>
+```
+
+### leftIconStyle
+`TextStyle`
+
+Additional style applied directly to the left icon.
+
+```jsx
+<Badge leftIcon="Bell" leftIconStyle={{ color: '#FF5733' }}>
+  <Avatar text="VA" />
+</Badge>
+```
+
+### rightIconStyle
+`TextStyle`
+
+Additional style applied directly to the right icon.
+
+```jsx
+<Badge rightIcon="AlertCircle" rightIconStyle={{ color: '#FF5733' }}>
   <Avatar text="VA" />
 </Badge>
 ```

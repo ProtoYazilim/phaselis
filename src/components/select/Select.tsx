@@ -9,41 +9,41 @@ import NativePicker from "./NativePicker";
 import InputSlotDefault from "./lib/InputSlotDefault";
 import { cloneSlot, InputHOC } from "../../utils";
 
-const Select: FC<SelectProps> = ({
-  style,
-  options = [],
-  placeholder = "Please Select",
-  value,
-  onChange,
-  error,
-  disabled,
-  LeftSlot,
-  RightSlot,
-  leftIcon,
-  rightIcon = "ChevronDown",
-  size = "md",
-  isChanged,
-  isUsed,
-  doneText,
-  pickerType = "native",
-  InputSlot = <InputSlotDefault />,
-  OptionSlot,
-  HeaderSlot,
-  maxHeightModal,
-  fullScreenModal,
-  closeOnSelect = true,
-  NoOptionSlot,
-  closeIcon,
-  closeIconSize,
-  CloseIconSlot,
-  ...extraProps
-}) => {
+const Select: FC<SelectProps> = (props) => {
+  const {
+    style,
+    options = [],
+    placeholder = "Please Select",
+    value,
+    onChange,
+    error,
+    disabled,
+    LeftSlot,
+    RightSlot,
+    leftIcon,
+    rightIcon = "ChevronDown",
+    size = "md",
+    isChanged,
+    isUsed,
+    doneText,
+    pickerType = "native",
+    InputSlot = <InputSlotDefault />,
+    OptionSlot,
+    HeaderSlot,
+    maxHeightModal,
+    fullScreenModal,
+    closeOnSelect = true,
+    NoOptionSlot,
+    closeIcon,
+    closeIconSize,
+    CloseIconSlot,
+  } = props;
+
   const [isFocus, setIsFocus] = useState(false);
   const [showPicker, setShowPicker] = useState(false);
   const refAndroidPicker = useRef<ReactNativePickerSelect>(null);
   const refIOSPicker = useRef<ReactNativePickerSelect>(null);
   const [innerValue, setInnerValue] = useState(value);
-
   const handleOnChange = (e: any, newValue: string) => {
     setInnerValue(newValue);
     onChange?.(e, newValue);
@@ -66,6 +66,7 @@ const Select: FC<SelectProps> = ({
   return (
     <>
       {cloneSlot(InputSlot, {
+        ...props,
         selectedItem,
         placeholder,
         rightIcon,
@@ -80,7 +81,6 @@ const Select: FC<SelectProps> = ({
         style,
         showError,
         isFocus,
-        ...extraProps,
       })}
       <View
         style={{
@@ -94,6 +94,7 @@ const Select: FC<SelectProps> = ({
       >
         {pickerType === "native" ? (
           <NativePicker
+            {...(props as any)}
             refIOSPicker={refIOSPicker}
             refAndroidPicker={refAndroidPicker}
             onChange={handleOnChange}
@@ -110,6 +111,7 @@ const Select: FC<SelectProps> = ({
           />
         ) : (
           <CustomPicker
+            {...(props as any)}
             showPicker={showPicker}
             setShowPicker={setShowPicker}
             setIsFocus={setIsFocus}

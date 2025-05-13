@@ -1,0 +1,98 @@
+---
+id: styling-guide
+category: 'theming-and-styling'
+title: Component Styling Guide
+version: '0.1'
+description: A comprehensive guide to the different ways you can style Phaselis components.
+---
+
+# Component Styling Guide
+
+Phaselis components support multiple styling approaches, giving you flexibility to adjust the appearance of your components in the way that best suits your needs. This guide explains the three primary styling methods available across the component library.
+
+## Styling Methods
+
+### 1. Object-Based Styling with Named Properties
+
+The most comprehensive way to style components is by providing an object that targets specific parts of a component:
+
+```jsx
+<Button
+  text="Click Me"
+  style={{
+    container: { backgroundColor: '#f0f0f0', padding: 12 },
+    text: { color: '#0066cc', fontSize: 16 },
+    leftSlot: { marginRight: 8 }
+  }}
+/>
+```
+
+This approach allows you to target different sub-elements within a component. Each component's documentation details the specific named properties it supports.
+
+### 2. Direct Element Styling
+
+For convenience, most components also support a shorthand where style properties are applied directly to the component's main element:
+
+```jsx
+<Button
+  text="Click Me"
+  style={{ color: '#0066cc', fontSize: 16, fontWeight: 'bold' }}
+/>
+```
+
+In this example, the style properties are applied directly to the text element of the Button. The component documentation specifies which element receives these direct styles.
+
+### 3. Individual Style Props
+
+Components also provide specific style props for targeting individual elements:
+
+```jsx
+<Button
+  text="Click Me"
+  containerStyle={{ borderRadius: 8, padding: 12 }}
+  textStyle={{ fontWeight: 'bold' }}
+  leftSlotStyle={{ color: '#0066cc' }}
+/>
+```
+
+These props provide a clean way to target specific elements without the need for nesting style objects.
+
+## Determining Which Element Gets Direct Style
+
+When using the direct styling approach (method #2), it's important to know which element of a component will receive those styles. Each component in the documentation specifies this information, but generally:
+
+- For text-based components like `Button`, `Text`, and `Link`, direct styles apply to the text element.
+- For container-based components like `View`, `Block`, and `Card`, direct styles apply to the container element.
+- For input components like `TextInput` and `Select`, direct styles typically apply to the input element.
+
+## Style Precedence
+
+When combining multiple styling methods, the style precedence follows this order (based on the internal `useCombinedStyle` hook):
+
+1. Default component styles (lowest precedence)
+2. Theme styles
+3. Named properties from style object (e.g., `style={{ text: { color: 'red' } }}`)
+4. Individual style props (e.g., `textStyle={{ color: 'blue' }}`) (highest precedence)
+
+This means that individual style props will always override style properties defined in the style object, which override theme styles, which override default component styles.
+
+## Examples
+
+### Button Component
+
+```jsx
+// All styling methods with correct precedence
+<Button
+  text="Example Button"
+  // Method 1: Object with named styles (3rd in precedence)
+  style={{
+    container: { padding: 16 },
+    text: { fontSize: 16, color: 'green' }
+  }}
+  // Method 2: Direct styles applied to text (equivalent to text property in style object)
+  style={{ color: 'blue', fontWeight: '500' }}  
+  // Method 3: Individual style props (highest precedence)
+  containerStyle={{ borderRadius: 8 }}
+  textStyle={{ fontWeight: 'bold' }}  // This 'fontWeight' will override the one in direct style
+/>
+```

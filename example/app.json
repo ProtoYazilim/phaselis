@@ -4,17 +4,22 @@
     "slug": "phaselis-example",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/icons/ios_light.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.proto.phaselis"
+      "bundleIdentifier": "com.proto.phaselis",
+      "icon": {
+        "dark": "./assets/icons/ios_dark.png",
+        "light": "./assets/icons/ios_light.png",
+        "tinted": "./assets/icons/ios_tinted.png"
+      },
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/icon.png",
+        "foregroundImage": "./assets/icons/adaptive_icon.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.proto.phaselis"
@@ -22,7 +27,7 @@
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      // "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
       "expo-router",
@@ -30,9 +35,9 @@
         "expo-splash-screen",
         {
           "backgroundColor": "#ffffff",
-          "image": "./assets/images/phaselis.png",
+          "image": "./assets/icons/splash_icon.png",
           "dark": {
-            "image": "./assets/images/phaselis.png",
+            "image": "./assets/icons/splash_icon.png",
             "backgroundColor": "#000000"
           },
           "imageWidth": 300
@@ -44,7 +49,8 @@
           "assets": [
             "./assets/images",
             "./assets/fonts",
-            "./assets/logos"
+            "./assets/logos",
+            "./assets/icons"
           ]
         }
       ],

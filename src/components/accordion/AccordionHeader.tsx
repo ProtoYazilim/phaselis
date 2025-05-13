@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type FC } from "react";
 import { Pressable, Text, View, Animated } from "react-native";
 import type { AccordionHeaderProps } from "./types";
 import { stylesheet_header as stylesheet } from "./assets/styles";
@@ -7,23 +7,23 @@ import { LucideIcon } from "../index";
 import PhaselisHOC from "../provider/lib/hoc";
 import { useCombinedStyle } from "../../hooks";
 
-const AccordionHeader = ({
-  style,
-  disabled,
-  contextValue,
-  onPress,
-  onClick,
-  expanded,
-  text,
-  icon,
-  variation = "default",
-}: AccordionHeaderProps) => {
+const AccordionHeader: FC<AccordionHeaderProps> = (props) => {
+  const {
+    disabled,
+    onPress,
+    onClick,
+    expanded,
+    text,
+    icon,
+    variation = "default",
+  } = props;
+
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
-    style,
-    contextValue?.theme?.accordion_header,
+    "accordion_header",
     variation,
     {
+      ...props,
       disabled: disabled,
     },
   );
@@ -59,7 +59,7 @@ const AccordionHeader = ({
     >
       <View style={{ flexDirection: "row", gap: 10 }}>
         {icon && <LucideIcon name={icon} style={getCombinedStyle("icon")} />}
-        <Text style={getCombinedStyle("text")}>{text}</Text>
+        <Text style={getCombinedStyle("text", true)}>{text}</Text>
       </View>
       <Animated.View style={animatedStyle}>
         <LucideChevronDown

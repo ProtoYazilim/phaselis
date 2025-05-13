@@ -4,24 +4,16 @@ import { View } from "react-native";
 import { tab_item_styles as stylesheet } from "./assets/styles";
 import { useCombinedStyle } from "../../hooks";
 
-const TabItem = ({
-  children,
-  contextValue,
-  style,
-  variation = "default",
-  ...extraProps
-}: TabItemProps) => {
+const TabItem = (props: TabItemProps) => {
+  const { children, variation } = props;
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
-    style,
-    contextValue?.theme?.tab[variation]?.tabItem,
+    "tab.tabItem",
     variation,
-    {
-      ...extraProps,
-    },
+    { ...props },
   );
 
-  return <View style={getCombinedStyle("container")}>{children}</View>;
+  return <View style={getCombinedStyle("container", true)}>{children}</View>;
 };
 
 TabItem.displayName = "TABITEM";

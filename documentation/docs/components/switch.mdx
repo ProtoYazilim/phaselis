@@ -60,10 +60,10 @@ Callback function triggered when the switch value changes. Receives event and ne
 ### duration
 `number`
 
-Duration of the animation in milliseconds. Defaults to `400`.
+Duration of the animation in milliseconds. Defaults to `300`.
 
 ```jsx
-<Switch duration={300} />
+<Switch duration={500} />
 ```
 
 ### name
@@ -87,33 +87,27 @@ Boolean to control whether to show icons inside the switch.
 <Switch showIcons />
 ```
 
-### LeftSlot
+### onIcon / offIcon
+[`SlotIconName`](https://lucide.dev/icons/)
+
+The icons to display inside the switch when showIcons is true. Defaults to "Check" for onIcon and "X" for offIcon.
+
+```jsx
+<Switch showIcons onIcon="Power" offIcon="PowerOff" />
+```
+
+### LeftSlot / RightSlot
 `ReactNode`
 
-Component to render on the left side of the switch.
+Components to render on the left or right side of the switch.
 
 ```jsx
 import { LucideIcon } from "phaselis";
 ```
 ```jsx
 <Switch
-  LeftSlot={({}) => <LucideIcon name={"PowerOff"} />}
-  RightSlot={({}) => <LucideIcon name={"Power"} />}
-/>
-```
-
-### RightSlot
-`ReactNode`
-
-Component to render on the right side of the switch.
-
-```jsx
-import { LucideIcon } from "phaselis";
-```
-```jsx
-<Switch
-  LeftSlot={({}) => <LucideIcon name={"MicOff"} />}
-  RightSlot={({}) => <LucideIcon name={"Mic"} />}
+  LeftSlot={() => <LucideIcon name="PowerOff" />}
+  RightSlot={() => <LucideIcon name="Power" />}
 />
 ```
 
@@ -121,35 +115,59 @@ import { LucideIcon } from "phaselis";
 | Name         | Type       | Description                                       |
 |--------------|------------|---------------------------------------------------|
 | `container`  | ViewStyle  | Style for the outer container view of the switch. |
-| `element`    | ViewStyle  | Style for the main switch container.              |
 | `track`      | ViewStyle  | Style for the switch's track background.          |
 | `thumb`      | ViewStyle  | Style for the switch's thumb (toggle knob).       |
-| `leftIcon`   | TextStyle  | Style for the icon on the left side.              |
-| `rightIcon`  | TextStyle  | Style for the icon on the right side.             |
+| `leftIcon`   | IconStyle  | Style for the icon on the left side.              |
+| `rightIcon`  | IconStyle  | Style for the icon on the right side.             |
 
-Custom styles for the switch component.
+You can style the Switch with the `style` prop using either an object with named styles or directly provide ViewStyle properties that will be applied to the track element.
 
 ```jsx
+// Object with named styles
 <Switch
   style={{
-    container: {
-      marginVertical: 10,
-      padding: 5,
-      backgroundColor: "#eef8ff",
-      borderRadius: 12,
-    },
-    element: {
-      backgroundColor: "#eef8ff",
-      justifyContent: "center",
-    },
-    track: {
-      backgroundColor: "#eef8ff",
-    },
-    thumb: {
-      width: 24,
-      height: 24,
-    },
+    container: { marginVertical: 10, padding: 5 },
+    track: { backgroundColor: "#eef8ff", width: 80, height: 36 },
+    thumb: { backgroundColor: "#007bff", width: 24, height: 24 },
+    leftIcon: { color: "green" },
+    rightIcon: { color: "red" }
   }}
+/>
+
+// Direct track styling
+<Switch
+  style={{ backgroundColor: "#f0f0f0", width: 80, height: 40, borderRadius: 20 }}
+/>
+```
+
+### containerStyle
+`ViewStyle`
+
+Additional style applied directly to the container View.
+
+```jsx
+<Switch containerStyle={{ marginVertical: 10, padding: 8 }} />
+```
+
+### thumbStyle
+`ViewStyle`
+
+Additional style applied directly to the thumb (toggle knob).
+
+```jsx
+<Switch thumbStyle={{ backgroundColor: "#0066cc", width: 28, height: 28 }} />
+```
+
+### leftIconStyle / rightIconStyle
+`IconStyle`
+
+Additional styles applied directly to the left or right icons when showIcons is true.
+
+```jsx
+<Switch 
+  showIcons 
+  leftIconStyle={{ color: "green" }}
+  rightIconStyle={{ color: "red" }}
 />
 ```
 

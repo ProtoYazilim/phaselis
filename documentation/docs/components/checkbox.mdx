@@ -56,27 +56,62 @@ Text to display next to the checkbox.
 ```
 
 ### style
-| Name | Type |
-| ---- | ---- |
-| `container` | ViewStyle |
-| `element` | ViewStyle |
-| `icon` | IconStyle |
-| `text` | TextStyle |
+| Name | Type | Description |
+| ---- | ---- | ---- |
+| `container` | ViewStyle | Style for the checkbox container |
+| `element` | ViewStyle | Style for the checkbox element |
+| `icon` | IconStyle | Style for the checkbox icon |
+| `text` | TextStyle | Style for the checkbox text |
 
-Optional custom styles for the checkbox, including element and icon styles.
+Optional custom styles for the checkbox components.
 
 ```jsx  
+// Object with named styles
 <Checkbox
-  text="Phaselis"
+  text="Custom styled checkbox"
   style={{
     icon: { color: "#0d6efd" },
     text: { fontWeight: "bold" },
-    element: { borderColor: "#b9e0ff" },
+    element: { borderColor: "#b9e0ff", borderRadius: 4 },
+    container: { marginVertical: 8 }
   }}
+/>
+
+// Direct element styling
+<Checkbox
+  text="Direct element style"
+  style={{ borderWidth: 2, borderColor: "#007bff", borderRadius: 4 }}
 />
 ```
 
-### value
+### containerStyle
+`ViewStyle`
+
+Additional style applied directly to the checkbox container.
+
+```jsx
+<Checkbox text="Option" containerStyle={{ marginBottom: 10 }} />
+```
+
+### iconStyle
+`IconStyle`
+
+Additional style applied directly to the checkbox icon.
+
+```jsx
+<Checkbox iconStyle={{ color: 'purple' }} text="Purple check" />
+```
+
+### textStyle
+`TextStyle`
+
+Additional style applied directly to the checkbox text.
+
+```jsx
+<Checkbox textStyle={{ fontWeight: 'bold' }} text="Bold text" />
+```
+
+### pressed
 `boolean`
 
 A value indicating whether the checkbox is checked.

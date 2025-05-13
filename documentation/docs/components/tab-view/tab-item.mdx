@@ -59,12 +59,49 @@ import { Text } from "react-native";
 
 Content to be rendered inside the `TabItem`. 
 
-
 ```jsx
 import { Text } from "react-native";
 ```
 ```jsx
 <TabItem>
   <Text>Content for this tab</Text>
+</TabItem>
+```
+
+### leftIcon / rightIcon
+[`SlotIconName`](https://lucide.dev/icons/)
+
+Icon to display on the left/right side of the tab title in the header.
+
+```jsx
+<TabItem title="Settings" leftIcon="Settings">
+  <Text>Settings content</Text>
+</TabItem>
+```
+
+### style
+| Name        | Type      | Description                                      |
+|-------------|-----------|-------------------------------------------------- |
+| `container` | ViewStyle | Style for the container of the tab content.      |
+
+You can style the TabItem with the `style` prop using either an object with named styles or directly provide ViewStyle properties that will be applied to the container.
+
+```jsx
+// Object with named styles
+<TabItem 
+  title="Styled Tab"
+  style={{
+    container: { padding: 16, backgroundColor: "#f5f5f5", borderRadius: 8 }
+  }}
+>
+  <Text>Content with styled container</Text>
+</TabItem>
+
+// Direct container styling
+<TabItem 
+  title="Direct Styling"
+  style={{ padding: 16, backgroundColor: "#f0f0f0", borderRadius: 8 }}
+>
+  <Text>Content with direct styling</Text>
 </TabItem>
 ```

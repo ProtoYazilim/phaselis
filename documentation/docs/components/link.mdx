@@ -160,12 +160,13 @@ You can pass any Lucide icon name to the right slot of the link.
 | ---- |----|----|
 | `container` | ViewStyle | Style for the outer container view.     |
 | `text`   | TextStyle | Style for the link text.                |
-| `leftSlot`  | ViewStyle | Style for the left slot of the link.    |
-| `rightSlot` | ViewStyle | Style for the right slot of the link.   |
+| `leftSlot`  | IconStyle | Style for the left slot of the link.    |
+| `rightSlot` | IconStyle | Style for the right slot of the link.   |
 
-Custom styles for the link component.
+You can style the link with the `style` prop using either an object with named styles or directly provide TextStyle properties that will be applied to the text.
 
 ```jsx
+// Object with named styles
 <Link
   text="Proto"
   href="https://www.protoyazilim.com/"
@@ -177,5 +178,53 @@ Custom styles for the link component.
     leftSlot: { marginRight: 5 },
     rightSlot: { marginLeft: 5 },
   }}
+/>
+
+// Direct text styling
+<Link
+  text="Proto"
+  href="https://www.protoyazilim.com/"
+  style={{ color: "#0066cc", fontSize: 16, fontWeight: "bold", textDecorationLine: "underline" }}
+/>
+```
+
+### containerStyle
+`ViewStyle`
+
+Additional style applied directly to the container View.
+
+```jsx
+<Link
+  text="Proto"
+  href="https://www.protoyazilim.com/"
+  containerStyle={{ marginVertical: 10, paddingHorizontal: 5 }}
+/>
+```
+
+### leftSlotStyle
+`ViewStyle | IconStyle`
+
+Additional style applied directly to the left slot.
+
+```jsx
+<Link
+  text="Proto"
+  href="https://www.protoyazilim.com/"
+  leftIcon="Link"
+  leftSlotStyle={{ color: "#0066cc", marginRight: 8 }}
+/>
+```
+
+### rightSlotStyle
+`ViewStyle | IconStyle`
+
+Additional style applied directly to the right slot.
+
+```jsx
+<Link
+  text="Proto"
+  href="https://www.protoyazilim.com/"
+  rightIcon="ExternalLink"
+  rightSlotStyle={{ color: "#0066cc", marginLeft: 8 }}
 />
 ```

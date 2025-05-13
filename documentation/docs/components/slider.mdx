@@ -130,9 +130,10 @@ Renders step numbers. Default is false.
 | `container` | ViewStyle  | Style for the slider's outer container view. |
 | `element`   | ViewStyle  | Style for the slider's track and thumb.      |
 
-Defines the style properties of the component.
+You can style the slider with the `style` prop using either an object with named styles or directly provide ViewStyle properties that will be applied to the slider element.
 
 ```jsx
+// Object with named styles
 <Slider
   style={{
     container: {
@@ -146,5 +147,22 @@ Defines the style properties of the component.
       borderRadius: 4,
     },
   }}
+/>
+
+// Direct element styling
+<Slider
+  style={{ height: 40, backgroundColor: '#f0f0f0', borderRadius: 10 }}
+/>
+```
+
+### containerStyle
+`ViewStyle`
+
+Additional style applied directly to the container View.
+
+```jsx
+<Slider 
+  value={50} 
+  containerStyle={{ marginVertical: 20, paddingHorizontal: 10 }} 
 />
 ```

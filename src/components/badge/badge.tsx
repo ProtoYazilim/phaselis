@@ -6,29 +6,27 @@ import { useCombinedStyle } from "../../hooks";
 import { Slot } from "../index";
 import PhaselisHOC from "../provider/lib/hoc";
 
-const Badge: React.FC<BadgeProps> = ({
-  text,
-  children,
-  style,
-  contextValue,
-  top,
-  bottom,
-  right,
-  left,
-  leftIcon,
-  rightIcon,
-  size = "md",
-  variation = "primary",
-  ...extraProps
-}) => {
+const Badge: React.FC<BadgeProps> = (props) => {
+  const {
+    text,
+    children,
+    top,
+    bottom,
+    right,
+    left,
+    leftIcon,
+    rightIcon,
+    size = "md",
+    variation = "primary",
+  } = props;
+
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
-    style,
-    contextValue?.theme?.badge,
+    "badge",
     variation,
     {
+      ...props,
       size,
-      ...extraProps,
     },
   );
 
@@ -60,7 +58,7 @@ const Badge: React.FC<BadgeProps> = ({
           flexDirection: "row",
         }}
       >
-        <View style={[getCombinedStyle("element"), absoluteMesurements]}>
+        <View style={[getCombinedStyle("element", true), absoluteMesurements]}>
           <Slot
             style={[getCombinedStyle("leftIcon"), !text && { marginRight: 0 }]}
             icon={leftIcon}
@@ -75,5 +73,7 @@ const Badge: React.FC<BadgeProps> = ({
     </View>
   );
 };
+
+Badge.displayName = "Badge";
 
 export default PhaselisHOC(Badge);

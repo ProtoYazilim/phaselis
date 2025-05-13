@@ -1,18 +1,17 @@
 import type { DatepickerProps } from "./types";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type FC } from "react";
 import { Pressable, Text } from "react-native";
 import stylesheet from "./assets/styles";
 import CoreDatePicker from "react-native-date-picker";
 import PhaselisHOC from "../provider/lib/hoc";
-import { Slot, useTheme } from "../index";
+import { Slot, useColors, useTheme } from "../index";
 import { format as formatFns } from "date-fns";
 import { InputHOC } from "../../utils";
 import { useCombinedStyle } from "../../hooks";
+import type { PhaselisColors } from "../../theme";
 
-const Datepicker: React.FC<DatepickerProps> = (props) => {
+const Datepicker: FC<DatepickerProps> = (props) => {
   const {
-    style,
-    contextValue,
     size = "md",
     leftIcon,
     LeftSlot,
@@ -29,12 +28,12 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
     variation = "default",
     theme,
     error,
-    ...extraProps
   } = props;
   const [show, setShow] = useState(false);
 
   const { themeName } = useTheme();
   const activeTheme = theme || themeName;
+  const Colors = useColors<PhaselisColors>();
 
   const rightIconName = rightIconVisible
     ? rightIcon || "CalendarDays"
@@ -52,10 +51,9 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
 
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
-    style,
-    contextValue?.theme?.datepicker,
+    "datepicker",
     variation,
-    { size, focus: show, disabled, error, ...extraProps },
+    { ...props, size, focus: show, disabled, error },
   );
 
   const renderInput = () => {
@@ -68,7 +66,7 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
         <Slot style={getCombinedStyle("leftSlot")} icon={leftIcon} size={size}>
           {LeftSlot && <LeftSlot />}
         </Slot>
-        <Text style={getCombinedStyle("element")}>
+        <Text style={getCombinedStyle("element", true)}>
           {formatFns(date, format)}
         </Text>
         <Slot
@@ -105,7 +103,7 @@ const Datepicker: React.FC<DatepickerProps> = (props) => {
         title="Select a Date"
         confirmText="Confirm"
         cancelText="Cancel"
-        buttonColor={contextValue?.theme?.colors?.Primary[500]}
+        buttonColor={Colors.Primary[500]}
         dividerColor="black"
       />
     </>

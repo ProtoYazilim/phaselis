@@ -9,8 +9,10 @@ export default {
         container: {},
         element: {
           variants: {
-            true: {},
-            false: {},
+            scrollable: {
+              true: {},
+              false: {},
+            },
           },
         },
         leftSlot: {

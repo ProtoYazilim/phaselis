@@ -234,6 +234,97 @@ You can style the picker using the `style` prop with `ViewStyle` and `TextStyle`
 />
 ```
 
+You can style the picker with the `style` prop using either an object with named styles or directly provide TextStyle properties that will be applied to the element (text display).
+
+```jsx
+// Object with named styles
+<Select
+  style={{
+    container: { padding: 10 },
+    element: { fontSize: 16, color: '#333' },
+    leftSlot: { marginRight: 8 },
+    rightSlot: { marginLeft: 8 }
+  }}
+  options={[
+    { value: "1", label: "Option 1" },
+    { value: "2", label: "Option 2" },
+  ]}
+  pickerType="custom"
+/>
+
+// Direct element styling
+<Select
+  style={{ fontSize: 16, fontWeight: 'bold', color: '#0066cc' }}
+  options={[
+    { value: "1", label: "Option 1" },
+    { value: "2", label: "Option 2" },
+  ]}
+  pickerType="custom"
+/>
+```
+
+### containerStyle
+`ViewStyle`
+
+Additional style applied directly to the container element.
+
+```jsx
+<Select
+  options={[
+    { value: "1", label: "Option 1" },
+    { value: "2", label: "Option 2" },
+  ]}
+  containerStyle={{ borderWidth: 1, borderColor: '#ccc', borderRadius: 8, padding: 8 }}
+/>
+```
+
+### elementStyle
+`TextStyle`
+
+Additional style applied directly to the text element.
+
+```jsx
+<Select
+  options={[
+    { value: "1", label: "Option 1" },
+    { value: "2", label: "Option 2" },
+  ]}
+  elementStyle={{ fontSize: 16, color: '#444', fontWeight: '500' }}
+/>
+```
+
+### leftSlotStyle
+`ViewStyle | TextStyle`
+
+Additional style applied directly to the left slot or icon.
+
+```jsx
+<Select
+  options={[
+    { value: "1", label: "Option 1" },
+    { value: "2", label: "Option 2" },
+  ]}
+  leftIcon="List"
+  leftSlotStyle={{ color: '#0066cc', marginRight: 10 }}
+/>
+```
+
+### rightSlotStyle
+`ViewStyle | TextStyle`
+
+Additional style applied directly to the right slot or icon.
+
+```jsx
+<Select
+  options={[
+    { value: "1", label: "Option 1" },
+    { value: "2", label: "Option 2" },
+  ]}
+  rightIcon="ChevronDown"
+  rightSlotStyle={{ color: '#666', marginLeft: 10 }}
+/>
+```
+
 ### size
 [`ComponentSize`](../theming-and-styling/component-size.mdx)
 

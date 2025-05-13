@@ -6,22 +6,20 @@ import { Slot } from "../index";
 import { tab_header_item_styles as stylesheet } from "./assets/styles";
 import { useCombinedStyle } from "../../hooks";
 
-const TabHeaderItem = ({
-  activeTabIndex,
-  index,
-  item,
-  handleOnLayout,
-  handleOnPress,
-  RightSlot,
-  LeftSlot,
-  leftIcon,
-  rightIcon,
-  scrollable,
-  style,
-  contextValue,
-  variation = "default",
-  ...extraProps
-}: TabHeaderItemProps) => {
+const TabHeaderItem = (props: TabHeaderItemProps) => {
+  const {
+    activeTabIndex,
+    index,
+    item,
+    handleOnLayout,
+    handleOnPress,
+    RightSlot,
+    LeftSlot,
+    leftIcon,
+    rightIcon,
+    scrollable,
+    variation,
+  } = props;
   const active = useMemo(
     () => activeTabIndex === index,
     [activeTabIndex, index],
@@ -29,13 +27,12 @@ const TabHeaderItem = ({
 
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
-    style,
-    contextValue?.theme?.tab[variation]?.headerItem,
+    "tab.headerItem",
     variation,
     {
+      ...props,
       scrollable,
       active,
-      ...extraProps,
     },
   );
 
@@ -54,7 +51,7 @@ const TabHeaderItem = ({
       >
         {LeftSlot && <LeftSlot />}
       </Slot>
-      <Text style={getCombinedStyle("text")}>{item.text}</Text>
+      <Text style={getCombinedStyle("text", true)}>{item.text}</Text>
       <Slot
         style={getCombinedStyle("rightSlot")}
         icon={item?.rightIcon || rightIcon}

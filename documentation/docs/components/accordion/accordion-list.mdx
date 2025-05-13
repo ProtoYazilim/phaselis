@@ -119,17 +119,27 @@ import { Text } from "react-native";
 | `container` | ViewStyle | Style for the outer container of the accordion list. |
 | `element`   | ViewStyle | Style for the individual accordion item elements.     |
 
-Allows customization of the appearance of the `AccordionList`, including the container and the items.
+You can style the AccordionList with the `style` prop using either an object with named styles or directly provide ViewStyle properties that will be applied to the element (FlatList).
 
 ```jsx
 import { Text } from "react-native";
 ```
 ```jsx
+// Object with named styles
 <AccordionList
   style={{
     container: { borderColor: "#ddd", borderWidth: 1, padding: 10 },
     element: { backgroundColor: "#f7f7f7", marginBottom: 5 },
   }}
+  data={[
+    { header: "Section 1", child: <Text>Details for section 1</Text> },
+    { header: "Section 2", child: <Text>Details for section 2</Text> },
+  ]}
+/>
+
+// Direct element styling
+<AccordionList
+  style={{ backgroundColor: "#f8f9fa", borderRadius: 8, padding: 8 }}
   data={[
     { header: "Section 1", child: <Text>Details for section 1</Text> },
     { header: "Section 2", child: <Text>Details for section 2</Text> },

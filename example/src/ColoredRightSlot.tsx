@@ -1,10 +1,12 @@
 import type { FC } from "react";
-import { Colors } from "phaselis";
+import { type PhaselisColors, useColors } from "phaselis";
 import { Text, View } from "react-native";
 
 const ColoredRightSlot: FC<{
   text?: string;
 }> = ({ text }) => {
+  const Colors = useColors<PhaselisColors>();
+
   return (
     <View style={{ flexDirection: "row" }}>
       <Text

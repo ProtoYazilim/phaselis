@@ -91,7 +91,7 @@ export default Example;
 
 :::tip
 
-Props interface is extended with `ImagePropsBase` so you can pass any prop that a `Image` component accepts from React Native package.
+Props interface extends `ImagePropsBase` and `ImageBackgroundProps` so you can pass any prop that a `Image` or `ImageBackground` component accepts from React Native.
 
 :::
 
@@ -122,6 +122,7 @@ The properties that can be passed to the `Image` component include styling, cont
 Custom styles for the `Image` component.
 
 ```jsx
+// Object with named styles
 <Image
   source={{
     uri: "https://www.protoyazilim.com/phaselis/img/phaselis.png",
@@ -129,8 +130,59 @@ Custom styles for the `Image` component.
   height={200}
   width={200}
   style={{
-    container: { margin: 100 },
+    container: { margin: 10 },
+    element: { width: 200, height: 200, borderRadius: 100 }
   }}
+/>
+
+// Direct element styling
+<Image
+  source={{
+    uri: "https://www.protoyazilim.com/phaselis/img/phaselis.png",
+  }}
+  style={{ width: 300, height: 200, borderRadius: 10 }}
+/>
+```
+
+### containerStyle
+`ViewStyle`
+
+Additional style applied directly to the container View.
+
+```jsx
+<Image
+  source={{
+    uri: "https://www.protoyazilim.com/phaselis/img/phaselis.png",
+  }}
+  containerStyle={{ shadowColor: '#000', shadowOpacity: 0.2, shadowRadius: 5 }}
+/>
+```
+
+### variation
+`string`
+
+Determines the visual style variation of the image. Defaults to `"default"`.
+
+```jsx
+<Image
+  source={{
+    uri: "https://www.protoyazilim.com/phaselis/img/phaselis.png",
+  }}
+  variation="rounded"
+/>
+```
+
+### contextValue
+`any`
+
+Additional context value that can be passed to the image component.
+
+```jsx
+<Image
+  source={{
+    uri: "https://www.protoyazilim.com/phaselis/img/phaselis.png",
+  }}
+  contextValue={{ id: "profile-image" }}
 />
 ```
 

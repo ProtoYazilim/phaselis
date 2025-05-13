@@ -75,13 +75,24 @@ Callback invoked when the group value changes.
 | -------------- | --------- | ---------------------------------------- |
 | `group`        | ViewStyle | Style for the overall radio group layout.|
 
-Defines the style properties of the RadioGroup button.
+You can style the RadioGroup with the `style` prop using either an object with named styles or directly provide ViewStyle properties that will be applied to the group element.
 
 ```jsx
+// Object with named styles
 <RadioGroup
   name="options"
   value="A"
-  style={{ group: { padding: 10, backgroundColor: "#b9e0ff" } }}
+  style={{ group: { padding: 10, backgroundColor: "#f5f5f5", borderRadius: 8 } }}
+>
+  <Radio text="Option A" value="A" />
+  <Radio text="Option B" value="B" />
+</RadioGroup>
+
+// Direct group styling
+<RadioGroup
+  name="options"
+  value="A"
+  style={{ padding: 16, gap: 12, backgroundColor: "#f0f8ff" }}
 >
   <Radio text="Option A" value="A" />
   <Radio text="Option B" value="B" />
@@ -141,9 +152,10 @@ Disables the radio button.
 | `innerElement`   | ViewStyle | Style for the inner circle animation. |
 | `text`           | TextStyle | Style for the label text.             |
 
-Defines the style properties of the radio button.
+You can style the Radio with the `style` prop using either an object with named styles or directly provide TextStyle properties that will be applied to the text element.
 
 ```jsx
+// Object with named styles
 <Radio
   text="Custom Styled Radio"
   value="custom"
@@ -153,6 +165,52 @@ Defines the style properties of the radio button.
     innerElement: { backgroundColor: "#0c5ae9" },
     text: { fontSize: 14, color: "#323439" },
   }}
+/>
+
+// Direct text styling
+<Radio
+  text="Styled Label"
+  value="styled"
+  style={{ fontSize: 16, fontWeight: "bold", color: "#0066cc", marginLeft: 8 }}
+/>
+```
+
+### containerStyle
+`ViewStyle`
+
+Additional style applied directly to the container element.
+
+```jsx
+<Radio 
+  text="Spaced Option" 
+  value="spaced" 
+  containerStyle={{ marginVertical: 8 }} 
+/>
+```
+
+### outerElementStyle
+`ViewStyle`
+
+Additional style applied directly to the outer radio circle.
+
+```jsx
+<Radio 
+  text="Custom Radio" 
+  value="custom" 
+  outerElementStyle={{ borderWidth: 2, borderColor: "#0066cc" }} 
+/>
+```
+
+### innerElementStyle
+`ViewStyle`
+
+Additional style applied directly to the inner radio circle (the selected indicator).
+
+```jsx
+<Radio 
+  text="Custom Indicator" 
+  value="indicator" 
+  innerElementStyle={{ backgroundColor: "#ff6600" }} 
 />
 ```
 

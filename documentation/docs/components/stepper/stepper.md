@@ -249,3 +249,55 @@ import { Button, Row, ProgressStep } from "phaselis";
   <ProgressStep text="Step 3" />
 </Stepper>
 ```
+
+### stepIcon
+[`SlotIconName`](https://lucide.dev/icons/)
+
+Icon to display for each step instead of numbers.
+
+```jsx
+<Stepper stepIcon="Circle">
+  <ProgressStep text="Step 1" />
+  <ProgressStep text="Step 2" />
+  <ProgressStep text="Step 3" />
+</Stepper>
+```
+
+### completeIcon
+[`SlotIconName`](https://lucide.dev/icons/)
+
+Icon to display for completed steps. Default is "Check".
+
+```jsx
+<Stepper completeIcon="Star">
+  <ProgressStep text="Step 1" />
+  <ProgressStep text="Step 2" />
+  <ProgressStep text="Step 3" />
+</Stepper>
+```
+
+### activeIcon
+[`SlotIconName`](https://lucide.dev/icons/)
+
+Icon to display for the active step when using stepIcon.
+
+```jsx
+<Stepper stepIcon="Circle" activeIcon="CircleDot">
+  <ProgressStep text="Step 1" />
+  <ProgressStep text="Step 2" />
+  <ProgressStep text="Step 3" />
+</Stepper>
+```
+
+### firstTrailShown / lastTrailShown
+`boolean`
+
+Controls whether to show connecting lines before the first step and after the last step.
+
+```jsx
+<Stepper firstTrailShown lastTrailShown>
+  <ProgressStep text="Step 1" />
+  <ProgressStep text="Step 2" />
+  <ProgressStep text="Step 3" />
+</Stepper>
+```

@@ -88,25 +88,65 @@ import { Text } from "react-native";
 ```
 
 ### style
-Defines custom styles for the accordion item.
 
 | Name        | Type      | Description                                   |
 |-------------|-----------|-----------------------------------------------|
 | `container` | ViewStyle | Style for the container of the accordion item. |
 | `element`   | ViewStyle | Style for the content inside the accordion item. |
+| `header`    | ViewStyle | Style for the header part of the accordion item. |
+
+You can style the AccordionItem with the `style` prop using either an object with named styles or directly provide ViewStyle properties that will be applied to the element (content container).
 
 ```jsx
 import { Text } from "react-native";
 ```
 ```jsx
+// Object with named styles
 <AccordionItem
   headerText="Styled Item"
   style={{
     container: { backgroundColor: "#e0e0e0", padding: 10 },
     element: { borderBottomColor: "#ccc", borderBottomWidth: 1 },
+    header: { backgroundColor: "#f0f0f0" }
   }}
 >
   <Text>Styled content within the accordion.</Text>
+</AccordionItem>
+
+// Direct element styling
+<AccordionItem
+  headerText="Direct Styled Item"
+  style={{ padding: 16, backgroundColor: "#f5f5f5", borderRadius: 8 }}
+>
+  <Text>Content with direct element styling.</Text>
+</AccordionItem>
+```
+
+### containerStyle
+`ViewStyle`
+
+Additional style applied directly to the container.
+
+```jsx
+<AccordionItem 
+  headerText="Custom Container" 
+  containerStyle={{ marginBottom: 16, borderRadius: 8 }}
+>
+  <Text>Content with custom container style</Text>
+</AccordionItem>
+```
+
+### headerStyle
+`ViewStyle`
+
+Additional style applied directly to the header section.
+
+```jsx
+<AccordionItem 
+  headerText="Custom Header Style" 
+  headerStyle={{ backgroundColor: "#e8f4ff", padding: 12 }}
+>
+  <Text>Content with custom header style</Text>
 </AccordionItem>
 ```
 

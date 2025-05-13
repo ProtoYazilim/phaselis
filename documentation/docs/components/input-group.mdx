@@ -93,6 +93,8 @@ import { Textfield } from "phaselis";
 | Name | Type | Description |
 | ---- | ---- | ---- |
 | `container` | ViewStyle | Style for the outer container view. |
+| `label` | TextStyle | Style for the input label. |
+| `message` | TextStyle | Style for the message/error text. |
 
 Custom styles for the `InputGroup` component.
 
@@ -109,6 +111,43 @@ import { Textfield } from "phaselis";
     },
   }}
 >
-  <Textfield name="username" rightIcon="User" />
+  <Textfield name="username" />
+</InputGroup>
+
+// Direct label styling
+<InputGroup
+  label="User Name"
+  style={{ fontSize: 18, fontWeight: 'bold', color: '#0066cc', marginBottom: 10 }}
+>
+  <Textfield name="username" />
+</InputGroup>
+```
+
+### containerStyle
+`ViewStyle`
+
+Additional style applied directly to the container View.
+
+```jsx
+<InputGroup 
+  label="Address" 
+  containerStyle={{ marginBottom: 20, borderLeftWidth: 2, borderLeftColor: '#0066cc', paddingLeft: 10 }}
+>
+  <Textfield name="address" />
+</InputGroup>
+```
+
+### messageStyle
+`TextStyle`
+
+Additional style applied directly to the message/error text.
+
+```jsx
+<InputGroup 
+  label="Description" 
+  message="Optional: Add additional details" 
+  messageStyle={{ fontStyle: 'italic', color: '#888888' }}
+>
+  <Textfield name="description" />
 </InputGroup>
 ```

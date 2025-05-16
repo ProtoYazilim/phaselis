@@ -1436,7 +1436,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - react-native-slider (4.5.5):
+  - react-native-slider (4.5.6):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1449,7 +1449,7 @@ PODS:
     - React-featureflags
     - React-graphics
     - React-ImageManager
-    - react-native-slider/common (= 4.5.5)
+    - react-native-slider/common (= 4.5.6)
     - React-NativeModulesApple
     - React-RCTFabric
     - React-rendererdebug
@@ -1458,7 +1458,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - react-native-slider/common (4.5.5):
+  - react-native-slider/common (4.5.6):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1788,7 +1788,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNCPicker (2.9.0):
+  - RNCPicker (2.11.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2388,7 +2388,7 @@ SPEC CHECKSUMS:
   react-native-date-picker: 2a07230cec3013ce67503d3ad8de4d909e2cd213
   react-native-keyboard-controller: e5c1e0997e0162a9bdef112412e8ed0c36dfca0f
   react-native-safe-area-context: 0f16e24dc808e9f0ced17f2bdcec692b2376fb68
-  react-native-slider: d1a9121980fc81678c6d30b82f312c778fba563c
+  react-native-slider: 8ac9b674825295690947a5ccab537dd3800b1a5f
   react-native-unistyles: 8401634fe700d3d0c2b8743538c9f8706dd65abd
   React-nativeconfig: 67fa7a63ea288cb5b1d0dd2deaf240405fec164f
   React-NativeModulesApple: 34b7a4d7441a4ee78d18109ff107c1ccf7c074a9
@@ -2418,7 +2418,7 @@ SPEC CHECKSUMS:
   ReactCodegen: 1889223f6b364fd03453980fdc14f0e265c18f32
   ReactCommon: 81e0744ee33adfd6d586141b927024f488bc49ea
   RNCAsyncStorage: ff8f69859448bde50f1c25d3e7eb37555fed33ab
-  RNCPicker: cee1bca865d795657e931de5aad98b1650f3237b
+  RNCPicker: c657bd58a82b164a957812f82a0b4bab4245de2e
   RNGestureHandler: 16ef3dc2d7ecb09f240f25df5255953c4098819b
   RNReanimated: 1cdf97c955bf72a58ad0a18e742e3619db07234e
   RNScreens: 351f431ef2a042a1887d4d90e1c1024b8ae9d123
@@ -2428,6 +2428,6 @@ SPEC CHECKSUMS:
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: 90d80701b27946c4b23461c00a7207f300a6ff71
 
-PODFILE CHECKSUM: c440e9eb95cf489bf15f940880e0f37f110304e9
+PODFILE CHECKSUM: 305cc5b5bdf9bc50fa08b82dde8d9a55c56be160
 
 COCOAPODS: 1.16.2

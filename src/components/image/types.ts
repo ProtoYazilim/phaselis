@@ -2,17 +2,22 @@ import type { ReactNode } from "react";
 import type {
   ImageBackgroundProps,
   ImagePropsBase,
-  StyleProp,
+  ImageStyle,
   ViewStyle,
 } from "react-native";
 
 export interface ImageProps
-  extends ImagePropsBase,
-    ImageBackgroundProps,
+  extends Omit<ImagePropsBase, "style">,
+    Omit<ImageBackgroundProps, "style">,
     ImageExtraProps {
-  style?: StyleProp<ViewStyle>;
+  style?: ImageStyleProps | ImageStyle;
   containerStyle?: ViewStyle;
   contextValue?: any;
   background?: boolean;
   children?: ReactNode;
+}
+
+export interface ImageStyleProps {
+  container?: ViewStyle;
+  element?: ImageStyle;
 }

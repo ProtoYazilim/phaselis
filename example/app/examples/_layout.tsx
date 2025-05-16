@@ -123,16 +123,6 @@ export default function Layout() {
           },
         }}
       />
-      <Drawer.Screen
-        name="calculator"
-        options={{
-          drawerLabel: "Calculator",
-          title: "Calculator",
-          drawerItemStyle: {
-            display: process.env.NODE_ENV === "development" ? "flex" : "none",
-          },
-        }}
-      />
     </Drawer>
   );
 }

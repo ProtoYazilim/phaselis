@@ -1,3 +1,4 @@
+import { Platform } from "react-native";
 import { LightColors } from "../LightColors";
 import { FontSizes, Heights, Radius, Spacings } from "../spacings";
 import type { PhaselisComponentTheme } from "../types";
@@ -106,7 +107,14 @@ export default {
           },
           textarea: {
             true: {
-              marginTop: 2,
+              paddingTop: Platform.select({
+                android: 4,
+                ios: 6,
+              }),
+              paddingBottom: Platform.select({
+                android: 4,
+                ios: 6,
+              }),
             },
           },
         },

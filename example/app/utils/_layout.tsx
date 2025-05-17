@@ -7,6 +7,7 @@ import {
   type PhaselisColors,
 } from "phaselis";
 import { Pressable } from "react-native";
+import CustomDrawerContent from "../../src/CustomDrawerContent";
 
 export default function Layout() {
   const Colors = useColors<PhaselisColors>();
@@ -23,6 +24,9 @@ export default function Layout() {
             backgroundColor: Colors.Shades.white,
           },
           drawerStyle: {
+            borderTopRightRadius: 0,
+            borderBottomRightRadius: 0,
+            elevation: 0,
             backgroundColor: Colors.Shades.white,
           },
           drawerActiveBackgroundColor: Colors.Primary[400],
@@ -44,6 +48,7 @@ export default function Layout() {
             </Pressable>
           ),
         }}
+        drawerContent={(props) => <CustomDrawerContent {...props} />}
         initialRouteName="popup-hook"
       >
         <Drawer.Screen
@@ -59,6 +64,14 @@ export default function Layout() {
           options={{
             drawerLabel: "usePopup Hook",
             title: "usePopup Hook",
+          }}
+        />
+        <Drawer.Screen
+          name="popup-hook2"
+          options={{
+            drawerLabel: "usePopup Hook 2",
+            title: "usePopup Hook 2",
+            drawerItemStyle: { display: "none" }, // Hide this screen from the drawer
           }}
         />
       </Drawer>

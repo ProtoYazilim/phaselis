@@ -29,7 +29,7 @@ const Label: FC<LabelProps> = (props) => {
     <View style={getCombinedStyle("container")}>
       <Text
         numberOfLines={numberOfLines}
-        style={getCombinedStyle("text", true)}
+        style={getCombinedStyle("text")}
         adjustsFontSizeToFit={adjustsFontSizeToFit}
         minimumFontScale={minimumFontScale}
       >
@@ -37,7 +37,7 @@ const Label: FC<LabelProps> = (props) => {
           Children.map(children, (child, index) => {
             if (typeof child === "string") {
               return (
-                <Text key={index} style={getCombinedStyle("text")}>
+                <Text key={index} style={getCombinedStyle("text", true)}>
                   {child}
                 </Text>
               );
@@ -46,7 +46,7 @@ const Label: FC<LabelProps> = (props) => {
             }
           })
         ) : (
-          <Text style={getCombinedStyle("text")}>{text}</Text>
+          <Text style={getCombinedStyle("text", true)}>{text}</Text>
         )}
       </Text>
     </View>

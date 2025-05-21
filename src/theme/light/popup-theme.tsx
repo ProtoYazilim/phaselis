@@ -8,7 +8,8 @@ export default {
       container: {
         backgroundColor: LightColors.Gray[50],
         padding: Spacings.MD,
-        borderRadius: Spacings.MD,
+        borderTopRightRadius: Spacings.MD,
+        borderTopLeftRadius: Spacings.MD,
       },
       leftSlot: {
         color: LightColors.Gray[950],

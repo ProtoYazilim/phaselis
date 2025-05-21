@@ -5,6 +5,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { LucideIcon, useColors, useTheme } from "phaselis";
 import { DrawerActions } from "@react-navigation/native";
 import { Pressable } from "react-native";
+import CustomDrawerContent from "./CustomDrawerContent";
 
 type DrawerScreen = {
   name: string;
@@ -61,6 +62,9 @@ const CustomDrawer: FC<{
           backgroundColor: Colors.Shades.white,
         },
         drawerStyle: {
+          borderTopRightRadius: 0,
+          borderBottomRightRadius: 0,
+          elevation: 0,
           backgroundColor: Colors.Shades.white,
         },
         drawerActiveBackgroundColor: Colors.Primary[400],
@@ -132,6 +136,7 @@ const CustomDrawer: FC<{
           }
         },
       }}
+      drawerContent={(props) => <CustomDrawerContent {...props} />}
     >
       {drawerScreens.map((screen: DrawerScreen, index) => (
         <Drawer.Screen

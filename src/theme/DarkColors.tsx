@@ -106,6 +106,9 @@ const DarkColors = {
   Shades: {
     black: "#ffffff",
     white: "#000000",
+    darkGray: "#999",
+    lightGray: "#CCC",
+    grayBackground: "#111",
   },
   Transparent: "transparent",
 };

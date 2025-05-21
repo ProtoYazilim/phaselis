@@ -1,6 +1,7 @@
-import { DarkColors } from "../DarkColors";
+import { Platform } from "react-native";
 import { FontSizes, Heights, Radius, Spacings } from "../spacings";
 import type { PhaselisComponentTheme } from "../types";
+import { DarkColors } from "../DarkColors";
 
 export default {
   textfield: {
@@ -104,10 +105,17 @@ export default {
               fontSize: FontSizes.XL,
             },
           },
-        },
-        textarea: {
-          true: {
-            marginTop: Spacings.XS,
+          textarea: {
+            true: {
+              paddingTop: Platform.select({
+                android: 4,
+                ios: 6,
+              }),
+              paddingBottom: Platform.select({
+                android: 4,
+                ios: 6,
+              }),
+            },
           },
         },
       },

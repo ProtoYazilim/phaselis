@@ -1,5 +1,13 @@
-import { StyleSheet } from "react-native";
-import { Block, Row, Button, Col, Datepicker, Textfield } from "phaselis";
+import {
+  Block,
+  Row,
+  Button,
+  Col,
+  Datepicker,
+  Textfield,
+  useColors,
+  type PhaselisColors,
+} from "phaselis";
 import StoryView from "../../src/StoryView";
 import { doctor_1 } from "../../assets/images";
 import { DoctorProfileCard } from "./doctors-screen";
@@ -16,12 +24,12 @@ const TimeSlot = ({
   selected?: boolean;
   onSelect: (time: string) => void;
 }) => {
-  const variation = selected ? "primary" : "primary_outline";
-
   return (
     <Col>
       <Button
-        variation={variation}
+        variation={
+          disabled ? "primary" : selected ? "primary" : "primary_outline"
+        }
         text={time}
         size="sm"
         disabled={disabled}
@@ -38,6 +46,8 @@ const TimeSelectionSection = ({
   selectedTime: string | null;
   onSelectTime: (time: string) => void;
 }) => {
+  const Colors = useColors<PhaselisColors>();
+
   const morningSlots = [
     { time: "09:00", disabled: false },
     { time: "09:30", disabled: false },
@@ -68,10 +78,9 @@ const TimeSelectionSection = ({
         borderRadius: 16,
         padding: 16,
         gap: 12,
-        backgroundColor: "#FFF",
+        backgroundColor: Colors.Shades.white,
         alignItems: "center",
         justifyContent: "center",
-        ...styles.shadowMD,
       }}
     >
       <Row style={{ gap: 4 }}>
@@ -116,13 +125,14 @@ const DatePickerSection = ({
 }: {
   onDateChange: (date: Date) => void;
 }) => {
+  const Colors = useColors<PhaselisColors>();
+
   return (
     <Block
       style={{
         borderRadius: 16,
         padding: 16,
-        backgroundColor: "#FFF",
-        ...styles.shadowMD,
+        backgroundColor: Colors.Shades.white,
       }}
     >
       <Datepicker
@@ -130,7 +140,7 @@ const DatePickerSection = ({
         onChange={onDateChange}
         style={{
           container: {
-            flex: 1,
+            width: "100%",
             justifyContent: "center",
           },
         }}
@@ -146,13 +156,13 @@ const CommentSection = ({
   comment: string;
   onCommentChange: (text: string) => void;
 }) => {
+  const Colors = useColors<PhaselisColors>();
   return (
     <Block
       style={{
         borderRadius: 16,
         padding: 16,
-        backgroundColor: "#FFF",
-        ...styles.shadowMD,
+        backgroundColor: Colors.Shades.white,
       }}
     >
       <Textfield
@@ -169,6 +179,7 @@ const AppointmentScreenView = () => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [comment, setComment] = useState("");
+  const Colors = useColors<PhaselisColors>();
 
   const handleConfirm = () => {
     // Handle appointment confirmation
@@ -180,7 +191,13 @@ const AppointmentScreenView = () => {
   };
 
   return (
-    <StoryView style={{ gap: 16 }}>
+    <StoryView
+      style={{
+        gap: 16,
+        backgroundColor: Colors.Shades.grayBackground,
+        flex: 1,
+      }}
+    >
       <DoctorProfileCard
         imageUri={doctor_1.uri}
         name="Dr. John Doe"
@@ -208,13 +225,3 @@ const AppointmentScreenView = () => {
 };
 
 export default AppointmentScreenView;
-
-const styles = StyleSheet.create({
-  shadowMD: {
-    shadowColor: "#000",
-    shadowOffset: { width: 4, height: 4 },
-    shadowOpacity: 0.16,
-    shadowRadius: 16,
-    elevation: 8,
-  },
-});

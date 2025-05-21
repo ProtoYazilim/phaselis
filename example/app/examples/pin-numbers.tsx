@@ -1,9 +1,17 @@
 import { StyleSheet, Pressable, Alert } from "react-native";
-import { Block, Label, Button, Textfield } from "phaselis";
+import {
+  Block,
+  Label,
+  Button,
+  Textfield,
+  useColors,
+  type PhaselisColors,
+} from "phaselis";
 import StoryView from "../../src/StoryView";
 import { useRef, useState, useEffect, type ElementRef } from "react";
 
 const PinNumbersView = () => {
+  const Colors = useColors<PhaselisColors>();
   const PIN_LENGTH = 5;
   const [otp, setOtp] = useState(Array(PIN_LENGTH).fill(""));
   const [activeInputIndex, setActiveInputIndex] = useState(0);
@@ -122,6 +130,7 @@ const PinNumbersView = () => {
                     height: 96,
                     borderWidth: 2,
                     borderRadius: 8,
+                    backgroundColor: Colors.Primary[100],
                     borderColor:
                       activeInputIndex === index ? "#3498db" : "#000",
                     justifyContent: "center",

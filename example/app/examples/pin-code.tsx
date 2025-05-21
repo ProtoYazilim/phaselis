@@ -1,9 +1,17 @@
 import { StyleSheet, Pressable, Alert, TextInput } from "react-native";
-import { Block, Label, Button, LucideIcon } from "phaselis";
+import {
+  Block,
+  Label,
+  Button,
+  LucideIcon,
+  useColors,
+  type PhaselisColors,
+} from "phaselis";
 import StoryView from "../../src/StoryView";
 import { useState } from "react";
 
 const PinCodeView = () => {
+  const Colors = useColors<PhaselisColors>();
   const [pin, setPin] = useState<string>("");
   const [showPin, setShowPin] = useState<boolean>(false);
 
@@ -50,7 +58,7 @@ const PinCodeView = () => {
                 name="CircleDot"
                 width={32}
                 height={32}
-                style={{ color: "black" }}
+                style={{ color: Colors.Shades.black }}
               />
             )}
           </Block>,
@@ -62,7 +70,7 @@ const PinCodeView = () => {
             name="Circle"
             width={32}
             height={32}
-            style={{ color: "black" }}
+            style={{ color: Colors.Shades.black }}
           />,
         );
       }
@@ -90,7 +98,7 @@ const PinCodeView = () => {
           name="LockKeyholeOpen"
           size="xxl"
           strokeWidth={2}
-          style={{ color: "black" }}
+          style={{ color: Colors.Shades.black }}
         />
         <Label variation="h3" bold>
           Unlock
@@ -134,7 +142,7 @@ const PinCodeView = () => {
                 name={showPin ? "EyeOff" : "Eye"}
                 size="lg"
                 strokeWidth={2}
-                style={{ color: "black" }}
+                style={{ color: Colors.Shades.black }}
               />
             </Pressable>
           </Block>

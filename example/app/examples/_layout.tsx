@@ -1,6 +1,7 @@
 import { Drawer } from "expo-router/drawer";
 import { LucideIcon, useColors, useTheme, type PhaselisColors } from "phaselis";
 import { Pressable } from "react-native";
+import CustomDrawerContent from "../../src/CustomDrawerContent";
 
 export default function Layout() {
   const Colors = useColors<PhaselisColors>();
@@ -16,6 +17,9 @@ export default function Layout() {
           backgroundColor: Colors.Shades.white,
         },
         drawerStyle: {
+          borderTopRightRadius: 0,
+          borderBottomRightRadius: 0,
+          elevation: 0,
           backgroundColor: Colors.Shades.white,
         },
         drawerActiveBackgroundColor: Colors.Primary[400],
@@ -38,6 +42,7 @@ export default function Layout() {
         ),
       }}
       initialRouteName="form-usage"
+      drawerContent={(props) => <CustomDrawerContent {...props} />}
     >
       <Drawer.Screen
         name="index"
@@ -120,16 +125,6 @@ export default function Layout() {
           title: "Healthcare",
           drawerItemStyle: {
             display: "none",
-          },
-        }}
-      />
-      <Drawer.Screen
-        name="calculator"
-        options={{
-          drawerLabel: "Calculator",
-          title: "Calculator",
-          drawerItemStyle: {
-            display: process.env.NODE_ENV === "development" ? "flex" : "none",
           },
         }}
       />

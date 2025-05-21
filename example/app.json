@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "phaselis",
+    "name": "Phaselis",
     "slug": "phaselis-example",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icons/ios_light.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
+    "newArchEnabled": false,
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.proto.phaselis",
@@ -16,6 +16,7 @@
         "light": "./assets/icons/ios_light.png",
         "tinted": "./assets/icons/ios_tinted.png"
       },
+      "appleTeamId": "3C8L354V5C"
     },
     "android": {
       "adaptiveIcon": {
@@ -26,8 +27,7 @@
     },
     "web": {
       "bundler": "metro",
-      "output": "static",
-      // "favicon": "./assets/images/favicon.png"
+      "output": "static"
     },
     "plugins": [
       "expo-router",

@@ -15,7 +15,8 @@ import { getEnvironmentType } from "../src";
 import { appLightTheme, appDarkTheme } from "../src/extendedTheme";
 import { KeyboardProvider } from "react-native-keyboard-controller";
 import { Appearance } from "react-native";
-
+import { PlatformPressable } from "@react-navigation/elements";
+import "react-native-gesture-handler";
 SplashScreen.preventAutoHideAsync();
 
 SplashScreen.setOptions({
@@ -48,6 +49,13 @@ const TabsNavigator = () => {
           tabBarLabelStyle: {
             fontWeight: 700,
           },
+          tabBarButton: (props) => (
+            <PlatformPressable
+              {...props}
+              android_disableSound={true}
+              android_ripple={{ color: "transparent" }}
+            />
+          ),
         }}
         initialRouteName="stories"
       >

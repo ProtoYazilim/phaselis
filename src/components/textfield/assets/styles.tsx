@@ -43,6 +43,8 @@ const stylesheet = createStyleSheet({
       focus: {},
       textarea: {
         true: {
+          textAlignVertical: "top",
+          verticalAlign: "top",
           height: "100%",
         },
       },

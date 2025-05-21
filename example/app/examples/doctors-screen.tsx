@@ -56,17 +56,24 @@ export const DoctorProfileCard = ({
         flexDirection: "row",
         gap: 16,
         padding: 8,
-        backgroundColor: "#FFF",
+        backgroundColor: Colors.Shades.white,
         ...styles.shadowMD,
       }}
     >
       <Image source={{ uri: imageUri }} width={92} height={92} />
       <Block style={{ gap: 8 }}>
         <Block style={{ gap: 4 }}>
-          <Label variation="h5" bold style={{ text: { color: "#333" } }}>
+          <Label
+            variation="h5"
+            bold
+            style={{ text: { color: Colors.Shades.darkGray } }}
+          >
             {name}
           </Label>
-          <Label variation="h6" style={{ text: { color: "#666" } }}>
+          <Label
+            variation="h6"
+            style={{ text: { color: Colors.Shades.lightGray } }}
+          >
             {specialty}
           </Label>
         </Block>
@@ -115,6 +122,7 @@ const RatingsSummary = ({
   averageRating: string;
   reviewCount: string;
 }) => {
+  const Colors = useColors<PhaselisColors>();
   return (
     <Block style={styles.ratingSummaryContainer}>
       <Block style={styles.ratingBarsContainer}>
@@ -125,11 +133,18 @@ const RatingsSummary = ({
         <RatingBar starCount={1} width={6} greenBarColor />
       </Block>
       <Block style={styles.ratingScoreContainer}>
-        <Label variation="h1" bold style={{ text: { color: "#333" } }}>
+        <Label
+          variation="h1"
+          bold
+          style={{ text: { color: Colors.Shades.lightGray } }}
+        >
           {averageRating}
         </Label>
         <StarRating rating={Number(averageRating)} size="xs" />
-        <Label variation="small" style={{ text: { color: "#999" } }}>
+        <Label
+          variation="small"
+          style={{ text: { color: Colors.Shades.darkGray } }}
+        >
           {reviewCount} reviews
         </Label>
       </Block>
@@ -144,17 +159,21 @@ const ContentSection = ({
   title: string;
   children: React.ReactNode;
 }) => {
+  const Colors = useColors<PhaselisColors>();
   return (
     <Block
       style={{
         borderRadius: 16,
         gap: 8,
         padding: 16,
-        backgroundColor: "#FFF",
-        ...styles.shadowMD,
+        backgroundColor: Colors.Shades.white,
       }}
     >
-      <Label variation="h6" bold style={{ text: { color: "#000" } }}>
+      <Label
+        variation="h6"
+        bold
+        style={{ text: { color: Colors.Shades.black } }}
+      >
         {title}
       </Label>
       {children}
@@ -164,13 +183,16 @@ const ContentSection = ({
 
 const DoctorsScreenView = () => {
   const navigation = useNavigation();
+  const Colors = useColors<PhaselisColors>();
 
   const handleAppointment = () => {
     navigation.navigate("appointment-screen" as never);
   };
 
   return (
-    <StoryView style={{ gap: 16 }}>
+    <StoryView
+      style={{ gap: 16, backgroundColor: Colors.Shades.grayBackground }}
+    >
       <DoctorProfileCard
         imageUri={doctor_1.uri}
         name="Dr. John Doe"
@@ -183,10 +205,9 @@ const DoctorsScreenView = () => {
           borderRadius: 16,
           gap: 16,
           padding: 16,
-          backgroundColor: "#FFF",
+          backgroundColor: Colors.Shades.white,
           justifyContent: "space-between",
           alignItems: "center",
-          ...styles.shadowMD,
         }}
       >
         <Row style={{ gap: 16, padding: 16 }}>
@@ -210,10 +231,9 @@ const DoctorsScreenView = () => {
           borderRadius: 16,
           gap: 16,
           padding: 16,
-          backgroundColor: "#FFF",
+          backgroundColor: Colors.Shades.white,
           justifyContent: "space-between",
           alignItems: "center",
-          ...styles.shadowMD,
         }}
       >
         <Block style={styles.reviewsTabContainer}>
@@ -242,7 +262,7 @@ const DoctorsScreenView = () => {
       <ContentSection title="Education">
         <Label
           variation="small"
-          style={{ text: { color: "#000" } }}
+          style={{ text: { color: Colors.Shades.black } }}
           numberOfLines={12}
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit

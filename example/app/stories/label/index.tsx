@@ -29,7 +29,7 @@ function LabelStory() {
           style={{
             fontSize: 24,
             fontWeight: 600,
-            lineHeight: 22,
+            lineHeight: 24,
             color: Colors.Primary[600],
             paddingLeft: 8,
           }}

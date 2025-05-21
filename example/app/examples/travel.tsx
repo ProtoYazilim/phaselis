@@ -29,6 +29,7 @@ import {
   dalaman_8,
   dalaman_9,
 } from "../../assets/images";
+import { Star } from "lucide-react-native";
 
 interface PricingItemProps {
   icon: SlotIconName;
@@ -79,12 +80,10 @@ export const StarRating = ({ rating, size = "md" }: StarRatingProps) => {
 
   for (let i = 0; i < rating; i++) {
     stars.push(
-      <LucideIcon
-        key={i}
-        name="Star"
-        size={size}
-        strokeWidth={2}
-        style={{ color: Colors.Warning[500] }}
+      <Star
+        fill={Colors.Warning[500]}
+        strokeWidth={0}
+        size={size === "md" ? 16 : 12}
       />,
     );
   }
@@ -107,18 +106,27 @@ export const ReviewItem = ({
   timeAgo,
   reviewText,
 }: ReviewProps) => {
+  const Colors = useColors<PhaselisColors>();
   return (
     <Block style={styles.reviewItemContainer}>
       <Block style={styles.reviewHeaderContainer}>
         <Block style={styles.reviewerInfoContainer}>
           <Avatar size="sm" img={avatarUri} />
           <Block style={styles.reviewerDetailsContainer}>
-            <Label variation="h6" style={{ text: { color: "#333" } }}>
+            <Label
+              variation="h6"
+              bold
+              style={{ text: { color: Colors.Shades.black } }}
+            >
               {reviewerName}
             </Label>
             <Block style={styles.ratingTimeContainer}>
               <StarRating rating={rating} size="sm" />
-              <Label variation="h6" style={{ text: { color: "#333" } }}>
+              <Label
+                variation="h6"
+                bold
+                style={{ text: { color: Colors.Shades.black } }}
+              >
                 {timeAgo}
               </Label>
             </Block>
@@ -127,12 +135,12 @@ export const ReviewItem = ({
         <LucideIcon
           name="EllipsisVertical"
           size="lg"
-          style={{ color: "#333" }}
+          style={{ color: Colors.Shades.black }}
         />
       </Block>
       <Label
         variation="small"
-        style={{ text: { color: "#333" } }}
+        style={{ text: { color: Colors.Shades.black } }}
         numberOfLines={4}
       >
         {reviewText}
@@ -161,7 +169,7 @@ export const RatingBar = ({
   return (
     <Block style={styles.ratingBarContainer}>
       <Label variation="small">{starCount}</Label>
-      <LucideIcon name="Star" style={{ color: Colors.Warning[500] }} />
+      <Star fill={Colors.Warning[500]} size={16} strokeWidth={0} />
       <Block
         style={StyleSheet.flatten([
           styles.ratingBarIndicator,
@@ -182,11 +190,9 @@ const PhotoItem = ({ uri, width }: PhotoItemProps) => (
     <Image
       source={{ uri }}
       style={{
-        element: {
-          width,
-          height: width,
-          borderRadius: 8,
-        },
+        width,
+        height: width,
+        borderRadius: 8,
       }}
     />
   </Col>
@@ -216,10 +222,18 @@ const TravelView = () => {
       </Block>
       <Block style={styles.overviewRatingContainer}>
         <StarRating rating={5} />
-        <Label variation="small" bold>
+        <Label
+          variation="small"
+          bold
+          style={{ text: { color: Colors.Shades.black } }}
+        >
           4.7
         </Label>
-        <Label variation="small" bold style={{ text: { color: "#999" } }}>
+        <Label
+          variation="small"
+          bold
+          style={{ text: { color: Colors.Shades.black } }}
+        >
           (78 review)
         </Label>
       </Block>
@@ -280,11 +294,11 @@ const TravelView = () => {
           <RatingBar starCount={1} width={6} />
         </Block>
         <Block style={styles.ratingScoreContainer}>
-          <Label variation="h1" bold style={{ text: { color: "#333" } }}>
+          <Label variation="h1" bold style={{ color: Colors.Shades.black }}>
             4.7
           </Label>
           <StarRating rating={4} size="xs" />
-          <Label variation="small" style={{ text: { color: "#999" } }}>
+          <Label variation="small" style={{ color: Colors.Shades.black }}>
             78 reviews
           </Label>
         </Block>
@@ -328,15 +342,19 @@ const TravelView = () => {
         <Image
           source={{ uri: dalaman_1.uri }}
           style={{
-            element: {
-              width: "100%",
-              height: 316,
-              position: "absolute",
-            },
+            width: "100%",
+            height: 316,
+            position: "absolute",
           }}
         />
       </Block>
-      <StoryView style={styles.storyViewContainer}>
+      <StoryView
+        style={{
+          ...styles.storyViewContainer,
+          borderColor: Colors.Shades.white,
+          backgroundColor: Colors.Shades.white,
+        }}
+      >
         <TabView>
           <TabItem title="Overview">{renderOverviewTab()}</TabItem>
           <TabItem title="Photos">{renderPhotosTab()}</TabItem>
@@ -360,8 +378,6 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 16,
     borderTopRightRadius: 16,
     borderWidth: 1,
-    borderColor: "white",
-    backgroundColor: "white",
   },
   tabContentContainer: {
     gap: 16,

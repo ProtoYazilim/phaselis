@@ -44,6 +44,16 @@ const TextAreaStory = () => {
               validations={[required("required")]}
             />
           </InputGroup>
+
+          <Textfield
+            name="dsdsdds"
+            LeftSlot={({ themeStyle }) => (
+              <LucideIcon name={"House"} style={{ ...themeStyle }} />
+            )}
+            placeholder="Enter your address information here!"
+            textarea
+            validations={[required("required")]}
+          />
           <Button text="Submit" onClick={handleLogin} />
           <Button text="Reset" type="reset" />
         </Form>

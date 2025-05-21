@@ -24,6 +24,7 @@ interface ShoppingCartItemProps {
   size: string;
   quantity: number;
   price: number;
+  shadow?: boolean;
   onDelete?: () => void;
 }
 
@@ -34,6 +35,7 @@ const ShoppingCartItem = ({
   quantity,
   price,
   onDelete,
+  shadow,
 }: ShoppingCartItemProps) => {
   const Colors = useColors<PhaselisColors>();
 
@@ -48,12 +50,14 @@ const ShoppingCartItem = ({
       ])}
     >
       <Block style={styles.productContainer}>
-        <Image
-          source={{ uri: imageUri }}
-          height={80}
-          width={80}
-          style={{ element: { borderRadius: 8 } }}
-        />
+        <Block style={shadow ? styles.shadowSM : {}}>
+          <Image
+            source={{ uri: imageUri }}
+            height={80}
+            width={80}
+            style={{ borderRadius: 8 }}
+          />
+        </Block>
         <Block style={styles.productDetailsContainer}>
           <Label variation="h6" bold numberOfLines={2}>
             {productName}
@@ -122,6 +126,7 @@ const ShoppingCartView = () => {
           size="Free Size"
           quantity={1}
           price={420}
+          shadow
           onDelete={() => console.log("Delete item")}
         />
         <ShoppingCartItem
@@ -130,6 +135,7 @@ const ShoppingCartView = () => {
           size="M"
           quantity={1}
           price={310}
+          shadow
           onDelete={() => console.log("Delete item")}
         />
       </Block>
@@ -225,5 +231,12 @@ const styles = StyleSheet.create({
   },
   alignRight: {
     alignItems: "flex-end",
+  },
+  shadowSM: {
+    shadowColor: "#000",
+    shadowOffset: { width: 4, height: 4 },
+    shadowOpacity: 0.16,
+    shadowRadius: 8,
+    elevation: 4,
   },
 });

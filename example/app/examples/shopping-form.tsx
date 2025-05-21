@@ -231,13 +231,13 @@ const ShoppingFormStory = () => {
                       alignItems: "center",
                     }}
                   >
-                    <Text>MM</Text>
+                    <Text style={{ color: Colors.Shades.black }}>MM</Text>
                     <Textfield
                       name="month"
                       style={{ container: { width: "23%" } }}
                       keyboardType="number-pad"
                     />
-                    <Text>YY</Text>
+                    <Text style={{ color: Colors.Shades.black }}>YY</Text>
                     <Textfield
                       name="year"
                       style={{ container: { width: "23%" } }}

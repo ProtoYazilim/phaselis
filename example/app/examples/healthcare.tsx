@@ -13,12 +13,14 @@ import {
 } from "phaselis";
 import StoryView from "../../src/StoryView";
 import {
+  health_care,
   healthcare_1,
   healthcare_2,
   healthcare_3,
   healthcare_4,
 } from "../../assets/images";
 import { useNavigation } from "expo-router";
+import { ScrollView } from "react-native";
 
 const CategoryItem = ({
   icon,
@@ -71,21 +73,8 @@ const SymptomCard = ({ emoji, label }: { emoji: string; label: string }) => {
   return (
     <Block
       style={{
-        shadows: [
-          {
-            color: "black",
-            opacity: 0.2,
-            radius: 8,
-            offset: [3, 0],
-          },
-          {
-            color: "black",
-            opacity: 0.2,
-            radius: 8,
-            offset: [0, 3],
-          },
-        ],
         borderRadius: 16,
+        ...styles.shadowSM,
       }}
     >
       <Block
@@ -93,11 +82,11 @@ const SymptomCard = ({ emoji, label }: { emoji: string; label: string }) => {
           borderRadius: 16,
           borderWidth: 1,
           borderColor: Colors.Gray[300],
-          backgroundColor: "white",
+          backgroundColor: Colors.Shades.white,
           alignItems: "center",
           justifyContent: "center",
-          paddingVertical: 8,
-          paddingHorizontal: 16,
+          paddingVertical: 10,
+          paddingHorizontal: 18,
           gap: 8,
           flexDirection: "row",
         }}
@@ -131,32 +120,31 @@ const ResearchCard = ({
         borderRadius: 16,
         borderWidth: 1,
         borderColor: Colors.Gray[200],
-        backgroundColor: "white",
+        backgroundColor: Colors.Shades.white,
         alignItems: "center",
+        ...styles.shadowSM,
       }}
     >
       <Image
         source={{ uri: imageUri }}
         style={{
-          element: {
-            width: 92,
-            height: 92,
-            borderRadius: 16,
-          },
+          width: 92,
+          height: 92,
+          borderRadius: 16,
         }}
       />
       <Block style={{ gap: 4, flexWrap: "wrap", flex: 1 }}>
         <Label
           variation="h6"
           bold
-          style={{ text: { color: "#666" } }}
+          style={{ text: { color: Colors.Shades.darkGray } }}
           numberOfLines={2}
         >
           {title}
         </Label>
         <Label
           variation="small"
-          style={{ text: { color: "#333" } }}
+          style={{ text: { color: Colors.Shades.lightGray } }}
           numberOfLines={3}
         >
           {description}
@@ -175,23 +163,33 @@ const HealthcareView = () => {
   };
 
   return (
-    <StoryView style={{ paddingVertical: 0, paddingHorizontal: 0, gap: 0 }}>
+    <StoryView
+      style={{
+        paddingVertical: 0,
+        paddingHorizontal: 0,
+        gap: 0,
+        backgroundColor: Colors.Shades.grayBackground,
+      }}
+    >
       <Image
         source={{ uri: healthcare_1.uri }}
         style={{
-          element: {
-            width: Dimensions.get("window").width,
-            height: 250,
-          },
+          width: Dimensions.get("window").width,
+          height: 250,
         }}
       />
       <Block style={styles.headerOverlay}>
-        <Label variation="h5" bold style={{ text: styles.headerTitle }}>
-          Get Health Care
-        </Label>
-
+        <Image
+          source={{ uri: health_care.uri }}
+          style={{
+            width: 150,
+            height: 25,
+          }}
+        />
         <Textfield
-          style={{ container: { backgroundColor: "white", width: "100%" } }}
+          style={{
+            container: { backgroundColor: Colors.Shades.white, width: "100%" },
+          }}
           leftIcon="Search"
           placeholder="Search"
         />
@@ -217,11 +215,15 @@ const HealthcareView = () => {
           >
             Your symptoms
           </Label>
-          <Row style={{ gap: 16 }}>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{ gap: 16, paddingVertical: 8 }} // Added paddingHorizontal
+          >
             <SymptomCard emoji="🤕" label="Headache" />
             <SymptomCard emoji="🤢" label="Nausea" />
             <SymptomCard emoji="🤒" label="Temperature" />
-          </Row>
+          </ScrollView>
         </Block>
 
         <Block style={{ gap: 8 }}>
@@ -269,16 +271,12 @@ const styles = StyleSheet.create({
     padding: 16,
     paddingHorizontal: 40,
   },
-  headerTitle: {
-    color: "#FFF",
-    fontFamily: "Roboto",
-    fontSize: 18,
-    fontWeight: "900",
-    lineHeight: 20,
-    textTransform: "capitalize",
-    textShadowColor: "rgba(0, 0, 0, 0.12)",
-    textShadowOffset: { width: 4, height: 4 },
-    textShadowRadius: 8,
+  shadowSM: {
+    shadowColor: "#000",
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.12,
+    shadowRadius: 8,
+    elevation: 4,
   },
   contentContainer: {
     paddingVertical: 24,

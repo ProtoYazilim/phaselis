@@ -106,6 +106,9 @@ const LightColors = {
   Shades: {
     black: "#000000",
     white: "#ffffff",
+    darkGray: "#666",
+    lightGray: "#333",
+    grayBackground: "#EEE",
   },
   Transparent: "transparent",
 };

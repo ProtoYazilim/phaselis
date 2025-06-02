@@ -23,6 +23,7 @@ const healthcare_1 = Asset.fromModule(require("./healthcare_1.png"));
 const healthcare_2 = Asset.fromModule(require("./healthcare_2.png"));
 const healthcare_3 = Asset.fromModule(require("./healthcare_3.png"));
 const healthcare_4 = Asset.fromModule(require("./healthcare_4.png"));
+const health_care = Asset.fromModule(require("./health_care.png"));
 
 const doctor_1 = Asset.fromModule(require("./doctor_1.png"));
 
@@ -47,5 +48,6 @@ export {
   healthcare_2,
   healthcare_3,
   healthcare_4,
+  health_care,
   doctor_1,
 };

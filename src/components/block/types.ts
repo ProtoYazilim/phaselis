@@ -5,7 +5,7 @@ import type { LinearGradientAttributes, ShadowAttributes } from "../../types";
 interface ExtendedViewStyle extends ViewStyle {
   background?: string[] | string;
   shadows?: ShadowAttributes[];
-  lineerGradient?: LinearGradientAttributes;
+  linearGradient?: LinearGradientAttributes;
 }
 
 interface BlockProps extends ViewProps {

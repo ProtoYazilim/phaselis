@@ -6,12 +6,10 @@ description: Inspect the linear gradient interface.
 
 linear gradient attributes can be passed via style prop to the `Block` component. 
 
-| Prop Name      | Type                     | Description                                                                                       |
-|----------------|--------------------------|---------------------------------------------------------------------------------------------------|
-| `colors`       | `(string \| number)[]`    | Array of color values (hex strings or numbers) to define the gradient colors.                     |
-| `start`        | `{ x: number; y: number }` | Optional starting point of the gradient, where `x` and `y` are coordinates (0 to 1).              |
-| `end`          | `{ x: number; y: number }` | Optional ending point of the gradient, where `x` and `y` are coordinates (0 to 1).                |
-| `locations`    | `number[]`               | Optional array defining the position of each color in `colors`, as a number between 0 and 1.      |
-| `useAngle`     | `boolean`                | Optional flag to use a specified angle for the gradient direction, if `true`.                     |
-| `angleCenter`  | `{ x: number; y: number }` | Optional center point for the gradient's angle, where `x` and `y` are coordinates (0 to 1).      |
-| `angle`        | `number`                 | Optional angle, in degrees, used when `useAngle` is `true` to set the gradient's direction.       |
+pass the linear gradient props to the `Block` component to apply the gradient to the background of the block.
+
+```tsx
+<Block style={{ backgroundColor: "linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1))" }}>
+  <Text>Hello</Text>
+</Block>
+```

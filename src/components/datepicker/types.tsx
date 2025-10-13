@@ -28,6 +28,9 @@ export interface DatepickerProps
   id?: string; //not used but maybe used in future
   children?: ReactNode | FC | any | Element; //not used but maybe used in future
   className?: string; //not used but maybe used in future
+  cancelText?: string;
+  confirmText?: string;
+  title?: string;
 }
 
 export interface DatepickerStyles {

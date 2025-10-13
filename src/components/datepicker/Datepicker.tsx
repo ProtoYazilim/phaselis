@@ -28,6 +28,9 @@ const Datepicker: FC<DatepickerProps> = (props) => {
     variation = "default",
     theme,
     error,
+    cancelText = "Cancel",
+    confirmText = "Confirm",
+    title = "Select a Date",
   } = props;
   const [show, setShow] = useState(false);
 
@@ -100,9 +103,9 @@ const Datepicker: FC<DatepickerProps> = (props) => {
         locale={locale}
         mode={mode}
         theme={activeTheme}
-        title="Select a Date"
-        confirmText="Confirm"
-        cancelText="Cancel"
+        title={title}
+        confirmText={confirmText}
+        cancelText={cancelText}
         buttonColor={Colors.Primary[500]}
         dividerColor="black"
       />

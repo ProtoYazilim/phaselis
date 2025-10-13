@@ -22,6 +22,7 @@ const NativePicker: React.FC<NativePickerProps> = (props) => {
     size,
     variation = "default",
     darkMode,
+    doneText,
   } = props;
   const handleOnFocus = () => {
     setIsFocus(true);
@@ -112,6 +113,7 @@ const NativePicker: React.FC<NativePickerProps> = (props) => {
             }
           : undefined
       }
+      doneText={doneText}
     />
   );
 };

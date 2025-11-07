@@ -25,6 +25,7 @@ const TabViewHeader = (props: TabViewHeaderProps) => {
     rightIcon = "ChevronRight",
     LeftSlot,
     RightSlot,
+    tabHeaderItemProps,
   } = props;
   const { getCombinedStyle } = useCombinedStyle(
     stylesheet,
@@ -156,6 +157,7 @@ const TabViewHeader = (props: TabViewHeaderProps) => {
               index={index}
               key={index}
               scrollable={scrollEnabled}
+              {...tabHeaderItemProps}
             />
           );
         })}

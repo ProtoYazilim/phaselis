@@ -98,7 +98,7 @@ UnistylesRegistry.addThemes({
 
 Phaselis includes a wide range of components:
 
-[Component Documentation](https://www.protoyazilim.com/phaselis/docs/components/)
+[Component Documentation](https://www.protoyazilim.com/phaselis/docs/category/components)
 
 ## 💅 Styling
 

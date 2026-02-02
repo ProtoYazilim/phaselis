@@ -1806,32 +1806,8 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNSentry (6.3.0):
-    - DoubleConversion
-    - glog
-    - hermes-engine
-    - RCT-Folly (= 2024.01.01.00)
-    - RCTRequired
-    - RCTTypeSafety
-    - React-Core
-    - React-debug
-    - React-Fabric
-    - React-featureflags
-    - React-graphics
-    - React-hermes
-    - React-ImageManager
-    - React-NativeModulesApple
-    - React-RCTFabric
-    - React-rendererdebug
-    - React-utils
-    - ReactCodegen
-    - ReactCommon/turbomodule/bridging
-    - ReactCommon/turbomodule/core
-    - Sentry/HybridSDK (= 8.41.0)
-    - Yoga
   - RNSVG (15.8.0):
     - React-Core
-  - Sentry/HybridSDK (8.41.0)
   - SocketRocket (0.7.1)
   - Yoga (0.0.0)
 
@@ -1922,13 +1898,11 @@ DEPENDENCIES:
   - RNGestureHandler (from `../../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../../node_modules/react-native-reanimated`)
   - RNScreens (from `../../node_modules/react-native-screens`)
-  - "RNSentry (from `../../node_modules/@sentry/react-native`)"
   - RNSVG (from `../../node_modules/react-native-svg`)
   - Yoga (from `../../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   trunk:
-    - Sentry
     - SocketRocket
 
 EXTERNAL SOURCES:
@@ -2101,8 +2075,6 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../../node_modules/react-native-screens"
-  RNSentry:
-    :path: "../../node_modules/@sentry/react-native"
   RNSVG:
     :path: "../../node_modules/react-native-svg"
   Yoga:
@@ -2193,9 +2165,7 @@ SPEC CHECKSUMS:
   RNGestureHandler: 27a63f2218affdf1a426d56682f9b174904838b3
   RNReanimated: 436a6ef85eddf5b59ca0a2d6015bc98b90dffe67
   RNScreens: 4a5ab20b324ed1e3fe3862796b8f8e0a6208c415
-  RNSentry: c76a24ba27932a028836f98099be98b7a28c7be7
   RNSVG: 8542aa11770b27563714bbd8494a8436385fc85f
-  Sentry: 54d0fe6c0df448497c8ed4cce66ccf7027e1823e
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: 90d80701b27946c4b23461c00a7207f300a6ff71
 

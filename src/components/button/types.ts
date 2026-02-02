@@ -6,6 +6,7 @@ import type {
 } from "react-native";
 import type { ReactNode } from "react";
 import type { SlotableLeftRightProps } from "../../types";
+import type { UnistylesValues } from "react-native-unistyles/lib/typescript/src/types";
 
 export interface ButtonPropTypes
   extends SlotableLeftRightProps,
@@ -27,11 +28,11 @@ export interface ButtonPropTypes
 }
 
 export interface ButtonStyles {
-  container?: ViewStyle;
-  text?: TextStyle;
-  leftSlot?: ViewStyle & TextStyle;
-  rightSlot?: ViewStyle & TextStyle;
-  element?: ViewStyle;
+  container?: UnistylesValues;
+  text?: UnistylesValues;
+  leftSlot?: UnistylesValues;
+  rightSlot?: UnistylesValues;
+  element?: UnistylesValues;
 }
 
 type ButtonType = "submit" | "reset" | "button";

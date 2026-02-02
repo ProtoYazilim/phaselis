@@ -53,14 +53,6 @@
             "./assets/icons"
           ]
         }
-      ],
-      [
-        "@sentry/react-native/expo",
-        {
-          "organization": "proto-software",
-          "project": "phaselis",
-          "url": "https://sentry.io/"
-        }
       ]
     ],
     "experiments": {

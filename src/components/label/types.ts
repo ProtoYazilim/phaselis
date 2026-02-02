@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import type { TextStyle, ViewStyle } from "react-native";
+import type { UnistylesValues } from "react-native-unistyles";
 
 export interface LabelProps extends LabelExtraProps {
   text?: string;
@@ -14,6 +15,6 @@ export interface LabelProps extends LabelExtraProps {
 }
 
 export interface LabelStyles {
-  container?: ViewStyle;
-  text?: TextStyle;
+  container?: UnistylesValues;
+  text?: UnistylesValues;
 }

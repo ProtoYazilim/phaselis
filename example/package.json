@@ -24,7 +24,6 @@
     "@react-native-community/slider": "^4.5.5",
     "@react-native-picker/picker": "^2.11.0",
     "@react-navigation/drawer": "^7.3.12",
-    "@sentry/react-native": "~6.3.0",
     "expo": "~52.0.38",
     "expo-constants": "~17.0.8",
     "expo-linking": "~7.0.4",

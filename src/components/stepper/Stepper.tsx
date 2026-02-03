@@ -125,15 +125,20 @@ const ProgressSteps: FC<ProgressStepsProps> = (props: ProgressStepsProps) => {
         {renderHeader()}
       </View>
       <View>
-        {cloneElement(childrenArray[currentStep] as React.ReactElement, {
-          setActiveStep: setCurrentStep,
-          activeStep: currentStep,
-          stepCount,
-          renderFooter,
-          nextButtonDisabled: isNextButtonDisabled,
-          previousButtonDisabled: isPreviousButtonDisabled,
-          finishButtonDisabled: isFinishButtonDisabled,
-        })}
+        {cloneElement(
+          childrenArray[currentStep] as React.ReactElement<
+            Record<string, unknown>
+          >,
+          {
+            setActiveStep: setCurrentStep,
+            activeStep: currentStep,
+            stepCount,
+            renderFooter,
+            nextButtonDisabled: isNextButtonDisabled,
+            previousButtonDisabled: isPreviousButtonDisabled,
+            finishButtonDisabled: isFinishButtonDisabled,
+          } as Record<string, unknown>,
+        )}
       </View>
     </View>
   );

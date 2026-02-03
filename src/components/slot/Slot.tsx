@@ -46,20 +46,26 @@ const Slot: FC<SlotProps> = (props) => {
   if (children) {
     return (
       <>
-        {cloneElement(children as ReactElement, {
-          size: size || "md",
-          defaultStyle: style?.[0],
-          themeStyle: style?.[1],
-          propStyle: style?.[2],
-          sectionStyle: style?.[3],
-          style: StyleSheet.flatten([
-            style?.[0],
-            style?.[1],
-            style?.[2],
-            style?.[3],
-          ]),
-          ...children?.props,
-        })}
+        {cloneElement(
+          children as ReactElement<Record<string, unknown>>,
+          {
+            size: size || "md",
+            defaultStyle: style?.[0],
+            themeStyle: style?.[1],
+            propStyle: style?.[2],
+            sectionStyle: style?.[3],
+            style: StyleSheet.flatten([
+              style?.[0],
+              style?.[1],
+              style?.[2],
+              style?.[3],
+            ]),
+            ...((children as ReactElement)?.props &&
+            typeof (children as ReactElement).props === "object"
+              ? (children as ReactElement<Record<string, unknown>>).props
+              : {}),
+          } as Record<string, unknown>,
+        )}
       </>
     );
   }

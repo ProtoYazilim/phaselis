@@ -112,8 +112,13 @@
     "typescript": "^5.7.3"
   },
   "resolutions": {
-    "@types/react": "^18.2.44",
-    "@types/minimatch": "5.1.2"
+    "@types/react": "~19.0.10",
+    "@types/minimatch": "5.1.2",
+    "@expo/config-plugins": "~10.1.1",
+    "@expo/metro-config": "~0.20.18",
+    "metro": "^0.82.0",
+    "metro-resolver": "^0.82.0",
+    "metro-config": "^0.82.0"
   },
   "jest": {
     "preset": "react-native",
@@ -190,7 +195,6 @@
     "source": "src",
     "output": "dist",
     "targets": [
-      "codegen",
       [
         "commonjs",
         {

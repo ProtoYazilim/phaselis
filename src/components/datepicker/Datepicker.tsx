@@ -66,7 +66,12 @@ const Datepicker: FC<DatepickerProps> = (props) => {
         onPress={toggle}
         disabled={disabled}
       >
-        <Slot style={getCombinedStyle("leftSlot")} icon={leftIcon} size={size}>
+        <Slot
+          style={getCombinedStyle("leftSlot")}
+          icon={leftIcon}
+          width={getCombinedStyle("leftSlot").width}
+          height={getCombinedStyle("leftSlot").height}
+        >
           {LeftSlot && <LeftSlot />}
         </Slot>
         <Text style={getCombinedStyle("element", true)}>
@@ -75,7 +80,8 @@ const Datepicker: FC<DatepickerProps> = (props) => {
         <Slot
           style={getCombinedStyle("rightSlot")}
           icon={rightIconName}
-          size={size}
+          width={getCombinedStyle("rightSlot").width}
+          height={getCombinedStyle("rightSlot").height}
         >
           {RightSlot && <RightSlot />}
         </Slot>

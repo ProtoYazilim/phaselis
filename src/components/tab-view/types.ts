@@ -59,14 +59,12 @@ interface TabViewProps extends TabViewExtraProps {
   activeTab?: number;
   scrollable?: boolean;
   contextValue?: any;
-  style?:
-    | {
-        container?: ViewStyle;
-        element?: ViewStyle;
-      }
-    | ViewStyle;
-  containerStyle?: ViewStyle;
-  tabHeaderItemProps?: TabHeaderItemProps;
+  style?: TabViewStyles | ViewStyle | UnistylesValues;
+  containerStyle?: ViewStyle | UnistylesValues;
+}
+
+export interface TabItemStyles {
+  container?: UnistylesValues;
 }
 
 interface TabItemProps extends TabViewExtraProps {

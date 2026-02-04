@@ -3,6 +3,9 @@ import type { FC } from "react";
 import { icons } from "lucide-react-native";
 import { useMemo } from "react";
 import { StyleSheet } from "react-native";
+import type { TextStyle, ViewStyle } from "react-native";
+
+type FlattenedStyle = ViewStyle & Pick<TextStyle, "color">;
 
 export const LucideIcon: FC<LucideIconProps> = ({
   name,
@@ -17,7 +20,9 @@ export const LucideIcon: FC<LucideIconProps> = ({
   // @ts-ignore
   const GenericIcon = icons[name];
 
-  const combinedStyles = StyleSheet.flatten(style);
+  const combinedStyles = StyleSheet.flatten(style) as
+    | FlattenedStyle
+    | undefined;
 
   const memorizedHeight = useMemo(() => {
     if (height) return height;

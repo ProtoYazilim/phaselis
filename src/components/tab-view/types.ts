@@ -25,6 +25,7 @@ interface TabViewHeaderProps extends SlotableLeftRightProps, TabViewExtraProps {
   id?: string | number;
   scrollable?: boolean;
   handleOnPress?: (index: number) => void;
+  tabHeaderItemProps?: TabHeaderItemProps;
 }
 
 export interface TabHeaderItemStyles {
@@ -58,12 +59,14 @@ interface TabViewProps extends TabViewExtraProps {
   activeTab?: number;
   scrollable?: boolean;
   contextValue?: any;
-  style?: TabViewStyles | ViewStyle | UnistylesValues;
-  containerStyle?: ViewStyle | UnistylesValues;
-}
-
-export interface TabItemStyles {
-  container?: UnistylesValues;
+  style?:
+    | {
+        container?: ViewStyle;
+        element?: ViewStyle;
+      }
+    | ViewStyle;
+  containerStyle?: ViewStyle;
+  tabHeaderItemProps?: TabHeaderItemProps;
 }
 
 interface TabItemProps extends TabViewExtraProps {

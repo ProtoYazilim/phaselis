@@ -1,24 +1,24 @@
 import type { FlatListProps, ViewStyle } from "react-native";
+import type { UnistylesValues } from "react-native-unistyles";
 
-export interface ListProps
-  extends Omit<
-    FlatListProps<any>,
-    | "style"
-    | "contentContainerStyle"
-    | "columnWrapperStyle"
-    | "ListHeaderComponentStyle"
-    | "ListFooterComponentStyle"
-  > {
+export interface ListStyles {
+  columnWrapper?: UnistylesValues;
+  container?: UnistylesValues;
+  element?: UnistylesValues;
+  footer?: UnistylesValues;
+  header?: UnistylesValues;
+}
+
+export interface ListProps extends Omit<
+  FlatListProps<any>,
+  | "style"
+  | "contentContainerStyle"
+  | "columnWrapperStyle"
+  | "ListHeaderComponentStyle"
+  | "ListFooterComponentStyle"
+> {
   contextValue?: any;
-  style?:
-    | {
-        columnWrapper?: ViewStyle;
-        container?: ViewStyle;
-        element?: ViewStyle;
-        footer?: ViewStyle;
-        header?: ViewStyle;
-      }
-    | ViewStyle;
+  style?: ListStyles | ViewStyle;
   columnWrapperStyle?: ViewStyle;
   containerStyle?: ViewStyle;
   headerStyle?: ViewStyle;

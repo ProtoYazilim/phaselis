@@ -14,6 +14,7 @@ const Label: FC<LabelProps> = (props) => {
     minimumFontScale,
     children,
     variation,
+    ...textProps
   } = props;
 
   const { getCombinedStyle } = useCombinedStyle(
@@ -32,6 +33,7 @@ const Label: FC<LabelProps> = (props) => {
         style={getCombinedStyle("text")}
         adjustsFontSizeToFit={adjustsFontSizeToFit}
         minimumFontScale={minimumFontScale}
+        {...textProps}
       >
         {children ? (
           Children.map(children, (child, index) => {

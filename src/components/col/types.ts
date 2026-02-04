@@ -1,5 +1,10 @@
 import type { FC, ReactNode } from "react";
 import type { ViewStyle } from "react-native";
+import type { UnistylesValues } from "react-native-unistyles";
+
+export interface ColStyles {
+  container?: UnistylesValues;
+}
 
 type GridSize = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 0;
 interface ColProps {
@@ -9,7 +14,7 @@ interface ColProps {
   contextValue?: any;
   size?: GridSize;
   offset?: GridSize;
-  style?: ViewStyle;
+  style?: ColStyles | ViewStyle;
 }
 
 export type { ColProps, GridSize };

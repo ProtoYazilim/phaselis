@@ -6,7 +6,9 @@ const stylesheet = createStyleSheet({
     justifyContent: "center",
     variants: {
       pressed: {
-        true: {},
+        true: {
+          opacity: 0.9,
+        },
         false: {},
       },
       loading: {
@@ -23,7 +25,9 @@ const stylesheet = createStyleSheet({
     alignItems: "center",
     variants: {
       pressed: {
-        true: {},
+        true: {
+          opacity: 0.9,
+        },
         false: {},
       },
       size: {
@@ -41,7 +45,9 @@ const stylesheet = createStyleSheet({
     textAlign: "center",
     variants: {
       pressed: {
-        true: {},
+        true: {
+          opacity: 0.9,
+        },
         false: {},
       },
       size: {
@@ -61,7 +67,9 @@ const stylesheet = createStyleSheet({
   leftSlot: {
     variants: {
       pressed: {
-        true: {},
+        true: {
+          opacity: 0.9,
+        },
         false: {},
       },
       disabled: {
@@ -80,7 +88,9 @@ const stylesheet = createStyleSheet({
   rightSlot: {
     variants: {
       pressed: {
-        true: {},
+        true: {
+          opacity: 0.9,
+        },
         false: {},
       },
       disabled: {

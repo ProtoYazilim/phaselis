@@ -1,20 +1,23 @@
 import type { ReactNode } from "react";
 import type { TextStyle, ViewStyle } from "react-native";
+import type { UnistylesValues } from "react-native-unistyles";
 import type {
   IconStyle,
   SlotableLeftRightProps,
   SlotIconName,
 } from "../../types";
 
+export interface TabViewHeaderStyles {
+  container?: UnistylesValues;
+  element?: UnistylesValues;
+}
+
 interface TabViewHeaderProps extends SlotableLeftRightProps, TabViewExtraProps {
   value?: boolean;
   onChange?: (event: any, value: boolean) => void;
   onPress?: () => void;
   duration?: number;
-  style?: {
-    container?: ViewStyle;
-    element?: ViewStyle;
-  };
+  style?: TabViewHeaderStyles;
   containerStyle?: ViewStyle;
   contextValue?: any;
   data?: any[];
@@ -24,6 +27,12 @@ interface TabViewHeaderProps extends SlotableLeftRightProps, TabViewExtraProps {
   handleOnPress?: (index: number) => void;
 }
 
+export interface TabHeaderItemStyles {
+  container?: UnistylesValues;
+  leftSlot?: UnistylesValues;
+  rightSlot?: UnistylesValues;
+}
+
 interface TabHeaderItemProps extends SlotableLeftRightProps, TabViewExtraProps {
   activeTabIndex: number;
   index: number;
@@ -31,17 +40,16 @@ interface TabHeaderItemProps extends SlotableLeftRightProps, TabViewExtraProps {
   handleOnLayout?: (event: any, index: number) => void;
   handleOnPress?: (index: number) => void;
   scrollable?: boolean;
-  style?:
-    | {
-        container?: ViewStyle;
-        leftSlot?: IconStyle;
-        rightSlot?: IconStyle;
-      }
-    | TextStyle;
+  style?: TabHeaderItemStyles | TextStyle;
   containerStyle?: ViewStyle;
   leftSlotStyle?: IconStyle;
   rightSlotStyle?: IconStyle;
   contextValue?: any;
+}
+
+export interface TabViewStyles {
+  container?: UnistylesValues;
+  element?: UnistylesValues;
 }
 
 interface TabViewProps extends TabViewExtraProps {
@@ -50,23 +58,18 @@ interface TabViewProps extends TabViewExtraProps {
   activeTab?: number;
   scrollable?: boolean;
   contextValue?: any;
-  style?:
-    | {
-        container?: ViewStyle;
-        element?: ViewStyle;
-      }
-    | ViewStyle;
+  style?: TabViewStyles | ViewStyle;
   containerStyle?: ViewStyle;
+}
+
+export interface TabItemStyles {
+  container?: UnistylesValues;
 }
 
 interface TabItemProps extends TabViewExtraProps {
   children: ReactNode;
   contextValue?: any;
-  style?:
-    | {
-        container?: ViewStyle;
-      }
-    | ViewStyle;
+  style?: TabItemStyles | ViewStyle;
   title: string;
   leftIcon?: SlotIconName;
   rightIcon?: SlotIconName;

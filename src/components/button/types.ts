@@ -9,7 +9,8 @@ import type { SlotableLeftRightProps } from "../../types";
 import type { UnistylesValues } from "react-native-unistyles/lib/typescript/src/types";
 
 export interface ButtonPropTypes
-  extends SlotableLeftRightProps,
+  extends
+    SlotableLeftRightProps,
     Omit<PressableProps, "style">,
     ButtonExtraProps {
   id?: string;
@@ -25,6 +26,7 @@ export interface ButtonPropTypes
   onClick?: ((event: GestureResponderEvent) => void) | null | undefined;
   onPress?: ((event: GestureResponderEvent) => void) | null | undefined;
   type?: ButtonType;
+  pressed?: boolean;
 }
 
 export interface ButtonStyles {

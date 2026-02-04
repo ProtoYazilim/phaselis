@@ -1,6 +1,7 @@
 import type { ComponentType, FC, ReactNode, RefObject } from "react";
 import type { StyleProp, TextStyle, ViewStyle } from "react-native";
 import type ReactNativePickerSelect from "react-native-picker-select";
+import type { UnistylesValues } from "react-native-unistyles";
 import type {
   ComponentSize,
   InputControlProps,
@@ -9,7 +10,8 @@ import type {
 } from "../../types";
 import type { LinearGradientProps } from "react-native-linear-gradient";
 export interface SelectProps
-  extends Omit<InputControlProps<string, any, any, any>, "error">,
+  extends
+    Omit<InputControlProps<string, any, any, any>, "error">,
     SelectExtraProps {
   disabled?: boolean;
   options: any[];
@@ -46,10 +48,10 @@ export interface SelectProps
   rightSlotStyle?: StyleProp<ViewStyle>;
 }
 export interface SelectStyle {
-  container?: StyleProp<ViewStyle>;
-  element?: StyleProp<TextStyle>;
-  leftSlot?: StyleProp<ViewStyle>;
-  rightSlot?: StyleProp<ViewStyle>;
+  container?: UnistylesValues;
+  element?: UnistylesValues;
+  leftSlot?: UnistylesValues;
+  rightSlot?: UnistylesValues;
 }
 export interface OptionSlotProps {
   item?: {
@@ -109,7 +111,8 @@ export interface CloseIconSlotProps {
 }
 
 export interface InputSlotProps
-  extends Omit<InputControlProps<any, any, any>, "error">,
+  extends
+    Omit<InputControlProps<any, any, any>, "error">,
     Omit<SelectExtraProps, "error"> {
   placeholder?: string;
   selectedItem?: any;

@@ -1,9 +1,15 @@
+import type { ViewStyle } from "react-native";
+import type { UnistylesValues } from "react-native-unistyles";
 import type { ComponentSize, SlotIconName } from "../../types";
+
+export interface LucideIconStyles {
+  container?: UnistylesValues;
+}
 
 export interface LucideIconProps {
   name?: SlotIconName;
   size?: ComponentSize;
-  style?: any;
+  style?: LucideIconStyles | ViewStyle;
   width?: number;
   height?: number;
   strokeWidth?: number;

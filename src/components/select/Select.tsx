@@ -13,7 +13,7 @@ const Select: FC<SelectProps> = (props) => {
   const {
     style,
     options = [],
-    placeholder = "Please Select",
+    placeholder,
     value,
     onChange,
     error,

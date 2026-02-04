@@ -26,11 +26,13 @@ const Button: FC<ButtonPropTypes> = (props) => {
     onPressIn,
     onPressOut,
     variation = "primary",
+    pressed: pressedProp,
     ...extraProps
   } = props;
 
   let formContext = useContext(FormContext);
   const [isPressed, setPressed] = useState(false);
+  const pressed = pressedProp !== undefined ? pressedProp : isPressed;
 
   const handleClick = (event: GestureResponderEvent) => {
     event.persist();
@@ -53,7 +55,7 @@ const Button: FC<ButtonPropTypes> = (props) => {
       ...props,
       disabled,
       size,
-      pressed: isPressed,
+      pressed,
     },
   );
 

@@ -1,6 +1,7 @@
 import type { FC } from "react";
 import type { BlockProps } from "./types";
 import { View, Animated } from "react-native";
+import type { StyleProp, ViewStyle } from "react-native";
 import PhaselisHOC from "../provider/lib/hoc";
 
 const Block: FC<BlockProps> = ({
@@ -12,7 +13,10 @@ const Block: FC<BlockProps> = ({
   const WrapperComponent = animated ? Animated.View : View;
 
   return (
-    <WrapperComponent style={style} {...(extraProps as any)}>
+    <WrapperComponent
+      style={style as StyleProp<ViewStyle>}
+      {...(extraProps as any)}
+    >
       {children}
     </WrapperComponent>
   );

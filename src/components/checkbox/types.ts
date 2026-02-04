@@ -1,5 +1,6 @@
 import type { FC, ReactNode } from "react";
 import type { TextStyle, ViewStyle } from "react-native";
+import type { UnistylesValues } from "react-native-unistyles";
 import type {
   IconStyle,
   InputControlProps,
@@ -8,8 +9,7 @@ import type {
 } from "../../types";
 
 export interface CheckboxProps
-  extends InputControlProps<boolean, any, any>,
-    CheckboxExtraProps {
+  extends InputControlProps<boolean, any, any>, CheckboxExtraProps {
   children?: ReactNode | FC | any | Element;
   contextValue?: any;
   disabled?: boolean;
@@ -17,16 +17,16 @@ export interface CheckboxProps
   text?: string;
   iconName?: SlotIconName;
   IconSlot?: SlotChildComponent;
-  style?: CheckboxStyles | ViewStyle;
-  containerStyle?: ViewStyle;
+  style?: CheckboxStyles | ViewStyle | UnistylesValues;
+  containerStyle?: ViewStyle | UnistylesValues;
   iconStyle?: IconStyle;
   textStyle?: TextStyle;
   pressed?: boolean;
 }
 
 export interface CheckboxStyles {
-  container?: ViewStyle;
-  icon?: IconStyle;
-  text?: TextStyle;
-  element?: ViewStyle;
+  container?: UnistylesValues;
+  icon?: UnistylesValues;
+  text?: UnistylesValues;
+  element?: UnistylesValues;
 }

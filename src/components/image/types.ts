@@ -5,19 +5,21 @@ import type {
   ImageStyle,
   ViewStyle,
 } from "react-native";
+import type { UnistylesValues } from "react-native-unistyles";
 
 export interface ImageProps
-  extends Omit<ImagePropsBase, "style">,
+  extends
+    Omit<ImagePropsBase, "style">,
     Omit<ImageBackgroundProps, "style">,
     ImageExtraProps {
-  style?: ImageStyleProps | ImageStyle;
-  containerStyle?: ViewStyle;
+  style?: ImageStyleProps | ImageStyle | UnistylesValues;
+  containerStyle?: ViewStyle | UnistylesValues;
   contextValue?: any;
   background?: boolean;
   children?: ReactNode;
 }
 
 export interface ImageStyleProps {
-  container?: ViewStyle;
-  element?: ImageStyle;
+  container?: UnistylesValues;
+  element?: UnistylesValues;
 }

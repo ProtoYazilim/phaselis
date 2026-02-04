@@ -12,11 +12,20 @@ import type {
   TextStyle,
   ViewStyle,
 } from "react-native";
+import type { UnistylesValues } from "react-native-unistyles";
 import type { FC, ReactNode } from "react";
 import type { Mask } from "react-native-mask-input";
 
+export interface TextfieldStyles {
+  container?: UnistylesValues;
+  text?: UnistylesValues;
+  leftSlot?: UnistylesValues;
+  rightSlot?: UnistylesValues;
+}
+
 export interface TextfieldProps
-  extends SlotableLeftRightProps,
+  extends
+    SlotableLeftRightProps,
     TextfieldExtraProps,
     InputControlProps<
       string,
@@ -35,15 +44,8 @@ export interface TextfieldProps
   placeholder?: string;
   readOnly?: boolean;
   validator?: any;
-  style?:
-    | {
-        container?: ViewStyle;
-        text?: TextStyle;
-        leftSlot?: IconStyle;
-        rightSlot?: IconStyle;
-      }
-    | TextStyle;
-  containerStyle?: ViewStyle;
+  style?: TextfieldStyles | TextStyle | UnistylesValues;
+  containerStyle?: ViewStyle | UnistylesValues;
   leftSlotStyle?: IconStyle;
   rightSlotStyle?: IconStyle;
   loadingIcon?: ReactNode;

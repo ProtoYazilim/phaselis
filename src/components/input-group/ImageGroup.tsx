@@ -25,7 +25,10 @@ const InputGroup: FC<InputGroupProps> = (props) => {
     if (_for) {
       return _for;
     } else {
-      return (Children.only(children) as React.ReactElement).props?.name || "";
+      return (
+        (Children.only(children) as React.ReactElement<{ name?: string }>).props
+          ?.name || ""
+      );
     }
   }, [_for, children]);
 

@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import type { ForwardedRef } from "react";
 import type { FormInputComponentGenericProps, FormProps } from "./types";
 import type { FormReference } from "./reference";
 import {
@@ -13,19 +13,11 @@ import PhaselisHOC from "../provider/lib/hoc";
 import { isValid } from "./lib";
 import { FormContext } from "./context";
 
-export const Form: FC<FormProps> = (
-  {
-    children,
-    // contextValue,
-    // id,
-    onReset,
-    onSubmit,
-    onError,
-    onChange,
-    // ...otherProps
-  },
-  ref,
-) => {
+const FormWithRef = forwardRef<FormReference, FormProps>(function Form(
+  props,
+  ref: ForwardedRef<FormReference>,
+) {
+  const { children, onReset, onSubmit, onError, onChange } = props;
   useImperativeHandle(ref, () => ({
     setValues,
     getValues,
@@ -369,9 +361,11 @@ export const Form: FC<FormProps> = (
       {children}
     </FormContext.Provider>
   );
-};
+});
 
-Form.displayName = "form";
+FormWithRef.displayName = "Form";
+
+export const Form = FormWithRef;
 export type { FormReference };
 export { FormContext };
-export default PhaselisHOC<FormProps>(forwardRef(Form as any) as FC<FormProps>);
+export default PhaselisHOC<FormProps>(FormWithRef);

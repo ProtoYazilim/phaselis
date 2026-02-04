@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import type { ViewProps, ViewStyle } from "react-native";
+import type { UnistylesValues } from "react-native-unistyles";
 import type { LinearGradientAttributes, ShadowAttributes } from "../../types";
 
 interface ExtendedViewStyle extends ViewStyle {
@@ -8,10 +9,14 @@ interface ExtendedViewStyle extends ViewStyle {
   linearGradient?: LinearGradientAttributes;
 }
 
-interface BlockProps extends ViewProps {
+export interface BlockStyles {
+  container?: UnistylesValues;
+}
+
+interface BlockProps extends Omit<ViewProps, "style"> {
   children?: ReactNode;
   contextValue?: any;
-  style?: ExtendedViewStyle;
+  style?: BlockStyles | ExtendedViewStyle | UnistylesValues;
   animated?: boolean;
 }
 

@@ -1,12 +1,13 @@
 import type { ReactNode } from "react";
 import type { ImageStyle, TextStyle, ViewStyle } from "react-native";
-import type { IconStyle, SlotIconName } from "../../types";
+import type { UnistylesValues } from "react-native-unistyles";
+import type { SlotIconName } from "../../types";
 
 export interface AvatarProps extends AvatarExtraProps {
   id?: string;
   children?: ReactNode;
-  style?: AvatarStyle | ViewStyle | TextStyle | ImageStyle;
-  containerStyle?: ViewStyle;
+  style?: AvatarStyle | ViewStyle | TextStyle | ImageStyle | UnistylesValues;
+  containerStyle?: ViewStyle | UnistylesValues;
   iconName?: SlotIconName;
   text?: string;
   disabled?: boolean;
@@ -15,8 +16,8 @@ export interface AvatarProps extends AvatarExtraProps {
 }
 
 export interface AvatarStyle {
-  container?: ViewStyle;
-  icon?: IconStyle;
-  text?: TextStyle;
-  image?: ViewStyle;
+  container?: UnistylesValues;
+  icon?: UnistylesValues;
+  text?: UnistylesValues;
+  image?: UnistylesValues;
 }

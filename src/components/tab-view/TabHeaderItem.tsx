@@ -1,5 +1,5 @@
 import type { TabHeaderItemProps } from "./types";
-import { useMemo } from "react";
+import { memo, useMemo } from "react";
 import { Pressable, Text } from "react-native";
 import PhaselisHOC from "../provider/lib/hoc";
 import { Slot } from "../index";
@@ -19,6 +19,7 @@ const TabHeaderItem = (props: TabHeaderItemProps) => {
     rightIcon,
     scrollable,
     variation,
+    ...rest
   } = props;
   const active = useMemo(
     () => activeTabIndex === index,
@@ -38,6 +39,7 @@ const TabHeaderItem = (props: TabHeaderItemProps) => {
 
   return (
     <Pressable
+      {...rest}
       key={index}
       style={getCombinedStyle("container")}
       onLayout={(event) => handleOnLayout?.(event, index)}
@@ -62,4 +64,4 @@ const TabHeaderItem = (props: TabHeaderItemProps) => {
   );
 };
 
-export default PhaselisHOC(TabHeaderItem);
+export default PhaselisHOC(memo(TabHeaderItem));

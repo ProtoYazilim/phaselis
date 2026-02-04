@@ -205,7 +205,8 @@ const Textfield = forwardRef<TextInput, TextfieldProps>((props, ref) => {
       <Slot
         style={getCombinedStyle("leftSlot")}
         icon={leftIcon as any}
-        size={size}
+        width={getCombinedStyle("leftSlot").width}
+        height={getCombinedStyle("leftSlot").height}
       >
         {LeftSlot && <LeftSlot />}
       </Slot>
@@ -231,7 +232,8 @@ const Textfield = forwardRef<TextInput, TextfieldProps>((props, ref) => {
       <Slot
         style={getCombinedStyle("rightSlot")}
         icon={rightIcon as any}
-        size={size}
+        width={getCombinedStyle("rightSlot").width}
+        height={getCombinedStyle("rightSlot").height}
       >
         {RightSlot && <RightSlot />}
       </Slot>

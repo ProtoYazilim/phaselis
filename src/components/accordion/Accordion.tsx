@@ -1,6 +1,12 @@
-import type { AccordionProps } from "./types";
-import { useState, Children, cloneElement, type FC } from "react";
-import { createContext } from "react";
+import type { AccordionProps, AccordionItemProps } from "./types";
+import {
+  useState,
+  Children,
+  cloneElement,
+  createContext,
+  type FC,
+  type ReactElement,
+} from "react";
 import PhaselisHOC from "../provider/lib/hoc";
 
 const AccordionContext = createContext<{
@@ -50,18 +56,30 @@ const Accordion: FC<AccordionProps> = (props) => {
     >
       {Children.map(children, (child, index) => {
         if (child) {
-          return cloneElement(child, {
+          const itemChild = child as ReactElement<AccordionItemProps>;
+          const itemProps = itemChild.props;
+          const style =
+            itemProps.style &&
+            typeof itemProps.style === "object" &&
+            "container" in itemProps.style
+              ? (itemProps.style as {
+                  container?: object;
+                  element?: object;
+                  header?: object;
+                })
+              : undefined;
+          return cloneElement(itemChild, {
             style: {
               container: {
                 borderTopWidth: index === 0 ? 1 : 0,
                 borderBottomWidth: 1,
-                ...child?.props.style?.container,
+                ...style?.container,
               },
               element: {
-                ...child?.props.style?.element,
+                ...style?.element,
               },
               header: {
-                ...child?.props.style?.header,
+                ...style?.header,
               },
             },
             index: index,

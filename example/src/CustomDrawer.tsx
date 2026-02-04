@@ -53,15 +53,20 @@ const CustomDrawer: FC<{
 
   return (
     <Drawer
-      screenOptions={{
+      {...({ id: "nestedDrawer" } as object)}
+      screenOptions={({ navigation: nestedDrawerNav }) => ({
         headerTintColor: headerTintColorHandler,
         drawerPosition: "right",
         swipeEnabled: showRightIcon ? true : false,
+        swipeEdgeWidth: 100,
+        overlayColor: "rgba(0, 0, 0, 0.5)",
         sceneStyle: sceneContainerStyle,
         headerStyle: {
           backgroundColor: Colors.Shades.white,
         },
         drawerStyle: {
+          right: 0,
+          left: 0,
           borderTopRightRadius: 0,
           borderBottomRightRadius: 0,
           elevation: 0,
@@ -102,7 +107,9 @@ const CustomDrawer: FC<{
             </Pressable>
             {draverAvailableScreens?.length > 1 && showRightIcon ? (
               <Pressable
-                onPress={() => rootNav.dispatch(DrawerActions.toggleDrawer())}
+                onPress={() =>
+                  nestedDrawerNav.dispatch(DrawerActions.toggleDrawer())
+                }
                 style={{
                   marginHorizontal: 11,
                 }}
@@ -117,7 +124,7 @@ const CustomDrawer: FC<{
             ) : null}
           </>
         ),
-      }}
+      })}
       screenListeners={{
         focus: () => {
           const routeName = rootNav.getCurrentRoute()?.name;

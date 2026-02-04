@@ -61,7 +61,7 @@ const InputSlotDefault = (props: InputSlotProps) => {
         style={getCombinedStyle("element", true)}
         numberOfLines={getFlattenStyle("element").numberOfLines}
       >
-        {selectedItem?.label ? selectedItem?.label : placeholder}
+        {selectedItem?.label ?? placeholder ?? ""}
       </Text>
       <View>
         <Slot

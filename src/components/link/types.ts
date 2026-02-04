@@ -15,10 +15,10 @@ export interface LinkProps
     SlotableLeftRightProps,
     LinkExtraProps,
     Omit<PressableProps, "style"> {
-  style?: LinkStyles | StyleProp<TextStyle> | undefined | TextStyle;
-  containerStyle?: ViewStyle;
-  leftSlotStyle?: ViewStyle | IconStyle;
-  rightSlotStyle?: ViewStyle | IconStyle;
+  style?: LinkStyles | StyleProp<TextStyle> | undefined | TextStyle | UnistylesValues;
+  containerStyle?: ViewStyle | UnistylesValues;
+  leftSlotStyle?: ViewStyle | IconStyle | UnistylesValues;
+  rightSlotStyle?: ViewStyle | IconStyle | UnistylesValues;
   contextValue?: any;
   text?: string;
   primary?: boolean;

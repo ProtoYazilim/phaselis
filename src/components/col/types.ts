@@ -14,7 +14,7 @@ interface ColProps {
   contextValue?: any;
   size?: GridSize;
   offset?: GridSize;
-  style?: ColStyles | ViewStyle;
+  style?: ColStyles | ViewStyle | UnistylesValues;
 }
 
 export type { ColProps, GridSize };

@@ -13,5 +13,5 @@ export interface RowProps extends RowExtraProps {
   // className?: string;
   // name?: string;
   contextValue?: any;
-  style?: RowStyles | ViewStyle;
+  style?: RowStyles | ViewStyle | UnistylesValues;
 }

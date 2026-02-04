@@ -18,9 +18,9 @@ export interface ListProps extends Omit<
   | "ListFooterComponentStyle"
 > {
   contextValue?: any;
-  style?: ListStyles | ViewStyle;
-  columnWrapperStyle?: ViewStyle;
-  containerStyle?: ViewStyle;
-  headerStyle?: ViewStyle;
-  footerStyle?: ViewStyle;
+  style?: ListStyles | ViewStyle | UnistylesValues;
+  columnWrapperStyle?: ViewStyle | UnistylesValues;
+  containerStyle?: ViewStyle | UnistylesValues;
+  headerStyle?: ViewStyle | UnistylesValues;
+  footerStyle?: ViewStyle | UnistylesValues;
 }

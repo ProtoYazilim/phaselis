@@ -16,7 +16,7 @@ export interface BlockStyles {
 interface BlockProps extends Omit<ViewProps, "style"> {
   children?: ReactNode;
   contextValue?: any;
-  style?: BlockStyles | ExtendedViewStyle;
+  style?: BlockStyles | ExtendedViewStyle | UnistylesValues;
   animated?: boolean;
 }
 

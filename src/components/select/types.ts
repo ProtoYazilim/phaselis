@@ -19,7 +19,7 @@ export interface SelectProps
   noOptionsMessage?: string;
   validator?: any[];
   doneText?: string;
-  style?: SelectStyle | ViewStyle;
+  style?: SelectStyle | ViewStyle | UnistylesValues;
   displayField?: string; // Use the keys of Option
   valueField?: string; // Use the keys of Option
   size?: ComponentSize;
@@ -42,10 +42,10 @@ export interface SelectProps
   NoOptionSlot?: ComponentType;
   InputSlot?: ComponentType<InputSlotProps>;
   OptionSlot?: ComponentType<OptionSlotProps>;
-  containerStyle?: StyleProp<ViewStyle>;
-  elementStyle?: StyleProp<TextStyle>;
-  leftSlotStyle?: StyleProp<ViewStyle>;
-  rightSlotStyle?: StyleProp<ViewStyle>;
+  containerStyle?: StyleProp<ViewStyle> | UnistylesValues;
+  elementStyle?: StyleProp<TextStyle> | UnistylesValues;
+  leftSlotStyle?: StyleProp<ViewStyle> | UnistylesValues;
+  rightSlotStyle?: StyleProp<ViewStyle> | UnistylesValues;
 }
 export interface SelectStyle {
   container?: UnistylesValues;

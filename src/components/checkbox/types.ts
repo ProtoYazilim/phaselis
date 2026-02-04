@@ -17,8 +17,8 @@ export interface CheckboxProps
   text?: string;
   iconName?: SlotIconName;
   IconSlot?: SlotChildComponent;
-  style?: CheckboxStyles | ViewStyle;
-  containerStyle?: ViewStyle;
+  style?: CheckboxStyles | ViewStyle | UnistylesValues;
+  containerStyle?: ViewStyle | UnistylesValues;
   iconStyle?: IconStyle;
   textStyle?: TextStyle;
   pressed?: boolean;

@@ -44,8 +44,8 @@ export interface TextfieldProps
   placeholder?: string;
   readOnly?: boolean;
   validator?: any;
-  style?: TextfieldStyles | TextStyle;
-  containerStyle?: ViewStyle;
+  style?: TextfieldStyles | TextStyle | UnistylesValues;
+  containerStyle?: ViewStyle | UnistylesValues;
   leftSlotStyle?: IconStyle;
   rightSlotStyle?: IconStyle;
   loadingIcon?: ReactNode;

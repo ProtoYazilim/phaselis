@@ -13,9 +13,9 @@ export interface InputGroupProps {
   label?: string;
   required?: boolean;
   message?: string;
-  style?: InputGroupStyles | TextStyle;
-  containerStyle?: ViewStyle;
-  messageStyle?: TextStyle;
+  style?: InputGroupStyles | TextStyle | UnistylesValues;
+  containerStyle?: ViewStyle | UnistylesValues;
+  messageStyle?: TextStyle | UnistylesValues;
   contextValue?: any;
   for?: string;
 }

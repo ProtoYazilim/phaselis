@@ -17,11 +17,11 @@ export interface ButtonPropTypes
   children?: ReactNode;
   disabled?: boolean;
   contextValue?: any;
-  style?: ButtonStyles | ViewStyle;
-  containerStyle?: ViewStyle;
-  textStyle?: TextStyle;
-  leftSlotStyle?: ViewStyle & TextStyle;
-  rightSlotStyle?: ViewStyle & TextStyle;
+  style?: ButtonStyles | ViewStyle | UnistylesValues;
+  containerStyle?: ViewStyle | UnistylesValues;
+  textStyle?: TextStyle | UnistylesValues;
+  leftSlotStyle?: (ViewStyle & TextStyle) | UnistylesValues;
+  rightSlotStyle?: (ViewStyle & TextStyle) | UnistylesValues;
   text?: string;
   onClick?: ((event: GestureResponderEvent) => void) | null | undefined;
   onPress?: ((event: GestureResponderEvent) => void) | null | undefined;

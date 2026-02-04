@@ -12,8 +12,8 @@ export interface ImageProps
     Omit<ImagePropsBase, "style">,
     Omit<ImageBackgroundProps, "style">,
     ImageExtraProps {
-  style?: ImageStyleProps | ImageStyle;
-  containerStyle?: ViewStyle;
+  style?: ImageStyleProps | ImageStyle | UnistylesValues;
+  containerStyle?: ViewStyle | UnistylesValues;
   contextValue?: any;
   background?: boolean;
   children?: ReactNode;

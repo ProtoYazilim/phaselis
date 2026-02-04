@@ -6,8 +6,8 @@ import type { SlotIconName } from "../../types";
 export interface AvatarProps extends AvatarExtraProps {
   id?: string;
   children?: ReactNode;
-  style?: AvatarStyle | ViewStyle | TextStyle | ImageStyle;
-  containerStyle?: ViewStyle;
+  style?: AvatarStyle | ViewStyle | TextStyle | ImageStyle | UnistylesValues;
+  containerStyle?: ViewStyle | UnistylesValues;
   iconName?: SlotIconName;
   text?: string;
   disabled?: boolean;

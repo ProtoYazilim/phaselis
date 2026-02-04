@@ -9,7 +9,7 @@ export interface LucideIconStyles {
 export interface LucideIconProps {
   name?: SlotIconName;
   size?: ComponentSize;
-  style?: LucideIconStyles | ViewStyle;
+  style?: LucideIconStyles | ViewStyle | UnistylesValues;
   width?: number;
   height?: number;
   strokeWidth?: number;
